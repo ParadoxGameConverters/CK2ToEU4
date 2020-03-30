@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<configuration Comment="This file is used to build the configuration parth of the frontend. This is done at run-time, so errors here might prevent the frontend from running.">
+<!--This part contains the various options that will be displayed as preferences in the converter ui, and outputted as configuration.txt as input for the converter tool itself-->
+<converterOptions>
+	<categories>
+		<category>
+			<friendlyName>Configuration</friendlyName>
+			<preferences>
+<!--				<preference>
+					<name>max_literacy</name>
+					<friendlyName>Max Literacy</friendlyName>
+					<description>The maximum literacy a nation will start with. Default 100%</description>
+					<hasDirectlyEditableValue>true</hasDirectlyEditableValue>
+					<value>100</value>
+					<minValue>1</minValue>
+					<maxValue>100</maxValue>
+				</preference>
+				<preference>
+					<name>remove_type</name>
+					<friendlyName>Drop cores of dead nations?</friendlyName>
+					<description>Which landless nations to remove</description>
+					<entryOptions>
+						<entryOption>
+							<name>1</name>
+							<friendlyName>1 - None - leave all</friendlyName>
+							<description>Remove none of them</description>
+							<isDefault>false</isDefault>
+						</entryOption>
+						<entryOption>
+							<name>2</name>
+							<friendlyName>2 - Dead - no culture remains</friendlyName>
+							<description>Remove ones without cultural backing</description>
+							<isDefault>true</isDefault>
+						</entryOption>
+						<entryOption>
+							<name>3</name>
+							<friendlyName>3 - All - dead is dead</friendlyName>
+							<description>Remove all of them</description>
+							<isDefault>false</isDefault>
+						</entryOption>
+					</entryOptions>
+				</preference>-->
+				<preference>
+					<name>output_name</name>
+					<friendlyName>Mod Output Name (optional):</friendlyName>
+					<description>Please use ASCII latin characters only.</description>
+					<hasDirectlyEditableValue>true</hasDirectlyEditableValue>
+					<value></value>
+				</preference>
+			</preferences>
+		</category>
+	</categories>
+</converterOptions>
+</configuration>

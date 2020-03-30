@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\googletest\googletest\src\gtest-all.cc" />
+    <ClCompile Include="..\googletest\googletest\src\gtest_main.cc" />
+    <ClCompile Include="..\CK2ToEU4\Source\Configuration.cpp">
+      <Filter>ConverterFiles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common_items\Color.cpp">
+      <Filter>ConverterFiles\commonItems</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common_items\Log.cpp">
+      <Filter>ConverterFiles\commonItems</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common_items\newParser.cpp">
+      <Filter>ConverterFiles\commonItems</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common_items\Object.cpp">
+      <Filter>ConverterFiles\commonItems</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common_items\ParserHelpers.cpp">
+      <Filter>ConverterFiles\commonItems</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common_items\WinUtils.cpp">
+      <Filter>ConverterFiles\commonItems</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigurationTests.cpp" />
+    <ClCompile Include="..\googletest\googlemock\src\gmock-all.cc" />
+    <ClCompile Include="..\common_items\Date.cpp">
+      <Filter>ConverterFiles\commonItems</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common_items\iconvlite.cpp">
+      <Filter>ConverterFiles\commonItems</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="EU4WorldTests">
+      <UniqueIdentifier>{69d5d957-cedc-4e54-ac00-35b57710b4a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ConverterFiles">
+      <UniqueIdentifier>{15d90f21-825c-4b5c-8541-ce76f1fb3bf3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ConverterFiles\commonItems">
+      <UniqueIdentifier>{b062b06f-cfb6-4a7c-8d34-14615884b65b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ConverterFiles\Vic2World">
+      <UniqueIdentifier>{e38cf41f-c863-4ffd-8b4a-54af80f25231}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ConverterFiles\Mappers">
+      <UniqueIdentifier>{be2418b3-5cc4-4dd1-973c-30f8d0cf97e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ConverterFiles\EU4World">
+      <UniqueIdentifier>{4b1804e5-f7ad-47d2-ad23-ff9402369723}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MapperTests">
+      <UniqueIdentifier>{464b88af-654c-465b-a04b-5006c936bb45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mocks">
+      <UniqueIdentifier>{ee4bf73c-f3a3-44d9-96c7-d17c2ef2af32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CK2WorldTests">
+      <UniqueIdentifier>{fbc73b64-cbe6-4376-a79e-dc1da7f57eba}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

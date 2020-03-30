@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Source\Configuration.cpp" />
+    <ClCompile Include="Source\CK2ToEU4Converter.cpp" />
+    <ClCompile Include="Source\main.cpp" />
+    <ClCompile Include="..\common_items\CommonUtils.cpp">
+      <Filter>CommonItems</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common_items\CardinalToOrdinal.cpp">
+      <Filter>CommonItems</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common_items\Color.cpp">
+      <Filter>CommonItems</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common_items\Date.cpp">
+      <Filter>CommonItems</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common_items\Log.cpp">
+      <Filter>CommonItems</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common_items\newParser.cpp">
+      <Filter>CommonItems</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common_items\ParserHelpers.cpp">
+      <Filter>CommonItems</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common_items\WinUtils.cpp">
+      <Filter>CommonItems</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common_items\StringUtils.cpp">
+      <Filter>CommonItems</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common_items\Object.cpp">
+      <Filter>CommonItems</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common_items\iconvlite.cpp">
+      <Filter>CommonItems</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Mappers\VersionParser\VersionParser.cpp">
+      <Filter>Mappers\VersionParser</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\EU4World\Output\outVersion.cpp">
+      <Filter>EU4World\Output</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\Configuration.h" />
+    <ClInclude Include="Source\CK2ToEU4Converter.h" />
+    <ClInclude Include="..\common_items\CardinalToOrdinal.h">
+      <Filter>CommonItems</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common_items\Color.h">
+      <Filter>CommonItems</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common_items\Date.h">
+      <Filter>CommonItems</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common_items\Log.h">
+      <Filter>CommonItems</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common_items\newParser.h">
+      <Filter>CommonItems</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common_items\OSCompatibilityLayer.h">
+      <Filter>CommonItems</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common_items\ParserHelpers.h">
+      <Filter>CommonItems</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common_items\StringUtils.h">
+      <Filter>CommonItems</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common_items\Object.h">
+      <Filter>CommonItems</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common_items\iconvlite.h">
+      <Filter>CommonItems</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Mappers\VersionParser\VersionParser.h">
+      <Filter>Mappers\VersionParser</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\EU4World\Output\output.h">
+      <Filter>EU4World\Output</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="EU4World">
+      <UniqueIdentifier>{1c4738b1-ae86-48d8-b793-d46251e6f372}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mappers">
+      <UniqueIdentifier>{bf826ab7-8ea4-4e55-9e01-15ed547a428e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CommonItems">
+      <UniqueIdentifier>{92d9302b-67c1-46ea-9493-b56e75598574}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CK2World">
+      <UniqueIdentifier>{a0c46cb3-3d7e-4148-9e87-15482ee7f5aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mappers\VersionParser">
+      <UniqueIdentifier>{4aa0e976-f0df-433b-a548-cf38eaf50268}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EU4World\Output">
+      <UniqueIdentifier>{5b048b58-a54b-4e0a-9aa3-40c1fca7e6c7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

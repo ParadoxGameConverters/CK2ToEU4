@@ -1,0 +1,47 @@
+Q: I have an ironman save. Can it be converted?
+A: Ironman saves (compressed or not) are encrypted saves. Converter cannot decrypt them, you need a special utility/service for that.
+  1. Google "paperman", and use its web-interface (or standalone utility) to decrypt ironman into paperman save.
+  2. Load paperman save in eu4 and then resave it into a new savegame (to iron out any potential decryption issues).
+  3. Convert the freshly saved result.
+
+Q: The converter says my save is ironman. What do I do?
+A: Use the technique listed above.
+
+Q: I loaded my mod, but nothing changed. What's wrong?
+A: You probably placed the mod in the My Documents mod folder. It needs to go in the Vic2 install location's mod folder.
+
+Q: Vic2 is crashing at converting history. What do I do?
+A: Try going into the mod and deleting history/units. If it now loads, likely a navy got placed badly. Open up log.txt and search for warnings. If any mention whitelisting and blacklisting, open port_blacklist.txt and add the provinces in the warnings to file file. Save it and reconvert. Repeat checking for the warnings and adding the provinces until there are no more warnings. You should now get a working mod. Make sure to inform the team of any provinces you had to add so we can include them in future releases.
+
+Q: Vic2 is crashing at Initializing Maplogic. What do I do?
+A: Clear your map cache by deleting the cache folder inside ".../victoria 2/map/" in both My Documents and the Victoria 2 install location.
+
+Q: Vic2's map is all blue. What do I do?
+A: Clear your map cache by deleting the cache folder inside ".../victoria 2/map/" in both My Documents and the Victoria 2 install location.
+
+Q: The converter crashes after no time with no errors and no log.txt (when running through the frontend). What went wrong?
+A: You may need to install this if you are not on Windows 10: https://support.microsoft.com/en-us/kb/2999226. If this does not help upload your save to the PDX forums for further study.
+
+Q: The converter says my save is compressed. What do I do?
+A: You are using an old converter that does not support conmpressed saves. Download a fresh release.
+
+Q: How can I customize my game after converting?
+A: Use the guide in after_converting.txt in the converter subdirectory. Scan through configurables/ folder and look into the myriad of configuration files - a great majority of these files is intended to be modified by users to acheive specific conversion results.
+
+Q: The generated mod was in a different language than my savegame.
+A: Go in the mod of the converted save, then in setting.txt and change the line "language=l_english" to the language you need, e.g. "language=l_french"
+
+Q: Some/all country names appear as X25, FRA etc.
+A: This is an issue with the localisation.  See above if you may have changed the language, if not check the localisation files in the converter for the offending countries. Sometimes Vic2 fails to load localizations and merely needs to be restarted.
+
+Q: The country crashes upon selecting a country and pressing play (at 
+A: Upload your save to PDX forums for further study.
+
+Q: The game forbids me to select nations.
+A: Upload your save to PDX forums for further study.
+
+Q: My game has funny characters (I didn't play in English)
+A: Vic2 supports only some languages normally, but there are edits online that make it support more languages. Download and add it into the mod generated.
+-For Polish: https://github.com/Idhrendur/paradoxGameConverters/files/1808170/gfx.zip
+-For any Cyrillic language: https://github.com/Idhrendur/paradoxGameConverters/files/1808145/gfx.zip
+-For Turkish: https://github.com/Idhrendur/paradoxGameConverters/files/1865395/Turkish.fonts.zip
