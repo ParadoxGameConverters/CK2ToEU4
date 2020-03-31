@@ -115,13 +115,13 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\common_items;..\ZipLib;$(WindowsSDK_IncludePath)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -180,6 +180,8 @@
     <ClCompile Include="..\common_items\ParserHelpers.cpp" />
     <ClCompile Include="..\common_items\StringUtils.cpp" />
     <ClCompile Include="..\common_items\WinUtils.cpp" />
+    <ClCompile Include="Source\CK2World\Provinces\Province.cpp" />
+    <ClCompile Include="Source\CK2World\Provinces\Provinces.cpp" />
     <ClCompile Include="Source\CK2World\World.cpp" />
     <ClCompile Include="Source\Common\ID.cpp" />
     <ClCompile Include="Source\Common\Version.cpp" />
@@ -188,6 +190,8 @@
     <ClCompile Include="Source\Configuration\ConfigurationDetails.cpp" />
     <ClCompile Include="Source\EU4World\Output\outVersion.cpp" />
     <ClCompile Include="Source\main.cpp" />
+    <ClCompile Include="Source\Mappers\ProvinceTitleMapper\ProvinceTitleGrabber.cpp" />
+    <ClCompile Include="Source\Mappers\ProvinceTitleMapper\ProvinceTitleMapper.cpp" />
     <ClCompile Include="Source\Mappers\VersionParser\VersionParser.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -201,6 +205,8 @@
     <ClInclude Include="..\common_items\OSCompatibilityLayer.h" />
     <ClInclude Include="..\common_items\ParserHelpers.h" />
     <ClInclude Include="..\common_items\StringUtils.h" />
+    <ClInclude Include="Source\CK2World\Provinces\Province.h" />
+    <ClInclude Include="Source\CK2World\Provinces\Provinces.h" />
     <ClInclude Include="Source\CK2World\World.h" />
     <ClInclude Include="Source\Common\ID.h" />
     <ClInclude Include="Source\Common\Version.h" />
@@ -208,6 +214,8 @@
     <ClInclude Include="Source\Configuration\Configuration.h" />
     <ClInclude Include="Source\Configuration\ConfigurationDetails.h" />
     <ClInclude Include="Source\EU4World\Output\output.h" />
+    <ClInclude Include="Source\Mappers\ProvinceTitleMapper\ProvinceTitleGrabber.h" />
+    <ClInclude Include="Source\Mappers\ProvinceTitleMapper\ProvinceTitleMapper.h" />
     <ClInclude Include="Source\Mappers\VersionParser\VersionParser.h" />
   </ItemGroup>
   <ItemGroup>

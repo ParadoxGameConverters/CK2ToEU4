@@ -49,9 +49,6 @@
     <Filter Include="ConverterFiles\Vic2World">
       <UniqueIdentifier>{e38cf41f-c863-4ffd-8b4a-54af80f25231}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ConverterFiles\Mappers">
-      <UniqueIdentifier>{be2418b3-5cc4-4dd1-973c-30f8d0cf97e2}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ConverterFiles\EU4World">
       <UniqueIdentifier>{4b1804e5-f7ad-47d2-ad23-ff9402369723}</UniqueIdentifier>
     </Filter>
@@ -66,6 +63,9 @@
     </Filter>
     <Filter Include="ConverterFiles\Configuration">
       <UniqueIdentifier>{730a8d2d-4c6d-4968-9d41-f6f7a97f8fe5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ConverterFiles\Mappers">
+      <UniqueIdentifier>{ca465e81-ccf4-4cd2-a836-5944e84a40af}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

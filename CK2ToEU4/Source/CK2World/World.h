@@ -1,6 +1,8 @@
 #ifndef CK2_WORLD_H
 #define CK2_WORLD_H
 #include "newParser.h"
+#include "../Mappers/ProvinceTitleMapper/ProvinceTitleMapper.h"
+#include "Provinces/Provinces.h"
 
 class Configuration;
 
@@ -14,7 +16,7 @@ namespace CK2
 	private:
 		void verifySave(const std::string& saveGamePath);
 		bool uncompressSave(const std::string& saveGamePath);
-				
+		
 		struct saveData
 		{
 			bool compressed = false;
@@ -22,8 +24,9 @@ namespace CK2
 			std::string gamestate;
 		};
 		saveData saveGame;
-		
-		//std::unique_ptr<Version> version;
+
+		mappers::ProvinceTitleMapper provinceTitleMapper;
+		Provinces provinces;
 		
 	};
 }
