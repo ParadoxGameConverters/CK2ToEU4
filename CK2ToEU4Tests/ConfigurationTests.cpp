@@ -1,464 +1,141 @@
-/*Copyright (c) 2019 The Paradox Game Converters Project
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be included
-in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.*/
-
-
-
 #include "gtest/gtest.h"
-#include "../CK2ToEU4/Source/Configuration.h"
+#include "../CK2ToEU4/Source/Configuration/Configuration.h"
 #include <sstream>
 
-
-bool fakeDoesFolderExist(const std::string& folder)
+TEST(CK2ToEU4_ConfigurationTests, EU4PathDefaultsBlank)
 {
-	if (folder == "C:\\EU4PathWithoutExecutable")
-	{
-		return true;
-	}
-	else if (folder == "C:\\EU4PathWithoutDataFile")
-	{
-		return true;
-	}
-	else if (folder == "C:\\EU4Path")
-	{
-		return true;
-	}
-	else if (folder == "C:\\Vic2PathWithoutExecutable")
-	{
-		return true;
-	}
-	else if (folder == "C:\\Vic2Path")
-	{
-		return true;
-	}
-	else if (folder == "C:\\Vic2DocumentsPath")
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
-}
-
-
-bool fakeDoesFileExist(const std::string& file)
-{
-	if (file == "C:\\EU4PathWithoutDataFile/eu4.exe")
-	{
-		return true;
-	}
-	else if (file == "C:\\EU4Path/eu4.exe")
-	{
-		return true;
-	}
-	else if (file == "C:\\EU4Path/map/positions.txt")
-	{
-		return true;
-	}
-	else if (file == "C:\\Vic2Path/v2game.exe")
-	{
-		return true;
-	}
-	return false;
-}
-
-
-
-TEST(EU4ToVic2_ConfigurationTests, EU4PathDefaultsBlank)
-{
-	Configuration testConfiguration;
 	std::stringstream input("");
-	testConfiguration.instantiate(input, fakeDoesFolderExist, fakeDoesFileExist);
+	const Configuration testConfiguration(input);
 
 	ASSERT_EQ(testConfiguration.getEU4Path(), "");
 }
 
-
-TEST(EU4ToVic2_ConfigurationTests, EU4PathThatDoesntExistFails)
+TEST(CK2ToEU4_ConfigurationTests, EU4PathCanBeSet)
 {
-	Configuration testConfiguration;
-	std::stringstream input("EU4directory = \"C:\\FakeDirectory\"");
-
-	try
-	{
-		testConfiguration.instantiate(input, fakeDoesFolderExist, fakeDoesFileExist);
-		FAIL();
-	}
-	catch( const std::runtime_error& e )
-	{
-	   ASSERT_STREQ( "C:\\FakeDirectory does not exist!", e.what() );
-	}
-}
-
-
-TEST(EU4ToVic2_ConfigurationTests, EU4PathWithoutExecutableFails)
-{
-	Configuration testConfiguration;
-	std::stringstream input("EU4directory = \"C:\\EU4PathWithoutExecutable\"");
-
-	try
-	{
-		testConfiguration.instantiate(input, fakeDoesFolderExist, fakeDoesFileExist);
-		FAIL();
-	}
-	catch( const std::runtime_error& e )
-	{
-	   ASSERT_STREQ( "C:\\EU4PathWithoutExecutable does not contain Europa Universalis 4!", e.what() );
-	}
-}
-
-
-TEST(EU4ToVic2_ConfigurationTests, EU4PathWithoutDataFileFails)
-{
-	Configuration testConfiguration;
-	std::stringstream input("EU4directory = \"C:\\EU4PathWithoutDataFile\"");
-
-	try
-	{
-		testConfiguration.instantiate(input, fakeDoesFolderExist, fakeDoesFileExist);
-		FAIL();
-	}
-	catch( const std::runtime_error& e )
-	{
-	   ASSERT_STREQ( "C:\\EU4PathWithoutDataFile does not appear to be a valid EU4 install!", e.what() );
-	}
-}
-
-
-TEST(EU4ToVic2_ConfigurationTests, EU4PathCanBeSet)
-{
-	Configuration testConfiguration;
-	std::stringstream input("EU4directory = \"C:\\EU4Path\"");
-	testConfiguration.instantiate(input, fakeDoesFolderExist, fakeDoesFileExist);
+	std::stringstream input;
+	input << "configuration={";
+	input << "EU4directory = \"C:\\EU4Path\"";
+	input << "}";
+	Configuration testConfiguration(input);
 
 	ASSERT_EQ(testConfiguration.getEU4Path(), "C:\\EU4Path");
 }
 
-
-TEST(EU4ToVic2_ConfigurationTests, EU4DocumentsDirectoryDefaultsBlank)
+TEST(CK2ToEU4_ConfigurationTests, CK2PathDefaultsBlank)
 {
-	Configuration testConfiguration;
 	std::stringstream input("");
-	testConfiguration.instantiate(input, fakeDoesFolderExist, fakeDoesFileExist);
+	const Configuration testConfiguration(input);
 
-	ASSERT_EQ(testConfiguration.getEU4DocumentsPath(), "");
+	ASSERT_EQ(testConfiguration.getCK2Path(), "");
 }
 
-
-TEST(EU4ToVic2_ConfigurationTests, EU4DocumentsDirectoryCanBeSet)
+TEST(CK2ToEU4_ConfigurationTests, CK2PathCanBeSet)
 {
-	Configuration testConfiguration;
-	std::stringstream input("EU4DocumentsDirectory = \"C:\\EU4DocumentsDirectory\"");
-	testConfiguration.instantiate(input, fakeDoesFolderExist, fakeDoesFileExist);
+	std::stringstream input;
+	input << "configuration={";
+	input << "CK2directory = \"C:\\CK2Path\"";
+	input << "}";
+	Configuration testConfiguration(input);
 
-	ASSERT_EQ(testConfiguration.getEU4DocumentsPath(), "C:\\EU4DocumentsDirectory");
+	ASSERT_EQ(testConfiguration.getCK2Path(), "C:\\CK2Path");
 }
 
-
-TEST(EU4ToVic2_ConfigurationTests, SteamWorkshopDirectoryDefaultsBlank)
+TEST(CK2ToEU4_ConfigurationTests, CK2ModsPathDefaultsBlank)
 {
-	Configuration testConfiguration;
 	std::stringstream input("");
-	testConfiguration.instantiate(input, fakeDoesFolderExist, fakeDoesFileExist);
+	const Configuration testConfiguration(input);
 
-	ASSERT_EQ(testConfiguration.getSteamWorkshopPath(), "");
+	ASSERT_EQ(testConfiguration.getCK2ModsPath(), "");
 }
 
-
-TEST(EU4ToVic2_ConfigurationTests, SteamWorkshopDirectoryCanBeSet)
+TEST(CK2ToEU4_ConfigurationTests, CK2ModsPathCanBeSet)
 {
-	Configuration testConfiguration;
-	std::stringstream input("SteamWorkshopDirectory = \"C:\\SteamWorksopDirectory\"");
-	testConfiguration.instantiate(input, fakeDoesFolderExist, fakeDoesFileExist);
+	std::stringstream input;
+	input << "configuration={";
+	input << "CK2ModsDirectory = \"C:\\CK2Path\\Mods\"";
+	input << "}";
+	Configuration testConfiguration(input);
 
-	ASSERT_EQ(testConfiguration.getSteamWorkshopPath(), "C:\\SteamWorksopDirectory");
+	ASSERT_EQ(testConfiguration.getCK2ModsPath(), "C:\\CK2Path\\Mods");
 }
 
-
-TEST(EU4ToVic2_ConfigurationTests, CK2ExportDirectoryDefaultsBlank)
+TEST(CK2ToEU4_ConfigurationTests, SaveGamePathDefaultsBlank)
 {
-	Configuration testConfiguration;
 	std::stringstream input("");
-	testConfiguration.instantiate(input, fakeDoesFolderExist, fakeDoesFileExist);
+	const Configuration testConfiguration(input);
 
-	ASSERT_EQ(testConfiguration.getCK2ExportPath(), "");
+	ASSERT_EQ(testConfiguration.getSaveGamePath(), "");
 }
 
-
-TEST(EU4ToVic2_ConfigurationTests, CK2ExportDirectoryCanBeSet)
+TEST(CK2ToEU4_ConfigurationTests, SaveGamePathCanBeSet)
 {
-	Configuration testConfiguration;
-	std::stringstream input("CK2ExportDirectory = \"C:\\CK2ExportDirectory\"");
-	testConfiguration.instantiate(input, fakeDoesFolderExist, fakeDoesFileExist);
+	std::stringstream input;
+	input << "configuration={";
+	input << "SaveGame = \"C:\\CK2Path\\save games\\autosave.ck2\"";
+	input << "}";
+	Configuration testConfiguration(input);
 
-	ASSERT_EQ(testConfiguration.getCK2ExportPath(), "C:\\CK2ExportDirectory");
+	ASSERT_EQ(testConfiguration.getSaveGamePath(), "C:\\CK2Path\\save games\\autosave.ck2");
 }
 
-
-TEST(EU4ToVic2_ConfigurationTests, Vic2PathDefaultsBlank)
+TEST(CK2ToEU4_ConfigurationTests, OutputNameDefaultsToSaveGameWithNoOutputName)
 {
-	Configuration testConfiguration;
-	std::stringstream input("");
-	testConfiguration.instantiate(input, fakeDoesFolderExist, fakeDoesFileExist);
+	std::stringstream input;
+	input << "configuration={";
+	input << "SaveGame = \"C:\\CK2Path\\save games\\autosave.ck2\"";
+	input << "}";
 
-	ASSERT_EQ(testConfiguration.getVic2Path(), "");
+	Configuration testConfiguration(input);
+
+	ASSERT_EQ(testConfiguration.getOutputName(), "autosave");
 }
 
-
-TEST(EU4ToVic2_ConfigurationTests, Vic2PathThatDoesntExistFails)
+TEST(CK2ToEU4_ConfigurationTests, OutputNameResistantToMixedSlashes)
 {
-	Configuration testConfiguration;
-	std::stringstream input("Vic2directory = \"C:\\FakeDirectory\"");
+	std::stringstream input;
+	input << "configuration={";
+	input << "SaveGame = \"C:\\CK2Path/save games/autosave.ck2\"";
+	input << "}";
+	Configuration testConfiguration(input);
 
-	try
-	{
-		testConfiguration.instantiate(input, fakeDoesFolderExist, fakeDoesFileExist);
-		FAIL();
-	}
-	catch( const std::runtime_error& e )
-	{
-	   ASSERT_STREQ( "C:\\FakeDirectory does not exist!", e.what() );
-	}
+	ASSERT_EQ(testConfiguration.getOutputName(), "autosave");
 }
 
-
-TEST(EU4ToVic2_ConfigurationTests, Vic2PathWithoutExecutableFails)
+TEST(CK2ToEU4_ConfigurationTests, OutputNameReplacesSpacesAndMinuses)
 {
-	Configuration testConfiguration;
-	std::stringstream input("Vic2directory = \"C:\\Vic2PathWithoutExecutable\"");
+	std::stringstream input;
+	input << "configuration={";
+	input << "SaveGame = \"C:\\CK2Path\\save games\\autosav - - . second e.ck2\"";
+	input << "}";
 
-	try
-	{
-		testConfiguration.instantiate(input, fakeDoesFolderExist, fakeDoesFileExist);
-		FAIL();
-	}
-	catch( const std::runtime_error& e )
-	{
-	   ASSERT_STREQ( "C:\\Vic2PathWithoutExecutable does not contain Victoria 2!", e.what() );
-	}
+	Configuration testConfiguration(input);
+
+	ASSERT_EQ(testConfiguration.getOutputName(), "autosav_____._second_e");
 }
 
-
-TEST(EU4ToVic2_ConfigurationTests, Vic2PathCanBeSet)
+TEST(CK2ToEU4_ConfigurationTests, OutputNameDefaultsToSaveGame)
 {
-	Configuration testConfiguration;
-	std::stringstream input("Vic2directory = \"C:\\Vic2Path\"");
-	testConfiguration.instantiate(input, fakeDoesFolderExist, fakeDoesFileExist);
+	std::stringstream input;
+	input << "configuration={";
+	input << "output_name = \"\"\n";
+	input << "SaveGame = \"C:\\CK2Path\\save games\\autosave.ck2\"";
+	input << "}";
 
-	ASSERT_EQ(testConfiguration.getVic2Path(), "C:\\Vic2Path");
+	Configuration testConfiguration(input);
+
+	ASSERT_EQ(testConfiguration.getOutputName(), "autosave");
 }
 
-
-TEST(EU4ToVic2_ConfigurationTests, Vic2DocumentsPathDefaultsBlank)
+TEST(CK2ToEU4_ConfigurationTests, OutputNameCanBeSet)
 {
-	Configuration testConfiguration;
-	std::stringstream input("");
-	testConfiguration.instantiate(input, fakeDoesFolderExist, fakeDoesFileExist);
+	std::stringstream input;
+	input << "configuration={";
+	input << "output_name = \"override\"\n";
+	input << "SaveGame = \"C:\\CK2Path\\save games\\autosave.ck2\"";
+	input << "}";
 
-	ASSERT_EQ(testConfiguration.getVic2DocumentsPath(), "");
+	Configuration testConfiguration(input);
+
+	ASSERT_EQ(testConfiguration.getOutputName(), "override");
 }
-
-
-TEST(EU4ToVic2_ConfigurationTests, Vic2DocumentsPathThatDoesntExistFails)
-{
-	Configuration testConfiguration;
-	std::stringstream input("Vic2Documentsdirectory = \"C:\\FakeDirectory\"");
-
-	try
-	{
-		testConfiguration.instantiate(input, fakeDoesFolderExist, fakeDoesFileExist);
-		FAIL();
-	}
-	catch( const std::runtime_error& e )
-	{
-	   // and this tests that it has the correct message
-	   ASSERT_STREQ( "C:\\FakeDirectory does not exist!", e.what() );
-	}
-}
-
-
-TEST(EU4ToVic2_ConfigurationTests, Vic2DocumentsPathCanBeSet)
-{
-	Configuration testConfiguration;
-	std::stringstream input("Vic2Documentsdirectory = \"C:\\Vic2DocumentsPath\"");
-	testConfiguration.instantiate(input, fakeDoesFolderExist, fakeDoesFileExist);
-
-	ASSERT_EQ(testConfiguration.getVic2DocumentsPath(), "C:\\Vic2DocumentsPath");
-}
-
-
-TEST(EU4ToVic2_ConfigurationTests, ResetProvincesDefaultsNo)
-{
-	Configuration testConfiguration;
-	std::stringstream input("");
-	testConfiguration.instantiate(input, fakeDoesFolderExist, fakeDoesFileExist);
-
-	ASSERT_EQ(testConfiguration.getResetProvinces(), "no");
-}
-
-
-TEST(EU4ToVic2_ConfigurationTests, ResetProvincesCannotBeSet)
-{
-	Configuration testConfiguration;
-	std::stringstream input("resetProvinces = yes");
-	testConfiguration.instantiate(input, fakeDoesFolderExist, fakeDoesFileExist);
-
-	ASSERT_EQ(testConfiguration.getResetProvinces(), "no");
-}
-
-
-TEST(EU4ToVic2_ConfigurationTests, MaxLiteracyDefaultsToOne)
-{
-	Configuration testConfiguration;
-	std::stringstream input("");
-	testConfiguration.instantiate(input, fakeDoesFolderExist, fakeDoesFileExist);
-
-	ASSERT_EQ(testConfiguration.getMaxLiteracy(), 1.0);
-}
-
-
-TEST(EU4ToVic2_ConfigurationTests, MaxLiteracyCanBeSet)
-{
-	Configuration testConfiguration;
-	std::stringstream input("max_literacy = 50");
-	testConfiguration.instantiate(input, fakeDoesFolderExist, fakeDoesFileExist);
-
-	ASSERT_EQ(testConfiguration.getMaxLiteracy(), 0.5);
-}
-
-
-TEST(EU4ToVic2_ConfigurationTests, RemoveTypeDefaultsToDead)
-{
-	Configuration testConfiguration;
-	std::stringstream input("");
-	testConfiguration.instantiate(input, fakeDoesFolderExist, fakeDoesFileExist);
-
-	ASSERT_EQ(testConfiguration.getRemoveType(), Configuration::DEADCORES::DeadCores);
-}
-
-
-TEST(EU4ToVic2_ConfigurationTests, RemoveTypeCanBeSet)
-{
-	Configuration testConfiguration;
-	std::stringstream input("remove_type = 1");
-	testConfiguration.instantiate(input, fakeDoesFolderExist, fakeDoesFileExist);
-
-	ASSERT_EQ(testConfiguration.getRemoveType(), Configuration::DEADCORES::LeaveAll);
-}
-
-
-TEST(EU4ToVic2_ConfigurationTests, LibertyThresholdDefaultsToFifty)
-{
-	Configuration testConfiguration;
-	std::stringstream input("");
-	testConfiguration.instantiate(input, fakeDoesFolderExist, fakeDoesFileExist);
-
-	ASSERT_EQ(testConfiguration.getLibertyThreshold(), Configuration::LIBERTYDESIRE::Loyal);
-}
-
-
-TEST(EU4ToVic2_ConfigurationTests, LibertyThresholdCanBeSet)
-{
-	Configuration testConfiguration;
-	std::stringstream input("liberty_threshold = 2");
-	testConfiguration.instantiate(input, fakeDoesFolderExist, fakeDoesFileExist);
-
-	ASSERT_EQ(testConfiguration.getLibertyThreshold(), Configuration::LIBERTYDESIRE::Disloyal);
-}
-
-
-TEST(EU4ToVic2_ConfigurationTests, PopShapingDefaultsToVanilla)
-{
-	Configuration testConfiguration;
-	std::stringstream input("");
-	testConfiguration.instantiate(input, fakeDoesFolderExist, fakeDoesFileExist);
-
-	ASSERT_EQ(testConfiguration.getPopShaping(), Configuration::POPSHAPES::Vanilla);
-}
-
-
-TEST(EU4ToVic2_ConfigurationTests, PopShapingCanBeSet)
-{
-	Configuration testConfiguration;
-	std::stringstream input("pop_shaping = 2");
-	testConfiguration.instantiate(input, fakeDoesFolderExist, fakeDoesFileExist);
-
-	ASSERT_EQ(testConfiguration.getPopShaping(), Configuration::POPSHAPES::PopShaping);
-}
-
-TEST(EU4ToVic2_ConfigurationTests, PopShapingFactorDefaultsToFifty)
-{
-	Configuration testConfiguration;
-	std::stringstream input("");
-	testConfiguration.instantiate(input, fakeDoesFolderExist, fakeDoesFileExist);
-
-	ASSERT_EQ(testConfiguration.getPopShapingFactor(), 50.0);
-}
-
-
-TEST(EU4ToVic2_ConfigurationTests, PopShapingFactorCanBeSet)
-{
-	Configuration testConfiguration;
-	std::stringstream input("popShapingFactor = 50.0");
-	testConfiguration.instantiate(input, fakeDoesFolderExist, fakeDoesFileExist);
-
-	ASSERT_EQ(testConfiguration.getPopShapingFactor(), 50.0);
-}
-
-TEST(EU4ToVic2_ConfigurationTests, CoreHandlingDefaultsToNone)
-{
-	Configuration testConfiguration;
-	std::stringstream input("");
-	testConfiguration.instantiate(input, fakeDoesFolderExist, fakeDoesFileExist);
-
-	ASSERT_EQ(testConfiguration.getCoreHandling(), Configuration::COREHANDLES::DropNone);
-}
-
-
-TEST(EU4ToVic2_ConfigurationTests, CoreHandlingCanBeSet)
-{
-	Configuration testConfiguration;
-	std::stringstream input("core_handling = 2");
-	testConfiguration.instantiate(input, fakeDoesFolderExist, fakeDoesFileExist);
-
-	ASSERT_EQ(testConfiguration.getCoreHandling(), Configuration::COREHANDLES::DropNational);
-}
-
-TEST(EU4ToVic2_ConfigurationTests, DebugDefaultsToFalse)
-{
-	Configuration testConfiguration;
-	std::stringstream input("");
-	testConfiguration.instantiate(input, fakeDoesFolderExist, fakeDoesFileExist);
-
-	ASSERT_EQ(testConfiguration.getDebug(), false);
-}
-
-
-TEST(EU4ToVic2_ConfigurationTests, DebugCanBeSet)
-{
-	Configuration testConfiguration;
-	std::stringstream input("debug = yes");
-	testConfiguration.instantiate(input, fakeDoesFolderExist, fakeDoesFileExist);
-
-	ASSERT_EQ(testConfiguration.getDebug(), true);
-}
-
 

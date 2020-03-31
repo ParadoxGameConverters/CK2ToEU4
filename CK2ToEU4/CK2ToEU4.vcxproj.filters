@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="Source\Configuration.cpp" />
     <ClCompile Include="Source\CK2ToEU4Converter.cpp" />
     <ClCompile Include="Source\main.cpp" />
     <ClCompile Include="..\common_items\CommonUtils.cpp">
@@ -43,9 +42,23 @@
     <ClCompile Include="Source\EU4World\Output\outVersion.cpp">
       <Filter>EU4World\Output</Filter>
     </ClCompile>
+    <ClCompile Include="Source\CK2World\World.cpp">
+      <Filter>CK2World</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Common\ID.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Common\Version.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Configuration\Configuration.cpp">
+      <Filter>Configuration</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Configuration\ConfigurationDetails.cpp">
+      <Filter>Configuration</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\Configuration.h" />
     <ClInclude Include="Source\CK2ToEU4Converter.h" />
     <ClInclude Include="..\common_items\CardinalToOrdinal.h">
       <Filter>CommonItems</Filter>
@@ -83,6 +96,21 @@
     <ClInclude Include="Source\EU4World\Output\output.h">
       <Filter>EU4World\Output</Filter>
     </ClInclude>
+    <ClInclude Include="Source\CK2World\World.h">
+      <Filter>CK2World</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Common\ID.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Common\Version.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Configuration\Configuration.h">
+      <Filter>Configuration</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Configuration\ConfigurationDetails.h">
+      <Filter>Configuration</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4World">
@@ -102,6 +130,12 @@
     </Filter>
     <Filter Include="EU4World\Output">
       <UniqueIdentifier>{5b048b58-a54b-4e0a-9aa3-40c1fca7e6c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{3a14f222-13e4-43cb-862d-55bfdc23cf3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Configuration">
+      <UniqueIdentifier>{36ede7bf-90fe-435c-9ad1-c3917789ded5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

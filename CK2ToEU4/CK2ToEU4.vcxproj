@@ -59,6 +59,7 @@
     <IntDir>$(SolutionDir)\DebugIntermediate\</IntDir>
     <IncludePath>$(IncludePath)</IncludePath>
     <OutDir>$(ProjectDir)\..\$(Configuration)\CK2ToEU4\</OutDir>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -66,7 +67,7 @@
     <BOOST_INCLUDE Condition=" '$(BOOST_INCLUDE)' == '' ">
 		H:\Projects\Development\Boost\boost_1_57_0
 	</BOOST_INCLUDE>
-    <IncludePath>$(IncludePath)</IncludePath>
+    <IncludePath>$(UniversalCRT_IncludePath);$(IncludePath)</IncludePath>
     <TargetName>CK2ToEU4Converter</TargetName>
     <ExecutablePath>$(ExecutablePath)</ExecutablePath>
     <ReferencePath>$(ReferencePath)</ReferencePath>
@@ -75,6 +76,7 @@
     <SourcePath>$(SourcePath)</SourcePath>
     <ExcludePath>$(ExcludePath)</ExcludePath>
     <OutDir>$(ProjectDir)\..\$(Configuration)\CK2ToEU4\</OutDir>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-NoCopies|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -113,8 +115,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -129,6 +130,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <LargeAddressAware>true</LargeAddressAware>
     </Link>
     <PostBuildEvent>
       <Command>Copy_Files.bat</Command>
@@ -178,8 +180,12 @@
     <ClCompile Include="..\common_items\ParserHelpers.cpp" />
     <ClCompile Include="..\common_items\StringUtils.cpp" />
     <ClCompile Include="..\common_items\WinUtils.cpp" />
-    <ClCompile Include="Source\Configuration.cpp" />
+    <ClCompile Include="Source\CK2World\World.cpp" />
+    <ClCompile Include="Source\Common\ID.cpp" />
+    <ClCompile Include="Source\Common\Version.cpp" />
     <ClCompile Include="Source\CK2ToEU4Converter.cpp" />
+    <ClCompile Include="Source\Configuration\Configuration.cpp" />
+    <ClCompile Include="Source\Configuration\ConfigurationDetails.cpp" />
     <ClCompile Include="Source\EU4World\Output\outVersion.cpp" />
     <ClCompile Include="Source\main.cpp" />
     <ClCompile Include="Source\Mappers\VersionParser\VersionParser.cpp" />
@@ -195,8 +201,12 @@
     <ClInclude Include="..\common_items\OSCompatibilityLayer.h" />
     <ClInclude Include="..\common_items\ParserHelpers.h" />
     <ClInclude Include="..\common_items\StringUtils.h" />
-    <ClInclude Include="Source\Configuration.h" />
+    <ClInclude Include="Source\CK2World\World.h" />
+    <ClInclude Include="Source\Common\ID.h" />
+    <ClInclude Include="Source\Common\Version.h" />
     <ClInclude Include="Source\CK2ToEU4Converter.h" />
+    <ClInclude Include="Source\Configuration\Configuration.h" />
+    <ClInclude Include="Source\Configuration\ConfigurationDetails.h" />
     <ClInclude Include="Source\EU4World\Output\output.h" />
     <ClInclude Include="Source\Mappers\VersionParser\VersionParser.h" />
   </ItemGroup>

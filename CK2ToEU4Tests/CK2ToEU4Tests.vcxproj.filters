@@ -3,9 +3,6 @@
   <ItemGroup>
     <ClCompile Include="..\googletest\googletest\src\gtest-all.cc" />
     <ClCompile Include="..\googletest\googletest\src\gtest_main.cc" />
-    <ClCompile Include="..\CK2ToEU4\Source\Configuration.cpp">
-      <Filter>ConverterFiles</Filter>
-    </ClCompile>
     <ClCompile Include="..\common_items\Color.cpp">
       <Filter>ConverterFiles\commonItems</Filter>
     </ClCompile>
@@ -31,6 +28,12 @@
     </ClCompile>
     <ClCompile Include="..\common_items\iconvlite.cpp">
       <Filter>ConverterFiles\commonItems</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\Configuration\Configuration.cpp">
+      <Filter>ConverterFiles\Configuration</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\Configuration\ConfigurationDetails.cpp">
+      <Filter>ConverterFiles\Configuration</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -60,6 +63,9 @@
     </Filter>
     <Filter Include="CK2WorldTests">
       <UniqueIdentifier>{fbc73b64-cbe6-4376-a79e-dc1da7f57eba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ConverterFiles\Configuration">
+      <UniqueIdentifier>{730a8d2d-4c6d-4968-9d41-f6f7a97f8fe5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

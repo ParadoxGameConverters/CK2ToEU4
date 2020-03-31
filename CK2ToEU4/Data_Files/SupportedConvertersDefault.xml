@@ -74,14 +74,14 @@ tag vs internalTag:
         </requiredFolder>
 
         <requiredFolder>
-          <tag>CK2DocumentsDirectory</tag>
-          <friendlyName>CK2 Documents Directory</friendlyName>
-          <description>A path on your computer where Crusader Kings 4 keeps player files</description>
+          <tag>CK2ModsDirectory</tag>
+          <friendlyName>CK2 Mods Directory</friendlyName>
+          <description>A path on your computer where Crusader Kings 2 keeps mods</description>
 		  <isMandatory>true</isMandatory>
           <alternatives>
             <alternative>
               <defaultLocationType>WindowsUsersFolder</defaultLocationType>
-              <subFolderLocation>Paradox Interactive\Crusader Kings II</subFolderLocation>
+              <subFolderLocation>Paradox Interactive\Crusader Kings II\mod</subFolderLocation>
             </alternative>
           </alternatives>
         </requiredFolder>
@@ -100,20 +100,6 @@ tag vs internalTag:
         </requiredFolder>
 
         <requiredFolder>
-          <tag>EU4DocumentsDirectory</tag>
-          <friendlyName>EU4 Documents Directory</friendlyName>
-          <description>A path on your computer where Europa Universalis 4 keeps player files</description>
-		  <isMandatory>true</isMandatory>
-          <alternatives>
-            <alternative>
-              <defaultLocationType>WindowsUsersFolder</defaultLocationType>
-              <subFolderLocation>Paradox Interactive\Europa Universalis IV</subFolderLocation>
-            </alternative>
-          </alternatives>
-        </requiredFolder>
-
-        <requiredFolder>
-          <tag>targetGameModPath</tag>
           <internalTag>targetGameModPath</internalTag>
           <friendlyName>EU4 mods directory</friendlyName>
           <description>A path on your computer where EU4 keeps mods</description>
