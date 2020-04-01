@@ -11,8 +11,15 @@ build_script:
     msbuild CK2ToEU4/CK2ToEU4.vcxproj -property:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 
     msbuild CK2ToEU4Tests/CK2ToEU4Tests.vcxproj /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
-test: off
-artifacts:
+test_script:
+- ps: >-
+    vstest.console.exe /logger:Appveyor frontend\Frontend.Core.Tests\bin\Release\Frontend.Core.Tests.dll
+    
+    CK2ToEU4Tests\Release\CK2ToEU4Tests.exe --gtest_output=xml:tests.xml
+    
+    $wc = New-Object 'System.Net.WebClient'
+    
+    $wc.UploadFile("https://ci.appveyor.com/api/testresults/junit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\tests.xml))     artifacts:
 - path: Release
   name: CK2ToEU4-0.0init-prerelease
 deploy:
