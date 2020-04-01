@@ -19,7 +19,8 @@ test_script:
     
     $wc = New-Object 'System.Net.WebClient'
     
-    $wc.UploadFile("https://ci.appveyor.com/api/testresults/junit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\tests.xml))     artifacts:
+    $wc.UploadFile("https://ci.appveyor.com/api/testresults/junit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\tests.xml))    
+artifacts:
 - path: Release
   name: CK2ToEU4-0.0init-prerelease
 deploy:
