@@ -35,26 +35,38 @@
     <ClCompile Include="..\CK2ToEU4\Source\Configuration\ConfigurationDetails.cpp">
       <Filter>ConverterFiles\Configuration</Filter>
     </ClCompile>
-    <ClCompile Include="CK2WorldTests\ProvinceTests.cpp">
-      <Filter>CK2WorldTests</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Provinces\Provinces.cpp">
-      <Filter>ConverterFiles\CK2World</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Provinces\Province.cpp">
-      <Filter>ConverterFiles\CK2World</Filter>
-    </ClCompile>
-    <ClCompile Include="CK2WorldTests\ProvincesTests.cpp">
-      <Filter>CK2WorldTests</Filter>
-    </ClCompile>
     <ClCompile Include="..\CK2ToEU4\Source\Common\CommonFunctions.cpp">
       <Filter>ConverterFiles\Common</Filter>
     </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Provinces\Barony.cpp">
-      <Filter>ConverterFiles\CK2World</Filter>
+    <ClCompile Include="CK2WorldTests\Provinces\BaronyTests.cpp">
+      <Filter>CK2WorldTests\Provinces</Filter>
     </ClCompile>
-    <ClCompile Include="CK2WorldTests\BaronyTests.cpp">
-      <Filter>CK2WorldTests</Filter>
+    <ClCompile Include="CK2WorldTests\Provinces\ProvincesTests.cpp">
+      <Filter>CK2WorldTests\Provinces</Filter>
+    </ClCompile>
+    <ClCompile Include="CK2WorldTests\Provinces\ProvinceTests.cpp">
+      <Filter>CK2WorldTests\Provinces</Filter>
+    </ClCompile>
+    <ClCompile Include="CK2WorldTests\Characters\CharactersTests.cpp">
+      <Filter>CK2WorldTests\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="CK2WorldTests\Characters\CharacterTests.cpp">
+      <Filter>CK2WorldTests\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Provinces\Barony.cpp">
+      <Filter>ConverterFiles\CK2World\Provinces</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Provinces\Province.cpp">
+      <Filter>ConverterFiles\CK2World\Provinces</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Provinces\Provinces.cpp">
+      <Filter>ConverterFiles\CK2World\Provinces</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Characters\Character.cpp">
+      <Filter>ConverterFiles\CK2World\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Characters\Characters.cpp">
+      <Filter>ConverterFiles\CK2World\Characters</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -90,6 +102,18 @@
     </Filter>
     <Filter Include="ConverterFiles\Common">
       <UniqueIdentifier>{e092dff3-4e29-4eda-b83e-1b86e00cb004}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CK2WorldTests\Provinces">
+      <UniqueIdentifier>{2a382b13-cbb9-417a-8433-dfab04721424}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CK2WorldTests\Characters">
+      <UniqueIdentifier>{b5e1f506-d040-45c6-acad-deeaf4e4bc20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ConverterFiles\CK2World\Provinces">
+      <UniqueIdentifier>{2874dd60-acf6-472c-9adf-a0b52e4a0cf8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ConverterFiles\CK2World\Characters">
+      <UniqueIdentifier>{84cab1eb-0b73-4f9e-96cb-779302be85b4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

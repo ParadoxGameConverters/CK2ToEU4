@@ -3,8 +3,6 @@
 #include "newParser.h"
 #include "Barony.h"
 
-class Configuration;
-
 namespace CK2
 {
 	class Province: commonItems::parser

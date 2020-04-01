@@ -3,8 +3,6 @@
 #include "newParser.h"
 #include <set>
 
-class Configuration;
-
 namespace CK2
 {
 	class Barony: commonItems::parser

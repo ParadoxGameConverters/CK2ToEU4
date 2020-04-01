@@ -34,7 +34,6 @@ void CK2::Province::registerKeys()
 	registerRegex("b_[A-Za-z0-9_-]+", [this](const std::string& baronyName, std::istream& theStream) {
 		auto barony = Barony(theStream, baronyName);
 		baronies.insert(std::pair(baronyName, barony));
-		Log(LogLevel::Debug) << name << " loaded with barony: " << barony.getName() << " with " << barony.getBuildingCount() << " buildings.";
 	});
 	registerRegex("[A-Za-z0-9\\:_.-]+", commonItems::ignoreItem);
 }

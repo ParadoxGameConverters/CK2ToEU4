@@ -75,6 +75,12 @@
     <ClCompile Include="Source\CK2World\Provinces\Barony.cpp">
       <Filter>CK2World\Province</Filter>
     </ClCompile>
+    <ClCompile Include="Source\CK2World\Characters\Character.cpp">
+      <Filter>CK2World\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CK2World\Characters\Characters.cpp">
+      <Filter>CK2World\Characters</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CK2ToEU4Converter.h" />
@@ -147,6 +153,12 @@
     <ClInclude Include="Source\CK2World\Provinces\Barony.h">
       <Filter>CK2World\Province</Filter>
     </ClInclude>
+    <ClInclude Include="Source\CK2World\Characters\Character.h">
+      <Filter>CK2World\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CK2World\Characters\Characters.h">
+      <Filter>CK2World\Characters</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4World">
@@ -178,6 +190,9 @@
     </Filter>
     <Filter Include="Mappers\ProvinceTitleMapper">
       <UniqueIdentifier>{f9e4e064-28a7-4bad-be10-42bf5ee604a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CK2World\Characters">
+      <UniqueIdentifier>{ec8228ff-456e-44ed-b09c-44ddaaad46a8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
