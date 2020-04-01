@@ -35,6 +35,15 @@
     <ClCompile Include="..\CK2ToEU4\Source\Configuration\ConfigurationDetails.cpp">
       <Filter>ConverterFiles\Configuration</Filter>
     </ClCompile>
+    <ClCompile Include="CK2WorldTests\ProvinceTests.cpp">
+      <Filter>CK2WorldTests</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Provinces\Provinces.cpp">
+      <Filter>ConverterFiles\CK2World</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Provinces\Province.cpp">
+      <Filter>ConverterFiles\CK2World</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4WorldTests">
@@ -45,9 +54,6 @@
     </Filter>
     <Filter Include="ConverterFiles\commonItems">
       <UniqueIdentifier>{b062b06f-cfb6-4a7c-8d34-14615884b65b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ConverterFiles\Vic2World">
-      <UniqueIdentifier>{e38cf41f-c863-4ffd-8b4a-54af80f25231}</UniqueIdentifier>
     </Filter>
     <Filter Include="ConverterFiles\EU4World">
       <UniqueIdentifier>{4b1804e5-f7ad-47d2-ad23-ff9402369723}</UniqueIdentifier>
@@ -66,6 +72,9 @@
     </Filter>
     <Filter Include="ConverterFiles\Mappers">
       <UniqueIdentifier>{ca465e81-ccf4-4cd2-a836-5944e84a40af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ConverterFiles\CK2World">
+      <UniqueIdentifier>{e38cf41f-c863-4ffd-8b4a-54af80f25231}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

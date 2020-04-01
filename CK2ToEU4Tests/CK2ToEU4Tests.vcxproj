@@ -164,6 +164,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Provinces\Province.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Provinces\Provinces.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Configuration\Configuration.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Configuration\ConfigurationDetails.cpp" />
     <ClCompile Include="..\common_items\Color.cpp" />
@@ -177,6 +179,7 @@
     <ClCompile Include="..\googletest\googlemock\src\gmock-all.cc" />
     <ClCompile Include="..\googletest\googletest\src\gtest-all.cc" />
     <ClCompile Include="..\googletest\googletest\src\gtest_main.cc" />
+    <ClCompile Include="CK2WorldTests\ProvinceTests.cpp" />
     <ClCompile Include="ConfigurationTests.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
