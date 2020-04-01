@@ -1,7 +1,7 @@
 #include "ProvinceTitleGrabber.h"
 #include "ParserHelpers.h"
 #include "OSCompatibilityLayer.h"
-#include "../../Configuration/Configuration.h"
+#include "../../Common/CommonFunctions.h"
 
 mappers::ProvinceTitleGrabber::ProvinceTitleGrabber(const std::string& provincePath)
 {

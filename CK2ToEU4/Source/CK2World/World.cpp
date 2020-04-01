@@ -8,6 +8,7 @@
 #include "Date.h"
 #include <fstream>
 #include "../Configuration/Configuration.h"
+#include "../Common/CommonFunctions.h"
 
 namespace fs = std::filesystem;
 
@@ -15,17 +16,17 @@ CK2::World::World(std::shared_ptr<Configuration> theConfiguration)
 {
 	LOG(LogLevel::Info) << "*** Hello CK2, Deus Vult! ***";
 	registerKeyword("CK2txt", [](const std::string& unused, std::istream& theStream) {});
-	registerKeyword("date", [theConfiguration](const std::string& unused, std::istream& theStream) {
+	registerKeyword("date", [this](const std::string& unused, std::istream& theStream) {
 			const commonItems::singleString dateString(theStream);
-			theConfiguration->setEndDate(date(dateString.getString()));
+			endDate = date(dateString.getString());
 		});
-	registerKeyword("start_date", [theConfiguration](const std::string& unused, std::istream& theStream) {
+	registerKeyword("start_date", [this](const std::string& unused, std::istream& theStream) {
 			const commonItems::singleString startDateString(theStream);
-			theConfiguration->setStartDate(date(startDateString.getString()));
+			startDate = date(startDateString.getString());
 		});
-	registerKeyword("version", [theConfiguration](const std::string& unused, std::istream& theStream) {
+	registerKeyword("version", [this](const std::string& unused, std::istream& theStream) {
 			const commonItems::singleString versionString(theStream);			
-			theConfiguration->setCK2Version(Version(versionString.getString()));
+			CK2Version = Version(versionString.getString());
 			Log(LogLevel::Info) << "Savegame version: " << versionString.getString();
 		});
 	registerKeyword("provinces", [this](const std::string& unused, std::istream& theStream) {

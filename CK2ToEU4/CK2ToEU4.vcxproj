@@ -183,6 +183,7 @@
     <ClCompile Include="Source\CK2World\Provinces\Province.cpp" />
     <ClCompile Include="Source\CK2World\Provinces\Provinces.cpp" />
     <ClCompile Include="Source\CK2World\World.cpp" />
+    <ClCompile Include="Source\Common\CommonFunctions.cpp" />
     <ClCompile Include="Source\Common\ID.cpp" />
     <ClCompile Include="Source\Common\Version.cpp" />
     <ClCompile Include="Source\CK2ToEU4Converter.cpp" />
@@ -208,6 +209,7 @@
     <ClInclude Include="Source\CK2World\Provinces\Province.h" />
     <ClInclude Include="Source\CK2World\Provinces\Provinces.h" />
     <ClInclude Include="Source\CK2World\World.h" />
+    <ClInclude Include="Source\Common\CommonFunctions.h" />
     <ClInclude Include="Source\Common\ID.h" />
     <ClInclude Include="Source\Common\Version.h" />
     <ClInclude Include="Source\CK2ToEU4Converter.h" />

@@ -47,6 +47,9 @@
     <ClCompile Include="CK2WorldTests\ProvincesTests.cpp">
       <Filter>CK2WorldTests</Filter>
     </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\Common\CommonFunctions.cpp">
+      <Filter>ConverterFiles\Common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4WorldTests">
@@ -78,6 +81,9 @@
     </Filter>
     <Filter Include="ConverterFiles\CK2World">
       <UniqueIdentifier>{e38cf41f-c863-4ffd-8b4a-54af80f25231}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ConverterFiles\Common">
+      <UniqueIdentifier>{e092dff3-4e29-4eda-b83e-1b86e00cb004}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

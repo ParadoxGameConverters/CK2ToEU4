@@ -166,6 +166,7 @@
   <ItemGroup>
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Provinces\Province.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Provinces\Provinces.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Common\CommonFunctions.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Configuration\Configuration.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Configuration\ConfigurationDetails.cpp" />
     <ClCompile Include="..\common_items\Color.cpp" />
