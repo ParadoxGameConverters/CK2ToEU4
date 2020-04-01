@@ -44,6 +44,9 @@
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Provinces\Province.cpp">
       <Filter>ConverterFiles\CK2World</Filter>
     </ClCompile>
+    <ClCompile Include="CK2WorldTests\ProvincesTests.cpp">
+      <Filter>CK2WorldTests</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4WorldTests">

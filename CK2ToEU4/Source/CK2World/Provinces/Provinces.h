@@ -10,6 +10,7 @@ namespace CK2
 	public:
 		Provinces() = default;
 		Provinces(std::istream& theStream);
+		[[nodiscard]] const auto& getProvinces() const { return provinces; }
 				
 	private:
 		void registerKeys();
