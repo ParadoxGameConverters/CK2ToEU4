@@ -9,7 +9,7 @@ TEST(CK2World_ProvincesTests, provincesDefaultToEmpty)
 	input << "{\n";
 	input << "}";
 
-	CK2::Provinces provinces(input);
+	const CK2::Provinces provinces(input);
 
 	ASSERT_EQ(provinces.getProvinces().empty(), true);
 }
@@ -22,7 +22,7 @@ TEST(CK2World_ProvincesTests, provinceCanBeLoaded)
 	input << "42={}\n";
 	input << "}";
 
-	CK2::Provinces provinces(input);
+	const CK2::Provinces provinces(input);
 	const auto& provinceItr = provinces.getProvinces().begin();
 	
 	ASSERT_EQ(provinceItr->first, 42);

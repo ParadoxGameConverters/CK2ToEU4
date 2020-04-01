@@ -9,7 +9,7 @@ TEST(CK2World_BaronyTests, nameCanBeSet)
 	input << "{\n";
 	input << "}";
 
-	CK2::Barony theBarony(input, "b_test");
+	const CK2::Barony theBarony(input, "b_test");
 
 	ASSERT_EQ(theBarony.getName(), "b_test");
 }
@@ -22,7 +22,7 @@ TEST(CK2World_BaronyTests, typeCanBeSet)
 	input << "\ttype=\"castle\"";
 	input << "}";
 
-	CK2::Barony theBarony(input, "b_test");
+	const CK2::Barony theBarony(input, "b_test");
 
 	ASSERT_EQ(theBarony.getType(), "castle");
 }
@@ -34,7 +34,7 @@ TEST(CK2World_BaronyTests, typeDefaultsToBlank)
 	input << "{\n";
 	input << "}";
 
-	CK2::Barony theBarony(input, "b_test");
+	const CK2::Barony theBarony(input, "b_test");
 
 	ASSERT_EQ(theBarony.getType(), "");
 }
@@ -47,7 +47,7 @@ TEST(CK2World_BaronyTests, castleBuildingsAreRecognized)
 	input << "ca_stable_3=yes\n";
 	input << "ca_town_1=yes\n";
 	input << "}";
-	CK2::Barony theBarony(input, "b_test");
+	const CK2::Barony theBarony(input, "b_test");
 
 	ASSERT_EQ(theBarony.getBuildingCount(), 2);
 }
@@ -60,7 +60,7 @@ TEST(CK2World_BaronyTests, templeBuildingsAreRecognized)
 	input << "tp_monastery_3=yes\n";
 	input << "tp_school_1=yes\n";
 	input << "}";
-	CK2::Barony theBarony(input, "b_test");
+	const CK2::Barony theBarony(input, "b_test");
 
 	ASSERT_EQ(theBarony.getBuildingCount(), 2);
 }
@@ -73,7 +73,7 @@ TEST(CK2World_BaronyTests, townBuildingsAreRecognized)
 	input << "ct_port_1=yes\n";
 	input << "ct_barracks_3=yes\n";
 	input << "}";
-	CK2::Barony theBarony(input, "b_test");
+	const CK2::Barony theBarony(input, "b_test");
 
 	ASSERT_EQ(theBarony.getBuildingCount(), 2);
 }
@@ -87,7 +87,7 @@ TEST(CK2World_BaronyTests, mixedBuildingsAreRecognized)
 	input << "ct_barracks_3=yes\n";
 	input << "tp_barracks_1=yes\n";
 	input << "}";
-	CK2::Barony theBarony(input, "b_test");
+	const CK2::Barony theBarony(input, "b_test");
 
 	ASSERT_EQ(theBarony.getBuildingCount(), 3);
 }
