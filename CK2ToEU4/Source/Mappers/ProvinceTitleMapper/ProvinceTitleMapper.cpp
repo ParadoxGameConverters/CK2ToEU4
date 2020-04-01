@@ -40,10 +40,9 @@ std::optional<std::string> mappers::ProvinceTitleMapper::getTitleforID(int provI
 {
 	std::vector<std::string> potentialTiles;
 	for (const auto& province : provinceTitles) if (province.second == provID) potentialTiles.push_back(province.first);
-	if (potentialTiles.size() > 1)
-	{
-		Log(LogLevel::Warning) << "Province ID " << provID << " has multiple province titles defined! Filter this!";
-		return *potentialTiles.begin();
-	}	
+
+	if (potentialTiles.size() > 1) Log(LogLevel::Warning) << "Province ID " << provID << " has multiple province titles defined! Filter this!";
+	if (!potentialTiles.empty()) return *potentialTiles.begin();
+
 	return std::nullopt;
 }
