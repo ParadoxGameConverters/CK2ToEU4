@@ -113,3 +113,87 @@ TEST(CK2World_ProvinceTests, primarySettlementDefaultsToBlank)
 
 	ASSERT_EQ(theProvince.getPrimarySettlement(), "");
 }
+
+TEST(CK2World_ProvinceTests, maxSettlementsCanBeSet)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "\tmax_settlements=7";
+	input << "}";
+
+	CK2::Province theProvince(input, 42);
+
+	ASSERT_EQ(theProvince.getMaxSettlements(), 7);
+}
+
+TEST(CK2World_ProvinceTests, maxSettlementsDefaultToZero)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "}";
+
+	CK2::Province theProvince(input, 42);
+
+	ASSERT_EQ(theProvince.getMaxSettlements(), 0);
+}
+
+TEST(CK2World_ProvinceTests, baronyCanBeLoaded)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "b_test-baronY_name3={}\n";
+	input << "}";
+
+	CK2::Province theProvince(input, 42);
+
+	ASSERT_EQ(theProvince.getBaronyCount(), 1);
+}
+
+TEST(CK2World_ProvinceTests, baronyNameCanBeLoaded)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "b_test-baronY_name3={}\n";
+	input << "}";
+
+	CK2::Province theProvince(input, 42);
+	const auto& baronies = theProvince.getBaronies();
+	const auto& baronyItr = baronies.begin();
+	
+	ASSERT_EQ(baronyItr->second.getName(), "b_test-baronY_name3");
+	ASSERT_EQ(baronyItr->second.getName(), baronyItr->first);
+}
+
+TEST(CK2World_ProvinceTests, multipleBaroniesCanBeLoaded)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "b_test-baronY_name3={}\n";
+	input << "b_test-BaronY_name2={}\n";
+	input << "b_test-baronY_namE1={}\n";
+	input << "}";
+
+	CK2::Province theProvince(input, 42);
+
+	ASSERT_EQ(theProvince.getBaronyCount(), 3);
+}
+
+TEST(CK2World_ProvinceTests, baronyWeightsCanBeAdded)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "b_test-baronY_name3={ca_town=yes tp_city=yes}\n";
+	input << "b_test-BaronY_name2={tp_building=yes}\n";
+	input << "b_test-baronY_namE1={ct_skyscraper=yes}\n";
+	input << "}";
+
+	CK2::Province theProvince(input, 42);
+
+	ASSERT_EQ(theProvince.getBuildingWeight(), 13);
+}

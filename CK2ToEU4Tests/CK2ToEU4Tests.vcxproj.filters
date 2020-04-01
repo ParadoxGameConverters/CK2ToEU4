@@ -50,6 +50,12 @@
     <ClCompile Include="..\CK2ToEU4\Source\Common\CommonFunctions.cpp">
       <Filter>ConverterFiles\Common</Filter>
     </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Provinces\Barony.cpp">
+      <Filter>ConverterFiles\CK2World</Filter>
+    </ClCompile>
+    <ClCompile Include="CK2WorldTests\BaronyTests.cpp">
+      <Filter>CK2WorldTests</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4WorldTests">

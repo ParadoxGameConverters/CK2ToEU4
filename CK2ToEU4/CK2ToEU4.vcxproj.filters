@@ -72,6 +72,9 @@
     <ClCompile Include="Source\Common\CommonFunctions.cpp">
       <Filter>Common</Filter>
     </ClCompile>
+    <ClCompile Include="Source\CK2World\Provinces\Barony.cpp">
+      <Filter>CK2World\Province</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CK2ToEU4Converter.h" />
@@ -140,6 +143,9 @@
     </ClInclude>
     <ClInclude Include="Source\Common\CommonFunctions.h">
       <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CK2World\Provinces\Barony.h">
+      <Filter>CK2World\Province</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

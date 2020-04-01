@@ -180,6 +180,7 @@
     <ClCompile Include="..\common_items\ParserHelpers.cpp" />
     <ClCompile Include="..\common_items\StringUtils.cpp" />
     <ClCompile Include="..\common_items\WinUtils.cpp" />
+    <ClCompile Include="Source\CK2World\Provinces\Barony.cpp" />
     <ClCompile Include="Source\CK2World\Provinces\Province.cpp" />
     <ClCompile Include="Source\CK2World\Provinces\Provinces.cpp" />
     <ClCompile Include="Source\CK2World\World.cpp" />
@@ -206,6 +207,7 @@
     <ClInclude Include="..\common_items\OSCompatibilityLayer.h" />
     <ClInclude Include="..\common_items\ParserHelpers.h" />
     <ClInclude Include="..\common_items\StringUtils.h" />
+    <ClInclude Include="Source\CK2World\Provinces\Barony.h" />
     <ClInclude Include="Source\CK2World\Provinces\Province.h" />
     <ClInclude Include="Source\CK2World\Provinces\Provinces.h" />
     <ClInclude Include="Source\CK2World\World.h" />
