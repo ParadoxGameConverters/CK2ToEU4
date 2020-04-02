@@ -166,6 +166,7 @@
   <ItemGroup>
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Characters\Character.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Characters\Characters.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Characters\Domain.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Dynasties\Dynasties.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Dynasties\Dynasty.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Provinces\Barony.cpp" />

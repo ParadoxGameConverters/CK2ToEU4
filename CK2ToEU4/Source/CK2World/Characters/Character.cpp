@@ -1,6 +1,7 @@
 #include "Character.h"
 #include "ParserHelpers.h"
 #include "Log.h"
+#include "Domain.h"
 
 CK2::Character::Character(std::istream& theStream, int chrID) : charID(chrID)
 {
@@ -51,6 +52,11 @@ void CK2::Character::registerKeys()
 	registerKeyword("spouse", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleInt spouseInt(theStream);
 		spouses.insert(spouseInt.getInt());
+		});
+	registerKeyword("dmn", [this](const std::string& unused, std::istream& theStream) {
+		const auto newDomain = Domain(theStream);
+		primaryTitle = newDomain.getPrimaryTitle();
+		capital = newDomain.getCapital();
 		});
 	registerRegex("[A-Za-z0-9\\:_.-]+", commonItems::ignoreItem);
 }

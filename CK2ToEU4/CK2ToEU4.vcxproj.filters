@@ -96,6 +96,9 @@
     <ClCompile Include="Source\CK2World\Dynasties\Dynasty.cpp">
       <Filter>CK2World\Dynasties</Filter>
     </ClCompile>
+    <ClCompile Include="Source\CK2World\Characters\Domain.cpp">
+      <Filter>CK2World\Characters</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CK2ToEU4Converter.h" />
@@ -188,6 +191,9 @@
     </ClInclude>
     <ClInclude Include="Source\CK2World\Dynasties\Dynasty.h">
       <Filter>CK2World\Dynasties</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CK2World\Characters\Domain.h">
+      <Filter>CK2World\Characters</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

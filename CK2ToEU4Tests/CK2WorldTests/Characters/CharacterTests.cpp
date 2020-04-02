@@ -230,3 +230,48 @@ TEST(CK2World_CharacterTests, multipleSpousesCanBeSet)
 	ASSERT_FALSE(theCharacter.getSpouses().empty());
 	ASSERT_EQ(theCharacter.getSpouses().size(), 3);
 }
+
+TEST(CK2World_CharacterTests, characterDomainLoadsBlank)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "\tdmn={\n";
+	input << "\t}\n";
+	input << "}";
+
+	const CK2::Character theCharacter(input, 42);
+	
+	ASSERT_TRUE(theCharacter.getPrimaryTitle().empty());
+	ASSERT_TRUE(theCharacter.getCapital().empty());
+}
+
+TEST(CK2World_CharacterTests, characterDomainLoadsPrimaryTitle)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "\tdmn={\n";
+	input << "\tprimary=c_test\n";
+	input << "\t}\n";
+	input << "}";
+
+	const CK2::Character theCharacter(input, 42);
+
+	ASSERT_EQ(theCharacter.getPrimaryTitle(), "c_test");
+}
+
+TEST(CK2World_CharacterTests, characterDomainLoadsCapital)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "\tdmn={\n";
+	input << "\tcapital=b_test\n";
+	input << "\t}\n";
+	input << "}";
+
+	const CK2::Character theCharacter(input, 42);
+
+	ASSERT_EQ(theCharacter.getCapital(), "b_test");
+}

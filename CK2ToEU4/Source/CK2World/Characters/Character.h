@@ -27,6 +27,8 @@ namespace CK2
 		[[nodiscard]] const auto& getDeathDate() const { return deathDate; }
 		[[nodiscard]] const auto& getSkills() const { return skills; }
 		[[nodiscard]] const auto& getSpouses() const { return spouses; }
+		[[nodiscard]] const auto& getPrimaryTitle() const { return primaryTitle; }
+		[[nodiscard]] const auto& getCapital() const { return capital; }
 
 		[[nodiscard]] auto getID() const { return charID; }
 		[[nodiscard]] auto getLiege() const { return liege; }
@@ -45,6 +47,8 @@ namespace CK2
 		date birthDate = date("1.1.1");
 		date deathDate = date("1.1.1");
 		std::set<int> spouses;
+		std::string primaryTitle;
+		std::string capital;
 	};
 }
 
