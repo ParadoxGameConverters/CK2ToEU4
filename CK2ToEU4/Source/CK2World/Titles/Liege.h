@@ -1,0 +1,29 @@
+#ifndef CK2_LIEGE_H
+#define CK2_LIEGE_H
+#include "newParser.h"
+
+namespace CK2
+{
+	class Liege: commonItems::parser
+	{
+	public:
+		Liege() = default;
+		Liege(std::istream& theStream);
+		Liege(std::string theTitle): title(std::move(theTitle)){};
+
+		[[nodiscard]] const auto& getTitle() const { return title; }
+		[[nodiscard]] const auto& getBaseTitle() const { return baseTitle; }
+		[[nodiscard]] auto isDynamic() const { return dynamic; }
+		[[nodiscard]] auto isCustom() const { return custom; }
+
+	private:
+		void registerKeys();
+
+		std::string title;
+		std::string baseTitle;
+		bool dynamic = false;
+		bool custom = false;		
+	};
+}
+
+#endif // CK2_LIEGE_H

@@ -71,6 +71,24 @@
     <ClCompile Include="CommonTests\CommonFunctionsTests.cpp">
       <Filter>CommonTests</Filter>
     </ClCompile>
+    <ClCompile Include="CK2WorldTests\Titles\LiegeTests.cpp">
+      <Filter>CK2WorldTests\Titles</Filter>
+    </ClCompile>
+    <ClCompile Include="CK2WorldTests\Titles\TitlesTests.cpp">
+      <Filter>CK2WorldTests\Titles</Filter>
+    </ClCompile>
+    <ClCompile Include="CK2WorldTests\Titles\TitleTests.cpp">
+      <Filter>CK2WorldTests\Titles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Titles\Liege.cpp">
+      <Filter>ConverterFiles\CK2World\Titles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Titles\Title.cpp">
+      <Filter>ConverterFiles\CK2World\Titles</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Titles\Titles.cpp">
+      <Filter>ConverterFiles\CK2World\Titles</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4WorldTests">
@@ -120,6 +138,12 @@
     </Filter>
     <Filter Include="CommonTests">
       <UniqueIdentifier>{66d9f4b2-7655-47d4-a3fc-f5516fcce922}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CK2WorldTests\Titles">
+      <UniqueIdentifier>{5541e47a-1b68-417c-9168-76c809bbab1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ConverterFiles\CK2World\Titles">
+      <UniqueIdentifier>{4e5b60f0-fccf-4a32-b61a-8007282924e9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

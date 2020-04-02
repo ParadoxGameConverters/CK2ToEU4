@@ -37,6 +37,10 @@ CK2::World::World(std::shared_ptr<Configuration> theConfiguration)
 		LOG(LogLevel::Info) << "-> Loading Characters";
 		characters = Characters(theStream);
 		});
+	registerKeyword("title", [this](const std::string& unused, std::istream& theStream) {
+		LOG(LogLevel::Info) << "-> Loading Titles";
+		titles = Titles(theStream);
+		});
 
 	registerRegex("[A-Za-z0-9\\_]+", commonItems::ignoreItem);
 

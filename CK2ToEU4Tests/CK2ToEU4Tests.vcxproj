@@ -169,6 +169,9 @@
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Provinces\Barony.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Provinces\Province.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Provinces\Provinces.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Titles\Liege.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Titles\Title.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Titles\Titles.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Common\CommonFunctions.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Configuration\Configuration.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Configuration\ConfigurationDetails.cpp" />
@@ -188,6 +191,9 @@
     <ClCompile Include="CK2WorldTests\Provinces\BaronyTests.cpp" />
     <ClCompile Include="CK2WorldTests\Provinces\ProvincesTests.cpp" />
     <ClCompile Include="CK2WorldTests\Provinces\ProvinceTests.cpp" />
+    <ClCompile Include="CK2WorldTests\Titles\LiegeTests.cpp" />
+    <ClCompile Include="CK2WorldTests\Titles\TitlesTests.cpp" />
+    <ClCompile Include="CK2WorldTests\Titles\TitleTests.cpp" />
     <ClCompile Include="CommonTests\CommonFunctionsTests.cpp" />
     <ClCompile Include="ConfigurationTests.cpp" />
   </ItemGroup>

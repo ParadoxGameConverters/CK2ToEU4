@@ -6,6 +6,7 @@
 #include "../Common/Version.h"
 #include "Date.h"
 #include "Characters/Characters.h"
+#include "Titles/Titles.h"
 
 class Configuration;
 
@@ -35,6 +36,7 @@ namespace CK2
 		mappers::ProvinceTitleMapper provinceTitleMapper;
 		Provinces provinces;
 		Characters characters;
+		Titles titles;
 		
 	};
 }

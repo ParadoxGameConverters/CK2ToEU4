@@ -81,6 +81,15 @@
     <ClCompile Include="Source\CK2World\Characters\Characters.cpp">
       <Filter>CK2World\Characters</Filter>
     </ClCompile>
+    <ClCompile Include="Source\CK2World\Titles\Liege.cpp">
+      <Filter>CK2World\Titles</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CK2World\Titles\Title.cpp">
+      <Filter>CK2World\Titles</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CK2World\Titles\Titles.cpp">
+      <Filter>CK2World\Titles</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CK2ToEU4Converter.h" />
@@ -159,6 +168,15 @@
     <ClInclude Include="Source\CK2World\Characters\Characters.h">
       <Filter>CK2World\Characters</Filter>
     </ClInclude>
+    <ClInclude Include="Source\CK2World\Titles\Liege.h">
+      <Filter>CK2World\Titles</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CK2World\Titles\Title.h">
+      <Filter>CK2World\Titles</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CK2World\Titles\Titles.h">
+      <Filter>CK2World\Titles</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4World">
@@ -193,6 +211,9 @@
     </Filter>
     <Filter Include="CK2World\Characters">
       <UniqueIdentifier>{ec8228ff-456e-44ed-b09c-44ddaaad46a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CK2World\Titles">
+      <UniqueIdentifier>{20a328a1-412c-4463-b6c8-7e195e1efc26}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
