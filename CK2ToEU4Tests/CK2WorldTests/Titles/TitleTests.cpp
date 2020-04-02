@@ -111,3 +111,44 @@ TEST(CK2World_TitleTests, complexLiegeCanBeSet)
 
 	ASSERT_EQ(theTitle.getLiege().getTitle(), "c_test2");
 }
+
+TEST(CK2World_TitleTests, deJureLiegeTitleDefaultsToBlank)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "}";
+
+	const CK2::Title theTitle(input, "c_test");
+
+	ASSERT_TRUE(theTitle.getDeJureLiege().getTitle().empty());
+}
+
+TEST(CK2World_TitleTests, simpleDeJureLiegeCanBeSet)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "\tde_jure_liege=c_test2\n";
+	input << "}";
+
+	const CK2::Title theTitle(input, "c_test");
+
+	ASSERT_EQ(theTitle.getDeJureLiege().getTitle(), "c_test2");
+}
+
+TEST(CK2World_TitleTests, complexDeJureLiegeCanBeSet)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "\tde_jure_liege=\n";
+	input << "\t{\n";
+	input << "\ttitle=c_test2\n";
+	input << "\t}\n";
+	input << "}";
+
+	const CK2::Title theTitle(input, "c_test");
+
+	ASSERT_EQ(theTitle.getDeJureLiege().getTitle(), "c_test2");
+}
