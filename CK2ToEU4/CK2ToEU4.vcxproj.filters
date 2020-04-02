@@ -57,6 +57,30 @@
     <ClCompile Include="Source\Configuration\ConfigurationDetails.cpp">
       <Filter>Configuration</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Mappers\ProvinceTitleMapper\ProvinceTitleMapper.cpp">
+      <Filter>Mappers\ProvinceTitleMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Mappers\ProvinceTitleMapper\ProvinceTitleGrabber.cpp">
+      <Filter>Mappers\ProvinceTitleMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CK2World\Provinces\Province.cpp">
+      <Filter>CK2World\Province</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CK2World\Provinces\Provinces.cpp">
+      <Filter>CK2World\Province</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Common\CommonFunctions.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CK2World\Provinces\Barony.cpp">
+      <Filter>CK2World\Province</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CK2World\Characters\Character.cpp">
+      <Filter>CK2World\Characters</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CK2World\Characters\Characters.cpp">
+      <Filter>CK2World\Characters</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CK2ToEU4Converter.h" />
@@ -111,6 +135,30 @@
     <ClInclude Include="Source\Configuration\ConfigurationDetails.h">
       <Filter>Configuration</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Mappers\ProvinceTitleMapper\ProvinceTitleMapper.h">
+      <Filter>Mappers\ProvinceTitleMapper</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Mappers\ProvinceTitleMapper\ProvinceTitleGrabber.h">
+      <Filter>Mappers\ProvinceTitleMapper</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CK2World\Provinces\Province.h">
+      <Filter>CK2World\Province</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CK2World\Provinces\Provinces.h">
+      <Filter>CK2World\Province</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Common\CommonFunctions.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CK2World\Provinces\Barony.h">
+      <Filter>CK2World\Province</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CK2World\Characters\Character.h">
+      <Filter>CK2World\Characters</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CK2World\Characters\Characters.h">
+      <Filter>CK2World\Characters</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4World">
@@ -136,6 +184,15 @@
     </Filter>
     <Filter Include="Configuration">
       <UniqueIdentifier>{36ede7bf-90fe-435c-9ad1-c3917789ded5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CK2World\Province">
+      <UniqueIdentifier>{b7752c28-be79-4036-8d0c-cb0ff0acca6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mappers\ProvinceTitleMapper">
+      <UniqueIdentifier>{f9e4e064-28a7-4bad-be10-42bf5ee604a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CK2World\Characters">
+      <UniqueIdentifier>{ec8228ff-456e-44ed-b09c-44ddaaad46a8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

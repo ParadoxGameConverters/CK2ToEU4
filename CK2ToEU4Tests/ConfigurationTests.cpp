@@ -16,7 +16,7 @@ TEST(CK2ToEU4_ConfigurationTests, EU4PathCanBeSet)
 	input << "configuration={";
 	input << "EU4directory = \"C:\\EU4Path\"";
 	input << "}";
-	Configuration testConfiguration(input);
+	const Configuration testConfiguration(input);
 
 	ASSERT_EQ(testConfiguration.getEU4Path(), "C:\\EU4Path");
 }
@@ -35,7 +35,7 @@ TEST(CK2ToEU4_ConfigurationTests, CK2PathCanBeSet)
 	input << "configuration={";
 	input << "CK2directory = \"C:\\CK2Path\"";
 	input << "}";
-	Configuration testConfiguration(input);
+	const Configuration testConfiguration(input);
 
 	ASSERT_EQ(testConfiguration.getCK2Path(), "C:\\CK2Path");
 }
@@ -54,7 +54,7 @@ TEST(CK2ToEU4_ConfigurationTests, CK2ModsPathCanBeSet)
 	input << "configuration={";
 	input << "CK2ModsDirectory = \"C:\\CK2Path\\Mods\"";
 	input << "}";
-	Configuration testConfiguration(input);
+	const Configuration testConfiguration(input);
 
 	ASSERT_EQ(testConfiguration.getCK2ModsPath(), "C:\\CK2Path\\Mods");
 }
@@ -73,7 +73,7 @@ TEST(CK2ToEU4_ConfigurationTests, SaveGamePathCanBeSet)
 	input << "configuration={";
 	input << "SaveGame = \"C:\\CK2Path\\save games\\autosave.ck2\"";
 	input << "}";
-	Configuration testConfiguration(input);
+	const Configuration testConfiguration(input);
 
 	ASSERT_EQ(testConfiguration.getSaveGamePath(), "C:\\CK2Path\\save games\\autosave.ck2");
 }
@@ -85,7 +85,7 @@ TEST(CK2ToEU4_ConfigurationTests, OutputNameDefaultsToSaveGameWithNoOutputName)
 	input << "SaveGame = \"C:\\CK2Path\\save games\\autosave.ck2\"";
 	input << "}";
 
-	Configuration testConfiguration(input);
+	const Configuration testConfiguration(input);
 
 	ASSERT_EQ(testConfiguration.getOutputName(), "autosave");
 }
@@ -96,7 +96,7 @@ TEST(CK2ToEU4_ConfigurationTests, OutputNameResistantToMixedSlashes)
 	input << "configuration={";
 	input << "SaveGame = \"C:\\CK2Path/save games/autosave.ck2\"";
 	input << "}";
-	Configuration testConfiguration(input);
+	const Configuration testConfiguration(input);
 
 	ASSERT_EQ(testConfiguration.getOutputName(), "autosave");
 }
@@ -108,7 +108,7 @@ TEST(CK2ToEU4_ConfigurationTests, OutputNameReplacesSpacesAndMinuses)
 	input << "SaveGame = \"C:\\CK2Path\\save games\\autosav - - . second e.ck2\"";
 	input << "}";
 
-	Configuration testConfiguration(input);
+	const Configuration testConfiguration(input);
 
 	ASSERT_EQ(testConfiguration.getOutputName(), "autosav_____._second_e");
 }
@@ -121,7 +121,7 @@ TEST(CK2ToEU4_ConfigurationTests, OutputNameDefaultsToSaveGame)
 	input << "SaveGame = \"C:\\CK2Path\\save games\\autosave.ck2\"";
 	input << "}";
 
-	Configuration testConfiguration(input);
+	const Configuration testConfiguration(input);
 
 	ASSERT_EQ(testConfiguration.getOutputName(), "autosave");
 }
@@ -134,7 +134,7 @@ TEST(CK2ToEU4_ConfigurationTests, OutputNameCanBeSet)
 	input << "SaveGame = \"C:\\CK2Path\\save games\\autosave.ck2\"";
 	input << "}";
 
-	Configuration testConfiguration(input);
+	const Configuration testConfiguration(input);
 
 	ASSERT_EQ(testConfiguration.getOutputName(), "override");
 }

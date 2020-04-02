@@ -19,3 +19,5 @@ CK2ToEU4/cmake_install.cmake
 CK2ToEU4/CMakeFiles/
 CK2ToEU4Tests/CK2ToEU4Tests.vcxproj.user
 .gitmodules
+log.txt
+tests.xml

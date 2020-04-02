@@ -8,6 +8,7 @@
 #include "Date.h"
 #include <fstream>
 #include "../Configuration/Configuration.h"
+#include "../Common/CommonFunctions.h"
 
 namespace fs = std::filesystem;
 
@@ -15,21 +16,26 @@ CK2::World::World(std::shared_ptr<Configuration> theConfiguration)
 {
 	LOG(LogLevel::Info) << "*** Hello CK2, Deus Vult! ***";
 	registerKeyword("CK2txt", [](const std::string& unused, std::istream& theStream) {});
-	registerKeyword("date", [theConfiguration](const std::string& unused, std::istream& theStream)
-		{
-			const commonItems::singleString dateString(theStream);
-			theConfiguration->setEndDate(date(dateString.getString()));
+	registerKeyword("date", [this](const std::string& unused, std::istream& theStream) {
+		const commonItems::singleString dateString(theStream);
+		endDate = date(dateString.getString());
 		});
-	registerKeyword("start_date", [theConfiguration](const std::string& unused, std::istream& theStream)
-		{
-			const commonItems::singleString startDateString(theStream);
-			theConfiguration->setStartDate(date(startDateString.getString()));
+	registerKeyword("start_date", [this](const std::string& unused, std::istream& theStream) {
+		const commonItems::singleString startDateString(theStream);
+		startDate = date(startDateString.getString());
 		});
-	registerKeyword("version", [theConfiguration](const std::string& unused, std::istream& theStream)
-		{
-			const commonItems::singleString versionString(theStream);			
-			theConfiguration->setCK2Version(Version(versionString.getString()));
-			Log(LogLevel::Info) << "Savegame version: " << versionString.getString();
+	registerKeyword("version", [this](const std::string& unused, std::istream& theStream) {
+		const commonItems::singleString versionString(theStream);			
+		CK2Version = Version(versionString.getString());
+		Log(LogLevel::Info) << "Savegame version: " << versionString.getString();
+		});
+	registerKeyword("provinces", [this](const std::string& unused, std::istream& theStream) {
+		LOG(LogLevel::Info) << "-> Loading Provinces";
+		provinces = Provinces(theStream);
+		});
+	registerKeyword("character", [this](const std::string& unused, std::istream& theStream) {
+		LOG(LogLevel::Info) << "-> Loading Characters";
+		characters = Characters(theStream);
 		});
 
 	registerRegex("[A-Za-z0-9\\_]+", commonItems::ignoreItem);
@@ -56,6 +62,9 @@ CK2::World::World(std::shared_ptr<Configuration> theConfiguration)
 
 	clearRegisteredKeywords();
 
+	LOG(LogLevel::Info) << "-> Importing Province Titles";
+	provinceTitleMapper.loadProvinces(theConfiguration->getCK2Path());
+	
 	LOG(LogLevel::Info) << "*** Good-bye CK2, rest in peace. ***";
 }
 
@@ -98,3 +107,4 @@ bool CK2::World::uncompressSave(const std::string& saveGamePath)
 	}
 	return true;
 }
+
