@@ -32,14 +32,26 @@ CK2::World::World(std::shared_ptr<Configuration> theConfiguration)
 	registerKeyword("provinces", [this](const std::string& unused, std::istream& theStream) {
 		LOG(LogLevel::Info) << "-> Loading Provinces";
 		provinces = Provinces(theStream);
+		LOG(LogLevel::Info) << ">> Loaded " << provinces.getProvinces().size() << " provinces.";
 		});
 	registerKeyword("character", [this](const std::string& unused, std::istream& theStream) {
 		LOG(LogLevel::Info) << "-> Loading Characters";
 		characters = Characters(theStream);
+		LOG(LogLevel::Info) << ">> Loaded " << characters.getCharacters().size() << " characters.";
 		});
 	registerKeyword("title", [this](const std::string& unused, std::istream& theStream) {
 		LOG(LogLevel::Info) << "-> Loading Titles";
 		titles = Titles(theStream);
+		LOG(LogLevel::Info) << ">> Loaded " << titles.getTitles().size() << " titles.";
+		});
+	registerKeyword("dynasties", [this](const std::string& unused, std::istream& theStream) {
+		LOG(LogLevel::Info) << "-> Loading Dynasties";
+		dynasties = Dynasties(theStream);
+		LOG(LogLevel::Info) << ">> Loaded " << dynasties.getDynasties().size() << " dynasties.";
+		});
+	registerKeyword("dyn_title", [this](const std::string& unused, std::istream& theStream) {
+		const auto dynTitle = Liege(theStream);
+		dynamicTitles.insert(std::pair(dynTitle.getTitle(), dynTitle));
 		});
 
 	registerRegex("[A-Za-z0-9\\_]+", commonItems::ignoreItem);
@@ -63,9 +75,11 @@ CK2::World::World(std::shared_ptr<Configuration> theConfiguration)
 
 	auto gameState = std::istringstream(saveGame.gamestate);
 	parseStream(gameState);
-
 	clearRegisteredKeywords();
 
+	LOG(LogLevel::Info) << ">> Loaded " << dynamicTitles.size() << " dynamic titles.";
+
+	
 	LOG(LogLevel::Info) << "-> Importing Province Titles";
 	provinceTitleMapper.loadProvinces(theConfiguration->getCK2Path());
 	

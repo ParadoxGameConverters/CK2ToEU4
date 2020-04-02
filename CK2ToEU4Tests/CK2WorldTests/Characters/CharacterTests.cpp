@@ -163,3 +163,28 @@ TEST(CK2World_CharacterTests, deathDateDefaultstoDefault)
 
 	ASSERT_EQ(theCharacter.getDeathDate(), date("1.1.1"));
 }
+
+TEST(CK2World_CharacterTests, liegeCanBeSet)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "\tlge=123";
+	input << "}";
+
+	const CK2::Character theCharacter(input, 42);
+
+	ASSERT_EQ(theCharacter.getLiege(), 123);
+}
+
+TEST(CK2World_CharacterTests, liegeDefaultsToZero)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "}";
+
+	const CK2::Character theCharacter(input, 42);
+
+	ASSERT_EQ(theCharacter.getLiege(), 0);
+}

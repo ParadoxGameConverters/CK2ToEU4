@@ -7,6 +7,7 @@
 #include "Date.h"
 #include "Characters/Characters.h"
 #include "Titles/Titles.h"
+#include "Dynasties/Dynasties.h"
 
 class Configuration;
 
@@ -37,6 +38,8 @@ namespace CK2
 		Provinces provinces;
 		Characters characters;
 		Titles titles;
+		Dynasties dynasties;
+		std::map<std::string, Liege> dynamicTitles; // Reusing Liege as it has identical structure
 		
 	};
 }

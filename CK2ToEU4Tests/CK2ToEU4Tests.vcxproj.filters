@@ -89,6 +89,18 @@
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Titles\Titles.cpp">
       <Filter>ConverterFiles\CK2World\Titles</Filter>
     </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Dynasties\Dynasties.cpp">
+      <Filter>ConverterFiles\CK2World\Dynasties</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Dynasties\Dynasty.cpp">
+      <Filter>ConverterFiles\CK2World\Dynasties</Filter>
+    </ClCompile>
+    <ClCompile Include="CK2WorldTests\Dynasties\DynastiesTests.cpp">
+      <Filter>CK2WorldTests\Dynasties</Filter>
+    </ClCompile>
+    <ClCompile Include="CK2WorldTests\Dynasties\DynastyTests.cpp">
+      <Filter>CK2WorldTests\Dynasties</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4WorldTests">
@@ -144,6 +156,12 @@
     </Filter>
     <Filter Include="ConverterFiles\CK2World\Titles">
       <UniqueIdentifier>{4e5b60f0-fccf-4a32-b61a-8007282924e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ConverterFiles\CK2World\Dynasties">
+      <UniqueIdentifier>{a747beb4-a111-4bd1-92c0-1a8aaae00cef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CK2WorldTests\Dynasties">
+      <UniqueIdentifier>{d7473ea1-8a50-402c-a780-204347bf64a4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

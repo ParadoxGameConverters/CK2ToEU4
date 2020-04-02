@@ -35,5 +35,18 @@ void CK2::Character::registerKeys()
 		const commonItems::singleInt dynastyInt(theStream);
 		dynasty = dynastyInt.getInt();
 		});
+	registerKeyword("lge", [this](const std::string& unused, std::istream& theStream) {
+		const commonItems::singleInt liegeInt(theStream);
+		liege = liegeInt.getInt();
+		});
+	registerKeyword("att", [this](const std::string& unused, std::istream& theStream) {
+		const commonItems::intList skillsList(theStream);
+		const auto theList = skillsList.getInts();
+		skills.diplomacy = theList[0];
+		skills.martial = theList[1];
+		skills.stewardship = theList[2];
+		skills.intrigue = theList[3];
+		skills.learning= theList[4];
+		});
 	registerRegex("[A-Za-z0-9\\:_.-]+", commonItems::ignoreItem);
 }

@@ -90,6 +90,12 @@
     <ClCompile Include="Source\CK2World\Titles\Titles.cpp">
       <Filter>CK2World\Titles</Filter>
     </ClCompile>
+    <ClCompile Include="Source\CK2World\Dynasties\Dynasties.cpp">
+      <Filter>CK2World\Dynasties</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CK2World\Dynasties\Dynasty.cpp">
+      <Filter>CK2World\Dynasties</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CK2ToEU4Converter.h" />
@@ -177,6 +183,12 @@
     <ClInclude Include="Source\CK2World\Titles\Titles.h">
       <Filter>CK2World\Titles</Filter>
     </ClInclude>
+    <ClInclude Include="Source\CK2World\Dynasties\Dynasties.h">
+      <Filter>CK2World\Dynasties</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CK2World\Dynasties\Dynasty.h">
+      <Filter>CK2World\Dynasties</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4World">
@@ -214,6 +226,9 @@
     </Filter>
     <Filter Include="CK2World\Titles">
       <UniqueIdentifier>{20a328a1-412c-4463-b6c8-7e195e1efc26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CK2World\Dynasties">
+      <UniqueIdentifier>{ca4bb717-d690-4894-8b07-859c715edf51}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
