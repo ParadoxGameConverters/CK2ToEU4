@@ -11,7 +11,7 @@ TEST(CK2World_ProvincesTests, provincesDefaultToEmpty)
 
 	const CK2::Provinces provinces(input);
 
-	ASSERT_EQ(provinces.getProvinces().empty(), true);
+	ASSERT_TRUE(provinces.getProvinces().empty());
 }
 
 TEST(CK2World_ProvincesTests, provinceCanBeLoaded)

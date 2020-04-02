@@ -68,6 +68,9 @@
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Characters\Characters.cpp">
       <Filter>ConverterFiles\CK2World\Characters</Filter>
     </ClCompile>
+    <ClCompile Include="CommonTests\CommonFunctionsTests.cpp">
+      <Filter>CommonTests</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4WorldTests">
@@ -114,6 +117,9 @@
     </Filter>
     <Filter Include="ConverterFiles\CK2World\Characters">
       <UniqueIdentifier>{84cab1eb-0b73-4f9e-96cb-779302be85b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CommonTests">
+      <UniqueIdentifier>{66d9f4b2-7655-47d4-a3fc-f5516fcce922}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

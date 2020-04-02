@@ -36,7 +36,7 @@ TEST(CK2World_CharacterTests, cultureDefaultsToBlank)
 
 	const CK2::Character theCharacter(input, 42);
 
-	ASSERT_EQ(theCharacter.getCulture(), "");
+	ASSERT_TRUE(theCharacter.getCulture().empty());
 }
 
 TEST(CK2World_CharacterTests, religionCanBeSet)
@@ -61,7 +61,7 @@ TEST(CK2World_CharacterTests, religionDefaultsToBlank)
 
 	const CK2::Character theCharacter(input, 42);
 
-	ASSERT_EQ(theCharacter.getReligion(), "");
+	ASSERT_TRUE(theCharacter.getReligion().empty());
 }
 
 TEST(CK2World_CharacterTests, nameCanBeSet)
@@ -86,7 +86,7 @@ TEST(CK2World_CharacterTests, nameDefaultsToBlank)
 
 	const CK2::Character theCharacter(input, 42);
 
-	ASSERT_EQ(theCharacter.getName(), "");
+	ASSERT_TRUE(theCharacter.getName().empty());
 }
 
 TEST(CK2World_CharacterTests, dynastyCanBeSet)

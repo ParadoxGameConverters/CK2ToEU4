@@ -36,7 +36,7 @@ TEST(CK2World_ProvinceTests, cultureDefaultsToBlank)
 
 	const CK2::Province theProvince(input, 42);
 
-	ASSERT_EQ(theProvince.getCulture(), "");
+	ASSERT_TRUE(theProvince.getCulture().empty());
 }
 
 TEST(CK2World_ProvinceTests, religionCanBeSet)
@@ -61,7 +61,7 @@ TEST(CK2World_ProvinceTests, religionDefaultsToBlank)
 
 	const CK2::Province theProvince(input, 42);
 
-	ASSERT_EQ(theProvince.getReligion(), "");
+	ASSERT_TRUE(theProvince.getReligion().empty());
 }
 
 TEST(CK2World_ProvinceTests, nameCanBeSet)
@@ -86,7 +86,7 @@ TEST(CK2World_ProvinceTests, nameDefaultsToBlank)
 
 	const CK2::Province theProvince(input, 42);
 
-	ASSERT_EQ(theProvince.getName(), "");
+	ASSERT_TRUE(theProvince.getName().empty());
 }
 
 TEST(CK2World_ProvinceTests, primarySettlementCanBeSet)
@@ -111,7 +111,7 @@ TEST(CK2World_ProvinceTests, primarySettlementDefaultsToBlank)
 
 	const CK2::Province theProvince(input, 42);
 
-	ASSERT_EQ(theProvince.getPrimarySettlement(), "");
+	ASSERT_TRUE(theProvince.getPrimarySettlement().empty());
 }
 
 TEST(CK2World_ProvinceTests, maxSettlementsCanBeSet)
@@ -183,7 +183,45 @@ TEST(CK2World_ProvinceTests, multipleBaroniesCanBeLoaded)
 	ASSERT_EQ(theProvince.getBaronyCount(), 3);
 }
 
-TEST(CK2World_ProvinceTests, baronyWeightsCanBeAdded)
+TEST(CK2World_ProvinceTests, provinceWithNoBaroniesWeightsZero)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "}";
+
+	const CK2::Province theProvince(input, 42);
+
+	ASSERT_EQ(theProvince.getBuildingWeight(), 0);
+}
+
+TEST(CK2World_ProvinceTests, baronyWeightIsThree)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "b_test-baronY_namE1={}\n";
+	input << "}";
+
+	const CK2::Province theProvince(input, 42);
+
+	ASSERT_EQ(theProvince.getBuildingWeight(), 3);
+}
+
+TEST(CK2World_ProvinceTests, baronyBuildingWeightIsOne)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "b_test-baronY_namE1={ca_town=yes}\n";
+	input << "}";
+
+	const CK2::Province theProvince(input, 42);
+
+	ASSERT_EQ(theProvince.getBuildingWeight(), 4);
+}
+
+TEST(CK2World_ProvinceTests, baronyBuildingWeightsAddUp)
 {
 	std::stringstream input;
 	input << "=\n";

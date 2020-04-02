@@ -17,7 +17,7 @@ void mappers::ProvinceTitleMapper::loadProvinces(const std::string& CK2Path)
 
 		// Patch for poor QA over there. Sorry future maintainers, but single provinceID can point to multiple c_titles,
 		// as well as a single c_title can point to multiple provinceIDs. There's no way of knowing.
-		if (getIDforTitle(newProvince.getTitle()))
+		if (getIDForTitle(newProvince.getTitle()))
 		{
 			provinceTitles[newProvince.getTitle()] = newProvince.getID();
 		}
@@ -29,14 +29,14 @@ void mappers::ProvinceTitleMapper::loadProvinces(const std::string& CK2Path)
 	Log(LogLevel::Info) << ">> Loaded: " << provinceTitles.size() << " provinces from history.";
 }
 
-std::optional<int> mappers::ProvinceTitleMapper::getIDforTitle(const std::string& title)
+std::optional<int> mappers::ProvinceTitleMapper::getIDForTitle(const std::string& title)
 {
 	const auto& provItr = provinceTitles.find(title);
 	if (provItr != provinceTitles.end()) return provItr->second;
 	return std::nullopt;
 }
 
-std::optional<std::string> mappers::ProvinceTitleMapper::getTitleforID(int provID)
+std::optional<std::string> mappers::ProvinceTitleMapper::getTitleForID(int provID)
 {
 	std::vector<std::string> potentialTiles;
 	for (const auto& province : provinceTitles) if (province.second == provID) potentialTiles.push_back(province.first);

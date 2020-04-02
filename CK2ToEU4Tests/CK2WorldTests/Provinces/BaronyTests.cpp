@@ -36,7 +36,7 @@ TEST(CK2World_BaronyTests, typeDefaultsToBlank)
 
 	const CK2::Barony theBarony(input, "b_test");
 
-	ASSERT_EQ(theBarony.getType(), "");
+	ASSERT_TRUE(theBarony.getType().empty());
 }
 
 TEST(CK2World_BaronyTests, castleBuildingsAreRecognized)

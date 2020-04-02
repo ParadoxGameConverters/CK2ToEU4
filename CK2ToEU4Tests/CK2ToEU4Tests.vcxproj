@@ -188,6 +188,7 @@
     <ClCompile Include="CK2WorldTests\Provinces\BaronyTests.cpp" />
     <ClCompile Include="CK2WorldTests\Provinces\ProvincesTests.cpp" />
     <ClCompile Include="CK2WorldTests\Provinces\ProvinceTests.cpp" />
+    <ClCompile Include="CommonTests\CommonFunctionsTests.cpp" />
     <ClCompile Include="ConfigurationTests.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

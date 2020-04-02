@@ -11,8 +11,8 @@ namespace mappers
 		ProvinceTitleMapper() = default;
 		void loadProvinces(const std::string& CK2Path);
 
-		std::optional<int> getIDforTitle(const std::string& title);
-		std::optional<std::string> getTitleforID(int provID);
+		std::optional<int> getIDForTitle(const std::string& title);
+		std::optional<std::string> getTitleForID(int provID);
 
 	private:
 		
