@@ -188,3 +188,45 @@ TEST(CK2World_CharacterTests, liegeDefaultsToZero)
 
 	ASSERT_EQ(theCharacter.getLiege(), 0);
 }
+
+TEST(CK2World_CharacterTests, spousesDefaultToEmpty)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "}";
+
+	const CK2::Character theCharacter(input, 42);
+
+	ASSERT_TRUE(theCharacter.getSpouses().empty());
+}
+
+TEST(CK2World_CharacterTests, spouseCanBeSet)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "\tspouse=123";
+	input << "}";
+
+	const CK2::Character theCharacter(input, 42);
+
+	ASSERT_FALSE(theCharacter.getSpouses().empty());
+	ASSERT_EQ(*theCharacter.getSpouses().begin(), 123);
+}
+
+TEST(CK2World_CharacterTests, multipleSpousesCanBeSet)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "\tspouse=123";
+	input << "\tspouse=456";
+	input << "\tspouse=789";
+	input << "}";
+
+	const CK2::Character theCharacter(input, 42);
+
+	ASSERT_FALSE(theCharacter.getSpouses().empty());
+	ASSERT_EQ(theCharacter.getSpouses().size(), 3);
+}

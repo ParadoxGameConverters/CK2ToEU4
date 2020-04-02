@@ -2,6 +2,7 @@
 #define CK2_CHARACTER_H
 #include "newParser.h"
 #include "Date.h"
+#include <set>
 
 namespace CK2
 {
@@ -25,6 +26,7 @@ namespace CK2
 		[[nodiscard]] const auto& getBirthDate() const { return birthDate; }
 		[[nodiscard]] const auto& getDeathDate() const { return deathDate; }
 		[[nodiscard]] const auto& getSkills() const { return skills; }
+		[[nodiscard]] const auto& getSpouses() const { return spouses; }
 
 		[[nodiscard]] auto getID() const { return charID; }
 		[[nodiscard]] auto getLiege() const { return liege; }
@@ -42,6 +44,7 @@ namespace CK2
 		Skills skills;
 		date birthDate = date("1.1.1");
 		date deathDate = date("1.1.1");
+		std::set<int> spouses;
 	};
 }
 

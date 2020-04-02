@@ -48,5 +48,9 @@ void CK2::Character::registerKeys()
 		skills.intrigue = theList[3];
 		skills.learning= theList[4];
 		});
+	registerKeyword("spouse", [this](const std::string& unused, std::istream& theStream) {
+		const commonItems::singleInt spouseInt(theStream);
+		spouses.insert(spouseInt.getInt());
+		});
 	registerRegex("[A-Za-z0-9\\:_.-]+", commonItems::ignoreItem);
 }
