@@ -21,7 +21,8 @@ namespace CK2
 	private:
 		void verifySave(const std::string& saveGamePath);
 		bool uncompressSave(const std::string& saveGamePath);
-
+		void filterExcessProvinceTitles();
+		
 		date endDate = date("1444.11.11");
 		date startDate = date("1.1.1");
 		Version CK2Version;

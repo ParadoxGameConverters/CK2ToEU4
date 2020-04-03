@@ -76,13 +76,16 @@ CK2::World::World(std::shared_ptr<Configuration> theConfiguration)
 	auto gameState = std::istringstream(saveGame.gamestate);
 	parseStream(gameState);
 	clearRegisteredKeywords();
-
-	LOG(LogLevel::Info) << ">> Loaded " << dynamicTitles.size() << " dynamic titles.";
-
-	
+	LOG(LogLevel::Info) << ">> Loaded " << dynamicTitles.size() << " dynamic titles.";	
 	LOG(LogLevel::Info) << "-> Importing Province Titles";
 	provinceTitleMapper.loadProvinces(theConfiguration->getCK2Path());
 	
+
+	LOG(LogLevel::Info) << "*** Building World ***";
+
+	
+	LOG(LogLevel::Info) << "-- Filtering Excess Province Titles ";
+	filterExcessProvinceTitles();
 	LOG(LogLevel::Info) << "*** Good-bye CK2, rest in peace. ***";
 }
 
@@ -126,3 +129,18 @@ bool CK2::World::uncompressSave(const std::string& saveGamePath)
 	return true;
 }
 
+void CK2::World::filterExcessProvinceTitles()
+{
+	// This function's purpose is to filter out invalid provinceID-title mappings from /history/provinces.
+	
+	const auto& provinceTitles = provinceTitleMapper.getProvinceTitles(); // contains junk.
+	std::map<std::string, int> newProvinceTitles;
+	const auto& availableTitles = titles.getTitles();
+
+	for (const auto& provinceTitle: provinceTitles)
+	{
+		if (availableTitles.count(provinceTitle.first)) newProvinceTitles.insert(std::pair(provinceTitle.first, provinceTitle.second));
+	}
+	Log(LogLevel::Info) << "<> Dropped " << provinceTitles.size() - newProvinceTitles.size() << " invalid mappings.";
+	provinceTitleMapper.replaceProvinceTitles(newProvinceTitles);
+}
