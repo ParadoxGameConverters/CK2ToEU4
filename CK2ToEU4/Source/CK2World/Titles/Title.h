@@ -18,11 +18,11 @@ namespace CK2
 		[[nodiscard]] const auto& getDeJureLiege() const { return deJureLiege; }
 		[[nodiscard]] const auto& getHolder() const { return holder; }
 		
-		void setHolder(std::shared_ptr<Character> theHolder) { holder.second = theHolder; }
-		void setLiegePrimaryTitle(std::shared_ptr<Title> theTitle) { liege.second->setTitle(theTitle); }
-		void setLiegeBaseTitle(std::shared_ptr<Title> theBaseTitle) { liege.second->setBaseTitle(theBaseTitle); }
-		void setDJLiegePrimaryTitle(std::shared_ptr<Title> theTitle) { deJureLiege.second->setTitle(theTitle); }
-		void setDJLiegeBaseTitle(std::shared_ptr<Title> theBaseTitle) { deJureLiege.second->setBaseTitle(theBaseTitle); }
+		void setHolder(std::shared_ptr<Character> theHolder) { holder.second = std::move(theHolder); }
+		void setLiegePrimaryTitle(std::shared_ptr<Title> theTitle) const { liege.second->setTitle(std::move(theTitle)); }
+		void setLiegeBaseTitle(std::shared_ptr<Title> theBaseTitle) const { liege.second->setBaseTitle(std::move(theBaseTitle)); }
+		void setDJLiegePrimaryTitle(std::shared_ptr<Title> theTitle) const { deJureLiege.second->setTitle(std::move(theTitle)); }
+		void setDJLiegeBaseTitle(std::shared_ptr<Title> theBaseTitle) const { deJureLiege.second->setBaseTitle(std::move(theBaseTitle)); }
 
 	private:
 		void registerKeys();

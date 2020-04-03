@@ -22,7 +22,7 @@ namespace CK2
 		[[nodiscard]] int getBuildingWeight() const;
 
 		void discardPrimarySettlement() { primarySettlement.first.clear(); }
-		void setPrimarySettlement(std::shared_ptr<Barony> theBarony) { primarySettlement.second = theBarony; }
+		void setPrimarySettlement(std::shared_ptr<Barony> theBarony) { primarySettlement.second = std::move(theBarony); }
 		
 	private:
 		void registerKeys();

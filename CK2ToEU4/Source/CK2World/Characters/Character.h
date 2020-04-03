@@ -26,7 +26,7 @@ namespace CK2
 	public:
 		Character(std::istream& theStream, int chrID);
 
-		void setLiege(std::shared_ptr<Character> theLiege) { liege.second = theLiege; }
+		void setLiege(std::shared_ptr<Character> theLiege) { liege.second = std::move(theLiege); }
 		
 		[[nodiscard]] const auto& getCulture() const { return culture; }
 		[[nodiscard]] const auto& getReligion() const { return religion; }
@@ -41,11 +41,11 @@ namespace CK2
 		[[nodiscard]] auto getID() const { return charID; }
 		[[nodiscard]] const auto& getLiege() const { return liege; }
 		[[nodiscard]] const auto& getDynasty() const { return dynasty; }
-		void setDynasty(std::shared_ptr<Dynasty> theDynasty) { dynasty.second = theDynasty; }
+		void setDynasty(std::shared_ptr<Dynasty> theDynasty) { dynasty.second = std::move(theDynasty); }
 		void setSpouses(const std::map<int, std::shared_ptr<Character>>& newSpouses) { spouses = newSpouses; }
-		void setPrimaryTitle(std::shared_ptr<Title> theTitle) { primaryTitle.second->setTitle(theTitle); }
-		void setBaseTitle(std::shared_ptr<Title> theBaseTitle) { primaryTitle.second->setBaseTitle(theBaseTitle); }
-		void setCapitalBarony(std::shared_ptr<Barony> theCapitalBarony) { capital.second = theCapitalBarony; }
+		void setPrimaryTitle(std::shared_ptr<Title> theTitle) const { primaryTitle.second->setTitle(std::move(theTitle)); }
+		void setBaseTitle(std::shared_ptr<Title> theBaseTitle) const { primaryTitle.second->setBaseTitle(std::move(theBaseTitle)); }
+		void setCapitalBarony(std::shared_ptr<Barony> theCapitalBarony) { capital.second = std::move(theCapitalBarony); }
 
 	private:
 		void registerKeys();

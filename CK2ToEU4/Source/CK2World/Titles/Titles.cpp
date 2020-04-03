@@ -106,5 +106,5 @@ void CK2::Titles::linkLiegePrimaryTitles()
 		}
 	}
 	Log(LogLevel::Info) << "<> " << counterPrim << " liege titles and " << counterBase << " liege base titles linked.";
-	Log(LogLevel::Info) << "<> " << counterDJPrim << " liege DeJure titles and " << counterDJBase << " liege DeJure base titles linked.";
+	Log(LogLevel::Info) << "<> " << counterDJPrim << " dejure liege titles and " << counterDJBase << " dejure liege base titles linked.";
 }
