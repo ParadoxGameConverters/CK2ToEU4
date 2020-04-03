@@ -10,8 +10,8 @@ namespace CK2
 	public:
 		Liege() = default;
 		Liege(std::istream& theStream);
-		Liege(const std::string& theTitle);
-
+		Liege(const std::string& theTitle) : title(std::make_pair(theTitle, nullptr)){};
+		
 		[[nodiscard]] const auto& getTitle() const { return title; }
 		[[nodiscard]] const auto& getBaseTitle() const { return baseTitle; }
 		[[nodiscard]] auto isDynamic() const { return dynamic; }

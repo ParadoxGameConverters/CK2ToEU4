@@ -8,11 +8,6 @@ CK2::Liege::Liege(std::istream& theStream)
 	clearRegisteredKeywords();
 }
 
-CK2::Liege::Liege(const std::string& theTitle)
-{
-	title = std::make_pair(theTitle, nullptr);
-}
-
 void CK2::Liege::registerKeys()
 {
 	registerKeyword("title", [this](const std::string& unused, std::istream& theStream) {
