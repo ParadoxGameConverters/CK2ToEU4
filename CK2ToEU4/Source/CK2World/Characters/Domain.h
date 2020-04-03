@@ -5,7 +5,7 @@
 namespace CK2
 {
 	class Barony;
-	class Title;
+	class Liege;
 	class Domain: commonItems::parser
 	{
 	public:
@@ -19,7 +19,7 @@ namespace CK2
 		void registerKeys();
 
 		std::pair<std::string, std::shared_ptr<Barony>> capital;
-		std::pair<std::string, std::shared_ptr<Title>> primaryTitle;
+		std::pair<std::string, std::shared_ptr<Liege>> primaryTitle; // Reusing Liege object for its identical structure.
 	};
 }
 

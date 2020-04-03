@@ -2,6 +2,8 @@
 #define CK2_CHARACTER_H
 #include "newParser.h"
 #include "Date.h"
+#include "../Titles/Liege.h"
+#include "../Provinces/Barony.h"
 
 namespace CK2
 {
@@ -24,6 +26,8 @@ namespace CK2
 	public:
 		Character(std::istream& theStream, int chrID);
 
+		void setLiege(std::shared_ptr<Character> theLiege) { liege.second = theLiege; }
+		
 		[[nodiscard]] const auto& getCulture() const { return culture; }
 		[[nodiscard]] const auto& getReligion() const { return religion; }
 		[[nodiscard]] const auto& getName() const { return name; }
@@ -35,8 +39,13 @@ namespace CK2
 		[[nodiscard]] const auto& getCapital() const { return capital; }
 
 		[[nodiscard]] auto getID() const { return charID; }
-		[[nodiscard]] auto getLiege() const { return liege; }
-		[[nodiscard]] auto getDynasty() const { return dynasty; }
+		[[nodiscard]] const auto& getLiege() const { return liege; }
+		[[nodiscard]] const auto& getDynasty() const { return dynasty; }
+		void setDynasty(std::shared_ptr<Dynasty> theDynasty) { dynasty.second = theDynasty; }
+		void setSpouses(const std::map<int, std::shared_ptr<Character>>& newSpouses) { spouses = newSpouses; }
+		void setPrimaryTitle(std::shared_ptr<Title> theTitle) { primaryTitle.second->setTitle(theTitle); }
+		void setBaseTitle(std::shared_ptr<Title> theBaseTitle) { primaryTitle.second->setBaseTitle(theBaseTitle); }
+		void setCapitalBarony(std::shared_ptr<Barony> theCapitalBarony) { capital.second = theCapitalBarony; }
 
 	private:
 		void registerKeys();
@@ -46,12 +55,12 @@ namespace CK2
 		std::string religion;
 		std::string name;
 		std::pair<int, std::shared_ptr<Dynasty>> dynasty;
-		std::pair<int, std::shared_ptr<Liege>> liege;
+		std::pair<int, std::shared_ptr<Character>> liege;
 		Skills skills;
 		date birthDate = date("1.1.1");
 		date deathDate = date("1.1.1");
 		std::map<int, std::shared_ptr<Character>> spouses;
-		std::pair<std::string, std::shared_ptr<Title>> primaryTitle;
+		std::pair<std::string, std::shared_ptr<Liege>> primaryTitle;
 		std::pair<std::string, std::shared_ptr<Barony>> capital;
 	};
 }

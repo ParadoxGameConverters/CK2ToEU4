@@ -16,6 +16,8 @@ namespace CK2
 		[[nodiscard]] const auto& getBaseTitle() const { return baseTitle; }
 		[[nodiscard]] auto isDynamic() const { return dynamic; }
 		[[nodiscard]] auto isCustom() const { return custom; }
+		void setTitle(std::shared_ptr<Title> theTitle) { title.second = theTitle; }
+		void setBaseTitle(std::shared_ptr<Title> theBaseTitle) { baseTitle.second = theBaseTitle; }
 
 	private:
 		void registerKeys();

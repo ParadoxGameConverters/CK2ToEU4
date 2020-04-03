@@ -84,8 +84,17 @@ CK2::World::World(std::shared_ptr<Configuration> theConfiguration)
 	LOG(LogLevel::Info) << "*** Building World ***";
 
 	
-	LOG(LogLevel::Info) << "-- Filtering Excess Province Titles ";
+	LOG(LogLevel::Info) << "-- Filtering Excess Province Titles";
 	filterExcessProvinceTitles();
+	LOG(LogLevel::Info) << "-- Linking Characters With Dynasties";
+	characters.linkDynasties(dynasties);
+	LOG(LogLevel::Info) << "-- Linking Characters With Lieges and Spouses";
+	characters.linkLiegesAndSpouses();
+	LOG(LogLevel::Info) << "-- Linking Characters With Primary Titles";
+	characters.linkPrimaryTitles(titles);
+	LOG(LogLevel::Info) << "-- Linking Characters With Capitals";
+	characters.linkCapitals(provinces);
+
 	LOG(LogLevel::Info) << "*** Good-bye CK2, rest in peace. ***";
 }
 

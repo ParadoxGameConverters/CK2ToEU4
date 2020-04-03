@@ -72,7 +72,7 @@ TEST(CK2World_TitleTests, holderDefaultsToZero)
 	ASSERT_EQ(theTitle.getHolder().first, 0);
 }
 
-TEST(CK2World_TitleTests, liegeTitleDefaultsToBlank)
+TEST(CK2World_TitleTests, liegeDefaultsToNull)
 {
 	std::stringstream input;
 	input << "=\n";
@@ -81,7 +81,7 @@ TEST(CK2World_TitleTests, liegeTitleDefaultsToBlank)
 
 	const CK2::Title theTitle(input, "c_test");
 
-	ASSERT_TRUE(theTitle.getLiege().second->getTitle().first.empty());
+	ASSERT_FALSE(theTitle.getLiege().second);
 }
 
 TEST(CK2World_TitleTests, simpleLiegeCanBeSet)
@@ -113,7 +113,7 @@ TEST(CK2World_TitleTests, complexLiegeCanBeSet)
 	ASSERT_EQ(theTitle.getLiege().second->getTitle().first, "c_test2");
 }
 
-TEST(CK2World_TitleTests, deJureLiegeTitleDefaultsToBlank)
+TEST(CK2World_TitleTests, deJureLiegeTitleDefaultsToNull)
 {
 	std::stringstream input;
 	input << "=\n";
@@ -122,7 +122,7 @@ TEST(CK2World_TitleTests, deJureLiegeTitleDefaultsToBlank)
 
 	const CK2::Title theTitle(input, "c_test");
 
-	ASSERT_TRUE(theTitle.getDeJureLiege().second->getTitle().first.empty());
+	ASSERT_FALSE(theTitle.getDeJureLiege().second);
 }
 
 TEST(CK2World_TitleTests, simpleDeJureLiegeCanBeSet)

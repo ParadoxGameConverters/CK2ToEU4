@@ -1,6 +1,7 @@
 #include "gtest/gtest.h"
 #include "../CK2ToEU4/Source/CK2World/Characters/Character.h"
 #include "../CK2ToEU4/Source/CK2World/Provinces/Barony.h"
+#include "../CK2ToEU4/Source/CK2World/Titles/Liege.h"
 #include <sstream>
 
 TEST(CK2World_CharacterTests, IDCanBeSet)
@@ -247,7 +248,7 @@ TEST(CK2World_CharacterTests, characterDomainLoadsBlank)
 	ASSERT_TRUE(theCharacter.getCapital().first.empty());
 }
 
-TEST(CK2World_CharacterTests, characterDomainLoadsPrimaryTitle)
+TEST(CK2World_CharacterTests, characterDomainLoadsSimplePrimaryTitle)
 {
 	std::stringstream input;
 	input << "=\n";
@@ -259,7 +260,24 @@ TEST(CK2World_CharacterTests, characterDomainLoadsPrimaryTitle)
 
 	const CK2::Character theCharacter(input, 42);
 
-	ASSERT_EQ(theCharacter.getPrimaryTitle().first, "c_test");
+	ASSERT_EQ(theCharacter.getPrimaryTitle().second->getTitle().first, "c_test");
+}
+
+TEST(CK2World_CharacterTests, characterDomainLoadsComplexPrimaryTitle)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "\tdmn={\n";
+	input << "\tprimary={\n";
+	input << "\ttitle=\"c_test\"\n";
+	input << "\t\t}\n";
+	input << "\t}\n";
+	input << "}";
+
+	const CK2::Character theCharacter(input, 42);
+
+	ASSERT_EQ(theCharacter.getPrimaryTitle().second->getTitle().first, "c_test");
 }
 
 TEST(CK2World_CharacterTests, characterDomainLoadsCapital)
