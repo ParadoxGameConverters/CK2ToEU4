@@ -1,10 +1,10 @@
 #ifndef CK2_TITLES_H
 #define CK2_TITLES_H
 #include "newParser.h"
-#include "Title.h"
 
 namespace CK2
 {
+	class Title;
 	class Titles: commonItems::parser
 	{
 	public:
@@ -15,7 +15,7 @@ namespace CK2
 	private:
 		void registerKeys();
 
-		std::map<std::string, Title> titles;
+		std::map<std::string, std::shared_ptr<Title>> titles;
 	};
 }
 

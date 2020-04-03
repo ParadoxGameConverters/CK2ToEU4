@@ -1,6 +1,7 @@
 #include "gtest/gtest.h"
 #include <sstream>
 #include "../../CK2ToEU4/Source/CK2World/Dynasties/Dynasties.h"
+#include "../../CK2ToEU4/Source/CK2World/Dynasties/Dynasty.h"
 
 TEST(CK2World_DynastiesTests, DynastiesDefaultToEmpty)
 {
@@ -28,8 +29,8 @@ TEST(CK2World_DynastiesTests, dynastiesCanBeLoaded)
 	const auto& characterItr2 = --dynasties.getDynasties().end();
 
 	ASSERT_EQ(characterItr->first, 42);
-	ASSERT_EQ(characterItr->second.getID(), 42);
+	ASSERT_EQ(characterItr->second->getID(), 42);
 	ASSERT_EQ(characterItr2->first, 43);
-	ASSERT_EQ(characterItr2->second.getID(), 43);
+	ASSERT_EQ(characterItr2->second->getID(), 43);
 }
 

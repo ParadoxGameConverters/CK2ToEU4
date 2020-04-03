@@ -1,6 +1,7 @@
 #include "gtest/gtest.h"
 #include <sstream>
 #include "../../CK2ToEU4/Source/CK2World/Provinces/Provinces.h"
+#include "../../CK2ToEU4/Source/CK2World/Provinces/Province.h"
 
 TEST(CK2World_ProvincesTests, provincesDefaultToEmpty)
 {
@@ -26,6 +27,6 @@ TEST(CK2World_ProvincesTests, provinceCanBeLoaded)
 	const auto& provinceItr = provinces.getProvinces().begin();
 	
 	ASSERT_EQ(provinceItr->first, 42);
-	ASSERT_EQ(provinceItr->second.getID(), 42);
+	ASSERT_EQ(provinceItr->second->getID(), 42);
 }
 

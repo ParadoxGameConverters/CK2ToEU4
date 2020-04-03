@@ -1,6 +1,7 @@
 #include "gtest/gtest.h"
 #include <sstream>
 #include "../../CK2ToEU4/Source/CK2World/Titles/Titles.h"
+#include "../../CK2ToEU4/Source/CK2World/Titles/Title.h"
 
 TEST(CK2World_TitlesTests, titlesDefaultToEmpty)
 {
@@ -26,7 +27,7 @@ TEST(CK2World_TitlesTests, titleCanBeLoaded)
 
 	ASSERT_FALSE(titles.getTitles().empty());
 	ASSERT_EQ(titles.getTitles().begin()->first, "c_test");
-	ASSERT_EQ(titles.getTitles().begin()->second.getName(), "c_test");
+	ASSERT_EQ(titles.getTitles().begin()->second->getName(), "c_test");
 }
 
 TEST(CK2World_TitlesTests, multipleTitlesCanBeLoaded)

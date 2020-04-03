@@ -1,10 +1,11 @@
 #ifndef CK2_PROVINCE_H
 #define CK2_PROVINCE_H
 #include "newParser.h"
-#include "Barony.h"
 
 namespace CK2
 {
+	class Barony;
+	class Title;
 	class Province: commonItems::parser
 	{
 	public:
@@ -28,9 +29,9 @@ namespace CK2
 		std::string culture;
 		std::string religion;
 		std::string name;
-		std::string primarySettlement;
+		std::pair<std::string, std::shared_ptr<Title>> primarySettlement;
 		int maxSettlements = 0;
-		std::map<std::string, Barony> baronies;
+		std::map<std::string, std::shared_ptr<Barony>> baronies;
 	};
 }
 

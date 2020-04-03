@@ -1,10 +1,10 @@
 #ifndef CK2_DYNASTIES_H
 #define CK2_DYNASTIES_H
 #include "newParser.h"
-#include "Dynasty.h"
 
 namespace CK2
 {
+	class Dynasty;
 	class Dynasties: commonItems::parser
 	{
 	public:
@@ -15,7 +15,7 @@ namespace CK2
 	private:
 		void registerKeys();
 
-		std::map<int, Dynasty> dynasties;
+		std::map<int, std::shared_ptr<Dynasty>> dynasties;
 	};
 }
 

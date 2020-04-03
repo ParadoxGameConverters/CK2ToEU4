@@ -1,13 +1,14 @@
 #ifndef CK2_WORLD_H
 #define CK2_WORLD_H
 #include "newParser.h"
+#include "Date.h"
 #include "../Mappers/ProvinceTitleMapper/ProvinceTitleMapper.h"
 #include "Provinces/Provinces.h"
-#include "../Common/Version.h"
-#include "Date.h"
 #include "Characters/Characters.h"
 #include "Titles/Titles.h"
 #include "Dynasties/Dynasties.h"
+#include "../Common/Version.h"
+#include "Titles/Liege.h"
 
 class Configuration;
 

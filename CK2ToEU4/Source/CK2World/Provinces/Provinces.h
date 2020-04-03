@@ -1,10 +1,10 @@
 #ifndef CK2_PROVINCES_H
 #define CK2_PROVINCES_H
 #include "newParser.h"
-#include "Province.h"
 
 namespace CK2
 {
+	class Province;
 	class Provinces: commonItems::parser
 	{
 	public:
@@ -15,7 +15,7 @@ namespace CK2
 	private:
 		void registerKeys();
 
-		std::map<int, Province> provinces;
+		std::map<int, std::shared_ptr<Province>> provinces;
 	};
 }
 

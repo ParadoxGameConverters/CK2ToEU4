@@ -1,5 +1,6 @@
 #include "gtest/gtest.h"
 #include "../CK2ToEU4/Source/CK2World/Titles/Title.h"
+#include "../CK2ToEU4/Source/CK2World/Titles/Liege.h"
 #include <sstream>
 
 TEST(CK2World_TitleTests, nameCanBeSet)
@@ -56,7 +57,7 @@ TEST(CK2World_TitleTests, holderCanBeSet)
 
 	const CK2::Title theTitle(input, "c_test");
 
-	ASSERT_EQ(theTitle.getHolder(), 123);
+	ASSERT_EQ(theTitle.getHolder().first, 123);
 }
 
 TEST(CK2World_TitleTests, holderDefaultsToZero)
@@ -68,7 +69,7 @@ TEST(CK2World_TitleTests, holderDefaultsToZero)
 
 	const CK2::Title theTitle(input, "c_test");
 
-	ASSERT_EQ(theTitle.getHolder(), 0);
+	ASSERT_EQ(theTitle.getHolder().first, 0);
 }
 
 TEST(CK2World_TitleTests, liegeTitleDefaultsToBlank)
@@ -80,7 +81,7 @@ TEST(CK2World_TitleTests, liegeTitleDefaultsToBlank)
 
 	const CK2::Title theTitle(input, "c_test");
 
-	ASSERT_TRUE(theTitle.getLiege().getTitle().empty());
+	ASSERT_TRUE(theTitle.getLiege().second->getTitle().first.empty());
 }
 
 TEST(CK2World_TitleTests, simpleLiegeCanBeSet)
@@ -93,7 +94,7 @@ TEST(CK2World_TitleTests, simpleLiegeCanBeSet)
 
 	const CK2::Title theTitle(input, "c_test");
 
-	ASSERT_EQ(theTitle.getLiege().getTitle(), "c_test2");
+	ASSERT_EQ(theTitle.getLiege().second->getTitle().first, "c_test2");
 }
 
 TEST(CK2World_TitleTests, complexLiegeCanBeSet)
@@ -109,7 +110,7 @@ TEST(CK2World_TitleTests, complexLiegeCanBeSet)
 
 	const CK2::Title theTitle(input, "c_test");
 
-	ASSERT_EQ(theTitle.getLiege().getTitle(), "c_test2");
+	ASSERT_EQ(theTitle.getLiege().second->getTitle().first, "c_test2");
 }
 
 TEST(CK2World_TitleTests, deJureLiegeTitleDefaultsToBlank)
@@ -121,7 +122,7 @@ TEST(CK2World_TitleTests, deJureLiegeTitleDefaultsToBlank)
 
 	const CK2::Title theTitle(input, "c_test");
 
-	ASSERT_TRUE(theTitle.getDeJureLiege().getTitle().empty());
+	ASSERT_TRUE(theTitle.getDeJureLiege().second->getTitle().first.empty());
 }
 
 TEST(CK2World_TitleTests, simpleDeJureLiegeCanBeSet)
@@ -134,7 +135,7 @@ TEST(CK2World_TitleTests, simpleDeJureLiegeCanBeSet)
 
 	const CK2::Title theTitle(input, "c_test");
 
-	ASSERT_EQ(theTitle.getDeJureLiege().getTitle(), "c_test2");
+	ASSERT_EQ(theTitle.getDeJureLiege().second->getTitle().first, "c_test2");
 }
 
 TEST(CK2World_TitleTests, complexDeJureLiegeCanBeSet)
@@ -150,5 +151,5 @@ TEST(CK2World_TitleTests, complexDeJureLiegeCanBeSet)
 
 	const CK2::Title theTitle(input, "c_test");
 
-	ASSERT_EQ(theTitle.getDeJureLiege().getTitle(), "c_test2");
+	ASSERT_EQ(theTitle.getDeJureLiege().second->getTitle().first, "c_test2");
 }

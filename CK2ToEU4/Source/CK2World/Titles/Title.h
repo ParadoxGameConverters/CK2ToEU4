@@ -1,11 +1,12 @@
 #ifndef CK2_TITLE_H
 #define CK2_TITLE_H
 #include "newParser.h"
-#include "Liege.h"
 #include <set>
 
 namespace CK2
 {
+	class Liege;
+	class Character;
 	class Title: commonItems::parser
 	{
 	public:
@@ -21,10 +22,10 @@ namespace CK2
 	private:
 		void registerKeys();
 
-		int holder = 0;
+		std::pair<int, std::shared_ptr<Character>> holder;
 		std::set<std::string> laws;
-		Liege liege;
-		Liege deJureLiege;
+		std::pair<std::string, std::shared_ptr<Liege>> liege;
+		std::pair<std::string, std::shared_ptr<Liege>> deJureLiege;
 		std::string name;
 	};
 }

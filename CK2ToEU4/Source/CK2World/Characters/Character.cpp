@@ -34,11 +34,11 @@ void CK2::Character::registerKeys()
 		});
 	registerKeyword("dnt", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleInt dynastyInt(theStream);
-		dynasty = dynastyInt.getInt();
+		dynasty = std::pair(dynastyInt.getInt(), nullptr);
 		});
 	registerKeyword("lge", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleInt liegeInt(theStream);
-		liege = liegeInt.getInt();
+		liege = std::pair(liegeInt.getInt(), nullptr);
 		});
 	registerKeyword("att", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::intList skillsList(theStream);
@@ -51,7 +51,7 @@ void CK2::Character::registerKeys()
 		});
 	registerKeyword("spouse", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleInt spouseInt(theStream);
-		spouses.insert(spouseInt.getInt());
+		spouses.insert(std::pair(spouseInt.getInt(), nullptr));
 		});
 	registerKeyword("dmn", [this](const std::string& unused, std::istream& theStream) {
 		const auto newDomain = Domain(theStream);

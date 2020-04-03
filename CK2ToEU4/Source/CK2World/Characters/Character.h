@@ -2,10 +2,14 @@
 #define CK2_CHARACTER_H
 #include "newParser.h"
 #include "Date.h"
-#include <set>
 
 namespace CK2
 {
+	class Liege;
+	class Title;
+	class Barony;
+	class Dynasty;
+	
 	typedef struct
 	{
 		int diplomacy = 0;
@@ -41,14 +45,14 @@ namespace CK2
 		std::string culture;
 		std::string religion;
 		std::string name;
-		int dynasty = 0;
-		int liege = 0;
+		std::pair<int, std::shared_ptr<Dynasty>> dynasty;
+		std::pair<int, std::shared_ptr<Liege>> liege;
 		Skills skills;
 		date birthDate = date("1.1.1");
 		date deathDate = date("1.1.1");
-		std::set<int> spouses;
-		std::string primaryTitle;
-		std::string capital;
+		std::map<int, std::shared_ptr<Character>> spouses;
+		std::pair<std::string, std::shared_ptr<Title>> primaryTitle;
+		std::pair<std::string, std::shared_ptr<Barony>> capital;
 	};
 }
 

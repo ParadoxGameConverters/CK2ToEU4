@@ -51,7 +51,7 @@ CK2::World::World(std::shared_ptr<Configuration> theConfiguration)
 		});
 	registerKeyword("dyn_title", [this](const std::string& unused, std::istream& theStream) {
 		const auto dynTitle = Liege(theStream);
-		dynamicTitles.insert(std::pair(dynTitle.getTitle(), dynTitle));
+		dynamicTitles.insert(std::pair(dynTitle.getTitle().first, dynTitle));
 		});
 
 	registerRegex("[A-Za-z0-9\\_]+", commonItems::ignoreItem);

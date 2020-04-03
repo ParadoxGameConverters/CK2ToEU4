@@ -1,6 +1,8 @@
 #include "Title.h"
 #include "ParserHelpers.h"
 #include "Log.h"
+#include "Liege.h"
+#include "../Characters/Character.h"
 
 CK2::Title::Title(std::istream& theStream, std::string theName) : name(std::move(theName))
 {
@@ -13,7 +15,7 @@ void CK2::Title::registerKeys()
 {
 	registerKeyword("holder", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleInt holderInt(theStream);
-		holder = holderInt.getInt();
+		holder = std::pair(holderInt.getInt(), nullptr);
 		});
 	registerKeyword("law", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleString lawStr(theStream);
@@ -25,11 +27,13 @@ void CK2::Title::registerKeys()
 		if (liegeStr.find("{") != std::string::npos)
 		{
 			std::stringstream tempStream(liegeStr);
-			liege = Liege(tempStream);			
+			auto newLiege = std::make_shared<Liege>(tempStream);
+			liege = std::pair(newLiege->getTitle().first, newLiege);
 		}
 		else
 		{
-			liege = Liege(liegeStr);
+			auto newLiege = std::make_shared<Liege>(liegeStr);
+			liege = std::pair(newLiege->getTitle().first, newLiege);
 		}
 		});
 	registerKeyword("de_jure_liege", [this](const std::string& unused, std::istream& theStream) {
@@ -38,11 +42,13 @@ void CK2::Title::registerKeys()
 		if (djLiegeStr.find("{") != std::string::npos)
 		{
 			std::stringstream tempStream(djLiegeStr);
-			deJureLiege = Liege(tempStream);			
+			auto newdjLiege = std::make_shared<Liege>(tempStream);
+			deJureLiege = std::pair(newdjLiege->getTitle().first, newdjLiege);
 		}
 		else
 		{
-			deJureLiege = Liege(djLiegeStr);
+			auto newdjLiege = std::make_shared<Liege>(djLiegeStr);
+			deJureLiege = std::pair(newdjLiege->getTitle().first, newdjLiege);
 		}
 		});
 	registerRegex("[A-Za-z0-9\\:_.-]+", commonItems::ignoreItem);

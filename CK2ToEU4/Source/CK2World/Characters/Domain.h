@@ -4,6 +4,8 @@
 
 namespace CK2
 {
+	class Barony;
+	class Title;
 	class Domain: commonItems::parser
 	{
 	public:
@@ -16,8 +18,8 @@ namespace CK2
 	private:
 		void registerKeys();
 
-		std::string capital;
-		std::string primaryTitle;
+		std::pair<std::string, std::shared_ptr<Barony>> capital;
+		std::pair<std::string, std::shared_ptr<Title>> primaryTitle;
 	};
 }
 

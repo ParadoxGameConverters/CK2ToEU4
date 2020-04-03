@@ -1,5 +1,6 @@
 #include "gtest/gtest.h"
 #include "../CK2ToEU4/Source/CK2World/Characters/Character.h"
+#include "../CK2ToEU4/Source/CK2World/Provinces/Barony.h"
 #include <sstream>
 
 TEST(CK2World_CharacterTests, IDCanBeSet)
@@ -99,7 +100,7 @@ TEST(CK2World_CharacterTests, dynastyCanBeSet)
 
 	const CK2::Character theCharacter(input, 42);
 
-	ASSERT_EQ(theCharacter.getDynasty(), 123);
+	ASSERT_EQ(theCharacter.getDynasty().first, 123);
 }
 
 TEST(CK2World_CharacterTests, dynastyDefaultsToZero)
@@ -111,7 +112,7 @@ TEST(CK2World_CharacterTests, dynastyDefaultsToZero)
 
 	const CK2::Character theCharacter(input, 42);
 
-	ASSERT_EQ(theCharacter.getDynasty(), 0);
+	ASSERT_EQ(theCharacter.getDynasty().first, 0);
 }
 
 TEST(CK2World_CharacterTests, birthDateCanBeSet)
@@ -174,7 +175,7 @@ TEST(CK2World_CharacterTests, liegeCanBeSet)
 
 	const CK2::Character theCharacter(input, 42);
 
-	ASSERT_EQ(theCharacter.getLiege(), 123);
+	ASSERT_EQ(theCharacter.getLiege().first, 123);
 }
 
 TEST(CK2World_CharacterTests, liegeDefaultsToZero)
@@ -186,7 +187,7 @@ TEST(CK2World_CharacterTests, liegeDefaultsToZero)
 
 	const CK2::Character theCharacter(input, 42);
 
-	ASSERT_EQ(theCharacter.getLiege(), 0);
+	ASSERT_EQ(theCharacter.getLiege().first, 0);
 }
 
 TEST(CK2World_CharacterTests, spousesDefaultToEmpty)
@@ -212,7 +213,7 @@ TEST(CK2World_CharacterTests, spouseCanBeSet)
 	const CK2::Character theCharacter(input, 42);
 
 	ASSERT_FALSE(theCharacter.getSpouses().empty());
-	ASSERT_EQ(*theCharacter.getSpouses().begin(), 123);
+	ASSERT_EQ(theCharacter.getSpouses().begin()->first, 123);
 }
 
 TEST(CK2World_CharacterTests, multipleSpousesCanBeSet)
@@ -242,8 +243,8 @@ TEST(CK2World_CharacterTests, characterDomainLoadsBlank)
 
 	const CK2::Character theCharacter(input, 42);
 	
-	ASSERT_TRUE(theCharacter.getPrimaryTitle().empty());
-	ASSERT_TRUE(theCharacter.getCapital().empty());
+	ASSERT_TRUE(theCharacter.getPrimaryTitle().first.empty());
+	ASSERT_TRUE(theCharacter.getCapital().first.empty());
 }
 
 TEST(CK2World_CharacterTests, characterDomainLoadsPrimaryTitle)
@@ -258,7 +259,7 @@ TEST(CK2World_CharacterTests, characterDomainLoadsPrimaryTitle)
 
 	const CK2::Character theCharacter(input, 42);
 
-	ASSERT_EQ(theCharacter.getPrimaryTitle(), "c_test");
+	ASSERT_EQ(theCharacter.getPrimaryTitle().first, "c_test");
 }
 
 TEST(CK2World_CharacterTests, characterDomainLoadsCapital)
@@ -273,5 +274,5 @@ TEST(CK2World_CharacterTests, characterDomainLoadsCapital)
 
 	const CK2::Character theCharacter(input, 42);
 
-	ASSERT_EQ(theCharacter.getCapital(), "b_test");
+	ASSERT_EQ(theCharacter.getCapital().first, "b_test");
 }

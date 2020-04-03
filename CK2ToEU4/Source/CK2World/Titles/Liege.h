@@ -4,12 +4,13 @@
 
 namespace CK2
 {
+	class Title;
 	class Liege: commonItems::parser
 	{
 	public:
 		Liege() = default;
 		Liege(std::istream& theStream);
-		Liege(std::string theTitle): title(std::move(theTitle)){};
+		Liege(const std::string& theTitle);
 
 		[[nodiscard]] const auto& getTitle() const { return title; }
 		[[nodiscard]] const auto& getBaseTitle() const { return baseTitle; }
@@ -19,8 +20,8 @@ namespace CK2
 	private:
 		void registerKeys();
 
-		std::string title;
-		std::string baseTitle;
+		std::pair<std::string, std::shared_ptr<Title>> title;
+		std::pair<std::string, std::shared_ptr<Title>> baseTitle;
 		bool dynamic = false;
 		bool custom = false;		
 	};

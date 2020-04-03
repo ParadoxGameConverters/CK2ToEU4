@@ -11,7 +11,7 @@ TEST(CK2World_LiegeTests, titleDefaultsToBlank)
 
 	const CK2::Liege theLiege(input);
 
-	ASSERT_TRUE(theLiege.getTitle().empty());
+	ASSERT_TRUE(theLiege.getTitle().first.empty());
 }
 
 TEST(CK2World_LiegeTests, titleCanBeSet)
@@ -24,14 +24,14 @@ TEST(CK2World_LiegeTests, titleCanBeSet)
 
 	const CK2::Liege theLiege(input);
 
-	ASSERT_EQ(theLiege.getTitle(), "c_test");
+	ASSERT_EQ(theLiege.getTitle().first, "c_test");
 }
 
 TEST(CK2World_LiegeTests, titleCanBeSetManually)
 {
 	const CK2::Liege theLiege("c_test");
 
-	ASSERT_EQ(theLiege.getTitle(), "c_test");
+	ASSERT_EQ(theLiege.getTitle().first, "c_test");
 }
 
 TEST(CK2World_LiegeTests, baseTitleDefaultsToBlank)
@@ -43,7 +43,7 @@ TEST(CK2World_LiegeTests, baseTitleDefaultsToBlank)
 
 	const CK2::Liege theLiege(input);
 
-	ASSERT_TRUE(theLiege.getBaseTitle().empty());
+	ASSERT_TRUE(theLiege.getBaseTitle().first.empty());
 }
 
 TEST(CK2World_LiegeTests, baseTitleCanBeSet)
@@ -56,7 +56,7 @@ TEST(CK2World_LiegeTests, baseTitleCanBeSet)
 
 	const CK2::Liege theLiege(input);
 
-	ASSERT_EQ(theLiege.getBaseTitle(), "c_test");
+	ASSERT_EQ(theLiege.getBaseTitle().first, "c_test");
 }
 
 TEST(CK2World_LiegeTests, dynamicDefaultsToFalse)

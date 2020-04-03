@@ -8,15 +8,20 @@ CK2::Liege::Liege(std::istream& theStream)
 	clearRegisteredKeywords();
 }
 
+CK2::Liege::Liege(const std::string& theTitle)
+{
+	title = std::make_pair(theTitle, nullptr);
+}
+
 void CK2::Liege::registerKeys()
 {
 	registerKeyword("title", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleString titleStr(theStream);
-		title = titleStr.getString();
+		title = std::make_pair(titleStr.getString(), nullptr);
 		});
 	registerKeyword("base_title", [this](const std::string& building, std::istream& theStream) {
 		const commonItems::singleString baseTitleStr(theStream);
-		baseTitle = baseTitleStr.getString();
+		baseTitle = std::make_pair(baseTitleStr.getString(), nullptr);
 		});
 	registerKeyword("is_custom", [this](const std::string& building, std::istream& theStream) {
 		const commonItems::singleString customStr(theStream);

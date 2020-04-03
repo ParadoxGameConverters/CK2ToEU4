@@ -1,11 +1,10 @@
 #ifndef CK2_CHARACTERS_H
 #define CK2_CHARACTERS_H
 #include "newParser.h"
-#include "Characters.h"
-#include "Character.h"
 
 namespace CK2
 {
+	class Character;
 	class Characters: commonItems::parser
 	{
 	public:
@@ -16,7 +15,7 @@ namespace CK2
 	private:
 		void registerKeys();
 
-		std::map<int, Character> characters;
+		std::map<int, std::shared_ptr<Character>> characters;
 	};
 }
 
