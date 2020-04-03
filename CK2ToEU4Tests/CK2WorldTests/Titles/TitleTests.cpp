@@ -72,6 +72,31 @@ TEST(CK2World_TitleTests, holderDefaultsToZero)
 	ASSERT_EQ(theTitle.getHolder().first, 0);
 }
 
+TEST(CK2World_TitleTests, inHREDefaultsToFalse)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "}";
+
+	const CK2::Title theTitle(input, "c_test");
+
+	ASSERT_FALSE(theTitle.isInHRE());
+}
+
+TEST(CK2World_TitleTests, inHRECanBeSet)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "}";
+
+	CK2::Title theTitle(input, "c_test");
+	theTitle.setInHRE();
+
+	ASSERT_TRUE(theTitle.isInHRE());
+}
+
 TEST(CK2World_TitleTests, liegeDefaultsToNull)
 {
 	std::stringstream input;

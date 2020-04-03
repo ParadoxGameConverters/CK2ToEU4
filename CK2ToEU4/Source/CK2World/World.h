@@ -23,6 +23,8 @@ namespace CK2
 		void verifySave(const std::string& saveGamePath);
 		bool uncompressSave(const std::string& saveGamePath);
 		void filterExcessProvinceTitles();
+		void filterIndependentTitles();
+		void mergeIndependentBaronies();
 		
 		date endDate = date("1444.11.11");
 		date startDate = date("1.1.1");
@@ -42,7 +44,8 @@ namespace CK2
 		Titles titles;
 		Dynasties dynasties;
 		std::map<std::string, Liege> dynamicTitles; // Reusing Liege as it has identical structure
-		
+
+		std::map<std::string, std::shared_ptr<Title>> independentTitles;
 	};
 }
 

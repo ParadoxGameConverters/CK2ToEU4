@@ -9,6 +9,9 @@
 #include <fstream>
 #include "../Configuration/Configuration.h"
 #include "../Common/CommonFunctions.h"
+#include "Titles/Title.h"
+#include "Titles/Liege.h"
+#include "Characters/Character.h"
 
 namespace fs = std::filesystem;
 
@@ -83,7 +86,7 @@ CK2::World::World(std::shared_ptr<Configuration> theConfiguration)
 
 	LOG(LogLevel::Info) << "*** Building World ***";
 
-	
+	// Link all the intertwining pointers
 	LOG(LogLevel::Info) << "-- Filtering Excess Province Titles";
 	filterExcessProvinceTitles();
 	LOG(LogLevel::Info) << "-- Linking Characters With Dynasties";
@@ -100,6 +103,13 @@ CK2::World::World(std::shared_ptr<Configuration> theConfiguration)
 	titles.linkHolders(characters);
 	LOG(LogLevel::Info) << "-- Linking Titles With Liege and DeJure titles";
 	titles.linkLiegePrimaryTitles();
+	 
+	// Filter top-tier active titles and assign them provinces.
+	LOG(LogLevel::Info) << "-- Merging Independent Baronies";
+	mergeIndependentBaronies();
+	LOG(LogLevel::Info) << "-- Filtering Independent Titles";
+	filterIndependentTitles();
+
 
 	LOG(LogLevel::Info) << "*** Good-bye CK2, rest in peace. ***";
 }
@@ -158,4 +168,72 @@ void CK2::World::filterExcessProvinceTitles()
 	}
 	Log(LogLevel::Info) << "<> Dropped " << provinceTitles.size() - newProvinceTitles.size() << " invalid mappings.";
 	provinceTitleMapper.replaceProvinceTitles(newProvinceTitles);
+}
+
+void CK2::World::filterIndependentTitles()
+{
+	const auto& allTitles = titles.getTitles();
+	std::map<std::string, std::shared_ptr<Title>> potentialIndeps;
+	
+	for (const auto& title: allTitles)
+	{
+		const auto& liege = title.second->getLiege();
+		const auto& holder = title.second->getHolder();
+		if (!holder.first) continue; // don't bother with titles without holders.
+		if (liege.first.empty())
+		{
+			// this is a potential indep.
+			potentialIndeps.insert(std::pair(title.first, title.second));
+			continue;
+		}
+		const auto& liegeTitle = liege.second->getTitle();
+		if (liegeTitle.first == "e_hre")
+		{
+			// hre emperor's vassals also sound like indeps to me.
+			potentialIndeps.insert(std::pair(title.first, title.second));
+			continue;
+		}
+		if (liegeTitle.second->getLiege().first == "e_hre")
+		{
+			// We're still in hre? Are we a duchy?
+			if (title.first.find("d_") == 0)
+			{
+				// we have a king over us. Well. Not any more.
+				potentialIndeps.insert(std::pair(title.first, title.second));
+			}
+		}
+	}
+	// Check if we hold any actual land.
+	for (const auto& indep: potentialIndeps)
+	{
+		Log(LogLevel::Debug) << "title: " << indep.second->getName() << " holder: " << indep.second->getHolder().second->getName();
+	}
+}
+
+void CK2::World::mergeIndependentBaronies()
+{
+	auto counter = 0;
+	const auto& allTitles = titles.getTitles();
+	for (const auto& title : allTitles)
+	{
+		const auto& holder = title.second->getHolder();
+		if (!holder.first) continue; // don't bother with titles without holders.
+		const auto& liege = title.second->getLiege();
+		if (liege.first.empty())
+		{
+			// this is an indep.
+			if (title.first.find("b_") == 0)
+			{
+				// it's a barony.
+				const auto& djLiege = title.second->getDeJureLiege();
+				if (djLiege.first.find("c_") == 0)
+				{
+					// we're golden.
+					title.second->overrideLiege();
+					counter++;
+				}
+			}
+		}
+	}
+	Log(LogLevel::Info) << "<> " << counter << " baronies reassigned.";
 }
