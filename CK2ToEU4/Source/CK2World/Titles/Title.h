@@ -2,10 +2,10 @@
 #define CK2_TITLE_H
 #include "newParser.h"
 #include <set>
+#include "Liege.h"
 
 namespace CK2
 {
-	class Liege;
 	class Character;
 	class Title: commonItems::parser
 	{
@@ -16,8 +16,13 @@ namespace CK2
 		[[nodiscard]] const auto& getLaws() const { return laws; }
 		[[nodiscard]] const auto& getLiege() const { return liege; }
 		[[nodiscard]] const auto& getDeJureLiege() const { return deJureLiege; }
-
-		[[nodiscard]] auto getHolder() const { return holder; }
+		[[nodiscard]] const auto& getHolder() const { return holder; }
+		
+		void setHolder(std::shared_ptr<Character> theHolder) { holder.second = theHolder; }
+		void setLiegePrimaryTitle(std::shared_ptr<Title> theTitle) { liege.second->setTitle(theTitle); }
+		void setLiegeBaseTitle(std::shared_ptr<Title> theBaseTitle) { liege.second->setBaseTitle(theBaseTitle); }
+		void setDJLiegePrimaryTitle(std::shared_ptr<Title> theTitle) { deJureLiege.second->setTitle(theTitle); }
+		void setDJLiegeBaseTitle(std::shared_ptr<Title> theBaseTitle) { deJureLiege.second->setBaseTitle(theBaseTitle); }
 
 	private:
 		void registerKeys();

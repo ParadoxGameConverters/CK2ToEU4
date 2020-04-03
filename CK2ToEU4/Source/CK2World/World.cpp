@@ -94,6 +94,12 @@ CK2::World::World(std::shared_ptr<Configuration> theConfiguration)
 	characters.linkPrimaryTitles(titles);
 	LOG(LogLevel::Info) << "-- Linking Characters With Capitals";
 	characters.linkCapitals(provinces);
+	LOG(LogLevel::Info) << "-- Linking Provinces With Primary Baronies";
+	provinces.linkPrimarySettlements();
+	LOG(LogLevel::Info) << "-- Linking Titles With Holders";
+	titles.linkHolders(characters);
+	LOG(LogLevel::Info) << "-- Linking Titles With Liege and DeJure titles";
+	titles.linkLiegePrimaryTitles();
 
 	LOG(LogLevel::Info) << "*** Good-bye CK2, rest in peace. ***";
 }

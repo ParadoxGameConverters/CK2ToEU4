@@ -11,7 +11,9 @@ namespace CK2
 		Provinces() = default;
 		Provinces(std::istream& theStream);
 		[[nodiscard]] const auto& getProvinces() const { return provinces; }
-				
+
+		void linkPrimarySettlements();
+
 	private:
 		void registerKeys();
 
