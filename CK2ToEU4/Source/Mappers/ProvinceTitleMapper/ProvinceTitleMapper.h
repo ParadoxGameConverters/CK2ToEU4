@@ -3,6 +3,12 @@
 
 #include "newParser.h"
 
+namespace CK2
+{
+	class Provinces;
+	class Titles;
+}
+
 namespace mappers
 {
 	class ProvinceTitleMapper
@@ -12,14 +18,15 @@ namespace mappers
 		void loadProvinces(const std::string& CK2Path);
 
 		[[nodiscard]] const auto& getProvinceTitles() const { return provinceTitles; }
-		void replaceProvinceTitles(std::map<std::string, int> newProvinceTitles) { provinceTitles = std::move(newProvinceTitles); }
+		[[nodiscard]] const auto& getOrigProvinceTitles() const { return origProvinceTitles; }
+		void filterSelf(const CK2::Provinces& theProvinces, const CK2::Titles& theTitles);
 
-		std::optional<int> getIDForTitle(const std::string& title);
-		std::optional<std::string> getTitleForID(int provID);
+		[[nodiscard]] std::optional<int> getIDForTitle(const std::string& title) const;
+		[[nodiscard]] std::optional<std::string> getTitleForID(int provID) const;
 
-	private:
-		
-		std::map<std::string, int> provinceTitles; // beware, c_titles can have identical IDs (until filtered), thanx paradox.
+	private:		
+		std::multimap<std::string, int> origProvinceTitles; // c_title can have multiple IDs, and IDs can have multiple c_titles, thanx paradox.
+		std::map<std::string, int> provinceTitles; // filtered list.
 	};
 }
 

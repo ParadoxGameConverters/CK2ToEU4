@@ -22,9 +22,9 @@ namespace CK2
 	private:
 		void verifySave(const std::string& saveGamePath);
 		bool uncompressSave(const std::string& saveGamePath);
-		void filterExcessProvinceTitles();
 		void filterIndependentTitles();
-		void mergeIndependentBaronies();
+		void mergeIndependentBaronies() const;
+		void congregateProvinces();
 		
 		date endDate = date("1444.11.11");
 		date startDate = date("1.1.1");

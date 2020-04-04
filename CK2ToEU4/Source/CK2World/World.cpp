@@ -11,7 +11,6 @@
 #include "../Common/CommonFunctions.h"
 #include "Titles/Title.h"
 #include "Titles/Liege.h"
-#include "Characters/Character.h"
 
 namespace fs = std::filesystem;
 
@@ -88,7 +87,7 @@ CK2::World::World(std::shared_ptr<Configuration> theConfiguration)
 
 	// Link all the intertwining pointers
 	LOG(LogLevel::Info) << "-- Filtering Excess Province Titles";
-	filterExcessProvinceTitles();
+	provinceTitleMapper.filterSelf(provinces, titles);
 	LOG(LogLevel::Info) << "-- Linking Characters With Dynasties";
 	characters.linkDynasties(dynasties);
 	LOG(LogLevel::Info) << "-- Linking Characters With Lieges and Spouses";
@@ -101,14 +100,24 @@ CK2::World::World(std::shared_ptr<Configuration> theConfiguration)
 	provinces.linkPrimarySettlements();
 	LOG(LogLevel::Info) << "-- Linking Titles With Holders";
 	titles.linkHolders(characters);
-	LOG(LogLevel::Info) << "-- Linking Titles With Liege and DeJure titles";
+	LOG(LogLevel::Info) << "-- Linking Titles With Liege and DeJure Titles";
 	titles.linkLiegePrimaryTitles();
-	 
+	LOG(LogLevel::Info) << "-- Linking Titles With Vassals and DeJure Vassals";
+	titles.linkVassals();
+	LOG(LogLevel::Info) << "-- Linking Titles With Provinces";
+	titles.linkProvinces(provinces, provinceTitleMapper); // Untestable due to disk access.
+	LOG(LogLevel::Info) << "-- Linking Titles With Base Titles";
+	titles.linkBaseTitles();
+
 	// Filter top-tier active titles and assign them provinces.
 	LOG(LogLevel::Info) << "-- Merging Independent Baronies";
 	mergeIndependentBaronies();
 	LOG(LogLevel::Info) << "-- Filtering Independent Titles";
 	filterIndependentTitles();
+	LOG(LogLevel::Info) << "-- Merging Rebellions Into Base";
+	//mergeRebellions();
+	LOG(LogLevel::Info) << "-- Congregating Provinces for Independent Titles";
+	congregateProvinces();
 
 
 	LOG(LogLevel::Info) << "*** Good-bye CK2, rest in peace. ***";
@@ -154,22 +163,6 @@ bool CK2::World::uncompressSave(const std::string& saveGamePath)
 	return true;
 }
 
-void CK2::World::filterExcessProvinceTitles()
-{
-	// This function's purpose is to filter out invalid provinceID-title mappings from /history/provinces.
-	
-	const auto& provinceTitles = provinceTitleMapper.getProvinceTitles(); // contains junk.
-	std::map<std::string, int> newProvinceTitles;
-	const auto& availableTitles = titles.getTitles();
-
-	for (const auto& provinceTitle: provinceTitles)
-	{
-		if (availableTitles.count(provinceTitle.first)) newProvinceTitles.insert(std::pair(provinceTitle.first, provinceTitle.second));
-	}
-	Log(LogLevel::Info) << "<> Dropped " << provinceTitles.size() - newProvinceTitles.size() << " invalid mappings.";
-	provinceTitleMapper.replaceProvinceTitles(newProvinceTitles);
-}
-
 void CK2::World::filterIndependentTitles()
 {
 	const auto& allTitles = titles.getTitles();
@@ -203,14 +196,38 @@ void CK2::World::filterIndependentTitles()
 			}
 		}
 	}
-	// Check if we hold any actual land.
+
+	// Check if we hold any actual land (c_something). (Only necessary for the holder,
+	// no need to recurse, we're just filtering landless titular titles like mercenaries
+	// or landless Pope. If a character holds a landless titular title along actual title
+	// (like Caliphate), it's not relevant at this stage as he's independent anyway.
+
+	// First, split off all county_title holders into a container.
+	std::set<int> countyHolders;
+	for (const auto& title : allTitles)
+	{
+		if (title.second->getHolder().first && title.second->getName().find("c_") == 0)
+		{
+			countyHolders.insert(title.second->getHolder().first);
+		}
+	}
+
+	// Then look at all potential indeps and see if their holders are up there.
+	auto counter = 0;
 	for (const auto& indep: potentialIndeps)
 	{
-		Log(LogLevel::Debug) << "title: " << indep.second->getName() << " holder: " << indep.second->getHolder().second->getName();
+		const auto& holderID = indep.second->getHolder().first;
+		if (countyHolders.count(holderID))
+		{
+			// this fellow holds a county, so his indep title is an actual title.
+			independentTitles.insert(std::pair(indep.first, indep.second));
+			counter++;
+		}
 	}
+	Log(LogLevel::Info) << "<> " << counter << " independent titles recognized.";
 }
 
-void CK2::World::mergeIndependentBaronies()
+void CK2::World::mergeIndependentBaronies() const
 {
 	auto counter = 0;
 	const auto& allTitles = titles.getTitles();
@@ -236,4 +253,14 @@ void CK2::World::mergeIndependentBaronies()
 		}
 	}
 	Log(LogLevel::Info) << "<> " << counter << " baronies reassigned.";
+}
+
+void CK2::World::congregateProvinces()
+{
+	// We're linking all contained province for a title's tree under that title.
+	// This will form actual EU4 tag and contained provinces.
+	for (const auto& title: independentTitles)
+	{
+		title.second->congregateProvinces(independentTitles);
+	}
 }

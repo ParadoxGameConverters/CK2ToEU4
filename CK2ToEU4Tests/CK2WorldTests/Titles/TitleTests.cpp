@@ -1,6 +1,9 @@
 #include "gtest/gtest.h"
 #include "../CK2ToEU4/Source/CK2World/Titles/Title.h"
+#include "../CK2ToEU4/Source/CK2World/Titles/Titles.h"
 #include "../CK2ToEU4/Source/CK2World/Titles/Liege.h"
+#include "../CK2ToEU4/Source/CK2World/Provinces/Province.h"
+#include "../CK2ToEU4/Source/CK2World/Provinces/Provinces.h"
 #include <sstream>
 
 TEST(CK2World_TitleTests, nameCanBeSet)
@@ -109,6 +112,32 @@ TEST(CK2World_TitleTests, inHRECanBeSet)
 	ASSERT_TRUE(theTitle.isInHRE());
 }
 
+TEST(CK2World_TitleTests, majorRevoltDefaultsToFalse)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "}";
+
+	const CK2::Title theTitle(input, "c_test");
+
+	ASSERT_FALSE(theTitle.isMajorRevolt());
+}
+
+TEST(CK2World_TitleTests, majorRevoltCanBeSet)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "\tmajor_revolt=yes\n";
+	input << "}";
+
+	CK2::Title theTitle(input, "c_test");
+	theTitle.setInHRE();
+
+	ASSERT_TRUE(theTitle.isMajorRevolt());
+}
+
 TEST(CK2World_TitleTests, liegeDefaultsToNull)
 {
 	std::stringstream input;
@@ -190,3 +219,78 @@ TEST(CK2World_TitleTests, complexDeJureLiegeCanBeSet)
 
 	ASSERT_EQ(theTitle.getDeJureLiege().second->getTitle().first, "c_test2");
 }
+
+TEST(CK2World_TitleTests, baseTitleDefaultsToBlank)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "}";
+
+	const CK2::Title theTitle(input, "c_test");
+
+	ASSERT_TRUE(theTitle.getBaseTitle().first.empty());
+}
+
+TEST(CK2World_TitleTests, simpleBaseTitleCanBeSet)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "\tbase_title=c_base\n";
+	input << "}";
+
+	const CK2::Title theTitle(input, "c_test");
+
+	ASSERT_EQ(theTitle.getBaseTitle().second->getTitle().first, "c_base");
+}
+
+TEST(CK2World_TitleTests, complexBaseTitleCanBeSet)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "\tbase_title=\n";
+	input << "\t{\n";
+	input << "\ttitle=c_base\n";
+	input << "\t}\n";
+	input << "}";
+
+	const CK2::Title theTitle(input, "c_test");
+
+	ASSERT_EQ(theTitle.getBaseTitle().second->getTitle().first, "c_base");
+}
+
+TEST(CK2World_TitleTests, provincesDefaultToEmpty)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "}";
+
+	const CK2::Title theTitle(input, "c_test");
+
+	ASSERT_TRUE(theTitle.getProvinces().empty());
+}
+
+TEST(CK2World_TitleTests, provincesCanBeLoaded)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "}";
+	CK2::Title theTitle(input, "c_test");
+
+	std::stringstream input2;
+	input2 << "=\n";
+	input2 << "{\n";
+	input2 << "42={}\n";
+	input2 << "43={}\n";
+	input2 << "}";
+	const CK2::Provinces theProvinces(input2);
+	const auto& province = theProvinces.getProvinces().find(42);
+	theTitle.registerProvince(std::pair(province->first, province->second));
+
+	ASSERT_EQ(theTitle.getProvinces().find(42)->second->getID(), 42);
+}
+
