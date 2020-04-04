@@ -3,6 +3,7 @@
 #include "ParserHelpers.h"
 #include "Title.h"
 #include "../Characters/Characters.h"
+#include "Liege.h"
 
 CK2::Titles::Titles(std::istream& theStream)
 {
@@ -107,4 +108,33 @@ void CK2::Titles::linkLiegePrimaryTitles()
 	}
 	Log(LogLevel::Info) << "<> " << counterPrim << " liege titles and " << counterBase << " liege base titles linked.";
 	Log(LogLevel::Info) << "<> " << counterDJPrim << " dejure liege titles and " << counterDJBase << " dejure liege base titles linked.";
+}
+
+void CK2::Titles::linkVassals()
+{
+	auto counter = 0;
+	auto counterDJ = 0;
+	// We have title->liege links but not vice versa. The vice versa ones are more useful.
+	for (const auto& title: titles)
+	{
+		if (title.second->getLiege().second) // At this point these links should all be set.
+		{
+			const auto& titleItr = titles.find(title.second->getLiege().first);
+			if (titleItr != titles.end())
+			{
+				titleItr->second->registerVassal(std::pair(title.first, title.second));
+				counter++;
+			}
+		}
+		if (title.second->getDeJureLiege().second)
+		{
+			const auto& titleItr = titles.find(title.second->getDeJureLiege().first);
+			if (titleItr != titles.end())
+			{
+				titleItr->second->registerDeJureVassal(std::pair(title.first, title.second));
+				counterDJ++;
+			}
+		}
+	}
+	Log(LogLevel::Info) << "<> " << counter << " vassals and " << counterDJ << " de jure vassals linked.";
 }

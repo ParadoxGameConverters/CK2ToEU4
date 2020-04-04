@@ -375,3 +375,79 @@ TEST(CK2World_TitlesTests, DJliegeBaseTitleLinkCannotBeSetThrowsWarning)
 
 	ASSERT_EQ(stringLog, "Base DJ liege title ID: d_something has no definition!");
 }
+
+TEST(CK2World_TitlesTests, liegeVassalsDefaultToEmpty)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "c_title={liege=d_liege}\n";
+	input << "d_liege={}\n";
+	input << "}";
+	CK2::Titles titles(input);
+	titles.linkLiegePrimaryTitles();
+
+	const auto& titleItr = titles.getTitles().find("c_title");
+	const auto& liegeTitle = titleItr->second->getLiege().second->getTitle();
+
+	ASSERT_TRUE(liegeTitle.second->getVassals().empty());
+}
+
+TEST(CK2World_TitlesTests, liegeVassalsCanBeSet)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "c_title={liege=d_liege}\n";
+	input << "d_liege={}\n";
+	input << "}";
+	CK2::Titles titles(input);
+
+	titles.linkLiegePrimaryTitles();
+	titles.linkVassals();
+	const auto& titleItr = titles.getTitles().find("c_title");
+	const auto& liegeTitle = titleItr->second->getLiege().second->getTitle();
+	const auto& linktoSelf = liegeTitle.second->getVassals().find("c_title");
+
+	ASSERT_FALSE(liegeTitle.second->getVassals().empty());
+	ASSERT_EQ(linktoSelf->first, "c_title");
+	ASSERT_EQ(linktoSelf->second->getName(), "c_title");
+}
+
+TEST(CK2World_TitlesTests, liegeDeJureVassalsDefaultToEmpty)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "c_title={de_jure_liege=d_liege}\n";
+	input << "d_liege={}\n";
+	input << "}";
+	CK2::Titles titles(input);
+	titles.linkLiegePrimaryTitles();
+
+	const auto& titleItr = titles.getTitles().find("c_title");
+	const auto& liegeTitle = titleItr->second->getDeJureLiege().second->getTitle();
+
+	ASSERT_TRUE(liegeTitle.second->getDeJureVassals().empty());
+}
+
+TEST(CK2World_TitlesTests, liegeDeJureVassalsCanBeSet)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "c_title={de_jure_liege=d_liege}\n";
+	input << "d_liege={}\n";
+	input << "}";
+	CK2::Titles titles(input);
+
+	titles.linkLiegePrimaryTitles();
+	titles.linkVassals();
+	const auto& titleItr = titles.getTitles().find("c_title");
+	const auto& liegeTitle = titleItr->second->getDeJureLiege().second->getTitle();
+	const auto& linktoSelf = liegeTitle.second->getDeJureVassals().find("c_title");
+
+	ASSERT_FALSE(liegeTitle.second->getDeJureVassals().empty());
+	ASSERT_EQ(linktoSelf->first, "c_title");
+	ASSERT_EQ(linktoSelf->second->getName(), "c_title");
+}

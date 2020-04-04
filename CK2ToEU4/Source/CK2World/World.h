@@ -24,7 +24,7 @@ namespace CK2
 		bool uncompressSave(const std::string& saveGamePath);
 		void filterExcessProvinceTitles();
 		void filterIndependentTitles();
-		void mergeIndependentBaronies();
+		void mergeIndependentBaronies() const;
 		
 		date endDate = date("1444.11.11");
 		date startDate = date("1.1.1");

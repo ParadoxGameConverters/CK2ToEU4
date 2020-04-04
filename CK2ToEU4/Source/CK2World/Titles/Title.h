@@ -17,6 +17,8 @@ namespace CK2
 		[[nodiscard]] const auto& getLiege() const { return liege; }
 		[[nodiscard]] const auto& getDeJureLiege() const { return deJureLiege; }
 		[[nodiscard]] const auto& getHolder() const { return holder; }
+		[[nodiscard]] const auto& getVassals() const { return vassals; }
+		[[nodiscard]] const auto& getDeJureVassals() const { return deJureVassals; }
 		[[nodiscard]] auto isInHRE() const { return inHRE; }
 		
 		void setHolder(std::shared_ptr<Character> theHolder) { holder.second = std::move(theHolder); }
@@ -26,6 +28,8 @@ namespace CK2
 		void setDJLiegeBaseTitle(std::shared_ptr<Title> theBaseTitle) const { deJureLiege.second->setBaseTitle(std::move(theBaseTitle)); }
 		void setInHRE() { inHRE = true; }
 		void overrideLiege() { liege = deJureLiege; }
+		void registerVassal(const std::pair<std::string, std::shared_ptr<Title>>& theVassal) { vassals.insert(theVassal); }
+		void registerDeJureVassal(const std::pair<std::string, std::shared_ptr<Title>>& theVassal) { deJureVassals.insert(theVassal); }
 
 	private:
 		void registerKeys();
@@ -36,6 +40,9 @@ namespace CK2
 		std::pair<std::string, std::shared_ptr<Liege>> deJureLiege;
 		std::string name;
 		bool inHRE = false;
+
+		std::map<std::string, std::shared_ptr<Title>> vassals;
+		std::map<std::string, std::shared_ptr<Title>> deJureVassals;
 	};
 }
 

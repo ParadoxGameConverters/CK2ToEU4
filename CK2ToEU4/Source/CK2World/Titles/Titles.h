@@ -15,6 +15,7 @@ namespace CK2
 
 		void linkHolders(const Characters& theCharacters);
 		void linkLiegePrimaryTitles();
+		void linkVassals();
 
 	private:
 		void registerKeys();
