@@ -107,6 +107,12 @@
     <ClCompile Include="CK2WorldTests\Characters\DomainTests.cpp">
       <Filter>CK2WorldTests\Characters</Filter>
     </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\ProvinceTitleMapper\ProvinceTitleGrabber.cpp">
+      <Filter>ConverterFiles\Mappers\ProvinceTitleMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\ProvinceTitleMapper\ProvinceTitleMapper.cpp">
+      <Filter>ConverterFiles\Mappers\ProvinceTitleMapper</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4WorldTests">
@@ -168,6 +174,9 @@
     </Filter>
     <Filter Include="CK2WorldTests\Dynasties">
       <UniqueIdentifier>{d7473ea1-8a50-402c-a780-204347bf64a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ConverterFiles\Mappers\ProvinceTitleMapper">
+      <UniqueIdentifier>{16621f5e-c915-4932-aaf5-bff8e45f2e5e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

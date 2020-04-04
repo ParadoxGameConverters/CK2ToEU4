@@ -178,6 +178,8 @@
     <ClCompile Include="..\CK2ToEU4\Source\Common\CommonFunctions.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Configuration\Configuration.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Configuration\ConfigurationDetails.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\ProvinceTitleMapper\ProvinceTitleGrabber.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\ProvinceTitleMapper\ProvinceTitleMapper.cpp" />
     <ClCompile Include="..\common_items\Color.cpp" />
     <ClCompile Include="..\common_items\Date.cpp" />
     <ClCompile Include="..\common_items\iconvlite.cpp" />

@@ -7,6 +7,7 @@
 namespace CK2
 {
 	class Character;
+	class Province;
 	class Title: commonItems::parser
 	{
 	public:
@@ -19,6 +20,7 @@ namespace CK2
 		[[nodiscard]] const auto& getHolder() const { return holder; }
 		[[nodiscard]] const auto& getVassals() const { return vassals; }
 		[[nodiscard]] const auto& getDeJureVassals() const { return deJureVassals; }
+		[[nodiscard]] const auto& getProvinces() const { return provinces; }
 		[[nodiscard]] auto isInHRE() const { return inHRE; }
 		
 		void setHolder(std::shared_ptr<Character> theHolder) { holder.second = std::move(theHolder); }
@@ -30,6 +32,7 @@ namespace CK2
 		void overrideLiege() { liege = deJureLiege; }
 		void registerVassal(const std::pair<std::string, std::shared_ptr<Title>>& theVassal) { vassals.insert(theVassal); }
 		void registerDeJureVassal(const std::pair<std::string, std::shared_ptr<Title>>& theVassal) { deJureVassals.insert(theVassal); }
+		void registerProvince(const std::pair<int, std::shared_ptr<Province>>& theProvince) { provinces.insert(theProvince); }
 
 	private:
 		void registerKeys();
@@ -40,7 +43,7 @@ namespace CK2
 		std::pair<std::string, std::shared_ptr<Liege>> deJureLiege;
 		std::string name;
 		bool inHRE = false;
-
+		std::map<int, std::shared_ptr<Province>> provinces;
 		std::map<std::string, std::shared_ptr<Title>> vassals;
 		std::map<std::string, std::shared_ptr<Title>> deJureVassals;
 	};

@@ -4,6 +4,9 @@
 #include "Title.h"
 #include "../Characters/Characters.h"
 #include "Liege.h"
+#include "../Provinces/Provinces.h"
+#include "../Provinces/Province.h"
+#include "../../Mappers/ProvinceTitleMapper/ProvinceTitleMapper.h"
 
 CK2::Titles::Titles(std::istream& theStream)
 {
@@ -137,4 +140,46 @@ void CK2::Titles::linkVassals()
 		}
 	}
 	Log(LogLevel::Info) << "<> " << counter << " vassals and " << counterDJ << " de jure vassals linked.";
+}
+
+void CK2::Titles::linkProvinces(const Provinces& theProvinces, const mappers::ProvinceTitleMapper& provinceTitleMapper)
+{
+	// We're linking actual provinces to actual titles holding them (only c_level).
+	// Conglomeration for higher-tier titles comes later.
+	const auto& provinces = theProvinces.getProvinces();
+
+	// reorganize provinces into searchable map
+	std::map<std::string, std::shared_ptr<Province>> titleProvinceMap;
+	for (const auto& province: provinces)
+	{
+		const auto& provinceTitle = provinceTitleMapper.getTitleForID(province.first);
+		if (provinceTitle)
+		{
+			titleProvinceMap.insert(std::pair(*provinceTitle, province.second));
+		}
+		// We're not handling errors since c_wastelands won't have titles, but will be present.
+	}
+
+	// and map them to counties.
+	auto counter = 0;
+	for (const auto& title: titles)
+	{
+		const auto& titleName = title.first;
+		// We could just look up directly in the map but then we'd miss potential errors,
+		// so we check for c_ manually.
+		if (titleName.find("c_") == 0) 
+		{
+			const auto& provinceItr = titleProvinceMap.find(titleName);
+			if (provinceItr != titleProvinceMap.end())
+			{
+				title.second->registerProvince(std::pair(provinceItr->second->getID(), provinceItr->second));
+				counter++;
+			}
+			else
+			{
+				Log(LogLevel::Warning) << "Title " << titleName << " has no province!";
+			}
+		}
+	}
+	Log(LogLevel::Info) << "<> " << counter << " provinces linked.";
 }

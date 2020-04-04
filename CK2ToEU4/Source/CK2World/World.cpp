@@ -87,7 +87,7 @@ CK2::World::World(std::shared_ptr<Configuration> theConfiguration)
 
 	// Link all the intertwining pointers
 	LOG(LogLevel::Info) << "-- Filtering Excess Province Titles";
-	filterExcessProvinceTitles();
+	provinceTitleMapper.filterSelf(provinces, titles);
 	LOG(LogLevel::Info) << "-- Linking Characters With Dynasties";
 	characters.linkDynasties(dynasties);
 	LOG(LogLevel::Info) << "-- Linking Characters With Lieges and Spouses";
@@ -104,12 +104,16 @@ CK2::World::World(std::shared_ptr<Configuration> theConfiguration)
 	titles.linkLiegePrimaryTitles();
 	LOG(LogLevel::Info) << "-- Linking Titles With Vassals and DeJure Vassals";
 	titles.linkVassals();
+	LOG(LogLevel::Info) << "-- Linking Titles With Provinces";
+	titles.linkProvinces(provinces, provinceTitleMapper);
 
 	// Filter top-tier active titles and assign them provinces.
 	LOG(LogLevel::Info) << "-- Merging Independent Baronies";
 	mergeIndependentBaronies();
 	LOG(LogLevel::Info) << "-- Filtering Independent Titles";
 	filterIndependentTitles();
+	/*LOG(LogLevel::Info) << "-- Filtering Independent Titles";
+	filterIndependentTitles();*/
 
 
 	LOG(LogLevel::Info) << "*** Good-bye CK2, rest in peace. ***";
@@ -153,22 +157,6 @@ bool CK2::World::uncompressSave(const std::string& saveGamePath)
 		else throw std::runtime_error("Unrecognized savegame structure!");
 	}
 	return true;
-}
-
-void CK2::World::filterExcessProvinceTitles()
-{
-	// This function's purpose is to filter out invalid provinceID-title mappings from /history/provinces.
-	
-	const auto& provinceTitles = provinceTitleMapper.getProvinceTitles(); // contains junk.
-	std::map<std::string, int> newProvinceTitles;
-	const auto& availableTitles = titles.getTitles();
-
-	for (const auto& provinceTitle: provinceTitles)
-	{
-		if (availableTitles.count(provinceTitle.first)) newProvinceTitles.insert(std::pair(provinceTitle.first, provinceTitle.second));
-	}
-	Log(LogLevel::Info) << "<> Dropped " << provinceTitles.size() - newProvinceTitles.size() << " invalid mappings.";
-	provinceTitleMapper.replaceProvinceTitles(newProvinceTitles);
 }
 
 void CK2::World::filterIndependentTitles()

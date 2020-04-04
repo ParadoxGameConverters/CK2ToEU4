@@ -2,10 +2,16 @@
 #define CK2_TITLES_H
 #include "newParser.h"
 
+namespace mappers
+{
+	class ProvinceTitleMapper;
+}
+
 namespace CK2
 {
 	class Title;
 	class Characters;
+	class Provinces;
 	class Titles: commonItems::parser
 	{
 	public:
@@ -16,6 +22,7 @@ namespace CK2
 		void linkHolders(const Characters& theCharacters);
 		void linkLiegePrimaryTitles();
 		void linkVassals();
+		void linkProvinces(const Provinces& theProvinces, const mappers::ProvinceTitleMapper& provinceTitleMapper);
 
 	private:
 		void registerKeys();

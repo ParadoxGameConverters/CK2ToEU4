@@ -3,6 +3,8 @@
 #include <set>
 #include "OSCompatibilityLayer.h"
 #include "ProvinceTitleGrabber.h"
+#include "../../CK2World/Provinces/Provinces.h"
+#include "../../CK2World/Titles/Titles.h"
 
 void mappers::ProvinceTitleMapper::loadProvinces(const std::string& CK2Path)
 {
@@ -15,34 +17,51 @@ void mappers::ProvinceTitleMapper::loadProvinces(const std::string& CK2Path)
 	{
 		auto newProvince = ProvinceTitleGrabber(CK2Path + "/history/provinces/" + provinceFilename);
 
-		// Patch for poor QA over there. Sorry future maintainers, but single provinceID can point to multiple c_titles,
-		// as well as a single c_title can point to multiple provinceIDs. There's no way of knowing.
-		if (getIDForTitle(newProvince.getTitle()))
-		{
-			provinceTitles[newProvince.getTitle()] = newProvince.getID();
-		}
-		else
-		{
-			provinceTitles.insert(std::make_pair(newProvince.getTitle(), newProvince.getID()));
-		}
+		// At this stage, single provinceID can point to multiple c_titles, as well as a single
+		// c_title can point to multiple provinceIDs. We must filter this before we can use it!
+		origProvinceTitles.insert(std::make_pair(newProvince.getTitle(), newProvince.getID()));
 	}
 	Log(LogLevel::Info) << ">> Loaded: " << provinceTitles.size() << " provinces from history.";
 }
 
-std::optional<int> mappers::ProvinceTitleMapper::getIDForTitle(const std::string& title)
+std::optional<int> mappers::ProvinceTitleMapper::getIDForTitle(const std::string& title) const
 {
 	const auto& provItr = provinceTitles.find(title);
 	if (provItr != provinceTitles.end()) return provItr->second;
 	return std::nullopt;
 }
 
-std::optional<std::string> mappers::ProvinceTitleMapper::getTitleForID(int provID)
+std::optional<std::string> mappers::ProvinceTitleMapper::getTitleForID(int provID) const
 {
-	std::vector<std::string> potentialTiles;
-	for (const auto& province : provinceTitles) if (province.second == provID) potentialTiles.push_back(province.first);
-
-	if (potentialTiles.size() > 1) Log(LogLevel::Warning) << "Province ID " << provID << " has multiple province titles defined! Filter this!";
-	if (!potentialTiles.empty()) return *potentialTiles.begin();
-
+	for (const auto& province : provinceTitles) if (province.second == provID) return province.first;
 	return std::nullopt;
+}
+
+void mappers::ProvinceTitleMapper::filterSelf(const CK2::Provinces& theProvinces, const CK2::Titles& theTitles)
+{
+	// This function's purpose is to filter out invalid provinceID-title mappings from /history/provinces.
+
+	std::set<int> knownProvinceIDs;
+	std::set<std::string> knownTitles;
+
+	for (const auto& province: theProvinces.getProvinces())
+	{
+		knownProvinceIDs.insert(province.first);
+	}
+	for (const auto& title: theTitles.getTitles())
+	{
+		knownTitles.insert(title.first);
+	}
+	
+	std::map<std::string, int> newProvinceTitles;
+
+	for (const auto& provinceTitle : origProvinceTitles)
+	{
+		if (knownTitles.count(provinceTitle.first) && knownProvinceIDs.count(provinceTitle.second))
+		{
+			newProvinceTitles.insert(std::pair(provinceTitle.first, provinceTitle.second));
+		}
+	}
+	Log(LogLevel::Info) << "<> Dropped " << origProvinceTitles.size() - newProvinceTitles.size() << " invalid mappings.";
+	provinceTitles.swap(newProvinceTitles);
 }

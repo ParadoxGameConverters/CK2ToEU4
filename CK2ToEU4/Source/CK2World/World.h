@@ -22,7 +22,6 @@ namespace CK2
 	private:
 		void verifySave(const std::string& saveGamePath);
 		bool uncompressSave(const std::string& saveGamePath);
-		void filterExcessProvinceTitles();
 		void filterIndependentTitles();
 		void mergeIndependentBaronies() const;
 		
