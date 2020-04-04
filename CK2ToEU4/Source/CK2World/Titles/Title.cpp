@@ -96,7 +96,7 @@ std::map<int, std::shared_ptr<CK2::Province>> CK2::Title::coalesceProvinces() co
 	{
 		const auto& vassalProvinces = vassal.second->coalesceProvinces();
 		toReturn.insert(vassalProvinces.begin(), vassalProvinces.end());
-		toReturn.insert(provinces.begin(), provinces.end());
 	}
+	toReturn.insert(provinces.begin(), provinces.end());
 	return toReturn;
 }
