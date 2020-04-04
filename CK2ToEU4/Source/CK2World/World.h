@@ -1,11 +1,14 @@
 #ifndef CK2_WORLD_H
 #define CK2_WORLD_H
 #include "newParser.h"
+#include "Date.h"
 #include "../Mappers/ProvinceTitleMapper/ProvinceTitleMapper.h"
 #include "Provinces/Provinces.h"
-#include "../Common/Version.h"
-#include "Date.h"
 #include "Characters/Characters.h"
+#include "Titles/Titles.h"
+#include "Dynasties/Dynasties.h"
+#include "../Common/Version.h"
+#include "Titles/Liege.h"
 
 class Configuration;
 
@@ -19,7 +22,10 @@ namespace CK2
 	private:
 		void verifySave(const std::string& saveGamePath);
 		bool uncompressSave(const std::string& saveGamePath);
-
+		void filterExcessProvinceTitles();
+		void filterIndependentTitles();
+		void mergeIndependentBaronies();
+		
 		date endDate = date("1444.11.11");
 		date startDate = date("1.1.1");
 		Version CK2Version;
@@ -35,7 +41,11 @@ namespace CK2
 		mappers::ProvinceTitleMapper provinceTitleMapper;
 		Provinces provinces;
 		Characters characters;
-		
+		Titles titles;
+		Dynasties dynasties;
+		std::map<std::string, Liege> dynamicTitles; // Reusing Liege as it has identical structure
+
+		std::map<std::string, std::shared_ptr<Title>> independentTitles;
 	};
 }
 

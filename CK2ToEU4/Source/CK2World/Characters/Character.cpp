@@ -1,6 +1,7 @@
 #include "Character.h"
 #include "ParserHelpers.h"
 #include "Log.h"
+#include "Domain.h"
 
 CK2::Character::Character(std::istream& theStream, int chrID) : charID(chrID)
 {
@@ -33,7 +34,29 @@ void CK2::Character::registerKeys()
 		});
 	registerKeyword("dnt", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleInt dynastyInt(theStream);
-		dynasty = dynastyInt.getInt();
+		dynasty = std::pair(dynastyInt.getInt(), nullptr);
+		});
+	registerKeyword("lge", [this](const std::string& unused, std::istream& theStream) {
+		const commonItems::singleInt liegeInt(theStream);
+		liege = std::pair(liegeInt.getInt(), nullptr);
+		});
+	registerKeyword("att", [this](const std::string& unused, std::istream& theStream) {
+		const commonItems::intList skillsList(theStream);
+		const auto theList = skillsList.getInts();
+		skills.diplomacy = theList[0];
+		skills.martial = theList[1];
+		skills.stewardship = theList[2];
+		skills.intrigue = theList[3];
+		skills.learning= theList[4];
+		});
+	registerKeyword("spouse", [this](const std::string& unused, std::istream& theStream) {
+		const commonItems::singleInt spouseInt(theStream);
+		spouses.insert(std::pair(spouseInt.getInt(), nullptr));
+		});
+	registerKeyword("dmn", [this](const std::string& unused, std::istream& theStream) {
+		const auto newDomain = Domain(theStream);
+		primaryTitle = newDomain.getPrimaryTitle();
+		capital = newDomain.getCapital();
 		});
 	registerRegex("[A-Za-z0-9\\:_.-]+", commonItems::ignoreItem);
 }

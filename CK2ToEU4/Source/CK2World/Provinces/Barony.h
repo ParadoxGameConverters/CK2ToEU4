@@ -20,7 +20,6 @@ namespace CK2
 		std::string name;
 		std::string type;
 		std::set<std::string> buildings;
-		
 	};
 }
 

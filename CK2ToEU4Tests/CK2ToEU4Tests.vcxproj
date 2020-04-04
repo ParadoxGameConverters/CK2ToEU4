@@ -166,9 +166,15 @@
   <ItemGroup>
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Characters\Character.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Characters\Characters.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Characters\Domain.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Dynasties\Dynasties.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Dynasties\Dynasty.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Provinces\Barony.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Provinces\Province.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Provinces\Provinces.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Titles\Liege.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Titles\Title.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Titles\Titles.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Common\CommonFunctions.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Configuration\Configuration.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Configuration\ConfigurationDetails.cpp" />
@@ -185,9 +191,15 @@
     <ClCompile Include="..\googletest\googletest\src\gtest_main.cc" />
     <ClCompile Include="CK2WorldTests\Characters\CharactersTests.cpp" />
     <ClCompile Include="CK2WorldTests\Characters\CharacterTests.cpp" />
+    <ClCompile Include="CK2WorldTests\Characters\DomainTests.cpp" />
+    <ClCompile Include="CK2WorldTests\Dynasties\DynastiesTests.cpp" />
+    <ClCompile Include="CK2WorldTests\Dynasties\DynastyTests.cpp" />
     <ClCompile Include="CK2WorldTests\Provinces\BaronyTests.cpp" />
     <ClCompile Include="CK2WorldTests\Provinces\ProvincesTests.cpp" />
     <ClCompile Include="CK2WorldTests\Provinces\ProvinceTests.cpp" />
+    <ClCompile Include="CK2WorldTests\Titles\LiegeTests.cpp" />
+    <ClCompile Include="CK2WorldTests\Titles\TitlesTests.cpp" />
+    <ClCompile Include="CK2WorldTests\Titles\TitleTests.cpp" />
     <ClCompile Include="CommonTests\CommonFunctionsTests.cpp" />
     <ClCompile Include="ConfigurationTests.cpp" />
   </ItemGroup>

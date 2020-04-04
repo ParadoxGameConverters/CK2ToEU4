@@ -1,10 +1,10 @@
 #ifndef CK2_PROVINCE_H
 #define CK2_PROVINCE_H
 #include "newParser.h"
-#include "Barony.h"
 
 namespace CK2
 {
+	class Barony;
 	class Province: commonItems::parser
 	{
 	public:
@@ -21,6 +21,9 @@ namespace CK2
 		[[nodiscard]] auto getBaronyCount() const { return static_cast<int>(baronies.size()); }
 		[[nodiscard]] int getBuildingWeight() const;
 
+		void discardPrimarySettlement() { primarySettlement.first.clear(); }
+		void setPrimarySettlement(std::shared_ptr<Barony> theBarony) { primarySettlement.second = std::move(theBarony); }
+		
 	private:
 		void registerKeys();
 
@@ -28,9 +31,9 @@ namespace CK2
 		std::string culture;
 		std::string religion;
 		std::string name;
-		std::string primarySettlement;
+		std::pair<std::string, std::shared_ptr<Barony>> primarySettlement;
 		int maxSettlements = 0;
-		std::map<std::string, Barony> baronies;
+		std::map<std::string, std::shared_ptr<Barony>> baronies;
 	};
 }
 

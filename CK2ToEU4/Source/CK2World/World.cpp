@@ -9,6 +9,9 @@
 #include <fstream>
 #include "../Configuration/Configuration.h"
 #include "../Common/CommonFunctions.h"
+#include "Titles/Title.h"
+#include "Titles/Liege.h"
+#include "Characters/Character.h"
 
 namespace fs = std::filesystem;
 
@@ -32,10 +35,26 @@ CK2::World::World(std::shared_ptr<Configuration> theConfiguration)
 	registerKeyword("provinces", [this](const std::string& unused, std::istream& theStream) {
 		LOG(LogLevel::Info) << "-> Loading Provinces";
 		provinces = Provinces(theStream);
+		LOG(LogLevel::Info) << ">> Loaded " << provinces.getProvinces().size() << " provinces.";
 		});
 	registerKeyword("character", [this](const std::string& unused, std::istream& theStream) {
 		LOG(LogLevel::Info) << "-> Loading Characters";
 		characters = Characters(theStream);
+		LOG(LogLevel::Info) << ">> Loaded " << characters.getCharacters().size() << " characters.";
+		});
+	registerKeyword("title", [this](const std::string& unused, std::istream& theStream) {
+		LOG(LogLevel::Info) << "-> Loading Titles";
+		titles = Titles(theStream);
+		LOG(LogLevel::Info) << ">> Loaded " << titles.getTitles().size() << " titles.";
+		});
+	registerKeyword("dynasties", [this](const std::string& unused, std::istream& theStream) {
+		LOG(LogLevel::Info) << "-> Loading Dynasties";
+		dynasties = Dynasties(theStream);
+		LOG(LogLevel::Info) << ">> Loaded " << dynasties.getDynasties().size() << " dynasties.";
+		});
+	registerKeyword("dyn_title", [this](const std::string& unused, std::istream& theStream) {
+		const auto dynTitle = Liege(theStream);
+		dynamicTitles.insert(std::pair(dynTitle.getTitle().first, dynTitle));
 		});
 
 	registerRegex("[A-Za-z0-9\\_]+", commonItems::ignoreItem);
@@ -59,12 +78,39 @@ CK2::World::World(std::shared_ptr<Configuration> theConfiguration)
 
 	auto gameState = std::istringstream(saveGame.gamestate);
 	parseStream(gameState);
-
 	clearRegisteredKeywords();
-
+	LOG(LogLevel::Info) << ">> Loaded " << dynamicTitles.size() << " dynamic titles.";	
 	LOG(LogLevel::Info) << "-> Importing Province Titles";
 	provinceTitleMapper.loadProvinces(theConfiguration->getCK2Path());
 	
+
+	LOG(LogLevel::Info) << "*** Building World ***";
+
+	// Link all the intertwining pointers
+	LOG(LogLevel::Info) << "-- Filtering Excess Province Titles";
+	filterExcessProvinceTitles();
+	LOG(LogLevel::Info) << "-- Linking Characters With Dynasties";
+	characters.linkDynasties(dynasties);
+	LOG(LogLevel::Info) << "-- Linking Characters With Lieges and Spouses";
+	characters.linkLiegesAndSpouses();
+	LOG(LogLevel::Info) << "-- Linking Characters With Primary Titles";
+	characters.linkPrimaryTitles(titles);
+	LOG(LogLevel::Info) << "-- Linking Characters With Capitals";
+	characters.linkCapitals(provinces);
+	LOG(LogLevel::Info) << "-- Linking Provinces With Primary Baronies";
+	provinces.linkPrimarySettlements();
+	LOG(LogLevel::Info) << "-- Linking Titles With Holders";
+	titles.linkHolders(characters);
+	LOG(LogLevel::Info) << "-- Linking Titles With Liege and DeJure titles";
+	titles.linkLiegePrimaryTitles();
+	 
+	// Filter top-tier active titles and assign them provinces.
+	LOG(LogLevel::Info) << "-- Merging Independent Baronies";
+	mergeIndependentBaronies();
+	LOG(LogLevel::Info) << "-- Filtering Independent Titles";
+	filterIndependentTitles();
+
+
 	LOG(LogLevel::Info) << "*** Good-bye CK2, rest in peace. ***";
 }
 
@@ -108,3 +154,86 @@ bool CK2::World::uncompressSave(const std::string& saveGamePath)
 	return true;
 }
 
+void CK2::World::filterExcessProvinceTitles()
+{
+	// This function's purpose is to filter out invalid provinceID-title mappings from /history/provinces.
+	
+	const auto& provinceTitles = provinceTitleMapper.getProvinceTitles(); // contains junk.
+	std::map<std::string, int> newProvinceTitles;
+	const auto& availableTitles = titles.getTitles();
+
+	for (const auto& provinceTitle: provinceTitles)
+	{
+		if (availableTitles.count(provinceTitle.first)) newProvinceTitles.insert(std::pair(provinceTitle.first, provinceTitle.second));
+	}
+	Log(LogLevel::Info) << "<> Dropped " << provinceTitles.size() - newProvinceTitles.size() << " invalid mappings.";
+	provinceTitleMapper.replaceProvinceTitles(newProvinceTitles);
+}
+
+void CK2::World::filterIndependentTitles()
+{
+	const auto& allTitles = titles.getTitles();
+	std::map<std::string, std::shared_ptr<Title>> potentialIndeps;
+	
+	for (const auto& title: allTitles)
+	{
+		const auto& liege = title.second->getLiege();
+		const auto& holder = title.second->getHolder();
+		if (!holder.first) continue; // don't bother with titles without holders.
+		if (liege.first.empty())
+		{
+			// this is a potential indep.
+			potentialIndeps.insert(std::pair(title.first, title.second));
+			continue;
+		}
+		const auto& liegeTitle = liege.second->getTitle();
+		if (liegeTitle.first == "e_hre")
+		{
+			// hre emperor's vassals also sound like indeps to me.
+			potentialIndeps.insert(std::pair(title.first, title.second));
+			continue;
+		}
+		if (liegeTitle.second->getLiege().first == "e_hre")
+		{
+			// We're still in hre? Are we a duchy?
+			if (title.first.find("d_") == 0)
+			{
+				// we have a king over us. Well. Not any more.
+				potentialIndeps.insert(std::pair(title.first, title.second));
+			}
+		}
+	}
+	// Check if we hold any actual land.
+	for (const auto& indep: potentialIndeps)
+	{
+		Log(LogLevel::Debug) << "title: " << indep.second->getName() << " holder: " << indep.second->getHolder().second->getName();
+	}
+}
+
+void CK2::World::mergeIndependentBaronies()
+{
+	auto counter = 0;
+	const auto& allTitles = titles.getTitles();
+	for (const auto& title : allTitles)
+	{
+		const auto& holder = title.second->getHolder();
+		if (!holder.first) continue; // don't bother with titles without holders.
+		const auto& liege = title.second->getLiege();
+		if (liege.first.empty())
+		{
+			// this is an indep.
+			if (title.first.find("b_") == 0)
+			{
+				// it's a barony.
+				const auto& djLiege = title.second->getDeJureLiege();
+				if (djLiege.first.find("c_") == 0)
+				{
+					// we're golden.
+					title.second->overrideLiege();
+					counter++;
+				}
+			}
+		}
+	}
+	Log(LogLevel::Info) << "<> " << counter << " baronies reassigned.";
+}
