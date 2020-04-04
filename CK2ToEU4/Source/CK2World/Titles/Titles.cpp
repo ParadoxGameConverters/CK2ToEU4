@@ -61,7 +61,7 @@ void CK2::Titles::linkLiegePrimaryTitles()
 			}
 			else
 			{
-				Log(LogLevel::Warning) << "Primary liege title ID: " << titleItr->first << " has no definition!";
+				Log(LogLevel::Warning) << "Primary liege title ID: " << title.second->getLiege().first << " has no definition!";
 			}
 			if (!title.second->getLiege().second->getBaseTitle().first.empty())
 			{
@@ -73,7 +73,7 @@ void CK2::Titles::linkLiegePrimaryTitles()
 				}
 				else
 				{
-					Log(LogLevel::Warning) << "Base liege title ID: " << title2Itr->first << " has no definition!";
+					Log(LogLevel::Warning) << "Base liege title ID: " << title.second->getLiege().second->getBaseTitle().first << " has no definition!";
 				}
 			}
 		}
@@ -88,7 +88,7 @@ void CK2::Titles::linkLiegePrimaryTitles()
 			}
 			else
 			{
-				Log(LogLevel::Warning) << "Primary DJ liege title ID: " << titleItr->first << " has no definition!";
+				Log(LogLevel::Warning) << "Primary DJ liege title ID: " << title.second->getDeJureLiege().first << " has no definition!";
 			}
 			if (!title.second->getDeJureLiege().second->getBaseTitle().first.empty())
 			{
@@ -100,7 +100,7 @@ void CK2::Titles::linkLiegePrimaryTitles()
 				}
 				else
 				{
-					Log(LogLevel::Warning) << "Base DJ liege title ID: " << title2Itr->first << " has no definition!";
+					Log(LogLevel::Warning) << "Base DJ liege title ID: " << title.second->getDeJureLiege().second->getBaseTitle().first << " has no definition!";
 				}
 			}
 		}

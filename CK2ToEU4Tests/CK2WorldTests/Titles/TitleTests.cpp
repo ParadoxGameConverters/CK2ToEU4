@@ -15,6 +15,18 @@ TEST(CK2World_TitleTests, nameCanBeSet)
 	ASSERT_EQ(theTitle.getName(), "c_test");
 }
 
+TEST(CK2World_TitleTests, lawsDefaultToEmpty)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "}";
+
+	const CK2::Title theTitle(input, "c_test");
+
+	ASSERT_TRUE(theTitle.getLaws().empty());
+}
+
 TEST(CK2World_TitleTests, lawCanBeAdded)
 {
 	std::stringstream input;

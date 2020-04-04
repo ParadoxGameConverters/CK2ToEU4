@@ -25,8 +25,8 @@ TEST(CK2World_DynastiesTests, dynastiesCanBeLoaded)
 	input << "}";
 
 	const CK2::Dynasties dynasties(input);
-	const auto& characterItr = dynasties.getDynasties().begin();
-	const auto& characterItr2 = --dynasties.getDynasties().end();
+	const auto& characterItr = dynasties.getDynasties().find(42);
+	const auto& characterItr2 = dynasties.getDynasties().find(43);
 
 	ASSERT_EQ(characterItr->first, 42);
 	ASSERT_EQ(characterItr->second->getID(), 42);

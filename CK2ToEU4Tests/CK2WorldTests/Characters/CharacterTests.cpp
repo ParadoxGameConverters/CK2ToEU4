@@ -233,21 +233,6 @@ TEST(CK2World_CharacterTests, multipleSpousesCanBeSet)
 	ASSERT_EQ(theCharacter.getSpouses().size(), 3);
 }
 
-TEST(CK2World_CharacterTests, characterDomainLoadsBlank)
-{
-	std::stringstream input;
-	input << "=\n";
-	input << "{\n";
-	input << "\tdmn={\n";
-	input << "\t}\n";
-	input << "}";
-
-	const CK2::Character theCharacter(input, 42);
-	
-	ASSERT_TRUE(theCharacter.getPrimaryTitle().first.empty());
-	ASSERT_TRUE(theCharacter.getCapital().first.empty());
-}
-
 TEST(CK2World_CharacterTests, characterDomainLoadsSimplePrimaryTitle)
 {
 	std::stringstream input;
@@ -255,23 +240,6 @@ TEST(CK2World_CharacterTests, characterDomainLoadsSimplePrimaryTitle)
 	input << "{\n";
 	input << "\tdmn={\n";
 	input << "\tprimary=c_test\n";
-	input << "\t}\n";
-	input << "}";
-
-	const CK2::Character theCharacter(input, 42);
-
-	ASSERT_EQ(theCharacter.getPrimaryTitle().second->getTitle().first, "c_test");
-}
-
-TEST(CK2World_CharacterTests, characterDomainLoadsComplexPrimaryTitle)
-{
-	std::stringstream input;
-	input << "=\n";
-	input << "{\n";
-	input << "\tdmn={\n";
-	input << "\tprimary={\n";
-	input << "\ttitle=\"c_test\"\n";
-	input << "\t\t}\n";
 	input << "\t}\n";
 	input << "}";
 
@@ -293,4 +261,37 @@ TEST(CK2World_CharacterTests, characterDomainLoadsCapital)
 	const CK2::Character theCharacter(input, 42);
 
 	ASSERT_EQ(theCharacter.getCapital().first, "b_test");
+}
+
+TEST(CK2World_CharacterTests, skillsDefaultToZero)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "}";
+
+	const CK2::Character theCharacter(input, 42);
+
+	ASSERT_EQ(theCharacter.getSkills().diplomacy, 0);
+	ASSERT_EQ(theCharacter.getSkills().martial, 0);
+	ASSERT_EQ(theCharacter.getSkills().stewardship, 0);
+	ASSERT_EQ(theCharacter.getSkills().intrigue, 0);
+	ASSERT_EQ(theCharacter.getSkills().learning, 0);
+}
+
+TEST(CK2World_CharacterTests, skillsCanBeSet)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "\tatt={1 2 3 4 5}";
+	input << "}";
+
+	const CK2::Character theCharacter(input, 42);
+
+	ASSERT_EQ(theCharacter.getSkills().diplomacy, 1);
+	ASSERT_EQ(theCharacter.getSkills().martial, 2);
+	ASSERT_EQ(theCharacter.getSkills().stewardship, 3);
+	ASSERT_EQ(theCharacter.getSkills().intrigue, 4);
+	ASSERT_EQ(theCharacter.getSkills().learning, 5);
 }

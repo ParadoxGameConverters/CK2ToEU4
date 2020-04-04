@@ -106,7 +106,7 @@ void CK2::Characters::linkPrimaryTitles(const Titles& theTitles)
 			}
 			else
 			{
-				Log(LogLevel::Warning) << "Primary title ID: " << titleItr->first << " has no definition!";
+				Log(LogLevel::Warning) << "Primary title ID: " << character.second->getPrimaryTitle().first << " has no definition!";
 			}
 			if (!character.second->getPrimaryTitle().second->getBaseTitle().first.empty())
 			{
@@ -118,7 +118,7 @@ void CK2::Characters::linkPrimaryTitles(const Titles& theTitles)
 				}
 				else
 				{
-					Log(LogLevel::Warning) << "Base title ID: " << title2Itr->first << " has no definition!";
+					Log(LogLevel::Warning) << "Base title ID: " << character.second->getPrimaryTitle().second->getBaseTitle().first << " has no definition!";
 				}
 			}
 		}
@@ -130,24 +130,29 @@ void CK2::Characters::linkCapitals(const Provinces& theProvinces)
 {
 	auto counterCapital = 0;
 	const auto& provinces = theProvinces.getProvinces();
+
+	// Extract all known baronies in a lookable place.
+	std::map<std::string, std::shared_ptr<Barony>> baronyMap;
+	for (const auto& province : provinces)
+	{
+		const auto& baronies = province.second->getBaronies();
+		baronyMap.insert(baronies.begin(), baronies.end());
+	}
+	
 	for (const auto& character : characters)
 	{
 		if (!character.second->getCapital().first.empty())
 		{
-			auto match = false;
-			for (const auto& province: provinces)
+			const auto& baronyItr = baronyMap.find(character.second->getCapital().first);
+			if (baronyItr != baronyMap.end())
 			{
-				const auto& baronies = province.second->getBaronies();
-				const auto& baronyItr = baronies.find(character.second->getCapital().first);
-				if (baronyItr != baronies.end())
-				{
-					character.second->setCapitalBarony(baronyItr->second);
-					match = true;
-					counterCapital++;
-					break;
-				}
+				character.second->setCapitalBarony(baronyItr->second);
+				counterCapital++;
 			}
-			if (!match) Log(LogLevel::Warning) << "Capital barony ID: " << character.second->getCapital().first << " has no definition!";
+			else
+			{
+				Log(LogLevel::Warning) << "Capital barony ID: " << character.second->getCapital().first << " has no definition!";
+			}
 		}
 	}
 	Log(LogLevel::Info) << "<> " << counterCapital << " capital baronies linked.";

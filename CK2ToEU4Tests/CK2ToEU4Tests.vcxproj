@@ -191,6 +191,7 @@
     <ClCompile Include="..\googletest\googletest\src\gtest_main.cc" />
     <ClCompile Include="CK2WorldTests\Characters\CharactersTests.cpp" />
     <ClCompile Include="CK2WorldTests\Characters\CharacterTests.cpp" />
+    <ClCompile Include="CK2WorldTests\Characters\DomainTests.cpp" />
     <ClCompile Include="CK2WorldTests\Dynasties\DynastiesTests.cpp" />
     <ClCompile Include="CK2WorldTests\Dynasties\DynastyTests.cpp" />
     <ClCompile Include="CK2WorldTests\Provinces\BaronyTests.cpp" />
