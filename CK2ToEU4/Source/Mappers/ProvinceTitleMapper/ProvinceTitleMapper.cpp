@@ -21,7 +21,7 @@ void mappers::ProvinceTitleMapper::loadProvinces(const std::string& CK2Path)
 		// c_title can point to multiple provinceIDs. We must filter this before we can use it!
 		origProvinceTitles.insert(std::make_pair(newProvince.getTitle(), newProvince.getID()));
 	}
-	Log(LogLevel::Info) << ">> Loaded: " << provinceTitles.size() << " provinces from history.";
+	Log(LogLevel::Info) << ">> Loaded: " << origProvinceTitles.size() << " provinces from history.";
 }
 
 std::optional<int> mappers::ProvinceTitleMapper::getIDForTitle(const std::string& title) const

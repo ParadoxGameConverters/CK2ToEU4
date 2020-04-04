@@ -22,6 +22,7 @@ namespace CK2
 		void linkHolders(const Characters& theCharacters);
 		void linkLiegePrimaryTitles();
 		void linkVassals();
+		void linkBaseTitles();
 		void linkProvinces(const Provinces& theProvinces, const mappers::ProvinceTitleMapper& provinceTitleMapper);
 
 	private:

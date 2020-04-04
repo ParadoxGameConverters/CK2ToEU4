@@ -105,15 +105,19 @@ CK2::World::World(std::shared_ptr<Configuration> theConfiguration)
 	LOG(LogLevel::Info) << "-- Linking Titles With Vassals and DeJure Vassals";
 	titles.linkVassals();
 	LOG(LogLevel::Info) << "-- Linking Titles With Provinces";
-	titles.linkProvinces(provinces, provinceTitleMapper);
+	titles.linkProvinces(provinces, provinceTitleMapper); // Untestable due to disk access.
+	LOG(LogLevel::Info) << "-- Linking Titles With Base Titles";
+	titles.linkBaseTitles();
 
 	// Filter top-tier active titles and assign them provinces.
 	LOG(LogLevel::Info) << "-- Merging Independent Baronies";
 	mergeIndependentBaronies();
 	LOG(LogLevel::Info) << "-- Filtering Independent Titles";
 	filterIndependentTitles();
-	/*LOG(LogLevel::Info) << "-- Filtering Independent Titles";
-	filterIndependentTitles();*/
+	LOG(LogLevel::Info) << "-- Merging Rebellions Into Base";
+	//mergeRebellions();
+	LOG(LogLevel::Info) << "-- Congregating Provinces for Independent Titles";
+	congregateProvinces();
 
 
 	LOG(LogLevel::Info) << "*** Good-bye CK2, rest in peace. ***";
@@ -249,4 +253,14 @@ void CK2::World::mergeIndependentBaronies() const
 		}
 	}
 	Log(LogLevel::Info) << "<> " << counter << " baronies reassigned.";
+}
+
+void CK2::World::congregateProvinces()
+{
+	// We're linking all contained province for a title's tree under that title.
+	// This will form actual EU4 tag and contained provinces.
+	for (const auto& title: independentTitles)
+	{
+		title.second->congregateProvinces(independentTitles);
+	}
 }

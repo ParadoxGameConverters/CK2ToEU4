@@ -183,3 +183,41 @@ void CK2::Titles::linkProvinces(const Provinces& theProvinces, const mappers::Pr
 	}
 	Log(LogLevel::Info) << "<> " << counter << " provinces linked.";
 }
+
+void CK2::Titles::linkBaseTitles()
+{
+	// This is relevant for revolts, so we know where to merge them.
+	auto counter = 0;
+	auto counterBase = 0;
+	for (const auto& title : titles)
+	{
+		if (!title.second->getBaseTitle().first.empty())
+		{
+			const auto& titleItr = titles.find(title.second->getBaseTitle().first);
+			if (titleItr != titles.end())
+			{
+				title.second->setBaseTitleTitle(titleItr->second);
+				counter++;
+			}
+			else
+			{
+				Log(LogLevel::Warning) << "Base title title ID: " << title.second->getBaseTitle().first << " has no definition!";
+			}
+			if (!title.second->getBaseTitle().second->getBaseTitle().first.empty())
+			{
+				const auto& title2Itr = titles.find(title.second->getBaseTitle().second->getBaseTitle().first);
+				if (title2Itr != titles.end())
+				{
+					title.second->setBaseTitleBaseTitle(title2Itr->second);
+					counterBase++;
+				}
+				else
+				{
+					Log(LogLevel::Warning) << "Base title base title ID: " << title.second->getBaseTitle().second->getBaseTitle().first << " has no definition!";
+				}
+			}
+		}
+
+	}
+	Log(LogLevel::Info) << "<> " << counter << " base titles titles and " << counterBase << " base title base titles linked.";
+}

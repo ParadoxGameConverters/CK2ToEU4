@@ -451,3 +451,135 @@ TEST(CK2World_TitlesTests, liegeDeJureVassalsCanBeSet)
 	ASSERT_EQ(linktoSelf->first, "c_title");
 	ASSERT_EQ(linktoSelf->second->getName(), "c_title");
 }
+
+TEST(CK2World_TitlesTests, baseTitleTitleLinkDefaultsToNull)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "c_title={\n";
+	input << "\tbase_title=c_base\n";
+	input << "}\n";
+	input << "}";
+
+	const CK2::Titles titles(input);
+	const auto& titleItr = titles.getTitles().find("c_title");
+	const auto& base = titleItr->second->getBaseTitle().second->getTitle();
+
+	ASSERT_FALSE(base.second);
+}
+
+TEST(CK2World_TitlesTests, baseTitleTitleLinkCanBeSet)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "c_title={\n";
+	input << "\tbase_title=c_base\n";
+	input << "}\n";
+	input << "c_base={}\n";
+	input << "}";
+	CK2::Titles titles(input);
+
+	titles.linkBaseTitles();
+	const auto& titleItr = titles.getTitles().find("c_title");
+	const auto& base = titleItr->second->getBaseTitle().second->getTitle();
+
+	ASSERT_TRUE(base.second);
+	ASSERT_EQ(base.second->getName(), "c_base");
+}
+
+TEST(CK2World_TitlesTests, baseTitleLinkCannotBeSetThrowsWarning)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "c_title={\n";
+	input << "\tbase_title=c_base\n";
+	input << "}\n";
+	input << "c_base2={}\n";
+	input << "}";
+	CK2::Titles titles(input);
+
+	std::stringstream log;
+	auto stdOutBuf = std::cout.rdbuf();
+	std::cout.rdbuf(log.rdbuf());
+
+	titles.linkBaseTitles();
+
+	std::cout.rdbuf(stdOutBuf);
+	auto stringLog = log.str();
+	auto newLine = stringLog.find_first_of("\n");
+	stringLog = stringLog.substr(0, newLine);
+
+	ASSERT_EQ(stringLog, "Base title title ID: c_base has no definition!");
+}
+
+TEST(CK2World_TitlesTests, baseTitleBaseTitleLinkDefaultsToNull)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "c_title={\n";
+	input << "\tbase_title=c_base\n";
+	input << "}\n";
+	input << "}";
+
+	const CK2::Titles titles(input);
+	const auto& titleItr = titles.getTitles().find("c_title");
+	const auto& base = titleItr->second->getBaseTitle().second->getBaseTitle();
+
+	ASSERT_FALSE(base.second);
+}
+
+TEST(CK2World_TitlesTests, baseTitleBaseTitleLinkCanBeSet)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "c_title={\n";
+	input << "\tbase_title={\n";
+	input << "\t\ttitle=c_something\n";
+	input << "\t\tbase_title=c_base\n";
+	input << "\t}\n";
+	input << "}\n";
+	input << "c_base={}\n";
+	input << "}";
+	CK2::Titles titles(input);
+
+	titles.linkBaseTitles();
+	const auto& titleItr = titles.getTitles().find("c_title");
+	const auto& base = titleItr->second->getBaseTitle().second->getBaseTitle();
+
+	ASSERT_TRUE(base.second);
+	ASSERT_EQ(base.second->getName(), "c_base");
+}
+
+TEST(CK2World_TitlesTests, baseTitleBaseTitleLinkCannotBeSetThrowsWarning)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "c_title={\n";
+	input << "\tbase_title={\n";
+	input << "\t\ttitle=c_something\n";
+	input << "\t\tbase_title=c_base\n";
+	input << "\t}\n";
+	input << "}\n";
+	input << "c_something={}\n";
+	input << "}";
+	CK2::Titles titles(input);
+
+	std::stringstream log;
+	auto stdOutBuf = std::cout.rdbuf();
+	std::cout.rdbuf(log.rdbuf());
+
+	titles.linkBaseTitles();
+
+	std::cout.rdbuf(stdOutBuf);
+	auto stringLog = log.str();
+	auto newLine = stringLog.find_first_of("\n");
+	stringLog = stringLog.substr(0, newLine);
+
+	ASSERT_EQ(stringLog, "Base title base title ID: c_base has no definition!");
+}
