@@ -29,7 +29,8 @@ namespace CK2
 		void sanityCheckifyProvinces();
 		void shatterHRE(const Configuration& theConfiguration) const;
 		void shatterEmpires(const Configuration& theConfiguration) const;
-
+		void filterProvincelessTitles();
+		
 		date endDate = date("1444.11.11");
 		date startDate = date("1.1.1");
 		Version CK2Version;

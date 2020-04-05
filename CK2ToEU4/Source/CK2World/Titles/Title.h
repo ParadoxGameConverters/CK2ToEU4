@@ -44,6 +44,7 @@ namespace CK2
 		void registerProvince(const std::pair<int, std::shared_ptr<Province>>& theProvince) { provinces.insert(theProvince); }
 		void congregateProvinces(const std::map<std::string, std::shared_ptr<Title>>& independentTitles);
 		void clearLiege() { liege.first.clear(); liege.second = nullptr; }
+		void clearHolder() { holder.first = 0; holder.second = nullptr; }
 		void clearVassals() { vassals.clear(); }
 		
 	private:

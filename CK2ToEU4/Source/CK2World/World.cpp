@@ -124,6 +124,8 @@ CK2::World::World(std::shared_ptr<Configuration> theConfiguration)
 	congregateProvinces();
 	LOG(LogLevel::Info) << "-- Performing Province Sanity Check";
 	sanityCheckifyProvinces();
+	LOG(LogLevel::Info) << "-- Filtering Provinceless Titles";
+	filterProvincelessTitles();
 
 
 	LOG(LogLevel::Info) << "*** Good-bye CK2, rest in peace. ***";
@@ -288,7 +290,7 @@ void CK2::World::sanityCheckifyProvinces()
 		}
 	}
 	if (sanity) Log(LogLevel::Info) << "<> Province sanity check passed, all provinces accounted for.";
-	if (!sanity) Log(LogLevel::Info) << "!! Province sanity check failed! We have excess provinces!";
+	if (!sanity) Log(LogLevel::Warning) << "!! Province sanity check failed! We have excess provinces!";
 }
 
 void CK2::World::shatterEmpires(const Configuration& theConfiguration) const
@@ -331,8 +333,10 @@ void CK2::World::shatterEmpires(const Configuration& theConfiguration) const
 					{
 						members.insert(std::pair(vassalvassal.first, vassalvassal.second));
 					}
-					// Don't forget to clear that kingdom's vassals
+					// Bricking the kingdom
 					vassal.second->clearVassals();
+					vassal.second->clearHolder();
+					vassal.second->clearLiege();
 				}
 				else
 				{
@@ -353,6 +357,7 @@ void CK2::World::shatterEmpires(const Configuration& theConfiguration) const
 
 		// Finally we are clearing empire's vassal links, leaving it standalone.
 		empire.second->clearVassals();
+		empire.second->clearHolder();
 		Log(LogLevel::Info) << "<> " << empire.first << " shattered, " << members.size() << " members released.";
 	}
 }
@@ -413,8 +418,10 @@ void CK2::World::shatterHRE(const Configuration& theConfiguration) const
 			{
 				hreMembers.insert(std::pair(vassalvassal.first, vassalvassal.second));
 			}
-			// Don't forget to clear that kingdom's vassals
+			// Bricking the kingdom.
 			vassal.second->clearVassals();
+			vassal.second->clearHolder();
+			vassal.second->clearLiege();
 		}
 		else
 		{
@@ -428,7 +435,7 @@ void CK2::World::shatterHRE(const Configuration& theConfiguration) const
 		// We're also on the lookout on the current HRE emperor.
 		if (!emperorSet && member.second->getHolder().first == hreHolder.first)
 		{
-			// This is the emperor. He may hold several duchies, but the first one we
+			// This is the emperor. He may hold several duchies, but the first one
 			// we find will be flagged emperor.
 			member.second->setHREEmperor();
 			emperorSet = true;
@@ -439,5 +446,22 @@ void CK2::World::shatterHRE(const Configuration& theConfiguration) const
 
 	// Finally we are clearing hreTitle's vassal links, leaving it standalone.
 	theHre->second->clearVassals();
+	theHre->second->clearHolder();
 	Log(LogLevel::Info) << "<> " << hreMembers.size() << " HRE members released.";
+}
+
+void CK2::World::filterProvincelessTitles()
+{
+	auto counter = 0;
+	std::set<std::string> titlesForDisposal;
+	for (const auto& title: independentTitles)
+	{
+		if (title.second->getProvinces().empty()) titlesForDisposal.insert(title.first);
+	}
+	for (const auto& drop: titlesForDisposal)
+	{
+		independentTitles.erase(drop);
+		counter++;
+	}
+	Log(LogLevel::Info) << "<> " << counter << " empty titles dropped, " << independentTitles.size() << " remain.";
 }
