@@ -36,6 +36,7 @@ namespace CK2
 		void setDJLiegeBaseTitle(std::shared_ptr<Title> theBaseTitle) const { deJureLiege.second->setBaseTitle(std::move(theBaseTitle)); }
 		void setInHRE() { inHRE = true; }
 		void overrideLiege() { liege = deJureLiege; }
+		void overrideLiege(const std::pair<std::string, std::shared_ptr<Liege>>& theLiege) { liege = theLiege; }
 		void registerVassal(const std::pair<std::string, std::shared_ptr<Title>>& theVassal) { vassals.insert(theVassal); }
 		void registerDeJureVassal(const std::pair<std::string, std::shared_ptr<Title>>& theVassal) { deJureVassals.insert(theVassal); }
 		void registerProvince(const std::pair<int, std::shared_ptr<Province>>& theProvince) { provinces.insert(theProvince); }

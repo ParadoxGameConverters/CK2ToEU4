@@ -115,9 +115,11 @@ CK2::World::World(std::shared_ptr<Configuration> theConfiguration)
 	LOG(LogLevel::Info) << "-- Filtering Independent Titles";
 	filterIndependentTitles();
 	LOG(LogLevel::Info) << "-- Merging Rebellions Into Base";
-	//mergeRebellions();
+	mergeRevolts();
 	LOG(LogLevel::Info) << "-- Congregating Provinces for Independent Titles";
 	congregateProvinces();
+	LOG(LogLevel::Info) << "-- Performing Province Sanity Check";
+	sanityCheckifyProvinces();
 
 
 	LOG(LogLevel::Info) << "*** Good-bye CK2, rest in peace. ***";
@@ -257,10 +259,70 @@ void CK2::World::mergeIndependentBaronies() const
 
 void CK2::World::congregateProvinces()
 {
+	auto counter = 0;
 	// We're linking all contained province for a title's tree under that title.
 	// This will form actual EU4 tag and contained provinces.
 	for (const auto& title: independentTitles)
 	{
 		title.second->congregateProvinces(independentTitles);
+		counter += title.second->getProvinces().size();
+	}
+	Log(LogLevel::Info) << "<> " << counter << " provinces held by independents.";
+}
+
+void CK2::World::mergeRevolts()
+{
+	// major revolts need to have their leader drop the top-tier revolt title and relink
+	// to revolt's base_title.
+
+	std::set<std::string> droppedRevoltTitles;
+
+	for (const auto& indep: independentTitles)
+	{
+		if (!indep.second->isMajorRevolt()) continue;
+		// for a major revolt, scroll through all vassals and relink them to to base;		
+		for (const auto& vassal: indep.second->getVassals())
+		{
+			const auto& revoltBaseTitle = indep.second->getBaseTitle();
+			vassal.second->overrideLiege(revoltBaseTitle);
+			const auto& newLiege = vassal.second->getLiege().second->getTitle();
+			newLiege.second->registerVassal(std::pair(vassal.first, vassal.second));			
+		}
+		droppedRevoltTitles.insert(indep.first);
+	}
+	// finally, clear them out.
+	for (const auto& droppedRevolt : droppedRevoltTitles)
+	{
+		independentTitles.erase(droppedRevolt);
+	}
+	Log(LogLevel::Info) << "<> " << droppedRevoltTitles.size() << " revolts merged.";
+}
+
+void CK2::World::sanityCheckifyProvinces()
+{
+	// This is a watchdog function intended to complain if multiple independent titles
+	// link to a single province.	
+	std::map<int, std::vector<std::string>> provinceTitlesMap; // we store all holders for every province.
+	
+	for (const auto& indep : independentTitles)
+	{
+		const auto& ownedProvinces = indep.second->getProvinces();
+		for (const auto& province: ownedProvinces)
+		{
+			provinceTitlesMap[province.first].push_back(indep.first);
+		}
+	}
+	// and now, explode.
+	for (const auto& entry: provinceTitlesMap)
+	{
+		if (entry.second.size() > 1)
+		{
+			std::string warning = "Province ID: " + std::to_string(entry.first) + " is owned by: ";
+			for (const auto& owner: entry.second)
+			{
+				warning += owner + ",";
+			}
+			Log(LogLevel::Warning) << warning;
+		}
 	}
 }

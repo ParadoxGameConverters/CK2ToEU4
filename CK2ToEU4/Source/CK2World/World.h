@@ -25,6 +25,8 @@ namespace CK2
 		void filterIndependentTitles();
 		void mergeIndependentBaronies() const;
 		void congregateProvinces();
+		void mergeRevolts();
+		void sanityCheckifyProvinces();
 		
 		date endDate = date("1444.11.11");
 		date startDate = date("1.1.1");

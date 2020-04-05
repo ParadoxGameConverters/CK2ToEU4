@@ -3,7 +3,6 @@
 
 #include "Date.h"
 #include "newParser.h"
-#include "../Common/Version.h"
 #include "ConfigurationDetails.h"
 
 class Configuration: commonItems::parser
@@ -17,6 +16,9 @@ public:
 	[[nodiscard]] const auto& getCK2ModsPath() const { return details.CK2ModsPath; }
 	[[nodiscard]] const auto& getEU4Path() const { return details.EU4Path; }
 	[[nodiscard]] const auto& getOutputName() const { return details.outputName; }
+	[[nodiscard]] const auto& getHRE() const { return details.iAmHre; }
+	[[nodiscard]] const auto& getShatterEmpires() const { return details.shatterEmpires; }
+	[[nodiscard]] const auto& getShatterLevel() const { return details.shatterLevel; }
 
 private:
 	void registerKeys();
