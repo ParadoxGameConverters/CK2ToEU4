@@ -14,7 +14,7 @@
 
 namespace fs = std::filesystem;
 
-CK2::World::World(std::shared_ptr<Configuration> theConfiguration)
+CK2::World::World(const Configuration& theConfiguration)
 {
 	LOG(LogLevel::Info) << "*** Hello CK2, Deus Vult! ***";
 	registerKeyword("CK2txt", [](const std::string& unused, std::istream& theStream) {});
@@ -29,7 +29,7 @@ CK2::World::World(std::shared_ptr<Configuration> theConfiguration)
 	registerKeyword("version", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleString versionString(theStream);			
 		CK2Version = Version(versionString.getString());
-		Log(LogLevel::Info) << "Savegame version: " << versionString.getString();
+		Log(LogLevel::Info) << "<> Savegame version: " << versionString.getString();
 		});
 	registerKeyword("provinces", [this](const std::string& unused, std::istream& theStream) {
 		LOG(LogLevel::Info) << "-> Loading Provinces";
@@ -59,28 +59,28 @@ CK2::World::World(std::shared_ptr<Configuration> theConfiguration)
 	registerRegex("[A-Za-z0-9\\_]+", commonItems::ignoreItem);
 
 	LOG(LogLevel::Info) << "-> Verifying CK2 save.";
-	verifySave(theConfiguration->getSaveGamePath());
+	verifySave(theConfiguration.getSaveGamePath());
 
 	LOG(LogLevel::Info) << "-> Importing CK2 save.";
 	if (!saveGame.compressed)
 	{
-		std::ifstream inBinary(fs::u8path(theConfiguration->getSaveGamePath()), std::ios::binary);
+		std::ifstream inBinary(fs::u8path(theConfiguration.getSaveGamePath()), std::ios::binary);
 		if (!inBinary.is_open())
 		{
-			LOG(LogLevel::Error) << "Could not open " << theConfiguration->getSaveGamePath() << " for parsing.";
-			throw std::runtime_error("Could not open " + theConfiguration->getSaveGamePath() + " for parsing.");
+			LOG(LogLevel::Error) << "Could not open " << theConfiguration.getSaveGamePath() << " for parsing.";
+			throw std::runtime_error("Could not open " + theConfiguration.getSaveGamePath() + " for parsing.");
 		}
 		std::stringstream inStream;
 		inStream << inBinary.rdbuf();
 		saveGame.gamestate = inStream.str();
 	}
-
+	
 	auto gameState = std::istringstream(saveGame.gamestate);
 	parseStream(gameState);
 	clearRegisteredKeywords();
 	LOG(LogLevel::Info) << ">> Loaded " << dynamicTitles.size() << " dynamic titles.";	
 	LOG(LogLevel::Info) << "-> Importing Province Titles";
-	provinceTitleMapper.loadProvinces(theConfiguration->getCK2Path());
+	provinceTitleMapper.loadProvinces(theConfiguration.getCK2Path());
 	
 
 	LOG(LogLevel::Info) << "*** Building World ***";
@@ -115,9 +115,9 @@ CK2::World::World(std::shared_ptr<Configuration> theConfiguration)
 	LOG(LogLevel::Info) << "-- Merging Revolts Into Base";
 	titles.mergeRevolts();
 	LOG(LogLevel::Info) << "-- Shattering HRE";
-	shatterHRE(*theConfiguration);
+	shatterHRE(theConfiguration);
 	LOG(LogLevel::Info) << "-- Shattering Empires";
-	shatterEmpires(*theConfiguration);
+	shatterEmpires(theConfiguration);
 	LOG(LogLevel::Info) << "-- Filtering Independent Titles";
 	filterIndependentTitles();
 	LOG(LogLevel::Info) << "-- Congregating Provinces for Independent Titles";
@@ -125,8 +125,7 @@ CK2::World::World(std::shared_ptr<Configuration> theConfiguration)
 	LOG(LogLevel::Info) << "-- Performing Province Sanity Check";
 	sanityCheckifyProvinces();
 	LOG(LogLevel::Info) << "-- Filtering Provinceless Titles";
-	filterProvincelessTitles();
-
+	filterProvincelessTitles();	
 
 	LOG(LogLevel::Info) << "*** Good-bye CK2, rest in peace. ***";
 }

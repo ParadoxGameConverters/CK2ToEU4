@@ -125,6 +125,24 @@
     <ClCompile Include="MapperTests\VersionParser\VersionParserTests.cpp">
       <Filter>MapperTests\VersionParser</Filter>
     </ClCompile>
+    <ClCompile Include="MapperTests\ProvinceMapper\ProvinceMapperTests.cpp">
+      <Filter>MapperTests\ProvinceMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="MapperTests\ProvinceMapper\ProvinceMappingsVersionTests.cpp">
+      <Filter>MapperTests\ProvinceMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="MapperTests\ProvinceMapper\ProvinceMappingTests.cpp">
+      <Filter>MapperTests\ProvinceMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\ProvinceMapper\ProvinceMapper.cpp">
+      <Filter>ConverterFiles\Mappers\ProvinceMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\ProvinceMapper\ProvinceMapping.cpp">
+      <Filter>ConverterFiles\Mappers\ProvinceMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\ProvinceMapper\ProvinceMappingsVersion.cpp">
+      <Filter>ConverterFiles\Mappers\ProvinceMapper</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4WorldTests">
@@ -201,6 +219,12 @@
     </Filter>
     <Filter Include="MapperTests\VersionParser">
       <UniqueIdentifier>{1cf0d7a6-82a1-4c5c-a820-68b3fd331846}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MapperTests\ProvinceMapper">
+      <UniqueIdentifier>{90a90850-b9a7-409f-91a8-327aa01377f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ConverterFiles\Mappers\ProvinceMapper">
+      <UniqueIdentifier>{67f5721d-52a2-4304-8ea7-0c98fa357bba}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

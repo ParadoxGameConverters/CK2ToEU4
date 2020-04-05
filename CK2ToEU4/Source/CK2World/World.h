@@ -18,7 +18,8 @@ namespace CK2
 	class World: commonItems::parser
 	{
 	public:
-		World(std::shared_ptr<Configuration> theConfiguration);
+		World(const Configuration& theConfiguration);
+		[[nodiscard]] const auto& getProvinceTitleMapper() const { return provinceTitleMapper; }
 				
 	private:
 		void verifySave(const std::string& saveGamePath);
