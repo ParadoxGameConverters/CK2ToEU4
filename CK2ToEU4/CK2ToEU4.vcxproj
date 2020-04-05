@@ -200,6 +200,7 @@
     <ClCompile Include="Source\Configuration\ConfigurationDetails.cpp" />
     <ClCompile Include="Source\EU4World\Output\outVersion.cpp" />
     <ClCompile Include="Source\main.cpp" />
+    <ClCompile Include="Source\Mappers\IAmHreMapper\IAmHreMapper.cpp" />
     <ClCompile Include="Source\Mappers\ProvinceTitleMapper\ProvinceTitleGrabber.cpp" />
     <ClCompile Include="Source\Mappers\ProvinceTitleMapper\ProvinceTitleMapper.cpp" />
     <ClCompile Include="Source\Mappers\VersionParser\VersionParser.cpp" />
@@ -234,6 +235,7 @@
     <ClInclude Include="Source\Configuration\Configuration.h" />
     <ClInclude Include="Source\Configuration\ConfigurationDetails.h" />
     <ClInclude Include="Source\EU4World\Output\output.h" />
+    <ClInclude Include="Source\Mappers\IAmHreMapper\IAmHreMapper.h" />
     <ClInclude Include="Source\Mappers\ProvinceTitleMapper\ProvinceTitleGrabber.h" />
     <ClInclude Include="Source\Mappers\ProvinceTitleMapper\ProvinceTitleMapper.h" />
     <ClInclude Include="Source\Mappers\VersionParser\VersionParser.h" />

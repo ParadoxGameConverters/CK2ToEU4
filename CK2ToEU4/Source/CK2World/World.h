@@ -9,6 +9,7 @@
 #include "Dynasties/Dynasties.h"
 #include "../Common/Version.h"
 #include "Titles/Liege.h"
+#include "../Mappers/IAmHreMapper/IAmHreMapper.h"
 
 class Configuration;
 
@@ -45,6 +46,7 @@ namespace CK2
 		Characters characters;
 		Titles titles;
 		Dynasties dynasties;
+		mappers::IAmHreMapper iAmHreMapper;
 		std::map<std::string, Liege> dynamicTitles; // Reusing Liege as it has identical structure
 
 		std::map<std::string, std::shared_ptr<Title>> independentTitles;

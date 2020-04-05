@@ -99,6 +99,9 @@
     <ClCompile Include="Source\CK2World\Characters\Domain.cpp">
       <Filter>CK2World\Characters</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Mappers\IAmHreMapper\IAmHreMapper.cpp">
+      <Filter>Mappers\IAmHreMapper</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CK2ToEU4Converter.h" />
@@ -195,6 +198,9 @@
     <ClInclude Include="Source\CK2World\Characters\Domain.h">
       <Filter>CK2World\Characters</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Mappers\IAmHreMapper\IAmHreMapper.h">
+      <Filter>Mappers\IAmHreMapper</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4World">
@@ -235,6 +241,9 @@
     </Filter>
     <Filter Include="CK2World\Dynasties">
       <UniqueIdentifier>{ca4bb717-d690-4894-8b07-859c715edf51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mappers\IAmHreMapper">
+      <UniqueIdentifier>{a6e92ef6-2303-48a9-afe2-254a151cc645}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

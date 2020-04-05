@@ -113,6 +113,18 @@
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\ProvinceTitleMapper\ProvinceTitleMapper.cpp">
       <Filter>ConverterFiles\Mappers\ProvinceTitleMapper</Filter>
     </ClCompile>
+    <ClCompile Include="MapperTests\IAmHreMapper\IAmHreMapperTests.cpp">
+      <Filter>MapperTests\IAmHreMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\IAmHreMapper\IAmHreMapper.cpp">
+      <Filter>ConverterFiles\Mappers\IAmHreMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\VersionParser\VersionParser.cpp">
+      <Filter>ConverterFiles\Mappers\VersionParser</Filter>
+    </ClCompile>
+    <ClCompile Include="MapperTests\VersionParser\VersionParserTests.cpp">
+      <Filter>MapperTests\VersionParser</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4WorldTests">
@@ -177,6 +189,18 @@
     </Filter>
     <Filter Include="ConverterFiles\Mappers\ProvinceTitleMapper">
       <UniqueIdentifier>{16621f5e-c915-4932-aaf5-bff8e45f2e5e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MapperTests\IAmHreMapper">
+      <UniqueIdentifier>{3e5e074d-94fe-4c10-8baf-f1276c630a6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ConverterFiles\Mappers\IAmHreMapper">
+      <UniqueIdentifier>{d2c156bb-e2da-4758-8d12-ca6b7e69f94c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ConverterFiles\Mappers\VersionParser">
+      <UniqueIdentifier>{e2e95329-e73e-495a-b8e5-81927a7220fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MapperTests\VersionParser">
+      <UniqueIdentifier>{1cf0d7a6-82a1-4c5c-a820-68b3fd331846}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
