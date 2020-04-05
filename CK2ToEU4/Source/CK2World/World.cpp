@@ -112,10 +112,14 @@ CK2::World::World(std::shared_ptr<Configuration> theConfiguration)
 	// Filter top-tier active titles and assign them provinces.
 	LOG(LogLevel::Info) << "-- Merging Independent Baronies";
 	mergeIndependentBaronies();
+	LOG(LogLevel::Info) << "-- Merging Revolts Into Base";
+	titles.mergeRevolts();
+	LOG(LogLevel::Info) << "-- Shattering HRE";
+	shatterHRE(*theConfiguration);
+	LOG(LogLevel::Info) << "-- Shattering Empires";
+	shatterEmpires(*theConfiguration);
 	LOG(LogLevel::Info) << "-- Filtering Independent Titles";
 	filterIndependentTitles();
-	LOG(LogLevel::Info) << "-- Merging Rebellions Into Base";
-	mergeRevolts();
 	LOG(LogLevel::Info) << "-- Congregating Provinces for Independent Titles";
 	congregateProvinces();
 	LOG(LogLevel::Info) << "-- Performing Province Sanity Check";
@@ -179,23 +183,6 @@ void CK2::World::filterIndependentTitles()
 		{
 			// this is a potential indep.
 			potentialIndeps.insert(std::pair(title.first, title.second));
-			continue;
-		}
-		const auto& liegeTitle = liege.second->getTitle();
-		if (liegeTitle.first == "e_hre")
-		{
-			// hre emperor's vassals also sound like indeps to me.
-			potentialIndeps.insert(std::pair(title.first, title.second));
-			continue;
-		}
-		if (liegeTitle.second->getLiege().first == "e_hre")
-		{
-			// We're still in hre? Are we a duchy?
-			if (title.first.find("d_") == 0)
-			{
-				// we have a king over us. Well. Not any more.
-				potentialIndeps.insert(std::pair(title.first, title.second));
-			}
 		}
 	}
 
@@ -270,39 +257,13 @@ void CK2::World::congregateProvinces()
 	Log(LogLevel::Info) << "<> " << counter << " provinces held by independents.";
 }
 
-void CK2::World::mergeRevolts()
-{
-	// major revolts need to have their leader drop the top-tier revolt title and relink
-	// to revolt's base_title.
-
-	std::set<std::string> droppedRevoltTitles;
-
-	for (const auto& indep: independentTitles)
-	{
-		if (!indep.second->isMajorRevolt()) continue;
-		// for a major revolt, scroll through all vassals and relink them to to base;		
-		for (const auto& vassal: indep.second->getVassals())
-		{
-			const auto& revoltBaseTitle = indep.second->getBaseTitle();
-			vassal.second->overrideLiege(revoltBaseTitle);
-			const auto& newLiege = vassal.second->getLiege().second->getTitle();
-			newLiege.second->registerVassal(std::pair(vassal.first, vassal.second));			
-		}
-		droppedRevoltTitles.insert(indep.first);
-	}
-	// finally, clear them out.
-	for (const auto& droppedRevolt : droppedRevoltTitles)
-	{
-		independentTitles.erase(droppedRevolt);
-	}
-	Log(LogLevel::Info) << "<> " << droppedRevoltTitles.size() << " revolts merged.";
-}
 
 void CK2::World::sanityCheckifyProvinces()
 {
 	// This is a watchdog function intended to complain if multiple independent titles
 	// link to a single province.	
 	std::map<int, std::vector<std::string>> provinceTitlesMap; // we store all holders for every province.
+	auto sanity = true;
 	
 	for (const auto& indep : independentTitles)
 	{
@@ -323,6 +284,160 @@ void CK2::World::sanityCheckifyProvinces()
 				warning += owner + ",";
 			}
 			Log(LogLevel::Warning) << warning;
+			sanity = false;
 		}
 	}
+	if (sanity) Log(LogLevel::Info) << "<> Province sanity check passed, all provinces accounted for.";
+	if (!sanity) Log(LogLevel::Info) << "!! Province sanity check failed! We have excess provinces!";
+}
+
+void CK2::World::shatterEmpires(const Configuration& theConfiguration) const
+{
+	if (theConfiguration.getShatterEmpires() == ConfigurationDetails::SHATTER_EMPIRES::NONE)
+	{
+		Log(LogLevel::Info) << ">< Empire shattering disabled by configuration.";
+		return;
+	}
+	
+	bool shatterKingdoms;
+	switch (theConfiguration.getShatterLevel())
+	{
+	case ConfigurationDetails::SHATTER_LEVEL::KINGDOM:
+		shatterKingdoms = false;
+		break;
+	default:
+		shatterKingdoms = true;
+	}
+	const auto& allTitles = titles.getTitles();
+
+	for (const auto& empire: allTitles)
+	{
+		if (empire.first.find("e_") != 0) continue; // Not an empire.
+		if (empire.second->getVassals().empty()) continue; // Not relevant.
+		
+		// First we are composing a list of all members.
+		std::map<std::string, std::shared_ptr<Title>> members;
+		for (const auto& vassal : empire.second->getVassals())
+		{
+			if (vassal.first.find("d_") == 0 || vassal.first.find("c_") == 0)
+			{
+				members.insert(std::pair(vassal.first, vassal.second));
+			}
+			else if (vassal.first.find("k_") == 0)
+			{
+				if (shatterKingdoms)
+				{
+					for (const auto& vassalvassal : vassal.second->getVassals())
+					{
+						members.insert(std::pair(vassalvassal.first, vassalvassal.second));
+					}
+					// Don't forget to clear that kingdom's vassals
+					vassal.second->clearVassals();
+				}
+				else
+				{
+					// Not shattering kingdoms.
+					members.insert(std::pair(vassal.first, vassal.second));
+				}
+			}
+			else
+			{
+				Log(LogLevel::Warning) << "Unrecognized vassal level: " << vassal.first;
+			}
+		}
+
+		for (const auto& member : members)
+		{
+			member.second->clearLiege();
+		}
+
+		// Finally we are clearing empire's vassal links, leaving it standalone.
+		empire.second->clearVassals();
+		Log(LogLevel::Info) << "<> " << empire.first << " shattered, " << members.size() << " members released.";
+	}
+}
+
+void CK2::World::shatterHRE(const Configuration& theConfiguration) const
+{
+	if (theConfiguration.getHRE() == ConfigurationDetails::I_AM_HRE::NONE)
+	{
+		Log(LogLevel::Info) << ">< HRE Mechanics and shattering overridden by configuration.";
+		return;
+	}
+
+	std::string hreTitle;
+	switch (theConfiguration.getHRE())
+	{
+	case ConfigurationDetails::I_AM_HRE::HRE:
+		hreTitle = "e_hre";
+		break;
+	case ConfigurationDetails::I_AM_HRE::BYZANTIUM:
+		hreTitle = "e_byzantium";
+		break;
+	case ConfigurationDetails::I_AM_HRE::ROME:
+		hreTitle = "e_roman_empire";
+		break;
+	case ConfigurationDetails::I_AM_HRE::CUSTOM:
+		hreTitle = iAmHreMapper.getHRE();
+		break;
+	default:
+		hreTitle = "e_hre";
+	}
+	const auto& allTitles = titles.getTitles();
+	const auto& theHre = allTitles.find(hreTitle);
+	if (theHre == allTitles.end())
+	{
+		Log(LogLevel::Info) << "><  HRE shattering cancelled, " << hreTitle << " not found!";
+		return;
+	}
+	if (theHre->second->getVassals().empty())
+	{
+		Log(LogLevel::Info) << "><  HRE shattering cancelled, " << hreTitle << " has no vassals!";
+		return;
+	}
+	const auto& hreHolder = theHre->second->getHolder();
+	bool emperorSet = false;
+
+	// First we are composing a list of all HRE members. These are duchies,
+	// so we're also ripping them from under any potential kingdoms.
+	std::map<std::string, std::shared_ptr<Title>> hreMembers;
+	for (const auto& vassal : theHre->second->getVassals())
+	{
+		if (vassal.first.find("d_") == 0 || vassal.first.find("c_") == 0)
+		{
+			hreMembers.insert(std::pair(vassal.first, vassal.second));
+		}
+		else if (vassal.first.find("k_") == 0)
+		{
+			for (const auto& vassalvassal : vassal.second->getVassals())
+			{
+				hreMembers.insert(std::pair(vassalvassal.first, vassalvassal.second));
+			}
+			// Don't forget to clear that kingdom's vassals
+			vassal.second->clearVassals();
+		}
+		else
+		{
+			Log(LogLevel::Warning) << "Unrecognized HRE vassal: " << vassal.first;
+		}
+	}
+
+	for (const auto& member : hreMembers)
+	{
+		// We're flagging hre members as such, as well as setting them free.
+		// We're also on the lookout on the current HRE emperor.
+		if (!emperorSet && member.second->getHolder().first == hreHolder.first)
+		{
+			// This is the emperor. He may hold several duchies, but the first one we
+			// we find will be flagged emperor.
+			member.second->setHREEmperor();
+			emperorSet = true;
+		}
+		member.second->setInHRE();
+		member.second->clearLiege();
+	}
+
+	// Finally we are clearing hreTitle's vassal links, leaving it standalone.
+	theHre->second->clearVassals();
+	Log(LogLevel::Info) << "<> " << hreMembers.size() << " HRE members released.";
 }

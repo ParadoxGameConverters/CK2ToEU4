@@ -24,6 +24,7 @@ namespace CK2
 		void linkVassals();
 		void linkBaseTitles();
 		void linkProvinces(const Provinces& theProvinces, const mappers::ProvinceTitleMapper& provinceTitleMapper);
+		void mergeRevolts();
 
 	private:
 		void registerKeys();
