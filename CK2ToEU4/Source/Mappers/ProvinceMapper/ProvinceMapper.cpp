@@ -78,6 +78,7 @@ std::vector<int> mappers::ProvinceMapper::getEU4ProvinceNumbers(int ck2ProvinceN
 
 void mappers::ProvinceMapper::determineValidProvinces(const Configuration& theConfiguration)
 {
+	LOG(LogLevel::Info) << "-> Loading Valid Provinces";
 	std::ifstream definitionFile(fs::u8path(theConfiguration.getEU4Path() + "/map/definition.csv"));
 	if (!definitionFile.is_open())
 		throw std::runtime_error("Could not open <eu4>/map/definition.csv");

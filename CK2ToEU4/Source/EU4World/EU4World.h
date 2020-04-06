@@ -1,6 +1,7 @@
 #ifndef EU4_WORLD_H
 #define EU4_WORLD_H
 #include "../Mappers/ProvinceMapper/ProvinceMapper.h"
+#include "../Mappers/TitleTagMapper/TitleTagMapper.h"
 
 class Configuration;
 namespace mappers
@@ -24,6 +25,7 @@ namespace EU4
 		void loadRegions(const Configuration& theConfiguration);
 
 		mappers::ProvinceMapper provinceMapper;
+		mappers::TitleTagMapper titleTagMapper;
 	};
 }
 

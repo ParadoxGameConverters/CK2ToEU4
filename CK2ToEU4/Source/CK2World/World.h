@@ -20,6 +20,7 @@ class World: commonItems::parser
   public:
 	World(const Configuration& theConfiguration);
 	[[nodiscard]] const auto& getProvinceTitleMapper() const { return provinceTitleMapper; }
+	[[nodiscard]] const auto& getIndepTitles() const { return independentTitles; }
 
   private:
 	void verifySave(const std::string& saveGamePath);

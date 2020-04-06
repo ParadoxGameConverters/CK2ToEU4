@@ -115,7 +115,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
+      <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -123,6 +123,8 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -208,6 +210,8 @@
     <ClCompile Include="Source\Mappers\ProvinceMapper\ProvinceMappingsVersion.cpp" />
     <ClCompile Include="Source\Mappers\ProvinceTitleMapper\ProvinceTitleGrabber.cpp" />
     <ClCompile Include="Source\Mappers\ProvinceTitleMapper\ProvinceTitleMapper.cpp" />
+    <ClCompile Include="Source\Mappers\TitleTagMapper\TitleTagMapper.cpp" />
+    <ClCompile Include="Source\Mappers\TitleTagMapper\TitleTagMapping.cpp" />
     <ClCompile Include="Source\Mappers\VersionParser\VersionParser.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -247,6 +251,8 @@
     <ClInclude Include="Source\Mappers\ProvinceMapper\ProvinceMappingsVersion.h" />
     <ClInclude Include="Source\Mappers\ProvinceTitleMapper\ProvinceTitleGrabber.h" />
     <ClInclude Include="Source\Mappers\ProvinceTitleMapper\ProvinceTitleMapper.h" />
+    <ClInclude Include="Source\Mappers\TitleTagMapper\TitleTagMapper.h" />
+    <ClInclude Include="Source\Mappers\TitleTagMapper\TitleTagMapping.h" />
     <ClInclude Include="Source\Mappers\VersionParser\VersionParser.h" />
   </ItemGroup>
   <ItemGroup>

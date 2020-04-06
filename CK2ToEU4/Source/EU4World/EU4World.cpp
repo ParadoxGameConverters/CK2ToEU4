@@ -5,19 +5,24 @@
 #include <fstream>
 #include <filesystem>
 #include "Log.h"
+#include "../CK2World/Titles/Title.h"
 
 namespace fs = std::filesystem;
 
 EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfiguration, const mappers::VersionParser& versionParser)
 {
-	LOG(LogLevel::Info) << "-> Loading Valid Provinces";
 	provinceMapper.determineValidProvinces(theConfiguration);
-	LOG(LogLevel::Info) << "-> Loading Geographical Structure";
-	loadRegions(theConfiguration);
+	for (const auto& title: sourceWorld.getIndepTitles())
+	{
+		auto match = titleTagMapper.getTagForTitle(title.first, title.second->getBaseTitle().first, 0);
+	}
 }
 
+/*
 void EU4::World::loadRegions(const Configuration& theConfiguration)
 {
+	//LOG(LogLevel::Info) << "-> Loading Geographical Structure";
+	loadRegions(theConfiguration);
 	auto areaFilename = theConfiguration.getEU4Path() + "/map/area.txt";
 	auto regionFilename = theConfiguration.getEU4Path() + "/map/region.txt";
 	auto superRegionFilename = theConfiguration.getEU4Path() + "/map/superregion.txt";
@@ -38,3 +43,4 @@ void EU4::World::loadRegions(const Configuration& theConfiguration)
 	//regions = std::make_unique<Regions>(sRegions, installedAreas, regionStream);
 	regionStream.close();
 }
+*/
