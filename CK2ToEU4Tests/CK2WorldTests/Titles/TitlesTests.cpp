@@ -790,12 +790,9 @@ TEST(CK2World_TitlesTests, revoltsCanBeMerged)
 
 	const auto& title3 = theTitles.getTitles().find("c_revolter");
 	const auto& title4 = theTitles.getTitles().find("d_test");
-	const auto& title5 = theTitles.getTitles().find("d_revolt_dynamic");
 
 	// revolter has nominal liege
 	ASSERT_EQ(title3->second->getLiege().first, "d_test");
 	// revolt has been merged
 	ASSERT_EQ(title4->second->getVassals().size(), 3);
-	// revolt doesn't exist
-	ASSERT_TRUE(title5->first.empty());
 }
