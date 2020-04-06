@@ -1,12 +1,12 @@
+#include "../../CK2ToEU4/Source/CK2World/Characters/Character.h"
+#include "../../CK2ToEU4/Source/CK2World/Characters/Characters.h"
+#include "../../CK2ToEU4/Source/CK2World/Provinces/Province.h"
+#include "../../CK2ToEU4/Source/CK2World/Provinces/Provinces.h"
+#include "../../CK2ToEU4/Source/CK2World/Titles/Liege.h"
+#include "../../CK2ToEU4/Source/CK2World/Titles/Title.h"
+#include "../../CK2ToEU4/Source/CK2World/Titles/Titles.h"
 #include "gtest/gtest.h"
 #include <sstream>
-#include "../../CK2ToEU4/Source/CK2World/Titles/Titles.h"
-#include "../../CK2ToEU4/Source/CK2World/Titles/Title.h"
-#include "../../CK2ToEU4/Source/CK2World/Characters/Characters.h"
-#include "../../CK2ToEU4/Source/CK2World/Characters/Character.h"
-#include "../../CK2ToEU4/Source/CK2World/Titles/Liege.h"
-#include "../../CK2ToEU4/Source/CK2World/Provinces/Provinces.h"
-#include "../../CK2ToEU4/Source/CK2World/Provinces/Province.h"
 
 // Function linkProvinces depends on provinceTitleMapper which is untestable due to
 // disk access. We manually register provinces to titles instead of using that function
@@ -28,7 +28,7 @@ TEST(CK2World_TitlesTests, titleCanBeLoaded)
 {
 	std::stringstream input;
 	input << "=\n";
-	input << "{\n";	
+	input << "{\n";
 	input << "c_test={}\n";
 	input << "}";
 
@@ -647,7 +647,7 @@ TEST(CK2World_TitlesTests, provincesCanBeCoalesced)
 	input2 << "50={}\n";
 	input2 << "}";
 	const CK2::Provinces theProvinces(input2);
-	
+
 	const auto& province42 = theProvinces.getProvinces().find(42);
 	const auto& province43 = theProvinces.getProvinces().find(43);
 	const auto& province44 = theProvinces.getProvinces().find(44);
@@ -716,7 +716,7 @@ TEST(CK2World_TitlesTests, provincesCanBeCongregated)
 
 	title4->second->congregateProvinces(independentTitles);
 	const auto& dutchyProvinces = title4->second->getProvinces();
-	
+
 	ASSERT_EQ(dutchyProvinces.size(), 4);
 	ASSERT_EQ(dutchyProvinces.find(42)->second->getID(), 42);
 	ASSERT_EQ(dutchyProvinces.find(43)->second->getID(), 43);
@@ -769,4 +769,33 @@ TEST(CK2World_TitlesTests, provincesCanBeCongregatedExceptNonIndependents)
 
 	ASSERT_EQ(dutchyProvinces.size(), 3);
 	ASSERT_EQ(dutchyProvinces.count(42), 0);
+}
+
+TEST(CK2World_TitlesTests, revoltsCanBeMerged)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "c_test1={liege=d_test}\n";
+	input << "c_test2={liege=d_test}\n";
+	input << "c_revolter={liege=\n{\ntitle=\"d_revolt_dynamic\"\nbase_title=\"d_test\"\n}\n}\n";
+	input << "d_revolt_dynamic=\n{\nmajor_revolt=yes\nbase_title=d_test\n}\n";
+	input << "d_test={}\n";
+	input << "}";
+	CK2::Titles theTitles(input);
+	theTitles.linkLiegePrimaryTitles();
+	theTitles.linkVassals();
+	theTitles.linkBaseTitles();
+	theTitles.mergeRevolts();
+
+	const auto& title3 = theTitles.getTitles().find("c_revolter");
+	const auto& title4 = theTitles.getTitles().find("d_test");
+	const auto& title5 = theTitles.getTitles().find("d_revolt_dynamic");
+
+	// revolter has nominal liege
+	ASSERT_EQ(title3->second->getLiege().first, "d_test");
+	// revolt has been merged
+	ASSERT_EQ(title4->second->getVassals().size(), 3);
+	// revolt doesn't exist
+	ASSERT_TRUE(title5->first.empty());
 }
