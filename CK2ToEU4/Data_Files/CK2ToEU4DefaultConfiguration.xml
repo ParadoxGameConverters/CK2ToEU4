@@ -42,6 +42,81 @@
 					</entryOptions>
 				</preference>-->
 				<preference>
+					<name>i_am_hre</name>
+					<friendlyName>Which empire inherits EU4 HRE mechanics and shatters?</friendlyName>
+					<description>Only one empire can use HRE mechanics.</description>
+					<entryOptions>
+						<entryOption>
+							<name>1</name>
+							<friendlyName>1 - The HRE [obviously]</friendlyName>
+							<description>e_hre</description>
+							<isDefault>true</isDefault>
+						</entryOption>
+						<entryOption>
+							<name>2</name>
+							<friendlyName>2 - Byzantium!</friendlyName>
+							<description>e_byzantium</description>
+							<isDefault>false</isDefault>
+						</entryOption>
+						<entryOption>
+							<name>3</name>
+							<friendlyName>3 - Uh, Rome?</friendlyName>
+							<description>e_roman_empire</description>
+							<isDefault>false</isDefault>
+						</entryOption>
+						<entryOption>
+							<name>4</name>
+							<friendlyName>4 - Defined in i_am_hre.txt</friendlyName>
+							<description>As defined manually</description>
+							<isDefault>false</isDefault>
+						</entryOption>
+						<entryOption>
+							<name>5</name>
+							<friendlyName>5 - None [no HRE shattering]</friendlyName>
+							<description>Dropped.</description>
+							<isDefault>false</isDefault>
+						</entryOption>
+					</entryOptions>
+				</preference>
+				<preference>
+					<name>shatter_empires</name>
+					<friendlyName>Should we shatter other empires?</friendlyName>
+					<description>Makes the game more dynamic. New countries won't be united.</description>
+					<entryOptions>
+						<entryOption>
+							<name>1</name>
+							<friendlyName>1 - No, as they were [default]</friendlyName>
+							<description>Uses CK2 states.</description>
+							<isDefault>true</isDefault>
+						</entryOption>
+						<entryOption>
+							<name>2</name>
+							<friendlyName>2 - All of them! [interesting]</friendlyName>
+							<description>All empires are broken down.</description>
+							<isDefault>false</isDefault>
+						</entryOption>
+					</entryOptions>
+				</preference>
+				<preference>
+					<name>shatter_level</name>
+					<friendlyName>If we're shattering HRE/others, how far down do we go?</friendlyName>
+					<description>More the merrier.</description>
+					<entryOptions>
+						<entryOption>
+							<name>1</name>
+							<friendlyName>1 - Down to dutchy levels [default]</friendlyName>
+							<description>Dutchies make sense.</description>
+							<isDefault>true</isDefault>
+						</entryOption>
+						<entryOption>
+							<name>2</name>
+							<friendlyName>2 - Keep kingdoms if any</friendlyName>
+							<description>Kingdoms remain.</description>
+							<isDefault>false</isDefault>
+						</entryOption>
+					</entryOptions>
+				</preference>
+				<preference>
 					<name>output_name</name>
 					<friendlyName>Mod Output Name (optional):</friendlyName>
 					<description>Please use ASCII latin characters only.</description>

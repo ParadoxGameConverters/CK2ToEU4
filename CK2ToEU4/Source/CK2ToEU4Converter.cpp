@@ -4,18 +4,18 @@
 #include <fstream>
 #include "CK2ToEU4Converter.h"
 #include "CK2World/World.h"
+#include "EU4World/EU4World.h"
 
 void convertCK2ToEU4(const mappers::VersionParser& versionParser)
 {
-	auto theConfiguration = std::make_shared<Configuration>();
-	deleteExistingOutputFolder(theConfiguration->getOutputName());
+	Configuration theConfiguration;
+	deleteExistingOutputFolder(theConfiguration.getOutputName());
 
 	const CK2::World sourceWorld(theConfiguration);
-	//EU4::World destWorld(sourceWorld, versionParser);
+	EU4::World destWorld(sourceWorld, theConfiguration, versionParser);
 
 	LOG(LogLevel::Info) << "* Conversion complete *";
 }
-
 
 void deleteExistingOutputFolder(const std::string& outputName)
 {

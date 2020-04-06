@@ -23,6 +23,7 @@ namespace CK2
 		[[nodiscard]] const auto& getProvinces() const { return provinces; }
 		[[nodiscard]] const auto& getBaseTitle() const { return baseTitle; }
 		[[nodiscard]] auto isInHRE() const { return inHRE; }
+		[[nodiscard]] auto isHREEmperor() const { return HREEmperor; }
 		[[nodiscard]] auto isMajorRevolt() const { return majorRevolt; }
 
 		[[nodiscard]] std::map<int, std::shared_ptr<Province>> coalesceProvinces() const;
@@ -35,11 +36,16 @@ namespace CK2
 		void setDJLiegePrimaryTitle(std::shared_ptr<Title> theTitle) const { deJureLiege.second->setTitle(std::move(theTitle)); }
 		void setDJLiegeBaseTitle(std::shared_ptr<Title> theBaseTitle) const { deJureLiege.second->setBaseTitle(std::move(theBaseTitle)); }
 		void setInHRE() { inHRE = true; }
+		void setHREEmperor() { HREEmperor = true; }
 		void overrideLiege() { liege = deJureLiege; }
+		void overrideLiege(const std::pair<std::string, std::shared_ptr<Liege>>& theLiege) { liege = theLiege; }
 		void registerVassal(const std::pair<std::string, std::shared_ptr<Title>>& theVassal) { vassals.insert(theVassal); }
 		void registerDeJureVassal(const std::pair<std::string, std::shared_ptr<Title>>& theVassal) { deJureVassals.insert(theVassal); }
 		void registerProvince(const std::pair<int, std::shared_ptr<Province>>& theProvince) { provinces.insert(theProvince); }
 		void congregateProvinces(const std::map<std::string, std::shared_ptr<Title>>& independentTitles);
+		void clearLiege() { liege.first.clear(); liege.second = nullptr; }
+		void clearHolder() { holder.first = 0; holder.second = nullptr; }
+		void clearVassals() { vassals.clear(); }
 		
 	private:
 		void registerKeys();
@@ -50,6 +56,7 @@ namespace CK2
 		std::pair<std::string, std::shared_ptr<Liege>> deJureLiege;
 		std::string name;
 		bool inHRE = false;
+		bool HREEmperor = false;
 		bool majorRevolt = false;
 		std::map<int, std::shared_ptr<Province>> provinces;
 		std::map<std::string, std::shared_ptr<Title>> vassals;

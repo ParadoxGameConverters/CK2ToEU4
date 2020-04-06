@@ -33,5 +33,20 @@ void ConfigurationDetails::registerKeys()
 			outputName = nameStr.getString();
 			Log(LogLevel::Info) << "Output name set to: " << outputName;
 		});
+	registerKeyword("i_am_hre", [this](const std::string& unused, std::istream& theStream) {
+		const commonItems::singleInt hreInt(theStream);
+		iAmHre = I_AM_HRE(hreInt.getInt());
+		Log(LogLevel::Info) << "HRE set to: " << hreInt.getInt();
+		});
+	registerKeyword("shatter_empires", [this](const std::string& unused, std::istream& theStream) {
+		const commonItems::singleInt shatterEmpiresInt(theStream);
+		shatterEmpires = SHATTER_EMPIRES(shatterEmpiresInt.getInt());
+		Log(LogLevel::Info) << "Shatter Empires set to: " << shatterEmpiresInt.getInt();
+		});
+	registerKeyword("shatter_level", [this](const std::string& unused, std::istream& theStream) {
+		const commonItems::singleInt shatterLevelInt(theStream);
+		shatterLevel = SHATTER_LEVEL(shatterLevelInt.getInt());
+		Log(LogLevel::Info) << "Shatter Level set to: " << shatterLevelInt.getInt();
+		});
 	registerRegex("[a-zA-Z0-9\\_.:]+", commonItems::ignoreItem);
 }

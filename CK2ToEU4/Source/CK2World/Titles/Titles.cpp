@@ -221,3 +221,32 @@ void CK2::Titles::linkBaseTitles()
 	}
 	Log(LogLevel::Info) << "<> " << counter << " base titles titles and " << counterBase << " base title base titles linked.";
 }
+
+void CK2::Titles::mergeRevolts()
+{
+	// major revolts need to have their leader drop the top-tier revolt title and relink
+	// to revolt's base_title.
+
+	std::set<std::string> droppedRevoltTitles;
+
+	for (const auto& title : titles)
+	{
+		if (!title.second->isMajorRevolt()) continue;
+		// for a major revolt, scroll through all vassals and relink them to to base;		
+		for (const auto& vassal : title.second->getVassals())
+		{
+			const auto& revoltBaseTitle = title.second->getBaseTitle();
+			vassal.second->overrideLiege(revoltBaseTitle);
+			const auto& newLiege = vassal.second->getLiege().second->getTitle();
+			newLiege.second->registerVassal(std::pair(vassal.first, vassal.second));
+		}
+		title.second->clearVassals();
+		droppedRevoltTitles.insert(title.first);
+	}
+	// finally, clear them out.
+	for (const auto& droppedRevolt : droppedRevoltTitles)
+	{
+		titles.erase(droppedRevolt);
+	}
+	Log(LogLevel::Info) << "<> " << droppedRevoltTitles.size() << " revolts merged.";
+}

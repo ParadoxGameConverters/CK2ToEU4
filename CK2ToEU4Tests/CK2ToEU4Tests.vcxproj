@@ -102,6 +102,8 @@
       <SupportJustMyCode>false</SupportJustMyCode>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -178,8 +180,13 @@
     <ClCompile Include="..\CK2ToEU4\Source\Common\CommonFunctions.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Configuration\Configuration.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Configuration\ConfigurationDetails.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\IAmHreMapper\IAmHreMapper.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\ProvinceMapper\ProvinceMapper.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\ProvinceMapper\ProvinceMapping.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\ProvinceMapper\ProvinceMappingsVersion.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\ProvinceTitleMapper\ProvinceTitleGrabber.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\ProvinceTitleMapper\ProvinceTitleMapper.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\VersionParser\VersionParser.cpp" />
     <ClCompile Include="..\common_items\Color.cpp" />
     <ClCompile Include="..\common_items\Date.cpp" />
     <ClCompile Include="..\common_items\iconvlite.cpp" />
@@ -204,6 +211,11 @@
     <ClCompile Include="CK2WorldTests\Titles\TitleTests.cpp" />
     <ClCompile Include="CommonTests\CommonFunctionsTests.cpp" />
     <ClCompile Include="ConfigurationTests.cpp" />
+    <ClCompile Include="MapperTests\IAmHreMapper\IAmHreMapperTests.cpp" />
+    <ClCompile Include="MapperTests\ProvinceMapper\ProvinceMapperTests.cpp" />
+    <ClCompile Include="MapperTests\ProvinceMapper\ProvinceMappingsVersionTests.cpp" />
+    <ClCompile Include="MapperTests\ProvinceMapper\ProvinceMappingTests.cpp" />
+    <ClCompile Include="MapperTests\VersionParser\VersionParserTests.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -112,6 +112,31 @@ TEST(CK2World_TitleTests, inHRECanBeSet)
 	ASSERT_TRUE(theTitle.isInHRE());
 }
 
+TEST(CK2World_TitleTests, HREEmperorDefaultsToFalse)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "}";
+
+	const CK2::Title theTitle(input, "c_test");
+
+	ASSERT_FALSE(theTitle.isHREEmperor());
+}
+
+TEST(CK2World_TitleTests, HREEmperorCanBeSet)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "}";
+
+	CK2::Title theTitle(input, "c_test");
+	theTitle.setHREEmperor();
+
+	ASSERT_TRUE(theTitle.isHREEmperor());
+}
+
 TEST(CK2World_TitleTests, majorRevoltDefaultsToFalse)
 {
 	std::stringstream input;

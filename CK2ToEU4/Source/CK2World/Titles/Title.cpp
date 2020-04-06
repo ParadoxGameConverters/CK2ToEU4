@@ -85,7 +85,6 @@ void CK2::Title::congregateProvinces(const std::map<std::string, std::shared_ptr
 			provinces.insert(vassalProvinces.begin(), vassalProvinces.end());
 		}
 	}
-	Log(LogLevel::Debug) << name << " has " << provinces.size() << " provinces";
 }
 
 std::map<int, std::shared_ptr<CK2::Province>> CK2::Title::coalesceProvinces() const

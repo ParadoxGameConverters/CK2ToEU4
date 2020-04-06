@@ -115,13 +115,14 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <Optimization>MaxSpeed</Optimization>
+      <Optimization>Disabled</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\common_items;..\ZipLib;$(WindowsSDK_IncludePath)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -198,8 +199,13 @@
     <ClCompile Include="Source\CK2ToEU4Converter.cpp" />
     <ClCompile Include="Source\Configuration\Configuration.cpp" />
     <ClCompile Include="Source\Configuration\ConfigurationDetails.cpp" />
+    <ClCompile Include="Source\EU4World\EU4World.cpp" />
     <ClCompile Include="Source\EU4World\Output\outVersion.cpp" />
     <ClCompile Include="Source\main.cpp" />
+    <ClCompile Include="Source\Mappers\IAmHreMapper\IAmHreMapper.cpp" />
+    <ClCompile Include="Source\Mappers\ProvinceMapper\ProvinceMapper.cpp" />
+    <ClCompile Include="Source\Mappers\ProvinceMapper\ProvinceMapping.cpp" />
+    <ClCompile Include="Source\Mappers\ProvinceMapper\ProvinceMappingsVersion.cpp" />
     <ClCompile Include="Source\Mappers\ProvinceTitleMapper\ProvinceTitleGrabber.cpp" />
     <ClCompile Include="Source\Mappers\ProvinceTitleMapper\ProvinceTitleMapper.cpp" />
     <ClCompile Include="Source\Mappers\VersionParser\VersionParser.cpp" />
@@ -233,7 +239,12 @@
     <ClInclude Include="Source\CK2ToEU4Converter.h" />
     <ClInclude Include="Source\Configuration\Configuration.h" />
     <ClInclude Include="Source\Configuration\ConfigurationDetails.h" />
+    <ClInclude Include="Source\EU4World\EU4World.h" />
     <ClInclude Include="Source\EU4World\Output\output.h" />
+    <ClInclude Include="Source\Mappers\IAmHreMapper\IAmHreMapper.h" />
+    <ClInclude Include="Source\Mappers\ProvinceMapper\ProvinceMapper.h" />
+    <ClInclude Include="Source\Mappers\ProvinceMapper\ProvinceMapping.h" />
+    <ClInclude Include="Source\Mappers\ProvinceMapper\ProvinceMappingsVersion.h" />
     <ClInclude Include="Source\Mappers\ProvinceTitleMapper\ProvinceTitleGrabber.h" />
     <ClInclude Include="Source\Mappers\ProvinceTitleMapper\ProvinceTitleMapper.h" />
     <ClInclude Include="Source\Mappers\VersionParser\VersionParser.h" />
