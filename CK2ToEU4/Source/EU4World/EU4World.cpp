@@ -110,6 +110,7 @@ void EU4::World::output(const mappers::VersionParser& versionParser, const Confi
 	fs::create_directory("output/" + theConfiguration.getOutputName() + "/history/countries/");
 	fs::create_directory("output/" + theConfiguration.getOutputName() + "/common/");
 	fs::create_directory("output/" + theConfiguration.getOutputName() + "/common/countries/");
+	fs::create_directory("output/" + theConfiguration.getOutputName() + "/common/country_tags/");
 
 	LOG(LogLevel::Info) << "<- Crafting .mod File";
 	createModFile(theConfiguration);
@@ -120,7 +121,7 @@ void EU4::World::output(const mappers::VersionParser& versionParser, const Confi
 
 	// Output common\countries.txt
 	LOG(LogLevel::Info) << "<- Creating countries.txt";
-	outputCommonCountries(theConfiguration);
+	outputCommonCountriesFile(theConfiguration);
 
 	LOG(LogLevel::Info) << "<- Writing Countries";
 	outputCommonCountries(theConfiguration);
@@ -148,7 +149,7 @@ void EU4::World::outputVersion(const mappers::VersionParser& versionParser, cons
 
 void EU4::World::outputCommonCountriesFile(const Configuration& theConfiguration) const
 {
-	std::ofstream output("output/" + theConfiguration.getOutputName() + "/common/countries.txt");
+	std::ofstream output("output/" + theConfiguration.getOutputName() + "/common/country_tags/00_countries.txt");
 	if (!output.is_open()) throw std::runtime_error("Could not create countries file!");
 
 	for (const auto& country: countries) { output << country.first << " = \"" << country.second->getCommonCountryFile() << "\"\n"; }

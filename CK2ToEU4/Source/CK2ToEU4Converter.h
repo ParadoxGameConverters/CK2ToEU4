@@ -3,6 +3,5 @@
 #include "Mappers/VersionParser/VersionParser.h"
 
 void convertCK2ToEU4(const mappers::VersionParser& versionParser);
-void deleteExistingOutputFolder(const std::string& outputName);
 
 #endif // CK2TOEU4_CONVERTER_H

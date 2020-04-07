@@ -3,27 +3,12 @@
 #include "Configuration/Configuration.h"
 #include "EU4World/EU4World.h"
 #include "Log.h"
-#include "OSCompatibilityLayer.h"
-#include <fstream>
 
 void convertCK2ToEU4(const mappers::VersionParser& versionParser)
 {
-	Configuration theConfiguration;
-	deleteExistingOutputFolder(theConfiguration.getOutputName());
-
+	const Configuration theConfiguration;
 	const CK2::World sourceWorld(theConfiguration);
 	EU4::World destWorld(sourceWorld, theConfiguration, versionParser);
 
 	LOG(LogLevel::Info) << "* Conversion complete *";
-}
-
-void deleteExistingOutputFolder(const std::string& outputName)
-{
-	const auto outputFolder = Utils::getCurrentDirectory() + "/output/" + outputName;
-	if (Utils::doesFolderExist(outputFolder)) {
-		if (!Utils::deleteFolder(outputFolder)) {
-			LOG(LogLevel::Error) << "Could not delete pre-existing output folder " << Utils::getCurrentDirectory() << "/output/" << outputName;
-			exit(-1);
-		}
-	}
 }
