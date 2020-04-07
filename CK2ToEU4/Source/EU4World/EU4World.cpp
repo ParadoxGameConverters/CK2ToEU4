@@ -37,28 +37,20 @@ void EU4::World::importCK2Countries(const CK2::World& sourceWorld)
 			const auto& capitalMatch = provinceMapper.getEU4ProvinceNumbers(ck2CapitalID);
 			if (!capitalMatch.empty()) eu4CapitalID = *capitalMatch.begin();
 		}
-		Log(LogLevel::Debug) << "cap: " << eu4CapitalID;
 
 		// Mapping the title to a tag
 		const auto& tag = titleTagMapper.getTagForTitle(title.first, title.second->getBaseTitle().first, eu4CapitalID);
 		if (!tag) throw std::runtime_error("Title " + title.first + " could not be mapped!");
-		Log(LogLevel::Debug) << "Mapped to tag: " << *tag;
 		
 		// Locating appropriate existing country
 		const auto& countryItr = countries.find(*tag);
 		if (countryItr != countries.end()) {
-			Log(LogLevel::Debug) << "Located country, initing: " << *tag;
 			countryItr->second->initializeFromTitle(*tag, title.second);
-			Log(LogLevel::Debug) << "Init complete: " << *tag;
 		} else {
 			// Otherwise create the country
-			Log(LogLevel::Debug) << "Creating new country: " << *tag;
-			std::shared_ptr<Country> newCountry;
-			Log(LogLevel::Debug) << "Initing new country: " << *tag;
+			auto newCountry = std::make_shared<Country>();
 			newCountry->initializeFromTitle(*tag, title.second);
-			Log(LogLevel::Debug) << "Inserting new country: " << *tag;
 			countries.insert(std::pair(*tag, newCountry));
-			Log(LogLevel::Debug) << "Done: " << *tag;
 		}
 	}
 	LOG(LogLevel::Info) << ">> " << countries.size() << " total countries recognized.";
