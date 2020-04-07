@@ -1,10 +1,10 @@
 #include "Province.h"
-#include "ParserHelpers.h"
-#include "Log.h"
-#include "Barony.h"
 #include "../Titles/Title.h"
+#include "Barony.h"
+#include "Log.h"
+#include "ParserHelpers.h"
 
-CK2::Province::Province(std::istream& theStream, int provID) : provinceID(provID)
+CK2::Province::Province(std::istream& theStream, int provID): provinceID(provID)
 {
 	registerKeys();
 	parseStream(theStream);
@@ -45,11 +45,8 @@ int CK2::Province::getBuildingWeight() const
 	// Having a barony counts as 3. Every building level counts as +1.
 	// As this translates to raw dev in province, ownership is not relevant.
 	// TODO: Add trade posts and hospitals.
-	
+
 	int buildingWeight = 0;
-	for (const auto& barony: baronies)
-	{
-		buildingWeight += 3 + barony.second->getBuildingCount();
-	}
+	for (const auto& barony: baronies) { buildingWeight += 3 + barony.second->getBuildingCount(); }
 	return buildingWeight;
 }

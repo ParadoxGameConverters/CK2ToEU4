@@ -5,19 +5,19 @@
 
 namespace mappers
 {
-	class IAmHreMapper: commonItems::parser
-	{
-	public:
-		IAmHreMapper();
-		IAmHreMapper(std::istream& theStream);
+class IAmHreMapper: commonItems::parser
+{
+  public:
+	IAmHreMapper();
+	IAmHreMapper(std::istream& theStream);
 
-		[[nodiscard]] const auto& getHRE() const { return hre; }
+	[[nodiscard]] const auto& getHRE() const { return hre; }
 
-	private:
-		void registerKeys();
+  private:
+	void registerKeys();
 
-		std::string hre;
-	};
-}
+	std::string hre;
+};
+} // namespace mappers
 
 #endif // I_AM_HRE_MAPPER

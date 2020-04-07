@@ -13,10 +13,12 @@ class VersionParser;
 namespace CK2
 {
 class World;
-}
+class Province;
+} // namespace CK2
 
 namespace EU4
 {
+class Province;
 class Country;
 class World
 {
@@ -26,12 +28,15 @@ class World
   private:
 	// void loadRegions(const Configuration& theConfiguration); waiting on geography.
 	void importVanillaCountries(const std::string& eu4Path);
+	void importVanillaProvinces(const std::string& eu4Path);
 	void importCK2Countries(const CK2::World& sourceWorld);
+	void importCK2Provinces(const CK2::World& sourceWorld);
 	void output(const mappers::VersionParser& versionParser, const Configuration& theConfiguration) const;
 	void createModFile(const Configuration& theConfiguration) const;
 	void outputVersion(const mappers::VersionParser& versionParser, const Configuration& theConfiguration) const;
 	void outputCommonCountriesFile(const Configuration& theConfiguration) const;
 	void outputHistoryCountries(const Configuration& theConfiguration) const;
+	void outputHistoryProvinces(const Configuration& theConfiguration) const;
 	void outputCommonCountries(const Configuration& theConfiguration) const;
 
 
@@ -39,6 +44,7 @@ class World
 	mappers::TitleTagMapper titleTagMapper;
 	ModFile modFile;
 	std::map<std::string, std::shared_ptr<Country>> countries;
+	std::map<int, std::shared_ptr<Province>> provinces;
 };
 } // namespace EU4
 

@@ -18,8 +18,7 @@ std::string trimExtension(const std::string& fileName)
 std::string replaceCharacter(std::string fileName, char character)
 {
 	auto position = fileName.find_first_of(character);
-	while (position != std::string::npos)
-	{
+	while (position != std::string::npos) {
 		fileName.replace(position, 1, "_");
 		position = fileName.find_first_of(character);
 	}

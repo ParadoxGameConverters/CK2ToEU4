@@ -7,6 +7,7 @@
 #include "Country/Country.h"
 #include "Log.h"
 #include "OSCompatibilityLayer.h"
+#include "Province/EU4Province.h"
 #include <filesystem>
 #include <fstream>
 namespace fs = std::filesystem;
@@ -17,9 +18,26 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 	provinceMapper.determineValidProvinces(theConfiguration);
 	importVanillaCountries(theConfiguration.getEU4Path());
 	importCK2Countries(sourceWorld);
+	importVanillaProvinces(theConfiguration.getEU4Path());
+	importCK2Provinces(sourceWorld);
 	LOG(LogLevel::Info) << "---> The Dump <---";
 	output(versionParser, theConfiguration);
 	LOG(LogLevel::Info) << "*** Farewell EU4, granting you independence. ***";
+}
+
+void EU4::World::importVanillaProvinces(const std::string& eu4Path)
+{
+	LOG(LogLevel::Info) << "-> Importing Vanilla Provinces";
+	// ---- Loading history/provinces
+	std::set<std::string> fileNames;
+	Utils::GetAllFilesInFolder(eu4Path + "/history/provinces/", fileNames);
+	for (const auto& fileName: fileNames) {
+		const auto minusLoc = fileName.find(" - ");
+		const auto id = std::stoi(fileName.substr(0, minusLoc));
+		auto newProvince = std::make_shared<Province>(id, eu4Path + "/history/provinces/" + fileName);
+		provinces.insert(std::pair(id, newProvince));
+	}
+	LOG(LogLevel::Info) << ">> Loaded " << provinces.size() << " province definitions.";
 }
 
 void EU4::World::importCK2Countries(const CK2::World& sourceWorld)
@@ -56,6 +74,30 @@ void EU4::World::importCK2Countries(const CK2::World& sourceWorld)
 	LOG(LogLevel::Info) << ">> " << countries.size() << " total countries recognized.";
 }
 
+
+void EU4::World::importCK2Provinces(const CK2::World& sourceWorld)
+{
+	LOG(LogLevel::Info) << "-> Importing CK2 Provinces";
+	auto counter = 0;
+	// CK2 provinces map to a subset of eu4 provinces. We'll only rewrite those we are responsible for.
+	for (const auto& province: sourceWorld.getProvinces()) {
+
+		// every ck2 province can map to a number of eu4 ones.
+		const auto& eu4Provinces = provinceMapper.getEU4ProvinceNumbers(province.first);
+		for (const auto& eu4Province: eu4Provinces) {
+			// Locating appropriate existing province, and this should never fail
+			const auto& provinceItr = provinces.find(eu4Province);
+			if (provinceItr != provinces.end()) {
+				provinceItr->second->initializeFromCK2(province.second);
+				counter++;
+			} else {
+				// Otherwise make a fuss!
+				Log(LogLevel::Warning) << "CK2 province " << province.first << " mapped to EU4 " << eu4Province << " has no definition loaded!";
+			}
+		}
+	}
+	LOG(LogLevel::Info) << ">> " << sourceWorld.getProvinces().size() << " CK2 provinces imported into " << counter << " EU4 provinces.";
+}
 
 void EU4::World::importVanillaCountries(const std::string& eu4Path)
 {
@@ -108,6 +150,7 @@ void EU4::World::output(const mappers::VersionParser& versionParser, const Confi
 	fs::create_directory("output/" + theConfiguration.getOutputName());
 	fs::create_directory("output/" + theConfiguration.getOutputName() + "/history/");
 	fs::create_directory("output/" + theConfiguration.getOutputName() + "/history/countries/");
+	fs::create_directory("output/" + theConfiguration.getOutputName() + "/history/provinces/");
 	fs::create_directory("output/" + theConfiguration.getOutputName() + "/common/");
 	fs::create_directory("output/" + theConfiguration.getOutputName() + "/common/countries/");
 	fs::create_directory("output/" + theConfiguration.getOutputName() + "/common/country_tags/");
@@ -126,6 +169,9 @@ void EU4::World::output(const mappers::VersionParser& versionParser, const Confi
 	LOG(LogLevel::Info) << "<- Writing Countries";
 	outputCommonCountries(theConfiguration);
 	outputHistoryCountries(theConfiguration);
+
+	LOG(LogLevel::Info) << "<- Writing Provinces";
+	outputHistoryProvinces(theConfiguration);
 }
 
 void EU4::World::createModFile(const Configuration& theConfiguration) const
@@ -155,6 +201,17 @@ void EU4::World::outputCommonCountriesFile(const Configuration& theConfiguration
 	for (const auto& country: countries) { output << country.first << " = \"" << country.second->getCommonCountryFile() << "\"\n"; }
 	output << "\n";
 	output.close();
+}
+
+void EU4::World::outputHistoryProvinces(const Configuration& theConfiguration) const
+{
+	for (const auto& province: provinces) {
+		std::ofstream output("output/" + theConfiguration.getOutputName() + "/" + province.second->getHistoryCountryFile());
+		if (!output.is_open())
+			throw std::runtime_error("Could not create country history file: output/" + theConfiguration.getOutputName() + "/" + province.second->getHistoryCountryFile());
+		output << *province.second;
+		output.close();
+	}
 }
 
 void EU4::World::outputHistoryCountries(const Configuration& theConfiguration) const

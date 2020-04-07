@@ -1,20 +1,19 @@
 #include "ProvinceTitleMapper.h"
-#include "ParserHelpers.h"
-#include <set>
-#include "OSCompatibilityLayer.h"
-#include "ProvinceTitleGrabber.h"
 #include "../../CK2World/Provinces/Provinces.h"
 #include "../../CK2World/Titles/Titles.h"
+#include "OSCompatibilityLayer.h"
+#include "ParserHelpers.h"
+#include "ProvinceTitleGrabber.h"
+#include <set>
 
 void mappers::ProvinceTitleMapper::loadProvinces(const std::string& CK2Path)
 {
 	// Goal of this mapper is to determine what c_title maps to what provinceID. It's not as trivial as it sounds.
-	
+
 	std::set<std::string> provinceFilenames;
 	Utils::GetAllFilesInFolder(CK2Path + "/history/provinces", provinceFilenames);
 	if (provinceFilenames.empty()) throw std::runtime_error(CK2Path + "/history/provinces is empty?");
-	for (const auto& provinceFilename : provinceFilenames)
-	{
+	for (const auto& provinceFilename: provinceFilenames) {
 		auto newProvince = ProvinceTitleGrabber(CK2Path + "/history/provinces/" + provinceFilename);
 
 		// At this stage, single provinceID can point to multiple c_titles, as well as a single
@@ -33,7 +32,8 @@ std::optional<int> mappers::ProvinceTitleMapper::getIDForTitle(const std::string
 
 std::optional<std::string> mappers::ProvinceTitleMapper::getTitleForID(int provID) const
 {
-	for (const auto& province : provinceTitles) if (province.second == provID) return province.first;
+	for (const auto& province: provinceTitles)
+		if (province.second == provID) return province.first;
 	return std::nullopt;
 }
 
@@ -44,21 +44,13 @@ void mappers::ProvinceTitleMapper::filterSelf(const CK2::Provinces& theProvinces
 	std::set<int> knownProvinceIDs;
 	std::set<std::string> knownTitles;
 
-	for (const auto& province: theProvinces.getProvinces())
-	{
-		knownProvinceIDs.insert(province.first);
-	}
-	for (const auto& title: theTitles.getTitles())
-	{
-		knownTitles.insert(title.first);
-	}
-	
+	for (const auto& province: theProvinces.getProvinces()) { knownProvinceIDs.insert(province.first); }
+	for (const auto& title: theTitles.getTitles()) { knownTitles.insert(title.first); }
+
 	std::map<std::string, int> newProvinceTitles;
 
-	for (const auto& provinceTitle : origProvinceTitles)
-	{
-		if (knownTitles.count(provinceTitle.first) && knownProvinceIDs.count(provinceTitle.second))
-		{
+	for (const auto& provinceTitle: origProvinceTitles) {
+		if (knownTitles.count(provinceTitle.first) && knownProvinceIDs.count(provinceTitle.second)) {
 			newProvinceTitles.insert(std::pair(provinceTitle.first, provinceTitle.second));
 		}
 	}

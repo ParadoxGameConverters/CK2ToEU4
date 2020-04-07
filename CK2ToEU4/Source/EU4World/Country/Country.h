@@ -1,5 +1,5 @@
-#ifndef COUNTRY_H
-#define COUNTRY_H
+#ifndef EU4_COUNTRY_H
+#define EU4_COUNTRY_H
 
 #include "../../CK2World/Titles/Title.h"
 #include "CountryDetails.h"
@@ -33,4 +33,4 @@ class Country
 };
 } // namespace EU4
 
-#endif // COUNTRY_H
+#endif // EU4_COUNTRY_H

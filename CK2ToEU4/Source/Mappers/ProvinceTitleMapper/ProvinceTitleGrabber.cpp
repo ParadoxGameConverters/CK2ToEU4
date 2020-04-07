@@ -1,7 +1,7 @@
 #include "ProvinceTitleGrabber.h"
-#include "ParserHelpers.h"
-#include "OSCompatibilityLayer.h"
 #include "../../Common/CommonFunctions.h"
+#include "OSCompatibilityLayer.h"
+#include "ParserHelpers.h"
 
 mappers::ProvinceTitleGrabber::ProvinceTitleGrabber(const std::string& provincePath)
 {
@@ -20,7 +20,7 @@ void mappers::ProvinceTitleGrabber::registerKeys()
 {
 	registerKeyword("title", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleString titleStr(theStream);
-		title = titleStr.getString();		
+		title = titleStr.getString();
 	});
 
 	registerRegex("[A-Za-z0-9\\_.:-]+", commonItems::ignoreItem);

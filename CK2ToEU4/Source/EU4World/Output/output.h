@@ -3,13 +3,15 @@
 
 #include "../../Mappers/VersionParser/VersionParser.h"
 #include "../Country/Country.h"
+#include "../Province/EU4Province.h"
 #include "ModFile.h"
 #include <ostream>
 
 namespace EU4
 {
-std::ostream& operator<<(std::ostream& output, const Country& versionParser);
+std::ostream& operator<<(std::ostream& output, const Country& country);
 std::ostream& operator<<(std::ostream& output, const ModFile& modFile);
+std::ostream& operator<<(std::ostream& output, const Province& province);
 } // namespace EU4
 
 namespace mappers

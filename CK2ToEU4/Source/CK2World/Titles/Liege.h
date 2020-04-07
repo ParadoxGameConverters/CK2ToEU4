@@ -4,29 +4,29 @@
 
 namespace CK2
 {
-	class Title;
-	class Liege: commonItems::parser
-	{
-	public:
-		Liege() = default;
-		Liege(std::istream& theStream);
-		Liege(const std::string& theTitle) : title(std::make_pair(theTitle, nullptr)){};
-		
-		[[nodiscard]] const auto& getTitle() const { return title; }
-		[[nodiscard]] const auto& getBaseTitle() const { return baseTitle; }
-		[[nodiscard]] auto isDynamic() const { return dynamic; }
-		[[nodiscard]] auto isCustom() const { return custom; }
-		void setTitle(std::shared_ptr<Title> theTitle) { title.second = std::move(theTitle); }
-		void setBaseTitle(std::shared_ptr<Title> theBaseTitle) { baseTitle.second = std::move(theBaseTitle); }
+class Title;
+class Liege: commonItems::parser
+{
+  public:
+	Liege() = default;
+	Liege(std::istream& theStream);
+	Liege(const std::string& theTitle): title(std::make_pair(theTitle, nullptr)){};
 
-	private:
-		void registerKeys();
+	[[nodiscard]] const auto& getTitle() const { return title; }
+	[[nodiscard]] const auto& getBaseTitle() const { return baseTitle; }
+	[[nodiscard]] auto isDynamic() const { return dynamic; }
+	[[nodiscard]] auto isCustom() const { return custom; }
+	void setTitle(std::shared_ptr<Title> theTitle) { title.second = std::move(theTitle); }
+	void setBaseTitle(std::shared_ptr<Title> theBaseTitle) { baseTitle.second = std::move(theBaseTitle); }
 
-		std::pair<std::string, std::shared_ptr<Title>> title;
-		std::pair<std::string, std::shared_ptr<Title>> baseTitle;
-		bool dynamic = false;
-		bool custom = false;		
-	};
-}
+  private:
+	void registerKeys();
+
+	std::pair<std::string, std::shared_ptr<Title>> title;
+	std::pair<std::string, std::shared_ptr<Title>> baseTitle;
+	bool dynamic = false;
+	bool custom = false;
+};
+} // namespace CK2
 
 #endif // CK2_LIEGE_H

@@ -5,13 +5,13 @@
 
 class ID: commonItems::parser
 {
-public:
+  public:
 	ID() = default;
 	explicit ID(std::istream& theStream);
 
 	[[nodiscard]] auto getIDNum() const { return IDNum; }
 
-private:
+  private:
 	int IDNum = 0;
 	int IDType = 0;
 };

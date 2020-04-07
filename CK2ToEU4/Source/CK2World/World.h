@@ -7,6 +7,7 @@
 #include "Date.h"
 #include "Dynasties/Dynasties.h"
 #include "Provinces/Provinces.h"
+#include "Provinces/Province.h"
 #include "Titles/Liege.h"
 #include "Titles/Titles.h"
 #include "newParser.h"
@@ -21,6 +22,7 @@ class World: commonItems::parser
 	World(const Configuration& theConfiguration);
 	[[nodiscard]] const auto& getProvinceTitleMapper() const { return provinceTitleMapper; }
 	[[nodiscard]] const auto& getIndepTitles() const { return independentTitles; }
+	[[nodiscard]] const auto& getProvinces() const { return provinces.getProvinces(); }
 
   private:
 	void verifySave(const std::string& saveGamePath);
