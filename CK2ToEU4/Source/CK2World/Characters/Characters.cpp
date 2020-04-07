@@ -131,12 +131,16 @@ void CK2::Characters::linkCapitals(const Provinces& theProvinces)
 	auto counterCapital = 0;
 	const auto& provinces = theProvinces.getProvinces();
 
-	// Extract all known baronies in a lookable place.
-	std::map<std::string, std::shared_ptr<Barony>> baronyMap;
-	for (const auto& province : provinces)
+	// Extract all known baronies and linked provinces in a lookable place.
+	std::map<std::string, std::pair<std::shared_ptr<Barony>, std::pair<int, std::shared_ptr<Province>>>> baronyMap;
+	
+	for (const auto& province: provinces)
 	{
 		const auto& baronies = province.second->getBaronies();
-		baronyMap.insert(baronies.begin(), baronies.end());
+		for (const auto& barony: baronies)
+		{
+			baronyMap.insert(std::pair(barony.first, std::pair(barony.second, std::pair(province.first, province.second))));
+		}
 	}
 	
 	for (const auto& character : characters)
@@ -146,7 +150,8 @@ void CK2::Characters::linkCapitals(const Provinces& theProvinces)
 			const auto& baronyItr = baronyMap.find(character.second->getCapital().first);
 			if (baronyItr != baronyMap.end())
 			{
-				character.second->setCapitalBarony(baronyItr->second);
+				character.second->setCapitalBarony(baronyItr->second.first);
+				character.second->insertCapitalProvince(baronyItr->second.second);
 				counterCapital++;
 			}
 			else

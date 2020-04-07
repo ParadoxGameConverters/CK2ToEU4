@@ -11,6 +11,7 @@ namespace CK2
 	class Title;
 	class Barony;
 	class Dynasty;
+	class Province;
 	
 	typedef struct
 	{
@@ -37,6 +38,7 @@ namespace CK2
 		[[nodiscard]] const auto& getSpouses() const { return spouses; }
 		[[nodiscard]] const auto& getPrimaryTitle() const { return primaryTitle; }
 		[[nodiscard]] const auto& getCapital() const { return capital; }
+		[[nodiscard]] const auto& getCapitalProvince() const { return capitalProvince; }
 
 		[[nodiscard]] auto getID() const { return charID; }
 		[[nodiscard]] const auto& getLiege() const { return liege; }
@@ -46,6 +48,7 @@ namespace CK2
 		void setPrimaryTitle(std::shared_ptr<Title> theTitle) const { primaryTitle.second->setTitle(std::move(theTitle)); }
 		void setBaseTitle(std::shared_ptr<Title> theBaseTitle) const { primaryTitle.second->setBaseTitle(std::move(theBaseTitle)); }
 		void setCapitalBarony(std::shared_ptr<Barony> theCapitalBarony) { capital.second = std::move(theCapitalBarony); }
+		void insertCapitalProvince(const std::pair<int, std::shared_ptr<Province>>& theProvince) { capitalProvince = theProvince; }
 
 	private:
 		void registerKeys();
@@ -62,7 +65,8 @@ namespace CK2
 		std::map<int, std::shared_ptr<Character>> spouses;
 		std::pair<std::string, std::shared_ptr<Liege>> primaryTitle;
 		std::pair<std::string, std::shared_ptr<Barony>> capital;
+		std::pair<int, std::shared_ptr<Province>> capitalProvince;
 	};
-}
+	}
 
 #endif // CK2_CHARACTER_H

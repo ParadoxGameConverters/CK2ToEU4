@@ -25,13 +25,14 @@ class World
 		 const mappers::VersionParser& versionParser);
 
   private:
-	void loadRegions(const Configuration& theConfiguration);
+	//void loadRegions(const Configuration& theConfiguration); waiting on geography.
 	void importVanillaCountries(const std::string& eu4Path);
+	void importCK2Countries(const CK2::World& sourceWorld);
 
 	mappers::ProvinceMapper provinceMapper;
 	mappers::TitleTagMapper titleTagMapper;
 
-	std::map<std::string, std::shared_ptr<Country>> vanillaCountries;
+	std::map<std::string, std::shared_ptr<Country>> countries;
 };
 } // namespace EU4
 

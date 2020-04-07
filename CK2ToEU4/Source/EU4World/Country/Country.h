@@ -4,22 +4,19 @@
 #include <memory>
 #include <string>
 #include "CountryDetails.h"
+#include "../../CK2World/Titles/Title.h"
 
-namespace CK2
-{
-class Title;
-}
 namespace EU4
 {
 class Country
 {
   public:
 	Country() = default;
-	virtual ~Country() = default;
 
 	Country(std::string theTag, const std::string& filePath);
 	void loadHistory(const std::string& filePath);
-
+	void initializeFromTitle(std::string theTag, std::shared_ptr<CK2::Title> thetitle);
+	
   private:
 	std::string tag;
 	std::string commonCountryFile;
