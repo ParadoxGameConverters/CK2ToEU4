@@ -1,10 +1,10 @@
+#include "CK2ToEU4Converter.h"
+#include "CK2World/World.h"
 #include "Configuration/Configuration.h"
+#include "EU4World/EU4World.h"
 #include "Log.h"
 #include "OSCompatibilityLayer.h"
 #include <fstream>
-#include "CK2ToEU4Converter.h"
-#include "CK2World/World.h"
-#include "EU4World/EU4World.h"
 
 void convertCK2ToEU4(const mappers::VersionParser& versionParser)
 {
@@ -20,10 +20,8 @@ void convertCK2ToEU4(const mappers::VersionParser& versionParser)
 void deleteExistingOutputFolder(const std::string& outputName)
 {
 	const auto outputFolder = Utils::getCurrentDirectory() + "/output/" + outputName;
-	if (Utils::doesFolderExist(outputFolder))
-	{
-		if (!Utils::deleteFolder(outputFolder))
-		{
+	if (Utils::doesFolderExist(outputFolder)) {
+		if (!Utils::deleteFolder(outputFolder)) {
 			LOG(LogLevel::Error) << "Could not delete pre-existing output folder " << Utils::getCurrentDirectory() << "/output/" << outputName;
 			exit(-1);
 		}

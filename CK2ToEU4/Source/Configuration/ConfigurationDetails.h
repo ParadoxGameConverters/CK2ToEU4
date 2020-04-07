@@ -6,7 +6,7 @@
 
 class ConfigurationDetails: commonItems::parser
 {
-public:
+  public:
 	ConfigurationDetails() = default;
 	explicit ConfigurationDetails(std::istream& theStream);
 
@@ -24,9 +24,8 @@ public:
 	SHATTER_EMPIRES shatterEmpires = SHATTER_EMPIRES::NONE;
 	SHATTER_LEVEL shatterLevel = SHATTER_LEVEL::DUTCHY;
 
-private:
+  private:
 	void registerKeys();
-	
 };
 
 #endif // CONFIGURATION_DETAILS_H

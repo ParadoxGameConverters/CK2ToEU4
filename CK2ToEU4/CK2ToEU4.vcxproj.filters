@@ -6,9 +6,6 @@
     <ClCompile Include="..\common_items\CommonUtils.cpp">
       <Filter>CommonItems</Filter>
     </ClCompile>
-    <ClCompile Include="..\common_items\CardinalToOrdinal.cpp">
-      <Filter>CommonItems</Filter>
-    </ClCompile>
     <ClCompile Include="..\common_items\Color.cpp">
       <Filter>CommonItems</Filter>
     </ClCompile>
@@ -126,12 +123,18 @@
     <ClCompile Include="Source\EU4World\Country\CountryDetails.cpp">
       <Filter>EU4World\Country</Filter>
     </ClCompile>
+    <ClCompile Include="..\common_items\CardinalToOrdinal.cpp">
+      <Filter>CommonItems</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\EU4World\Output\outCountry.cpp">
+      <Filter>EU4World\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\EU4World\Output\outModFile.cpp">
+      <Filter>EU4World\Output</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CK2ToEU4Converter.h" />
-    <ClInclude Include="..\common_items\CardinalToOrdinal.h">
-      <Filter>CommonItems</Filter>
-    </ClInclude>
     <ClInclude Include="..\common_items\Color.h">
       <Filter>CommonItems</Filter>
     </ClInclude>
@@ -248,6 +251,12 @@
     </ClInclude>
     <ClInclude Include="Source\EU4World\Country\CountryDetails.h">
       <Filter>EU4World\Country</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common_items\CardinalToOrdinal.h">
+      <Filter>CommonItems</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\EU4World\Output\ModFile.h">
+      <Filter>EU4World\Output</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -18,7 +18,7 @@ BinPackArguments: false
 BinPackParameters: false
 BreakBeforeBraces: Linux
 BreakConstructorInitializers: AfterColon
-ColumnLimit: 120
+ColumnLimit: 170
 Cpp11BracedListStyle: true
 IndentCaseLabels: true
 IndentWidth: 3

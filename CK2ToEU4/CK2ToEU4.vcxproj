@@ -204,6 +204,8 @@
     <ClCompile Include="Source\EU4World\Country\Country.cpp" />
     <ClCompile Include="Source\EU4World\Country\CountryDetails.cpp" />
     <ClCompile Include="Source\EU4World\EU4World.cpp" />
+    <ClCompile Include="Source\EU4World\Output\outCountry.cpp" />
+    <ClCompile Include="Source\EU4World\Output\outModFile.cpp" />
     <ClCompile Include="Source\EU4World\Output\outVersion.cpp" />
     <ClCompile Include="Source\main.cpp" />
     <ClCompile Include="Source\Mappers\IAmHreMapper\IAmHreMapper.cpp" />
@@ -248,6 +250,7 @@
     <ClInclude Include="Source\EU4World\Country\Country.h" />
     <ClInclude Include="Source\EU4World\Country\CountryDetails.h" />
     <ClInclude Include="Source\EU4World\EU4World.h" />
+    <ClInclude Include="Source\EU4World\Output\ModFile.h" />
     <ClInclude Include="Source\EU4World\Output\output.h" />
     <ClInclude Include="Source\Mappers\IAmHreMapper\IAmHreMapper.h" />
     <ClInclude Include="Source\Mappers\ProvinceMapper\ProvinceMapper.h" />

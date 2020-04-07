@@ -1,9 +1,9 @@
 #ifndef COUNTRY_DETAILS_H
 #define COUNTRY_DETAILS_H
 
+#include "Color.h"
 #include "newParser.h"
 #include <set>
-#include "Color.h"
 
 namespace EU4
 {

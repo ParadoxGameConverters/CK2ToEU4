@@ -7,12 +7,9 @@ EU4::CountryDetails::CountryDetails(const std::string& filePath)
 {
 	registerKeys();
 
-	if (Utils::DoesFileExist(filePath))
-	{
+	if (Utils::DoesFileExist(filePath)) {
 		parseFile(filePath);
-	}
-	else
-	{
+	} else {
 		LOG(LogLevel::Debug) << "Could not find file" << filePath << " - skipping";
 	}
 	clearRegisteredKeywords();
@@ -45,12 +42,8 @@ void EU4::CountryDetails::registerKeys()
 		const commonItems::singleString graphStr(theStream);
 		graphicalCulture = graphStr.getString();
 	});
-	registerKeyword("color", [this](const std::string& unused, std::istream& theStream) {
-		color = commonItems::Color(theStream);
-	});
-	registerKeyword("revolutionary_colors", [this](const std::string& unused, std::istream& theStream) {
-		revolutionaryColor = commonItems::Color(theStream);
-	});
+	registerKeyword("color", [this](const std::string& unused, std::istream& theStream) { color = commonItems::Color(theStream); });
+	registerKeyword("revolutionary_colors", [this](const std::string& unused, std::istream& theStream) { revolutionaryColor = commonItems::Color(theStream); });
 	registerKeyword("historical_idea_groups", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::stringList ideaList(theStream);
 		const auto& theIdeas = ideaList.getStrings();
