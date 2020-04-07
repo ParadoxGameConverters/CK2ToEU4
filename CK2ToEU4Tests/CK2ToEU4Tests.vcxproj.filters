@@ -143,6 +143,18 @@
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\ProvinceMapper\ProvinceMappingsVersion.cpp">
       <Filter>ConverterFiles\Mappers\ProvinceMapper</Filter>
     </ClCompile>
+    <ClCompile Include="MapperTests\TitleTagMapper\TitleTagMapperTests.cpp">
+      <Filter>MapperTests\TitleTagMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="MapperTests\TitleTagMapper\TitleTagMappingTests.cpp">
+      <Filter>MapperTests\TitleTagMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\TitleTagMapper\TitleTagMapper.cpp">
+      <Filter>ConverterFiles\Mappers\TitleTagMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\TitleTagMapper\TitleTagMapping.cpp">
+      <Filter>ConverterFiles\Mappers\TitleTagMapper</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4WorldTests">
@@ -225,6 +237,12 @@
     </Filter>
     <Filter Include="ConverterFiles\Mappers\ProvinceMapper">
       <UniqueIdentifier>{67f5721d-52a2-4304-8ea7-0c98fa357bba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MapperTests\TitleTagMapper">
+      <UniqueIdentifier>{5371ff3b-a0ad-4b2a-8cd0-3878b3c3eba5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ConverterFiles\Mappers\TitleTagMapper">
+      <UniqueIdentifier>{86b08ad6-1320-43d5-9717-f8eb0664a779}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
