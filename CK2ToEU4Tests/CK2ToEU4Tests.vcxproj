@@ -182,6 +182,8 @@
     <ClCompile Include="..\CK2ToEU4\Source\Configuration\ConfigurationDetails.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\CultureMapper\CultureMapper.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\CultureMapper\CultureMappingRule.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\GovernmentsMapper\GovernmentsMapper.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\GovernmentsMapper\GovernmentsMapping.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\IAmHreMapper\IAmHreMapper.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\ProvinceMapper\ProvinceMapper.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\ProvinceMapper\ProvinceMapping.cpp" />
@@ -223,6 +225,8 @@
     <ClCompile Include="ConfigurationTests.cpp" />
     <ClCompile Include="MapperTests\CultureMapper\CultureMapperTests.cpp" />
     <ClCompile Include="MapperTests\CultureMapper\CultureMappingTests.cpp" />
+    <ClCompile Include="MapperTests\GovernmentsMapper\GovernmentsMapperTests.cpp" />
+    <ClCompile Include="MapperTests\GovernmentsMapper\GovernmentsMappingTests.cpp" />
     <ClCompile Include="MapperTests\IAmHreMapper\IAmHreMapperTests.cpp" />
     <ClCompile Include="MapperTests\ProvinceMapper\ProvinceMapperTests.cpp" />
     <ClCompile Include="MapperTests\ProvinceMapper\ProvinceMappingsVersionTests.cpp" />

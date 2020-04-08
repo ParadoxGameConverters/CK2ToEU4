@@ -95,9 +95,9 @@ void EU4::World::outputHistoryCountries(const Configuration& theConfiguration) c
 void EU4::World::outputCommonCountries(const Configuration& theConfiguration) const
 {
 	for (const auto& country: countries) {
-		std::ofstream output("output/" + theConfiguration.getOutputName() + "/" + country.second->getCommonCountryFile());
+		std::ofstream output("output/" + theConfiguration.getOutputName() + "/common/" + country.second->getCommonCountryFile());
 		if (!output.is_open())
-			throw std::runtime_error("Could not create country common file: output/" + theConfiguration.getOutputName() + "/" + country.second->getCommonCountryFile());
+			throw std::runtime_error("Could not create country common file: output/" + theConfiguration.getOutputName() + "/common/" + country.second->getCommonCountryFile());
 		country.second->outputCommons(output);
 		output.close();
 	}

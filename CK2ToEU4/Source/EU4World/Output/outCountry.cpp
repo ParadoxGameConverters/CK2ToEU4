@@ -58,22 +58,22 @@ void EU4::Country::outputCommons(std::ostream& output)
 	}
 	if (!details.leaderNames.empty()) {
 		output << "leader_names = {\n";
-		for (const auto& name: details.leaderNames) { output << "\t" << name << "\n"; }
+		for (const auto& name: details.leaderNames) { output << "\t\"" << name << "\"\n"; }
 		output << "}\n";
 	}
 	if (!details.shipNames.empty()) {
 		output << "ship_names = {\n";
-		for (const auto& name: details.shipNames) { output << "\t" << name << "\n"; }
+		for (const auto& name: details.shipNames) { output << "\t\"" << name << "\"\n"; }
 		output << "}\n";
 	}
 	if (!details.armyNames.empty()) {
 		output << "army_names = {\n";
-		for (const auto& name: details.armyNames) { output << "\t" << name << "\n"; }
+		for (const auto& name: details.armyNames) { output << "\t\"" << name << "\"\n"; }
 		output << "}\n";
 	}
 	if (!details.fleetNames.empty()) {
 		output << "fleet_names = {\n";
-		for (const auto& name: details.fleetNames) { output << "\t" << name << "\n"; }
+		for (const auto& name: details.fleetNames) { output << "\t\"" << name << "\"\n"; }
 		output << "}\n";
 	}
 	if (!details.preferredReligion.empty()) output << "preferred_religion = " << details.preferredReligion << "\n";

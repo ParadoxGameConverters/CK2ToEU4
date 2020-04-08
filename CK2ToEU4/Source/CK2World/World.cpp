@@ -231,6 +231,7 @@ void CK2::World::congregateProvinces()
 	// This will form actual EU4 tag and contained provinces.
 	for (const auto& title: independentTitles) {
 		title.second->congregateProvinces(independentTitles);
+		for (const auto& province: title.second->getProvinces()) province.second->loadHoldingTitle(std::pair(title.first, title.second));
 		counter += title.second->getProvinces().size();
 	}
 	Log(LogLevel::Info) << "<> " << counter << " provinces held by independents.";

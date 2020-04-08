@@ -171,6 +171,12 @@
     <ClCompile Include="Source\Mappers\RegionMapper\SuperRegion.cpp">
       <Filter>Mappers\RegionMapper</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Mappers\GovernmentsMapper\GovernmentsMapper.cpp">
+      <Filter>Mappers\GovernmentsMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Mappers\GovernmentsMapper\GovernmentsMapping.cpp">
+      <Filter>Mappers\GovernmentsMapper</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CK2ToEU4Converter.h" />
@@ -336,6 +342,12 @@
     <ClInclude Include="Source\Mappers\RegionMapper\SuperRegion.h">
       <Filter>Mappers\RegionMapper</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Mappers\GovernmentsMapper\GovernmentsMapper.h">
+      <Filter>Mappers\GovernmentsMapper</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Mappers\GovernmentsMapper\GovernmentsMapping.h">
+      <Filter>Mappers\GovernmentsMapper</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4World">
@@ -400,6 +412,9 @@
     </Filter>
     <Filter Include="Mappers\RegionMapper">
       <UniqueIdentifier>{aa9ded99-07cd-4ede-b8f4-d91560b337e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mappers\GovernmentsMapper">
+      <UniqueIdentifier>{411c7b37-01e7-4f83-b450-f9c4af5f0370}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

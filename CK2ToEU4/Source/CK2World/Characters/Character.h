@@ -38,6 +38,7 @@ class Character: commonItems::parser
 	[[nodiscard]] const auto& getPrimaryTitle() const { return primaryTitle; }
 	[[nodiscard]] const auto& getCapital() const { return capital; }
 	[[nodiscard]] const auto& getCapitalProvince() const { return capitalProvince; }
+	[[nodiscard]] const auto& getGovernment() const { return government; }
 
 	[[nodiscard]] auto getID() const { return charID; }
 	[[nodiscard]] const auto& getLiege() const { return liege; }
@@ -65,6 +66,7 @@ class Character: commonItems::parser
 	std::pair<std::string, std::shared_ptr<Liege>> primaryTitle;
 	std::pair<std::string, std::shared_ptr<Barony>> capital;
 	std::pair<int, std::shared_ptr<Province>> capitalProvince;
+	std::string government;
 };
 } // namespace CK2
 

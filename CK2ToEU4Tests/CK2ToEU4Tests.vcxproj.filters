@@ -194,6 +194,18 @@
     <ClCompile Include="MapperTests\CultureMapper\CultureMappingTests.cpp">
       <Filter>MapperTests\CultureMapper</Filter>
     </ClCompile>
+    <ClCompile Include="MapperTests\GovernmentsMapper\GovernmentsMapperTests.cpp">
+      <Filter>MapperTests\GovernmentsMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="MapperTests\GovernmentsMapper\GovernmentsMappingTests.cpp">
+      <Filter>MapperTests\GovernmentsMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\GovernmentsMapper\GovernmentsMapper.cpp">
+      <Filter>ConverterFiles\Mappers\GovernmentsMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\GovernmentsMapper\GovernmentsMapping.cpp">
+      <Filter>ConverterFiles\Mappers\GovernmentsMapper</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4WorldTests">
@@ -300,6 +312,12 @@
     </Filter>
     <Filter Include="MapperTests\CultureMapper">
       <UniqueIdentifier>{fb23fbeb-dcd7-46a1-a1a8-4258ec3c7a6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MapperTests\GovernmentsMapper">
+      <UniqueIdentifier>{b3a26783-5c9f-48ee-99b0-5ff734f67b47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ConverterFiles\Mappers\GovernmentsMapper">
+      <UniqueIdentifier>{a6387908-1035-46d9-8bf7-52cceba744b7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

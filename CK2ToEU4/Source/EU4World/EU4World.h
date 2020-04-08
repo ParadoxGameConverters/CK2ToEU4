@@ -7,6 +7,7 @@
 #include "../Mappers/ReligionMapper/ReligionMapper.h"
 #include "../Mappers/TitleTagMapper/TitleTagMapper.h"
 #include "../Mappers/VersionParser/VersionParser.h"
+#include "../Mappers/GovernmentsMapper/GovernmentsMapper.h"
 #include "Country/Country.h"
 #include "Output/outModFile.h"
 #include "Province/EU4Province.h"
@@ -48,6 +49,7 @@ class World
 	std::map<std::string, std::shared_ptr<Country>> countries;
 	std::map<int, std::shared_ptr<Province>> provinces;
 	mappers::CultureMapper cultureMapper;
+	mappers::GovernmentsMapper governmentsMapper;
 };
 } // namespace EU4
 

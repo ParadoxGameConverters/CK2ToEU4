@@ -1,6 +1,6 @@
-#include "gtest/gtest.h"
 #include "../../CK2ToEU4/Source/Mappers/CultureMapper/CultureMapper.h"
 #include "../../CK2ToEU4/Source/Mappers/RegionMapper/RegionMapper.h"
+#include "gtest/gtest.h"
 #include <sstream>
 
 TEST(Mappers_CultureMapperTests, nonMatchGivesEmptyOptional)
@@ -102,7 +102,7 @@ TEST(Mappers_CultureMapperTests, cultureMapperFailsForInvalidRegion)
 	std::stringstream input;
 	input << "link = { eu4 = culture ck2 = qwe ck2 = test ck2 = poi religion = thereligion owner = TAG region = atlantis}";
 	mappers::CultureMapper culMapper(input);
-	
+
 	auto theMapper = std::make_shared<mappers::RegionMapper>();
 	std::stringstream areaStream;
 	areaStream << "test_area = { 1 2 3 } \n";

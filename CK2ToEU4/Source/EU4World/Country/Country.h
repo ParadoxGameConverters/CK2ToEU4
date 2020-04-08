@@ -6,6 +6,11 @@
 #include <memory>
 #include <string>
 
+namespace mappers
+{
+class GovernmentsMapper;
+}
+
 namespace EU4
 {
 class Country
@@ -15,7 +20,7 @@ class Country
 
 	Country(std::string theTag, const std::string& filePath);
 	void loadHistory(const std::string& filePath);
-	void initializeFromTitle(std::string theTag, std::shared_ptr<CK2::Title> thetitle);
+	void initializeFromTitle(std::string theTag, std::shared_ptr<CK2::Title> thetitle, const mappers::GovernmentsMapper& governmentsMapper);
 	void outputCommons(std::ostream& output);
 
 	[[nodiscard]] const auto& getCommonCountryFile() const { return commonCountryFile; }

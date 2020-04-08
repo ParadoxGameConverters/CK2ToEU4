@@ -21,6 +21,7 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 	regionMapper->linkProvinces(provinces);
 	importCK2Provinces(sourceWorld);
 	LOG(LogLevel::Info) << "---> The Dump <---";
+	modFile.outname = theConfiguration.getOutputName();
 	output(versionParser, theConfiguration);
 	LOG(LogLevel::Info) << "*** Farewell EU4, granting you independence. ***";
 }
@@ -63,11 +64,11 @@ void EU4::World::importCK2Countries(const CK2::World& sourceWorld)
 		// Locating appropriate existing country
 		const auto& countryItr = countries.find(*tag);
 		if (countryItr != countries.end()) {
-			countryItr->second->initializeFromTitle(*tag, title.second);
+			countryItr->second->initializeFromTitle(*tag, title.second, governmentsMapper);
 		} else {
 			// Otherwise create the country
 			auto newCountry = std::make_shared<Country>();
-			newCountry->initializeFromTitle(*tag, title.second);
+			newCountry->initializeFromTitle(*tag, title.second, governmentsMapper);
 			countries.insert(std::pair(*tag, newCountry));
 		}
 	}
@@ -88,7 +89,7 @@ void EU4::World::importCK2Provinces(const CK2::World& sourceWorld)
 			// Locating appropriate existing province, and this should never fail
 			const auto& provinceItr = provinces.find(eu4Province);
 			if (provinceItr != provinces.end()) {
-				provinceItr->second->initializeFromCK2(province.second);
+				provinceItr->second->initializeFromCK2(province.second, titleTagMapper);
 				counter++;
 			} else {
 				// Otherwise make a fuss!
