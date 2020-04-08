@@ -1,7 +1,10 @@
 #ifndef EU4_WORLD_H
 #define EU4_WORLD_H
 #include "../CK2World/World.h"
+#include "../Mappers/CultureMapper/CultureMapper.h"
 #include "../Mappers/ProvinceMapper/ProvinceMapper.h"
+#include "../Mappers/RegionMapper/RegionMapper.h"
+#include "../Mappers/ReligionMapper/ReligionMapper.h"
 #include "../Mappers/TitleTagMapper/TitleTagMapper.h"
 #include "../Mappers/VersionParser/VersionParser.h"
 #include "Country/Country.h"
@@ -39,9 +42,12 @@ class World
 
 	mappers::ProvinceMapper provinceMapper;
 	mappers::TitleTagMapper titleTagMapper;
+	mappers::ReligionMapper religionMapper;
+	std::shared_ptr<mappers::RegionMapper> regionMapper;
 	ModFile modFile;
 	std::map<std::string, std::shared_ptr<Country>> countries;
 	std::map<int, std::shared_ptr<Province>> provinces;
+	mappers::CultureMapper cultureMapper;
 };
 } // namespace EU4
 

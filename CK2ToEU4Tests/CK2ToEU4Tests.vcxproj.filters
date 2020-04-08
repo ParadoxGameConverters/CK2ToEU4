@@ -155,6 +155,45 @@
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\TitleTagMapper\TitleTagMapping.cpp">
       <Filter>ConverterFiles\Mappers\TitleTagMapper</Filter>
     </ClCompile>
+    <ClCompile Include="MapperTests\ReligionMapper\ReligionMapperTests.cpp">
+      <Filter>MapperTests\ReligionMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="MapperTests\ReligionMapper\ReligionMappingTests.cpp">
+      <Filter>MapperTests\ReligionMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\ReligionMapper\ReligionMapper.cpp">
+      <Filter>ConverterFiles\Mappers\ReligionMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\ReligionMapper\ReligionMapping.cpp">
+      <Filter>ConverterFiles\Mappers\ReligionMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="MapperTests\RegionMapper\RegionMapperTests.cpp">
+      <Filter>MapperTests\RegionMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\RegionMapper\Area.cpp">
+      <Filter>ConverterFiles\Mappers\RegionMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\RegionMapper\Region.cpp">
+      <Filter>ConverterFiles\Mappers\RegionMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\RegionMapper\RegionMapper.cpp">
+      <Filter>ConverterFiles\Mappers\RegionMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\RegionMapper\SuperRegion.cpp">
+      <Filter>ConverterFiles\Mappers\RegionMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\CultureMapper\CultureMapper.cpp">
+      <Filter>ConverterFiles\Mappers\CultureMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\CultureMapper\CultureMappingRule.cpp">
+      <Filter>ConverterFiles\Mappers\CultureMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="MapperTests\CultureMapper\CultureMapperTests.cpp">
+      <Filter>MapperTests\CultureMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="MapperTests\CultureMapper\CultureMappingTests.cpp">
+      <Filter>MapperTests\CultureMapper</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4WorldTests">
@@ -243,6 +282,24 @@
     </Filter>
     <Filter Include="ConverterFiles\Mappers\TitleTagMapper">
       <UniqueIdentifier>{86b08ad6-1320-43d5-9717-f8eb0664a779}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MapperTests\ReligionMapper">
+      <UniqueIdentifier>{eb7740a8-f983-4717-ab3a-8d420a7b7d9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ConverterFiles\Mappers\ReligionMapper">
+      <UniqueIdentifier>{c6d01849-12c9-45bf-8c84-cc457146154c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MapperTests\RegionMapper">
+      <UniqueIdentifier>{b6b83d5c-38a6-498b-8466-025f1891ad17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ConverterFiles\Mappers\RegionMapper">
+      <UniqueIdentifier>{c8233783-26f5-48ba-93f0-e3ebdeaef7a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ConverterFiles\Mappers\CultureMapper">
+      <UniqueIdentifier>{be2ce5f1-918c-4c01-9ef9-f89db7ceda30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MapperTests\CultureMapper">
+      <UniqueIdentifier>{fb23fbeb-dcd7-46a1-a1a8-4258ec3c7a6c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

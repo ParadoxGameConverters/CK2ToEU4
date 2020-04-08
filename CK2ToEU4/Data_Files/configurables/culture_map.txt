@@ -1,0 +1,206 @@
+# Usage:
+# link = { ck2 = ck2culture eu4 = eu4culture region = eu4region province = eu4provinceID owner = eu4tag }
+# multiples of all except eu4 are allowed.
+# Note: regions can be anything that makes sense, ie. south_america_superregion, north_german_region, laponia_area
+# You can mix and match, ie. north_american_superregion + provinceid = 1240 will catch all of north america + hawaii.
+
+# North Germanic
+
+link = { ck2 = norse eu4 = norse }
+link = { ck2 = swedish eu4 = swedish }
+link = { ck2 = norwegian eu4 = norwegian }
+link = { ck2 = danish eu4 = danish }
+link = { ck2 = old_saxon eu4 = hannoverian }
+
+# Central Germanic
+
+link = { ck2 = german eu4 = german }
+link = { ck2 = suebi eu4 = suebi }
+link = { ck2 = lombard eu4 = old_lombard }
+
+# West Germanic
+
+link = { ck2 = old_frankish eu4 = frankish }
+link = { ck2 = english eu4 = english }
+link = { ck2 = saxon eu4 = anglo_saxon }
+link = { ck2 = dutch eu4 = dutch }
+link = { ck2 = frisian eu4 = frisian }
+
+# Latin
+
+link = { ck2 = frankish eu4 = cosmopolitan_french }
+link = { ck2 = norman eu4 = normand }
+link = { ck2 = italian eu4 = italian }
+link = { ck2 = occitan eu4 = occitain }
+link = { ck2 = roman eu4 = roman }
+link = { ck2 = dalmatian eu4 = dalmatian }
+link = { ck2 = outremer eu4 = outremer }
+
+# Iberian
+
+link = { ck2 = basque eu4 = basque }
+link = { ck2 = castillan eu4 = castillian }
+link = { ck2 = catalan eu4 = catalan }
+link = { ck2 = portuguese eu4 = portugese }
+link = { ck2 = visigothic eu4 = visigothic }
+
+# Byzantine
+
+link = { ck2 = armenian eu4 = armenian }
+link = { ck2 = greek eu4 = greek }
+link = { ck2 = alan eu4 = alan }
+link = { ck2 = georgian eu4 = georgian }
+link = { ck2 = assyrian eu4 = assyrian }
+link = { ck2 = crimean_gothic eu4 = goths }
+link = { ck2 = coptic eu4 = coptic }
+
+# Celtic
+
+link = { ck2 = irish eu4 = irish }
+link = { ck2 = scottish eu4 = scottish }
+link = { ck2 = pictish eu4 = pictish }
+link = { ck2 = welsh eu4 = welsh }
+link = { ck2 = breton eu4 = breton }
+
+# Finno-Ugric
+
+link = { ck2 = finnish eu4 = finnish }
+link = { ck2 = lappish eu4 = sapmi }
+link = { ck2 = ugricbaltic eu4 = estonian }
+link = { ck2 = komi eu4 = komi }
+link = { ck2 = samoyed eu4 = samoyed }
+link = { ck2 = mordvin eu4 = mordvin }
+link = { ck2 = khanty eu4 = khanty }
+link = { ck2 = meshchera eu4 = meshchera }
+
+# Baltic
+
+link = { ck2 = lettigallish eu4 = latvian }
+link = { ck2 = lithuanian eu4 = lithuanian }
+link = { ck2 = prussian eu4 = old_prussian }
+
+# Altaic
+
+link = { ck2 = turkish eu4 = turkish }
+link = { ck2 = pecheneg eu4 = pecheneg }
+link = { ck2 = cuman eu4 = cuman }
+link = { ck2 = khazar eu4 = khazar }
+link = { ck2 = bolghar eu4 = bolghar }
+link = { ck2 = avar eu4 = avar }
+link = { ck2 = mongol eu4 = mongol }
+link = { ck2 = kirghiz eu4 = kirgiz }
+link = { ck2 = karluk eu4 = karluk }
+link = { ck2 = uyghur eu4 = uyghur }
+link = { ck2 = khitan eu4 = khitan }
+link = { ck2 = sogdian eu4 = sogdian }
+link = { ck2 = tocharian eu4 = tocharian }
+link = { ck2 = jurchen eu4 = manchu }
+
+# Arabic
+
+link = { ck2 = bedouin_arabic eu4 = bedouin_arabic }
+link = { ck2 = maghreb_arabic eu4 = berber }
+link = { ck2 = levantine_arabic eu4 = al_suryah_arabic }
+link = { ck2 = egyptian_arabic eu4 = al_misr_arabic }
+link = { ck2 = andalusian_arabic eu4 = andalucian }
+
+# East Slavic
+
+link = { ck2 = russian eu4 = russian_culture }
+link = { ck2 = ilmenian eu4 = ilmenian }
+link = { ck2 = volhynian eu4 = volhynian }
+link = { ck2 = severian eu4 = severian }
+
+# West Slavic
+
+link = { ck2 = pommeranian eu4 = pommeranian }
+link = { ck2 = bohemian eu4 = czech }
+link = { ck2 = polish eu4 = polish }
+
+# South Slavic
+
+link = { ck2 = croatian eu4 = croatian }
+link = { ck2 = serbian eu4 = serbian }
+link = { ck2 = romanian eu4 = romanian }
+link = { ck2 = bulgarian eu4 = bulgarian }
+link = { ck2 = carantanian eu4 = carantanian }
+link = { ck2 = bosnian eu4 = bosnian }
+link = { ck2 = arberian eu4 = albanian }
+
+# Magyar
+
+link = { ck2 = hungarian eu4 = hungarian }
+
+# Iranian
+
+link = { ck2 = persian eu4 = persian }
+link = { ck2 = kurdish eu4 = kurdish }
+link = { ck2 = baloch eu4 = baluchi }
+link = { ck2 = afghan eu4 = afghani }
+link = { ck2 = saka eu4 = saka }
+
+# East African
+link = { ck2 = nubian eu4 = nubian }
+link = { ck2 = ethiopian eu4 = amhara }
+link = { ck2 = somali eu4 = somali }
+link = { ck2 = daju eu4 = daju }
+
+# Central African
+link = { ck2 = kanuri eu4 = kanuri }
+link = { ck2 = hausa eu4 = hausa }
+link = { ck2 = zaghawa eu4 = zaghawa }
+
+# West African
+link = { ck2 = manden eu4 = mali }
+link = { ck2 = soninke eu4 = soninke }
+link = { ck2 = songhay eu4 = songhai }
+
+# Mesoamerican
+
+link = { ck2 = nahuatl eu4 = aztek }
+
+# Aryan Indian
+
+link = { ck2 = bengali eu4 = bengali }
+link = { ck2 = oriya eu4 = oriya }
+link = { ck2 = assamese eu4 = assamese }
+link = { ck2 = hindustani eu4 = avadhi }
+link = { ck2 = gujurati eu4 = gujarati }
+link = { ck2 = panjabi eu4 = panjabi }
+link = { ck2 = rajput eu4 = rajput }
+link = { ck2 = sindhi eu4 = sindhi }
+link = { ck2 = marathi eu4 = marathi }
+link = { ck2 = sinhala eu4 = sinhala }
+
+
+# Dravidian Indian
+
+link = { ck2 = tamil eu4 = tamil }
+link = { ck2 = telugu eu4 = telegu }
+link = { ck2 = kannada eu4 = kannada }
+
+
+# Tibetan
+link = { ck2 = bodpa eu4 = tibetan }
+link = { ck2 = tangut eu4 = tangut }
+link = { ck2 = zhangzhung eu4 = zhangzhung }
+link = { ck2 = sumpa eu4 = sumpa }
+link = { ck2 = nepali eu4 = nepali }
+
+#Chinese
+link = { ck2 = han eu4 = chihan }
+
+# Israelite
+link = { ck2 = ashkenazi eu4 = ashkenazi }
+link = { ck2 = sephardi eu4 = sephardi }
+
+# Misc
+link = { ck2 = horse eu4 = equine }
+link = { ck2 = cat eu4 = cat }
+link = { ck2 = bear eu4 = bear }
+link = { ck2 = hedgehog_culture eu4 = hedgehog_culture }
+link = { ck2 = duck_culture eu4 = duck_culture }
+link = { ck2 = dog_culture eu4 = dog_culture }
+link = { ck2 = elephant_culture eu4 = elephant_culture }
+link = { ck2 = dragon_culture eu4 = dragon_culture }
+link = { ck2 = red_panda eu4 = red_panda }

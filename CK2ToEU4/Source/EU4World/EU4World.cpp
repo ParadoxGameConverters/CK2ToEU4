@@ -11,10 +11,14 @@ namespace fs = std::filesystem;
 EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfiguration, const mappers::VersionParser& versionParser)
 {
 	LOG(LogLevel::Info) << "*** Hello EU4, let's get painting. ***";
+	regionMapper = std::make_shared<mappers::RegionMapper>();
+	regionMapper->loadRegions(theConfiguration);
+	cultureMapper.loadRegionMapper(regionMapper);
 	provinceMapper.determineValidProvinces(theConfiguration);
 	importVanillaCountries(theConfiguration.getEU4Path());
 	importCK2Countries(sourceWorld);
 	importVanillaProvinces(theConfiguration.getEU4Path());
+	regionMapper->linkProvinces(provinces);
 	importCK2Provinces(sourceWorld);
 	LOG(LogLevel::Info) << "---> The Dump <---";
 	output(versionParser, theConfiguration);
@@ -133,4 +137,3 @@ void EU4::World::importVanillaCountries(const std::string& eu4Path)
 	}
 	LOG(LogLevel::Info) << ">> Loaded " << fileNames.size() << " history files.";
 }
-
