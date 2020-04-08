@@ -1,25 +1,22 @@
 #ifndef EU4_WORLD_H
 #define EU4_WORLD_H
+#include "../CK2World/World.h"
 #include "../Mappers/ProvinceMapper/ProvinceMapper.h"
 #include "../Mappers/TitleTagMapper/TitleTagMapper.h"
-#include "Output/ModFile.h"
+#include "../Mappers/VersionParser/VersionParser.h"
+#include "Country/Country.h"
+#include "Output/outModFile.h"
+#include "Province/EU4Province.h"
 
 class Configuration;
-namespace mappers
-{
-class VersionParser;
-}
 
 namespace CK2
 {
-class World;
 class Province;
 } // namespace CK2
 
 namespace EU4
 {
-class Province;
-class Country;
 class World
 {
   public:

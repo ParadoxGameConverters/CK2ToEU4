@@ -144,6 +144,9 @@
     <ClCompile Include="Source\EU4World\Province\ProvinceModifier.cpp">
       <Filter>EU4World\Province</Filter>
     </ClCompile>
+    <ClCompile Include="Source\EU4World\Output\outWorld.cpp">
+      <Filter>EU4World\Output</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CK2ToEU4Converter.h" />
@@ -176,9 +179,6 @@
     </ClInclude>
     <ClInclude Include="Source\Mappers\VersionParser\VersionParser.h">
       <Filter>Mappers\VersionParser</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\EU4World\Output\output.h">
-      <Filter>EU4World\Output</Filter>
     </ClInclude>
     <ClInclude Include="Source\CK2World\World.h">
       <Filter>CK2World</Filter>
@@ -267,9 +267,6 @@
     <ClInclude Include="..\common_items\CardinalToOrdinal.h">
       <Filter>CommonItems</Filter>
     </ClInclude>
-    <ClInclude Include="Source\EU4World\Output\ModFile.h">
-      <Filter>EU4World\Output</Filter>
-    </ClInclude>
     <ClInclude Include="Source\EU4World\Province\ProvinceDetails.h">
       <Filter>EU4World\Province</Filter>
     </ClInclude>
@@ -278,6 +275,18 @@
     </ClInclude>
     <ClInclude Include="Source\EU4World\Province\ProvinceModifier.h">
       <Filter>EU4World\Province</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\EU4World\Output\outCountry.h">
+      <Filter>EU4World\Output</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\EU4World\Output\outModFile.h">
+      <Filter>EU4World\Output</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\EU4World\Output\outVersion.h">
+      <Filter>EU4World\Output</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\EU4World\Output\outProvince.h">
+      <Filter>EU4World\Output</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,4 @@
-#include "output.h"
+#include "outProvince.h"
 
 std::ostream& EU4::operator<<(std::ostream& output, const Province& province)
 {

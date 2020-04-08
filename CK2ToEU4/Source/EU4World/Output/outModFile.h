@@ -1,5 +1,5 @@
-#ifndef MOD_FILE_H
-#define MOD_FILE_H
+#ifndef OUTPUT_H
+#define OUTPUT_H
 
 #include <ostream>
 
@@ -11,4 +11,5 @@ class ModFile
 	friend std::ostream& operator<<(std::ostream& output, const ModFile& modFile);
 };
 } // namespace EU4
-#endif // MOD_FILE_H
+
+#endif // OUTPUT_H
