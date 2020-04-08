@@ -1,6 +1,6 @@
 #include "Barony.h"
-#include "ParserHelpers.h"
 #include "Log.h"
+#include "ParserHelpers.h"
 
 CK2::Barony::Barony(std::istream& theStream, const std::string& baronyName): name(baronyName)
 {
@@ -21,4 +21,3 @@ void CK2::Barony::registerKeys()
 	});
 	registerRegex("[A-Za-z0-9\\:_.-]+", commonItems::ignoreItem);
 }
-

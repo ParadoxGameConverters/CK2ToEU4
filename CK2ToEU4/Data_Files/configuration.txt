@@ -1,62 +1,57 @@
+# Copyright (c) 2014 The Paradox Game Converters Project
+# 
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+# 
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+# 
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+# THE SOFTWARE.
+
+
 configuration =
 {
+	# Crusader Kings 2 Install directory: A path on your computer where Crusader Kings 2 is installed
+	CK2directory = "C:\Program Files (x86)\Steam\steamapps\common\Crusader Kings II"
+
+	# CK2 Mods Directory: A path on your computer where Crusader Kings 2 keeps mods
+	CK2ModsDirectory = "C:\Users\Ivo\Documents\Paradox Interactive\Crusader Kings II\mod"
+
 	# Europa Universalis 4 directory: A path on your computer where Europa Universalis 4 is installed
 	EU4directory = "C:\Program Files (x86)\Steam\steamapps\common\Europa Universalis IV"
 
-	# EU4 Documents Directory: A path on your computer where Europa Universalis 4 keeps temporary files
-	EU4DocumentsDirectory = "C:\Users\User\Documents\Paradox Interactive\Europa Universalis IV"
-
-	# Steam Workshop Directory: A path on your computer where Steam Workshop keeps EU4 mods
-	SteamWorkshopDirectory = "C:\Program Files (x86)\Steam\SteamApps\workshop\content\236850"
-
-	# CK2 Export Directory: A path on your computer where Crusader Kings 2 keeps exported games
-	CK2ExportDirectory = "C:\Users\User\Documents\Paradox Interactive\Crusader Kings II\eu4_export"
-
-	# Victoria 2 directory: A path on your computer where Victoria 2 is installed
-	Vic2directory = "C:\Program Files (x86)\Steam\steamapps\common\Victoria 2"
-
-	# Victoria 2 Documents directory: A path on your computer where Victoria 2 keeps temporary files
-	Vic2Documentsdirectory = "C:\Users\User\Documents\Paradox Interactive\Victoria II"
-
 	# Savegame: The savegame to convert
-	SaveGame = "C:\Users\User\Documents\Paradox Interactive\Europa Universalis IV\save games\autosave.eu4"
+	SaveGame = "C:\Users\Ivo\Documents\Paradox Interactive\Crusader Kings II\save games\autosave.ck2"
 
-	# Max Literacy: The maximum literacy a nation will start with. Default 100%
-	max_literacy = "1"
+	# Which empire inherits EU4 HRE mechanics and shatters?: Only one empire can use HRE mechanics.
+	#	1 - The HRE [obviously]	 - e_hre
+	#	2 - Byzantium!	 - e_byzantium
+	#	3 - Uh, Rome?	 - e_roman_empire
+	#	4 - Defined in i_am_hre.txt	 - As defined manually
+	#	5 - None [no HRE shattering]	 - Dropped.
+	i_am_hre = "1"
 
-	# Drop cores of dead nations?: Which landless nations to remove
-	#	1 - None - leave all	 - Remove none of them
-	#	2 - Dead - no culture remains	 - Remove ones without cultural backing
-	#	3 - All - dead is dead	 - Remove all of them
-	remove_type = "2"
+	# Should we shatter other empires?: Makes the game more dynamic. New countries won't be united.
+	#	1 - No, as they were [default]	 - Uses CK2 states.
+	#	2 - All of them! [interesting]	 - All empires are broken down.
+	shatter_empires = "1"
 
-	# Liberty threshold for Colonies: The threshold value for when colonies are not absorbed. Default 50% (loyal colonies absorbed)
-	liberty_threshold = "0"
+	# If we're shattering HRE/others, how far down do we go?: More the merrier.
+	#	1 - Down to dutchy levels [default]	 - Dutchies make sense.
+	#	2 - Keep kingdoms if any	 - Kingdoms remain.
+	shatter_level = "1"
 
-	# Shape population?: Adjust population size according to dev improvement over EU4 timeframe, buildings constructed, life rating in V2 and other province modifiers.
-	#	1 - Stick to vanilla pop sizes.	 - Use Vanilla population sizes.
-	#	2 - Devpush means more people!	 - Adjust population sizes.
-	#	3 - Extreme - abs. devsize	 - Redistribute everyone according to absolute value of provinces.
-	pop_shaping = "2"
-
-	# Shaping Factor?: How much does EU4 affect population sizes? 0 - Vanilla, 100 - Fully (1 dev increase approx 1% pop increase)
-	pop_shaping_factor = "100"
-
-	# Auto-assign national cores?: Assign cores for nationalities and cultural unions (Can be an issue for CK2 and/or flat dev imports).
-	#	1 - Yes, unification is nigh.	 - Use defaults
-	#	2 - No national cores	 - For primary nationalities
-	#	3 - No cultural union cores	 - No Germany, apparently.
-	#	4 - Don't assign any.	 - Don't touch anything.
-	core_handling = "1"
-
-	# Make world Eurocentric?: Drop literacy and civilization levels for non-europeans? (configurable!)
-	#	1 - Use EU4 institutions and tech	 - Use defaults
-	#	2 - Time to rule the waves!	 - Configurable via techgroups.txt
-	euro_centrism = "2"
-
-	# Randomise RGOs?: If set, RGOs will be shuffled within similar climate and terrain provinces.
-	#	No	 - Historical RGOs
-	#	Yes	 - Shuffled RGOs
-	randomise_rgos = "no"
+	# Mod Output Name (optional):: Please use ASCII latin characters only.
+	output_name = ""
 
 }

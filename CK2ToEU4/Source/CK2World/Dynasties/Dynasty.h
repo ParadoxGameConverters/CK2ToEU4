@@ -4,25 +4,25 @@
 
 namespace CK2
 {
-	class Dynasty: commonItems::parser
-	{
-	public:
-		Dynasty(std::istream& theStream, int theDynID);
+class Dynasty: commonItems::parser
+{
+  public:
+	Dynasty(std::istream& theStream, int theDynID);
 
-		[[nodiscard]] const auto& getCulture() const { return culture; }
-		[[nodiscard]] const auto& getReligion() const { return religion; }
-		[[nodiscard]] const auto& getName() const { return name; }
+	[[nodiscard]] const auto& getCulture() const { return culture; }
+	[[nodiscard]] const auto& getReligion() const { return religion; }
+	[[nodiscard]] const auto& getName() const { return name; }
 
-		[[nodiscard]] auto getID() const { return dynID; }
+	[[nodiscard]] auto getID() const { return dynID; }
 
-	private:
-		void registerKeys();
+  private:
+	void registerKeys();
 
-		int dynID = 0;
-		std::string culture;
-		std::string religion;
-		std::string name;
-	};
-}
+	int dynID = 0;
+	std::string culture;
+	std::string religion;
+	std::string name;
+};
+} // namespace CK2
 
 #endif // CK2_DYNASTY_H

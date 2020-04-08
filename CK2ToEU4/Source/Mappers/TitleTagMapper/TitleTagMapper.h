@@ -12,14 +12,14 @@ class TitleTagMapper: commonItems::parser
 	TitleTagMapper();
 	explicit TitleTagMapper(std::istream& theStream);
 	void registerTitle(const std::string& ck2title, const std::string& eu4tag);
-	
+
 	std::optional<std::string> getTagForTitle(const std::string& ck2Title, const std::string& ck2BaseTitle, int eu4Capital);
 	std::optional<std::string> getTagForTitle(const std::string& ck2Title, int eu4Capital);
 	std::optional<std::string> getTagForTitle(const std::string& ck2Title);
 
-	[[nodiscard]] const auto& getMappings() const { return theMappings; } // used for testing
+	[[nodiscard]] const auto& getMappings() const { return theMappings; }						  // used for testing
 	[[nodiscard]] const auto& getRegisteredTitleTags() const { return registeredTitleTags; } // used for testing
-	
+
   private:
 	void registerKeys();
 	std::string generateNewTag();

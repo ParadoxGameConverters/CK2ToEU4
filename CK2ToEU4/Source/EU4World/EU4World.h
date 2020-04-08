@@ -1,37 +1,47 @@
 #ifndef EU4_WORLD_H
 #define EU4_WORLD_H
+#include "../CK2World/World.h"
 #include "../Mappers/ProvinceMapper/ProvinceMapper.h"
 #include "../Mappers/TitleTagMapper/TitleTagMapper.h"
+#include "../Mappers/VersionParser/VersionParser.h"
+#include "Country/Country.h"
+#include "Output/outModFile.h"
+#include "Province/EU4Province.h"
 
 class Configuration;
-namespace mappers
-{
-class VersionParser;
-}
 
 namespace CK2
 {
-class World;
-}
+class Province;
+} // namespace CK2
 
 namespace EU4
 {
-class Country;
 class World
 {
   public:
-	World(const CK2::World& sourceWorld,
-		 const Configuration& theConfiguration,
-		 const mappers::VersionParser& versionParser);
+	World(const CK2::World& sourceWorld, const Configuration& theConfiguration, const mappers::VersionParser& versionParser);
 
   private:
-	void loadRegions(const Configuration& theConfiguration);
+	// void loadRegions(const Configuration& theConfiguration); waiting on geography.
 	void importVanillaCountries(const std::string& eu4Path);
+	void importVanillaProvinces(const std::string& eu4Path);
+	void importCK2Countries(const CK2::World& sourceWorld);
+	void importCK2Provinces(const CK2::World& sourceWorld);
+	void output(const mappers::VersionParser& versionParser, const Configuration& theConfiguration) const;
+	void createModFile(const Configuration& theConfiguration) const;
+	void outputVersion(const mappers::VersionParser& versionParser, const Configuration& theConfiguration) const;
+	void outputCommonCountriesFile(const Configuration& theConfiguration) const;
+	void outputHistoryCountries(const Configuration& theConfiguration) const;
+	void outputHistoryProvinces(const Configuration& theConfiguration) const;
+	void outputCommonCountries(const Configuration& theConfiguration) const;
+
 
 	mappers::ProvinceMapper provinceMapper;
 	mappers::TitleTagMapper titleTagMapper;
-
-	std::map<std::string, std::shared_ptr<Country>> vanillaCountries;
+	ModFile modFile;
+	std::map<std::string, std::shared_ptr<Country>> countries;
+	std::map<int, std::shared_ptr<Province>> provinces;
 };
 } // namespace EU4
 

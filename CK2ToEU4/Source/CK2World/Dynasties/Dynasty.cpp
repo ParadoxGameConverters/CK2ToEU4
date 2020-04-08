@@ -1,8 +1,8 @@
 #include "Dynasty.h"
-#include "ParserHelpers.h"
 #include "Log.h"
+#include "ParserHelpers.h"
 
-CK2::Dynasty::Dynasty(std::istream& theStream, int theDynID) : dynID(theDynID)
+CK2::Dynasty::Dynasty(std::istream& theStream, int theDynID): dynID(theDynID)
 {
 	registerKeys();
 	parseStream(theStream);

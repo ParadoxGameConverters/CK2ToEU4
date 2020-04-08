@@ -15,12 +15,12 @@ class TitleTagMapping: commonItems::parser
 	[[nodiscard]] std::optional<std::string> titleMatch(const std::string& ck2title) const;
 	[[nodiscard]] std::optional<std::string> capitalMatch(int eu4capital) const;
 
-	[[nodiscard]] const auto& getEU4Tag() const { return eu4Tag; } // used for testing
+	[[nodiscard]] const auto& getEU4Tag() const { return eu4Tag; }		 // used for testing
 	[[nodiscard]] const auto& getCK2Title() const { return ck2Title; } // used for testing
 	[[nodiscard]] const auto& getCapitals() const { return capitals; } // used for testing
-	
+
   private:
-	void registerKeys();	
+	void registerKeys();
 
 	std::string eu4Tag;
 	std::string ck2Title;

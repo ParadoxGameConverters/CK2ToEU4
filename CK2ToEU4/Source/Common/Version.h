@@ -2,12 +2,12 @@
 #define VERSION_H
 
 #include "newParser.h"
-#include <string>
 #include <ostream>
+#include <string>
 
 class Version: commonItems::parser
 {
-public:
+  public:
 	Version() = default;
 	Version(const Version&) = default;
 	Version(Version&&) = default;
@@ -18,16 +18,16 @@ public:
 	explicit Version(std::string version);
 	explicit Version(std::istream& theStream);
 
-	bool operator >= (const Version& rhs) const;
-	bool operator > (const Version& rhs) const;
-	bool operator < (const Version& rhs) const;
-	bool operator <= (const Version& rhs) const;
-	bool operator == (const Version& rhs) const;
-	bool operator != (const Version& rhs) const;
+	bool operator>=(const Version& rhs) const;
+	bool operator>(const Version& rhs) const;
+	bool operator<(const Version& rhs) const;
+	bool operator<=(const Version& rhs) const;
+	bool operator==(const Version& rhs) const;
+	bool operator!=(const Version& rhs) const;
 
 	friend std::ostream& operator<<(std::ostream&, const Version& version);
 
-private:
+  private:
 	int firstPart = 0;
 	int secondPart = 0;
 	int thirdPart = 0;

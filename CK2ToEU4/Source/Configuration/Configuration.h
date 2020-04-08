@@ -1,13 +1,13 @@
 #ifndef CONFIGURATION_H
 #define CONFIGURATION_H
 
+#include "ConfigurationDetails.h"
 #include "Date.h"
 #include "newParser.h"
-#include "ConfigurationDetails.h"
 
 class Configuration: commonItems::parser
 {
-public:
+  public:
 	Configuration();
 	explicit Configuration(std::istream& theStream);
 
@@ -20,7 +20,7 @@ public:
 	[[nodiscard]] const auto& getShatterEmpires() const { return details.shatterEmpires; }
 	[[nodiscard]] const auto& getShatterLevel() const { return details.shatterLevel; }
 
-private:
+  private:
 	void registerKeys();
 	void setOutputName();
 	void verifyCK2Path() const;

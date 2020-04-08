@@ -18,10 +18,7 @@ class ProvinceMapper: commonItems::parser
 
 	[[nodiscard]] std::vector<int> getCK2ProvinceNumbers(int eu4ProvinceNumber) const;
 	[[nodiscard]] std::vector<int> getEU4ProvinceNumbers(int ck2ProvinceNumber) const;
-	[[nodiscard]] auto isValidEU4Province(const int eu4Province) const
-	{
-		return validEU4Provinces.count(eu4Province) > 0;
-	}
+	[[nodiscard]] auto isValidEU4Province(const int eu4Province) const { return validEU4Provinces.count(eu4Province) > 0; }
 
 	void determineValidProvinces(const Configuration& theConfiguration);
 
