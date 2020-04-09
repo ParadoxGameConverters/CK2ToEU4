@@ -50,7 +50,7 @@ void EU4::Country::outputCommons(std::ostream& output)
 		output << "}\n";
 	}
 	if (details.historicalScore) output << "historical_score = " << details.historicalScore << "\n";
-	if (details.randomChance) output << "random_nation_chance = " << details.randomChance << "\n";
+	if (details.randomChance) output << "random_nation_chance = 0\n";
 	if (!details.historicalUnits.empty()) {
 		output << "historical_units = {\n";
 		for (const auto& unit: details.historicalUnits) { output << "\t" << unit << "\n"; }

@@ -1,206 +1,208 @@
 # Usage:
-# link = { ck2 = ck2culture eu4 = eu4culture region = eu4region province = eu4provinceID owner = eu4tag }
-# multiples of all except eu4 are allowed.
+# link = { ck2 = ck2culture eu4 = eu4culture region = eu4region province = eu4provinceID owner = eu4tag tech = techgroup gfx = somethinggfx }
+# multiples of all except eu4, tech and gfx are allowed.
 # Note: regions can be anything that makes sense, ie. south_america_superregion, north_german_region, laponia_area
 # You can mix and match, ie. north_american_superregion + provinceid = 1240 will catch all of north america + hawaii.
+# every culture should have a gfx set.
 
 # North Germanic
 
-link = { ck2 = norse eu4 = norse }
-link = { ck2 = swedish eu4 = swedish }
-link = { ck2 = norwegian eu4 = norwegian }
-link = { ck2 = danish eu4 = danish }
-link = { ck2 = old_saxon eu4 = hannoverian }
+link = { ck2 = norse eu4 = norse tech = western gfx = westerngfx }
+link = { ck2 = swedish eu4 = swedish tech = western gfx = westerngfx }
+link = { ck2 = norwegian eu4 = norwegian tech = western gfx = westerngfx }
+link = { ck2 = danish eu4 = danish tech = western gfx = westerngfx }
+link = { ck2 = old_saxon eu4 = hannoverian tech = western gfx = westerngfx }
 
 # Central Germanic
 
-link = { ck2 = german eu4 = german }
-link = { ck2 = suebi eu4 = suebi }
-link = { ck2 = lombard eu4 = old_lombard }
+link = { ck2 = german eu4 = german tech = western gfx = westerngfx }
+link = { ck2 = suebi eu4 = suebi tech = western gfx = westerngfx }
+link = { ck2 = lombard eu4 = old_lombard tech = western gfx = westerngfx }
 
 # West Germanic
 
-link = { ck2 = old_frankish eu4 = frankish }
-link = { ck2 = english eu4 = english }
-link = { ck2 = saxon eu4 = anglo_saxon }
-link = { ck2 = dutch eu4 = dutch }
-link = { ck2 = frisian eu4 = frisian }
+link = { ck2 = old_frankish eu4 = frankish tech = western gfx = westerngfx }
+link = { ck2 = english eu4 = english tech = western gfx = westerngfx }
+link = { ck2 = saxon eu4 = anglo_saxon tech = western gfx = westerngfx }
+link = { ck2 = dutch eu4 = dutch tech = western gfx = westerngfx }
+link = { ck2 = frisian eu4 = frisian tech = western gfx = westerngfx }
 
 # Latin
 
-link = { ck2 = frankish eu4 = cosmopolitan_french }
-link = { ck2 = norman eu4 = normand }
-link = { ck2 = italian eu4 = italian }
-link = { ck2 = occitan eu4 = occitain }
-link = { ck2 = roman eu4 = roman }
-link = { ck2 = dalmatian eu4 = dalmatian }
-link = { ck2 = outremer eu4 = outremer }
+link = { ck2 = frankish eu4 = cosmopolitan_french tech = western gfx = westerngfx }
+link = { ck2 = norman eu4 = normand tech = western gfx = westerngfx }
+link = { ck2 = italian eu4 = italian tech = western gfx = westerngfx }
+link = { ck2 = occitan eu4 = occitain tech = western gfx = westerngfx }
+link = { ck2 = roman eu4 = roman tech = western gfx = westerngfx }
+link = { ck2 = dalmatian eu4 = dalmatian tech = western gfx = westerngfx }
+link = { ck2 = outremer eu4 = outremer tech = western gfx = westerngfx }
+link = { ck2 = sardinian eu4 = sardinian tech = western gfx = westerngfx }
 
 # Iberian
 
-link = { ck2 = basque eu4 = basque }
-link = { ck2 = castillan eu4 = castillian }
-link = { ck2 = catalan eu4 = catalan }
-link = { ck2 = portuguese eu4 = portugese }
-link = { ck2 = visigothic eu4 = visigothic }
+link = { ck2 = basque eu4 = basque tech = western gfx = westerngfx }
+link = { ck2 = castillan eu4 = castillian tech = western gfx = westerngfx }
+link = { ck2 = catalan eu4 = catalan tech = western gfx = westerngfx }
+link = { ck2 = portuguese eu4 = portugese tech = western gfx = westerngfx }
+link = { ck2 = visigothic eu4 = visigothic tech = western gfx = westerngfx }
 
 # Byzantine
 
-link = { ck2 = armenian eu4 = armenian }
-link = { ck2 = greek eu4 = greek }
-link = { ck2 = alan eu4 = alan }
-link = { ck2 = georgian eu4 = georgian }
-link = { ck2 = assyrian eu4 = assyrian }
-link = { ck2 = crimean_gothic eu4 = goths }
-link = { ck2 = coptic eu4 = coptic }
+link = { ck2 = armenian eu4 = armenian tech = eastern gfx = easterngfx }
+link = { ck2 = greek eu4 = greek tech = eastern gfx = easterngfx }
+link = { ck2 = alan eu4 = alan tech = eastern gfx = easterngfx }
+link = { ck2 = georgian eu4 = georgian tech = eastern gfx = easterngfx }
+link = { ck2 = assyrian eu4 = assyrian tech = eastern gfx = easterngfx }
+link = { ck2 = crimean_gothic eu4 = goths tech = eastern gfx = easterngfx }
+link = { ck2 = coptic eu4 = coptic tech = eastern gfx = easterngfx }
 
 # Celtic
 
-link = { ck2 = irish eu4 = irish }
-link = { ck2 = scottish eu4 = scottish }
-link = { ck2 = pictish eu4 = pictish }
-link = { ck2 = welsh eu4 = welsh }
-link = { ck2 = breton eu4 = breton }
+link = { ck2 = irish eu4 = irish tech = western gfx = westerngfx }
+link = { ck2 = scottish eu4 = scottish tech = western gfx = westerngfx }
+link = { ck2 = pictish eu4 = pictish tech = western gfx = westerngfx }
+link = { ck2 = welsh eu4 = welsh tech = western gfx = westerngfx }
+link = { ck2 = breton eu4 = breton tech = western gfx = westerngfx }
 
 # Finno-Ugric
 
-link = { ck2 = finnish eu4 = finnish }
-link = { ck2 = lappish eu4 = sapmi }
-link = { ck2 = ugricbaltic eu4 = estonian }
-link = { ck2 = komi eu4 = komi }
-link = { ck2 = samoyed eu4 = samoyed }
-link = { ck2 = mordvin eu4 = mordvin }
-link = { ck2 = khanty eu4 = khanty }
-link = { ck2 = meshchera eu4 = meshchera }
+link = { ck2 = finnish eu4 = finnish tech = eastern gfx = easterngfx }
+link = { ck2 = lappish eu4 = sapmi tech = eastern gfx = easterngfx }
+link = { ck2 = ugricbaltic eu4 = estonian tech = eastern gfx = easterngfx }
+link = { ck2 = komi eu4 = komi tech = eastern gfx = easterngfx }
+link = { ck2 = samoyed eu4 = samoyed tech = eastern gfx = easterngfx }
+link = { ck2 = mordvin eu4 = mordvin tech = eastern gfx = easterngfx }
+link = { ck2 = khanty eu4 = khanty tech = eastern gfx = easterngfx }
+link = { ck2 = meshchera eu4 = meshchera tech = eastern gfx = easterngfx }
 
 # Baltic
 
-link = { ck2 = lettigallish eu4 = latvian }
-link = { ck2 = lithuanian eu4 = lithuanian }
-link = { ck2 = prussian eu4 = old_prussian }
+link = { ck2 = lettigallish eu4 = latvian tech = eastern gfx = easterngfx }
+link = { ck2 = lithuanian eu4 = lithuanian tech = eastern gfx = easterngfx }
+link = { ck2 = prussian eu4 = old_prussian tech = eastern gfx = easterngfx }
 
 # Altaic
 
-link = { ck2 = turkish eu4 = turkish }
-link = { ck2 = pecheneg eu4 = pecheneg }
-link = { ck2 = cuman eu4 = cuman }
-link = { ck2 = khazar eu4 = khazar }
-link = { ck2 = bolghar eu4 = bolghar }
-link = { ck2 = avar eu4 = avar }
-link = { ck2 = mongol eu4 = mongol }
-link = { ck2 = kirghiz eu4 = kirgiz }
-link = { ck2 = karluk eu4 = karluk }
-link = { ck2 = uyghur eu4 = uyghur }
-link = { ck2 = khitan eu4 = khitan }
-link = { ck2 = sogdian eu4 = sogdian }
-link = { ck2 = tocharian eu4 = tocharian }
-link = { ck2 = jurchen eu4 = manchu }
+link = { ck2 = turkish eu4 = turkish tech = muslim gfx = muslimgfx }
+link = { ck2 = pecheneg eu4 = pecheneg tech = eastern gfx = easterngfx }
+link = { ck2 = cuman eu4 = cuman tech = eastern gfx = easterngfx }
+link = { ck2 = khazar eu4 = khazar tech = eastern gfx = easterngfx }
+link = { ck2 = bolghar eu4 = bolghar tech = eastern gfx = easterngfx }
+link = { ck2 = avar eu4 = avar tech = eastern gfx = easterngfx }
+link = { ck2 = mongol eu4 = mongol tech = chinese gfx = asiangfx }
+link = { ck2 = kirghiz eu4 = kirgiz tech = chinese gfx = asiangfx }
+link = { ck2 = karluk eu4 = karluk tech = chinese gfx = asiangfx }
+link = { ck2 = uyghur eu4 = uyghur tech = chinese gfx = asiangfx }
+link = { ck2 = khitan eu4 = khitan tech = chinese gfx = asiangfx }
+link = { ck2 = sogdian eu4 = sogdian tech = chinese gfx = asiangfx }
+link = { ck2 = tocharian eu4 = tocharian tech = chinese gfx = asiangfx }
+link = { ck2 = jurchen eu4 = manchu tech = chinese gfx = asiangfx }
 
 # Arabic
 
-link = { ck2 = bedouin_arabic eu4 = bedouin_arabic }
-link = { ck2 = maghreb_arabic eu4 = berber }
-link = { ck2 = levantine_arabic eu4 = al_suryah_arabic }
-link = { ck2 = egyptian_arabic eu4 = al_misr_arabic }
-link = { ck2 = andalusian_arabic eu4 = andalucian }
+link = { ck2 = bedouin_arabic eu4 = bedouin_arabic tech = muslim gfx = muslimgfx }
+link = { ck2 = maghreb_arabic eu4 = berber tech = muslim gfx = muslimgfx }
+link = { ck2 = levantine_arabic eu4 = al_suryah_arabic tech = muslim gfx = muslimgfx }
+link = { ck2 = egyptian_arabic eu4 = al_misr_arabic tech = muslim gfx = muslimgfx }
+link = { ck2 = andalusian_arabic eu4 = andalucian tech = muslim gfx = muslimgfx }
 
 # East Slavic
 
-link = { ck2 = russian eu4 = russian_culture }
-link = { ck2 = ilmenian eu4 = ilmenian }
-link = { ck2 = volhynian eu4 = volhynian }
-link = { ck2 = severian eu4 = severian }
+link = { ck2 = russian eu4 = russian_culture tech = eastern gfx = easterngfx }
+link = { ck2 = ilmenian eu4 = ilmenian tech = eastern gfx = easterngfx }
+link = { ck2 = volhynian eu4 = volhynian tech = eastern gfx = easterngfx }
+link = { ck2 = severian eu4 = severian tech = eastern gfx = easterngfx }
 
 # West Slavic
 
-link = { ck2 = pommeranian eu4 = pommeranian }
-link = { ck2 = bohemian eu4 = czech }
-link = { ck2 = polish eu4 = polish }
+link = { ck2 = pommeranian eu4 = pommeranian tech = western gfx = westerngfx }
+link = { ck2 = bohemian eu4 = czech tech = western gfx = westerngfx }
+link = { ck2 = polish eu4 = polish tech = western gfx = westerngfx }
 
 # South Slavic
 
-link = { ck2 = croatian eu4 = croatian }
-link = { ck2 = serbian eu4 = serbian }
-link = { ck2 = romanian eu4 = romanian }
-link = { ck2 = bulgarian eu4 = bulgarian }
-link = { ck2 = carantanian eu4 = carantanian }
-link = { ck2 = bosnian eu4 = bosnian }
-link = { ck2 = arberian eu4 = albanian }
+link = { ck2 = croatian eu4 = croatian tech = eastern gfx = easterngfx }
+link = { ck2 = serbian eu4 = serbian tech = eastern gfx = easterngfx }
+link = { ck2 = romanian eu4 = romanian tech = eastern gfx = easterngfx }
+link = { ck2 = bulgarian eu4 = bulgarian tech = eastern gfx = easterngfx }
+link = { ck2 = carantanian eu4 = carantanian tech = eastern gfx = easterngfx }
+link = { ck2 = bosnian eu4 = bosnian tech = eastern gfx = easterngfx }
+link = { ck2 = arberian eu4 = albanian tech = eastern gfx = easterngfx }
 
 # Magyar
 
-link = { ck2 = hungarian eu4 = hungarian }
+link = { ck2 = hungarian eu4 = hungarian tech = western gfx = westerngfx }
 
 # Iranian
 
-link = { ck2 = persian eu4 = persian }
-link = { ck2 = kurdish eu4 = kurdish }
-link = { ck2 = baloch eu4 = baluchi }
-link = { ck2 = afghan eu4 = afghani }
-link = { ck2 = saka eu4 = saka }
+link = { ck2 = persian eu4 = persian tech = muslim gfx = muslimgfx }
+link = { ck2 = kurdish eu4 = kurdish tech = muslim gfx = muslimgfx }
+link = { ck2 = baloch eu4 = baluchi tech = muslim gfx = muslimgfx }
+link = { ck2 = afghan eu4 = afghani tech = muslim gfx = muslimgfx }
+link = { ck2 = saka eu4 = saka tech = muslim gfx = muslimgfx }
 
 # East African
-link = { ck2 = nubian eu4 = nubian }
-link = { ck2 = ethiopian eu4 = amhara }
-link = { ck2 = somali eu4 = somali }
-link = { ck2 = daju eu4 = daju }
+link = { ck2 = nubian eu4 = nubian tech = east_african gfx = africangfx }
+link = { ck2 = ethiopian eu4 = amhara tech = east_african gfx = africangfx }
+link = { ck2 = somali eu4 = somali tech = east_african gfx = africangfx }
+link = { ck2 = daju eu4 = daju tech = east_african gfx = africangfx }
 
 # Central African
-link = { ck2 = kanuri eu4 = kanuri }
-link = { ck2 = hausa eu4 = hausa }
-link = { ck2 = zaghawa eu4 = zaghawa }
+link = { ck2 = kanuri eu4 = kanuri tech = sub_saharan gfx = africangfx }
+link = { ck2 = hausa eu4 = hausa tech = sub_saharan gfx = africangfx }
+link = { ck2 = zaghawa eu4 = zaghawa tech = sub_saharan gfx = africangfx }
 
 # West African
-link = { ck2 = manden eu4 = mali }
-link = { ck2 = soninke eu4 = soninke }
-link = { ck2 = songhay eu4 = songhai }
+link = { ck2 = manden eu4 = mali tech = sub_saharan gfx = africangfx }
+link = { ck2 = soninke eu4 = soninke tech = sub_saharan gfx = africangfx }
+link = { ck2 = songhay eu4 = songhai tech = sub_saharan gfx = africangfx }
 
-# Mesoamerican
+# Mesoamerican - this is relevant only for azteks holding europe
 
-link = { ck2 = nahuatl eu4 = aztek }
+link = { ck2 = nahuatl eu4 = aztek tech = high_american gfx = southamericagfx }
 
 # Aryan Indian
 
-link = { ck2 = bengali eu4 = bengali }
-link = { ck2 = oriya eu4 = oriya }
-link = { ck2 = assamese eu4 = assamese }
-link = { ck2 = hindustani eu4 = avadhi }
-link = { ck2 = gujurati eu4 = gujarati }
-link = { ck2 = panjabi eu4 = panjabi }
-link = { ck2 = rajput eu4 = rajput }
-link = { ck2 = sindhi eu4 = sindhi }
-link = { ck2 = marathi eu4 = marathi }
-link = { ck2 = sinhala eu4 = sinhala }
+link = { ck2 = bengali eu4 = bengali tech = indian gfx = indiangfx }
+link = { ck2 = oriya eu4 = oriya tech = indian gfx = indiangfx }
+link = { ck2 = assamese eu4 = assamese tech = indian gfx = indiangfx }
+link = { ck2 = hindustani eu4 = avadhi tech = indian gfx = indiangfx }
+link = { ck2 = gujurati eu4 = gujarati tech = indian gfx = indiangfx }
+link = { ck2 = panjabi eu4 = panjabi tech = indian gfx = indiangfx }
+link = { ck2 = rajput eu4 = rajput tech = indian gfx = indiangfx }
+link = { ck2 = sindhi eu4 = sindhi tech = indian gfx = indiangfx }
+link = { ck2 = marathi eu4 = marathi tech = indian gfx = indiangfx }
+link = { ck2 = sinhala eu4 = sinhala tech = indian gfx = indiangfx }
 
 
 # Dravidian Indian
 
-link = { ck2 = tamil eu4 = tamil }
-link = { ck2 = telugu eu4 = telegu }
-link = { ck2 = kannada eu4 = kannada }
+link = { ck2 = tamil eu4 = tamil tech = indian gfx = indiangfx }
+link = { ck2 = telugu eu4 = telegu tech = indian gfx = indiangfx }
+link = { ck2 = kannada eu4 = kannada tech = indian gfx = indiangfx }
 
 
 # Tibetan
-link = { ck2 = bodpa eu4 = tibetan }
-link = { ck2 = tangut eu4 = tangut }
-link = { ck2 = zhangzhung eu4 = zhangzhung }
-link = { ck2 = sumpa eu4 = sumpa }
-link = { ck2 = nepali eu4 = nepali }
+link = { ck2 = bodpa eu4 = tibetan tech = chinese gfx = asiangfx }
+link = { ck2 = tangut eu4 = tangut tech = chinese gfx = asiangfx }
+link = { ck2 = zhangzhung eu4 = zhangzhung tech = chinese gfx = asiangfx }
+link = { ck2 = sumpa eu4 = sumpa tech = chinese gfx = asiangfx }
+link = { ck2 = nepali eu4 = nepali tech = chinese gfx = asiangfx }
 
 #Chinese
-link = { ck2 = han eu4 = chihan }
+link = { ck2 = han eu4 = chihan tech = chinese gfx = asiangfx }
 
 # Israelite
-link = { ck2 = ashkenazi eu4 = ashkenazi }
-link = { ck2 = sephardi eu4 = sephardi }
+link = { ck2 = ashkenazi eu4 = ashkenazi tech = eastern gfx = easterngfx }
+link = { ck2 = sephardi eu4 = sephardi tech = eastern gfx = easterngfx }
 
 # Misc
-link = { ck2 = horse eu4 = equine }
-link = { ck2 = cat eu4 = cat }
-link = { ck2 = bear eu4 = bear }
-link = { ck2 = hedgehog_culture eu4 = hedgehog_culture }
-link = { ck2 = duck_culture eu4 = duck_culture }
-link = { ck2 = dog_culture eu4 = dog_culture }
-link = { ck2 = elephant_culture eu4 = elephant_culture }
-link = { ck2 = dragon_culture eu4 = dragon_culture }
-link = { ck2 = red_panda eu4 = red_panda }
+link = { ck2 = horse eu4 = equine tech = western gfx = westerngfx }
+link = { ck2 = cat eu4 = cat tech = western gfx = westerngfx }
+link = { ck2 = bear eu4 = bear tech = western gfx = westerngfx }
+link = { ck2 = hedgehog_culture eu4 = hedgehog_culture tech = western gfx = westerngfx }
+link = { ck2 = duck_culture eu4 = duck_culture tech = western gfx = westerngfx }
+link = { ck2 = dog_culture eu4 = dog_culture tech = western gfx = westerngfx }
+link = { ck2 = elephant_culture eu4 = elephant_culture tech = western gfx = westerngfx }
+link = { ck2 = dragon_culture eu4 = dragon_culture tech = western gfx = westerngfx }
+link = { ck2 = red_panda eu4 = red_panda tech = western gfx = westerngfx }

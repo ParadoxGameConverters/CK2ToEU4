@@ -17,20 +17,23 @@ class CultureMapper: commonItems::parser
 
 	void loadRegionMapper(std::shared_ptr<RegionMapper> theRegionMapper);
 
-	[[nodiscard]] std::optional<std::string> cultureMatch(const std::string& eu4culture,
+	[[nodiscard]] std::optional<std::string> cultureMatch(const std::string& ck2culture,
 		 const std::string& eu4religion,
 		 int eu4Province,
 		 const std::string& eu4ownerTag) const;
 
-	[[nodiscard]] std::optional<std::string> cultureRegionalMatch(const std::string& eu4culture,
+	[[nodiscard]] std::optional<std::string> cultureRegionalMatch(const std::string& ck2culture,
 		 const std::string& eu4religion,
 		 int eu4Province,
 		 const std::string& eu4ownerTag) const;
 
-	[[nodiscard]] std::optional<std::string> cultureNonRegionalNonReligiousMatch(const std::string& eu4culture,
+	[[nodiscard]] std::optional<std::string> cultureNonRegionalNonReligiousMatch(const std::string& ck2culture,
 		 const std::string& eu4religion,
 		 int eu4Province,
 		 const std::string& eu4ownerTag) const;
+
+		[[nodiscard]] std::optional<std::string> getTechGroup(const std::string& incEU4Culture) const;
+		[[nodiscard]] std::optional<std::string> getGFX(const std::string& incEU4Culture) const;
 
   private:
 	void registerKeys();

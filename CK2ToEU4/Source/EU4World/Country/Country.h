@@ -9,7 +9,10 @@
 namespace mappers
 {
 class GovernmentsMapper;
-}
+class ReligionMapper;
+class CultureMapper;
+	class ProvinceMapper;
+} // namespace mappers
 
 namespace EU4
 {
@@ -20,7 +23,13 @@ class Country
 
 	Country(std::string theTag, const std::string& filePath);
 	void loadHistory(const std::string& filePath);
-	void initializeFromTitle(std::string theTag, std::shared_ptr<CK2::Title> thetitle, const mappers::GovernmentsMapper& governmentsMapper);
+	void initializeFromTitle(
+		std::string theTag, std::shared_ptr<CK2::Title> theTitle, 
+		const mappers::GovernmentsMapper& governmentsMapper,
+		const mappers::ReligionMapper& religionMapper,
+		const mappers::CultureMapper& cultureMapper,
+		const mappers::ProvinceMapper& provinceMapper);
+	
 	void outputCommons(std::ostream& output);
 
 	[[nodiscard]] const auto& getCommonCountryFile() const { return commonCountryFile; }

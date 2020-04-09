@@ -60,7 +60,7 @@ link = { ck2 = ibadi eu4 = ibadi }
 link = { ck2 = kharijite eu4 = ibadi }
 link = { ck2 = shiite eu4 = shiite }
 link = { ck2 = druze eu4 = shiite }
-link = { ck2 = hurufi eu4 = shiite }
+link = { ck2 = hurufi eu4 = shiite ck2 = qarmatian }
 
 # Judaism
 link = { ck2 = jewish eu4 = jewish }

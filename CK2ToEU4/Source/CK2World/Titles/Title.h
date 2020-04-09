@@ -3,6 +3,7 @@
 #include "Liege.h"
 #include "newParser.h"
 #include <set>
+#include "Color.h"
 
 namespace CK2
 {
@@ -22,6 +23,7 @@ class Title: commonItems::parser
 	[[nodiscard]] const auto& getDeJureVassals() const { return deJureVassals; }
 	[[nodiscard]] const auto& getProvinces() const { return provinces; }
 	[[nodiscard]] const auto& getBaseTitle() const { return baseTitle; }
+	[[nodiscard]] const auto& getColor() const { return color; }
 	[[nodiscard]] auto isInHRE() const { return inHRE; }
 	[[nodiscard]] auto isHREEmperor() const { return HREEmperor; }
 	[[nodiscard]] auto isMajorRevolt() const { return majorRevolt; }
@@ -70,6 +72,7 @@ class Title: commonItems::parser
 	std::map<std::string, std::shared_ptr<Title>> vassals;
 	std::map<std::string, std::shared_ptr<Title>> deJureVassals;
 	std::pair<std::string, std::shared_ptr<Liege>> baseTitle;
+	commonItems::Color color;
 };
 } // namespace CK2
 

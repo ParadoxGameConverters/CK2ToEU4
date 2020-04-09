@@ -64,11 +64,11 @@ void EU4::World::importCK2Countries(const CK2::World& sourceWorld)
 		// Locating appropriate existing country
 		const auto& countryItr = countries.find(*tag);
 		if (countryItr != countries.end()) {
-			countryItr->second->initializeFromTitle(*tag, title.second, governmentsMapper);
+			countryItr->second->initializeFromTitle(*tag, title.second, governmentsMapper, religionMapper, cultureMapper, provinceMapper);
 		} else {
 			// Otherwise create the country
 			auto newCountry = std::make_shared<Country>();
-			newCountry->initializeFromTitle(*tag, title.second, governmentsMapper);
+			newCountry->initializeFromTitle(*tag, title.second, governmentsMapper, religionMapper, cultureMapper, provinceMapper);
 			countries.insert(std::pair(*tag, newCountry));
 		}
 	}

@@ -21,6 +21,14 @@ mappers::CultureMappingRule::CultureMappingRule(std::istream& theStream)
 		const commonItems::singleString ownerStr(theStream);
 		owners.insert(ownerStr.getString());
 	});
+	registerKeyword("tech", [this](const std::string& unused, std::istream& theStream) {
+		const commonItems::singleString techStr(theStream);
+		techGroup = techStr.getString();
+	});
+	registerKeyword("gfx", [this](const std::string& unused, std::istream& theStream) {
+		const commonItems::singleString gfxStr(theStream);
+		gfx = gfxStr.getString();
+	});
 	registerKeyword("provinceid", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleString provinceStr(theStream);
 		try {
@@ -39,15 +47,15 @@ mappers::CultureMappingRule::CultureMappingRule(std::istream& theStream)
 	clearRegisteredKeywords();
 }
 
-std::optional<std::string> mappers::CultureMappingRule::cultureMatch(const std::string& eu4culture,
+std::optional<std::string> mappers::CultureMappingRule::cultureMatch(const std::string& ck2culture,
 	 const std::string& eu4religion,
 	 int eu4Province,
 	 const std::string& eu4ownerTag) const
 {
 	// We need at least a viable EU4culture.
-	if (eu4culture.empty()) return std::nullopt;
+	if (ck2culture.empty()) return std::nullopt;
 
-	if (!cultures.count(eu4culture)) return std::nullopt;
+	if (!cultures.count(ck2culture)) return std::nullopt;
 
 	if (!eu4ownerTag.empty() && !owners.empty())
 		if (!owners.count(eu4ownerTag)) return std::nullopt;
@@ -65,7 +73,7 @@ std::optional<std::string> mappers::CultureMappingRule::cultureMatch(const std::
 		auto regionMatch = false;
 		for (const auto& region: regions) {
 			if (!regionMapper->regionNameIsValid(region)) {
-				Log(LogLevel::Warning) << "Checking for culture " << eu4culture << " inside invalid region: " << region << "! Fix the mapping rules!";
+				Log(LogLevel::Warning) << "Checking for culture " << ck2culture << " inside invalid region: " << region << "! Fix the mapping rules!";
 				// We could say this was a match, and thus pretend this region entry doesn't exist, but it's better
 				// for the converter to explode across the logs with invalid names. So, continue.
 				continue;
@@ -77,7 +85,7 @@ std::optional<std::string> mappers::CultureMappingRule::cultureMatch(const std::
 	return destinationCulture;
 }
 
-std::optional<std::string> mappers::CultureMappingRule::cultureRegionalMatch(const std::string& eu4culture,
+std::optional<std::string> mappers::CultureMappingRule::cultureRegionalMatch(const std::string& ck2culture,
 	 const std::string& eu4religion,
 	 int eu4Province,
 	 const std::string& eu4ownerTag) const
@@ -87,10 +95,10 @@ std::optional<std::string> mappers::CultureMappingRule::cultureRegionalMatch(con
 	if (regions.empty()) return std::nullopt;
 
 	// Otherwise, as usual.
-	return cultureMatch(eu4culture, eu4religion, eu4Province, eu4ownerTag);
+	return cultureMatch(ck2culture, eu4religion, eu4Province, eu4ownerTag);
 }
 
-std::optional<std::string> mappers::CultureMappingRule::cultureNonRegionalNonReligiousMatch(const std::string& eu4culture,
+std::optional<std::string> mappers::CultureMappingRule::cultureNonRegionalNonReligiousMatch(const std::string& ck2culture,
 	 const std::string& eu4religion,
 	 int eu4Province,
 	 const std::string& eu4ownerTag) const
@@ -101,5 +109,17 @@ std::optional<std::string> mappers::CultureMappingRule::cultureNonRegionalNonRel
 	if (!religions.empty()) return std::nullopt;
 
 	// Otherwise, as usual.
-	return cultureMatch(eu4culture, eu4religion, eu4Province, eu4ownerTag);
+	return cultureMatch(ck2culture, eu4religion, eu4Province, eu4ownerTag);
+}
+
+std::optional<std::string> mappers::CultureMappingRule::getTechGroup(const std::string& incEU4Culture) const
+{
+	if (incEU4Culture == destinationCulture && !techGroup.empty()) return techGroup;
+	return std::nullopt;
+}
+
+std::optional<std::string> mappers::CultureMappingRule::getGFX(const std::string& incEU4Culture) const
+{
+	if (incEU4Culture == destinationCulture && !gfx.empty()) return gfx;
+	return std::nullopt;
 }

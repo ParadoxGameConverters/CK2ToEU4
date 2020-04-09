@@ -13,22 +13,25 @@ class CultureMappingRule: commonItems::parser
 	CultureMappingRule() = default;
 	explicit CultureMappingRule(std::istream& theStream);
 
-	[[nodiscard]] std::optional<std::string> cultureMatch(const std::string& eu4culture,
+	[[nodiscard]] std::optional<std::string> cultureMatch(const std::string& ck2culture,
 		 const std::string& eu4religion,
 		 int eu4Province,
 		 const std::string& eu4ownerTag) const;
 
-	[[nodiscard]] std::optional<std::string> cultureRegionalMatch(const std::string& eu4culture,
+	[[nodiscard]] std::optional<std::string> cultureRegionalMatch(const std::string& ck2culture,
 		 const std::string& eu4religion,
 		 int eu4Province,
 		 const std::string& eu4ownerTag) const;
 
-	[[nodiscard]] std::optional<std::string> cultureNonRegionalNonReligiousMatch(const std::string& eu4culture,
+	[[nodiscard]] std::optional<std::string> cultureNonRegionalNonReligiousMatch(const std::string& ck2culture,
 		 const std::string& eu4religion,
 		 int eu4Province,
 		 const std::string& eu4ownerTag) const;
 
-	void insertRegionMapper(std::shared_ptr<RegionMapper> theRegionMapper) { regionMapper = theRegionMapper; }
+	[[nodiscard]] std::optional<std::string> getTechGroup(const std::string& incEU4Culture) const;
+	[[nodiscard]] std::optional<std::string> getGFX(const std::string& incEU4Culture) const;
+
+	void insertRegionMapper(std::shared_ptr<RegionMapper> theRegionMapper) { regionMapper = std::move(theRegionMapper); }
 
 	[[nodiscard]] const auto& getEU4Culture() const { return destinationCulture; } // for testing
 	[[nodiscard]] const auto& getCK2Cultures() const { return cultures; }			 // for testing
@@ -36,6 +39,8 @@ class CultureMappingRule: commonItems::parser
 	[[nodiscard]] const auto& getRegions() const { return regions; }					 // for testing
 	[[nodiscard]] const auto& getOwners() const { return owners; }						 // for testing
 	[[nodiscard]] const auto& getProvinces() const { return provinces; }				 // for testing
+	[[nodiscard]] const auto& getTechGroupField() const { return techGroup; }		 // for testing
+	[[nodiscard]] const auto& getGFXField() const { return gfx; }						 // for testing
 
   private:
 	std::string destinationCulture;
@@ -44,6 +49,8 @@ class CultureMappingRule: commonItems::parser
 	std::set<std::string> regions;
 	std::set<std::string> owners;
 	std::set<int> provinces;
+	std::string techGroup;
+	std::string gfx;
 
 	std::shared_ptr<RegionMapper> regionMapper;
 };

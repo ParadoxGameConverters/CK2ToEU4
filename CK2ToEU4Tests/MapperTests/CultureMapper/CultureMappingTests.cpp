@@ -132,3 +132,86 @@ TEST(Mappers_CultureMappingTests, ProvincesCanBeSet)
 	ASSERT_EQ(*theMapping.getProvinces().find(3), 3);
 	ASSERT_EQ(*theMapping.getProvinces().find(4), 4);
 }
+
+TEST(Mappers_CultureMappingTests, TechGroupDefaultToEmpty)
+{
+	std::stringstream input;
+	input << "= {}";
+
+	const mappers::CultureMappingRule theMapping(input);
+
+	ASSERT_TRUE(theMapping.getTechGroupField().empty());
+}
+
+TEST(Mappers_CultureMappingTests, TechGroupCanBeSet)
+{
+	std::stringstream input;
+	input << "= { tech = high_american }";
+
+	const mappers::CultureMappingRule theMapping(input);
+
+	ASSERT_EQ(theMapping.getTechGroupField(), "high_american");
+}
+
+TEST(Mappers_CultureMappingTests, TechGroupCanBeMatched)
+{
+	std::stringstream input;
+	input << "= { eu4 = aztec tech = high_american }";
+
+	const mappers::CultureMappingRule theMapping(input);
+
+	ASSERT_EQ(*theMapping.getTechGroup("aztec"), "high_american");
+}
+
+
+TEST(Mappers_CultureMappingTests, TechGroupFailsForWrongMatch)
+{
+	std::stringstream input;
+	input << "= { eu4 = aztec tech = high_american }";
+
+	const mappers::CultureMappingRule theMapping(input);
+
+	ASSERT_FALSE(theMapping.getTechGroup("incan"));
+}
+
+
+TEST(Mappers_CultureMappingTests, GFXDefaultToEmpty)
+{
+	std::stringstream input;
+	input << "= {}";
+
+	const mappers::CultureMappingRule theMapping(input);
+
+	ASSERT_TRUE(theMapping.getGFXField().empty());
+}
+
+TEST(Mappers_CultureMappingTests, GFXCanBeSet)
+{
+	std::stringstream input;
+	input << "= { gfx = test }";
+
+	const mappers::CultureMappingRule theMapping(input);
+
+	ASSERT_EQ(theMapping.getGFXField(), "test");
+}
+
+TEST(Mappers_CultureMappingTests, GFXCanBeMatched)
+{
+	std::stringstream input;
+	input << "= { eu4 = aztec gfx = test }";
+
+	const mappers::CultureMappingRule theMapping(input);
+
+	ASSERT_EQ(*theMapping.getGFX("aztec"), "test");
+}
+
+
+TEST(Mappers_CultureMappingTests, GFXFailsForWrongMatch)
+{
+	std::stringstream input;
+	input << "= { eu4 = aztec gfx = test }";
+
+	const mappers::CultureMappingRule theMapping(input);
+
+	ASSERT_FALSE(theMapping.getGFX("incan"));
+}
