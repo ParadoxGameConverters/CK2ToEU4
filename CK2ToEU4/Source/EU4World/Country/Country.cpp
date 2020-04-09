@@ -1,8 +1,9 @@
 #include "Country.h"
 #include "../../CK2World/Characters/Character.h"
 #include "../../CK2World/Dynasties/Dynasty.h"
-#include "../../CK2World/Titles/Title.h"
 #include "../../CK2World/Provinces/Province.h"
+#include "../../CK2World/Titles/Title.h"
+#include "../../Mappers/ColorScraper/ColorScraper.h"
 #include "../../Mappers/CultureMapper/CultureMapper.h"
 #include "../../Mappers/GovernmentsMapper/GovernmentsMapper.h"
 #include "../../Mappers/ProvinceMapper/ProvinceMapper.h"
@@ -29,7 +30,8 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	 const mappers::GovernmentsMapper& governmentsMapper,
 	 const mappers::ReligionMapper& religionMapper,
 	 const mappers::CultureMapper& cultureMapper,
-	 const mappers::ProvinceMapper& provinceMapper)
+	 const mappers::ProvinceMapper& provinceMapper,
+	 const mappers::ColorScraper& colorScraper)
 {
 	tag = std::move(theTag);
 	title = std::move(theTitle);
@@ -40,7 +42,7 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 
 	// --------------- History section
 	details.government.clear();
-	details.reforms.clear();	
+	details.reforms.clear();
 	const auto& newGovernment = governmentsMapper.matchGovernment(actualHolder->getGovernment(), title->getName());
 	if (newGovernment) {
 		details.government = newGovernment->first;
@@ -56,10 +58,13 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	else
 		details.governmentRank = 1;
 	// do we have a religion?
-	std::string baseReligion;	
-	if (!actualHolder->getReligion().empty()) baseReligion = actualHolder->getReligion();
-	else if (!actualHolder->getDynasty().second->getReligion().empty()) baseReligion = actualHolder->getDynasty().second->getReligion();
-	else baseReligion = actualHolder->getCapitalProvince().second->getReligion();	
+	std::string baseReligion;
+	if (!actualHolder->getReligion().empty())
+		baseReligion = actualHolder->getReligion();
+	else if (!actualHolder->getDynasty().second->getReligion().empty())
+		baseReligion = actualHolder->getDynasty().second->getReligion();
+	else
+		baseReligion = actualHolder->getCapitalProvince().second->getReligion();
 	const auto& religionMatch = religionMapper.getEu4ReligionForCk2Religion(baseReligion);
 	if (religionMatch)
 		details.religion = *religionMatch;
@@ -73,10 +78,13 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	else
 		details.capital = 0; // We will see warning about this earlier, no need for more spam.
 	// do we have a culture?
-	std::string baseCulture;	
-	if (!actualHolder->getCulture().empty()) baseCulture = actualHolder->getCulture();		 
-	else if (!actualHolder->getDynasty().second->getCulture().empty()) baseCulture = actualHolder->getDynasty().second->getCulture();
-	else baseCulture = actualHolder->getCapitalProvince().second->getCulture();	
+	std::string baseCulture;
+	if (!actualHolder->getCulture().empty())
+		baseCulture = actualHolder->getCulture();
+	else if (!actualHolder->getDynasty().second->getCulture().empty())
+		baseCulture = actualHolder->getDynasty().second->getCulture();
+	else
+		baseCulture = actualHolder->getCapitalProvince().second->getCulture();
 	const auto& cultureMatch = cultureMapper.cultureMatch(baseCulture, details.religion, details.capital, tag);
 	if (cultureMatch)
 		details.primaryCulture = *cultureMatch;
@@ -128,22 +136,31 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 
 	// --------------  Common section
 	const auto& gfxmatch = cultureMapper.getGFX(details.primaryCulture);
-	if (gfxmatch) details.graphicalCulture = *gfxmatch;
+	if (gfxmatch)
+		details.graphicalCulture = *gfxmatch;
 	else {
 		Log(LogLevel::Warning) << tag << ": No gfx match for: " << details.primaryCulture << "! Substituting westerngfx!";
 		details.graphicalCulture = "westerngfx";
 	}
-	details.color = title->getColor();
-	Log(LogLevel::Debug) << tag << " from " << title->getName() << " has color: " << details.color;
+	if (title->getColor())
+		details.color = title->getColor();
+	else {
+		const auto& colorMatch = colorScraper.getColorForTitle(title->getName());
+		if (colorMatch)
+			details.color = *colorMatch;
+		else
+			Log(LogLevel::Warning) << tag << ": No color defined for title " << title->getName() << "!";
+	}
 	// If we imported some revolutionary colors we'll keep them, otherwise, let's generate some.
-	if (!details.revolutionaryColor){
+	if (!details.revolutionaryColor) {
 		details.revolutionaryColor = details.color;
 		details.revolutionaryColor.RandomlyFlunctuate(20);
 	}
-	// If we imported historical idea groups, keeping them, otherwise blank.		
+	// If we imported historical idea groups, keeping them, otherwise blank.
 	details.randomChance = false; // random chance related to RNW, wo it has no effect here.
+
 	// If we imported historical units, keeping them, otherwise blank.
-	//monarch_names will need some doing
+	// monarch_names will need some doing
 	// If we imported leader_names, keeping them, otherwise blank.
 	// If we imported ship_names, keeping them, otherwise blank.
 	// If we imported army_names, keeping them, otherwise blank.
@@ -153,5 +170,4 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	// If we imported special_unit_culture, keeping it, otherwise blank.
 	// If we imported all_your_core_are_belong_to_us, keeping it, otherwise blank.
 	// If we imported right_to_bear_arms, keeping it, otherwise blank.
-
 }

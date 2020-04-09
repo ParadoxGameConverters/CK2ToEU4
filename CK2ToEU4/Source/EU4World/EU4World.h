@@ -8,6 +8,7 @@
 #include "../Mappers/TitleTagMapper/TitleTagMapper.h"
 #include "../Mappers/VersionParser/VersionParser.h"
 #include "../Mappers/GovernmentsMapper/GovernmentsMapper.h"
+#include "../Mappers/ColorScraper/ColorScraper.h"
 #include "Country/Country.h"
 #include "Output/outModFile.h"
 #include "Province/EU4Province.h"
@@ -40,7 +41,7 @@ class World
 	void outputHistoryProvinces(const Configuration& theConfiguration) const;
 	void outputCommonCountries(const Configuration& theConfiguration) const;
 
-
+	mappers::ColorScraper colorScraper;
 	mappers::ProvinceMapper provinceMapper;
 	mappers::TitleTagMapper titleTagMapper;
 	mappers::ReligionMapper religionMapper;

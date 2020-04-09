@@ -76,7 +76,7 @@ CK2::World::World(const Configuration& theConfiguration)
 	// We must load initializers before the savegame.
 	std::set<std::string> fileNames;
 	Utils::GetAllFilesInFolder(theConfiguration.getCK2Path() + "/common/dynasties/", fileNames);
-	for (const auto& file: fileNames) dynasties.loadDynasties(theConfiguration.getCK2Path() + "/common/dynasties/" + file);
+	for (const auto& file: fileNames) dynasties.loadDynasties(theConfiguration.getCK2Path() + "/common/dynasties/" + file);	
 
 	auto gameState = std::istringstream(saveGame.gamestate);
 	parseStream(gameState);
