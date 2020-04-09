@@ -173,31 +173,60 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	// If we imported right_to_bear_arms, keeping it, otherwise blank.
 
 	// --------------  Misc
+	auto nameSet = false;
 	auto nameLocalizationMatch = localizationMapper.getLocBlockForKey(title->getName());
-	if (nameLocalizationMatch)
+	if (nameLocalizationMatch) {
 		localizations.insert(std::pair(tag, *nameLocalizationMatch));
-	else {
+		nameSet = true;
+	}
+	if (!nameSet && !title->getBaseTitle().first.empty()) { // see if we can match vs base title.
+		auto baseTitleName = title->getBaseTitle().first;
+		nameLocalizationMatch = localizationMapper.getLocBlockForKey(baseTitleName);
+		if (nameLocalizationMatch) {
+			localizations.insert(std::pair(tag, *nameLocalizationMatch));
+			nameSet = true;
+		}
+	}
+	if (!nameSet) {
 		// Now get creative. This happens for c_titles that have localizations as b_title
 		auto alternateName = title->getName();
 		alternateName = "b_" + alternateName.substr(2, alternateName.length());
 		nameLocalizationMatch = localizationMapper.getLocBlockForKey(alternateName);
-		if (nameLocalizationMatch)
+		if (nameLocalizationMatch) {
 			localizations.insert(std::pair(tag, *nameLocalizationMatch));
-		else {
-			// using capital province name?
-			auto capitalName = actualHolder->getCapitalProvince().second->getName();
-			if (!capitalName.empty()) {
-				mappers::LocBlock newblock;
-				newblock.english = capitalName;
-				newblock.spanish = capitalName;
-				newblock.french = capitalName;
-				newblock.german = capitalName;
-				localizations.insert(std::pair(tag, newblock));
-			} else {
-				Log(LogLevel::Warning) << tag << " help with localization! " << title->getName();
-			}
+			nameSet = true;
 		}
 	}
-	const auto& adjLocalizationMatch = localizationMapper.getLocBlockForKey(title->getName() + "_adj");
-	if (adjLocalizationMatch) localizations.insert(std::pair(tag + "_ADJ", *adjLocalizationMatch));
+	if (!nameSet) {
+		// using capital province name?
+		auto capitalName = actualHolder->getCapitalProvince().second->getName();
+		if (!capitalName.empty()) {
+			mappers::LocBlock newblock;
+			newblock.english = capitalName;
+			newblock.spanish = capitalName;
+			newblock.french = capitalName;
+			newblock.german = capitalName;
+			localizations.insert(std::pair(tag, newblock));
+			nameSet = true;
+		}
+	}
+	// giving up.
+	if (!nameSet) Log(LogLevel::Warning) << tag << " help with localization! " << title->getName();
+
+	auto adjSet = false;
+	auto adjLocalizationMatch = localizationMapper.getLocBlockForKey(title->getName() + "_adj");
+	if (adjLocalizationMatch) {
+		localizations.insert(std::pair(tag + "_ADJ", *adjLocalizationMatch));
+		adjSet = true;
+	}
+	if (!adjSet && !title->getBaseTitle().first.empty()) {
+		// see if we can match vs base title.
+		auto baseTitleAdj = title->getBaseTitle().first + "_adj";
+		adjLocalizationMatch = localizationMapper.getLocBlockForKey(baseTitleAdj);
+		if (adjLocalizationMatch) {
+			localizations.insert(std::pair(tag + "_ADJ", *adjLocalizationMatch));
+			adjSet = true;
+		}
+	}
+	if (!adjSet) Log(LogLevel::Warning) << tag << " help with localization for adjective! " << title->getName() << "_adj?";
 }
