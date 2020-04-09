@@ -9,6 +9,7 @@
 #include "../Mappers/VersionParser/VersionParser.h"
 #include "../Mappers/GovernmentsMapper/GovernmentsMapper.h"
 #include "../Mappers/ColorScraper/ColorScraper.h"
+#include "../Mappers/LocalizationMapper/LocalizationMapper.h"
 #include "Country/Country.h"
 #include "Output/outModFile.h"
 #include "Province/EU4Province.h"
@@ -40,7 +41,8 @@ class World
 	void outputHistoryCountries(const Configuration& theConfiguration) const;
 	void outputHistoryProvinces(const Configuration& theConfiguration) const;
 	void outputCommonCountries(const Configuration& theConfiguration) const;
-
+	void outputLocalization(const Configuration& theConfiguration) const;
+	
 	mappers::ColorScraper colorScraper;
 	mappers::ProvinceMapper provinceMapper;
 	mappers::TitleTagMapper titleTagMapper;
@@ -51,6 +53,7 @@ class World
 	std::map<int, std::shared_ptr<Province>> provinces;
 	mappers::CultureMapper cultureMapper;
 	mappers::GovernmentsMapper governmentsMapper;
+	mappers::LocalizationMapper localizationMapper;
 };
 } // namespace EU4
 

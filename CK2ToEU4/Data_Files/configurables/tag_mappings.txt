@@ -239,6 +239,7 @@ link = { ck2 = d_venice eu4 = VEN }
 link = { ck2 = c_venezia eu4 = VEN }
 link = { ck2 = c_genoa eu4 = GEN }
 link = { ck2 = c_savoie eu4 = SAV }
+link = { ck2 = d_lombardia eu4 = MLO } # Lombardy --> Milan
 link = { ck2 = d_milano eu4 = MLO }
 link = { ck2 = c_monferrato eu4 = MFA }
 link = { ck2 = c_lucca eu4 = LUC }
@@ -495,3 +496,19 @@ link = { ck2 = k_israel eu4 = ISR }
 link = { ck2 = d_knights_templar eu4 = TEM }
 link = { ck2 = c_yarkand eu4 = KAS }
 link = { ck2 = e_china_west_governor eu4 = MNG }
+
+# Left out in official DLC
+link = { ck2 = c_evreux eu4 = ALE } # Évreux --> Alençon
+link = { ck2 = c_sticht eu4 = UTR } # Sticht --> Utrecht
+link = { ck2 = d_hesse eu4 = HES } # Hesse
+link = { ck2 = c_hesse eu4 = HES } # Hesse
+link = { ck2 = c_julich eu4 = AAC } # Aachen
+#link = { ck2 = ??? eu4 = PAL } # Impossible to map Palatinate
+link = { ck2 = c_bamberg eu4 = ANS } # Bamberg --> Ansbach
+link = { ck2 = c_magdeburg eu4 = MAG } # Magdeburg
+#link = { ck2 = ??? eu4 = LAU } # Impossible to map Lauenburg
+link = { ck2 = c_steiermark eu4 = STY } # Styria
+link = { ck2 = c_monemvasia eu4 = MOE } # Monemvasia (Sparta) --> Morea
+link = { capitals = { 465 } eu4 = NOG } # Nogai
+link = { capitals = { 464 } eu4 = AST } # Astrakhan
+#link = { ck2 = ??? eu4 = MUG } # Impossible to map Mughal Empire

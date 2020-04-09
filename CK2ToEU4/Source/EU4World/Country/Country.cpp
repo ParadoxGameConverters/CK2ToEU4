@@ -31,7 +31,8 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	 const mappers::ReligionMapper& religionMapper,
 	 const mappers::CultureMapper& cultureMapper,
 	 const mappers::ProvinceMapper& provinceMapper,
-	 const mappers::ColorScraper& colorScraper)
+	 const mappers::ColorScraper& colorScraper,
+	 const mappers::LocalizationMapper& localizationMapper)
 {
 	tag = std::move(theTag);
 	title = std::move(theTitle);
@@ -170,4 +171,33 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	// If we imported special_unit_culture, keeping it, otherwise blank.
 	// If we imported all_your_core_are_belong_to_us, keeping it, otherwise blank.
 	// If we imported right_to_bear_arms, keeping it, otherwise blank.
+
+	// --------------  Misc
+	auto nameLocalizationMatch = localizationMapper.getLocBlockForKey(title->getName());
+	if (nameLocalizationMatch)
+		localizations.insert(std::pair(tag, *nameLocalizationMatch));
+	else {
+		// Now get creative. This happens for c_titles that have localizations as b_title
+		auto alternateName = title->getName();
+		alternateName = "b_" + alternateName.substr(2, alternateName.length());
+		nameLocalizationMatch = localizationMapper.getLocBlockForKey(alternateName);
+		if (nameLocalizationMatch)
+			localizations.insert(std::pair(tag, *nameLocalizationMatch));
+		else {
+			// using capital province name?
+			auto capitalName = actualHolder->getCapitalProvince().second->getName();
+			if (!capitalName.empty()) {
+				mappers::LocBlock newblock;
+				newblock.english = capitalName;
+				newblock.spanish = capitalName;
+				newblock.french = capitalName;
+				newblock.german = capitalName;
+				localizations.insert(std::pair(tag, newblock));
+			} else {
+				Log(LogLevel::Warning) << tag << " help with localization! " << title->getName();
+			}
+		}
+	}
+	const auto& adjLocalizationMatch = localizationMapper.getLocBlockForKey(title->getName() + "_adj");
+	if (adjLocalizationMatch) localizations.insert(std::pair(tag + "_ADJ", *adjLocalizationMatch));
 }

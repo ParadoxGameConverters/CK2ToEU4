@@ -11,6 +11,7 @@ namespace fs = std::filesystem;
 EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfiguration, const mappers::VersionParser& versionParser)
 {
 	LOG(LogLevel::Info) << "*** Hello EU4, let's get painting. ***";
+	localizationMapper.scrapeLocalizations(theConfiguration);
 	colorScraper.scrapeColors(theConfiguration.getCK2Path() + "/common/landed_titles/landed_titles.txt");
 	regionMapper = std::make_shared<mappers::RegionMapper>();
 	regionMapper->loadRegions(theConfiguration);
@@ -65,11 +66,11 @@ void EU4::World::importCK2Countries(const CK2::World& sourceWorld)
 		// Locating appropriate existing country
 		const auto& countryItr = countries.find(*tag);
 		if (countryItr != countries.end()) {
-			countryItr->second->initializeFromTitle(*tag, title.second, governmentsMapper, religionMapper, cultureMapper, provinceMapper, colorScraper);
+			countryItr->second->initializeFromTitle(*tag, title.second, governmentsMapper, religionMapper, cultureMapper, provinceMapper, colorScraper, localizationMapper);
 		} else {
 			// Otherwise create the country
 			auto newCountry = std::make_shared<Country>();
-			newCountry->initializeFromTitle(*tag, title.second, governmentsMapper, religionMapper, cultureMapper, provinceMapper, colorScraper);
+			newCountry->initializeFromTitle(*tag, title.second, governmentsMapper, religionMapper, cultureMapper, provinceMapper, colorScraper, localizationMapper);
 			countries.insert(std::pair(*tag, newCountry));
 		}
 	}

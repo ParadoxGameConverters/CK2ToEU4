@@ -180,6 +180,9 @@
     <ClCompile Include="Source\Mappers\ColorScraper\ColorScraper.cpp">
       <Filter>Mappers\ColorScraper</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Mappers\LocalizationMapper\LocalizationMapper.cpp">
+      <Filter>Mappers\LocalizationMapper</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CK2ToEU4Converter.h" />
@@ -354,6 +357,9 @@
     <ClInclude Include="Source\Mappers\ColorScraper\ColorScraper.h">
       <Filter>Mappers\ColorScraper</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Mappers\LocalizationMapper\LocalizationMapper.h">
+      <Filter>Mappers\LocalizationMapper</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4World">
@@ -424,6 +430,9 @@
     </Filter>
     <Filter Include="Mappers\ColorScraper">
       <UniqueIdentifier>{492ad425-0a77-4214-a256-4ef82a6b5d7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mappers\LocalizationMapper">
+      <UniqueIdentifier>{77a57f73-520e-49a6-ab76-990758d84b75}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
