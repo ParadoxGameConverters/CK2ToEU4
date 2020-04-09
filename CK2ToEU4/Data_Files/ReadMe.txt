@@ -1,4 +1,4 @@
-This program will convert a Crusader Kings 2 save game to a Europa Euniversalis 4 save game.
+This program will convert a Crusader Kings 2 save game to a Europa Universalis 4 save game.
 
 ----
 IMPORTANT LINKS

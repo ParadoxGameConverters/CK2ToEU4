@@ -206,6 +206,15 @@
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\GovernmentsMapper\GovernmentsMapping.cpp">
       <Filter>ConverterFiles\Mappers\GovernmentsMapper</Filter>
     </ClCompile>
+    <ClCompile Include="MapperTests\RegionMapper\AreaTests.cpp">
+      <Filter>MapperTests\RegionMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="MapperTests\RegionMapper\RegionTests.cpp">
+      <Filter>MapperTests\RegionMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="MapperTests\RegionMapper\SuperRegionTests.cpp">
+      <Filter>MapperTests\RegionMapper</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4WorldTests">

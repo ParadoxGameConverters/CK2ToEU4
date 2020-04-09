@@ -231,7 +231,10 @@
     <ClCompile Include="MapperTests\ProvinceMapper\ProvinceMapperTests.cpp" />
     <ClCompile Include="MapperTests\ProvinceMapper\ProvinceMappingsVersionTests.cpp" />
     <ClCompile Include="MapperTests\ProvinceMapper\ProvinceMappingTests.cpp" />
+    <ClCompile Include="MapperTests\RegionMapper\AreaTests.cpp" />
     <ClCompile Include="MapperTests\RegionMapper\RegionMapperTests.cpp" />
+    <ClCompile Include="MapperTests\RegionMapper\RegionTests.cpp" />
+    <ClCompile Include="MapperTests\RegionMapper\SuperRegionTests.cpp" />
     <ClCompile Include="MapperTests\ReligionMapper\ReligionMapperTests.cpp" />
     <ClCompile Include="MapperTests\ReligionMapper\ReligionMappingTests.cpp" />
     <ClCompile Include="MapperTests\TitleTagMapper\TitleTagMapperTests.cpp" />

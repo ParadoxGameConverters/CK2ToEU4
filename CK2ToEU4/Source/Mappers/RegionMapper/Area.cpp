@@ -20,7 +20,6 @@ void mappers::Area::registerKeys()
 
 bool mappers::Area::areaContainsProvince(const int province) const
 {
-	const auto& provinceItr = provinces.find(province);
-	if (provinceItr != provinces.end()) return true;
+	if (provinces.count(province)) return true;
 	return false;
 }

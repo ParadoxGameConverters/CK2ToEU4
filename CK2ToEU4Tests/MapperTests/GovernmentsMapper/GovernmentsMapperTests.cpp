@@ -84,3 +84,15 @@ TEST(Mappers_GovernmentsMapperTests, reformIsReturnedIfExists)
 	ASSERT_EQ(match->first, "eu4Government2");
 	ASSERT_EQ(match->second, "papacy_reform");
 }
+
+TEST(Mappers_GovernmentsMapperTests, reformIsEmptyIfDoesNotExist)
+{
+	std::stringstream input;
+	input << "link = { gov = eu4Government ck2gov = ck2Government }\n";
+	input << "link = { gov = eu4Government2 ck2gov = ck2Government2 ck2title = c_test }";
+
+	const mappers::GovernmentsMapper theMapper(input);
+	auto match = theMapper.matchGovernment("ck2Government", "c_test");
+
+	ASSERT_TRUE(match->second.empty());
+}

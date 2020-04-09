@@ -15,7 +15,7 @@ class Dynasty: commonItems::parser
 	[[nodiscard]] const auto& getReligion() const { return religion; }
 	[[nodiscard]] const auto& getName() const { return name; }
 
-	[[nodiscard]] auto getID() const { return dynID; }	
+	[[nodiscard]] auto getID() const { return dynID; }
 
   private:
 	void registerKeys();
