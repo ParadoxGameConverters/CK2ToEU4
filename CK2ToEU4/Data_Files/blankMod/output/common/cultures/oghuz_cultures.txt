@@ -1,0 +1,20 @@
+oghuz = {
+	pecheneg = {
+		primary = KAZ
+	}
+	cuman = {
+		primary = KAZ
+	}
+	bolghar = {
+		primary = KAZ
+	}
+	avar = {
+		primary = KAZ
+	}
+	khazar = {
+		primary = KAZ
+	}
+	karluk = {
+		primary = UZB
+	}
+}

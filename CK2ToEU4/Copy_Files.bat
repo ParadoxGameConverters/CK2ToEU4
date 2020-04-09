@@ -15,9 +15,9 @@ rmdir "..\Release\CK2ToEU4\configurables" /S /Q
 xcopy "Data_Files\configurables" "..\Release\CK2ToEU4\configurables" /Y /E /I
 
 rem Create Blank Mod
-rem del "..\Release\CK2ToEU4\blankMod" /Q
-rem rmdir "..\Release\CK2ToEU4\blankMod" /S /Q
-rem xcopy "Data_Files\blankMod" "..\Release\CK2ToEU4\blankMod" /Y /E /I
+del "..\Release\CK2ToEU4\blankMod" /Q
+rmdir "..\Release\CK2ToEU4\blankMod" /S /Q
+xcopy "Data_Files\blankMod" "..\Release\CK2ToEU4\blankMod" /Y /E /I
 
 rem Copy Flags
 rem del "..\Release\CK2ToEU4\flags" /Q

@@ -1,0 +1,11 @@
+iranian = {
+	sogdian = {
+		primary = KHO
+	}
+	tocharian = {
+		primary = KAS
+	}
+	saka = {
+		primary = KAS
+	}
+}

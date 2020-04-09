@@ -9,7 +9,10 @@ class Dynasties: commonItems::parser
 {
   public:
 	Dynasties() = default;
-	Dynasties(std::istream& theStream);
+	Dynasties(std::istream& theStream); // For testing
+	void loadDynasties(const std::string& thePath);
+	void loadDynasties(std::istream& theStream);
+
 	[[nodiscard]] const auto& getDynasties() const { return dynasties; }
 
   private:

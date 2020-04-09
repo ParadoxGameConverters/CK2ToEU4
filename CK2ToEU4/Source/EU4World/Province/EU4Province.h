@@ -9,6 +9,10 @@ namespace CK2
 {
 class Province;
 }
+namespace mappers
+{
+class TitleTagMapper;
+}
 
 namespace EU4
 {
@@ -18,7 +22,7 @@ class Province
 	Province() = default;
 
 	Province(int id, const std::string& filePath);
-	void initializeFromCK2(std::shared_ptr<CK2::Province> origProvince);
+	void initializeFromCK2(std::shared_ptr<CK2::Province> origProvince, mappers::TitleTagMapper& titletagMapper);
 
 	[[nodiscard]] const auto& getHistoryCountryFile() const { return historyProvincesFile; }
 

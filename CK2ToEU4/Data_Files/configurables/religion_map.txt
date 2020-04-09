@@ -1,0 +1,74 @@
+# Usage:
+# link = { ck2 = ck2religion eu4 = eu4religion }
+# multiple ck2 entires are allowed (and encouraged), multiple eu4 are not.
+
+# Pagan
+
+link = { ck2 = norse_pagan eu4 = animism }
+link = { ck2 = norse_pagan_reformed eu4 = norse_pagan_reformed }
+link = { ck2 = tengri_pagan eu4 = tengri_pagan_reformed }
+link = { ck2 = tengri_pagan_reformed eu4 = tengri_pagan_reformed }
+link = { ck2 = baltic_pagan eu4 = animism }
+link = { ck2 = baltic_pagan_reformed eu4 = baltic_pagan_reformed }
+link = { ck2 = finnish_pagan eu4 = animism }
+link = { ck2 = finnish_pagan_reformed eu4 = finnish_pagan_reformed }
+link = { ck2 = aztec eu4 = nahuatl }
+link = { ck2 = aztec_reformed eu4 = nahuatl }
+link = { ck2 = slavic_pagan eu4 = animism }
+link = { ck2 = slavic_pagan_reformed eu4 = slavic_pagan_reformed }
+link = { ck2 = west_african_pagan eu4 = shamanism }
+link = { ck2 = west_african_pagan_reformed eu4 = shamanism }
+link = { ck2 = hellenic_pagan eu4 = hellenic_pagan }
+link = { ck2 = hellenic_pagan_reformed eu4 = hellenic_pagan }
+link = { ck2 = zun_pagan eu4 = zoroastrian }
+link = { ck2 = zun_pagan_reformed eu4 = zun_pagan_reformed }
+link = { ck2 = bon eu4 = bon }
+link = { ck2 = bon_reformed eu4 = bon }
+
+# Zoroastrianism
+
+link = { ck2 = zoroastrian eu4 = zoroastrian }
+link = { ck2 = mazdaki eu4 = zoroastrian }
+link = { ck2 = manichean eu4 = zoroastrian }
+link = { ck2 = khurmazta eu4 = zoroastrian }
+
+# Christianity
+
+link = { ck2 = catholic eu4 = catholic }
+link = { ck2 = cathar eu4 = catholic }
+link = { ck2 = fraticelli eu4 = catholic }
+link = { ck2 = waldensian eu4 = catholic }
+link = { ck2 = lollard eu4 = catholic }
+
+link = { ck2 = orthodox eu4 = orthodox }
+link = { ck2 = bogomilist eu4 = orthodox }
+link = { ck2 = monothelite eu4 = orthodox }
+link = { ck2 = iconoclast eu4 = orthodox }
+link = { ck2 = nestorian eu4 = nestorian }
+link = { ck2 = messalian eu4 = nestorian }
+link = { ck2 = paulician eu4 = orthodox }
+
+link = { ck2 = miaphysite eu4 = coptic }
+link = { ck2 = monophysite eu4 = coptic }
+
+# Islam
+
+link = { ck2 = sunni eu4 = sunni }
+link = { ck2 = zikri eu4 = sunni }
+link = { ck2 = yazidi eu4 = sunni }
+link = { ck2 = ibadi eu4 = ibadi }
+link = { ck2 = kharijite eu4 = ibadi }
+link = { ck2 = shiite eu4 = shiite }
+link = { ck2 = druze eu4 = shiite }
+link = { ck2 = hurufi eu4 = shiite ck2 = qarmatian }
+
+# Judaism
+link = { ck2 = jewish eu4 = jewish }
+link = { ck2 = samaritan eu4 = jewish }
+link = { ck2 = karaite eu4 = jewish }
+
+# Indian
+link = { ck2 = buddhist eu4 = buddhism }
+link = { ck2 = hindu eu4 = hinduism }
+link = { ck2 = jain eu4 = jain }
+link = { ck2 = taoist eu4 = confucianism }

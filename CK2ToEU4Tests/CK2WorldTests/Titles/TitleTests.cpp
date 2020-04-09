@@ -1,6 +1,5 @@
 #include "gtest/gtest.h"
 #include "../CK2ToEU4/Source/CK2World/Titles/Title.h"
-#include "../CK2ToEU4/Source/CK2World/Titles/Titles.h"
 #include "../CK2ToEU4/Source/CK2World/Titles/Liege.h"
 #include "../CK2ToEU4/Source/CK2World/Provinces/Province.h"
 #include "../CK2ToEU4/Source/CK2World/Provinces/Provinces.h"
@@ -319,3 +318,30 @@ TEST(CK2World_TitleTests, provincesCanBeLoaded)
 	ASSERT_EQ(theTitle.getProvinces().find(42)->second->getID(), 42);
 }
 
+
+TEST(CK2World_TitleTests, ColorDefaultsToUnset)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "}";
+
+	const CK2::Title theTitle(input, "c_test");
+
+	ASSERT_FALSE(theTitle.getColor());
+}
+
+TEST(CK2World_TitleTests, ColorCanBeLoaded)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "color = { 3 5 6 }";
+	input << "}";
+	const CK2::Title theTitle(input, "c_test");
+
+	ASSERT_TRUE(theTitle.getColor());
+	ASSERT_EQ(theTitle.getColor().r(), 3);
+	ASSERT_EQ(theTitle.getColor().g(), 5);
+	ASSERT_EQ(theTitle.getColor().b(), 6);
+}

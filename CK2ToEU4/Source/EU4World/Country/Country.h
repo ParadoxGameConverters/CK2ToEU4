@@ -2,9 +2,19 @@
 #define EU4_COUNTRY_H
 
 #include "../../CK2World/Titles/Title.h"
+#include "../../Mappers/LocalizationMapper/LocalizationMapper.h"
 #include "CountryDetails.h"
 #include <memory>
 #include <string>
+
+namespace mappers
+{
+class GovernmentsMapper;
+class ReligionMapper;
+class CultureMapper;
+class ColorScraper;
+class ProvinceMapper;
+} // namespace mappers
 
 namespace EU4
 {
@@ -15,11 +25,20 @@ class Country
 
 	Country(std::string theTag, const std::string& filePath);
 	void loadHistory(const std::string& filePath);
-	void initializeFromTitle(std::string theTag, std::shared_ptr<CK2::Title> thetitle);
+	void initializeFromTitle(std::string theTag,
+		 std::shared_ptr<CK2::Title> theTitle,
+		 const mappers::GovernmentsMapper& governmentsMapper,
+		 const mappers::ReligionMapper& religionMapper,
+		 const mappers::CultureMapper& cultureMapper,
+		 const mappers::ProvinceMapper& provinceMapper,
+		 const mappers::ColorScraper& colorScraper,
+		 const mappers::LocalizationMapper& localizationMapper);
+
 	void outputCommons(std::ostream& output);
 
 	[[nodiscard]] const auto& getCommonCountryFile() const { return commonCountryFile; }
 	[[nodiscard]] const auto& getHistoryCountryFile() const { return historyCountryFile; }
+	[[nodiscard]] const auto& getLocalizations() const { return localizations; }
 
 	friend std::ostream& operator<<(std::ostream& output, const Country& versionParser);
 
@@ -28,6 +47,7 @@ class Country
 	std::string commonCountryFile;
 	std::string historyCountryFile;
 	std::shared_ptr<CK2::Title> title;
+	std::map<std::string, mappers::LocBlock> localizations;
 
 	CountryDetails details;
 };

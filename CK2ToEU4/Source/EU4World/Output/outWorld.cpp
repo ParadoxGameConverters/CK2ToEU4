@@ -4,6 +4,7 @@
 #include <fstream>
 namespace fs = std::filesystem;
 #include "../../Configuration/Configuration.h"
+#include "OSCompatibilityLayer.h"
 
 void EU4::World::output(const mappers::VersionParser& versionParser, const Configuration& theConfiguration) const
 {
@@ -13,14 +14,18 @@ void EU4::World::output(const mappers::VersionParser& versionParser, const Confi
 		Log(LogLevel::Info) << "<< Deleting existing mod folder.";
 		fs::remove_all("output/" + theConfiguration.getOutputName());
 	}
+	LOG(LogLevel::Info) << "<- Copying Mod Template";
+	fs::copy("blankMod/output", "output/output", fs::copy_options::recursive);
+	LOG(LogLevel::Info) << "<- Moving Mod Template >> " << theConfiguration.getOutputName();
+	fs::rename("output/output", "output/" + theConfiguration.getOutputName());
 
-	fs::create_directory("output/" + theConfiguration.getOutputName());
 	fs::create_directory("output/" + theConfiguration.getOutputName() + "/history/");
 	fs::create_directory("output/" + theConfiguration.getOutputName() + "/history/countries/");
 	fs::create_directory("output/" + theConfiguration.getOutputName() + "/history/provinces/");
 	fs::create_directory("output/" + theConfiguration.getOutputName() + "/common/");
 	fs::create_directory("output/" + theConfiguration.getOutputName() + "/common/countries/");
 	fs::create_directory("output/" + theConfiguration.getOutputName() + "/common/country_tags/");
+	fs::create_directory("output/" + theConfiguration.getOutputName() + "/localisation/");
 
 	LOG(LogLevel::Info) << "<- Crafting .mod File";
 	createModFile(theConfiguration);
@@ -39,6 +44,9 @@ void EU4::World::output(const mappers::VersionParser& versionParser, const Confi
 
 	LOG(LogLevel::Info) << "<- Writing Provinces";
 	outputHistoryProvinces(theConfiguration);
+
+	LOG(LogLevel::Info) << "<- Writing Localization";
+	outputLocalization(theConfiguration);
 }
 
 void EU4::World::createModFile(const Configuration& theConfiguration) const
@@ -51,6 +59,36 @@ void EU4::World::createModFile(const Configuration& theConfiguration) const
 	output.close();
 }
 
+
+void EU4::World::outputLocalization(const Configuration& theConfiguration) const
+{
+	std::ofstream english("output/" + theConfiguration.getOutputName() + "/localisation/converter_l_english.yml");
+	std::ofstream french("output/" + theConfiguration.getOutputName() + "/localisation/converter_l_french.yml");
+	std::ofstream spanish("output/" + theConfiguration.getOutputName() + "/localisation/converter_l_spanish.yml");
+	std::ofstream german("output/" + theConfiguration.getOutputName() + "/localisation/converter_l_german.yml");
+	if (!english.is_open()) throw std::runtime_error("Error writing localisation file! Is the output folder writable?");
+	if (!french.is_open()) throw std::runtime_error("Error writing localisation file! Is the output folder writable?");
+	if (!spanish.is_open()) throw std::runtime_error("Error writing localisation file! Is the output folder writable?");
+	if (!german.is_open()) throw std::runtime_error("Error writing localisation file! Is the output folder writable?");
+	english << "\xEF\xBB\xBFl_english:\n"; // write BOM
+	french << "\xEF\xBB\xBFl_french:\n";	// write BOM
+	spanish << "\xEF\xBB\xBFl_spanish:\n"; // write BOM
+	german << "\xEF\xBB\xBFl_german:\n";	// write BOM
+
+	for (const auto& country: countries) {
+		for (const auto& locblock: country.second->getLocalizations())
+		{
+			english << " " << locblock.first << ": \"" << Utils::convertWin1252ToUTF8(locblock.second.english) << "\"\n";
+			french << " " << locblock.first << ": \"" << Utils::convertWin1252ToUTF8(locblock.second.french) << "\"\n";
+			spanish << " " << locblock.first << ": \"" << Utils::convertWin1252ToUTF8(locblock.second.spanish) << "\"\n";
+			german << " " << locblock.first << ": \"" << Utils::convertWin1252ToUTF8(locblock.second.german) << "\"\n";
+		}
+	}
+	english.close();
+	french.close();
+	spanish.close();
+	german.close();
+}
 
 void EU4::World::outputVersion(const mappers::VersionParser& versionParser, const Configuration& theConfiguration) const
 {
@@ -95,9 +133,9 @@ void EU4::World::outputHistoryCountries(const Configuration& theConfiguration) c
 void EU4::World::outputCommonCountries(const Configuration& theConfiguration) const
 {
 	for (const auto& country: countries) {
-		std::ofstream output("output/" + theConfiguration.getOutputName() + "/" + country.second->getCommonCountryFile());
+		std::ofstream output("output/" + theConfiguration.getOutputName() + "/common/" + country.second->getCommonCountryFile());
 		if (!output.is_open())
-			throw std::runtime_error("Could not create country common file: output/" + theConfiguration.getOutputName() + "/" + country.second->getCommonCountryFile());
+			throw std::runtime_error("Could not create country common file: output/" + theConfiguration.getOutputName() + "/common/" + country.second->getCommonCountryFile());
 		country.second->outputCommons(output);
 		output.close();
 	}

@@ -48,7 +48,7 @@ CK2::World::World(const Configuration& theConfiguration)
 	});
 	registerKeyword("dynasties", [this](const std::string& unused, std::istream& theStream) {
 		LOG(LogLevel::Info) << "-> Loading Dynasties";
-		dynasties = Dynasties(theStream);
+		dynasties.loadDynasties(theStream);
 		LOG(LogLevel::Info) << ">> Loaded " << dynasties.getDynasties().size() << " dynasties.";
 	});
 	registerKeyword("dyn_title", [this](const std::string& unused, std::istream& theStream) {
@@ -72,6 +72,11 @@ CK2::World::World(const Configuration& theConfiguration)
 		inStream << inBinary.rdbuf();
 		saveGame.gamestate = inStream.str();
 	}
+
+	// We must load initializers before the savegame.
+	std::set<std::string> fileNames;
+	Utils::GetAllFilesInFolder(theConfiguration.getCK2Path() + "/common/dynasties/", fileNames);
+	for (const auto& file: fileNames) dynasties.loadDynasties(theConfiguration.getCK2Path() + "/common/dynasties/" + file);
 
 	auto gameState = std::istringstream(saveGame.gamestate);
 	parseStream(gameState);
@@ -231,6 +236,7 @@ void CK2::World::congregateProvinces()
 	// This will form actual EU4 tag and contained provinces.
 	for (const auto& title: independentTitles) {
 		title.second->congregateProvinces(independentTitles);
+		for (const auto& province: title.second->getProvinces()) province.second->loadHoldingTitle(std::pair(title.first, title.second));
 		counter += title.second->getProvinces().size();
 	}
 	Log(LogLevel::Info) << "<> " << counter << " provinces held by independents.";

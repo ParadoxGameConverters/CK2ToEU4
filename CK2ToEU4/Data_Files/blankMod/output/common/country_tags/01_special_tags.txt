@@ -1,0 +1,5 @@
+JOM = countries/Jomsvikings.txt
+HAH = countries/Hashshashin.txt
+ISR = countries/Israel.txt
+TEM = countries/KnightsTemplar.txt
+TRL = countries/Trapalanda.txt

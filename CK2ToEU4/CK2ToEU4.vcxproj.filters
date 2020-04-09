@@ -147,6 +147,42 @@
     <ClCompile Include="Source\EU4World\Output\outWorld.cpp">
       <Filter>EU4World\Output</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Mappers\ReligionMapper\ReligionMapper.cpp">
+      <Filter>Mappers\ReligionMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Mappers\ReligionMapper\ReligionMapping.cpp">
+      <Filter>Mappers\ReligionMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Mappers\CultureMapper\CultureMapper.cpp">
+      <Filter>Mappers\CultureMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Mappers\CultureMapper\CultureMappingRule.cpp">
+      <Filter>Mappers\CultureMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Mappers\RegionMapper\Area.cpp">
+      <Filter>Mappers\RegionMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Mappers\RegionMapper\Region.cpp">
+      <Filter>Mappers\RegionMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Mappers\RegionMapper\RegionMapper.cpp">
+      <Filter>Mappers\RegionMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Mappers\RegionMapper\SuperRegion.cpp">
+      <Filter>Mappers\RegionMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Mappers\GovernmentsMapper\GovernmentsMapper.cpp">
+      <Filter>Mappers\GovernmentsMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Mappers\GovernmentsMapper\GovernmentsMapping.cpp">
+      <Filter>Mappers\GovernmentsMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Mappers\ColorScraper\ColorScraper.cpp">
+      <Filter>Mappers\ColorScraper</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Mappers\LocalizationMapper\LocalizationMapper.cpp">
+      <Filter>Mappers\LocalizationMapper</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CK2ToEU4Converter.h" />
@@ -288,6 +324,42 @@
     <ClInclude Include="Source\EU4World\Output\outProvince.h">
       <Filter>EU4World\Output</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Mappers\ReligionMapper\ReligionMapper.h">
+      <Filter>Mappers\ReligionMapper</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Mappers\ReligionMapper\ReligionMapping.h">
+      <Filter>Mappers\ReligionMapper</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Mappers\CultureMapper\CultureMapper.h">
+      <Filter>Mappers\CultureMapper</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Mappers\CultureMapper\CultureMappingRule.h">
+      <Filter>Mappers\CultureMapper</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Mappers\RegionMapper\Area.h">
+      <Filter>Mappers\RegionMapper</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Mappers\RegionMapper\Region.h">
+      <Filter>Mappers\RegionMapper</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Mappers\RegionMapper\RegionMapper.h">
+      <Filter>Mappers\RegionMapper</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Mappers\RegionMapper\SuperRegion.h">
+      <Filter>Mappers\RegionMapper</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Mappers\GovernmentsMapper\GovernmentsMapper.h">
+      <Filter>Mappers\GovernmentsMapper</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Mappers\GovernmentsMapper\GovernmentsMapping.h">
+      <Filter>Mappers\GovernmentsMapper</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Mappers\ColorScraper\ColorScraper.h">
+      <Filter>Mappers\ColorScraper</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Mappers\LocalizationMapper\LocalizationMapper.h">
+      <Filter>Mappers\LocalizationMapper</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4World">
@@ -343,6 +415,24 @@
     </Filter>
     <Filter Include="EU4World\Province">
       <UniqueIdentifier>{c1b8eaf8-3a57-4145-8e62-2fb4f89d69b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mappers\ReligionMapper">
+      <UniqueIdentifier>{337138c8-793a-4f7c-8549-e84440fb86db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mappers\CultureMapper">
+      <UniqueIdentifier>{be4c67a3-d0ed-4c42-a125-10a641ee4bfb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mappers\RegionMapper">
+      <UniqueIdentifier>{aa9ded99-07cd-4ede-b8f4-d91560b337e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mappers\GovernmentsMapper">
+      <UniqueIdentifier>{411c7b37-01e7-4f83-b450-f9c4af5f0370}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mappers\ColorScraper">
+      <UniqueIdentifier>{492ad425-0a77-4214-a256-4ef82a6b5d7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mappers\LocalizationMapper">
+      <UniqueIdentifier>{77a57f73-520e-49a6-ab76-990758d84b75}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

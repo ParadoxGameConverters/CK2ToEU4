@@ -50,7 +50,7 @@ void EU4::Country::outputCommons(std::ostream& output)
 		output << "}\n";
 	}
 	if (details.historicalScore) output << "historical_score = " << details.historicalScore << "\n";
-	if (details.randomChance) output << "random_nation_chance = " << details.randomChance << "\n";
+	if (details.randomChance) output << "random_nation_chance = 0\n";
 	if (!details.historicalUnits.empty()) {
 		output << "historical_units = {\n";
 		for (const auto& unit: details.historicalUnits) { output << "\t" << unit << "\n"; }
@@ -58,22 +58,22 @@ void EU4::Country::outputCommons(std::ostream& output)
 	}
 	if (!details.leaderNames.empty()) {
 		output << "leader_names = {\n";
-		for (const auto& name: details.leaderNames) { output << "\t" << name << "\n"; }
+		for (const auto& name: details.leaderNames) { output << "\t\"" << name << "\"\n"; }
 		output << "}\n";
 	}
 	if (!details.shipNames.empty()) {
 		output << "ship_names = {\n";
-		for (const auto& name: details.shipNames) { output << "\t" << name << "\n"; }
+		for (const auto& name: details.shipNames) { output << "\t\"" << name << "\"\n"; }
 		output << "}\n";
 	}
 	if (!details.armyNames.empty()) {
 		output << "army_names = {\n";
-		for (const auto& name: details.armyNames) { output << "\t" << name << "\n"; }
+		for (const auto& name: details.armyNames) { output << "\t\"" << name << "\"\n"; }
 		output << "}\n";
 	}
 	if (!details.fleetNames.empty()) {
 		output << "fleet_names = {\n";
-		for (const auto& name: details.fleetNames) { output << "\t" << name << "\n"; }
+		for (const auto& name: details.fleetNames) { output << "\t\"" << name << "\"\n"; }
 		output << "}\n";
 	}
 	if (!details.preferredReligion.empty()) output << "preferred_religion = " << details.preferredReligion << "\n";

@@ -1,6 +1,6 @@
 #include "EU4Province.h"
 #include "../../CK2World/Provinces/Province.h"
-#include "Log.h"
+#include "../../Mappers/TitleTagMapper/TitleTagMapper.h"
 
 EU4::Province::Province(int id, const std::string& filePath): provID(id)
 {
@@ -10,8 +10,12 @@ EU4::Province::Province(int id, const std::string& filePath): provID(id)
 	details = ProvinceDetails(filePath);
 }
 
-void EU4::Province::initializeFromCK2(std::shared_ptr<CK2::Province> origProvince)
+void EU4::Province::initializeFromCK2(std::shared_ptr<CK2::Province> origProvince, mappers::TitleTagMapper& titletagMapper)
 {
 	srcProvince = std::move(origProvince);
+	const auto& ownerMatch = titletagMapper.getTagForTitle(srcProvince->getTitle().first);
+	if (ownerMatch) details.owner = *ownerMatch;
+	details.controller = details.owner;
+	
 	// History section
 }

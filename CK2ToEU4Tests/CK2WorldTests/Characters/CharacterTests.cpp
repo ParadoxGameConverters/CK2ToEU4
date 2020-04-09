@@ -66,6 +66,31 @@ TEST(CK2World_CharacterTests, religionDefaultsToBlank)
 	ASSERT_TRUE(theCharacter.getReligion().empty());
 }
 
+TEST(CK2World_CharacterTests, governmentCanBeSet)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "\tgov=\"government\"";
+	input << "}";
+
+	const CK2::Character theCharacter(input, 42);
+
+	ASSERT_EQ(theCharacter.getGovernment(), "government");
+}
+
+TEST(CK2World_CharacterTests, governmentDefaultsToBlank)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "}";
+
+	const CK2::Character theCharacter(input, 42);
+
+	ASSERT_TRUE(theCharacter.getGovernment().empty());
+}
+
 TEST(CK2World_CharacterTests, nameCanBeSet)
 {
 	std::stringstream input;

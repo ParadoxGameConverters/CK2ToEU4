@@ -1,0 +1,269 @@
+# Usage:
+# link = { ck2 = ck2culture eu4 = eu4culture region = eu4region province = eu4provinceID owner = eu4tag tech = techgroup gfx = somethinggfx }
+# multiples of all except eu4, tech and gfx are allowed.
+# Note: regions can be anything that makes sense, ie. south_america_superregion, north_german_region, laponia_area
+# You can mix and match, ie. north_american_superregion + provinceid = 1240 will catch all of north america + hawaii.
+# every culture should have a gfx set.
+
+# North Germanic
+
+link = { ck2 = norse eu4 = norse tech = western gfx = westerngfx }
+link = { ck2 = swedish eu4 = swedish tech = western gfx = westerngfx }
+link = { ck2 = norwegian eu4 = norwegian tech = western gfx = westerngfx }
+link = { ck2 = danish eu4 = danish tech = western gfx = westerngfx }
+link = { ck2 = old_saxon eu4 = hannoverian tech = western gfx = westerngfx }
+
+# German: the split
+link = { ck2 = german eu4 = austrian tech = western gfx = westerngfx region = austria_proper_area region = inner_austria_area region = tirol_area region = italy_region region = carpathia_region }
+link = { ck2 = german eu4 = bavarian tech = western gfx = westerngfx region = lower_bavaria_area region = upper_bavaria_area }
+link = { ck2 = german eu4 = flemish tech = western gfx = westerngfx region = low_countries_region }
+link = { ck2 = german eu4 = franconian tech = western gfx = westerngfx region = franconia_area  }
+link = { ck2 = german eu4 = prussian tech = western gfx = westerngfx region = mittelmark_area region = neumark_area region = west_prussia_area region = east_prussia_area region = samogitia_area region = curonia_area region = livonia_area region = poland_region }
+link = { ck2 = german eu4 = hessian tech = western gfx = westerngfx region = hesse_area region = lower_rhineland_area region = north_rhine_area } #Rhenish
+link = { ck2 = german eu4 = saxon tech = western gfx = westerngfx region = south_saxony_area region = thuringia_area region = braunschweig_area region = northern_saxony_area region = lower_saxony_area region = weser_area }
+link = { ck2 = german eu4 = swabian tech = western gfx = westerngfx region = palatinate_area region = lower_swabia_area region = upper_swabia_area region = north_rhine_area }
+link = { ck2 = german eu4 = swiss tech = western gfx = westerngfx region = switzerland_area region = romandie_area }
+link = { ck2 = german eu4 = westphalian tech = western gfx = westerngfx region = westphalia_area }
+link = { ck2 = german eu4 = german tech = western gfx = westerngfx } #Fallback
+
+# Central Germanic
+
+link = { ck2 = suebi eu4 = suebi tech = western gfx = westerngfx }
+link = { ck2 = lombard eu4 = old_lombard tech = western gfx = westerngfx }
+
+# West Germanic
+
+link = { ck2 = old_frankish eu4 = frankish tech = western gfx = westerngfx }
+link = { ck2 = english eu4 = english tech = western gfx = westerngfx }
+link = { ck2 = saxon eu4 = anglo_saxon tech = western gfx = westerngfx }
+link = { ck2 = dutch eu4 = dutch tech = western gfx = westerngfx }
+link = { ck2 = frisian eu4 = frisian tech = western gfx = westerngfx }
+
+# Latin
+link = { ck2 = frankish eu4 = burgundian tech = western gfx = westerngfx region = bourgogne_area }
+link = { ck2 = frankish eu4 = gascon tech = western gfx = westerngfx region = pyrenees_area region = guyenne_area region = basque_country }
+link = { ck2 = frankish eu4 = walloon tech = western gfx = westerngfx region = low_countries_region }
+link = { ck2 = frankish eu4 = cosmopolitan_french tech = western gfx = westerngfx }
+link = { ck2 = norman eu4 = normand tech = western gfx = westerngfx }
+link = { ck2 = occitan eu4 = aquitainian tech = western gfx = westerngfx region = pyrenees_area region = guyenne_area region = basque_country }
+link = { ck2 = occitan eu4 = occitain tech = western gfx = westerngfx }
+link = { ck2 = roman eu4 = roman tech = western gfx = westerngfx }
+link = { ck2 = dalmatian eu4 = dalmatian tech = western gfx = westerngfx }
+link = { ck2 = outremer eu4 = outremer tech = western gfx = westerngfx }
+link = { ck2 = sardinian eu4 = sardinian tech = western gfx = westerngfx }
+
+# Italian: the split
+link = { ck2 = italian eu4 = ligurian tech = western gfx = westerngfx region = liguria_area }
+link = { ck2 = italian eu4 = lombard tech = western gfx = westerngfx region = lombardy_area }
+link = { ck2 = italian eu4 = maltese tech = western gfx = westerngfx province = 126 }
+link = { ck2 = italian eu4 = neapolitan tech = western gfx = westerngfx region = naples_area region = apulia_area region = calabria_area }
+link = { ck2 = italian eu4 = piedmontese tech = western gfx = westerngfx region = piedmont_area region = savoy_dauphine_area region = provence_area }
+link = { ck2 = italian eu4 = romagnan tech = western gfx = westerngfx region = emilia_romagna_area }
+link = { ck2 = italian eu4 = sardinian tech = western gfx = westerngfx region = corsica_sardinia_area }
+link = { ck2 = italian eu4 = sicilian tech = western gfx = westerngfx region = sicily_area }
+link = { ck2 = italian eu4 = tuscan tech = western gfx = westerngfx region = tuscany_area }
+link = { ck2 = italian eu4 = venetian tech = western gfx = westerngfx region = venetia_area region = carinthia_area }
+link = { ck2 = italian eu4 = umbrian tech = western gfx = westerngfx region = central_italy_area }
+link = { ck2 = italian eu4 = italian tech = western gfx = westerngfx } #Fallback
+
+# Iberian
+
+link = { ck2 = basque eu4 = basque tech = western gfx = westerngfx }
+link = { ck2 = castillan eu4 = galician tech = western gfx = westerngfx region = asturias_area }
+link = { ck2 = castillan eu4 = leonese tech = western gfx = westerngfx region = leon_area }
+link = { ck2 = castillan eu4 = castillian tech = western gfx = westerngfx }
+link = { ck2 = catalan eu4 = aragonese tech = western gfx = westerngfx region = aragon_area }
+link = { ck2 = catalan eu4 = catalan tech = western gfx = westerngfx }
+link = { ck2 = portuguese eu4 = portugese tech = western gfx = westerngfx }
+link = { ck2 = visigothic eu4 = visigothic tech = western gfx = westerngfx }
+
+# Byzantine
+
+link = { ck2 = armenian eu4 = armenian tech = eastern gfx = easterngfx }
+link = { ck2 = greek eu4 = goths tech = eastern gfx = easterngfx region = crimea_area }
+link = { ck2 = greek eu4 = pontic tech = eastern gfx = easterngfx region = erzurum_area }
+link = { ck2 = greek eu4 = greek tech = eastern gfx = easterngfx }
+link = { ck2 = alan eu4 = alan tech = eastern gfx = easterngfx }
+link = { ck2 = georgian eu4 = circassian tech = eastern gfx = easterngfx region = circassia_area }
+link = { ck2 = georgian eu4 = dagestani tech = eastern gfx = easterngfx region = dagestan_area }
+link = { ck2 = georgian eu4 = georgian tech = eastern gfx = easterngfx }
+link = { ck2 = assyrian eu4 = assyrian tech = eastern gfx = easterngfx }
+link = { ck2 = crimean_gothic eu4 = goths tech = eastern gfx = easterngfx }
+link = { ck2 = coptic eu4 = coptic tech = eastern gfx = easterngfx }
+
+# Celtic
+
+link = { ck2 = irish eu4 = irish tech = western gfx = westerngfx }
+link = { ck2 = scottish eu4 = scottish tech = western gfx = westerngfx }
+link = { ck2 = pictish eu4 = pictish tech = western gfx = westerngfx }
+link = { ck2 = welsh eu4 = welsh tech = western gfx = westerngfx }
+link = { ck2 = breton eu4 = breton tech = western gfx = westerngfx }
+
+# Finno-Ugric
+
+link = { ck2 = finnish eu4 = finnish tech = eastern gfx = westerngfx }
+link = { ck2 = lappish eu4 = sapmi tech = eastern gfx = inuitgfx }
+link = { ck2 = ugricbaltic eu4 = estonian tech = eastern gfx = inuitgfx }
+link = { ck2 = komi eu4 = komi tech = eastern gfx = inuitgfx }
+link = { ck2 = samoyed eu4 = samoyed tech = eastern gfx = inuitgfx }
+link = { ck2 = mordvin eu4 = mordvin tech = eastern gfx = inuitgfx }
+link = { ck2 = khanty eu4 = khanty tech = eastern gfx = inuitgfx }
+link = { ck2 = meshchera eu4 = meshchera tech = eastern gfx = inuitgfx }
+
+# Baltic
+
+link = { ck2 = lettigallish eu4 = latvian tech = eastern gfx = easterngfx }
+link = { ck2 = lithuanian eu4 = lithuanian tech = eastern gfx = easterngfx }
+link = { ck2 = prussian eu4 = old_prussian tech = eastern gfx = easterngfx }
+
+# Altaic
+
+link = { ck2 = turkish eu4 = turkish tech = ottoman gfx = muslimgfx }
+link = { ck2 = pecheneg eu4 = pecheneg tech = ottoman gfx = muslimgfx }
+link = { ck2 = cuman eu4 = cuman tech = muslim gfx = easterngfx }
+link = { ck2 = khazar eu4 = khazar tech = muslim gfx = muslimgfx }
+link = { ck2 = bolghar eu4 = bolghar tech = nomad_group gfx = muslimgfx }
+link = { ck2 = avar eu4 = avar tech = nomad_group gfx = muslimgfx }
+link = { ck2 = mongol eu4 = mongol tech = chinese gfx = asiangfx }
+link = { ck2 = kirghiz eu4 = kirgiz tech = nomad_group gfx = asiangfx }
+link = { ck2 = karluk eu4 = karluk tech = nomad_group gfx = asiangfx }
+link = { ck2 = uyghur eu4 = uyghur tech = nomad_group gfx = muslimgfx }
+link = { ck2 = khitan eu4 = khitan tech = nomad_group gfx = asiangfx }
+link = { ck2 = sogdian eu4 = sogdian tech = nomad_group gfx = asiangfx }
+link = { ck2 = tocharian eu4 = tocharian tech = chinese gfx = asiangfx }
+link = { ck2 = jurchen eu4 = manchu tech = chinese gfx = asiangfx }
+
+# Arabic
+
+link = { ck2 = bedouin_arabic eu4 = hejazi_culture tech = muslim gfx = muslimgfx region = gulf_of_arabia_area region = tabuk_area region = medina_area region = mecca_area }
+link = { ck2 = bedouin_arabic eu4 = gulf_arabic tech = muslim gfx = muslimgfx region = bahrain_area region = pirate_coast_area }
+link = { ck2 = bedouin_arabic eu4 = mahri_culture tech = muslim gfx = muslimgfx region = mahra_area region = dhofar_area region = hadramut_area }
+link = { ck2 = bedouin_arabic eu4 = al_iraqiya_arabic tech = muslim gfx = muslimgfx region = tabriz_area region = shahrizor_area region = iraq_arabi_area region = basra_area }
+link = { ck2 = levantine_arabic eu4 = al_iraqiya_arabic tech = muslim gfx = muslimgfx region = tabriz_area region = shahrizor_area region = iraq_arabi_area region = basra_area }
+link = { ck2 = bedouin_arabic eu4 = omani_culture tech = muslim gfx = muslimgfx region = oman_area region = mascat_area }
+link = { ck2 = bedouin_arabic eu4 = yemeni_culture tech = muslim gfx = muslimgfx region = asir_area region = tihama_al_yemen_area region = upper_yemen_area region = yemen_area }
+link = { ck2 = bedouin_arabic eu4 = bedouin_arabic tech = muslim gfx = muslimgfx }
+link = { ck2 = maghreb_arabic eu4 = algerian tech = muslim gfx = muslimgfx region = algiers_area region = hautes_plaines_area region = kabylia_area region = ouled_nail_area }
+link = { ck2 = maghreb_arabic eu4 = moroccan tech = muslim gfx = muslimgfx region = northern_morocco_area region = tafilalt_area region = sus_area region = marrekesh_area region = western_morocco_area region = southern_morocco_area }
+link = { ck2 = maghreb_arabic eu4 = tunisian tech = muslim gfx = muslimgfx region = tunisia_area region = djerba_area }
+link = { ck2 = maghreb_arabic eu4 = berber tech = muslim gfx = muslimgfx }
+link = { ck2 = levantine_arabic eu4 = al_suryah_arabic tech = muslim gfx = muslimgfx }
+link = { ck2 = egyptian_arabic eu4 = al_misr_arabic tech = muslim gfx = muslimgfx }
+link = { ck2 = andalusian_arabic eu4 = andalucian tech = muslim gfx = muslimgfx }
+
+# Russian: the split
+
+link = { ck2 = russian eu4 = byelorussian tech = eastern gfx = easterngfx region = baltic_region }
+link = { ck2 = russian eu4 = karelian tech = eastern gfx = easterngfx region = karelia_area }
+link = { ck2 = russian eu4 = novgorodian tech = eastern gfx = easterngfx region = novgorod_area region = pskov_area region = beloozero_area }
+link = { ck2 = russian eu4 = ruthenian tech = eastern gfx = easterngfx region = ruthenia_region region = crimea_region }
+link = { ck2 = russian eu4 = russian tech = eastern gfx = easterngfx } #Muscovite - also fallback
+
+# East Slavic
+
+link = { ck2 = ilmenian eu4 = ilmenian tech = eastern gfx = easterngfx }
+link = { ck2 = volhynian eu4 = volhynian tech = eastern gfx = easterngfx }
+link = { ck2 = severian eu4 = severian tech = eastern gfx = easterngfx }
+
+# West Slavic
+
+link = { ck2 = pommeranian eu4 = pommeranian tech = western gfx = westerngfx }
+link = { ck2 = bohemian eu4 = silesian tech = western gfx = westerngfx region = silesia_area }
+link = { ck2 = bohemian eu4 = slovak tech = western gfx = westerngfx region = slovakia_area }
+link = { ck2 = polish eu4 = silesian tech = western gfx = westerngfx region = silesia_area }
+link = { ck2 = bohemian eu4 = czech tech = western gfx = westerngfx }
+link = { ck2 = polish eu4 = polish tech = western gfx = westerngfx }
+
+# South Slavic
+
+link = { ck2 = croatian eu4 = croatian tech = eastern gfx = easterngfx }
+link = { ck2 = serbian eu4 = serbian tech = eastern gfx = easterngfx }
+link = { ck2 = romanian eu4 = romanian tech = eastern gfx = easterngfx }
+link = { ck2 = bulgarian eu4 = bulgarian tech = eastern gfx = easterngfx }
+link = { ck2 = carantanian eu4 = carantanian tech = eastern gfx = easterngfx }
+link = { ck2 = bosnian eu4 = bosnian tech = eastern gfx = easterngfx }
+link = { ck2 = arberian eu4 = albanian tech = eastern gfx = easterngfx }
+
+# Magyar
+
+link = { ck2 = hungarian eu4 = slovak tech = western gfx = westerngfx region = slovakia_area }
+link = { ck2 = hungarian eu4 = transylvanian tech = western gfx = westerngfx region = transylvania_area region = southern_transylvania_area }
+link = { ck2 = hungarian eu4 = hungarian tech = western gfx = westerngfx }
+
+# Iranian
+
+link = { ck2 = persian eu4 = azerbaijani tech = muslim gfx = muslimgfx region = azerbaijan_area region = shirvan_area }
+link = { ck2 = persian eu4 = khorasani tech = muslim gfx = muslimgfx region = khorasan_area }
+link = { ck2 = persian eu4 = mazandarani tech = muslim gfx = muslimgfx region = makran_area }
+link = { ck2 = persian eu4 = luri tech = muslim gfx = muslimgfx region = luristan_area region = khuzestan_area }
+link = { ck2 = persian eu4 = persian tech = muslim gfx = muslimgfx }
+link = { ck2 = kurdish eu4 = kurdish tech = muslim gfx = muslimgfx }
+link = { ck2 = baloch eu4 = baluchi tech = muslim gfx = muslimgfx }
+link = { ck2 = afghan eu4 = afghani tech = muslim gfx = muslimgfx }
+link = { ck2 = saka eu4 = saka tech = muslim gfx = muslimgfx }
+
+# East African
+link = { ck2 = nubian eu4 = nubian tech = east_african gfx = africangfx }
+link = { ck2 = ethiopian eu4 = amhara tech = east_african gfx = africangfx }
+link = { ck2 = somali eu4 = somali tech = east_african gfx = africangfx }
+link = { ck2 = daju eu4 = daju tech = east_african gfx = africangfx }
+
+# Central African
+link = { ck2 = kanuri eu4 = kanuri tech = sub_saharan gfx = africangfx }
+link = { ck2 = hausa eu4 = hausa tech = sub_saharan gfx = africangfx }
+link = { ck2 = zaghawa eu4 = zaghawa tech = sub_saharan gfx = africangfx }
+
+# West African
+link = { ck2 = manden eu4 = mali tech = sub_saharan gfx = africangfx }
+link = { ck2 = soninke eu4 = soninke tech = sub_saharan gfx = africangfx }
+link = { ck2 = songhay eu4 = songhai tech = sub_saharan gfx = africangfx }
+
+# Mesoamerican - this is relevant only for azteks holding europe
+
+link = { ck2 = nahuatl eu4 = aztek tech = high_american gfx = southamericagfx }
+
+# Aryan Indian
+
+link = { ck2 = bengali eu4 = bengali tech = indian gfx = indiangfx }
+link = { ck2 = oriya eu4 = oriya tech = indian gfx = indiangfx }
+link = { ck2 = assamese eu4 = assamese tech = indian gfx = indiangfx }
+link = { ck2 = hindustani eu4 = avadhi tech = indian gfx = indiangfx }
+link = { ck2 = gujurati eu4 = gujarati tech = indian gfx = indiangfx }
+link = { ck2 = panjabi eu4 = panjabi tech = indian gfx = indiangfx }
+link = { ck2 = rajput eu4 = rajput tech = indian gfx = indiangfx }
+link = { ck2 = sindhi eu4 = sindhi tech = indian gfx = indiangfx }
+link = { ck2 = marathi eu4 = marathi tech = indian gfx = indiangfx }
+link = { ck2 = sinhala eu4 = sinhala tech = indian gfx = indiangfx }
+
+
+# Dravidian Indian
+
+link = { ck2 = tamil eu4 = tamil tech = indian gfx = indiangfx }
+link = { ck2 = telugu eu4 = telegu tech = indian gfx = indiangfx }
+link = { ck2 = kannada eu4 = kannada tech = indian gfx = indiangfx }
+
+
+# Tibetan
+link = { ck2 = bodpa eu4 = tibetan tech = chinese gfx = asiangfx }
+link = { ck2 = tangut eu4 = tangut tech = chinese gfx = asiangfx }
+link = { ck2 = zhangzhung eu4 = zhangzhung tech = chinese gfx = asiangfx }
+link = { ck2 = sumpa eu4 = sumpa tech = chinese gfx = asiangfx }
+link = { ck2 = nepali eu4 = nepali tech = chinese gfx = asiangfx }
+
+#Chinese
+link = { ck2 = han eu4 = chihan tech = chinese gfx = asiangfx }
+
+# Israelite
+link = { ck2 = ashkenazi eu4 = ashkenazi tech = eastern gfx = westerngfx }
+link = { ck2 = sephardi eu4 = sephardi tech = eastern gfx = easterngfx }
+
+# Misc
+link = { ck2 = horse eu4 = equine tech = western gfx = westerngfx }
+link = { ck2 = cat eu4 = cat tech = western gfx = westerngfx }
+link = { ck2 = bear eu4 = bear tech = western gfx = inuitgfx }
+link = { ck2 = hedgehog_culture eu4 = hedgehog_culture tech = western gfx = westerngfx }
+link = { ck2 = duck_culture eu4 = duck_culture tech = western gfx = westerngfx }
+link = { ck2 = dog_culture eu4 = dog_culture tech = western gfx = westerngfx }
+link = { ck2 = elephant_culture eu4 = elephant_culture tech = western gfx = westerngfx }
+link = { ck2 = dragon_culture eu4 = dragon_culture tech = western gfx = westerngfx }
+link = { ck2 = red_panda eu4 = red_panda tech = eastern gfx = easterngfx }

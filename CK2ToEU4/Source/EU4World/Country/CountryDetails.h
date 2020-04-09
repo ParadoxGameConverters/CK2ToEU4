@@ -57,7 +57,7 @@ class CountryDetails: commonItems::parser
 	int historicalScore = 0;
 	std::string preferredReligion;
 	std::string colonialParent;
-	int randomChance = 0;
+	bool randomChance = false;
 	std::string specialUnitCulture;
 	bool all_your_core_are_belong_to_us = false;
 	bool rightToBEARArms = false;

@@ -1,0 +1,14 @@
+burman = {
+	tangut = {
+		primary = KAM
+		dynasty_names = { Dzasa Wangyal Shatra Lungshar Rinpoche Chöphel Shakabpa Tashi }
+	}
+	zhangzhung = {
+		primary = GUG
+		dynasty_names = { Dzasa Wangyal Shatra Lungshar Rinpoche Chöphel Shakabpa Tashi }
+	}
+	sumpa = {
+		primary = TIB
+		dynasty_names = { Dzasa Wangyal Shatra Lungshar Rinpoche Chöphel Shakabpa Tashi }
+	}
+}

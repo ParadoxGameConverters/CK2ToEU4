@@ -55,7 +55,7 @@ void EU4::CountryDetails::registerKeys()
 	});
 	registerKeyword("random_nation_chance", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleInt chanceInt(theStream);
-		randomChance = chanceInt.getInt();
+		randomChance = chanceInt.getInt() == 0;
 	});
 	registerKeyword("historical_units", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::stringList unitsList(theStream);
