@@ -13,8 +13,11 @@ void EU4::World::output(const mappers::VersionParser& versionParser, const Confi
 		Log(LogLevel::Info) << "<< Deleting existing mod folder.";
 		fs::remove_all("output/" + theConfiguration.getOutputName());
 	}
+	LOG(LogLevel::Info) << "<- Copying Mod Template";
+	fs::copy("blankMod/output", "output/output", fs::copy_options::recursive);
+	LOG(LogLevel::Info) << "<- Moving Mod Template >> " << theConfiguration.getOutputName();
+	fs::rename("output/output", "output/" + theConfiguration.getOutputName());
 
-	fs::create_directory("output/" + theConfiguration.getOutputName());
 	fs::create_directory("output/" + theConfiguration.getOutputName() + "/history/");
 	fs::create_directory("output/" + theConfiguration.getOutputName() + "/history/countries/");
 	fs::create_directory("output/" + theConfiguration.getOutputName() + "/history/provinces/");
