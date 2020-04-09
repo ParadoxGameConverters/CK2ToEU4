@@ -9,6 +9,13 @@ CK2::Dynasty::Dynasty(std::istream& theStream, int theDynID): dynID(theDynID)
 	clearRegisteredKeywords();
 }
 
+void CK2::Dynasty::updateDynasty(std::istream& theStream)
+{
+	registerKeys();
+	parseStream(theStream);
+	clearRegisteredKeywords();
+}
+
 void CK2::Dynasty::registerKeys()
 {
 	registerKeyword("name", [this](const std::string& unused, std::istream& theStream) {

@@ -9,11 +9,13 @@ class Dynasty: commonItems::parser
   public:
 	Dynasty(std::istream& theStream, int theDynID);
 
+	void updateDynasty(std::istream& theStream);
+
 	[[nodiscard]] const auto& getCulture() const { return culture; }
 	[[nodiscard]] const auto& getReligion() const { return religion; }
 	[[nodiscard]] const auto& getName() const { return name; }
 
-	[[nodiscard]] auto getID() const { return dynID; }
+	[[nodiscard]] auto getID() const { return dynID; }	
 
   private:
 	void registerKeys();

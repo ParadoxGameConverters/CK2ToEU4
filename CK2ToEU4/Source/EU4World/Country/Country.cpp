@@ -2,6 +2,7 @@
 #include "../../CK2World/Characters/Character.h"
 #include "../../CK2World/Dynasties/Dynasty.h"
 #include "../../CK2World/Titles/Title.h"
+#include "../../CK2World/Provinces/Province.h"
 #include "../../Mappers/CultureMapper/CultureMapper.h"
 #include "../../Mappers/GovernmentsMapper/GovernmentsMapper.h"
 #include "../../Mappers/ProvinceMapper/ProvinceMapper.h"
@@ -57,12 +58,13 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	// do we have a religion?
 	std::string baseReligion;	
 	if (!actualHolder->getReligion().empty()) baseReligion = actualHolder->getReligion();
-	else baseReligion = actualHolder->getDynasty().second->getReligion();
+	else if (!actualHolder->getDynasty().second->getReligion().empty()) baseReligion = actualHolder->getDynasty().second->getReligion();
+	else baseReligion = actualHolder->getCapitalProvince().second->getReligion();	
 	const auto& religionMatch = religionMapper.getEu4ReligionForCk2Religion(baseReligion);
 	if (religionMatch)
 		details.religion = *religionMatch;
 	else {
-		Log(LogLevel::Warning) << tag << ": No religion match for: " << baseReligion << "! Substituting noreligion!";
+		Log(LogLevel::Warning) << tag << ": No religion match for: " << baseReligion << " holder: " << actualHolder->getID() << "! Substituting noreligion!";
 		details.religion = "noreligion";
 	}
 	const auto& capitalMatch = provinceMapper.getEU4ProvinceNumbers(actualHolder->getCapitalProvince().first);
@@ -73,12 +75,13 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	// do we have a culture?
 	std::string baseCulture;	
 	if (!actualHolder->getCulture().empty()) baseCulture = actualHolder->getCulture();		 
-	else baseCulture = actualHolder->getDynasty().second->getCulture();
+	else if (!actualHolder->getDynasty().second->getCulture().empty()) baseCulture = actualHolder->getDynasty().second->getCulture();
+	else baseCulture = actualHolder->getCapitalProvince().second->getCulture();	
 	const auto& cultureMatch = cultureMapper.cultureMatch(baseCulture, details.religion, details.capital, tag);
 	if (cultureMatch)
 		details.primaryCulture = *cultureMatch;
 	else {
-		Log(LogLevel::Warning) << tag << ": No culture match for: " << baseCulture << "! Substituting noculture!";
+		Log(LogLevel::Warning) << tag << ": No culture match for: " << baseCulture << " holder: " << actualHolder->getID() << "! Substituting noculture!";
 		details.primaryCulture = "noculture";
 	}
 	const auto& techMatch = cultureMapper.getTechGroup(details.primaryCulture);
@@ -131,6 +134,7 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 		details.graphicalCulture = "westerngfx";
 	}
 	details.color = title->getColor();
+	Log(LogLevel::Debug) << tag << " from " << title->getName() << " has color: " << details.color;
 	// If we imported some revolutionary colors we'll keep them, otherwise, let's generate some.
 	if (!details.revolutionaryColor){
 		details.revolutionaryColor = details.color;
