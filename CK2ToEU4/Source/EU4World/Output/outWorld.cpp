@@ -5,6 +5,7 @@
 namespace fs = std::filesystem;
 #include "../../Configuration/Configuration.h"
 #include "OSCompatibilityLayer.h"
+#include "../../CK2World/Titles/Title.h"
 
 void EU4::World::output(const mappers::VersionParser& versionParser, const Configuration& theConfiguration) const
 {
@@ -47,6 +48,32 @@ void EU4::World::output(const mappers::VersionParser& versionParser, const Confi
 
 	LOG(LogLevel::Info) << "<- Writing Localization";
 	outputLocalization(theConfiguration);
+
+	LOG(LogLevel::Info) << "<- Moving Flags";
+	outputFlags(theConfiguration);
+}
+
+void EU4::World::outputFlags(const Configuration& theConfiguration) const
+{
+	for (const auto& country: countries) {
+		if (country.second->getTitle().first.empty()) continue; // Probably vanilla nation.
+		auto titleName = country.second->getTitle().first;
+		std::string fileName;
+		if (Utils::DoesFileExist(theConfiguration.getCK2Path() + "/gfx/flags/" + titleName + ".tga"))
+			fileName = theConfiguration.getCK2Path() + "/gfx/flags/" + titleName + ".tga";
+		if (fileName.empty() && !country.second->getTitle().second->getBaseTitle().first.empty())
+		{
+			titleName = country.second->getTitle().second->getBaseTitle().first;
+			if (Utils::DoesFileExist(theConfiguration.getCK2Path() + "/gfx/flags/" + titleName + ".tga"))
+				fileName = theConfiguration.getCK2Path() + "/gfx/flags/" + titleName + ".tga";			
+			if (fileName.empty() && !country.second->getTitle().second->getBaseTitle().second->getBaseTitle().first.empty()) {
+				titleName = country.second->getTitle().second->getBaseTitle().second->getBaseTitle().first;
+				if (Utils::DoesFileExist(theConfiguration.getCK2Path() + "/gfx/flags/" + titleName + ".tga"))
+					fileName = theConfiguration.getCK2Path() + "/gfx/flags/" + titleName + ".tga";
+			}
+		}
+		if (fileName.empty()) Log(LogLevel::Warning) << "failed to locate flag for " << country.first << ": " << country.second->getTitle().first;
+	}
 }
 
 void EU4::World::createModFile(const Configuration& theConfiguration) const
@@ -102,8 +129,9 @@ void EU4::World::outputCommonCountriesFile(const Configuration& theConfiguration
 {
 	std::ofstream output("output/" + theConfiguration.getOutputName() + "/common/country_tags/00_countries.txt");
 	if (!output.is_open()) throw std::runtime_error("Could not create countries file!");
-
-	for (const auto& country: countries) { output << country.first << " = \"" << country.second->getCommonCountryFile() << "\"\n"; }
+	output << "REB = \"countries/Rebels.txt\"\n\n"; // opening with rebels manually.
+	
+	for (const auto& country: countries) { if (country.first != "REB") output << country.first << " = \"" << country.second->getCommonCountryFile() << "\"\n"; }
 	output << "\n";
 	output.close();
 }

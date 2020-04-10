@@ -35,26 +35,27 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	 const mappers::LocalizationMapper& localizationMapper)
 {
 	tag = std::move(theTag);
-	title = std::move(theTitle);
-	if (commonCountryFile.empty()) commonCountryFile = "countries/" + title->getName() + ".txt";
-	if (historyCountryFile.empty()) historyCountryFile = "history/countries/" + tag + " - " + title->getName() + ".txt";
+	title.first = theTitle->getName();
+	title.second = std::move(theTitle);
+	if (commonCountryFile.empty()) commonCountryFile = "countries/" + title.first + ".txt";
+	if (historyCountryFile.empty()) historyCountryFile = "history/countries/" + tag + " - " + title.first + ".txt";
 
-	const auto& actualHolder = title->getHolder().second;
+	const auto& actualHolder = title.second->getHolder().second;
 
 	// --------------- History section
 	details.government.clear();
 	details.reforms.clear();
-	const auto& newGovernment = governmentsMapper.matchGovernment(actualHolder->getGovernment(), title->getName());
+	const auto& newGovernment = governmentsMapper.matchGovernment(actualHolder->getGovernment(), title.first);
 	if (newGovernment) {
 		details.government = newGovernment->first;
 		if (!newGovernment->second.empty()) details.reforms.insert(newGovernment->second);
 	} else {
-		Log(LogLevel::Warning) << "No government match for " << actualHolder->getGovernment() << " for title: " << title->getName() << ", defaulting to monarchy.";
+		Log(LogLevel::Warning) << "No government match for " << actualHolder->getGovernment() << " for title: " << title.first << ", defaulting to monarchy.";
 		details.government = "monarchy";
 	}
-	if (title->getName().find("e_") == 0)
+	if (title.first.find("e_") == 0)
 		details.governmentRank = 3;
-	else if (title->getName().find("k_") == 0)
+	else if (title.first.find("k_") == 0)
 		details.governmentRank = 2;
 	else
 		details.governmentRank = 1;
@@ -104,7 +105,7 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 			details.technologyGroup = "high_american";
 		}
 	} // We will set it later if primaryCulture is unavailable at this stage.
-	if (title->getName().find("c_") == 0)
+	if (title.first.find("c_") == 0)
 		details.fixedCapital = true;
 	else
 		details.fixedCapital = false;
@@ -147,14 +148,14 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 			details.graphicalCulture = "westerngfx";
 		}
 	} // We will set it later if primaryCulture is unavailable at this stage.
-	if (title->getColor())
-		details.color = title->getColor();
+	if (title.second->getColor())
+		details.color = title.second->getColor();
 	else {
-		const auto& colorMatch = colorScraper.getColorForTitle(title->getName());
+		const auto& colorMatch = colorScraper.getColorForTitle(title.first);
 		if (colorMatch)
 			details.color = *colorMatch;
 		else
-			Log(LogLevel::Warning) << tag << ": No color defined for title " << title->getName() << "!";
+			Log(LogLevel::Warning) << tag << ": No color defined for title " << title.first << "!";
 	}
 	// If we imported some revolutionary colors we'll keep them, otherwise, let's generate some.
 	if (!details.revolutionaryColor) {
@@ -178,13 +179,13 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 
 	// --------------  Misc
 	auto nameSet = false;
-	auto nameLocalizationMatch = localizationMapper.getLocBlockForKey(title->getName());
+	auto nameLocalizationMatch = localizationMapper.getLocBlockForKey(title.first);
 	if (nameLocalizationMatch) {
 		localizations.insert(std::pair(tag, *nameLocalizationMatch));
 		nameSet = true;
 	}
-	if (!nameSet && !title->getBaseTitle().first.empty()) { // see if we can match vs base title.
-		auto baseTitleName = title->getBaseTitle().first;
+	if (!nameSet && !title.second->getBaseTitle().first.empty()) { // see if we can match vs base title.
+		auto baseTitleName = title.second->getBaseTitle().first;
 		nameLocalizationMatch = localizationMapper.getLocBlockForKey(baseTitleName);
 		if (nameLocalizationMatch) {
 			localizations.insert(std::pair(tag, *nameLocalizationMatch));
@@ -193,7 +194,7 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	}
 	if (!nameSet) {
 		// Now get creative. This happens for c_titles that have localizations as b_title
-		auto alternateName = title->getName();
+		auto alternateName = title.second->getName();
 		alternateName = "b_" + alternateName.substr(2, alternateName.length());
 		nameLocalizationMatch = localizationMapper.getLocBlockForKey(alternateName);
 		if (nameLocalizationMatch) {
@@ -215,25 +216,25 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 		}
 	}
 	// giving up.
-	if (!nameSet) Log(LogLevel::Warning) << tag << " help with localization! " << title->getName();
+	if (!nameSet) Log(LogLevel::Warning) << tag << " help with localization! " << title.first;
 
 	auto adjSet = false;
-	auto adjLocalizationMatch = localizationMapper.getLocBlockForKey(title->getName() + "_adj");
+	auto adjLocalizationMatch = localizationMapper.getLocBlockForKey(title.first + "_adj");
 	if (adjLocalizationMatch) {
 		localizations.insert(std::pair(tag + "_ADJ", *adjLocalizationMatch));
 		adjSet = true;
 	}
-	if (!adjSet && !title->getBaseTitle().first.empty()) {
+	if (!adjSet && !title.second->getBaseTitle().first.empty()) {
 		// see if we can match vs base title.
-		auto baseTitleAdj = title->getBaseTitle().first + "_adj";
+		auto baseTitleAdj = title.second->getBaseTitle().first + "_adj";
 		adjLocalizationMatch = localizationMapper.getLocBlockForKey(baseTitleAdj);
 		if (adjLocalizationMatch) {
 			localizations.insert(std::pair(tag + "_ADJ", *adjLocalizationMatch));
 			adjSet = true;
 		}
-		if (!adjSet && !title->getBaseTitle().second->getBaseTitle().first.empty()) {
+		if (!adjSet && !title.second->getBaseTitle().second->getBaseTitle().first.empty()) {
 			// maybe basetitlebasetitle?
-			baseTitleAdj = title->getBaseTitle().second->getBaseTitle().first + "_adj";
+			baseTitleAdj = title.second->getBaseTitle().second->getBaseTitle().first + "_adj";
 			adjLocalizationMatch = localizationMapper.getLocBlockForKey(baseTitleAdj);
 			if (adjLocalizationMatch) {
 				localizations.insert(std::pair(tag + "_ADJ", *adjLocalizationMatch));
@@ -241,5 +242,5 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 			}
 		}
 	}
-	if (!adjSet) Log(LogLevel::Warning) << tag << " help with localization for adjective! " << title->getName() << "_adj?";
+	if (!adjSet) Log(LogLevel::Warning) << tag << " help with localization for adjective! " << title.first << "_adj?";
 }

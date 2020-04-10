@@ -4,7 +4,6 @@
 #include "../../Mappers/CultureMapper/CultureMapper.h"
 #include "../../Mappers/ReligionMapper/ReligionMapper.h"
 #include "../Country/Country.h"
-#include "Log.h"
 
 EU4::Province::Province(int id, const std::string& filePath): provID(id)
 {

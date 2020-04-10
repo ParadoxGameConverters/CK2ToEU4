@@ -43,6 +43,7 @@ class Country
 	[[nodiscard]] const auto& getPrimaryCulture() const { return details.primaryCulture; }
 	[[nodiscard]] const auto& getReligion() const { return details.religion; }
 	[[nodiscard]] const auto& getProvinces() const { return provinces; }
+	[[nodiscard]] const auto& getTitle() const { return title; }
 
 	void registerProvince(const std::pair<int, std::shared_ptr<Province>> theProvince) { provinces.insert(theProvince); }
 	void setPrimaryCulture(const std::string& culture) { details.primaryCulture = culture; }
@@ -54,7 +55,7 @@ class Country
 	std::string tag;
 	std::string commonCountryFile;
 	std::string historyCountryFile;
-	std::shared_ptr<CK2::Title> title;
+	std::pair<std::string, std::shared_ptr<CK2::Title>> title;
 	std::map<std::string, mappers::LocBlock> localizations;
 
 	CountryDetails details;

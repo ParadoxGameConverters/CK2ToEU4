@@ -44,6 +44,7 @@ class World
 	void outputLocalization(const Configuration& theConfiguration) const;
 	void verifyReligionsAndCultures();
 	void linkProvincesToCountries();
+	void outputFlags(const Configuration& theConfiguration) const;
 	
 	mappers::ColorScraper colorScraper;
 	mappers::ProvinceMapper provinceMapper;
