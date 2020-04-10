@@ -22,10 +22,71 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 	importVanillaProvinces(theConfiguration.getEU4Path());
 	regionMapper->linkProvinces(provinces);
 	importCK2Provinces(sourceWorld);
+	linkProvincesToCountries();
+	verifyReligionsAndCultures();
+	
 	LOG(LogLevel::Info) << "---> The Dump <---";
 	modFile.outname = theConfiguration.getOutputName();
 	output(versionParser, theConfiguration);
 	LOG(LogLevel::Info) << "*** Farewell EU4, granting you independence. ***";
+}
+
+void EU4::World::linkProvincesToCountries()
+{
+	// Some of the provinces have linked countries, but new world won't. We need to insert links both ways there.
+	for (const auto& province: provinces) {
+		if (province.second->getOwner().empty()) continue; // this is the uncolonized case
+		const auto& countryItr = countries.find(province.second->getOwner());
+		if (countryItr != countries.end()) {
+			// registering owner in province
+			if (province.second->getTagCountry().first.empty()) province.second->registerTagCountry(std::pair(countryItr->first, countryItr->second));
+			// registering province in owner.
+			countryItr->second->registerProvince(std::pair(province.first, province.second));
+		} else {
+			Log(LogLevel::Warning) << "Province " << province.first << " owner " << province.second->getOwner() << " has no country!";
+		}
+	}
+}
+
+template <typename KeyType, typename ValueType> std::pair<KeyType, ValueType> get_max(const std::map<KeyType, ValueType>& x)
+{
+	using pairtype = std::pair<KeyType, ValueType>;
+	return *std::max_element(x.begin(), x.end(), [](const pairtype& p1, const pairtype& p2) { return p1.second < p2.second; });
+}
+
+void EU4::World::verifyReligionsAndCultures()
+{
+// We are checkign every country if it lacks primary religion and culture. This is an issue for hordeland mainly.
+	// For those lacking setups, we'll do a provincial census and inherit those values.
+	for (const auto& country: countries) {
+	if (!country.second->getReligion().empty() && !country.second->getPrimaryCulture().empty()) continue;
+		std::map<std::string, int> religiousCensus;
+		std::map<std::string, int> culturalCensus;
+		for (const auto& province: country.second->getProvinces()) {
+			if (province.second->getReligion().empty()) {
+				Log(LogLevel::Warning) << "Province " << province.first << " has no religion set!";
+				continue;
+			}
+			if (province.second->getCulture().empty()) {
+				Log(LogLevel::Warning) << "Province " << province.first << " has no culture set!";
+				continue;
+			}
+			religiousCensus[province.second->getReligion()] += 1;
+			culturalCensus[province.second->getCulture()] += 1;
+		}
+		if (country.second->getPrimaryCulture().empty())
+		{
+			auto max = get_max(culturalCensus);
+			country.second->setPrimaryCulture(max.first);
+			Log(LogLevel::Debug) << "Setting " << country.first << " culture to " << max.first;
+		}
+		if (country.second->getReligion().empty())
+		{
+			auto max = get_max(religiousCensus);
+			country.second->setReligion(max.first);			
+			Log(LogLevel::Debug) << "Setting " << country.first << " religion to " << max.first;
+		}
+	}
 }
 
 void EU4::World::importVanillaProvinces(const std::string& eu4Path)
@@ -67,10 +128,12 @@ void EU4::World::importCK2Countries(const CK2::World& sourceWorld)
 		const auto& countryItr = countries.find(*tag);
 		if (countryItr != countries.end()) {
 			countryItr->second->initializeFromTitle(*tag, title.second, governmentsMapper, religionMapper, cultureMapper, provinceMapper, colorScraper, localizationMapper);
+			title.second->registerEU4Tag(std::pair(*tag, countryItr->second));
 		} else {
 			// Otherwise create the country
 			auto newCountry = std::make_shared<Country>();
 			newCountry->initializeFromTitle(*tag, title.second, governmentsMapper, religionMapper, cultureMapper, provinceMapper, colorScraper, localizationMapper);
+			title.second->registerEU4Tag(std::pair(*tag, newCountry));
 			countries.insert(std::pair(*tag, newCountry));
 		}
 	}
@@ -84,14 +147,13 @@ void EU4::World::importCK2Provinces(const CK2::World& sourceWorld)
 	auto counter = 0;
 	// CK2 provinces map to a subset of eu4 provinces. We'll only rewrite those we are responsible for.
 	for (const auto& province: sourceWorld.getProvinces()) {
-
 		// every ck2 province can map to a number of eu4 ones.
 		const auto& eu4Provinces = provinceMapper.getEU4ProvinceNumbers(province.first);
 		for (const auto& eu4Province: eu4Provinces) {
 			// Locating appropriate existing province, and this should never fail
 			const auto& provinceItr = provinces.find(eu4Province);
 			if (provinceItr != provinces.end()) {
-				provinceItr->second->initializeFromCK2(province.second, titleTagMapper);
+				provinceItr->second->initializeFromCK2(province.second, cultureMapper, religionMapper);
 				counter++;
 			} else {
 				// Otherwise make a fuss!

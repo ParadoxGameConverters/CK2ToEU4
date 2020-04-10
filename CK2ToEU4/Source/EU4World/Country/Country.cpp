@@ -70,8 +70,8 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	if (religionMatch)
 		details.religion = *religionMatch;
 	else {
-		Log(LogLevel::Warning) << tag << ": No religion match for: " << baseReligion << " holder: " << actualHolder->getID() << "! Substituting noreligion!";
-		details.religion = "noreligion";
+		// We failed to get a religion. This is not an issue. We'll set it later from the majority of owned provinces.
+		details.religion.clear();
 	}
 	const auto& capitalMatch = provinceMapper.getEU4ProvinceNumbers(actualHolder->getCapitalProvince().first);
 	if (!capitalMatch.empty())
@@ -90,18 +90,20 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	if (cultureMatch)
 		details.primaryCulture = *cultureMatch;
 	else {
-		Log(LogLevel::Warning) << tag << ": No culture match for: " << baseCulture << " holder: " << actualHolder->getID() << "! Substituting noculture!";
-		details.primaryCulture = "noculture";
+		// We failed to get a primaryCulture. This is not an issue. We'll set it later from the majority of owned provinces.
+		details.primaryCulture.clear();
 	}
-	const auto& techMatch = cultureMapper.getTechGroup(details.primaryCulture);
-	if (techMatch)
-		details.technologyGroup = *techMatch;
-	else {
-		// disabled during testing
-		// Log(LogLevel::Warning) << tag << ": No tech group match for: " << details.primaryCulture << "! Substituting western!";
-		// details.technologyGroup = "western";
-		details.technologyGroup = "high_american";
-	}
+	if (!details.primaryCulture.empty()) {
+		const auto& techMatch = cultureMapper.getTechGroup(details.primaryCulture);
+		if (techMatch)
+			details.technologyGroup = *techMatch;
+		else {
+			// disabled during testing
+			// Log(LogLevel::Warning) << tag << ": No tech group match for: " << details.primaryCulture << "! Substituting western!";
+			// details.technologyGroup = "western";
+			details.technologyGroup = "high_american";
+		}
+	} // We will set it later if primaryCulture is unavailable at this stage.
 	if (title->getName().find("c_") == 0)
 		details.fixedCapital = true;
 	else
@@ -136,13 +138,15 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	details.harmonizedReligions.clear();
 
 	// --------------  Common section
-	const auto& gfxmatch = cultureMapper.getGFX(details.primaryCulture);
-	if (gfxmatch)
-		details.graphicalCulture = *gfxmatch;
-	else {
-		Log(LogLevel::Warning) << tag << ": No gfx match for: " << details.primaryCulture << "! Substituting westerngfx!";
-		details.graphicalCulture = "westerngfx";
-	}
+	if (!details.primaryCulture.empty()) {
+		const auto& gfxmatch = cultureMapper.getGFX(details.primaryCulture);
+		if (gfxmatch)
+			details.graphicalCulture = *gfxmatch;
+		else {
+			Log(LogLevel::Warning) << tag << ": No gfx match for: " << details.primaryCulture << "! Substituting westerngfx!";
+			details.graphicalCulture = "westerngfx";
+		}
+	} // We will set it later if primaryCulture is unavailable at this stage.
 	if (title->getColor())
 		details.color = title->getColor();
 	else {
@@ -226,6 +230,15 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 		if (adjLocalizationMatch) {
 			localizations.insert(std::pair(tag + "_ADJ", *adjLocalizationMatch));
 			adjSet = true;
+		}
+		if (!adjSet && !title->getBaseTitle().second->getBaseTitle().first.empty()) {
+			// maybe basetitlebasetitle?
+			baseTitleAdj = title->getBaseTitle().second->getBaseTitle().first + "_adj";
+			adjLocalizationMatch = localizationMapper.getLocBlockForKey(baseTitleAdj);
+			if (adjLocalizationMatch) {
+				localizations.insert(std::pair(tag + "_ADJ", *adjLocalizationMatch));
+				adjSet = true;
+			}
 		}
 	}
 	if (!adjSet) Log(LogLevel::Warning) << tag << " help with localization for adjective! " << title->getName() << "_adj?";

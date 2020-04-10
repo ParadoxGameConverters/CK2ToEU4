@@ -1,6 +1,10 @@
 #include "EU4Province.h"
 #include "../../CK2World/Provinces/Province.h"
-#include "../../Mappers/TitleTagMapper/TitleTagMapper.h"
+#include "../../CK2World/Titles/Title.h"
+#include "../../Mappers/CultureMapper/CultureMapper.h"
+#include "../../Mappers/ReligionMapper/ReligionMapper.h"
+#include "../Country/Country.h"
+#include "Log.h"
 
 EU4::Province::Province(int id, const std::string& filePath): provID(id)
 {
@@ -10,12 +14,83 @@ EU4::Province::Province(int id, const std::string& filePath): provID(id)
 	details = ProvinceDetails(filePath);
 }
 
-void EU4::Province::initializeFromCK2(std::shared_ptr<CK2::Province> origProvince, mappers::TitleTagMapper& titletagMapper)
+void EU4::Province::initializeFromCK2(std::shared_ptr<CK2::Province> origProvince,
+	 const mappers::CultureMapper& cultureMapper,
+	 const mappers::ReligionMapper& religionMapper)
 {
 	srcProvince = std::move(origProvince);
-	const auto& ownerMatch = titletagMapper.getTagForTitle(srcProvince->getTitle().first);
-	if (ownerMatch) details.owner = *ownerMatch;
-	details.controller = details.owner;
-	
+	details.discoveredBy = {"eastern", "western", "muslim", "ottoman", "indian", "nomad_group"}; // hardcoding for now.
+
+	// If we're initializing this from CK2 provinces, then having an owner or being a wasteland/sea is a given -
+	// there are no uncolonized provinces in CK2.
+	if (srcProvince->getTitle().first.empty()) return;			 // wasteland.
+	tagCountry = srcProvince->getTitle().second->getEU4Tag(); // linking to our holder
+	details.owner = tagCountry.first;
+	details.controller = tagCountry.first;
+
 	// History section
+	// Not touching Capital, that's hardcoded English name.
+	details.isCity = true; // This must be true for all incoming provinces.
+
+	// Religion first.
+	auto religionSet = false;
+	if (!srcProvince->getReligion().empty()) {
+		auto religionMatch = religionMapper.getEu4ReligionForCk2Religion(srcProvince->getReligion());
+		if (religionMatch) {
+			details.religion = *religionMatch;
+			religionSet = true;
+		}
+	}
+	// Attempt to use religion of country.
+	if (!religionSet && !tagCountry.second->getReligion().empty()) {
+		details.religion = tagCountry.second->getReligion();
+		religionSet = true;
+	}
+	if (!religionSet) {
+		// owner has no religion, which is common for hordeland. We should use default eu4 religion.
+	}
+
+	auto cultureSet = false;
+	// do we even have a base culture?
+	if (!srcProvince->getCulture().empty()) {
+		auto cultureMatch = cultureMapper.cultureMatch(srcProvince->getCulture(), details.religion, provID, tagCountry.first);
+		if (cultureMatch) {
+			details.culture = *cultureMatch;
+			cultureSet = true;
+		}
+	}
+	// Attempt to use primary culture of country.
+	if (!cultureSet && !tagCountry.second->getPrimaryCulture().empty()) {
+		details.culture = tagCountry.second->getPrimaryCulture();
+		cultureSet = true;
+	}
+	if (!cultureSet) {
+		// owner has no culture, which is common for hordeland. We should use default eu4 culture.
+	}
+	// trade goods are retained.
+	details.fort = false; // dropping all forts, we'll redistribute later.
+	details.inHre = srcProvince->getTitle().second->isInHRE();
+	// base tax, production and manpower will be adjusted later.
+	// not touching extra_cost until we know what it does.
+	// not touching centers of trade
+
+	details.cores.clear();
+	details.cores.insert(tagCountry.first); // Only owner for now, dejures come later.
+	details.claims.clear();						 // dejures come later.
+
+	details.estate.clear(); // setting later.
+
+	details.localAutonomy = 0; // let the game handle this.
+	// not touching native_size/ferocity/hostileness.
+	// not touching permanent modifiers. These mostly relate to new world anyway.
+	details.shipyard = false; // we'll distribute these later.
+	// not touching province_triggered_modifiers. Rome is rome.
+	details.revoltRisk = 0;				 // we can adjust this later.
+	details.unrest = 0;					 // ditto
+	details.nationalism = 0;			 // later, if ever.
+	details.seatInParliament = false; // no.
+	details.jainsBurghers = false;	 // nope.
+	details.rajputsNobles = false;	 // nono.
+	details.brahminsChurch = false;	 // Still no.
+	details.vaisyasBurghers = false;	 // No.
 }

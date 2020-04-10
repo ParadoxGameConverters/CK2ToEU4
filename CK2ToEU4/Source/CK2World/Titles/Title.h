@@ -5,6 +5,11 @@
 #include <set>
 #include "Color.h"
 
+namespace EU4
+{
+class Country;
+} // namespace EU4
+
 namespace CK2
 {
 class Character;
@@ -24,6 +29,7 @@ class Title: commonItems::parser
 	[[nodiscard]] const auto& getProvinces() const { return provinces; }
 	[[nodiscard]] const auto& getBaseTitle() const { return baseTitle; }
 	[[nodiscard]] const auto& getColor() const { return color; }
+	[[nodiscard]] const auto& getEU4Tag() const { return tagCountry; }
 	[[nodiscard]] auto isInHRE() const { return inHRE; }
 	[[nodiscard]] auto isHREEmperor() const { return HREEmperor; }
 	[[nodiscard]] auto isMajorRevolt() const { return majorRevolt; }
@@ -44,6 +50,7 @@ class Title: commonItems::parser
 	void registerVassal(const std::pair<std::string, std::shared_ptr<Title>>& theVassal) { vassals.insert(theVassal); }
 	void registerDeJureVassal(const std::pair<std::string, std::shared_ptr<Title>>& theVassal) { deJureVassals.insert(theVassal); }
 	void registerProvince(const std::pair<int, std::shared_ptr<Province>>& theProvince) { provinces.insert(theProvince); }
+	void registerEU4Tag(const std::pair<std::string, std::shared_ptr<EU4::Country>>& theCountry) { tagCountry = theCountry; }
 	void congregateProvinces(const std::map<std::string, std::shared_ptr<Title>>& independentTitles);
 	void clearLiege()
 	{
@@ -73,6 +80,7 @@ class Title: commonItems::parser
 	std::map<std::string, std::shared_ptr<Title>> deJureVassals;
 	std::pair<std::string, std::shared_ptr<Liege>> baseTitle;
 	commonItems::Color color;
+	std::pair<std::string, std::shared_ptr<EU4::Country>> tagCountry;
 };
 } // namespace CK2
 

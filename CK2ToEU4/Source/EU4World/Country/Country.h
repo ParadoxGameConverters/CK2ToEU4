@@ -18,6 +18,7 @@ class ProvinceMapper;
 
 namespace EU4
 {
+class Province;
 class Country
 {
   public:
@@ -39,7 +40,14 @@ class Country
 	[[nodiscard]] const auto& getCommonCountryFile() const { return commonCountryFile; }
 	[[nodiscard]] const auto& getHistoryCountryFile() const { return historyCountryFile; }
 	[[nodiscard]] const auto& getLocalizations() const { return localizations; }
+	[[nodiscard]] const auto& getPrimaryCulture() const { return details.primaryCulture; }
+	[[nodiscard]] const auto& getReligion() const { return details.religion; }
+	[[nodiscard]] const auto& getProvinces() const { return provinces; }
 
+	void registerProvince(const std::pair<int, std::shared_ptr<Province>> theProvince) { provinces.insert(theProvince); }
+	void setPrimaryCulture(const std::string& culture) { details.primaryCulture = culture; }
+	void setReligion(const std::string& religion) { details.religion = religion; }
+	
 	friend std::ostream& operator<<(std::ostream& output, const Country& versionParser);
 
   private:
@@ -50,6 +58,7 @@ class Country
 	std::map<std::string, mappers::LocBlock> localizations;
 
 	CountryDetails details;
+	std::map<int, std::shared_ptr<Province>> provinces;
 };
 } // namespace EU4
 

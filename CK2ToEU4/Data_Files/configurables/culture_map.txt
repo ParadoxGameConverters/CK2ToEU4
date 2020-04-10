@@ -23,7 +23,7 @@ link = { ck2 = german eu4 = hessian tech = western gfx = westerngfx region = hes
 link = { ck2 = german eu4 = saxon tech = western gfx = westerngfx region = south_saxony_area region = thuringia_area region = braunschweig_area region = northern_saxony_area region = lower_saxony_area region = weser_area }
 link = { ck2 = german eu4 = swabian tech = western gfx = westerngfx region = palatinate_area region = lower_swabia_area region = upper_swabia_area region = north_rhine_area }
 link = { ck2 = german eu4 = swiss tech = western gfx = westerngfx region = switzerland_area region = romandie_area }
-link = { ck2 = german eu4 = westphalian tech = western gfx = westerngfx region = westphalia_area }
+link = { ck2 = german eu4 = hannoverian tech = western gfx = westerngfx region = westphalia_area }
 link = { ck2 = german eu4 = german tech = western gfx = westerngfx } #Fallback
 
 # Central Germanic
@@ -45,7 +45,7 @@ link = { ck2 = frankish eu4 = gascon tech = western gfx = westerngfx region = py
 link = { ck2 = frankish eu4 = walloon tech = western gfx = westerngfx region = low_countries_region }
 link = { ck2 = frankish eu4 = cosmopolitan_french tech = western gfx = westerngfx }
 link = { ck2 = norman eu4 = normand tech = western gfx = westerngfx }
-link = { ck2 = occitan eu4 = aquitainian tech = western gfx = westerngfx region = pyrenees_area region = guyenne_area region = basque_country }
+link = { ck2 = occitan eu4 = aquitaine tech = western gfx = westerngfx region = pyrenees_area region = guyenne_area region = basque_country }
 link = { ck2 = occitan eu4 = occitain tech = western gfx = westerngfx }
 link = { ck2 = roman eu4 = roman tech = western gfx = westerngfx }
 link = { ck2 = dalmatian eu4 = dalmatian tech = western gfx = westerngfx }
@@ -168,9 +168,9 @@ link = { ck2 = severian eu4 = severian tech = eastern gfx = easterngfx }
 # West Slavic
 
 link = { ck2 = pommeranian eu4 = pommeranian tech = western gfx = westerngfx }
-link = { ck2 = bohemian eu4 = silesian tech = western gfx = westerngfx region = silesia_area }
+link = { ck2 = bohemian eu4 = schlesian tech = western gfx = westerngfx region = silesia_area }
 link = { ck2 = bohemian eu4 = slovak tech = western gfx = westerngfx region = slovakia_area }
-link = { ck2 = polish eu4 = silesian tech = western gfx = westerngfx region = silesia_area }
+link = { ck2 = polish eu4 = schlesian tech = western gfx = westerngfx region = silesia_area }
 link = { ck2 = bohemian eu4 = czech tech = western gfx = westerngfx }
 link = { ck2 = polish eu4 = polish tech = western gfx = westerngfx }
 

@@ -42,6 +42,8 @@ class World
 	void outputHistoryProvinces(const Configuration& theConfiguration) const;
 	void outputCommonCountries(const Configuration& theConfiguration) const;
 	void outputLocalization(const Configuration& theConfiguration) const;
+	void verifyReligionsAndCultures();
+	void linkProvincesToCountries();
 	
 	mappers::ColorScraper colorScraper;
 	mappers::ProvinceMapper provinceMapper;
