@@ -6,8 +6,8 @@
 #include "Characters/Characters.h"
 #include "Date.h"
 #include "Dynasties/Dynasties.h"
-#include "Provinces/Provinces.h"
 #include "Provinces/Province.h"
+#include "Provinces/Provinces.h"
 #include "Titles/Liege.h"
 #include "Titles/Titles.h"
 #include "newParser.h"
@@ -23,6 +23,7 @@ class World: commonItems::parser
 	[[nodiscard]] const auto& getProvinceTitleMapper() const { return provinceTitleMapper; }
 	[[nodiscard]] const auto& getIndepTitles() const { return independentTitles; }
 	[[nodiscard]] const auto& getProvinces() const { return provinces.getProvinces(); }
+	[[nodiscard]] const auto& getConversionDate() const { return endDate; }
 
   private:
 	void verifySave(const std::string& saveGamePath);
@@ -39,8 +40,7 @@ class World: commonItems::parser
 	date startDate = date("1.1.1");
 	Version CK2Version;
 
-	struct saveData
-	{
+	struct saveData {
 		bool compressed = false;
 		std::string metadata;
 		std::string gamestate;

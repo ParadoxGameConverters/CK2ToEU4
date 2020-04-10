@@ -12,10 +12,11 @@ std::ostream& EU4::operator<<(std::ostream& output, const ModFile& modFile)
 	//	output << "replace = \"history/diplomacy\"\n";
 	//	output << "replace = \"history/units\"\n";
 //	output << "replace = \"history/wars\"\n";
-	output << "replace_path = \"common/countries\"\n";
-	output << "replace_path = \"common/country_tags\"\n";
-//	output << "replace = \"localisation/0_Names.csv\"\n";
-//	output << "replace = \"localisation/0_Cultures.csv\"\n";
+	output << "replace_path = \"common/countries/\"\n";
+	output << "replace_path = \"common/country_tags/\"\n";
+	output << "replace_path = \"common/bookmarks/\"\n";
+	//	output << "replace = \"localisation/0_Names.csv\"\n";
+	//	output << "replace = \"localisation/0_Cultures.csv\"\n";
 //	output << "replace = \"localisation/0_Religions.csv\"\n";
 	return output;
 }

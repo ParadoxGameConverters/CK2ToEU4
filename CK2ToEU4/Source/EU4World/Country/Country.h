@@ -33,7 +33,9 @@ class Country
 		 const mappers::CultureMapper& cultureMapper,
 		 const mappers::ProvinceMapper& provinceMapper,
 		 const mappers::ColorScraper& colorScraper,
-		 const mappers::LocalizationMapper& localizationMapper);
+		 const mappers::LocalizationMapper& localizationMapper,
+		 date theConversionDate);
+	void initializeRulers(const mappers::ReligionMapper& religionMapper, const mappers::CultureMapper& cultureMapper);
 
 	void outputCommons(std::ostream& output);
 
@@ -45,10 +47,10 @@ class Country
 	[[nodiscard]] const auto& getProvinces() const { return provinces; }
 	[[nodiscard]] const auto& getTitle() const { return title; }
 
-	void registerProvince(const std::pair<int, std::shared_ptr<Province>> theProvince) { provinces.insert(theProvince); }
-	void setPrimaryCulture(const std::string& culture) { details.primaryCulture = culture; }
-	void setReligion(const std::string& religion) { details.religion = religion; }
-	
+	void registerProvince(std::pair<int, std::shared_ptr<Province>> theProvince) { provinces.insert(std::move(theProvince)); }
+	void setPrimaryCulture(const std::string& culture);
+	void setReligion(const std::string& religion);
+
 	friend std::ostream& operator<<(std::ostream& output, const Country& versionParser);
 
   private:
@@ -60,6 +62,7 @@ class Country
 
 	CountryDetails details;
 	std::map<int, std::shared_ptr<Province>> provinces;
+	date conversionDate; // for dating the monarchs in history file.
 };
 } // namespace EU4
 

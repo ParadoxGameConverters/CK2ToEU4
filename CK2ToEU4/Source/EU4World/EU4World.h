@@ -34,7 +34,7 @@ class World
 	void importVanillaProvinces(const std::string& eu4Path);
 	void importCK2Countries(const CK2::World& sourceWorld);
 	void importCK2Provinces(const CK2::World& sourceWorld);
-	void output(const mappers::VersionParser& versionParser, const Configuration& theConfiguration) const;
+	void output(const mappers::VersionParser& versionParser, const Configuration& theConfiguration, date conversionDate) const;
 	void createModFile(const Configuration& theConfiguration) const;
 	void outputVersion(const mappers::VersionParser& versionParser, const Configuration& theConfiguration) const;
 	void outputCommonCountriesFile(const Configuration& theConfiguration) const;
@@ -45,6 +45,7 @@ class World
 	void verifyReligionsAndCultures();
 	void linkProvincesToCountries();
 	void outputFlags(const Configuration& theConfiguration) const;
+	void outputBookmark(const Configuration& theConfiguration, date conversionDate) const;
 	
 	mappers::ColorScraper colorScraper;
 	mappers::ProvinceMapper provinceMapper;

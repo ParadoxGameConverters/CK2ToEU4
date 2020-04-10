@@ -24,10 +24,10 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 	importCK2Provinces(sourceWorld);
 	linkProvincesToCountries();
 	verifyReligionsAndCultures();
-	
+
 	LOG(LogLevel::Info) << "---> The Dump <---";
 	modFile.outname = theConfiguration.getOutputName();
-	output(versionParser, theConfiguration);
+	output(versionParser, theConfiguration, sourceWorld.getConversionDate());
 	LOG(LogLevel::Info) << "*** Farewell EU4, granting you independence. ***";
 }
 
@@ -56,10 +56,10 @@ template <typename KeyType, typename ValueType> std::pair<KeyType, ValueType> ge
 
 void EU4::World::verifyReligionsAndCultures()
 {
-// We are checkign every country if it lacks primary religion and culture. This is an issue for hordeland mainly.
+	// We are checkign every country if it lacks primary religion and culture. This is an issue for hordeland mainly.
 	// For those lacking setups, we'll do a provincial census and inherit those values.
 	for (const auto& country: countries) {
-	if (!country.second->getReligion().empty() && !country.second->getPrimaryCulture().empty()) continue;
+		if (!country.second->getReligion().empty() && !country.second->getPrimaryCulture().empty()) continue;
 		std::map<std::string, int> religiousCensus;
 		std::map<std::string, int> culturalCensus;
 		for (const auto& province: country.second->getProvinces()) {
@@ -74,16 +74,14 @@ void EU4::World::verifyReligionsAndCultures()
 			religiousCensus[province.second->getReligion()] += 1;
 			culturalCensus[province.second->getCulture()] += 1;
 		}
-		if (country.second->getPrimaryCulture().empty())
-		{
+		if (country.second->getPrimaryCulture().empty()) {
 			auto max = get_max(culturalCensus);
 			country.second->setPrimaryCulture(max.first);
 			Log(LogLevel::Debug) << "Setting " << country.first << " culture to " << max.first;
 		}
-		if (country.second->getReligion().empty())
-		{
+		if (country.second->getReligion().empty()) {
 			auto max = get_max(religiousCensus);
-			country.second->setReligion(max.first);			
+			country.second->setReligion(max.first);
 			Log(LogLevel::Debug) << "Setting " << country.first << " religion to " << max.first;
 		}
 	}
@@ -127,12 +125,28 @@ void EU4::World::importCK2Countries(const CK2::World& sourceWorld)
 		// Locating appropriate existing country
 		const auto& countryItr = countries.find(*tag);
 		if (countryItr != countries.end()) {
-			countryItr->second->initializeFromTitle(*tag, title.second, governmentsMapper, religionMapper, cultureMapper, provinceMapper, colorScraper, localizationMapper);
+			countryItr->second->initializeFromTitle(*tag,
+				 title.second,
+				 governmentsMapper,
+				 religionMapper,
+				 cultureMapper,
+				 provinceMapper,
+				 colorScraper,
+				 localizationMapper,
+				 sourceWorld.getConversionDate());
 			title.second->registerEU4Tag(std::pair(*tag, countryItr->second));
 		} else {
 			// Otherwise create the country
 			auto newCountry = std::make_shared<Country>();
-			newCountry->initializeFromTitle(*tag, title.second, governmentsMapper, religionMapper, cultureMapper, provinceMapper, colorScraper, localizationMapper);
+			newCountry->initializeFromTitle(*tag,
+				 title.second,
+				 governmentsMapper,
+				 religionMapper,
+				 cultureMapper,
+				 provinceMapper,
+				 colorScraper,
+				 localizationMapper,
+				 sourceWorld.getConversionDate());
 			title.second->registerEU4Tag(std::pair(*tag, newCountry));
 			countries.insert(std::pair(*tag, newCountry));
 		}

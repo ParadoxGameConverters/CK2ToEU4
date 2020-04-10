@@ -1,0 +1,6 @@
+bookmark =
+{
+	name = "The Inherited World"
+	desc = "The saga continues. Your dynasty and your past glory must be kept alive, nutured and enriched through the coming ages, to leave a permanent mark on the future."
+	date = <CONVERSIONDATE>
+}

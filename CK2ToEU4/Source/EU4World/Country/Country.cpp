@@ -32,9 +32,11 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	 const mappers::CultureMapper& cultureMapper,
 	 const mappers::ProvinceMapper& provinceMapper,
 	 const mappers::ColorScraper& colorScraper,
-	 const mappers::LocalizationMapper& localizationMapper)
+	 const mappers::LocalizationMapper& localizationMapper,
+	 date theConversionDate)
 {
 	tag = std::move(theTag);
+	conversionDate = theConversionDate;
 	title.first = theTitle->getName();
 	title.second = std::move(theTitle);
 	if (commonCountryFile.empty()) commonCountryFile = "countries/" + title.first + ".txt";
@@ -243,4 +245,69 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 		}
 	}
 	if (!adjSet) Log(LogLevel::Warning) << tag << " help with localization for adjective! " << title.first << "_adj?";
+
+	// Rulers
+	initializeRulers(religionMapper, cultureMapper);
+}
+
+void EU4::Country::initializeRulers(const mappers::ReligionMapper& religionMapper, const mappers::CultureMapper& cultureMapper)
+{
+	const auto& holder = title.second->getHolder().second;
+	// Are we the ruler's primary title? (if he has any)
+	if (!holder->getPrimaryTitle().first.empty() && title.first != holder->getPrimaryTitle().first) return; // PU's don't get monarchs.
+
+	details.monarch.name = holder->getName();
+	if (holder->getDynasty().first) details.monarch.dynasty = holder->getDynasty().second->getName();
+	details.monarch.adm = std::min((holder->getSkills().stewardship + holder->getSkills().learning) / 4, 6);
+	details.monarch.dip = std::min((holder->getSkills().diplomacy + holder->getSkills().intrigue) / 4, 6);
+	details.monarch.mil = std::min((holder->getSkills().martial + holder->getSkills().learning) / 4, 6);
+	details.monarch.birthDate = holder->getBirthDate();
+	details.monarch.female = holder->isFemale();
+	// religion and culture were already determining our country's primary culture and religion. If we set there, we'll copy here.
+	if (!details.primaryCulture.empty()) details.monarch.culture = details.primaryCulture;
+	if (!details.religion.empty()) details.monarch.religion = details.religion;
+	details.monarch.isSet = true;
+
+	if (!holder->getSpouses().empty()) {
+		// What's the first spouse that's still alive?
+		for (const auto& spouse: holder->getSpouses()) {
+			if (spouse.second->getDeathDate() != date("1.1.1")) continue; // She's dead.
+			details.queen.name = spouse.second->getName();
+			if (spouse.second->getDynasty().first) details.queen.dynasty = spouse.second->getDynasty().second->getName();
+			details.queen.adm = std::min((spouse.second->getSkills().stewardship + spouse.second->getSkills().learning) / 4, 6);
+			details.queen.dip = std::min((spouse.second->getSkills().diplomacy + spouse.second->getSkills().intrigue) / 4, 6);
+			details.queen.mil = std::min((spouse.second->getSkills().martial + spouse.second->getSkills().learning) / 4, 6);
+			details.queen.birthDate = spouse.second->getBirthDate();
+			details.queen.female = spouse.second->isFemale();
+			if (spouse.second->getReligion().empty())
+				details.queen.religion = details.monarch.religion; // taking a shortcut.
+			else {
+				const auto& religionMatch = religionMapper.getEu4ReligionForCk2Religion(spouse.second->getReligion());
+				if (religionMatch) details.queen.religion = *religionMatch;
+			}
+			if (spouse.second->getCulture().empty())
+				details.queen.culture = details.monarch.culture; // taking a shortcut.
+			else {
+				const auto& cultureMatch = cultureMapper.cultureMatch(spouse.second->getCulture(), details.queen.religion, 0, tag);
+				if (cultureMatch) details.queen.culture = *cultureMatch;
+			}
+			details.queen.originCountry = tag;
+			details.queen.deathDate = details.queen.birthDate;
+			details.queen.deathDate.subtractYears(-60);
+			details.queen.isSet = true;
+		}
+	}
+}
+
+void EU4::Country::setPrimaryCulture(const std::string& culture)
+{
+	details.primaryCulture = culture;
+	if (details.monarch.isSet && details.monarch.culture.empty()) details.monarch.culture = culture;
+	if (details.queen.isSet && details.queen.culture.empty()) details.queen.culture = culture;
+}
+void EU4::Country::setReligion(const std::string& religion)
+{
+	details.religion = religion;
+	if (details.monarch.isSet && details.monarch.religion.empty()) details.monarch.religion = religion;
+	if (details.queen.isSet && details.queen.religion.empty()) details.queen.religion = religion;
 }
