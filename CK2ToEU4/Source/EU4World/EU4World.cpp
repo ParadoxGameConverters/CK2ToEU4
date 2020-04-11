@@ -7,6 +7,7 @@ namespace fs = std::filesystem;
 #include "../CK2World/Characters/Character.h"
 #include "../CK2World/Titles/Title.h"
 #include "../Configuration/Configuration.h"
+#include <cmath>
 
 EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfiguration, const mappers::VersionParser& versionParser)
 {
