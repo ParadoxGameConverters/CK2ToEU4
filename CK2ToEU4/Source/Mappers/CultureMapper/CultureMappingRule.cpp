@@ -29,7 +29,7 @@ mappers::CultureMappingRule::CultureMappingRule(std::istream& theStream)
 		const commonItems::singleString gfxStr(theStream);
 		gfx = gfxStr.getString();
 	});
-	registerKeyword("provinceid", [this](const std::string& unused, std::istream& theStream) {
+	registerKeyword("province", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleString provinceStr(theStream);
 		try {
 			provinces.insert(stoi(provinceStr.getString()));

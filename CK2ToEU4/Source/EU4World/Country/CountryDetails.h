@@ -4,9 +4,27 @@
 #include "Color.h"
 #include "newParser.h"
 #include <set>
+#include "Date.h"
 
 namespace EU4
 {
+
+typedef struct {
+	std::string name;
+	std::string dynasty;
+	int adm = 0;
+	int dip = 0;
+	int mil = 0;
+	date birthDate;
+	date deathDate = date("1.1.1");
+	bool female = false;
+	bool regent = false;
+	std::string religion;
+	std::string culture;
+	bool isSet = false;
+	std::string originCountry;
+} Monarch;
+	
 class CountryDetails: commonItems::parser
 {
   public:
@@ -61,7 +79,12 @@ class CountryDetails: commonItems::parser
 	std::string specialUnitCulture;
 	bool all_your_core_are_belong_to_us = false;
 	bool rightToBEARArms = false;
+	std::vector<std::pair<date, std::string>> historyLessons; // this is used to store history entries for countries we're only transcribing.
 
+	Monarch monarch;
+	Monarch queen;
+	Monarch heir;
+	
   private:
 	void registerKeys();
 	void registerHistoryKeys();

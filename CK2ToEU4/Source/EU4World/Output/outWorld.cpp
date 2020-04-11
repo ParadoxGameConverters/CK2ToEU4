@@ -3,10 +3,11 @@
 #include <filesystem>
 #include <fstream>
 namespace fs = std::filesystem;
+#include "../../CK2World/Titles/Title.h"
 #include "../../Configuration/Configuration.h"
 #include "OSCompatibilityLayer.h"
 
-void EU4::World::output(const mappers::VersionParser& versionParser, const Configuration& theConfiguration) const
+void EU4::World::output(const mappers::VersionParser& versionParser, const Configuration& theConfiguration, date conversionDate) const
 {
 	LOG(LogLevel::Info) << "<- Creating Output Folder";
 	fs::create_directory("output");
@@ -47,6 +48,65 @@ void EU4::World::output(const mappers::VersionParser& versionParser, const Confi
 
 	LOG(LogLevel::Info) << "<- Writing Localization";
 	outputLocalization(theConfiguration);
+
+	LOG(LogLevel::Info) << "<- Moving Flags";
+	outputFlags(theConfiguration);
+
+	LOG(LogLevel::Info) << "<- Replacing Bookmark";
+	outputBookmark(theConfiguration, conversionDate);
+}
+
+void EU4::World::outputBookmark(const Configuration& theConfiguration, date conversionDate) const
+{
+	if (!Utils::DoesFileExist("output/" + theConfiguration.getOutputName() + "/common/defines/00_converter_defines.lua"))
+		throw std::runtime_error("Can not find output/" + theConfiguration.getOutputName() + "/common/defines/00_converter_defines.lua!");
+	std::ofstream defines("output/" + theConfiguration.getOutputName() + "/common/defines/00_converter_defines.lua");
+	defines << "-- Defines modified by the converter\n\n";
+	defines << "\nNDefines.NGame.START_DATE = \"" << conversionDate << "\"\n";
+	defines.close();
+	if (!Utils::DoesFileExist("output/" + theConfiguration.getOutputName() + "/common/bookmarks/converter_bookmark.txt"))
+		throw std::runtime_error("Can not find output/" + theConfiguration.getOutputName() + "/common/bookmarks/converter_bookmark.txt!");
+
+	std::string startDate = "<CONVERSIONDATE>";
+	std::ostringstream incomingBookmarks;
+
+	std::ifstream bookmarks_txt("output/" + theConfiguration.getOutputName() + "/common/bookmarks/converter_bookmark.txt");
+	incomingBookmarks << bookmarks_txt.rdbuf();
+	bookmarks_txt.close();
+	auto strBookmarks = incomingBookmarks.str();
+	auto pos2 = strBookmarks.find(startDate);
+	strBookmarks.replace(pos2, startDate.length(), conversionDate.toString());
+	std::ofstream out_bookmarks_txt("output/" + theConfiguration.getOutputName() + "/common/bookmarks/converter_bookmark.txt");
+	out_bookmarks_txt << strBookmarks;
+	out_bookmarks_txt.close();
+}
+
+void EU4::World::outputFlags(const Configuration& theConfiguration) const
+{
+	for (const auto& country: countries) {
+		// Do we need a flag at all?
+		if (Utils::DoesFileExist(theConfiguration.getEU4Path() + "/gfx/flags/" + country.first + ".tga")) continue;
+		// We do.
+		if (country.second->getTitle().first.empty()) continue; // Probably vanilla nation.
+		auto titleName = country.second->getTitle().first;
+		std::string fileName;
+		if (Utils::DoesFileExist(theConfiguration.getCK2Path() + "/gfx/flags/" + titleName + ".tga"))
+			fileName = theConfiguration.getCK2Path() + "/gfx/flags/" + titleName + ".tga";
+		if (fileName.empty() && !country.second->getTitle().second->getBaseTitle().first.empty()) {
+			titleName = country.second->getTitle().second->getBaseTitle().first;
+			if (Utils::DoesFileExist(theConfiguration.getCK2Path() + "/gfx/flags/" + titleName + ".tga"))
+				fileName = theConfiguration.getCK2Path() + "/gfx/flags/" + titleName + ".tga";
+			if (fileName.empty() && !country.second->getTitle().second->getBaseTitle().second->getBaseTitle().first.empty()) {
+				titleName = country.second->getTitle().second->getBaseTitle().second->getBaseTitle().first;
+				if (Utils::DoesFileExist(theConfiguration.getCK2Path() + "/gfx/flags/" + titleName + ".tga"))
+					fileName = theConfiguration.getCK2Path() + "/gfx/flags/" + titleName + ".tga";
+			}
+		}
+		if (fileName.empty())
+			Log(LogLevel::Warning) << "failed to locate flag for " << country.first << ": " << country.second->getTitle().first;
+		else
+			fs::copy_file(fileName, "output/" + theConfiguration.getOutputName() + "/gfx/flags/" + country.first + ".tga");
+	}
 }
 
 void EU4::World::createModFile(const Configuration& theConfiguration) const
@@ -76,8 +136,7 @@ void EU4::World::outputLocalization(const Configuration& theConfiguration) const
 	german << "\xEF\xBB\xBFl_german:\n";	// write BOM
 
 	for (const auto& country: countries) {
-		for (const auto& locblock: country.second->getLocalizations())
-		{
+		for (const auto& locblock: country.second->getLocalizations()) {
 			english << " " << locblock.first << ": \"" << Utils::convertWin1252ToUTF8(locblock.second.english) << "\"\n";
 			french << " " << locblock.first << ": \"" << Utils::convertWin1252ToUTF8(locblock.second.french) << "\"\n";
 			spanish << " " << locblock.first << ": \"" << Utils::convertWin1252ToUTF8(locblock.second.spanish) << "\"\n";
@@ -102,8 +161,11 @@ void EU4::World::outputCommonCountriesFile(const Configuration& theConfiguration
 {
 	std::ofstream output("output/" + theConfiguration.getOutputName() + "/common/country_tags/00_countries.txt");
 	if (!output.is_open()) throw std::runtime_error("Could not create countries file!");
+	output << "REB = \"countries/Rebels.txt\"\n\n"; // opening with rebels manually.
 
-	for (const auto& country: countries) { output << country.first << " = \"" << country.second->getCommonCountryFile() << "\"\n"; }
+	for (const auto& country: countries) {
+		if (country.first != "REB") output << country.first << " = \"" << country.second->getCommonCountryFile() << "\"\n";
+	}
 	output << "\n";
 	output.close();
 }
@@ -135,7 +197,8 @@ void EU4::World::outputCommonCountries(const Configuration& theConfiguration) co
 	for (const auto& country: countries) {
 		std::ofstream output("output/" + theConfiguration.getOutputName() + "/common/" + country.second->getCommonCountryFile());
 		if (!output.is_open())
-			throw std::runtime_error("Could not create country common file: output/" + theConfiguration.getOutputName() + "/common/" + country.second->getCommonCountryFile());
+			throw std::runtime_error(
+				 "Could not create country common file: output/" + theConfiguration.getOutputName() + "/common/" + country.second->getCommonCountryFile());
 		country.second->outputCommons(output);
 		output.close();
 	}

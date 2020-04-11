@@ -36,6 +36,29 @@ std::ostream& EU4::operator<<(std::ostream& output, const Country& country)
 	if (!country.details.harmonizedReligions.empty()) {
 		for (const auto& religion: country.details.harmonizedReligions) { output << "add_harmonized_religion = " << religion << "\n"; }
 	}
+
+	if (country.details.monarch.isSet) {
+		output << country.conversionDate << "= {\n";
+		output << "\tmonarch = {\n";
+		output << country.details.monarch;
+		output << "\t}\n";
+		if (country.details.queen.isSet) {
+			output << "\tqueen = {\n";
+			output << country.details.queen;
+			output << "\t}\n";
+		}
+		output << "}\n";
+	}
+
+	// this is done only for countries without a title - vanilla tags where we're regurgitating history ad verbatim.
+	if (country.getTitle().first.empty() && !country.details.historyLessons.empty()) {
+		for (const auto& historyLesson: country.details.historyLessons) {
+			output << historyLesson.first << " = {\n";
+			output << historyLesson.second;
+			output << "}\n\n";
+		}
+	}
+
 	return output;
 }
 
@@ -81,4 +104,20 @@ void EU4::Country::outputCommons(std::ostream& output)
 	if (!details.specialUnitCulture.empty()) output << "special_unit_culture = " << details.specialUnitCulture << "\n";
 	if (details.all_your_core_are_belong_to_us) output << "all_your_core_are_belong_to_us = yes\n";
 	if (details.rightToBEARArms) output << "right_to_bear_arms = yes\n";
+}
+
+std::ostream& EU4::operator<<(std::ostream& output, const Monarch& monarch)
+{
+	output << "\t\tname = \"" << monarch.name << "\"\n";
+	if (!monarch.dynasty.empty()) { output << "\t\tdynasty = \"" << monarch.dynasty << "\"\n"; }
+	output << "\t\tadm = " << monarch.adm << "\n";
+	output << "\t\tdip = " << monarch.dip << "\n";
+	output << "\t\tmil = " << monarch.mil << "\n";
+	if (!monarch.originCountry.empty()) output << "\t\tcountry_of_origin = " << monarch.originCountry << "\n";
+	output << "\t\tbirth_date = " << monarch.birthDate << "\n";
+	if (monarch.deathDate != date("1.1.1")) output << "\t\tdeath_date = " << monarch.deathDate << "\n";
+	if (monarch.female) output << "\t\tfemale = yes\n";
+	output << "\t\treligion = " << monarch.religion << "\n";
+	output << "\t\tculture = " << monarch.culture << "\n";
+	return output;
 }

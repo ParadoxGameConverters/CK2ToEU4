@@ -18,6 +18,7 @@ class ProvinceMapper;
 
 namespace EU4
 {
+class Province;
 class Country
 {
   public:
@@ -32,13 +33,23 @@ class Country
 		 const mappers::CultureMapper& cultureMapper,
 		 const mappers::ProvinceMapper& provinceMapper,
 		 const mappers::ColorScraper& colorScraper,
-		 const mappers::LocalizationMapper& localizationMapper);
+		 const mappers::LocalizationMapper& localizationMapper,
+		 date theConversionDate);
+	void initializeRulers(const mappers::ReligionMapper& religionMapper, const mappers::CultureMapper& cultureMapper);
 
 	void outputCommons(std::ostream& output);
 
 	[[nodiscard]] const auto& getCommonCountryFile() const { return commonCountryFile; }
 	[[nodiscard]] const auto& getHistoryCountryFile() const { return historyCountryFile; }
 	[[nodiscard]] const auto& getLocalizations() const { return localizations; }
+	[[nodiscard]] const auto& getPrimaryCulture() const { return details.primaryCulture; }
+	[[nodiscard]] const auto& getReligion() const { return details.religion; }
+	[[nodiscard]] const auto& getProvinces() const { return provinces; }
+	[[nodiscard]] const auto& getTitle() const { return title; }
+
+	void registerProvince(std::pair<int, std::shared_ptr<Province>> theProvince) { provinces.insert(std::move(theProvince)); }
+	void setPrimaryCulture(const std::string& culture);
+	void setReligion(const std::string& religion);
 
 	friend std::ostream& operator<<(std::ostream& output, const Country& versionParser);
 
@@ -46,10 +57,12 @@ class Country
 	std::string tag;
 	std::string commonCountryFile;
 	std::string historyCountryFile;
-	std::shared_ptr<CK2::Title> title;
+	std::pair<std::string, std::shared_ptr<CK2::Title>> title;
 	std::map<std::string, mappers::LocBlock> localizations;
 
 	CountryDetails details;
+	std::map<int, std::shared_ptr<Province>> provinces;
+	date conversionDate; // for dating the monarchs in history file.
 };
 } // namespace EU4
 

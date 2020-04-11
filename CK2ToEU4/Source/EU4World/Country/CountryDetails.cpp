@@ -192,6 +192,9 @@ void EU4::CountryDetails::registerHistoryKeys()
 		const commonItems::singleString rel3Str(theStream);
 		harmonizedReligions.insert(rel3Str.getString());
 	});
-	registerRegex(R"(\d+.\d+.\d+)", commonItems::ignoreItem);
+	registerRegex(R"(\d+.\d+.\d+)", [this](const std::string& theDate, std::istream& theStream) {
+		auto historyItem = commonItems::singleItem(theDate, theStream);
+		historyLessons.emplace_back(std::pair(date(theDate), historyItem));
+	});
 	registerRegex("[a-zA-Z0-9\\_.:-]+", commonItems::ignoreItem);
 }

@@ -24,6 +24,10 @@ void CK2::Character::registerKeys()
 		const commonItems::singleString religionStr(theStream);
 		religion = religionStr.getString();
 	});
+	registerKeyword("fem", [this](const std::string& unused, std::istream& theStream) {
+		const commonItems::singleString femStr(theStream);
+		female = femStr.getString() == "yes";
+	});
 	registerKeyword("gov", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleString govStr(theStream);
 		government = govStr.getString();

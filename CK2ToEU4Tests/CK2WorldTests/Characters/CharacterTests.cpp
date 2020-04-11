@@ -1,7 +1,7 @@
-#include "gtest/gtest.h"
 #include "../CK2ToEU4/Source/CK2World/Characters/Character.h"
 #include "../CK2ToEU4/Source/CK2World/Provinces/Barony.h"
 #include "../CK2ToEU4/Source/CK2World/Titles/Liege.h"
+#include "gtest/gtest.h"
 #include <sstream>
 
 TEST(CK2World_CharacterTests, IDCanBeSet)
@@ -89,6 +89,31 @@ TEST(CK2World_CharacterTests, governmentDefaultsToBlank)
 	const CK2::Character theCharacter(input, 42);
 
 	ASSERT_TRUE(theCharacter.getGovernment().empty());
+}
+
+TEST(CK2World_CharacterTests, femaleCanBeSet)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "\tfem=yes\n";
+	input << "}";
+
+	const CK2::Character theCharacter(input, 42);
+
+	ASSERT_TRUE(theCharacter.isFemale());
+}
+
+TEST(CK2World_CharacterTests, femaleDefaultsToFalse)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "}";
+
+	const CK2::Character theCharacter(input, 42);
+
+	ASSERT_FALSE(theCharacter.isFemale());
 }
 
 TEST(CK2World_CharacterTests, nameCanBeSet)
