@@ -52,6 +52,7 @@ class Country
 	[[nodiscard]] const auto& getGovernment() const { return details.government; }
 	[[nodiscard]] const auto& getGovernmentReforms() const { return details.reforms; }
 	[[nodiscard]] const auto& getTag() const { return tag; }
+	[[nodiscard]] auto getConversionDate() const { return conversionDate; }
 
 	void registerProvince(std::pair<int, std::shared_ptr<Province>> theProvince) { provinces.insert(std::move(theProvince)); }
 	void setPrimaryCulture(const std::string& culture);

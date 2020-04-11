@@ -53,6 +53,9 @@ void EU4::World::output(const mappers::VersionParser& versionParser, const Confi
 	LOG(LogLevel::Info) << "<- Writing Emperor";
 	outputEmperor(theConfiguration, conversionDate);
 
+	LOG(LogLevel::Info) << "<- Writing Diplomacy";
+	diplomacy.output(theConfiguration);
+
 	LOG(LogLevel::Info) << "<- Moving Flags";
 	outputFlags(theConfiguration);
 

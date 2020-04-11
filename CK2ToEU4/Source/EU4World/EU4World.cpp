@@ -25,6 +25,7 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 	linkProvincesToCountries();
 	verifyReligionsAndCultures();
 	distributeHRESubtitles(theConfiguration);
+	diplomacy.importAgreements(countries);
 
 	LOG(LogLevel::Info) << "---> The Dump <---";
 	modFile.outname = theConfiguration.getOutputName();
@@ -52,14 +53,16 @@ void EU4::World::distributeHRESubtitles(const Configuration& theConfiguration)
 
 void EU4::World::setElectors()
 {
-	std::vector<std::pair<int, std::shared_ptr<Country>>> bishops;	// piety-tag
-	std::vector<std::pair<int, std::shared_ptr<Country>>> duchies; // dev-tag
+	LOG(LogLevel::Info) << "-> Setting Electors";
+	std::vector<std::pair<int, std::shared_ptr<Country>>> bishops;	  // piety-tag
+	std::vector<std::pair<int, std::shared_ptr<Country>>> duchies;	  // dev-tag
 	std::vector<std::pair<int, std::shared_ptr<Country>>> republics; // dev-tag
 	std::vector<std::shared_ptr<Country>> electors;
-	
+
 	// We need to be careful about papacy and orthodox holders
 	for (const auto& country: countries) {
 		if (country.second->isinHRE()) {
+			if (country.second->getProvinces().empty()) continue;
 			const auto& holder = country.second->getTitle().second->getHolder();
 			if (country.first == "PAP" || holder.second->getPrimaryTitle().first == "k_orthodox") {
 				// override to always be elector
@@ -94,15 +97,18 @@ void EU4::World::setElectors()
 		electors.emplace_back(duchy.second);
 	}
 
-	for (const auto& elector: electors) elector->setElector();	
+	for (const auto& elector: electors) elector->setElector();
+	LOG(LogLevel::Info) << "-> There are " << electors.size() << " electors recognized.";
 }
 
 void EU4::World::setFreeCities()
 {
+	LOG(LogLevel::Info) << "-> Setting Free Cities";
 	// How many free cities do we already have?
 	auto freeCityNum = 0;
 	for (const auto& country: countries) {
-		if (country.second->isinHRE() && country.second->getGovernment() == "republic" && country.second->getProvinces().size() == 1 && freeCityNum < 8) {
+		if (country.second->isinHRE() && country.second->getGovernment() == "republic" && country.second->getProvinces().size() == 1 &&
+			 country.second->getTitle().second->getGeneratedLiege().first.empty() && freeCityNum < 8) {
 			country.second->overrideReforms("free_city");
 			++freeCityNum;
 		}
@@ -111,7 +117,9 @@ void EU4::World::setFreeCities()
 	if (freeCityNum < 8) {
 		for (const auto& country: countries) {
 			if (country.second->isinHRE() && country.second->getGovernment() != "republic" && !country.second->isHREEmperor() &&
-				 country.second->getGovernmentReforms().empty() && country.second->getProvinces().size() == 1 && freeCityNum < 8) {
+				 country.second->getGovernmentReforms().empty() && country.second->getProvinces().size() == 1 &&
+				 country.second->getTitle().second->getGeneratedLiege().first.empty() && freeCityNum < 8) {
+				if (country.first == "HAB") continue; // For Iohannes who is sensitive about Austria.
 				// GovernmentReforms being empty ensures we're not converting special governments and targeted tags into free cities.
 				country.second->overrideReforms("free_city");
 				country.second->setGovernment("republic");
@@ -119,6 +127,7 @@ void EU4::World::setFreeCities()
 			}
 		}
 	}
+	LOG(LogLevel::Info) << "-> There are " << freeCityNum << " free cities.";
 }
 
 
@@ -200,49 +209,66 @@ void EU4::World::importCK2Countries(const CK2::World& sourceWorld)
 	// countries holds all tags imported from EU4. We'll now overwrite some and
 	// add new ones from ck2 titles.
 	for (const auto& title: sourceWorld.getIndepTitles()) {
-
-		// Grabbing the capital, if possible
-		int eu4CapitalID = 0;
-		const auto& ck2CapitalID = title.second->getHolder().second->getCapitalProvince().first;
-		if (ck2CapitalID) {
-			const auto& capitalMatch = provinceMapper.getEU4ProvinceNumbers(ck2CapitalID);
-			if (!capitalMatch.empty()) eu4CapitalID = *capitalMatch.begin();
-		}
-
-		// Mapping the title to a tag
-		const auto& tag = titleTagMapper.getTagForTitle(title.first, title.second->getBaseTitle().first, eu4CapitalID);
-		if (!tag) throw std::runtime_error("Title " + title.first + " could not be mapped!");
-
-		// Locating appropriate existing country
-		const auto& countryItr = countries.find(*tag);
-		if (countryItr != countries.end()) {
-			countryItr->second->initializeFromTitle(*tag,
-				 title.second,
-				 governmentsMapper,
-				 religionMapper,
-				 cultureMapper,
-				 provinceMapper,
-				 colorScraper,
-				 localizationMapper,
-				 sourceWorld.getConversionDate());
-			title.second->registerEU4Tag(std::pair(*tag, countryItr->second));
-		} else {
-			// Otherwise create the country
-			auto newCountry = std::make_shared<Country>();
-			newCountry->initializeFromTitle(*tag,
-				 title.second,
-				 governmentsMapper,
-				 religionMapper,
-				 cultureMapper,
-				 provinceMapper,
-				 colorScraper,
-				 localizationMapper,
-				 sourceWorld.getConversionDate());
-			title.second->registerEU4Tag(std::pair(*tag, newCountry));
-			countries.insert(std::pair(*tag, newCountry));
-		}
+		if (title.first.find("e_") != 0) continue;
+		importCK2Country(title, sourceWorld);
+	}
+	for (const auto& title: sourceWorld.getIndepTitles()) {
+		if (title.first.find("k_") != 0) continue;
+		importCK2Country(title, sourceWorld);
+	}
+	for (const auto& title: sourceWorld.getIndepTitles()) {
+		if (title.first.find("d_") != 0) continue;
+		importCK2Country(title, sourceWorld);
+	}
+	for (const auto& title: sourceWorld.getIndepTitles()) {
+		if (title.first.find("c_") != 0) continue;
+		importCK2Country(title, sourceWorld);
 	}
 	LOG(LogLevel::Info) << ">> " << countries.size() << " total countries recognized.";
+}
+
+void EU4::World::importCK2Country(const std::pair<std::string, std::shared_ptr<CK2::Title>>& title, const CK2::World& sourceWorld)
+{
+	// Grabbing the capital, if possible
+	int eu4CapitalID = 0;
+	const auto& ck2CapitalID = title.second->getHolder().second->getCapitalProvince().first;
+	if (ck2CapitalID) {
+		const auto& capitalMatch = provinceMapper.getEU4ProvinceNumbers(ck2CapitalID);
+		if (!capitalMatch.empty()) eu4CapitalID = *capitalMatch.begin();
+	}
+
+	// Mapping the title to a tag
+	const auto& tag = titleTagMapper.getTagForTitle(title.first, title.second->getBaseTitle().first, eu4CapitalID);
+	if (!tag) throw std::runtime_error("Title " + title.first + " could not be mapped!");
+
+	// Locating appropriate existing country
+	const auto& countryItr = countries.find(*tag);
+	if (countryItr != countries.end()) {
+		countryItr->second->initializeFromTitle(*tag,
+			 title.second,
+			 governmentsMapper,
+			 religionMapper,
+			 cultureMapper,
+			 provinceMapper,
+			 colorScraper,
+			 localizationMapper,
+			 sourceWorld.getConversionDate());
+		title.second->registerEU4Tag(std::pair(*tag, countryItr->second));
+	} else {
+		// Otherwise create the country
+		auto newCountry = std::make_shared<Country>();
+		newCountry->initializeFromTitle(*tag,
+			 title.second,
+			 governmentsMapper,
+			 religionMapper,
+			 cultureMapper,
+			 provinceMapper,
+			 colorScraper,
+			 localizationMapper,
+			 sourceWorld.getConversionDate());
+		title.second->registerEU4Tag(std::pair(*tag, newCountry));
+		countries.insert(std::pair(*tag, newCountry));
+	}
 }
 
 

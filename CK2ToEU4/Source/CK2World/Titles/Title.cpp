@@ -90,3 +90,9 @@ std::map<int, std::shared_ptr<CK2::Province>> CK2::Title::coalesceProvinces() co
 	toReturn.insert(provinces.begin(), provinces.end());
 	return toReturn;
 }
+
+void CK2::Title::registerGeneratedVassal(const std::pair<std::string, std::shared_ptr<Title>>& theVassal)
+{
+	generatedVassals.insert(theVassal);
+	vassals.erase(theVassal.first);
+}

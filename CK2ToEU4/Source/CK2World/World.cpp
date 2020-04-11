@@ -123,6 +123,8 @@ CK2::World::World(const Configuration& theConfiguration)
 	shatterEmpires(theConfiguration);
 	LOG(LogLevel::Info) << "-- Filtering Independent Titles";
 	filterIndependentTitles();
+	LOG(LogLevel::Info) << "-- Splitting Off Vassals";
+	splitVassals();
 	LOG(LogLevel::Info) << "-- Congregating Provinces for Independent Titles";
 	congregateProvinces();
 	LOG(LogLevel::Info) << "-- Performing Province Sanity Check";
@@ -132,6 +134,54 @@ CK2::World::World(const Configuration& theConfiguration)
 
 	LOG(LogLevel::Info) << "*** Good-bye CK2, rest in peace. ***";
 }
+
+void CK2::World::splitVassals()
+{
+	std::map<std::string, std::shared_ptr<Title>> newIndeps;
+	
+	// We have linked counties to provinces, and we know who's independent.
+	// We can now go through all titles and see what should be an independent vassal.
+	for (const auto& title: independentTitles) {
+		if (title.first == "k_papal_state" || title.first == "e_outremer") continue; // Not touching these.
+		auto relevantVassals = 0;
+		std::string relevantVassalPrefix;
+		if (title.first.find("e_") == 0)
+			relevantVassalPrefix = "k_";
+		else if (title.first.find("k_") == 0)
+			relevantVassalPrefix = "d_";
+		else
+			continue; // Not splitting off counties.		
+		for (const auto& vassal: title.second->getVassals())
+		{
+			if (vassal.first.find(relevantVassalPrefix) != 0) continue; // they are not relevant
+			if (vassal.second->coalesceProvinces().empty()) continue; // no land, not relevant
+			relevantVassals++;
+		}
+		if (!relevantVassals) continue; // no need to split off anything.
+		const auto& provincesClaimed = title.second->coalesceProvinces(); // this is our primary total.
+		for (const auto& vassal: title.second->getVassals())
+		{
+			if (vassal.first.find(relevantVassalPrefix) != 0) continue; // they are not relevant
+			if (vassal.second->getHolder().first == title.second->getHolder().first) continue; // Not splitting our own land.
+			const auto& vassalProvincesClaimed = vassal.second->coalesceProvinces();
+
+			// a vassal goes indep if they control 1/relevantvassals + 10% land.
+			const double threshold = static_cast<double>(provincesClaimed.size()) / relevantVassals + 0.1 * provincesClaimed.size();
+			if (vassalProvincesClaimed.size() > threshold) newIndeps.insert(vassal);
+		}
+	}
+	
+	// Now let's free them.
+	for (const auto& newIndep: newIndeps)
+	{ const auto& liege = newIndep.second->getLiege().second->getTitle();
+		liege.second->registerGeneratedVassal(newIndep);
+		newIndep.second->clearLiege();
+		newIndep.second->registerGeneratedLiege(liege);
+		independentTitles.insert(newIndep);
+	}
+	Log(LogLevel::Info) << "<> " << newIndeps.size() << " vassals liberated from immediate integration.";
+}
+
 
 void CK2::World::verifySave(const std::string& saveGamePath)
 {

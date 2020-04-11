@@ -26,6 +26,7 @@ class TitleTagMapper: commonItems::parser
 
 	std::vector<TitleTagMapping> theMappings;
 	std::map<std::string, std::string> registeredTitleTags; // We store already mapped countries here.
+	std::set<std::string> usedTags;
 
 	char generatedEU4TagPrefix = 'Z';
 	int generatedEU4TagSuffix = 0;
