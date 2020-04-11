@@ -11,7 +11,6 @@ void EU4::Diplomacy::importAgreements(const std::map<std::string, std::shared_pt
 		if (country.second->getTitle().first.empty()) continue;
 		for (const auto& targetTitle: country.second->getTitle().second->getGeneratedVassals()) {
 			const auto& targetTag = targetTitle.second->getEU4Tag();
-			if (targetTag.first.empty()) Log(LogLevel::Debug) << targetTitle.first << " no eu4tag";
 			if (targetTag.first.empty()) continue;
 			if (targetTag.second->getProvinces().empty()) continue;
 

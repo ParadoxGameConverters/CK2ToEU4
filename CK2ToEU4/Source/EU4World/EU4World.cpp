@@ -178,12 +178,10 @@ void EU4::World::verifyReligionsAndCultures()
 		if (country.second->getPrimaryCulture().empty()) {
 			auto max = get_max(culturalCensus);
 			country.second->setPrimaryCulture(max.first);
-			Log(LogLevel::Debug) << "Setting " << country.first << " culture to " << max.first;
 		}
 		if (country.second->getReligion().empty()) {
 			auto max = get_max(religiousCensus);
 			country.second->setReligion(max.first);
-			Log(LogLevel::Debug) << "Setting " << country.first << " religion to " << max.first;
 		}
 	}
 }
@@ -282,7 +280,7 @@ void EU4::World::importCK2Provinces(const CK2::World& sourceWorld)
 		const auto& ck2Provinces = provinceMapper.getCK2ProvinceNumbers(province.first);
 		// Provinces we're not affecting will not be in this list.
 		if (ck2Provinces.empty()) continue;
-		// Next, we find what province to use as it's initializing source.
+		// Next, we find what province to use as its initializing source.
 		const auto& sourceProvince = determineProvinceSource(ck2Provinces, sourceWorld);
 		if (!sourceProvince) continue; // bailing for mismaps.
 		// And finally, initialize it.

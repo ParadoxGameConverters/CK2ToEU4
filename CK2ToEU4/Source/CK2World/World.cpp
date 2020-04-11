@@ -138,7 +138,7 @@ CK2::World::World(const Configuration& theConfiguration)
 void CK2::World::splitVassals()
 {
 	std::map<std::string, std::shared_ptr<Title>> newIndeps;
-	
+
 	// We have linked counties to provinces, and we know who's independent.
 	// We can now go through all titles and see what should be an independent vassal.
 	for (const auto& title: independentTitles) {
@@ -150,18 +150,16 @@ void CK2::World::splitVassals()
 		else if (title.first.find("k_") == 0)
 			relevantVassalPrefix = "d_";
 		else
-			continue; // Not splitting off counties.		
-		for (const auto& vassal: title.second->getVassals())
-		{
+			continue; // Not splitting off counties.
+		for (const auto& vassal: title.second->getVassals()) {
 			if (vassal.first.find(relevantVassalPrefix) != 0) continue; // they are not relevant
-			if (vassal.second->coalesceProvinces().empty()) continue; // no land, not relevant
+			if (vassal.second->coalesceProvinces().empty()) continue;	// no land, not relevant
 			relevantVassals++;
 		}
-		if (!relevantVassals) continue; // no need to split off anything.
+		if (!relevantVassals) continue;												// no need to split off anything.
 		const auto& provincesClaimed = title.second->coalesceProvinces(); // this is our primary total.
-		for (const auto& vassal: title.second->getVassals())
-		{
-			if (vassal.first.find(relevantVassalPrefix) != 0) continue; // they are not relevant
+		for (const auto& vassal: title.second->getVassals()) {
+			if (vassal.first.find(relevantVassalPrefix) != 0) continue;								  // they are not relevant
 			if (vassal.second->getHolder().first == title.second->getHolder().first) continue; // Not splitting our own land.
 			const auto& vassalProvincesClaimed = vassal.second->coalesceProvinces();
 
@@ -170,10 +168,10 @@ void CK2::World::splitVassals()
 			if (vassalProvincesClaimed.size() > threshold) newIndeps.insert(vassal);
 		}
 	}
-	
+
 	// Now let's free them.
-	for (const auto& newIndep: newIndeps)
-	{ const auto& liege = newIndep.second->getLiege().second->getTitle();
+	for (const auto& newIndep: newIndeps) {
+		const auto& liege = newIndep.second->getLiege().second->getTitle();
 		liege.second->registerGeneratedVassal(newIndep);
 		newIndep.second->clearLiege();
 		newIndep.second->registerGeneratedLiege(liege);
