@@ -56,7 +56,7 @@ template <typename KeyType, typename ValueType> std::pair<KeyType, ValueType> ge
 
 void EU4::World::verifyReligionsAndCultures()
 {
-	// We are checkign every country if it lacks primary religion and culture. This is an issue for hordeland mainly.
+	// We are checking every country if it lacks primary religion and culture. This is an issue for hordeland mainly.
 	// For those lacking setups, we'll do a provincial census and inherit those values.
 	for (const auto& country: countries) {
 		if (!country.second->getReligion().empty() && !country.second->getPrimaryCulture().empty()) continue;
