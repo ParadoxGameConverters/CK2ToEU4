@@ -291,7 +291,7 @@ void CK2::World::shatterEmpires(const Configuration& theConfiguration) const
 			if (vassal.first.find("d_") == 0 || vassal.first.find("c_") == 0) {
 				members.insert(std::pair(vassal.first, vassal.second));
 			} else if (vassal.first.find("k_") == 0) {
-				if (shatterKingdoms) {
+				if (shatterKingdoms && vassal.first != "k_papal_state" && vassal.first != "k_orthodox") { // hard override for special empire members
 					for (const auto& vassalvassal: vassal.second->getVassals()) { members.insert(std::pair(vassalvassal.first, vassalvassal.second)); }
 					// Bricking the kingdom
 					vassal.second->clearVassals();
@@ -350,6 +350,11 @@ void CK2::World::shatterHRE(const Configuration& theConfiguration) const
 		if (vassal.first.find("d_") == 0 || vassal.first.find("c_") == 0) {
 			hreMembers.insert(std::pair(vassal.first, vassal.second));
 		} else if (vassal.first.find("k_") == 0) {
+			if (vassal.first == "k_papal_state" || vassal.first == "k_orthodox") // hard override for special HRE members
+			{
+				hreMembers.insert(std::pair(vassal.first, vassal.second));
+				continue;
+			}
 			for (const auto& vassalvassal: vassal.second->getVassals()) { hreMembers.insert(std::pair(vassalvassal.first, vassalvassal.second)); }
 			// Bricking the kingdom.
 			vassal.second->clearVassals();

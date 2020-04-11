@@ -8,6 +8,7 @@
 #include "../../Mappers/GovernmentsMapper/GovernmentsMapper.h"
 #include "../../Mappers/ProvinceMapper/ProvinceMapper.h"
 #include "../../Mappers/ReligionMapper/ReligionMapper.h"
+#include "../Province/EU4Province.h"
 #include "Log.h"
 
 EU4::Country::Country(std::string theTag, const std::string& filePath): tag(std::move(theTag))
@@ -136,6 +137,8 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	details.piety = 0;
 	// HRE Electorate is set later, once we can do a province/dev check.
 	details.elector = false;
+	if (title.second->isHREEmperor()) details.holyRomanEmperor = true;
+	if (title.second->isInHRE()) details.inHRE = true;
 	// ditto for secondary_religion and harmonized religions.
 	details.secondaryReligion.clear();
 	details.harmonizedReligions.clear();
@@ -310,4 +313,11 @@ void EU4::Country::setReligion(const std::string& religion)
 	details.religion = religion;
 	if (details.monarch.isSet && details.monarch.religion.empty()) details.monarch.religion = religion;
 	if (details.queen.isSet && details.queen.religion.empty()) details.queen.religion = religion;
+}
+
+int EU4::Country::getDevelopment() const
+{
+	auto dev = 0;
+	for (const auto& province: provinces) dev += province.second->getDev();
+	return dev;
 }

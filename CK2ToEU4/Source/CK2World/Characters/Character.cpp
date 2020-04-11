@@ -48,6 +48,10 @@ void CK2::Character::registerKeys()
 		const commonItems::singleInt liegeInt(theStream);
 		liege = std::pair(liegeInt.getInt(), nullptr);
 	});
+	registerKeyword("piety", [this](const std::string& unused, std::istream& theStream) {
+		const commonItems::singleDouble pieryDbl(theStream);
+		piety = pieryDbl.getDouble();
+	});
 	registerKeyword("att", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::intList skillsList(theStream);
 		const auto theList = skillsList.getInts();

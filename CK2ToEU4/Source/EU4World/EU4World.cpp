@@ -24,12 +24,103 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 	importCK2Provinces(sourceWorld);
 	linkProvincesToCountries();
 	verifyReligionsAndCultures();
+	distributeHRESubtitles(theConfiguration);
 
 	LOG(LogLevel::Info) << "---> The Dump <---";
 	modFile.outname = theConfiguration.getOutputName();
 	output(versionParser, theConfiguration, sourceWorld.getConversionDate());
 	LOG(LogLevel::Info) << "*** Farewell EU4, granting you independence. ***";
 }
+
+void EU4::World::distributeHRESubtitles(const Configuration& theConfiguration)
+{
+	if (theConfiguration.getHRE() == ConfigurationDetails::I_AM_HRE::NONE) return;
+	LOG(LogLevel::Info) << "-> Locating Emperor";
+	// Emperor may or may not be set.
+	for (const auto& country: countries)
+		if (country.second->isHREEmperor()) {
+			emperorTag = country.first;
+			break;
+		}
+	if (!emperorTag.empty()) {
+		Log(LogLevel::Info) << "<> Emperor is " << emperorTag;
+		setFreeCities();
+		setElectors();
+	} else
+		Log(LogLevel::Info) << "<> Emperor could not be found, no HRE mechanics.";
+}
+
+void EU4::World::setElectors()
+{
+	std::vector<std::pair<int, std::shared_ptr<Country>>> bishops;	// piety-tag
+	std::vector<std::pair<int, std::shared_ptr<Country>>> duchies; // dev-tag
+	std::vector<std::pair<int, std::shared_ptr<Country>>> republics; // dev-tag
+	std::vector<std::shared_ptr<Country>> electors;
+	
+	// We need to be careful about papacy and orthodox holders
+	for (const auto& country: countries) {
+		if (country.second->isinHRE()) {
+			const auto& holder = country.second->getTitle().second->getHolder();
+			if (country.first == "PAP" || holder.second->getPrimaryTitle().first == "k_orthodox") {
+				// override to always be elector
+				bishops.emplace_back(std::pair(99999, country.second));
+				continue;
+			}
+			// Let's shove all hre members into appropriate categories.
+			if (country.second->getGovernment() == "theocracy") {
+				bishops.emplace_back(std::pair(lround(holder.second->getPiety()), country.second));
+			} else if (country.second->getGovernment() == "monarchy") {
+				duchies.emplace_back(std::pair(country.second->getDevelopment(), country.second));
+			} else if (country.second->getGovernment() == "republic") {
+				republics.emplace_back(std::pair(country.second->getDevelopment(), country.second));
+			} // skipping tribal and similar.
+		}
+	}
+
+	std::sort(bishops.rbegin(), bishops.rend());
+	std::sort(duchies.rbegin(), duchies.rend());
+	std::sort(republics.rbegin(), republics.rend());
+
+	for (const auto& bishop: bishops) {
+		if (electors.size() >= 3) break;
+		electors.emplace_back(bishop.second);
+	}
+	for (const auto& republic: republics) {
+		if (electors.size() >= 3) break;
+		electors.emplace_back(republic.second);
+	}
+	for (const auto& duchy: duchies) {
+		if (electors.size() >= 7) break;
+		electors.emplace_back(duchy.second);
+	}
+
+	for (const auto& elector: electors) elector->setElector();	
+}
+
+void EU4::World::setFreeCities()
+{
+	// How many free cities do we already have?
+	auto freeCityNum = 0;
+	for (const auto& country: countries) {
+		if (country.second->isinHRE() && country.second->getGovernment() == "republic" && country.second->getProvinces().size() == 1 && freeCityNum < 8) {
+			country.second->overrideReforms("free_city");
+			++freeCityNum;
+		}
+	}
+	// Can we turn some minors into free cities?
+	if (freeCityNum < 8) {
+		for (const auto& country: countries) {
+			if (country.second->isinHRE() && country.second->getGovernment() != "republic" && !country.second->isHREEmperor() &&
+				 country.second->getGovernmentReforms().empty() && country.second->getProvinces().size() == 1 && freeCityNum < 8) {
+				// GovernmentReforms being empty ensures we're not converting special governments and targeted tags into free cities.
+				country.second->overrideReforms("free_city");
+				country.second->setGovernment("republic");
+				++freeCityNum;
+			}
+		}
+	}
+}
+
 
 void EU4::World::linkProvincesToCountries()
 {
@@ -160,20 +251,16 @@ void EU4::World::importCK2Provinces(const CK2::World& sourceWorld)
 	LOG(LogLevel::Info) << "-> Importing CK2 Provinces";
 	auto counter = 0;
 	// CK2 provinces map to a subset of eu4 provinces. We'll only rewrite those we are responsible for.
-	for (const auto& province: sourceWorld.getProvinces()) {
-		// every ck2 province can map to a number of eu4 ones.
-		const auto& eu4Provinces = provinceMapper.getEU4ProvinceNumbers(province.first);
-		for (const auto& eu4Province: eu4Provinces) {
-			// Locating appropriate existing province, and this should never fail
-			const auto& provinceItr = provinces.find(eu4Province);
-			if (provinceItr != provinces.end()) {
-				provinceItr->second->initializeFromCK2(province.second, cultureMapper, religionMapper);
-				counter++;
-			} else {
-				// Otherwise make a fuss!
-				Log(LogLevel::Warning) << "CK2 province " << province.first << " mapped to EU4 " << eu4Province << " has no definition loaded!";
-			}
-		}
+	for (const auto& province: provinces) {
+		const auto& ck2Provinces = provinceMapper.getCK2ProvinceNumbers(province.first);
+		// Provinces we're not affecting will not be in this list.
+		if (ck2Provinces.empty()) continue;
+		// Next, we find what province to use as it's initializing source.
+		const auto& sourceProvince = determineProvinceSource(ck2Provinces, sourceWorld);
+		if (!sourceProvince) continue; // bailing for mismaps.
+		// And finally, initialize it.
+		province.second->initializeFromCK2(sourceProvince->second, cultureMapper, religionMapper);
+		counter++;
 	}
 	LOG(LogLevel::Info) << ">> " << sourceWorld.getProvinces().size() << " CK2 provinces imported into " << counter << " EU4 provinces.";
 }
@@ -215,4 +302,52 @@ void EU4::World::importVanillaCountries(const std::string& eu4Path)
 		countries[tag]->loadHistory(eu4Path + "/history/countries/" + fileName);
 	}
 	LOG(LogLevel::Info) << ">> Loaded " << fileNames.size() << " history files.";
+}
+
+std::optional<std::pair<int, std::shared_ptr<CK2::Province>>> EU4::World::determineProvinceSource(const std::vector<int>& ck2ProvinceNumbers,
+	 const CK2::World& sourceWorld) const
+{
+	// determine ownership by province development.
+	std::map<std::string, std::vector<std::shared_ptr<CK2::Province>>> theClaims; // title, offered province sources
+	std::map<std::string, int> theShares;														// title, development
+	std::string winner;
+	auto maxDev = 0;
+
+	for (auto ck2ProvinceID: ck2ProvinceNumbers) {
+		const auto& ck2province = sourceWorld.getProvinces().find(ck2ProvinceID);
+		if (ck2province == sourceWorld.getProvinces().end()) continue; // Broken mapping?
+		auto ownerTitle = ck2province->second->getTitle().first;
+		if (ownerTitle.empty()) continue; // Final sanity check.
+		theClaims[ownerTitle].push_back(ck2province->second);
+		theShares[ownerTitle] = lround(ck2province->second->getBuildingWeight());
+
+		// While at it, is this province especially important? Enough so we'd sidestep regular rules?
+		if (ck2province->second->getTitle().second->isHREEmperor()) {
+			const auto& emperor = ck2province->second->getTitle().second->getHolder().second;
+			if (emperor->getCapitalProvince().first == ck2province->first) {
+				// This is the empire capital, don't assign it away.
+				winner = ck2province->second->getTitle().first;
+				maxDev = 999;
+			}
+		}
+	}
+	// Let's see who the lucky winner is.
+	for (const auto& share: theShares) {
+		if (share.second > maxDev) {
+			winner = share.first;
+			maxDev = share.second;
+		}
+	}
+	if (winner.empty()) return std::nullopt;
+
+	// Now that we have a winning title, let's find its largest province to use as a source.
+	maxDev = 0;
+	std::pair<int, std::shared_ptr<CK2::Province>> toReturn;
+	for (const auto& province: theClaims[winner]) {
+		if (province->getBuildingWeight() > maxDev) {
+			toReturn.first = province->getID();
+			toReturn.second = province;
+		}
+	}
+	return toReturn;
 }

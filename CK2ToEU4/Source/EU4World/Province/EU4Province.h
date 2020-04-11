@@ -33,6 +33,7 @@ class Province
 	[[nodiscard]] const auto& getOwner() const { return details.owner; }
 	[[nodiscard]] const auto& getReligion() const { return details.religion; }
 	[[nodiscard]] const auto& getCulture() const { return details.culture; }
+	[[nodiscard]] auto getDev() const { return details.baseTax + details.baseProduction + details.baseManpower; }
 
 	void registerTagCountry(const std::pair<std::string, std::shared_ptr<Country>>& theCountry) { tagCountry = theCountry; }
 

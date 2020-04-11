@@ -23,6 +23,7 @@ void EU4::World::output(const mappers::VersionParser& versionParser, const Confi
 	fs::create_directory("output/" + theConfiguration.getOutputName() + "/history/");
 	fs::create_directory("output/" + theConfiguration.getOutputName() + "/history/countries/");
 	fs::create_directory("output/" + theConfiguration.getOutputName() + "/history/provinces/");
+	fs::create_directory("output/" + theConfiguration.getOutputName() + "/history/diplomacy/");
 	fs::create_directory("output/" + theConfiguration.getOutputName() + "/common/");
 	fs::create_directory("output/" + theConfiguration.getOutputName() + "/common/countries/");
 	fs::create_directory("output/" + theConfiguration.getOutputName() + "/common/country_tags/");
@@ -48,6 +49,9 @@ void EU4::World::output(const mappers::VersionParser& versionParser, const Confi
 
 	LOG(LogLevel::Info) << "<- Writing Localization";
 	outputLocalization(theConfiguration);
+
+	LOG(LogLevel::Info) << "<- Writing Emperor";
+	outputEmperor(theConfiguration, conversionDate);
 
 	LOG(LogLevel::Info) << "<- Moving Flags";
 	outputFlags(theConfiguration);
@@ -202,4 +206,14 @@ void EU4::World::outputCommonCountries(const Configuration& theConfiguration) co
 		country.second->outputCommons(output);
 		output.close();
 	}
+}
+
+void EU4::World::outputEmperor(const Configuration& theConfiguration, date conversionDate) const
+{
+	std::ofstream output("output/" + theConfiguration.getOutputName() + "/history/diplomacy/hre.txt");
+	if (!output.is_open()) throw std::runtime_error("Could not create hre diplomacy file: output/" + theConfiguration.getOutputName() + "/history/diplomacy/hre.txt!");
+	if (emperorTag.empty())
+		output << conversionDate << " = { emperor = --- }\n";
+	else
+		output << conversionDate << " = { emperor = " << emperorTag << " }\n";
 }

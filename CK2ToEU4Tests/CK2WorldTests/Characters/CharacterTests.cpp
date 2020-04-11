@@ -41,6 +41,31 @@ TEST(CK2World_CharacterTests, cultureDefaultsToBlank)
 	ASSERT_TRUE(theCharacter.getCulture().empty());
 }
 
+TEST(CK2World_CharacterTests, pietyCanBeSet)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "\tpiety=17.43";
+	input << "}";
+
+	const CK2::Character theCharacter(input, 42);
+
+	ASSERT_NEAR(theCharacter.getPiety(), 17.43, 0.01);
+}
+
+TEST(CK2World_CharacterTests, PietyDefaultsToZero)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "}";
+
+	const CK2::Character theCharacter(input, 42);
+
+	ASSERT_EQ(theCharacter.getPiety(), 0);
+}
+
 TEST(CK2World_CharacterTests, religionCanBeSet)
 {
 	std::stringstream input;
