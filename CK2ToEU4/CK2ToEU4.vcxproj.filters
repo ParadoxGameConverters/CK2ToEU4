@@ -183,6 +183,12 @@
     <ClCompile Include="Source\Mappers\LocalizationMapper\LocalizationMapper.cpp">
       <Filter>Mappers\LocalizationMapper</Filter>
     </ClCompile>
+    <ClCompile Include="Source\EU4World\Diplomacy\Diplomacy.cpp">
+      <Filter>EU4World\Diplomacy</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\EU4World\Output\outAgreement.cpp">
+      <Filter>EU4World\Output</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CK2ToEU4Converter.h" />
@@ -360,6 +366,15 @@
     <ClInclude Include="Source\Mappers\LocalizationMapper\LocalizationMapper.h">
       <Filter>Mappers\LocalizationMapper</Filter>
     </ClInclude>
+    <ClInclude Include="Source\EU4World\Diplomacy\Agreement.h">
+      <Filter>EU4World\Diplomacy</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\EU4World\Diplomacy\Diplomacy.h">
+      <Filter>EU4World\Diplomacy</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\EU4World\Output\outAgreement.h">
+      <Filter>EU4World\Output</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4World">
@@ -433,6 +448,9 @@
     </Filter>
     <Filter Include="Mappers\LocalizationMapper">
       <UniqueIdentifier>{77a57f73-520e-49a6-ab76-990758d84b75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EU4World\Diplomacy">
+      <UniqueIdentifier>{d04530b7-c78a-431d-8741-62cfcdd9c3ad}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

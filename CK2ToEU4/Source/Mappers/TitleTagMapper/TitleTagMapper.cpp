@@ -28,6 +28,7 @@ void mappers::TitleTagMapper::registerKeys()
 void mappers::TitleTagMapper::registerTitle(const std::string& ck2title, const std::string& eu4tag)
 {
 	registeredTitleTags.insert(std::pair(ck2title, eu4tag));
+	usedTags.insert(eu4tag);
 }
 
 std::optional<std::string> mappers::TitleTagMapper::getTagForTitle(const std::string& ck2Title)
@@ -55,6 +56,7 @@ std::optional<std::string> mappers::TitleTagMapper::getTagForTitle(const std::st
 		for (const auto& mapping: theMappings) {
 			const auto& match = mapping.capitalMatch(eu4Capital);
 			if (match) {
+				if (usedTags.count(*match)) continue;
 				registerTitle(ck2Title, *match);
 				return *match;
 			}
@@ -65,6 +67,7 @@ std::optional<std::string> mappers::TitleTagMapper::getTagForTitle(const std::st
 	for (const auto& mapping: theMappings) {
 		const auto& match = mapping.titleMatch(ck2Title);
 		if (match) {
+			if (usedTags.count(*match)) continue;
 			registerTitle(ck2Title, *match);
 			return *match;
 		}
@@ -75,6 +78,7 @@ std::optional<std::string> mappers::TitleTagMapper::getTagForTitle(const std::st
 		for (const auto& mapping: theMappings) {
 			const auto& match = mapping.titleMatch(ck2BaseTitle);
 			if (match) {
+				if (usedTags.count(*match)) continue;
 				registerTitle(ck2Title, *match);
 				return *match;
 			}

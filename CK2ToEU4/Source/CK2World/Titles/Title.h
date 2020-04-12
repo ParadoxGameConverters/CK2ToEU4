@@ -25,6 +25,8 @@ class Title: commonItems::parser
 	[[nodiscard]] const auto& getDeJureLiege() const { return deJureLiege; }
 	[[nodiscard]] const auto& getHolder() const { return holder; }
 	[[nodiscard]] const auto& getVassals() const { return vassals; }
+	[[nodiscard]] const auto& getGeneratedVassals() const { return generatedVassals; }
+	[[nodiscard]] const auto& getGeneratedLiege() const { return generatedLiege; }
 	[[nodiscard]] const auto& getDeJureVassals() const { return deJureVassals; }
 	[[nodiscard]] const auto& getProvinces() const { return provinces; }
 	[[nodiscard]] const auto& getBaseTitle() const { return baseTitle; }
@@ -39,6 +41,7 @@ class Title: commonItems::parser
 	void setHolder(std::shared_ptr<Character> theHolder) { holder.second = std::move(theHolder); }
 	void setLiegePrimaryTitle(std::shared_ptr<Title> theTitle) const { liege.second->setTitle(std::move(theTitle)); }
 	void setBaseTitleTitle(std::shared_ptr<Title> theTitle) const { baseTitle.second->setTitle(std::move(theTitle)); }
+	void registerGeneratedLiege(const std::pair<std::string, std::shared_ptr<Title>>& liege) { generatedLiege = liege; }
 	void setBaseTitleBaseTitle(std::shared_ptr<Title> theTitle) const { baseTitle.second->setBaseTitle(std::move(theTitle)); }
 	void setLiegeBaseTitle(std::shared_ptr<Title> theBaseTitle) const { liege.second->setBaseTitle(std::move(theBaseTitle)); }
 	void setDJLiegePrimaryTitle(std::shared_ptr<Title> theTitle) const { deJureLiege.second->setTitle(std::move(theTitle)); }
@@ -48,6 +51,7 @@ class Title: commonItems::parser
 	void overrideLiege() { liege = deJureLiege; }
 	void overrideLiege(const std::pair<std::string, std::shared_ptr<Liege>>& theLiege) { liege = theLiege; }
 	void registerVassal(const std::pair<std::string, std::shared_ptr<Title>>& theVassal) { vassals.insert(theVassal); }
+	void registerGeneratedVassal(const std::pair<std::string, std::shared_ptr<Title>>& theVassal);
 	void registerDeJureVassal(const std::pair<std::string, std::shared_ptr<Title>>& theVassal) { deJureVassals.insert(theVassal); }
 	void registerProvince(const std::pair<int, std::shared_ptr<Province>>& theProvince) { provinces.insert(theProvince); }
 	void registerEU4Tag(const std::pair<std::string, std::shared_ptr<EU4::Country>>& theCountry) { tagCountry = theCountry; }
@@ -81,6 +85,9 @@ class Title: commonItems::parser
 	std::pair<std::string, std::shared_ptr<Liege>> baseTitle;
 	commonItems::Color color;
 	std::pair<std::string, std::shared_ptr<EU4::Country>> tagCountry;
+
+	std::map<std::string, std::shared_ptr<Title>> generatedVassals; // Vassals we split off deliberately.
+	std::pair<std::string, std::shared_ptr<Title>> generatedLiege; // Liege we set manually.
 };
 } // namespace CK2
 

@@ -40,6 +40,7 @@ class Character: commonItems::parser
 	[[nodiscard]] const auto& getCapitalProvince() const { return capitalProvince; }
 	[[nodiscard]] const auto& getGovernment() const { return government; }
 	[[nodiscard]] auto isFemale() const { return female; }
+	[[nodiscard]] auto getPiety() const { return piety; }
 
 	[[nodiscard]] auto getID() const { return charID; }
 	[[nodiscard]] const auto& getLiege() const { return liege; }
@@ -69,6 +70,7 @@ class Character: commonItems::parser
 	std::pair<int, std::shared_ptr<Province>> capitalProvince;
 	std::string government;
 	bool female = false;
+	double piety = 0;
 };
 } // namespace CK2
 

@@ -203,7 +203,9 @@
     <ClCompile Include="Source\Configuration\ConfigurationDetails.cpp" />
     <ClCompile Include="Source\EU4World\Country\Country.cpp" />
     <ClCompile Include="Source\EU4World\Country\CountryDetails.cpp" />
+    <ClCompile Include="Source\EU4World\Diplomacy\Diplomacy.cpp" />
     <ClCompile Include="Source\EU4World\EU4World.cpp" />
+    <ClCompile Include="Source\EU4World\Output\outAgreement.cpp" />
     <ClCompile Include="Source\EU4World\Output\outCountry.cpp" />
     <ClCompile Include="Source\EU4World\Output\outModFile.cpp" />
     <ClCompile Include="Source\EU4World\Output\outProvince.cpp" />
@@ -266,7 +268,10 @@
     <ClInclude Include="Source\Configuration\ConfigurationDetails.h" />
     <ClInclude Include="Source\EU4World\Country\Country.h" />
     <ClInclude Include="Source\EU4World\Country\CountryDetails.h" />
+    <ClInclude Include="Source\EU4World\Diplomacy\Agreement.h" />
+    <ClInclude Include="Source\EU4World\Diplomacy\Diplomacy.h" />
     <ClInclude Include="Source\EU4World\EU4World.h" />
+    <ClInclude Include="Source\EU4World\Output\outAgreement.h" />
     <ClInclude Include="Source\EU4World\Output\outProvince.h" />
     <ClInclude Include="Source\EU4World\Output\outCountry.h" />
     <ClInclude Include="Source\EU4World\Output\outModFile.h" />

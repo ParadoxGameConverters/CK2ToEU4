@@ -9,8 +9,6 @@ EU4::ProvinceDetails::ProvinceDetails(const std::string& filePath)
 
 	if (Utils::DoesFileExist(filePath)) {
 		parseFile(filePath);
-	} else {
-		LOG(LogLevel::Debug) << "Could not find file" << filePath << " - skipping";
 	}
 	clearRegisteredKeywords();
 }
