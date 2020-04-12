@@ -184,11 +184,61 @@ TEST(CK2World_TitleTests, majorRevoltCanBeSet)
 	input << "\tmajor_revolt=yes\n";
 	input << "}";
 
-	CK2::Title theTitle(input, "c_test");
-	theTitle.setInHRE();
+	const CK2::Title theTitle(input, "c_test");
 
 	ASSERT_TRUE(theTitle.isMajorRevolt());
 }
+
+TEST(CK2World_TitleTests, genderDefaultsToBlank)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "}";
+
+	const CK2::Title theTitle(input, "c_test");
+
+	ASSERT_TRUE(theTitle.getGender().empty());
+}
+
+TEST(CK2World_TitleTests, genderCanBeSet)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "\tgender=agnatic\n";
+	input << "}";
+
+	CK2::Title theTitle(input, "c_test");
+
+	ASSERT_EQ(theTitle.getGender(), "agnatic");
+}
+
+TEST(CK2World_TitleTests, successionDefaultsToBlank)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "}";
+
+	const CK2::Title theTitle(input, "c_test");
+
+	ASSERT_TRUE(theTitle.getSuccessionLaw().empty());
+}
+
+TEST(CK2World_TitleTests, successionCanBeSet)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "\tsuccession=primogeniture\n";
+	input << "}";
+
+	const CK2::Title theTitle(input, "c_test");
+
+	ASSERT_EQ(theTitle.getSuccessionLaw(), "primogeniture");
+}
+
 
 TEST(CK2World_TitleTests, liegeDefaultsToNull)
 {

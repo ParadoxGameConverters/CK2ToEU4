@@ -23,6 +23,8 @@ typedef struct {
 	std::string culture;
 	bool isSet = false;
 	std::string originCountry;
+	int claim = 0;
+	bool regency = false;
 } Monarch;
 	
 class CountryDetails: commonItems::parser

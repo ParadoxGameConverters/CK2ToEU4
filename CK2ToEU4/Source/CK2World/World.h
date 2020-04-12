@@ -37,6 +37,11 @@ class World: commonItems::parser
 	void filterProvincelessTitles();
 	void splitVassals();
 	void gatherCourtierNames();
+	void determineHeirs();
+	void resolvePrimogeniture(const std::string& gender, const std::pair<int, std::shared_ptr<Character>>& holder) const;
+	void resolveUltimogeniture(const std::string& gender, const std::pair<int, std::shared_ptr<Character>>& holder) const;
+	void resolveTanistry(const std::string& gender, const std::pair<int, std::shared_ptr<Character>>& holder) const;
+	void resolveTurkish(const std::pair<int, std::shared_ptr<Character>>& holder) const;
 
 	date endDate = date("1444.11.11");
 	date startDate = date("1.1.1");

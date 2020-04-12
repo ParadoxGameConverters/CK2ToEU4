@@ -47,6 +47,11 @@ std::ostream& EU4::operator<<(std::ostream& output, const Country& country)
 			output << country.details.queen;
 			output << "\t}\n";
 		}
+		if (country.details.heir.isSet) {
+			output << "\their = {\n";
+			output << country.details.heir;
+			output << "\t}\n";
+		}
 		output << "}\n";
 	}
 
@@ -120,8 +125,10 @@ std::ostream& EU4::operator<<(std::ostream& output, const Monarch& monarch)
 	output << "\t\tmil = " << monarch.mil << "\n";
 	if (!monarch.originCountry.empty()) output << "\t\tcountry_of_origin = " << monarch.originCountry << "\n";
 	output << "\t\tbirth_date = " << monarch.birthDate << "\n";
+	if (monarch.regency) output << "\t\tregent = yes\n";
 	if (monarch.deathDate != date("1.1.1")) output << "\t\tdeath_date = " << monarch.deathDate << "\n";
 	if (monarch.female) output << "\t\tfemale = yes\n";
+	if (monarch.claim) output << "\t\tclaim = " << monarch.claim << "\n";
 	output << "\t\treligion = " << monarch.religion << "\n";
 	output << "\t\tculture = " << monarch.culture << "\n";
 	return output;

@@ -31,6 +31,8 @@ class Title: commonItems::parser
 	[[nodiscard]] const auto& getProvinces() const { return provinces; }
 	[[nodiscard]] const auto& getBaseTitle() const { return baseTitle; }
 	[[nodiscard]] const auto& getColor() const { return color; }
+	[[nodiscard]] const auto& getGender() const { return gender; }
+	[[nodiscard]] const auto& getSuccessionLaw() const { return successionLaw; }
 	[[nodiscard]] const auto& getEU4Tag() const { return tagCountry; }
 	[[nodiscard]] const auto& getPreviousHolders() const { return previousHolders; }
 	[[nodiscard]] auto isInHRE() const { return inHRE; }
@@ -82,6 +84,8 @@ class Title: commonItems::parser
 	bool inHRE = false;
 	bool HREEmperor = false;
 	bool majorRevolt = false;
+	std::string gender; // for succession
+	std::string successionLaw;
 	std::map<int, std::shared_ptr<Province>> provinces;
 	std::map<std::string, std::shared_ptr<Title>> vassals;
 	std::map<std::string, std::shared_ptr<Title>> deJureVassals;

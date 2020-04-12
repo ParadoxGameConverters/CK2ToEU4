@@ -56,6 +56,9 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 		Log(LogLevel::Warning) << "No government match for " << actualHolder->getGovernment() << " for title: " << title.first << ", defaulting to monarchy.";
 		details.government = "monarchy";
 	}
+	if (title.second->getSuccessionLaw() == "feudal_elective" && tag != "ROM" && tag != "HRE" && tag != "BYZ") {
+		details.reforms = {"elective_monarchy"};
+	}
 	if (title.first.find("e_") == 0)
 		details.governmentRank = 3;
 	else if (title.first.find("k_") == 0)
@@ -195,7 +198,7 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 			}
 		}
 	}
-	 
+
 	// If we imported leader_names, keeping them, otherwise blank.
 	// If we imported ship_names, keeping them, otherwise blank.
 	// If we imported army_names, keeping them, otherwise blank.
@@ -344,6 +347,49 @@ void EU4::Country::initializeRulers(const mappers::ReligionMapper& religionMappe
 			details.queen.isSet = true;
 		}
 	}
+
+	if (holder->getHeir().first) {
+		const auto& heir = holder->getHeir();
+		details.heir.name = heir.second->getName();
+		if (heir.second->getDynasty().first) details.heir.dynasty = heir.second->getDynasty().second->getName();
+		details.heir.adm = std::min((heir.second->getSkills().stewardship + heir.second->getSkills().learning) / 3, 6);
+		details.heir.dip = std::min((heir.second->getSkills().diplomacy + heir.second->getSkills().intrigue) / 3, 6);
+		details.heir.mil = std::min((heir.second->getSkills().martial + heir.second->getSkills().learning) / 3, 6);
+		details.heir.birthDate = heir.second->getBirthDate();
+		details.heir.female = heir.second->isFemale();
+		if (heir.second->getReligion().empty())
+			details.heir.religion = details.monarch.religion; // taking a shortcut.
+		else {
+			const auto& religionMatch = religionMapper.getEu4ReligionForCk2Religion(heir.second->getReligion());
+			if (religionMatch) details.heir.religion = *religionMatch;
+		}
+		if (heir.second->getCulture().empty())
+			details.heir.culture = details.monarch.culture; // taking a shortcut.
+		else {
+			const auto& cultureMatch = cultureMapper.cultureMatch(heir.second->getCulture(), details.heir.religion, 0, tag);
+			if (cultureMatch) details.heir.culture = *cultureMatch;
+		}
+		details.heir.deathDate = details.heir.birthDate;
+		details.heir.deathDate.subtractYears(-65);
+		details.heir.claim = 89; // good enough?
+		details.heir.isSet = true;
+	}
+
+	if (conversionDate.diffInYears(details.monarch.birthDate) < 16) {
+		details.heir = details.monarch;
+		details.heir.deathDate = details.heir.birthDate;
+		details.heir.deathDate.subtractYears(-65);
+		details.heir.claim = 89; // good enough?
+		details.heir.adm = std::min(details.heir.adm + 2, 6);
+		details.heir.mil = std::min(details.heir.mil + 2, 6);
+		details.heir.dip = std::min(details.heir.dip + 2, 6);
+
+		details.monarch.name = "(Regency Council)";
+		details.monarch.regency = true;
+		details.monarch.birthDate = date("1.1.1");
+		details.monarch.female = false;
+		details.monarch.dynasty.clear();
+	}
 }
 
 void EU4::Country::setPrimaryCulture(const std::string& culture)
@@ -351,12 +397,14 @@ void EU4::Country::setPrimaryCulture(const std::string& culture)
 	details.primaryCulture = culture;
 	if (details.monarch.isSet && details.monarch.culture.empty()) details.monarch.culture = culture;
 	if (details.queen.isSet && details.queen.culture.empty()) details.queen.culture = culture;
+	if (details.heir.isSet && details.heir.culture.empty()) details.heir.culture = culture;
 }
 void EU4::Country::setReligion(const std::string& religion)
 {
 	details.religion = religion;
 	if (details.monarch.isSet && details.monarch.religion.empty()) details.monarch.religion = religion;
 	if (details.queen.isSet && details.queen.religion.empty()) details.queen.religion = religion;
+	if (details.heir.isSet && details.heir.religion.empty()) details.heir.religion = religion;
 }
 
 int EU4::Country::getDevelopment() const

@@ -48,9 +48,21 @@ void CK2::Character::registerKeys()
 		const commonItems::singleInt liegeInt(theStream);
 		liege = std::pair(liegeInt.getInt(), nullptr);
 	});
+	registerKeyword("mot", [this](const std::string& unused, std::istream& theStream) {
+		const commonItems::singleInt motInt(theStream);
+		mother = std::pair(motInt.getInt(), nullptr);
+	});
+	registerKeyword("fat", [this](const std::string& unused, std::istream& theStream) {
+		const commonItems::singleInt fatInt(theStream);
+		father = std::pair(fatInt.getInt(), nullptr);
+	});
 	registerKeyword("piety", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleDouble pieryDbl(theStream);
 		piety = pieryDbl.getDouble();
+	});
+	registerKeyword("prs", [this](const std::string& unused, std::istream& theStream) {
+		const commonItems::singleDouble prsDbl(theStream);
+		prestige = prsDbl.getDouble();
 	});
 	registerKeyword("host", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleInt hostInt(theStream);
