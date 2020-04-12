@@ -26,7 +26,7 @@ class Province: commonItems::parser
 	void discardPrimarySettlement() { primarySettlement.first.clear(); }
 	void setPrimarySettlement(std::shared_ptr<Barony> theBarony) { primarySettlement.second = std::move(theBarony); }
 	void loadHoldingTitle(const std::pair<std::string, std::shared_ptr<Title>>& theTitle) { title = theTitle; }
-	
+
   private:
 	void registerKeys();
 

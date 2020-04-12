@@ -56,6 +56,9 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 		Log(LogLevel::Warning) << "No government match for " << actualHolder->getGovernment() << " for title: " << title.first << ", defaulting to monarchy.";
 		details.government = "monarchy";
 	}
+	if (title.second->getSuccessionLaw() == "feudal_elective" && tag != "ROM" && tag != "HRE" && tag != "BYZ") {
+		details.reforms = {"elective_monarchy"};
+	}
 	if (title.first.find("e_") == 0)
 		details.governmentRank = 3;
 	else if (title.first.find("k_") == 0)
@@ -99,14 +102,7 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	}
 	if (!details.primaryCulture.empty()) {
 		const auto& techMatch = cultureMapper.getTechGroup(details.primaryCulture);
-		if (techMatch)
-			details.technologyGroup = *techMatch;
-		else {
-			// disabled during testing
-			// Log(LogLevel::Warning) << tag << ": No tech group match for: " << details.primaryCulture << "! Substituting western!";
-			// details.technologyGroup = "western";
-			details.technologyGroup = "high_american";
-		}
+		if (techMatch) details.technologyGroup = *techMatch;
 	} // We will set it later if primaryCulture is unavailable at this stage.
 	if (title.first.find("c_") == 0)
 		details.fixedCapital = true;
@@ -142,6 +138,7 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	// ditto for secondary_religion and harmonized religions.
 	details.secondaryReligion.clear();
 	details.harmonizedReligions.clear();
+	details.historicalScore = 0; // Not sure about this.
 
 	// --------------  Common section
 	if (!details.primaryCulture.empty()) {
@@ -153,14 +150,16 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 			details.graphicalCulture = "westerngfx";
 		}
 	} // We will set it later if primaryCulture is unavailable at this stage.
-	if (title.second->getColor())
-		details.color = title.second->getColor();
-	else {
-		const auto& colorMatch = colorScraper.getColorForTitle(title.first);
-		if (colorMatch)
-			details.color = *colorMatch;
-		else
-			Log(LogLevel::Warning) << tag << ": No color defined for title " << title.first << "!";
+	if (!details.color) {
+		if (title.second->getColor())
+			details.color = title.second->getColor();
+		else {
+			const auto& colorMatch = colorScraper.getColorForTitle(title.first);
+			if (colorMatch)
+				details.color = *colorMatch;
+			else
+				Log(LogLevel::Warning) << tag << ": No color defined for title " << title.first << "!";
+		}
 	}
 	// If we imported some revolutionary colors we'll keep them, otherwise, let's generate some.
 	if (!details.revolutionaryColor) {
@@ -171,7 +170,35 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	details.randomChance = false; // random chance related to RNW, wo it has no effect here.
 
 	// If we imported historical units, keeping them, otherwise blank.
-	// monarch_names will need some doing
+
+	details.monarchNames.clear();
+	if (!title.second->getPreviousHolders().empty()) {
+		for (const auto& previousHolder: title.second->getPreviousHolders()) {
+			const auto& blockItr = details.monarchNames.find(previousHolder.second->getName());
+			if (blockItr != details.monarchNames.end())
+				blockItr->second.first++;
+			else {
+				auto female = previousHolder.second->isFemale();
+				auto chance = 10;
+				if (female) chance = -1;
+				std::pair<int, int> newBlock = std::pair(1, chance);
+				details.monarchNames.insert(std::pair(previousHolder.second->getName(), newBlock));
+			}
+		}
+	}
+	if (!title.second->getHolder().second->getCourtierNames().empty()) {
+		for (const auto& courtier: title.second->getHolder().second->getCourtierNames()) {
+			const auto& blockItr = details.monarchNames.find(courtier.first);
+			if (blockItr == details.monarchNames.end()) {
+				auto female = !courtier.second;
+				auto chance = 0;
+				if (female) chance = -1;
+				std::pair<int, int> newBlock = std::pair(0, chance);
+				details.monarchNames.insert(std::pair(courtier.first, newBlock));
+			}
+		}
+	}
+
 	// If we imported leader_names, keeping them, otherwise blank.
 	// If we imported ship_names, keeping them, otherwise blank.
 	// If we imported army_names, keeping them, otherwise blank.
@@ -247,6 +274,26 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 			}
 		}
 	}
+	if (!adjSet) {
+		// Maybe c_something?
+		auto alternateAdj = title.second->getName() + "_adj";
+		alternateAdj = "c_" + alternateAdj.substr(2, alternateAdj.length());
+		adjLocalizationMatch = localizationMapper.getLocBlockForKey(alternateAdj);
+		if (adjLocalizationMatch) {
+			localizations.insert(std::pair(tag, *adjLocalizationMatch));
+			adjSet = true;
+		}
+	}
+	if (!adjSet) {
+		// Or d_something?
+		auto alternateAdj = title.second->getName() + "_adj";
+		alternateAdj = "d_" + alternateAdj.substr(2, alternateAdj.length());
+		adjLocalizationMatch = localizationMapper.getLocBlockForKey(alternateAdj);
+		if (adjLocalizationMatch) {
+			localizations.insert(std::pair(tag, *adjLocalizationMatch));
+			adjSet = true;
+		}
+	}
 	if (!adjSet) Log(LogLevel::Warning) << tag << " help with localization for adjective! " << title.first << "_adj?";
 
 	// Rulers
@@ -300,6 +347,49 @@ void EU4::Country::initializeRulers(const mappers::ReligionMapper& religionMappe
 			details.queen.isSet = true;
 		}
 	}
+
+	if (holder->getHeir().first) {
+		const auto& heir = holder->getHeir();
+		details.heir.name = heir.second->getName();
+		if (heir.second->getDynasty().first) details.heir.dynasty = heir.second->getDynasty().second->getName();
+		details.heir.adm = std::min((heir.second->getSkills().stewardship + heir.second->getSkills().learning) / 3, 6);
+		details.heir.dip = std::min((heir.second->getSkills().diplomacy + heir.second->getSkills().intrigue) / 3, 6);
+		details.heir.mil = std::min((heir.second->getSkills().martial + heir.second->getSkills().learning) / 3, 6);
+		details.heir.birthDate = heir.second->getBirthDate();
+		details.heir.female = heir.second->isFemale();
+		if (heir.second->getReligion().empty())
+			details.heir.religion = details.monarch.religion; // taking a shortcut.
+		else {
+			const auto& religionMatch = religionMapper.getEu4ReligionForCk2Religion(heir.second->getReligion());
+			if (religionMatch) details.heir.religion = *religionMatch;
+		}
+		if (heir.second->getCulture().empty())
+			details.heir.culture = details.monarch.culture; // taking a shortcut.
+		else {
+			const auto& cultureMatch = cultureMapper.cultureMatch(heir.second->getCulture(), details.heir.religion, 0, tag);
+			if (cultureMatch) details.heir.culture = *cultureMatch;
+		}
+		details.heir.deathDate = details.heir.birthDate;
+		details.heir.deathDate.subtractYears(-65);
+		details.heir.claim = 89; // good enough?
+		details.heir.isSet = true;
+	}
+
+	if (conversionDate.diffInYears(details.monarch.birthDate) < 16) {
+		details.heir = details.monarch;
+		details.heir.deathDate = details.heir.birthDate;
+		details.heir.deathDate.subtractYears(-65);
+		details.heir.claim = 89; // good enough?
+		details.heir.adm = std::min(details.heir.adm + 2, 6);
+		details.heir.mil = std::min(details.heir.mil + 2, 6);
+		details.heir.dip = std::min(details.heir.dip + 2, 6);
+
+		details.monarch.name = "(Regency Council)";
+		details.monarch.regency = true;
+		details.monarch.birthDate = date("1.1.1");
+		details.monarch.female = false;
+		details.monarch.dynasty.clear();
+	}
 }
 
 void EU4::Country::setPrimaryCulture(const std::string& culture)
@@ -307,12 +397,14 @@ void EU4::Country::setPrimaryCulture(const std::string& culture)
 	details.primaryCulture = culture;
 	if (details.monarch.isSet && details.monarch.culture.empty()) details.monarch.culture = culture;
 	if (details.queen.isSet && details.queen.culture.empty()) details.queen.culture = culture;
+	if (details.heir.isSet && details.heir.culture.empty()) details.heir.culture = culture;
 }
 void EU4::Country::setReligion(const std::string& religion)
 {
 	details.religion = religion;
 	if (details.monarch.isSet && details.monarch.religion.empty()) details.monarch.religion = religion;
 	if (details.queen.isSet && details.queen.religion.empty()) details.queen.religion = religion;
+	if (details.heir.isSet && details.heir.religion.empty()) details.heir.religion = religion;
 }
 
 int EU4::Country::getDevelopment() const
@@ -320,4 +412,27 @@ int EU4::Country::getDevelopment() const
 	auto dev = 0;
 	for (const auto& province: provinces) dev += province.second->getDev();
 	return dev;
+}
+
+void EU4::Country::annexCountry(const std::pair<std::string, std::shared_ptr<Country>>& theCountry)
+{
+	// Provinces
+	const auto& targetProvinces = theCountry.second->getProvinces();
+	for (const auto& province: targetProvinces) {
+		province.second->addCore(tag); // Adding, not replacing.
+		province.second->setOwner(tag);
+		province.second->setController(tag);
+		provinces.insert(province);
+	}
+	theCountry.second->clearProvinces();
+
+	// Vassals
+	const auto& targetVassals = theCountry.second->getTitle().second->getGeneratedVassals();
+	for (const auto& vassal: targetVassals) {
+		vassal.second->registerGeneratedLiege(title);
+		title.second->registerGeneratedVassal(vassal);
+	}
+	theCountry.second->getTitle().second->clearGeneratedVassals();
+
+	// Bricking the title -> eu4tag is not necessary and not desirable. As soon as the country has 0 provinces, it's effectively dead.
 }

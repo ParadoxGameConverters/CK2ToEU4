@@ -1,5 +1,4 @@
 #include "../CK2ToEU4/Source/CK2World/Characters/Character.h"
-#include "../CK2ToEU4/Source/CK2World/Provinces/Barony.h"
 #include "../CK2ToEU4/Source/CK2World/Titles/Liege.h"
 #include "gtest/gtest.h"
 #include <sstream>
@@ -64,6 +63,31 @@ TEST(CK2World_CharacterTests, PietyDefaultsToZero)
 	const CK2::Character theCharacter(input, 42);
 
 	ASSERT_EQ(theCharacter.getPiety(), 0);
+}
+
+TEST(CK2World_CharacterTests, prestigeCanBeSet)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "\tprs=17.43";
+	input << "}";
+
+	const CK2::Character theCharacter(input, 42);
+
+	ASSERT_NEAR(theCharacter.getPrestige(), 17.43, 0.01);
+}
+
+TEST(CK2World_CharacterTests, PrestigeDefaultsToZero)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "}";
+
+	const CK2::Character theCharacter(input, 42);
+
+	ASSERT_EQ(theCharacter.getPrestige(), 0);
 }
 
 TEST(CK2World_CharacterTests, religionCanBeSet)
@@ -139,6 +163,31 @@ TEST(CK2World_CharacterTests, femaleDefaultsToFalse)
 	const CK2::Character theCharacter(input, 42);
 
 	ASSERT_FALSE(theCharacter.isFemale());
+}
+
+TEST(CK2World_CharacterTests, hostCanBeSet)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "\thost = 17\n";
+	input << "}";
+
+	const CK2::Character theCharacter(input, 42);
+
+	ASSERT_EQ(theCharacter.getHost(), 17);
+}
+
+TEST(CK2World_CharacterTests, hostDefaultsToZero)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "}";
+
+	const CK2::Character theCharacter(input, 42);
+
+	ASSERT_FALSE(theCharacter.getHost());
 }
 
 TEST(CK2World_CharacterTests, nameCanBeSet)
@@ -264,6 +313,55 @@ TEST(CK2World_CharacterTests, liegeDefaultsToZero)
 	const CK2::Character theCharacter(input, 42);
 
 	ASSERT_EQ(theCharacter.getLiege().first, 0);
+}
+
+TEST(CK2World_CharacterTests, motherCanBeSet)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "\tmot=123";
+	input << "}";
+
+	const CK2::Character theCharacter(input, 42);
+
+	ASSERT_EQ(theCharacter.getMother().first, 123);
+}
+
+TEST(CK2World_CharacterTests, motherDefaultsToZero)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "}";
+
+	const CK2::Character theCharacter(input, 42);
+
+	ASSERT_EQ(theCharacter.getMother().first, 0);
+}
+TEST(CK2World_CharacterTests, fatherCanBeSet)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "\tfat=123";
+	input << "}";
+
+	const CK2::Character theCharacter(input, 42);
+
+	ASSERT_EQ(theCharacter.getFather().first, 123);
+}
+
+TEST(CK2World_CharacterTests, fatherDefaultsToZero)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "}";
+
+	const CK2::Character theCharacter(input, 42);
+
+	ASSERT_EQ(theCharacter.getFather().first, 0);
 }
 
 TEST(CK2World_CharacterTests, spousesDefaultToEmpty)

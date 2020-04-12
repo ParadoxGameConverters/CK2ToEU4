@@ -126,6 +126,77 @@ TEST(CK2World_TitlesTests, holderLinkCannotBeSetThrowsWarning)
 	ASSERT_EQ(stringLog, "Holder ID: 34 has no definition!");
 }
 
+TEST(CK2World_TitlesTests, previousHolderLinksDefaultsToNull)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "c_title={previous={34 35}}\n";
+	input << "}";
+
+	const CK2::Titles titles(input);
+	const auto& titleItr = titles.getTitles().find("c_title");
+	const auto& previousHolder = titleItr->second->getPreviousHolders().find(35);
+
+	ASSERT_FALSE(previousHolder->second);
+}
+
+TEST(CK2World_TitlesTests, previousHolderLinksCanBeSet)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "c_title={previous={34 35}}\n";
+	input << "}";
+	CK2::Titles titles(input);
+
+	std::stringstream input2;
+	input2 << "=\n";
+	input2 << "{\n";
+	input2 << "34={bn=\"von Test\"}\n";
+	input2 << "35={bn=\"von Gangrene\"}\n";
+	input2 << "}";
+	CK2::Characters characters(input2);
+
+	titles.linkPreviousHolders(characters);
+	const auto& titleItr = titles.getTitles().find("c_title");
+	const auto& previousHolder = titleItr->second->getPreviousHolders().find(34);
+
+	ASSERT_TRUE(previousHolder->second);
+	ASSERT_EQ(previousHolder->second->getName(), "von Test");
+}
+
+TEST(CK2World_TitlesTests, previousHolderLinkCannotBeSetThrowsWarning)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "c_title={previous={34 35}}\n";
+	input << "}";
+	CK2::Titles titles(input);
+
+	std::stringstream input2;
+	input2 << "=\n";
+	input2 << "{\n";
+	input2 << "34={bn=\"von Test\"}\n";
+	input2 << "36={bn=\"von Gangrene\"}\n";
+	input2 << "}";
+	CK2::Characters characters(input2);
+
+	std::stringstream log;
+	auto stdOutBuf = std::cout.rdbuf();
+	std::cout.rdbuf(log.rdbuf());
+
+	titles.linkPreviousHolders(characters);
+
+	std::cout.rdbuf(stdOutBuf);
+	auto stringLog = log.str();
+	auto newLine = stringLog.find_first_of("\n");
+	stringLog = stringLog.substr(0, newLine);
+
+	ASSERT_EQ(stringLog, "Previous Holder ID: 35 has no definition!");
+}
+
 TEST(CK2World_TitlesTests, liegePrimaryTitleLinkDefaultsToNull)
 {
 	std::stringstream input;

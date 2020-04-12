@@ -417,3 +417,147 @@ TEST(CK2World_CharactersTests, charactersCapitalLinkCannotBeSetThrowsWarning)
 	ASSERT_EQ(stringLog, "Capital barony ID: b_test has no definition!");
 }
 
+
+TEST(CK2World_CharactersTests, charactersMotherLinkDefaultsToNull)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "42={}\n";
+	input << "\t}\n";
+	input << "}\n";
+	CK2::Characters characters(input);
+
+	const auto& characterItr = characters.getCharacters().find(42);
+	const auto& mother = characterItr->second->getMother();
+
+	ASSERT_FALSE(mother.second);
+}
+
+TEST(CK2World_CharactersTests, charactersFatherLinkDefaultsToNull)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "42={}\n";
+	input << "\t}\n";
+	input << "}\n";
+	CK2::Characters characters(input);
+
+	const auto& characterItr = characters.getCharacters().find(42);
+	const auto& father = characterItr->second->getFather();
+
+	ASSERT_FALSE(father.second);
+}
+
+TEST(CK2World_CharactersTests, charactersParentLinksCanBeSet)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "42={mot=20\nfat=21}\n";
+	input << "20={}\n";
+	input << "21={}\n";
+	input << "\t}\n";
+	input << "}\n";
+	CK2::Characters characters(input);
+
+	characters.linkMothersAndFathers();
+	const auto& characterItr = characters.getCharacters().find(42);
+	const auto& mother = characterItr->second->getMother();
+	const auto& father = characterItr->second->getFather();
+
+	ASSERT_TRUE(mother.second);
+	ASSERT_TRUE(father.second);
+	ASSERT_EQ(mother.second->getID(), 20);
+	ASSERT_EQ(father.second->getID(), 21);
+}
+
+TEST(CK2World_CharactersTests, charactersFatherLinkCannotBeSetThrowsWarning)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "42={mot=20\nfat=21}\n";
+	input << "20={}\n";
+	input << "22={}\n";
+	input << "\t}\n";
+	input << "}\n";
+	CK2::Characters characters(input);
+
+	std::stringstream log;
+	auto stdOutBuf = std::cout.rdbuf();
+	std::cout.rdbuf(log.rdbuf());
+
+	characters.linkMothersAndFathers();
+
+	std::cout.rdbuf(stdOutBuf);
+	auto stringLog = log.str();
+	auto newLine = stringLog.find_first_of("\n");
+	stringLog = stringLog.substr(0, newLine);
+
+	ASSERT_EQ(stringLog, "Father ID: 21 has no definition!");
+}
+
+TEST(CK2World_CharactersTests, charactersMotherLinkCannotBeSetThrowsWarning)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "42={mot=19\nfat=22}\n";
+	input << "20={}\n";
+	input << "22={}\n";
+	input << "\t}\n";
+	input << "}\n";
+	CK2::Characters characters(input);
+
+	std::stringstream log;
+	auto stdOutBuf = std::cout.rdbuf();
+	std::cout.rdbuf(log.rdbuf());
+
+	characters.linkMothersAndFathers();
+
+	std::cout.rdbuf(stdOutBuf);
+	auto stringLog = log.str();
+	auto newLine = stringLog.find_first_of("\n");
+	stringLog = stringLog.substr(0, newLine);
+
+	ASSERT_EQ(stringLog, "Mother ID: 19 has no definition!");
+}
+
+TEST(CK2World_CharactersTests, charactersChildrenDefaultsToEmpty)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "42={}\n";
+	input << "\t}\n";
+	input << "}\n";
+	CK2::Characters characters(input);
+
+	const auto& characterItr = characters.getCharacters().find(42);
+	const auto& children = characterItr->second->getChildren();
+
+	ASSERT_TRUE(children.empty());
+}
+
+TEST(CK2World_CharactersTests, charactersChildrenLinksCanBeSet)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "42={mot=20}\n";
+	input << "43={mot=20}\n";
+	input << "20={}\n";
+	input << "\t}\n";
+	input << "}\n";
+	CK2::Characters characters(input);
+
+	characters.linkMothersAndFathers();
+	const auto& characterItr = characters.getCharacters().find(20);
+	const auto& children = characterItr->second->getChildren();
+
+	ASSERT_EQ(children.size(), 2);
+	ASSERT_EQ(children.find(42)->second->getID(), 42);
+	ASSERT_EQ(children.find(43)->second->getID(), 43);
+}

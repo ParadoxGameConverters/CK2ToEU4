@@ -74,6 +74,37 @@ void CK2::Characters::linkLiegesAndSpouses()
 	Log(LogLevel::Info) << "<> " << counterLiege << " lieges and " << counterSpouse << " spouses linked.";
 }
 
+
+void CK2::Characters::linkMothersAndFathers()
+{
+	auto counterMother = 0;
+	auto counterFather = 0;
+	for (const auto& character: characters) {
+		if (character.second->getMother().first) {
+			const auto& characterItr = characters.find(character.second->getMother().first);
+			if (characterItr != characters.end()) {
+				character.second->setMother(std::pair(characterItr->first, characterItr->second));
+				characterItr->second->registerChild(character);
+				counterMother++;
+			} else {
+				Log(LogLevel::Warning) << "Mother ID: " << character.second->getMother().first << " has no definition!";
+			}
+		}
+
+		if (character.second->getFather().first) {
+			const auto& characterItr = characters.find(character.second->getFather().first);
+			if (characterItr != characters.end()) {
+				character.second->setFather(std::pair(characterItr->first, characterItr->second));
+				counterFather++;
+				characterItr->second->registerChild(character);
+			} else {
+				Log(LogLevel::Warning) << "Father ID: " << character.second->getFather().first << " has no definition!";
+			}
+		}
+	}
+	Log(LogLevel::Info) << "<> " << counterMother << " mothers and " << counterFather << " fathers linked.";
+}
+
 void CK2::Characters::linkPrimaryTitles(const Titles& theTitles)
 {
 	auto counterPrim = 0;

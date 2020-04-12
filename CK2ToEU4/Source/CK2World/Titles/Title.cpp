@@ -25,9 +25,22 @@ void CK2::Title::registerKeys()
 		const commonItems::singleString lawStr(theStream);
 		laws.insert(lawStr.getString());
 	});
+	registerKeyword("previous", [this](const std::string& unused, std::istream& theStream) {
+		const commonItems::intList listList(theStream);
+		const auto& theList = listList.getInts();
+		for (const auto& prevHolder: theList) previousHolders.insert(std::pair(prevHolder, nullptr));
+	});
 	registerKeyword("major_revolt", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleString revoltStr(theStream);
 		majorRevolt = revoltStr.getString() == "yes";
+	});
+	registerKeyword("gender", [this](const std::string& unused, std::istream& theStream) {
+		const commonItems::singleString genderStr(theStream);
+		genderLaw = genderStr.getString();
+	});
+	registerKeyword("succession", [this](const std::string& unused, std::istream& theStream) {
+		const commonItems::singleString successionStr(theStream);
+		successionLaw = successionStr.getString();
 	});
 	registerKeyword("base_title", [this](const std::string& unused, std::istream& theStream) {
 		// This can either be a single string or a Liege object.

@@ -1,15 +1,12 @@
 #include "CountryDetails.h"
-#include "Log.h"
+#include "MonarchNames.h"
 #include "OSCompatibilityLayer.h"
 #include "ParserHelpers.h"
 
 EU4::CountryDetails::CountryDetails(const std::string& filePath)
 {
 	registerKeys();
-
-	if (Utils::DoesFileExist(filePath)) {
-		parseFile(filePath);
-	} 
+	if (Utils::DoesFileExist(filePath)) { parseFile(filePath); }
 	clearRegisteredKeywords();
 }
 
@@ -60,7 +57,10 @@ void EU4::CountryDetails::registerKeys()
 		const auto& theIdeas = unitsList.getStrings();
 		historicalUnits.insert(theIdeas.begin(), theIdeas.end());
 	});
-	registerKeyword("monarch_names", commonItems::ignoreItem); // We can't even load this.
+	registerKeyword("monarch_names", [this](const std::string& unused, std::istream& theStream) {
+		const auto mNames = MonarchNames(theStream);
+		monarchNames = mNames.getMonarchNames();
+	});
 	registerKeyword("leader_names", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::stringList namesList(theStream);
 		const auto& theNames = namesList.getStrings();

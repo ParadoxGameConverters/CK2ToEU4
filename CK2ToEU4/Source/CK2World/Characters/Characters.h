@@ -16,6 +16,7 @@ class Characters: commonItems::parser
 	[[nodiscard]] const auto& getCharacters() const { return characters; }
 	void linkDynasties(const Dynasties& theDynasties);
 	void linkLiegesAndSpouses();
+	void linkMothersAndFathers();
 	void linkPrimaryTitles(const Titles& theTitles);
 	void linkCapitals(const Provinces& theProvinces);
 

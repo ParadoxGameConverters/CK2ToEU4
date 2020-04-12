@@ -44,6 +44,8 @@ class Country
 	[[nodiscard]] const auto& getLocalizations() const { return localizations; }
 	[[nodiscard]] const auto& getPrimaryCulture() const { return details.primaryCulture; }
 	[[nodiscard]] const auto& getReligion() const { return details.religion; }
+	[[nodiscard]] const auto& getTechGroup() const { return details.technologyGroup; }
+	[[nodiscard]] const auto& getGFX() const { return details.graphicalCulture; }
 	[[nodiscard]] const auto& getProvinces() const { return provinces; }
 	[[nodiscard]] const auto& getTitle() const { return title; }
 	[[nodiscard]] auto isHREEmperor() const { return details.holyRomanEmperor; }
@@ -57,9 +59,13 @@ class Country
 	void registerProvince(std::pair<int, std::shared_ptr<Province>> theProvince) { provinces.insert(std::move(theProvince)); }
 	void setPrimaryCulture(const std::string& culture);
 	void setReligion(const std::string& religion);
-	void overrideReforms(const std::string& reform) { details.reforms = { reform }; }
+	void overrideReforms(const std::string& reform) { details.reforms = {reform}; }
 	void setGovernment(const std::string& government) { details.government = government; }
 	void setElector() { details.elector = true; }
+	void setTechGroup(const std::string& tech) { details.technologyGroup = tech; }
+	void setGFX(const std::string& gfx) { details.graphicalCulture = gfx; }
+	void clearProvinces() { provinces.clear(); }
+	void annexCountry(const std::pair<std::string, std::shared_ptr<Country>>& theCountry);
 
 	friend std::ostream& operator<<(std::ostream& output, const Country& versionParser);
 

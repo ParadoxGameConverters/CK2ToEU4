@@ -13,7 +13,7 @@ namespace mappers
 {
 class CultureMapper;
 class ReligionMapper;
-}
+} // namespace mappers
 
 namespace EU4
 {
@@ -24,9 +24,7 @@ class Province
 	Province() = default;
 
 	Province(int id, const std::string& filePath);
-	void initializeFromCK2(std::shared_ptr<CK2::Province> origProvince,
-		 const mappers::CultureMapper& cultureMapper,
-		 const mappers::ReligionMapper& religionMapper);
+	void initializeFromCK2(std::shared_ptr<CK2::Province> origProvince, const mappers::CultureMapper& cultureMapper, const mappers::ReligionMapper& religionMapper);
 
 	[[nodiscard]] const auto& getHistoryCountryFile() const { return historyProvincesFile; }
 	[[nodiscard]] const auto& getTagCountry() const { return tagCountry; }
@@ -36,6 +34,9 @@ class Province
 	[[nodiscard]] auto getDev() const { return details.baseTax + details.baseProduction + details.baseManpower; }
 
 	void registerTagCountry(const std::pair<std::string, std::shared_ptr<Country>>& theCountry) { tagCountry = theCountry; }
+	void addCore(const std::string& core) { details.cores.insert(core); }
+	void setOwner(const std::string& tag) { details.owner = tag; }
+	void setController(const std::string& tag) { details.controller = tag; }
 
 	friend std::ostream& operator<<(std::ostream& output, const Province& versionParser);
 

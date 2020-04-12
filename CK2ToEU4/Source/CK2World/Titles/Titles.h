@@ -20,6 +20,7 @@ class Titles: commonItems::parser
 	[[nodiscard]] const auto& getTitles() const { return titles; }
 
 	void linkHolders(const Characters& theCharacters);
+	void linkPreviousHolders(const Characters& theCharacters);
 	void linkLiegePrimaryTitles();
 	void linkVassals();
 	void linkBaseTitles();

@@ -1,9 +1,9 @@
 #ifndef CK2_TITLE_H
 #define CK2_TITLE_H
+#include "Color.h"
 #include "Liege.h"
 #include "newParser.h"
 #include <set>
-#include "Color.h"
 
 namespace EU4
 {
@@ -31,7 +31,10 @@ class Title: commonItems::parser
 	[[nodiscard]] const auto& getProvinces() const { return provinces; }
 	[[nodiscard]] const auto& getBaseTitle() const { return baseTitle; }
 	[[nodiscard]] const auto& getColor() const { return color; }
+	[[nodiscard]] const auto& getGenderLaw() const { return genderLaw; }
+	[[nodiscard]] const auto& getSuccessionLaw() const { return successionLaw; }
 	[[nodiscard]] const auto& getEU4Tag() const { return tagCountry; }
+	[[nodiscard]] const auto& getPreviousHolders() const { return previousHolders; }
 	[[nodiscard]] auto isInHRE() const { return inHRE; }
 	[[nodiscard]] auto isHREEmperor() const { return HREEmperor; }
 	[[nodiscard]] auto isMajorRevolt() const { return majorRevolt; }
@@ -67,6 +70,8 @@ class Title: commonItems::parser
 		holder.second = nullptr;
 	}
 	void clearVassals() { vassals.clear(); }
+	void clearGeneratedVassals() { generatedVassals.clear(); }
+	void setPreviousHolders(const std::map<int, std::shared_ptr<Character>>& thePreviousHolders) { previousHolders = thePreviousHolders; }
 
   private:
 	void registerKeys();
@@ -79,15 +84,18 @@ class Title: commonItems::parser
 	bool inHRE = false;
 	bool HREEmperor = false;
 	bool majorRevolt = false;
+	std::string genderLaw; // for succession
+	std::string successionLaw;
 	std::map<int, std::shared_ptr<Province>> provinces;
 	std::map<std::string, std::shared_ptr<Title>> vassals;
 	std::map<std::string, std::shared_ptr<Title>> deJureVassals;
 	std::pair<std::string, std::shared_ptr<Liege>> baseTitle;
 	commonItems::Color color;
 	std::pair<std::string, std::shared_ptr<EU4::Country>> tagCountry;
+	std::map<int, std::shared_ptr<Character>> previousHolders;
 
 	std::map<std::string, std::shared_ptr<Title>> generatedVassals; // Vassals we split off deliberately.
-	std::pair<std::string, std::shared_ptr<Title>> generatedLiege; // Liege we set manually.
+	std::pair<std::string, std::shared_ptr<Title>> generatedLiege;	 // Liege we set manually.
 };
 } // namespace CK2
 

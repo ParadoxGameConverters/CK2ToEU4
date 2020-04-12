@@ -27,12 +27,104 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 	verifyReligionsAndCultures();
 	distributeHRESubtitles(theConfiguration);
 	diplomacy.importAgreements(countries);
+	resolvePersonalUnions();
 
 	LOG(LogLevel::Info) << "---> The Dump <---";
 	modFile.outname = theConfiguration.getOutputName();
 	output(versionParser, theConfiguration, sourceWorld.getConversionDate());
 	LOG(LogLevel::Info) << "*** Farewell EU4, granting you independence. ***";
 }
+
+void EU4::World::resolvePersonalUnions()
+{
+	const std::set<std::string> elegibleReligions = {"catholic",
+		 "orthodox",
+		 "nestorian",
+		 "coptic",
+		 "cathar",
+		 "fraticelli",
+		 "waldensian",
+		 "lollard",
+		 "bogomilist",
+		 "monothelite",
+		 "iconoclast",
+		 "messalian",
+		 "paulician",
+		 "monophysite"};
+	std::map<int, std::map<std::string, std::shared_ptr<Country>>> holderTitles;
+	std::map<int, std::pair<std::string, std::shared_ptr<Country>>> holderPrimaryTitle;
+	std::map<int, std::shared_ptr<CK2::Character>> relevantHolders;
+
+	// We're filling the registry first.
+	for (const auto& country: countries) {
+		if (country.second->getTitle().first.empty()) continue;
+		if (!country.second->getTitle().second->getHolder().first) continue;
+		// we have a holder.
+		const auto& holder = country.second->getTitle().second->getHolder();
+		holderTitles[holder.first].insert(country);
+		relevantHolders.insert(holder);
+		// does he have a primary title?
+		if (!holder.second->getPrimaryTitle().first.empty()) {
+			if (!holder.second->getPrimaryTitle().second->getTitle().second->getEU4Tag().first.empty()) {
+				holderPrimaryTitle[holder.first] = holder.second->getPrimaryTitle().second->getTitle().second->getEU4Tag();
+			}
+		}
+	}
+
+	// Now let's see what we have.
+	for (const auto& holderTitle: holderTitles) {
+		if (holderTitle.second.size() <= 1) continue;
+		
+		// multiple crowns. What's our primary?
+		auto primaryItr = holderPrimaryTitle.find(holderTitle.first);
+		std::pair<std::string, std::shared_ptr<Country>> primaryTitle;
+		if (primaryItr == holderPrimaryTitle.end() || primaryItr->second.second->getProvinces().empty()) {
+			// We need to find another primary title.
+			auto foundPrimary = false;
+			for (const auto& title: holderTitle.second) {
+				if (!title.second->getProvinces().empty()) {
+					primaryTitle = std::pair(title.first, title.second);
+					foundPrimary = true;
+					break;
+				}
+			}
+			if (!foundPrimary) continue; // no helping this fellow.
+		} else {
+			primaryTitle = primaryItr->second;
+		}
+
+		// religion
+		const auto& religion = primaryTitle.second->getReligion();
+		auto heathen = false;
+		if (!elegibleReligions.count(religion)) heathen = true;
+
+		// We now have a holder, his primary, and religion. Let's resolve multiple crowns.
+		if (!heathen) {
+			auto unionCount = 0;
+			for (const auto& title: holderTitle.second) {
+				if (title.first == primaryTitle.first) continue;
+				if (title.second->getProvinces().empty()) continue;
+				// Craft a relation. Going up to a max of 3 unions.
+				if (unionCount <= 2) {
+					diplomacy.addAgreement(Agreement(primaryTitle.first, title.first, "union", primaryTitle.second->getConversionDate()));
+					++unionCount;
+				} else {
+					// too many unions.
+					primaryTitle.second->annexCountry(title);
+				}
+			}
+		} else {
+			// heathens annex straight up.
+			for (const auto& title: holderTitle.second) {
+				if (title.first == primaryTitle.first) continue;
+				if (title.second->getProvinces().empty()) continue;
+				// Yum.
+				primaryTitle.second->annexCountry(title);
+			}
+		}
+	}
+}
+
 
 void EU4::World::distributeHRESubtitles(const Configuration& theConfiguration)
 {
@@ -160,7 +252,11 @@ void EU4::World::verifyReligionsAndCultures()
 	// We are checking every country if it lacks primary religion and culture. This is an issue for hordeland mainly.
 	// For those lacking setups, we'll do a provincial census and inherit those values.
 	for (const auto& country: countries) {
-		if (!country.second->getReligion().empty() && !country.second->getPrimaryCulture().empty()) continue;
+		if (!country.second->getReligion().empty() && !country.second->getPrimaryCulture().empty() && !country.second->getTechGroup().empty() &&
+			 !country.second->getGFX().empty())
+			continue;
+		if (country.second->getProvinces().empty()) continue; // No point.
+
 		std::map<std::string, int> religiousCensus;
 		std::map<std::string, int> culturalCensus;
 		for (const auto& province: country.second->getProvinces()) {
@@ -182,6 +278,24 @@ void EU4::World::verifyReligionsAndCultures()
 		if (country.second->getReligion().empty()) {
 			auto max = get_max(religiousCensus);
 			country.second->setReligion(max.first);
+		}
+		if (country.second->getTechGroup().empty()) {
+			const auto& techMatch = cultureMapper.getTechGroup(country.second->getPrimaryCulture());
+			if (techMatch)
+				country.second->setTechGroup(*techMatch);
+			else {
+				country.second->setTechGroup("western");
+				Log(LogLevel::Warning) << country.first << " could not determine technological group, substituting western!";
+			}
+		}
+		if (country.second->getGFX().empty()) {
+			const auto& gfxMatch = cultureMapper.getGFX(country.second->getPrimaryCulture());
+			if (gfxMatch)
+				country.second->setTechGroup(*gfxMatch);
+			else {
+				country.second->setTechGroup("westerngfx");
+				Log(LogLevel::Warning) << country.first << " could not determine GFX, substituting westerngfx!";
+			}
 		}
 	}
 }
