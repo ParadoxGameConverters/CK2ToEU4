@@ -52,6 +52,10 @@ void CK2::Character::registerKeys()
 		const commonItems::singleDouble pieryDbl(theStream);
 		piety = pieryDbl.getDouble();
 	});
+	registerKeyword("host", [this](const std::string& unused, std::istream& theStream) {
+		const commonItems::singleInt hostInt(theStream);
+		host = hostInt.getInt();
+	});
 	registerKeyword("att", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::intList skillsList(theStream);
 		const auto theList = skillsList.getInts();

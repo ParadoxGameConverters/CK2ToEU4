@@ -42,6 +42,28 @@ void CK2::Titles::linkHolders(const Characters& theCharacters)
 	Log(LogLevel::Info) << "<> " << counter << " title holders linked.";
 }
 
+void CK2::Titles::linkPreviousHolders(const Characters& theCharacters)
+{
+	auto counter = 0;
+	const auto& characters = theCharacters.getCharacters();
+	for (const auto& title: titles) {
+		if (!title.second->getPreviousHolders().empty()) {
+			std::map<int, std::shared_ptr<Character>> previousHolders;
+			for (const auto& previousHolder: title.second->getPreviousHolders()) {
+				const auto& charItr = characters.find(previousHolder.first);
+				if (charItr != characters.end()) {
+					previousHolders.insert(std::pair(previousHolder.first, charItr->second));
+					counter++;
+				} else {
+					Log(LogLevel::Warning) << "Previous Holder ID: " << previousHolder.first << " has no definition!";
+				}
+			}
+			title.second->setPreviousHolders(previousHolders);
+		}
+	}
+	Log(LogLevel::Info) << "<> " << counter << " previous title holders linked.";
+}
+
 void CK2::Titles::linkLiegePrimaryTitles()
 {
 	auto counterPrim = 0;

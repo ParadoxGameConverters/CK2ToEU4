@@ -36,6 +36,7 @@ class World: commonItems::parser
 	void shatterEmpires(const Configuration& theConfiguration) const;
 	void filterProvincelessTitles();
 	void splitVassals();
+	void gatherCourtierNames();
 
 	date endDate = date("1444.11.11");
 	date startDate = date("1.1.1");

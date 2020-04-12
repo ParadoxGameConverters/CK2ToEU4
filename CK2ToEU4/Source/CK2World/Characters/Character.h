@@ -43,9 +43,13 @@ class Character: commonItems::parser
 	[[nodiscard]] auto getPiety() const { return piety; }
 
 	[[nodiscard]] auto getID() const { return charID; }
+	[[nodiscard]] auto getHost() const { return host; }
 	[[nodiscard]] const auto& getLiege() const { return liege; }
 	[[nodiscard]] const auto& getDynasty() const { return dynasty; }
+	[[nodiscard]] const auto& getCourtierNames() const { return courtierNames; }
+	
 	void setDynasty(std::shared_ptr<Dynasty> theDynasty) { dynasty.second = std::move(theDynasty); }
+	void setCourtierNames(const std::map<std::string, bool>& theNames) { courtierNames = theNames; }
 	void setSpouses(const std::map<int, std::shared_ptr<Character>>& newSpouses) { spouses = newSpouses; }
 	void setPrimaryTitle(std::shared_ptr<Title> theTitle) const { primaryTitle.second->setTitle(std::move(theTitle)); }
 	void setBaseTitle(std::shared_ptr<Title> theBaseTitle) const { primaryTitle.second->setBaseTitle(std::move(theBaseTitle)); }
@@ -71,6 +75,8 @@ class Character: commonItems::parser
 	std::string government;
 	bool female = false;
 	double piety = 0;
+	std::map<std::string, bool> courtierNames; // A simple list of people's names and genders. True=male.
+	int host = 0; // a simple ID of the host Character, no link required.
 };
 } // namespace CK2
 

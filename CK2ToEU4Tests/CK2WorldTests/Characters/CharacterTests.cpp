@@ -1,5 +1,4 @@
 #include "../CK2ToEU4/Source/CK2World/Characters/Character.h"
-#include "../CK2ToEU4/Source/CK2World/Provinces/Barony.h"
 #include "../CK2ToEU4/Source/CK2World/Titles/Liege.h"
 #include "gtest/gtest.h"
 #include <sstream>
@@ -139,6 +138,31 @@ TEST(CK2World_CharacterTests, femaleDefaultsToFalse)
 	const CK2::Character theCharacter(input, 42);
 
 	ASSERT_FALSE(theCharacter.isFemale());
+}
+
+TEST(CK2World_CharacterTests, hostCanBeSet)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "\thost = 17\n";
+	input << "}";
+
+	const CK2::Character theCharacter(input, 42);
+
+	ASSERT_EQ(theCharacter.getHost(), 17);
+}
+
+TEST(CK2World_CharacterTests, hostDefaultsToZero)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "}";
+
+	const CK2::Character theCharacter(input, 42);
+
+	ASSERT_FALSE(theCharacter.getHost());
 }
 
 TEST(CK2World_CharacterTests, nameCanBeSet)

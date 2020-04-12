@@ -135,6 +135,7 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	// ditto for secondary_religion and harmonized religions.
 	details.secondaryReligion.clear();
 	details.harmonizedReligions.clear();
+	details.historicalScore = 0; // Not sure about this.
 
 	// --------------  Common section
 	if (!details.primaryCulture.empty()) {
@@ -166,7 +167,35 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	details.randomChance = false; // random chance related to RNW, wo it has no effect here.
 
 	// If we imported historical units, keeping them, otherwise blank.
-	// monarch_names will need some doing
+
+	details.monarchNames.clear();
+	if (!title.second->getPreviousHolders().empty()) {
+		for (const auto& previousHolder: title.second->getPreviousHolders()) {
+			const auto& blockItr = details.monarchNames.find(previousHolder.second->getName());
+			if (blockItr != details.monarchNames.end())
+				blockItr->second.first++;
+			else {
+				auto female = previousHolder.second->isFemale();
+				auto chance = 10;
+				if (female) chance = -1;
+				std::pair<int, int> newBlock = std::pair(1, chance);
+				details.monarchNames.insert(std::pair(previousHolder.second->getName(), newBlock));
+			}
+		}
+	}
+	if (!title.second->getHolder().second->getCourtierNames().empty()) {
+		for (const auto& courtier: title.second->getHolder().second->getCourtierNames()) {
+			const auto& blockItr = details.monarchNames.find(courtier.first);
+			if (blockItr == details.monarchNames.end()) {
+				auto female = !courtier.second;
+				auto chance = 0;
+				if (female) chance = -1;
+				std::pair<int, int> newBlock = std::pair(0, chance);
+				details.monarchNames.insert(std::pair(courtier.first, newBlock));
+			}
+		}
+	}
+	 
 	// If we imported leader_names, keeping them, otherwise blank.
 	// If we imported ship_names, keeping them, otherwise blank.
 	// If we imported army_names, keeping them, otherwise blank.

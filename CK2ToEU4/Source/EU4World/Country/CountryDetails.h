@@ -66,7 +66,7 @@ class CountryDetails: commonItems::parser
 	commonItems::Color color;
 	std::set<std::string> historicalIdeaGroups;
 	std::set<std::string> historicalUnits;
-	std::string monarchNames; // Unused, we can't load it.
+	std::map<std::string, std::pair<int, int>> monarchNames; // name (without regnal), pair(regnal, chance)
 	std::set<std::string> leaderNames;
 	std::set<std::string> shipNames;
 	std::set<std::string> armyNames;

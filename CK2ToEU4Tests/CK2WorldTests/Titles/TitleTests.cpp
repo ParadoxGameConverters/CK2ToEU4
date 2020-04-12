@@ -86,6 +86,34 @@ TEST(CK2World_TitleTests, holderDefaultsToZero)
 	ASSERT_EQ(theTitle.getHolder().first, 0);
 }
 
+TEST(CK2World_TitleTests, previousHoldersCanBeSet)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "\tprevious = { 1 2 3}\n";
+	input << "}";
+
+	const CK2::Title theTitle(input, "c_test");
+
+	ASSERT_EQ(theTitle.getPreviousHolders().size(), 3);
+	ASSERT_EQ(theTitle.getPreviousHolders().find(1)->first, 1);
+	ASSERT_EQ(theTitle.getPreviousHolders().find(2)->first, 2);
+	ASSERT_EQ(theTitle.getPreviousHolders().find(3)->first, 3);
+}
+
+TEST(CK2World_TitleTests, previousHoldersDefaultsToEmpty)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "}";
+
+	const CK2::Title theTitle(input, "c_test");
+
+	ASSERT_TRUE(theTitle.getPreviousHolders().empty());
+}
+
 TEST(CK2World_TitleTests, inHREDefaultsToFalse)
 {
 	std::stringstream input;

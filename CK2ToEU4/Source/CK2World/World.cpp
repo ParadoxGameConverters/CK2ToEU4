@@ -8,6 +8,7 @@
 #include "ParserHelpers.h"
 #include "Titles/Liege.h"
 #include "Titles/Title.h"
+#include "Characters/Character.h"
 #include <ZipFile.h>
 #include <filesystem>
 #include <fstream>
@@ -103,6 +104,8 @@ CK2::World::World(const Configuration& theConfiguration)
 	provinces.linkPrimarySettlements();
 	LOG(LogLevel::Info) << "-- Linking Titles With Holders";
 	titles.linkHolders(characters);
+	LOG(LogLevel::Info) << "-- Linking Titles With Previous Holders";
+	titles.linkPreviousHolders(characters);
 	LOG(LogLevel::Info) << "-- Linking Titles With Liege and DeJure Titles";
 	titles.linkLiegePrimaryTitles();
 	LOG(LogLevel::Info) << "-- Linking Titles With Vassals and DeJure Vassals";
@@ -125,6 +128,8 @@ CK2::World::World(const Configuration& theConfiguration)
 	filterIndependentTitles();
 	LOG(LogLevel::Info) << "-- Splitting Off Vassals";
 	splitVassals();
+	LOG(LogLevel::Info) << "-- Rounding Up Some People";
+	gatherCourtierNames();
 	LOG(LogLevel::Info) << "-- Congregating Provinces for Independent Titles";
 	congregateProvinces();
 	LOG(LogLevel::Info) << "-- Performing Province Sanity Check";
@@ -133,6 +138,28 @@ CK2::World::World(const Configuration& theConfiguration)
 	filterProvincelessTitles();
 
 	LOG(LogLevel::Info) << "*** Good-bye CK2, rest in peace. ***";
+}
+
+void CK2::World::gatherCourtierNames()
+{
+	auto counter = 0;
+	std::map<int, std::map<std::string, bool>> holderCourtiers; // holder-name/male
+	for (const auto& character: characters.getCharacters()) {
+		if (character.second->getHost())
+		{
+			holderCourtiers[character.second->getHost()].insert(std::pair(character.second->getName(), !character.second->isFemale()));
+		}
+	}
+	for (const auto& title: independentTitles) {
+		if (title.second->getHolder().first) {
+			const auto containerItr = holderCourtiers.find(title.second->getHolder().first);
+			if (containerItr != holderCourtiers.end())
+			{ title.second->getHolder().second->setCourtierNames(containerItr->second);
+				counter += containerItr->second.size();				
+			}
+		}
+	}
+	Log(LogLevel::Info) << "<> " << counter << " people gathered for interrogation.";
 }
 
 void CK2::World::splitVassals()

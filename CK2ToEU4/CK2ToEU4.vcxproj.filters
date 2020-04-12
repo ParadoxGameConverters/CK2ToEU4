@@ -189,6 +189,9 @@
     <ClCompile Include="Source\EU4World\Output\outAgreement.cpp">
       <Filter>EU4World\Output</Filter>
     </ClCompile>
+    <ClCompile Include="Source\EU4World\Country\MonarchNames.cpp">
+      <Filter>EU4World\Country</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CK2ToEU4Converter.h" />
@@ -374,6 +377,9 @@
     </ClInclude>
     <ClInclude Include="Source\EU4World\Output\outAgreement.h">
       <Filter>EU4World\Output</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\EU4World\Country\MonarchNames.h">
+      <Filter>EU4World\Country</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

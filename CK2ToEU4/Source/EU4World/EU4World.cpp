@@ -37,7 +37,7 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 
 void EU4::World::resolvePersonalUnions()
 {
-	std::set<std::string> elegibleReligions = {"catholic", "orthodox", "nestorian", "coptic"};
+	const std::set<std::string> elegibleReligions = {"catholic", "orthodox", "nestorian", "coptic"};
 	std::map<int, std::map<std::string, std::shared_ptr<Country>>> holderTitles;
 	std::map<int, std::pair<std::string, std::shared_ptr<Country>>> holderPrimaryTitle;
 	std::map<int, std::shared_ptr<CK2::Character>> relevantHolders;

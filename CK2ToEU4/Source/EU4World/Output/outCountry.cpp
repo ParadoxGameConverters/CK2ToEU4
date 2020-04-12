@@ -79,6 +79,11 @@ void EU4::Country::outputCommons(std::ostream& output)
 		for (const auto& unit: details.historicalUnits) { output << "\t" << unit << "\n"; }
 		output << "}\n";
 	}
+	if (!details.monarchNames.empty()) {
+		output << "monarch_names = {\n";
+		for (const auto& name: details.monarchNames) { output << "\t\"" << name.first << " #" << name.second.first << "\" = " << name.second.second << "\n"; }
+		output << "}\n";
+	}
 	if (!details.leaderNames.empty()) {
 		output << "leader_names = {\n";
 		for (const auto& name: details.leaderNames) { output << "\t\"" << name << "\"\n"; }

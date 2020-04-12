@@ -32,6 +32,7 @@ class Title: commonItems::parser
 	[[nodiscard]] const auto& getBaseTitle() const { return baseTitle; }
 	[[nodiscard]] const auto& getColor() const { return color; }
 	[[nodiscard]] const auto& getEU4Tag() const { return tagCountry; }
+	[[nodiscard]] const auto& getPreviousHolders() const { return previousHolders; }
 	[[nodiscard]] auto isInHRE() const { return inHRE; }
 	[[nodiscard]] auto isHREEmperor() const { return HREEmperor; }
 	[[nodiscard]] auto isMajorRevolt() const { return majorRevolt; }
@@ -68,6 +69,7 @@ class Title: commonItems::parser
 	}
 	void clearVassals() { vassals.clear(); }
 	void clearGeneratedVassals() { generatedVassals.clear(); }
+	void setPreviousHolders(const std::map<int, std::shared_ptr<Character>>& thePreviousHolders) { previousHolders = thePreviousHolders; }
 
   private:
 	void registerKeys();
@@ -86,6 +88,7 @@ class Title: commonItems::parser
 	std::pair<std::string, std::shared_ptr<Liege>> baseTitle;
 	commonItems::Color color;
 	std::pair<std::string, std::shared_ptr<EU4::Country>> tagCountry;
+	std::map<int, std::shared_ptr<Character>> previousHolders;
 
 	std::map<std::string, std::shared_ptr<Title>> generatedVassals; // Vassals we split off deliberately.
 	std::pair<std::string, std::shared_ptr<Title>> generatedLiege;	 // Liege we set manually.
