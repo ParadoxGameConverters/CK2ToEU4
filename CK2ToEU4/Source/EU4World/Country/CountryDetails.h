@@ -25,6 +25,7 @@ typedef struct {
 	std::string originCountry;
 	int claim = 0;
 	bool regency = false;
+	std::set<std::string> personalities;
 } Monarch;
 	
 class CountryDetails: commonItems::parser

@@ -7,6 +7,7 @@
 #include "Character.h"
 #include "Log.h"
 #include "ParserHelpers.h"
+#include "../../Mappers/PersonalityScraper/PersonalityScraper.h"
 
 CK2::Characters::Characters(std::istream& theStream)
 {
@@ -159,4 +160,21 @@ void CK2::Characters::linkCapitals(const Provinces& theProvinces)
 		}
 	}
 	Log(LogLevel::Info) << "<> " << counterCapital << " capital baronies linked.";
+}
+
+void CK2::Characters::assignPersonalities(const mappers::PersonalityScraper& personalityScraper)
+{
+	auto counter = 0;
+	for (const auto& character: characters)
+	{
+		std::map<int, std::string> translatedTraits;
+		for (const auto& trait: character.second->getTraits())
+		{
+			const auto& traitMatch = personalityScraper.getPersonalityForID(trait.first);
+			if (traitMatch) translatedTraits.insert(std::pair(trait.first, *traitMatch));
+		}
+		counter += translatedTraits.size();
+		character.second->setTraits(translatedTraits);
+	}
+	Log(LogLevel::Info) << "<> " << counter << " personalities observed.";
 }

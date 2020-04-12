@@ -2,6 +2,11 @@
 #define CK2_CHARACTERS_H
 #include "newParser.h"
 
+namespace mappers
+{
+class PersonalityScraper;
+}
+
 namespace CK2
 {
 class Titles;
@@ -19,6 +24,7 @@ class Characters: commonItems::parser
 	void linkMothersAndFathers();
 	void linkPrimaryTitles(const Titles& theTitles);
 	void linkCapitals(const Provinces& theProvinces);
+	void assignPersonalities(const mappers::PersonalityScraper& personalityScraper);
 
   private:
 	void registerKeys();

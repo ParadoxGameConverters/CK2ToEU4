@@ -10,6 +10,7 @@
 #include "../Mappers/ReligionMapper/ReligionMapper.h"
 #include "../Mappers/TitleTagMapper/TitleTagMapper.h"
 #include "../Mappers/VersionParser/VersionParser.h"
+#include "../Mappers/RulerPersonalitiesMapper/RulerPersonalitiesMapper.h"
 #include "Country/Country.h"
 #include "Diplomacy/Diplomacy.h"
 #include "Output/outModFile.h"
@@ -68,6 +69,7 @@ class World
 	mappers::CultureMapper cultureMapper;
 	mappers::GovernmentsMapper governmentsMapper;
 	mappers::LocalizationMapper localizationMapper;
+	mappers::RulerPersonalitiesMapper rulerPersonalitiesMapper;
 	std::string emperorTag;
 	Diplomacy diplomacy;
 };

@@ -42,15 +42,21 @@ std::ostream& EU4::operator<<(std::ostream& output, const Country& country)
 		output << "\tmonarch = {\n";
 		output << country.details.monarch;
 		output << "\t}\n";
+		for (const auto& personality: country.details.monarch.personalities)
+			output << "\tadd_ruler_personality = " << personality << "\n";
 		if (country.details.queen.isSet) {
 			output << "\tqueen = {\n";
 			output << country.details.queen;
 			output << "\t}\n";
+			for (const auto& personality: country.details.queen.personalities)
+				output << "\tadd_queen_personality = " << personality << "\n";
 		}
 		if (country.details.heir.isSet) {
 			output << "\their = {\n";
 			output << country.details.heir;
 			output << "\t}\n";
+			for (const auto& personality: country.details.heir.personalities)
+				output << "\tadd_heir_personality = " << personality << "\n";
 		}
 		output << "}\n";
 	}

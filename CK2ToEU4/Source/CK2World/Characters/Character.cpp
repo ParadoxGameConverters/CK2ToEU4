@@ -32,6 +32,11 @@ void CK2::Character::registerKeys()
 		const commonItems::singleString govStr(theStream);
 		government = govStr.getString();
 	});
+	registerKeyword("tr", [this](const std::string& unused, std::istream& theStream) {
+		const commonItems::intList trList(theStream);
+		for (const auto trait: trList.getInts())
+			traits.insert(std::pair(trait, std::string()));
+	});
 	registerKeyword("b_d", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleString dateStr(theStream);
 		birthDate = date(dateStr.getString());

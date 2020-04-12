@@ -185,6 +185,7 @@
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\GovernmentsMapper\GovernmentsMapper.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\GovernmentsMapper\GovernmentsMapping.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\IAmHreMapper\IAmHreMapper.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\PersonalityScraper\PersonalityScraper.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\ProvinceMapper\ProvinceMapper.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\ProvinceMapper\ProvinceMapping.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\ProvinceMapper\ProvinceMappingsVersion.cpp" />
@@ -196,6 +197,8 @@
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\RegionMapper\SuperRegion.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\ReligionMapper\ReligionMapper.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\ReligionMapper\ReligionMapping.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\RulerPersonalitiesMapper\RulerPersonalitiesMapper.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\RulerPersonalitiesMapper\RulerPersonalitiesMapping.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\TitleTagMapper\TitleTagMapper.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\TitleTagMapper\TitleTagMapping.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\VersionParser\VersionParser.cpp" />
@@ -228,6 +231,7 @@
     <ClCompile Include="MapperTests\GovernmentsMapper\GovernmentsMapperTests.cpp" />
     <ClCompile Include="MapperTests\GovernmentsMapper\GovernmentsMappingTests.cpp" />
     <ClCompile Include="MapperTests\IAmHreMapper\IAmHreMapperTests.cpp" />
+    <ClCompile Include="MapperTests\PersonalityScraper\PersonalityScraperTests.cpp" />
     <ClCompile Include="MapperTests\ProvinceMapper\ProvinceMapperTests.cpp" />
     <ClCompile Include="MapperTests\ProvinceMapper\ProvinceMappingsVersionTests.cpp" />
     <ClCompile Include="MapperTests\ProvinceMapper\ProvinceMappingTests.cpp" />
@@ -237,6 +241,8 @@
     <ClCompile Include="MapperTests\RegionMapper\SuperRegionTests.cpp" />
     <ClCompile Include="MapperTests\ReligionMapper\ReligionMapperTests.cpp" />
     <ClCompile Include="MapperTests\ReligionMapper\ReligionMappingTests.cpp" />
+    <ClCompile Include="MapperTests\RulerPersonalityMapper\RulerPersonalitiesMappingTests.cpp" />
+    <ClCompile Include="MapperTests\RulerPersonalityMapper\RulerPersonalityMapperTests.cpp" />
     <ClCompile Include="MapperTests\TitleTagMapper\TitleTagMapperTests.cpp" />
     <ClCompile Include="MapperTests\TitleTagMapper\TitleTagMappingTests.cpp" />
     <ClCompile Include="MapperTests\VersionParser\VersionParserTests.cpp" />

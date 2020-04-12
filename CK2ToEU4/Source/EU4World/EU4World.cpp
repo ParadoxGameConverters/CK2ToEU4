@@ -74,7 +74,7 @@ void EU4::World::resolvePersonalUnions()
 	// Now let's see what we have.
 	for (const auto& holderTitle: holderTitles) {
 		if (holderTitle.second.size() <= 1) continue;
-		
+
 		// multiple crowns. What's our primary?
 		auto primaryItr = holderPrimaryTitle.find(holderTitle.first);
 		std::pair<std::string, std::shared_ptr<Country>> primaryTitle;
@@ -190,7 +190,8 @@ void EU4::World::setElectors()
 		electors.emplace_back(duchy.second);
 	}
 
-	for (const auto& elector: electors) elector->setElector();
+	for (const auto& elector: electors)
+		elector->setElector();
 	LOG(LogLevel::Info) << "-> There are " << electors.size() << " electors recognized.";
 }
 
@@ -365,6 +366,7 @@ void EU4::World::importCK2Country(const std::pair<std::string, std::shared_ptr<C
 			 provinceMapper,
 			 colorScraper,
 			 localizationMapper,
+			 rulerPersonalitiesMapper,
 			 sourceWorld.getConversionDate());
 		title.second->registerEU4Tag(std::pair(*tag, countryItr->second));
 	} else {
@@ -378,6 +380,7 @@ void EU4::World::importCK2Country(const std::pair<std::string, std::shared_ptr<C
 			 provinceMapper,
 			 colorScraper,
 			 localizationMapper,
+			 rulerPersonalitiesMapper,
 			 sourceWorld.getConversionDate());
 		title.second->registerEU4Tag(std::pair(*tag, newCountry));
 		countries.insert(std::pair(*tag, newCountry));

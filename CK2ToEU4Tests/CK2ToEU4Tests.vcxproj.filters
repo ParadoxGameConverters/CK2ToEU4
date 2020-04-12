@@ -215,6 +215,24 @@
     <ClCompile Include="MapperTests\RegionMapper\SuperRegionTests.cpp">
       <Filter>MapperTests\RegionMapper</Filter>
     </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\PersonalityScraper\PersonalityScraper.cpp">
+      <Filter>ConverterFiles\Mappers\PersonalityScraper</Filter>
+    </ClCompile>
+    <ClCompile Include="MapperTests\PersonalityScraper\PersonalityScraperTests.cpp">
+      <Filter>MapperTests\PersonalityScraper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\RulerPersonalitiesMapper\RulerPersonalitiesMapper.cpp">
+      <Filter>ConverterFiles\Mappers\RulerPersonalitiesMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\RulerPersonalitiesMapper\RulerPersonalitiesMapping.cpp">
+      <Filter>ConverterFiles\Mappers\RulerPersonalitiesMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="MapperTests\RulerPersonalityMapper\RulerPersonalitiesMappingTests.cpp">
+      <Filter>MapperTests\RulerPersonalitiesMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="MapperTests\RulerPersonalityMapper\RulerPersonalityMapperTests.cpp">
+      <Filter>MapperTests\RulerPersonalitiesMapper</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4WorldTests">
@@ -327,6 +345,18 @@
     </Filter>
     <Filter Include="ConverterFiles\Mappers\GovernmentsMapper">
       <UniqueIdentifier>{a6387908-1035-46d9-8bf7-52cceba744b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ConverterFiles\Mappers\PersonalityScraper">
+      <UniqueIdentifier>{b2cf2dfb-a0f7-468d-aed7-c3f4a1560c53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MapperTests\PersonalityScraper">
+      <UniqueIdentifier>{38de7e48-1701-439b-9bca-40937890c2da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ConverterFiles\Mappers\RulerPersonalitiesMapper">
+      <UniqueIdentifier>{121d5fa5-fcd8-4400-a220-b29fd6845aac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MapperTests\RulerPersonalitiesMapper">
+      <UniqueIdentifier>{53312d70-a300-4eac-b4c1-e377db2af167}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

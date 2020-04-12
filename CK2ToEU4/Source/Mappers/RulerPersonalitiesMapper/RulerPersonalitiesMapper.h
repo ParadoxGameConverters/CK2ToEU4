@@ -5,6 +5,11 @@
 #include "newParser.h"
 #include <set>
 
+namespace CK2
+{
+class Character;
+}
+
 namespace mappers
 {
 class RulerPersonalitiesMapper: commonItems::parser
@@ -13,8 +18,7 @@ class RulerPersonalitiesMapper: commonItems::parser
 	RulerPersonalitiesMapper();
 	explicit RulerPersonalitiesMapper(std::istream& theStream);
 
-	std::set<std::string> getPersonalities(const std::pair<int, std::shared_ptr<CK2::Character>>& theCharacter) const;
-
+	[[nodiscard]] std::set<std::string> evaluatePersonalities(const std::pair<int, std::shared_ptr<CK2::Character>>& theCharacter) const;
 	[[nodiscard]] const auto& getMappings() const { return theMappings; } // used for testing
 
   private:
