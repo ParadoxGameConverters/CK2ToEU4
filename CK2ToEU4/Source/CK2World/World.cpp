@@ -2,17 +2,17 @@
 #include "../Common/CommonFunctions.h"
 #include "../Common/Version.h"
 #include "../Configuration/Configuration.h"
+#include "Characters/Character.h"
 #include "Date.h"
 #include "Log.h"
 #include "OSCompatibilityLayer.h"
 #include "ParserHelpers.h"
 #include "Titles/Liege.h"
 #include "Titles/Title.h"
-#include "Characters/Character.h"
 #include <ZipFile.h>
+#include <cmath>
 #include <filesystem>
 #include <fstream>
-#include <cmath>
 
 namespace fs = std::filesystem;
 
@@ -147,14 +147,11 @@ CK2::World::World(const Configuration& theConfiguration)
 
 void CK2::World::determineHeirs()
 {
-	// We're doing this oen late as the number of people involved is reduced a thousandfold.
-	for (const auto& title: independentTitles)
-	{
+	// We're doing this one late as the number of people involved is reduced by thousandfold.
+	for (const auto& title: independentTitles) {
 		const auto& holder = title.second->getHolder();
 		auto law = title.second->getSuccessionLaw();
 		auto gender = title.second->getGender();
-
-		// Using the awesome knowledge that a smaller ID means earlier character, we don't have to sort them by age.
 
 		if (law == "primogeniture" || law == "elective_gavelkind" || law == "gavelkind" || law == "nomad_succession")
 			resolvePrimogeniture(gender, holder);
@@ -163,7 +160,7 @@ void CK2::World::determineHeirs()
 		else if (law == "tanistry" || law == "eldership")
 			resolveTanistry(gender, holder);
 		else if (law == "turkish_succession")
-			resolveTurkish(holder);		
+			resolveTurkish(holder);
 	}
 	LOG(LogLevel::Info) << "<> Heirs resolved where possible.";
 }
@@ -173,10 +170,10 @@ void CK2::World::resolveTurkish(const std::pair<int, std::shared_ptr<Character>>
 	auto children = holder.second->getChildren();
 	std::vector<std::pair<int, std::shared_ptr<Character>>> childVector;
 
-	// instead of filtering by id, we're filtering by raw prestige.	
+	// instead of filtering by id, we're filtering by raw prestige.
 	for (const auto& child: children) childVector.emplace_back(std::pair(lround(child.second->getPrestige()), child.second));
 	std::sort(childVector.begin(), childVector.end());
-	
+
 	for (const auto& child: childVector) {
 		if (child.second->getDeathDate() != date("1.1.1")) continue;
 		holder.second->setHeir(std::pair(child.second->getID(), child.second));
@@ -196,15 +193,19 @@ void CK2::World::resolveTanistry(const std::string& gender, const std::pair<int,
 void CK2::World::resolvePrimogeniture(const std::string& gender, const std::pair<int, std::shared_ptr<Character>>& holder) const
 {
 	auto children = holder.second->getChildren();
+
+	// Using the awesome knowledge that a smaller ID means earlier character, we don't have to sort them by age.
 	std::vector<std::pair<int, std::shared_ptr<Character>>> childVector;
 	for (const auto& child: children) childVector.emplace_back(child);
 	std::sort(childVector.begin(), childVector.end());
-	std::pair<int, std::shared_ptr<Character>> son;
-	std::pair<int, std::shared_ptr<Character>> daughter;
+
+	std::pair<int, std::shared_ptr<Character>> son;		  // primary heir candidate
+	std::pair<int, std::shared_ptr<Character>> daughter; // primary heir candidate
+
 	for (const auto& child: childVector) {
-		if (child.second->getDeathDate() != date("1.1.1")) continue;
+		if (child.second->getDeathDate() != date("1.1.1")) continue; // Dead.
 		if (!son.first && !child.second->isFemale()) son = child;
-		if (son.first && !child.second->isFemale() && son.first == child.first - 1 ) son = child; // Ask paradox. Seriously. 
+		if (son.first && !child.second->isFemale() && son.first == child.first - 1) son = child; // Ask paradox. Seriously.
 		if (!daughter.first && child.second->isFemale()) daughter = child;
 		if (daughter.first && child.second->isFemale() && daughter.first == child.first - 1) daughter = child; // Twins have reversed IDs, yay!
 	}
@@ -228,7 +229,7 @@ void CK2::World::resolvePrimogeniture(const std::string& gender, const std::pair
 			if (son.first == daughter.first - 1) holder.second->setHeir(daughter);
 			if (daughter.first == son.first - 1) holder.second->setHeir(son);
 			// You are insane, you may proceed.
-			
+
 		} else if (son.first)
 			holder.second->setHeir(son);
 		else
@@ -277,17 +278,14 @@ void CK2::World::gatherCourtierNames()
 	auto counter = 0;
 	std::map<int, std::map<std::string, bool>> holderCourtiers; // holder-name/male
 	for (const auto& character: characters.getCharacters()) {
-		if (character.second->getHost())
-		{
-			holderCourtiers[character.second->getHost()].insert(std::pair(character.second->getName(), !character.second->isFemale()));
-		}
+		if (character.second->getHost()) { holderCourtiers[character.second->getHost()].insert(std::pair(character.second->getName(), !character.second->isFemale())); }
 	}
 	for (const auto& title: independentTitles) {
 		if (title.second->getHolder().first) {
 			const auto containerItr = holderCourtiers.find(title.second->getHolder().first);
-			if (containerItr != holderCourtiers.end())
-			{ title.second->getHolder().second->setCourtierNames(containerItr->second);
-				counter += containerItr->second.size();				
+			if (containerItr != holderCourtiers.end()) {
+				title.second->getHolder().second->setCourtierNames(containerItr->second);
+				counter += containerItr->second.size();
 			}
 		}
 	}

@@ -37,7 +37,20 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 
 void EU4::World::resolvePersonalUnions()
 {
-	const std::set<std::string> elegibleReligions = {"catholic", "orthodox", "nestorian", "coptic"};
+	const std::set<std::string> elegibleReligions = {"catholic",
+		 "orthodox",
+		 "nestorian",
+		 "coptic",
+		 "cathar",
+		 "fraticelli",
+		 "waldensian",
+		 "lollard",
+		 "bogomilist",
+		 "monothelite",
+		 "iconoclast",
+		 "messalian",
+		 "paulician",
+		 "monophysite"};
 	std::map<int, std::map<std::string, std::shared_ptr<Country>>> holderTitles;
 	std::map<int, std::pair<std::string, std::shared_ptr<Country>>> holderPrimaryTitle;
 	std::map<int, std::shared_ptr<CK2::Character>> relevantHolders;
@@ -61,8 +74,8 @@ void EU4::World::resolvePersonalUnions()
 	// Now let's see what we have.
 	for (const auto& holderTitle: holderTitles) {
 		if (holderTitle.second.size() <= 1) continue;
+		
 		// multiple crowns. What's our primary?
-
 		auto primaryItr = holderPrimaryTitle.find(holderTitle.first);
 		std::pair<std::string, std::shared_ptr<Country>> primaryTitle;
 		if (primaryItr == holderPrimaryTitle.end() || primaryItr->second.second->getProvinces().empty()) {
@@ -105,7 +118,7 @@ void EU4::World::resolvePersonalUnions()
 			for (const auto& title: holderTitle.second) {
 				if (title.first == primaryTitle.first) continue;
 				if (title.second->getProvinces().empty()) continue;
-				// Craft a relation.
+				// Yum.
 				primaryTitle.second->annexCountry(title);
 			}
 		}
