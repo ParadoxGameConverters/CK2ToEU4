@@ -99,14 +99,7 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	}
 	if (!details.primaryCulture.empty()) {
 		const auto& techMatch = cultureMapper.getTechGroup(details.primaryCulture);
-		if (techMatch)
-			details.technologyGroup = *techMatch;
-		else {
-			// disabled during testing
-			// Log(LogLevel::Warning) << tag << ": No tech group match for: " << details.primaryCulture << "! Substituting western!";
-			// details.technologyGroup = "western";
-			details.technologyGroup = "high_american";
-		}
+		if (techMatch) details.technologyGroup = *techMatch;
 	} // We will set it later if primaryCulture is unavailable at this stage.
 	if (title.first.find("c_") == 0)
 		details.fixedCapital = true;
@@ -153,14 +146,16 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 			details.graphicalCulture = "westerngfx";
 		}
 	} // We will set it later if primaryCulture is unavailable at this stage.
-	if (title.second->getColor())
-		details.color = title.second->getColor();
-	else {
-		const auto& colorMatch = colorScraper.getColorForTitle(title.first);
-		if (colorMatch)
-			details.color = *colorMatch;
-		else
-			Log(LogLevel::Warning) << tag << ": No color defined for title " << title.first << "!";
+	if (!details.color) {
+		if (title.second->getColor())
+			details.color = title.second->getColor();
+		else {
+			const auto& colorMatch = colorScraper.getColorForTitle(title.first);
+			if (colorMatch)
+				details.color = *colorMatch;
+			else
+				Log(LogLevel::Warning) << tag << ": No color defined for title " << title.first << "!";
+		}
 	}
 	// If we imported some revolutionary colors we'll keep them, otherwise, let's generate some.
 	if (!details.revolutionaryColor) {
@@ -247,6 +242,26 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 			}
 		}
 	}
+	if (!adjSet) {
+		// Maybe c_something?
+		auto alternateAdj = title.second->getName() + "_adj";
+		alternateAdj = "c_" + alternateAdj.substr(2, alternateAdj.length());
+		adjLocalizationMatch = localizationMapper.getLocBlockForKey(alternateAdj);
+		if (adjLocalizationMatch) {
+			localizations.insert(std::pair(tag, *adjLocalizationMatch));
+			adjSet = true;
+		}
+	}
+	if (!adjSet) {
+		// Or d_something?
+		auto alternateAdj = title.second->getName() + "_adj";
+		alternateAdj = "d_" + alternateAdj.substr(2, alternateAdj.length());
+		adjLocalizationMatch = localizationMapper.getLocBlockForKey(alternateAdj);
+		if (adjLocalizationMatch) {
+			localizations.insert(std::pair(tag, *adjLocalizationMatch));
+			adjSet = true;
+		}
+	}
 	if (!adjSet) Log(LogLevel::Warning) << tag << " help with localization for adjective! " << title.first << "_adj?";
 
 	// Rulers
@@ -320,4 +335,27 @@ int EU4::Country::getDevelopment() const
 	auto dev = 0;
 	for (const auto& province: provinces) dev += province.second->getDev();
 	return dev;
+}
+
+void EU4::Country::annexCountry(const std::pair<std::string, std::shared_ptr<Country>>& theCountry)
+{
+	// Provinces
+	const auto& targetProvinces = theCountry.second->getProvinces();
+	for (const auto& province: targetProvinces) {
+		province.second->addCore(tag); // Adding, not replacing.
+		province.second->setOwner(tag);
+		province.second->setController(tag);
+		provinces.insert(province);
+	}
+	theCountry.second->clearProvinces();
+
+	// Vassals
+	const auto& targetVassals = theCountry.second->getTitle().second->getGeneratedVassals();
+	for (const auto& vassal: targetVassals) {
+		vassal.second->registerGeneratedLiege(title);
+		title.second->registerGeneratedVassal(vassal);
+	}
+	theCountry.second->getTitle().second->clearGeneratedVassals();
+
+	// Bricking the title -> eu4tag is not necessary and not desirable. As soon as the country has 0 provinces, it's effectively dead.
 }

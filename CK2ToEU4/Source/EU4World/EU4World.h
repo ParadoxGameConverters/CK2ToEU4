@@ -11,9 +11,9 @@
 #include "../Mappers/TitleTagMapper/TitleTagMapper.h"
 #include "../Mappers/VersionParser/VersionParser.h"
 #include "Country/Country.h"
+#include "Diplomacy/Diplomacy.h"
 #include "Output/outModFile.h"
 #include "Province/EU4Province.h"
-#include "Diplomacy/Diplomacy.h"
 
 class Configuration;
 
@@ -55,6 +55,7 @@ class World
 	void setElectors();
 	void setFreeCities();
 	void outputDiplomacy(const Configuration& theConfiguration, const std::vector<Agreement>& agreements) const;
+	void resolvePersonalUnions();
 
 	mappers::ColorScraper colorScraper;
 	mappers::ProvinceMapper provinceMapper;

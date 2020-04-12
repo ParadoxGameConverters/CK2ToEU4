@@ -1,9 +1,9 @@
 #ifndef CK2_TITLE_H
 #define CK2_TITLE_H
+#include "Color.h"
 #include "Liege.h"
 #include "newParser.h"
 #include <set>
-#include "Color.h"
 
 namespace EU4
 {
@@ -67,6 +67,7 @@ class Title: commonItems::parser
 		holder.second = nullptr;
 	}
 	void clearVassals() { vassals.clear(); }
+	void clearGeneratedVassals() { generatedVassals.clear(); }
 
   private:
 	void registerKeys();
@@ -87,7 +88,7 @@ class Title: commonItems::parser
 	std::pair<std::string, std::shared_ptr<EU4::Country>> tagCountry;
 
 	std::map<std::string, std::shared_ptr<Title>> generatedVassals; // Vassals we split off deliberately.
-	std::pair<std::string, std::shared_ptr<Title>> generatedLiege; // Liege we set manually.
+	std::pair<std::string, std::shared_ptr<Title>> generatedLiege;	 // Liege we set manually.
 };
 } // namespace CK2
 
