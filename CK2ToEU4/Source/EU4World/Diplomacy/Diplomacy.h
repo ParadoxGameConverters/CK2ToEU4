@@ -14,7 +14,7 @@ class Diplomacy
   public:
 	void addAgreement(const Agreement& agreement) { agreements.push_back(agreement); }
 	void importAgreements(const std::map<std::string, std::shared_ptr<Country>>& countries);
-	void output(const Configuration& theConfiguration) const;
+	[[nodiscard]] const auto& getAgreements() const { return agreements; }
 
   private:
 	std::vector<Agreement> agreements;

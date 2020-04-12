@@ -183,16 +183,10 @@
     <ClCompile Include="Source\Mappers\LocalizationMapper\LocalizationMapper.cpp">
       <Filter>Mappers\LocalizationMapper</Filter>
     </ClCompile>
-    <ClCompile Include="Source\EU4World\Diplomacy\Agreement.cpp">
-      <Filter>EU4World\Diplomacy</Filter>
-    </ClCompile>
     <ClCompile Include="Source\EU4World\Diplomacy\Diplomacy.cpp">
       <Filter>EU4World\Diplomacy</Filter>
     </ClCompile>
     <ClCompile Include="Source\EU4World\Output\outAgreement.cpp">
-      <Filter>EU4World\Output</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\EU4World\Output\outDiplomacy.cpp">
       <Filter>EU4World\Output</Filter>
     </ClCompile>
   </ItemGroup>

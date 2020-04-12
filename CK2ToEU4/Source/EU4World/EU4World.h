@@ -54,6 +54,7 @@ class World
 		 const CK2::World& sourceWorld) const;
 	void setElectors();
 	void setFreeCities();
+	void outputDiplomacy(const Configuration& theConfiguration, const std::vector<Agreement>& agreements) const;
 
 	mappers::ColorScraper colorScraper;
 	mappers::ProvinceMapper provinceMapper;
