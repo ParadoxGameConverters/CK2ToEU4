@@ -234,6 +234,8 @@
     <ClCompile Include="Source\Mappers\RegionMapper\SuperRegion.cpp" />
     <ClCompile Include="Source\Mappers\ReligionMapper\ReligionMapper.cpp" />
     <ClCompile Include="Source\Mappers\ReligionMapper\ReligionMapping.cpp" />
+    <ClCompile Include="Source\Mappers\RulerPersonalitiesMapper\RulerPersonalitiesMapper.cpp" />
+    <ClCompile Include="Source\Mappers\RulerPersonalitiesMapper\RulerPersonalitiesMapping.cpp" />
     <ClCompile Include="Source\Mappers\TitleTagMapper\TitleTagMapper.cpp" />
     <ClCompile Include="Source\Mappers\TitleTagMapper\TitleTagMapping.cpp" />
     <ClCompile Include="Source\Mappers\VersionParser\VersionParser.cpp" />
@@ -299,6 +301,8 @@
     <ClInclude Include="Source\Mappers\RegionMapper\SuperRegion.h" />
     <ClInclude Include="Source\Mappers\ReligionMapper\ReligionMapper.h" />
     <ClInclude Include="Source\Mappers\ReligionMapper\ReligionMapping.h" />
+    <ClInclude Include="Source\Mappers\RulerPersonalitiesMapper\RulerPersonalitiesMapper.h" />
+    <ClInclude Include="Source\Mappers\RulerPersonalitiesMapper\RulerPersonalitiesMapping.h" />
     <ClInclude Include="Source\Mappers\TitleTagMapper\TitleTagMapper.h" />
     <ClInclude Include="Source\Mappers\TitleTagMapper\TitleTagMapping.h" />
     <ClInclude Include="Source\Mappers\VersionParser\VersionParser.h" />

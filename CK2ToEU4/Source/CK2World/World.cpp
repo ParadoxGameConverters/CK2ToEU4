@@ -151,7 +151,7 @@ void CK2::World::determineHeirs()
 	for (const auto& title: independentTitles) {
 		const auto& holder = title.second->getHolder();
 		auto law = title.second->getSuccessionLaw();
-		auto gender = title.second->getGender();
+		auto gender = title.second->getGenderLaw();
 
 		if (law == "primogeniture" || law == "elective_gavelkind" || law == "gavelkind" || law == "nomad_succession")
 			resolvePrimogeniture(gender, holder);
@@ -181,16 +181,16 @@ void CK2::World::resolveTurkish(const std::pair<int, std::shared_ptr<Character>>
 	}
 }
 
-void CK2::World::resolveTanistry(const std::string& gender, const std::pair<int, std::shared_ptr<Character>>& holder) const
+void CK2::World::resolveTanistry(const std::string& genderLaw, const std::pair<int, std::shared_ptr<Character>>& holder) const
 {
 	// We have no clue who a tanistry successor might be.
 	// Such luck! It's the uncle/aunt the son/daughter was named after!
-	resolvePrimogeniture(gender, holder);
+	resolvePrimogeniture(genderLaw, holder);
 	const auto& heir = holder.second->getHeir();
 	if (heir.first) heir.second->addYears(35);
 }
 
-void CK2::World::resolvePrimogeniture(const std::string& gender, const std::pair<int, std::shared_ptr<Character>>& holder) const
+void CK2::World::resolvePrimogeniture(const std::string& genderLaw, const std::pair<int, std::shared_ptr<Character>>& holder) const
 {
 	auto children = holder.second->getChildren();
 
@@ -210,15 +210,15 @@ void CK2::World::resolvePrimogeniture(const std::string& gender, const std::pair
 		if (daughter.first && child.second->isFemale() && daughter.first == child.first - 1) daughter = child; // Twins have reversed IDs, yay!
 	}
 
-	if ((gender == "agnatic" || gender == "cognatic") && son.first) {
+	if ((genderLaw == "agnatic" || genderLaw == "cognatic") && son.first) {
 		holder.second->setHeir(son);
 		return;
 	}
-	if (gender == "cognatic" && daughter.first) {
+	if (genderLaw == "cognatic" && daughter.first) {
 		holder.second->setHeir(daughter);
 		return;
 	}
-	if (gender == "true_cognatic" && (son.first || daughter.first)) {
+	if (genderLaw == "true_cognatic" && (son.first || daughter.first)) {
 		if (son.first && daughter.first) {
 			if (son.first < daughter.first)
 				holder.second->setHeir(son);
@@ -237,7 +237,7 @@ void CK2::World::resolvePrimogeniture(const std::string& gender, const std::pair
 	}
 }
 
-void CK2::World::resolveUltimogeniture(const std::string& gender, const std::pair<int, std::shared_ptr<Character>>& holder) const
+void CK2::World::resolveUltimogeniture(const std::string& genderLaw, const std::pair<int, std::shared_ptr<Character>>& holder) const
 {
 	auto children = holder.second->getChildren();
 	std::vector<std::pair<int, std::shared_ptr<Character>>> childVector;
@@ -251,15 +251,15 @@ void CK2::World::resolveUltimogeniture(const std::string& gender, const std::pai
 		if (!daughter.first && child.second->isFemale()) daughter = child;
 	}
 
-	if ((gender == "agnatic" || gender == "cognatic") && son.first) {
+	if ((genderLaw == "agnatic" || genderLaw == "cognatic") && son.first) {
 		holder.second->setHeir(son);
 		return;
 	}
-	if (gender == "cognatic" && daughter.first) {
+	if (genderLaw == "cognatic" && daughter.first) {
 		holder.second->setHeir(daughter);
 		return;
 	}
-	if (gender == "true_cognatic" && (son.first || daughter.first)) {
+	if (genderLaw == "true_cognatic" && (son.first || daughter.first)) {
 		if (son.first && daughter.first) {
 			if (son.first < daughter.first)
 				holder.second->setHeir(son);

@@ -189,7 +189,7 @@ TEST(CK2World_TitleTests, majorRevoltCanBeSet)
 	ASSERT_TRUE(theTitle.isMajorRevolt());
 }
 
-TEST(CK2World_TitleTests, genderDefaultsToBlank)
+TEST(CK2World_TitleTests, genderLawDefaultsToBlank)
 {
 	std::stringstream input;
 	input << "=\n";
@@ -198,10 +198,10 @@ TEST(CK2World_TitleTests, genderDefaultsToBlank)
 
 	const CK2::Title theTitle(input, "c_test");
 
-	ASSERT_TRUE(theTitle.getGender().empty());
+	ASSERT_TRUE(theTitle.getGenderLaw().empty());
 }
 
-TEST(CK2World_TitleTests, genderCanBeSet)
+TEST(CK2World_TitleTests, genderLawCanBeSet)
 {
 	std::stringstream input;
 	input << "=\n";
@@ -211,10 +211,10 @@ TEST(CK2World_TitleTests, genderCanBeSet)
 
 	CK2::Title theTitle(input, "c_test");
 
-	ASSERT_EQ(theTitle.getGender(), "agnatic");
+	ASSERT_EQ(theTitle.getGenderLaw(), "agnatic");
 }
 
-TEST(CK2World_TitleTests, successionDefaultsToBlank)
+TEST(CK2World_TitleTests, successionLawDefaultsToBlank)
 {
 	std::stringstream input;
 	input << "=\n";
@@ -226,7 +226,7 @@ TEST(CK2World_TitleTests, successionDefaultsToBlank)
 	ASSERT_TRUE(theTitle.getSuccessionLaw().empty());
 }
 
-TEST(CK2World_TitleTests, successionCanBeSet)
+TEST(CK2World_TitleTests, successionLawCanBeSet)
 {
 	std::stringstream input;
 	input << "=\n";

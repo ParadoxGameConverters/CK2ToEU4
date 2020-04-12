@@ -36,7 +36,7 @@ void CK2::Title::registerKeys()
 	});
 	registerKeyword("gender", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleString genderStr(theStream);
-		gender = genderStr.getString();
+		genderLaw = genderStr.getString();
 	});
 	registerKeyword("succession", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleString successionStr(theStream);

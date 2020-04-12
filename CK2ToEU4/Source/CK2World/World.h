@@ -38,9 +38,9 @@ class World: commonItems::parser
 	void splitVassals();
 	void gatherCourtierNames();
 	void determineHeirs();
-	void resolvePrimogeniture(const std::string& gender, const std::pair<int, std::shared_ptr<Character>>& holder) const;
-	void resolveUltimogeniture(const std::string& gender, const std::pair<int, std::shared_ptr<Character>>& holder) const;
-	void resolveTanistry(const std::string& gender, const std::pair<int, std::shared_ptr<Character>>& holder) const;
+	void resolvePrimogeniture(const std::string& genderLaw, const std::pair<int, std::shared_ptr<Character>>& holder) const;
+	void resolveUltimogeniture(const std::string& genderLaw, const std::pair<int, std::shared_ptr<Character>>& holder) const;
+	void resolveTanistry(const std::string& genderLaw, const std::pair<int, std::shared_ptr<Character>>& holder) const;
 	void resolveTurkish(const std::pair<int, std::shared_ptr<Character>>& holder) const;
 
 	date endDate = date("1444.11.11");

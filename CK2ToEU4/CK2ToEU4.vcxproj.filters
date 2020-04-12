@@ -192,6 +192,12 @@
     <ClCompile Include="Source\EU4World\Country\MonarchNames.cpp">
       <Filter>EU4World\Country</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Mappers\RulerPersonalitiesMapper\RulerPersonalitiesMapper.cpp">
+      <Filter>Mappers\RulerPersonalitiesMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Mappers\RulerPersonalitiesMapper\RulerPersonalitiesMapping.cpp">
+      <Filter>Mappers\RulerPersonalitiesMapper</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CK2ToEU4Converter.h" />
@@ -381,6 +387,12 @@
     <ClInclude Include="Source\EU4World\Country\MonarchNames.h">
       <Filter>EU4World\Country</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Mappers\RulerPersonalitiesMapper\RulerPersonalitiesMapper.h">
+      <Filter>Mappers\RulerPersonalitiesMapper</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Mappers\RulerPersonalitiesMapper\RulerPersonalitiesMapping.h">
+      <Filter>Mappers\RulerPersonalitiesMapper</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4World">
@@ -457,6 +469,9 @@
     </Filter>
     <Filter Include="EU4World\Diplomacy">
       <UniqueIdentifier>{d04530b7-c78a-431d-8741-62cfcdd9c3ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mappers\RulerPersonalitiesMapper">
+      <UniqueIdentifier>{dafbb54b-299c-4e6b-80dc-36a7b68bfbac}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
