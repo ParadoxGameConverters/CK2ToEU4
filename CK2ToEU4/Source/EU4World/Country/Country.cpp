@@ -18,6 +18,12 @@ EU4::Country::Country(std::string theTag, const std::string& filePath): tag(std:
 	const auto startPos = filePath.find("/countries");
 	commonCountryFile = filePath.substr(startPos + 1, filePath.length() - startPos);
 	details = CountryDetails(filePath);
+
+	// We also must set a dummy history filepath for those countries that don't actually have a history file.
+	const auto lastslash = filePath.find_last_of('/');
+	const auto rawname = filePath.substr(lastslash + 1, filePath.length());
+	
+	historyCountryFile = "history/countries/" + tag + " - " + rawname;
 }
 
 void EU4::Country::loadHistory(const std::string& filePath)

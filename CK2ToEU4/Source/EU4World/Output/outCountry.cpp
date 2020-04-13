@@ -11,7 +11,7 @@ std::ostream& EU4::operator<<(std::ostream& output, const Country& country)
 	output << "religion = " << country.details.religion << "\n";
 	output << "primary_culture = " << country.details.primaryCulture << "\n";
 	if (country.details.capital) output << "capital = " << country.details.capital << "\n";
-	if (country.details.fixedCapital) output << "fixed_capital = yes\n";
+	if (country.details.fixedCapital && country.details.capital) output << "fixed_capital = " << country.details.capital << "\n";
 	if (country.details.mercantilism) output << "mercantilism = " << country.details.mercantilism << "\n";
 	if (!country.details.unitType.empty()) output << "unit_type = " << country.details.unitType << "\n";
 	if (!country.details.religiousSchool.empty()) output << "religious_school = " << country.details.religiousSchool << "\n";
@@ -64,9 +64,9 @@ std::ostream& EU4::operator<<(std::ostream& output, const Country& country)
 	// this is done only for countries without a title - vanilla tags where we're regurgitating history ad verbatim.
 	if (country.getTitle().first.empty() && !country.details.historyLessons.empty()) {
 		for (const auto& historyLesson: country.details.historyLessons) {
-			output << historyLesson.first << " = {\n";
+			output << historyLesson.first << " =\n";
 			output << historyLesson.second;
-			output << "}\n\n";
+			output << "\n";
 		}
 	}
 

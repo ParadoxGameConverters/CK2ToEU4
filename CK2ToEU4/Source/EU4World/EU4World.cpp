@@ -413,26 +413,14 @@ void EU4::World::importVanillaCountries(const std::string& eu4Path)
 	// ---- Loading common/countries/
 	std::ifstream eu4CountriesFile(fs::u8path(eu4Path + "/common/country_tags/00_countries.txt"));
 	if (!eu4CountriesFile.is_open()) throw std::runtime_error("Could not open " + eu4Path + "/common/country_tags/00_countries.txt!");
-
-	while (!eu4CountriesFile.eof()) {
-		std::string line;
-		getline(eu4CountriesFile, line);
-
-		if (line[0] == '#' || line.length() < 4) continue;
-		auto tag = line.substr(0, 3);
-
-		// All file paths are in quotes. The ones outside are commented, so we can use those as markers.
-		auto quoteLoc = line.find_first_of('\"');
-		auto countryLine = line.substr(quoteLoc + 1, line.length());
-		quoteLoc = countryLine.find_last_of('\"');
-		countryLine = countryLine.substr(0, quoteLoc);
-		const auto filePath = eu4Path + "/common/" + countryLine;
-
-		// We're soaking up all vanilla countries with all current definitions.
-		const auto newCountry = std::make_shared<Country>(tag, filePath);
-		countries.insert(std::make_pair(tag, newCountry));
-	}
+	loadCountriesFromSource(eu4CountriesFile, eu4Path, true);	
 	eu4CountriesFile.close();
+	if (Utils::DoesFileExist("blankMod/output/common/country_tags/01_special_tags.txt")) {
+		std::ifstream blankCountriesFile(fs::u8path("blankMod/output/common/country_tags/01_special_tags.txt"));
+		if (!blankCountriesFile.is_open()) throw std::runtime_error("Could not open blankMod/output/common/country_tags/01_special_tags.txt!");
+		loadCountriesFromSource(blankCountriesFile, "blankMod/output/", false);
+		blankCountriesFile.close();
+	}	
 	LOG(LogLevel::Info) << ">> Loaded " << countries.size() << " countries.";
 
 	LOG(LogLevel::Info) << "-> Importing Vanilla Country History";
@@ -445,6 +433,31 @@ void EU4::World::importVanillaCountries(const std::string& eu4Path)
 	}
 	LOG(LogLevel::Info) << ">> Loaded " << fileNames.size() << " history files.";
 }
+
+void EU4::World::loadCountriesFromSource(std::istream& theStream, const std::string& sourcePath, bool isVanillaSource)
+{
+	while (!theStream.eof()) {
+		std::string line;
+		getline(theStream, line);
+
+		if (line[0] == '#' || line.length() < 4) continue;
+		auto tag = line.substr(0, 3);
+
+		// All file paths are in quotes. The ones outside are commented, so we can use those as markers.
+		auto quoteLoc = line.find_first_of('\"');
+		auto countryLine = line.substr(quoteLoc + 1, line.length());
+		quoteLoc = countryLine.find_last_of('\"');
+		countryLine = countryLine.substr(0, quoteLoc);
+		const auto filePath = sourcePath + "/common/" + countryLine;
+
+		// We're soaking up all vanilla countries with all current definitions.
+		const auto newCountry = std::make_shared<Country>(tag, filePath);
+		if (countries.count(tag)) countries[tag] = newCountry; // Overriding vanilla EU4 with our definitions.
+		else countries.insert(std::make_pair(tag, newCountry));
+		if (!isVanillaSource) specialCountryTags.insert(tag);
+	}
+}
+
 
 std::optional<std::pair<int, std::shared_ptr<CK2::Province>>> EU4::World::determineProvinceSource(const std::vector<int>& ck2ProvinceNumbers,
 	 const CK2::World& sourceWorld) const

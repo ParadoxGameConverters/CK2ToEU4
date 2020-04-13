@@ -33,6 +33,7 @@ class World
   private:
 	// void loadRegions(const Configuration& theConfiguration); waiting on geography.
 	void importVanillaCountries(const std::string& eu4Path);
+	void loadCountriesFromSource(std::istream& theStream, const std::string& sourcePath, bool isVanillaSource);
 	void importVanillaProvinces(const std::string& eu4Path);
 	void importCK2Countries(const CK2::World& sourceWorld);
 	void importCK2Country(const std::pair<std::string, std::shared_ptr<CK2::Title>>& title, const CK2::World& sourceWorld);
@@ -72,6 +73,8 @@ class World
 	mappers::RulerPersonalitiesMapper rulerPersonalitiesMapper;
 	std::string emperorTag;
 	Diplomacy diplomacy;
+
+	std::set<std::string> specialCountryTags; // tags we loaded from own sources and must not output into 00_country_tags.txt
 };
 } // namespace EU4
 
