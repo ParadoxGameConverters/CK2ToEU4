@@ -1,0 +1,15 @@
+owner = MAY
+controller = MAY
+add_core = MAY
+culture = mayan
+religion = mesoamerican_religion
+discovered_by = high_american
+discovered_by = mesoamerican
+citysize = 1000
+
+1444.11.11 = {
+	owner = MAY
+	controller = MAY
+	culture = mayan
+	religion = mesoamerican_religion
+}

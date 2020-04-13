@@ -1,0 +1,11 @@
+owner = POT
+controller = POT
+add_core = POT
+discovered_by = high_american
+citysize = 1000
+
+1444.11.11 = {
+	owner = POT
+	controller = POT
+}
+

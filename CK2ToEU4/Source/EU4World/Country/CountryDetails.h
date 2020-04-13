@@ -26,7 +26,13 @@ typedef struct {
 	int claim = 0;
 	bool regency = false;
 	std::set<std::string> personalities;
-} Monarch;
+	int id = 0; // advisers
+	int location = 0;
+	int skill = 0;
+	std::string type;
+	date appearDate = date("1.1.1");
+	bool discount = false;	
+} Character;
 	
 class CountryDetails: commonItems::parser
 {
@@ -84,9 +90,10 @@ class CountryDetails: commonItems::parser
 	bool rightToBEARArms = false;
 	std::vector<std::pair<date, std::string>> historyLessons; // this is used to store history entries for countries we're only transcribing.
 
-	Monarch monarch;
-	Monarch queen;
-	Monarch heir;
+	Character monarch;
+	Character queen;
+	Character heir;
+	std::vector<Character> advisers;
 	
   private:
 	void registerKeys();

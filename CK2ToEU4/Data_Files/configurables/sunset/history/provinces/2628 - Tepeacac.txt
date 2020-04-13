@@ -1,0 +1,27 @@
+# No previous file for Tepeacac
+
+culture = aztek
+owner = AZT
+controller = AZT
+add_core = AZT
+is_city = yes
+religion = nahuatl
+capital = "Tepeacac"
+trade_goods = grain
+hre = no
+base_tax = 2
+manpower = 1
+native_size = 5
+native_ferocity = 1
+native_hostileness = 2
+discovered_by = mesoamerican
+discovered_by = high_american
+
+#1521.8.13  = {	owner = SPA
+#		controller = SPA
+#		citysize = 2150
+#		culture = castillian
+#		religion = catholic
+#	    } # Fall of Tenochtitlan
+#1546.1.1  = { add_core = SPA }
+#1810.9.16 = { owner = MEX add_core = MEX controller = MEX } # Mexican War of Independence

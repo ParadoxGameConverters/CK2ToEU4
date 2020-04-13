@@ -1,0 +1,11 @@
+owner = OTT
+controller = OTT
+add_core = OTT
+discovered_by = high_american
+citysize = 1000
+
+1444.11.11 = {
+	owner = OTT
+	controller = OTT
+}
+

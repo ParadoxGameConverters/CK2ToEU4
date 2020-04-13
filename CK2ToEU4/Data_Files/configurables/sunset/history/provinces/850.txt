@@ -1,0 +1,16 @@
+owner = TLX
+controller = TLX
+add_core = TLX
+culture = aztek
+religion = nahuatl
+discovered_by = mesoamerican
+discovered_by = high_american
+citysize = 1000
+
+1444.11.11 = {
+	owner = TLX
+	controller = TLX
+	culture = aztek
+	religion = nahuatl
+}
+

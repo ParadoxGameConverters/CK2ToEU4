@@ -1,0 +1,18 @@
+government = monarchy
+add_government_reform = autocracy_reform
+mercantilism = 0.1
+primary_culture = pueblo
+religion = totemism
+technology_group = high_american
+capital = 880 # Pueblo
+
+
+1444.11.11 = {
+	monarch = {
+		name = "Xenome"
+		dynasty = "Cochiti"
+		adm = 3
+		dip = 4
+		mil = 2
+	}
+}

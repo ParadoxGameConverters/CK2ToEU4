@@ -1,0 +1,27 @@
+owner = NAH
+
+controller = NAH
+
+add_core = NAH
+
+culture = navajo
+
+religion = totemism
+
+discovered_by = high_american
+
+citysize = 1000
+
+1444.11.11 = {
+
+	owner = NAH
+
+	controller = NAH
+
+	culture = navajo
+
+	religion = totemism
+
+}
+
+

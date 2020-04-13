@@ -6,8 +6,9 @@ namespace fs = std::filesystem;
 #include "../../CK2World/Titles/Title.h"
 #include "../../Configuration/Configuration.h"
 #include "OSCompatibilityLayer.h"
+#include "outCountry.h"
 
-void EU4::World::output(const mappers::VersionParser& versionParser, const Configuration& theConfiguration, date conversionDate) const
+void EU4::World::output(const mappers::VersionParser& versionParser, const Configuration& theConfiguration, date conversionDate, bool invasion) const
 {
 	LOG(LogLevel::Info) << "<- Creating Output Folder";
 	fs::create_directory("output");
@@ -22,6 +23,7 @@ void EU4::World::output(const mappers::VersionParser& versionParser, const Confi
 
 	fs::create_directory("output/" + theConfiguration.getOutputName() + "/history/");
 	fs::create_directory("output/" + theConfiguration.getOutputName() + "/history/countries/");
+	fs::create_directory("output/" + theConfiguration.getOutputName() + "/history/advisors/");
 	fs::create_directory("output/" + theConfiguration.getOutputName() + "/history/provinces/");
 	fs::create_directory("output/" + theConfiguration.getOutputName() + "/history/diplomacy/");
 	fs::create_directory("output/" + theConfiguration.getOutputName() + "/common/");
@@ -42,28 +44,43 @@ void EU4::World::output(const mappers::VersionParser& versionParser, const Confi
 
 	LOG(LogLevel::Info) << "<- Writing Country Commons";
 	outputCommonCountries(theConfiguration);
-	
+
 	LOG(LogLevel::Info) << "<- Writing Country Histories";
 	outputHistoryCountries(theConfiguration);
+
+	LOG(LogLevel::Info) << "<- Writing Advisers";
+	outputAdvisers(theConfiguration);
 
 	LOG(LogLevel::Info) << "<- Writing Provinces";
 	outputHistoryProvinces(theConfiguration);
 
 	LOG(LogLevel::Info) << "<- Writing Localization";
-	outputLocalization(theConfiguration);
+	outputLocalization(theConfiguration, invasion);
 
 	LOG(LogLevel::Info) << "<- Writing Emperor";
 	outputEmperor(theConfiguration, conversionDate);
 
 	LOG(LogLevel::Info) << "<- Writing Diplomacy";
-	outputDiplomacy(theConfiguration, diplomacy.getAgreements());
+	outputDiplomacy(theConfiguration, diplomacy.getAgreements(), invasion);
 
 	LOG(LogLevel::Info) << "<- Moving Flags";
-	outputFlags(theConfiguration);
+	outputFlags(theConfiguration, invasion);
 
 	LOG(LogLevel::Info) << "<- Replacing Bookmark";
 	outputBookmark(theConfiguration, conversionDate);
 }
+
+void EU4::World::outputAdvisers(const Configuration& theConfiguration) const
+{
+	std::ofstream output("output/" + theConfiguration.getOutputName() + "/history/advisors/00_converter_advisors.txt");
+	if (!output.is_open())
+		throw std::runtime_error("Could not create " + theConfiguration.getOutputName() + "/history/advisors/00_converter_advisors.txt");
+	for (const auto& country: countries) {
+		country.second->outputAdvisers(output);
+	}
+	output.close();
+}
+
 
 void EU4::World::outputBookmark(const Configuration& theConfiguration, date conversionDate) const
 {
@@ -90,7 +107,7 @@ void EU4::World::outputBookmark(const Configuration& theConfiguration, date conv
 	out_bookmarks_txt.close();
 }
 
-void EU4::World::outputFlags(const Configuration& theConfiguration) const
+void EU4::World::outputFlags(const Configuration& theConfiguration, bool invasion) const
 {
 	for (const auto& country: countries) {
 		// Do we need a flag at all?
@@ -116,6 +133,7 @@ void EU4::World::outputFlags(const Configuration& theConfiguration) const
 		else
 			fs::copy_file(fileName, "output/" + theConfiguration.getOutputName() + "/gfx/flags/" + country.first + ".tga");
 	}
+	if (invasion) fs::copy_file("configurables/sunset/gfx/flags/SDM.tga", "output/" + theConfiguration.getOutputName() + "/gfx/flags/SDM.tga");
 }
 
 void EU4::World::createModFile(const Configuration& theConfiguration) const
@@ -129,7 +147,7 @@ void EU4::World::createModFile(const Configuration& theConfiguration) const
 }
 
 
-void EU4::World::outputLocalization(const Configuration& theConfiguration) const
+void EU4::World::outputLocalization(const Configuration& theConfiguration, bool invasion) const
 {
 	std::ofstream english("output/" + theConfiguration.getOutputName() + "/localisation/replace/converter_l_english.yml");
 	std::ofstream french("output/" + theConfiguration.getOutputName() + "/localisation/replace/converter_l_french.yml");
@@ -156,6 +174,13 @@ void EU4::World::outputLocalization(const Configuration& theConfiguration) const
 	french.close();
 	spanish.close();
 	german.close();
+
+	if (invasion) {
+		std::set<std::string> fileNames;
+		Utils::GetAllFilesInFolder("configurables/sunset/localisation/", fileNames);
+		for (const auto& fileName: fileNames)
+			fs::copy("configurables/sunset/localisation/" + fileName, "output/" + theConfiguration.getOutputName() + "/localisation/" + fileName);
+	}
 }
 
 void EU4::World::outputVersion(const mappers::VersionParser& versionParser, const Configuration& theConfiguration) const
@@ -185,7 +210,8 @@ void EU4::World::outputHistoryProvinces(const Configuration& theConfiguration) c
 	for (const auto& province: provinces) {
 		std::ofstream output("output/" + theConfiguration.getOutputName() + "/" + province.second->getHistoryCountryFile());
 		if (!output.is_open())
-			throw std::runtime_error("Could not create country history file: output/" + theConfiguration.getOutputName() + "/" + province.second->getHistoryCountryFile());
+			throw std::runtime_error(
+				 "Could not create country history file: output/" + theConfiguration.getOutputName() + "/" + province.second->getHistoryCountryFile());
 		output << *province.second;
 		output.close();
 	}
@@ -196,7 +222,8 @@ void EU4::World::outputHistoryCountries(const Configuration& theConfiguration) c
 	for (const auto& country: countries) {
 		std::ofstream output("output/" + theConfiguration.getOutputName() + "/" + country.second->getHistoryCountryFile());
 		if (!output.is_open())
-			throw std::runtime_error("Could not create country history file: output/" + theConfiguration.getOutputName() + "/" + country.second->getHistoryCountryFile());
+			throw std::runtime_error(
+				 "Could not create country history file: output/" + theConfiguration.getOutputName() + "/" + country.second->getHistoryCountryFile());
 		output << *country.second;
 		output.close();
 	}
@@ -207,8 +234,8 @@ void EU4::World::outputCommonCountries(const Configuration& theConfiguration) co
 	for (const auto& country: countries) {
 		std::ofstream output("output/" + theConfiguration.getOutputName() + "/common/" + country.second->getCommonCountryFile());
 		if (!output.is_open())
-			throw std::runtime_error(
-				 "Could not create country common file: output/" + theConfiguration.getOutputName() + "/common/" + country.second->getCommonCountryFile());
+			throw std::runtime_error("Could not create country common file: output/" + theConfiguration.getOutputName() + "/common/" +
+											 country.second->getCommonCountryFile());
 		country.second->outputCommons(output);
 		output.close();
 	}
@@ -217,14 +244,15 @@ void EU4::World::outputCommonCountries(const Configuration& theConfiguration) co
 void EU4::World::outputEmperor(const Configuration& theConfiguration, date conversionDate) const
 {
 	std::ofstream output("output/" + theConfiguration.getOutputName() + "/history/diplomacy/hre.txt");
-	if (!output.is_open()) throw std::runtime_error("Could not create hre diplomacy file: output/" + theConfiguration.getOutputName() + "/history/diplomacy/hre.txt!");
+	if (!output.is_open())
+		throw std::runtime_error("Could not create hre diplomacy file: output/" + theConfiguration.getOutputName() + "/history/diplomacy/hre.txt!");
 	if (emperorTag.empty())
 		output << conversionDate << " = { emperor = --- }\n";
 	else
 		output << conversionDate << " = { emperor = " << emperorTag << " }\n";
 }
 
-void EU4::World::outputDiplomacy(const Configuration& theConfiguration, const std::vector<Agreement>& agreements) const
+void EU4::World::outputDiplomacy(const Configuration& theConfiguration, const std::vector<Agreement>& agreements, bool invasion) const
 {
 	std::ofstream alliances("output/" + theConfiguration.getOutputName() + "/history/diplomacy/converter_alliances.txt");
 	if (!alliances.is_open()) throw std::runtime_error("Could not create alliances history file!");
@@ -256,4 +284,14 @@ void EU4::World::outputDiplomacy(const Configuration& theConfiguration, const st
 	guarantees.close();
 	puppetStates.close();
 	unions.close();
+
+	if (invasion) {
+		// Blank american diplomacy
+		std::ofstream diplo("output/" + theConfiguration.getOutputName() + "/history/diplomacy/American_alliances.txt");
+		diplo << "\n";
+		diplo.close();
+		// and move over our alliances.
+		fs::copy_file("configurables/sunset/history/diplomacy/SunsetInvasion.txt",
+			 "output/" + theConfiguration.getOutputName() + "/history/diplomacy/SunsetInvasion.txt");
+	}
 }

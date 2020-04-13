@@ -24,6 +24,8 @@ class Province
 	Province() = default;
 
 	Province(int id, const std::string& filePath);
+	
+	void updateWith(const std::string& filePath);
 	void initializeFromCK2(std::shared_ptr<CK2::Province> origProvince, const mappers::CultureMapper& cultureMapper, const mappers::ReligionMapper& religionMapper);
 
 	[[nodiscard]] const auto& getHistoryCountryFile() const { return historyProvincesFile; }

@@ -1,0 +1,13 @@
+owner = KIC
+controller = KIC
+add_core = KIC
+culture = highland_mayan
+religion = mesoamerican_religion
+discovered_by = high_american
+citysize = 1000
+
+1444.11.11 = {
+	owner = KIC
+	controller = KIC
+}
+

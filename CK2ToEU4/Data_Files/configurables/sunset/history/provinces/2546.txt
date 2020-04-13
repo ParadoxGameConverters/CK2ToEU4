@@ -1,0 +1,15 @@
+owner = CHE
+controller = CHE
+add_core = CHE
+culture = cherokee
+religion = totemism
+discovered_by = high_american
+citysize = 1000
+
+1444.11.11 = {
+	owner = CHE
+	controller = CHE
+	culture = cherokee
+	religion = totemism
+}
+

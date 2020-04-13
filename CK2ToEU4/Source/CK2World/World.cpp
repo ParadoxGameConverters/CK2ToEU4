@@ -28,6 +28,16 @@ CK2::World::World(const Configuration& theConfiguration)
 		const commonItems::singleString startDateString(theStream);
 		startDate = date(startDateString.getString());
 	});
+	registerKeyword("flags", [this](const std::string& unused, std::istream& theStream) {
+		// We're not interested in flags. We're here for one thing only.
+		const auto flagsItem =  commonItems::singleItem(unused, theStream);
+		if (flagsItem.find("aztec_explorers") != std::string::npos)
+		{
+			// Ho boy.
+			invasion = true;
+			LOG(LogLevel::Info) << "oO Invasion detected. We're in for a ride!";
+		}
+	});
 	registerKeyword("version", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleString versionString(theStream);
 		CK2Version = Version(versionString.getString());
@@ -278,10 +288,20 @@ void CK2::World::resolveUltimogeniture(const std::string& genderLaw, const std::
 
 void CK2::World::gatherCourtierNames()
 {
+	// We're using this function to Locate courtiers, assemble their names as potential Monarch Names in EU4,
+	// and also while at it, to see if they hold adviser jobs.
+	
 	auto counter = 0;
+	auto counterAdvisors = 0;
 	std::map<int, std::map<std::string, bool>> holderCourtiers; // holder-name/male
+	std::map<int, std::map<int, std::shared_ptr<Character>>> holderAdvisors; // holder-advisors
+	
 	for (const auto& character: characters.getCharacters()) {
-		if (character.second->getHost()) { holderCourtiers[character.second->getHost()].insert(std::pair(character.second->getName(), !character.second->isFemale())); }
+		if (character.second->getHost())
+		{
+			holderCourtiers[character.second->getHost()].insert(std::pair(character.second->getName(), !character.second->isFemale()));
+			if (!character.second->getJob().empty()) holderAdvisors[character.second->getHost()].insert(character);
+		}
 	}
 	for (const auto& title: independentTitles) {
 		if (title.second->getHolder().first) {
@@ -290,9 +310,14 @@ void CK2::World::gatherCourtierNames()
 				title.second->getHolder().second->setCourtierNames(containerItr->second);
 				counter += containerItr->second.size();
 			}
+			const auto adviserItr = holderAdvisors.find(title.second->getHolder().first);
+			if (adviserItr != holderAdvisors.end()) {
+				title.second->getHolder().second->setAdvisers(adviserItr->second);
+				counterAdvisors += adviserItr->second.size();
+			}
 		}
 	}
-	Log(LogLevel::Info) << "<> " << counter << " people gathered for interrogation.";
+	Log(LogLevel::Info) << "<> " << counter << " people gathered for interrogation. " << counterAdvisors << " were detained.";
 }
 
 void CK2::World::splitVassals()

@@ -1,0 +1,11 @@
+owner = COM
+controller = COM
+add_core = COM
+discovered_by = high_american
+citysize = 1000
+
+1444.11.11 = {
+	owner = COM
+	controller = COM
+}
+

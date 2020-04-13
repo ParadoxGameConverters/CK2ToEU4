@@ -1,0 +1,13 @@
+owner = TAR
+controller = TAR
+add_core = TAR
+culture = purepecha
+religion = nahuatl
+discovered_by = high_american
+citysize = 1000
+
+1444.11.11 = {
+	owner = TAR
+	controller = TAR
+}
+

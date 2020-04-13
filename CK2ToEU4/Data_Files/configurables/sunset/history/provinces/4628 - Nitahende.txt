@@ -1,0 +1,16 @@
+owner = AZT
+controller = AZT
+add_core = AZT
+culture = aztek
+religion = nahuatl
+discovered_by = mesoamerican
+discovered_by = high_american
+capital = "Nitahendé"
+trade_goods = grain
+hre = no
+base_tax = 1 
+base_production = 1
+base_manpower = 1
+native_size = 6
+native_ferocity = 2
+native_hostileness = 8

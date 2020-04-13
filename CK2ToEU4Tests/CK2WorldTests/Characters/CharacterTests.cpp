@@ -115,6 +115,31 @@ TEST(CK2World_CharacterTests, religionDefaultsToBlank)
 	ASSERT_TRUE(theCharacter.getReligion().empty());
 }
 
+TEST(CK2World_CharacterTests, jobCanBeSet)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "\tjob=\"job_chancellor\"";
+	input << "}";
+
+	const CK2::Character theCharacter(input, 42);
+
+	ASSERT_EQ(theCharacter.getJob(), "job_chancellor");
+}
+
+TEST(CK2World_CharacterTests, jobDefaultsToBlank)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "}";
+
+	const CK2::Character theCharacter(input, 42);
+
+	ASSERT_TRUE(theCharacter.getJob().empty());
+}
+
 TEST(CK2World_CharacterTests, governmentCanBeSet)
 {
 	std::stringstream input;

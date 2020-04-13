@@ -32,6 +32,10 @@ void CK2::Character::registerKeys()
 		const commonItems::singleString govStr(theStream);
 		government = govStr.getString();
 	});
+	registerKeyword("job", [this](const std::string& unused, std::istream& theStream) {
+		const commonItems::singleString jobStr(theStream);
+		job = jobStr.getString();
+	});
 	registerKeyword("tr", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::intList trList(theStream);
 		for (const auto trait: trList.getInts())

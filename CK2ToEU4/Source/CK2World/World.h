@@ -25,6 +25,7 @@ class World: commonItems::parser
 	[[nodiscard]] const auto& getIndepTitles() const { return independentTitles; }
 	[[nodiscard]] const auto& getProvinces() const { return provinces.getProvinces(); }
 	[[nodiscard]] const auto& getConversionDate() const { return endDate; }
+	[[nodiscard]] auto isInvasion() const { return invasion; }
 
   private:
 	void verifySave(const std::string& saveGamePath);
@@ -65,6 +66,7 @@ class World: commonItems::parser
 	std::map<std::string, Liege> dynamicTitles; // Reusing Liege as it has identical structure
 
 	std::map<std::string, std::shared_ptr<Title>> independentTitles;
+	bool invasion = false;
 };
 } // namespace CK2
 

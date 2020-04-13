@@ -1,0 +1,14 @@
+owner = CRE
+controller = CRE
+add_core = CRE
+culture = creek
+religion = totemism
+discovered_by = high_american
+citysize = 1000
+1444.11.11 = {
+	owner = CRE
+	controller = CRE
+	culture = creek
+	religion = totemism
+}
+
