@@ -52,6 +52,7 @@ class Character: commonItems::parser
 	[[nodiscard]] const auto& getFather() const { return father; }
 	[[nodiscard]] const auto& getDynasty() const { return dynasty; }
 	[[nodiscard]] const auto& getCourtierNames() const { return courtierNames; }
+	[[nodiscard]] const auto& getTraits() const { return traits; }
 	
 	void setDynasty(std::shared_ptr<Dynasty> theDynasty) { dynasty.second = std::move(theDynasty); }
 	void setCourtierNames(const std::map<std::string, bool>& theNames) { courtierNames = theNames; }
@@ -60,6 +61,7 @@ class Character: commonItems::parser
 	void setBaseTitle(std::shared_ptr<Title> theBaseTitle) const { primaryTitle.second->setBaseTitle(std::move(theBaseTitle)); }
 	void setCapitalBarony(std::shared_ptr<Barony> theCapitalBarony) { capital.second = std::move(theCapitalBarony); }
 	void insertCapitalProvince(const std::pair<int, std::shared_ptr<Province>>& theProvince) { capitalProvince = theProvince; }
+	void setTraits(const std::map<int, std::string>& theTraits) { traits = theTraits; }
 
 	void setMother(const std::pair<int, std::shared_ptr<Character>>& theMother) { mother = theMother; }
 	void setHeir(const std::pair<int, std::shared_ptr<Character>>& theHeir) { heir = theHeir; }
@@ -93,6 +95,7 @@ class Character: commonItems::parser
 	double prestige = 0;
 	std::map<std::string, bool> courtierNames; // A simple list of people's names and genders. True=male.
 	int host = 0; // a simple ID of the host Character, no link required.
+	std::map<int, std::string> traits;
 };
 } // namespace CK2
 

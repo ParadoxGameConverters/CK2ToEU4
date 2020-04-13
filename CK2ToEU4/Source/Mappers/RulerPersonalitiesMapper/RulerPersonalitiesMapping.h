@@ -2,11 +2,8 @@
 #define RULER_PERSONALITIES_MAPPING_H
 
 #include "newParser.h"
+#include <set>
 
-namespace CK2
-{
-class Character;
-}
 namespace mappers
 {
 class RulerPersonalitiesMapping: commonItems::parser
@@ -15,14 +12,14 @@ class RulerPersonalitiesMapping: commonItems::parser
 	RulerPersonalitiesMapping() = default;
 	explicit RulerPersonalitiesMapping(std::istream& theStream);
 
-	[[nodiscard]] int evaluatePersonality(const std::pair<int, std::shared_ptr<CK2::Character>>& theCharacter) const;
+	[[nodiscard]] int evaluatePersonality(const std::set<std::string>& ck2Traits) const;
 
-	[[nodiscard]] const auto& getPersonalities() const { return personalities; } // used for testing
+	[[nodiscard]] const auto& getTraits() const { return traits; } // used for testing
 
   private:
 	void registerKeys();
 
-	std::map<std::string, int> personalities;
+	std::map<std::string, int> traits;
 };
 } // namespace mappers
 

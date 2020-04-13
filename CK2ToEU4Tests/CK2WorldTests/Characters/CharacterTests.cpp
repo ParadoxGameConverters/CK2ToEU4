@@ -140,6 +140,34 @@ TEST(CK2World_CharacterTests, governmentDefaultsToBlank)
 	ASSERT_TRUE(theCharacter.getGovernment().empty());
 }
 
+TEST(CK2World_CharacterTests, traitsDefaultsToEmpty)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "}";
+
+	const CK2::Character theCharacter(input, 42);
+
+	ASSERT_TRUE(theCharacter.getTraits().empty());
+}
+
+TEST(CK2World_CharacterTests, traitsCanBeSet)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "\ttr = { 1 2 3 }\n";
+	input << "}";
+
+	const CK2::Character theCharacter(input, 42);
+
+	ASSERT_EQ(theCharacter.getTraits().size(), 3);
+	ASSERT_EQ(theCharacter.getTraits().count(1), 1);
+	ASSERT_EQ(theCharacter.getTraits().count(2), 1);
+	ASSERT_EQ(theCharacter.getTraits().count(3), 1);
+}
+
 TEST(CK2World_CharacterTests, femaleCanBeSet)
 {
 	std::stringstream input;

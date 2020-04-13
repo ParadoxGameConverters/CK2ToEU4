@@ -19,7 +19,8 @@ class LocalizationMapper
   public:
 	LocalizationMapper() = default;
 	void scrapeLocalizations(const Configuration& theConfiguration);
-
+	void scrapeStream(std::istream& theStream);
+	
 	[[nodiscard]] std::optional<LocBlock> getLocBlockForKey(const std::string& key) const;
 
   private:

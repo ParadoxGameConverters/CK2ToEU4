@@ -8,6 +8,7 @@
 #include "../../Mappers/GovernmentsMapper/GovernmentsMapper.h"
 #include "../../Mappers/ProvinceMapper/ProvinceMapper.h"
 #include "../../Mappers/ReligionMapper/ReligionMapper.h"
+#include "../../Mappers/RulerPersonalitiesMapper/RulerPersonalitiesMapper.h"
 #include "../Province/EU4Province.h"
 #include "Log.h"
 
@@ -17,6 +18,12 @@ EU4::Country::Country(std::string theTag, const std::string& filePath): tag(std:
 	const auto startPos = filePath.find("/countries");
 	commonCountryFile = filePath.substr(startPos + 1, filePath.length() - startPos);
 	details = CountryDetails(filePath);
+
+	// We also must set a dummy history filepath for those countries that don't actually have a history file.
+	const auto lastslash = filePath.find_last_of('/');
+	const auto rawname = filePath.substr(lastslash + 1, filePath.length());
+	
+	historyCountryFile = "history/countries/" + tag + " - " + rawname;
 }
 
 void EU4::Country::loadHistory(const std::string& filePath)
@@ -34,6 +41,7 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	 const mappers::ProvinceMapper& provinceMapper,
 	 const mappers::ColorScraper& colorScraper,
 	 const mappers::LocalizationMapper& localizationMapper,
+	 const mappers::RulerPersonalitiesMapper& rulerPersonalitiesMapper,
 	 date theConversionDate)
 {
 	tag = std::move(theTag);
@@ -297,10 +305,10 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	if (!adjSet) Log(LogLevel::Warning) << tag << " help with localization for adjective! " << title.first << "_adj?";
 
 	// Rulers
-	initializeRulers(religionMapper, cultureMapper);
+	initializeRulers(religionMapper, cultureMapper, rulerPersonalitiesMapper);
 }
 
-void EU4::Country::initializeRulers(const mappers::ReligionMapper& religionMapper, const mappers::CultureMapper& cultureMapper)
+void EU4::Country::initializeRulers(const mappers::ReligionMapper& religionMapper, const mappers::CultureMapper& cultureMapper, const mappers::RulerPersonalitiesMapper& rulerPersonalitiesMapper)
 {
 	const auto& holder = title.second->getHolder().second;
 	// Are we the ruler's primary title? (if he has any)
@@ -316,6 +324,7 @@ void EU4::Country::initializeRulers(const mappers::ReligionMapper& religionMappe
 	// religion and culture were already determining our country's primary culture and religion. If we set there, we'll copy here.
 	if (!details.primaryCulture.empty()) details.monarch.culture = details.primaryCulture;
 	if (!details.religion.empty()) details.monarch.religion = details.religion;
+	details.monarch.personalities = rulerPersonalitiesMapper.evaluatePersonalities(title.second->getHolder());
 	details.monarch.isSet = true;
 
 	if (!holder->getSpouses().empty()) {
@@ -344,7 +353,9 @@ void EU4::Country::initializeRulers(const mappers::ReligionMapper& religionMappe
 			details.queen.originCountry = tag;
 			details.queen.deathDate = details.queen.birthDate;
 			details.queen.deathDate.subtractYears(-60);
+			details.queen.personalities = rulerPersonalitiesMapper.evaluatePersonalities(spouse);
 			details.queen.isSet = true;
+			break;
 		}
 	}
 
@@ -372,6 +383,7 @@ void EU4::Country::initializeRulers(const mappers::ReligionMapper& religionMappe
 		details.heir.deathDate = details.heir.birthDate;
 		details.heir.deathDate.subtractYears(-65);
 		details.heir.claim = 89; // good enough?
+		details.heir.personalities = rulerPersonalitiesMapper.evaluatePersonalities(heir);
 		details.heir.isSet = true;
 	}
 
@@ -383,12 +395,14 @@ void EU4::Country::initializeRulers(const mappers::ReligionMapper& religionMappe
 		details.heir.adm = std::min(details.heir.adm + 2, 6);
 		details.heir.mil = std::min(details.heir.mil + 2, 6);
 		details.heir.dip = std::min(details.heir.dip + 2, 6);
+		details.heir.personalities.clear();
 
 		details.monarch.name = "(Regency Council)";
 		details.monarch.regency = true;
 		details.monarch.birthDate = date("1.1.1");
 		details.monarch.female = false;
 		details.monarch.dynasty.clear();
+		details.monarch.personalities.clear();
 	}
 }
 

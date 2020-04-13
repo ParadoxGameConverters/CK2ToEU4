@@ -1,5 +1,10 @@
-JOM = countries/Jomsvikings.txt
-HAH = countries/Hashshashin.txt
-ISR = countries/Israel.txt
-TEM = countries/KnightsTemplar.txt
-TRL = countries/Trapalanda.txt
+# Do not rename this file. You may delete it, but it has to be named 01_special_tags.txt to be loaded into converter.
+# Place here any new countries we have definitions for, as well as any vanilla countries we wish to override (MNG or such).
+# Whatever is placed here should point to existing country definition in blankMod/output/common/countries/<country>.txt
+# Country paths MUST be in quotes.
+
+JOM = "countries/Jomsvikings.txt"
+HAH = "countries/Hashshashin.txt"
+ISR = "countries/Israel.txt"
+TEM = "countries/KnightsTemplar.txt"
+TRL = "countries/Trapalanda.txt"

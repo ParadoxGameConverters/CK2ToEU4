@@ -14,6 +14,7 @@ class ReligionMapper;
 class CultureMapper;
 class ColorScraper;
 class ProvinceMapper;
+class RulerPersonalitiesMapper;
 } // namespace mappers
 
 namespace EU4
@@ -34,8 +35,11 @@ class Country
 		 const mappers::ProvinceMapper& provinceMapper,
 		 const mappers::ColorScraper& colorScraper,
 		 const mappers::LocalizationMapper& localizationMapper,
+		 const mappers::RulerPersonalitiesMapper& rulerPersonalitiesMapper,
 		 date theConversionDate);
-	void initializeRulers(const mappers::ReligionMapper& religionMapper, const mappers::CultureMapper& cultureMapper);
+	void initializeRulers(const mappers::ReligionMapper& religionMapper,
+		 const mappers::CultureMapper& cultureMapper,
+		 const mappers::RulerPersonalitiesMapper& rulerPersonalitiesMapper);
 
 	void outputCommons(std::ostream& output);
 

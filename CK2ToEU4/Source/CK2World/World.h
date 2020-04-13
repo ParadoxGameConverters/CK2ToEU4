@@ -3,6 +3,7 @@
 #include "../Common/Version.h"
 #include "../Mappers/IAmHreMapper/IAmHreMapper.h"
 #include "../Mappers/ProvinceTitleMapper/ProvinceTitleMapper.h"
+#include "../Mappers/PersonalityScraper/PersonalityScraper.h"
 #include "Characters/Characters.h"
 #include "Date.h"
 #include "Dynasties/Dynasties.h"
@@ -60,6 +61,7 @@ class World: commonItems::parser
 	Titles titles;
 	Dynasties dynasties;
 	mappers::IAmHreMapper iAmHreMapper;
+	mappers::PersonalityScraper personalityScraper;
 	std::map<std::string, Liege> dynamicTitles; // Reusing Liege as it has identical structure
 
 	std::map<std::string, std::shared_ptr<Title>> independentTitles;

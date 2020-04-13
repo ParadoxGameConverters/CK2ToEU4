@@ -2,6 +2,8 @@ BasedOnStyle: Microsoft
 Language: Cpp
 
 AccessModifierOffset: -1
+AlignEscapedNewlinesLeft: true
+AlignTrailingComments: true
 AlignAfterOpenBracket: DontAlign
 AllowAllArgumentsOnNextLine: false
 AllowAllConstructorInitializersOnNextLine: false
@@ -11,20 +13,21 @@ AllowShortCaseLabelsOnASingleLine: true
 AllowShortFunctionsOnASingleLine: InlineOnly
 AllowShortIfStatementsOnASingleLine: true
 AllowShortLambdasOnASingleLine: true
-AllowShortLoopsOnASingleLine: true
+AllowShortLoopsOnASingleLine: false
 AlwaysBreakAfterReturnType: None
 AlwaysBreakBeforeMultilineStrings: true
 BinPackArguments: false
 BinPackParameters: false
 BreakBeforeBraces: Linux
+BreakBeforeBinaryOperators: false
 BreakConstructorInitializers: AfterColon
-ColumnLimit: 170
+ColumnLimit: 150
 Cpp11BracedListStyle: true
 IndentCaseLabels: true
 IndentWidth: 3
 SortIncludes: false
 DerivePointerAlignment: false
-MaxEmptyLinesToKeep: 3
+MaxEmptyLinesToKeep: 2
 PointerAlignment: Left
 SortIncludes: true
 SortUsingDeclarations: true
@@ -32,5 +35,7 @@ SpaceBeforeAssignmentOperators: true
 SpaceBeforeCtorInitializerColon: false
 SpaceBeforeInheritanceColon: false
 SpaceBeforeRangeBasedForLoopColon: false
+SpacesInAngles: false
+SpacesInParentheses: false
 TabWidth: 3
 UseTab: Always

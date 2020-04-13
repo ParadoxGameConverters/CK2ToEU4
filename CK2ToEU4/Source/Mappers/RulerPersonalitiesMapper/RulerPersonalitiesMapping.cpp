@@ -10,13 +10,20 @@ mappers::RulerPersonalitiesMapping::RulerPersonalitiesMapping(std::istream& theS
 
 void mappers::RulerPersonalitiesMapping::registerKeys()
 {
-	registerKeyword("[a-z_]+", [this](const std::string& personality, std::istream& theStream) {
+	registerRegex("[a-zA-Z0-9_-]+", [this](const std::string& personality, std::istream& theStream) {
 		const commonItems::singleInt valueInt(theStream);
-		personalities.insert(std::pair(personality, valueInt.getInt()));
+		traits.insert(std::pair(personality, valueInt.getInt()));
 	});
 	registerRegex("[a-zA-Z0-9\\_.:-]+", commonItems::ignoreItem);
 }
 
-int mappers::RulerPersonalitiesMapping::evaluatePersonality(const std::pair<int, std::shared_ptr<CK2::Character>>& theCharacter) const
+int mappers::RulerPersonalitiesMapping::evaluatePersonality(const std::set<std::string>& ck2Traits) const
 {
+	// In CK2 they are traits. In EU4 they are personalities.
+
+	auto score = 0;
+	for (const auto& trait: traits) 
+		if (ck2Traits.count(trait.first)) score += trait.second;
+	
+	return score;
 }

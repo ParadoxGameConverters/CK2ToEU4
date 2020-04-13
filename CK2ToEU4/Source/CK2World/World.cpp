@@ -79,6 +79,7 @@ CK2::World::World(const Configuration& theConfiguration)
 	std::set<std::string> fileNames;
 	Utils::GetAllFilesInFolder(theConfiguration.getCK2Path() + "/common/dynasties/", fileNames);
 	for (const auto& file: fileNames) dynasties.loadDynasties(theConfiguration.getCK2Path() + "/common/dynasties/" + file);
+	personalityScraper.scrapePersonalities(theConfiguration);
 
 	auto gameState = std::istringstream(saveGame.gamestate);
 	parseStream(gameState);
@@ -141,6 +142,8 @@ CK2::World::World(const Configuration& theConfiguration)
 	filterProvincelessTitles();
 	LOG(LogLevel::Info) << "-- Determining Heirs";
 	determineHeirs();
+	LOG(LogLevel::Info) << "-- Decyphering Personalities";
+	characters.assignPersonalities(personalityScraper);
 
 	LOG(LogLevel::Info) << "*** Good-bye CK2, rest in peace. ***";
 }
