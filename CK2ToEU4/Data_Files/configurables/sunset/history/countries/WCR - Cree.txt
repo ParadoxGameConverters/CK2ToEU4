@@ -1,0 +1,18 @@
+government = monarchy
+add_government_reform = autocracy_reform
+mercantilism = 0.1
+primary_culture = cree
+religion = totemism
+technology_group = high_american
+capital = 1002 # Abitbi
+
+
+1444.11.11 = {
+	monarch = {
+		name = "Chinnabie"
+		dynasty = "Hothlepoya"
+		adm = 5
+		dip = 2
+		mil = 3
+	}
+}

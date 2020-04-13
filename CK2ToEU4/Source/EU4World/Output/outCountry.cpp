@@ -73,7 +73,7 @@ std::ostream& EU4::operator<<(std::ostream& output, const Country& country)
 	return output;
 }
 
-void EU4::Country::outputCommons(std::ostream& output)
+void EU4::Country::outputCommons(std::ostream& output) const
 {
 	output << "graphical_culture = " << details.graphicalCulture << "\n";
 	output << "color = { " << details.color << " }\n";
@@ -122,20 +122,35 @@ void EU4::Country::outputCommons(std::ostream& output)
 	if (details.rightToBEARArms) output << "right_to_bear_arms = yes\n";
 }
 
-std::ostream& EU4::operator<<(std::ostream& output, const Monarch& monarch)
+std::ostream& EU4::operator<<(std::ostream& output, const Character& character)
 {
-	output << "\t\tname = \"" << monarch.name << "\"\n";
-	if (!monarch.dynasty.empty()) { output << "\t\tdynasty = \"" << monarch.dynasty << "\"\n"; }
-	output << "\t\tadm = " << monarch.adm << "\n";
-	output << "\t\tdip = " << monarch.dip << "\n";
-	output << "\t\tmil = " << monarch.mil << "\n";
-	if (!monarch.originCountry.empty()) output << "\t\tcountry_of_origin = " << monarch.originCountry << "\n";
-	output << "\t\tbirth_date = " << monarch.birthDate << "\n";
-	if (monarch.regency) output << "\t\tregent = yes\n";
-	if (monarch.deathDate != date("1.1.1")) output << "\t\tdeath_date = " << monarch.deathDate << "\n";
-	if (monarch.female) output << "\t\tfemale = yes\n";
-	if (monarch.claim) output << "\t\tclaim = " << monarch.claim << "\n";
-	output << "\t\treligion = " << monarch.religion << "\n";
-	output << "\t\tculture = " << monarch.culture << "\n";
+	output << "\t\tname = \"" << character.name << "\"\n";
+	if (!character.dynasty.empty()) { output << "\t\tdynasty = \"" << character.dynasty << "\"\n"; }
+	if (!character.id) output << "\t\tadm = " << character.adm << "\n";
+	if (!character.id) output << "\t\tdip = " << character.dip << "\n";
+	if (!character.id) output << "\t\tmil = " << character.mil << "\n";
+	if (!character.originCountry.empty()) output << "\t\tcountry_of_origin = " << character.originCountry << "\n";
+	if (!character.id) output << "\t\tbirth_date = " << character.birthDate << "\n";
+	if (character.regency) output << "\t\tregent = yes\n";
+	if (character.deathDate != date("1.1.1")) output << "\t\tdeath_date = " << character.deathDate << "\n";
+	if (character.female) output << "\t\tfemale = yes\n";
+	if (character.claim) output << "\t\tclaim = " << character.claim << "\n";
+	output << "\t\treligion = " << character.religion << "\n";
+	output << "\t\tculture = " << character.culture << "\n";
+	if (character.id) output << "\t\tadvisor_id = " << character.id << "\n";
+	if (character.location) output << "\t\tlocation = " << character.location << "\n";
+	if (character.skill) output << "\t\tskill = " << character.skill << "\n";
+	if (!character.type.empty()) output << "\t\ttype = " << character.type << "\n";
+	if (character.discount) output << "\t\tdiscount = yes\n";
+	if (character.appearDate != date("1.1.1")) output << "\t\tdate = " << character.appearDate << "\n";
 	return output;
+}
+
+void EU4::Country::outputAdvisers(std::ostream& output) const
+{
+	for (const auto& adviser: details.advisers) {
+		output << "advisor = {\n";
+		output << adviser;
+		output << "}\n";
+	}
 }

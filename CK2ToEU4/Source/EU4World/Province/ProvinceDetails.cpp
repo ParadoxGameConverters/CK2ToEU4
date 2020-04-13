@@ -13,6 +13,13 @@ EU4::ProvinceDetails::ProvinceDetails(const std::string& filePath)
 	clearRegisteredKeywords();
 }
 
+void EU4::ProvinceDetails::updateWith(const std::string& filePath)
+{
+	registerKeys();
+	if (Utils::DoesFileExist(filePath)) { parseFile(filePath); }
+	clearRegisteredKeywords();
+}
+
 EU4::ProvinceDetails::ProvinceDetails(std::istream& theStream)
 {
 	registerKeys();

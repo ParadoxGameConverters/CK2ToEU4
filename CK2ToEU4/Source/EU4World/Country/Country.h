@@ -40,9 +40,12 @@ class Country
 	void initializeRulers(const mappers::ReligionMapper& religionMapper,
 		 const mappers::CultureMapper& cultureMapper,
 		 const mappers::RulerPersonalitiesMapper& rulerPersonalitiesMapper);
+	void initializeAdvisers(const mappers::ReligionMapper& religionMapper,
+		 const mappers::CultureMapper& cultureMapper);
 
-	void outputCommons(std::ostream& output);
-
+	void outputCommons(std::ostream& output) const;
+	void outputAdvisers(std::ostream& output) const;
+	
 	[[nodiscard]] const auto& getCommonCountryFile() const { return commonCountryFile; }
 	[[nodiscard]] const auto& getHistoryCountryFile() const { return historyCountryFile; }
 	[[nodiscard]] const auto& getLocalizations() const { return localizations; }
@@ -58,6 +61,7 @@ class Country
 	[[nodiscard]] const auto& getGovernment() const { return details.government; }
 	[[nodiscard]] const auto& getGovernmentReforms() const { return details.reforms; }
 	[[nodiscard]] const auto& getTag() const { return tag; }
+	[[nodiscard]] const auto& getAdvisers() const { return details.advisers; }
 	[[nodiscard]] auto getConversionDate() const { return conversionDate; }
 
 	void registerProvince(std::pair<int, std::shared_ptr<Province>> theProvince) { provinces.insert(std::move(theProvince)); }

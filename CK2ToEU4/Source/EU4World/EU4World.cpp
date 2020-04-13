@@ -12,28 +12,82 @@ namespace fs = std::filesystem;
 EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfiguration, const mappers::VersionParser& versionParser)
 {
 	LOG(LogLevel::Info) << "*** Hello EU4, let's get painting. ***";
+	// Scraping localizations from CK2 so we may know proper names for our countries.
 	localizationMapper.scrapeLocalizations(theConfiguration);
+	
+	// Ditto for colors - these only apply on non-eu4 countries.
 	colorScraper.scrapeColors(theConfiguration.getCK2Path() + "/common/landed_titles/landed_titles.txt");
+	
+	// This is our region mapper for eu4 regions, areas and superRegions. It's a pointer because we need 
+	// to embed it into every cultureMapper individual mapping. It works faster that way.
 	regionMapper = std::make_shared<mappers::RegionMapper>();
 	regionMapper->loadRegions(theConfiguration);
+	
+	// And this is the cultureMapper. It's of vital importance.
 	cultureMapper.loadRegionMapper(regionMapper);
+
+	// This is a valid province scraper. It looks at eu4 map data and notes which eu4 provinces are in fact valid.
+	// ... It's not used at all.
 	provinceMapper.determineValidProvinces(theConfiguration);
-	importVanillaCountries(theConfiguration.getEU4Path());
+
+	// We start conversion by importing vanilla eu4 countries, history and common sections included.
+	// We'll overwrite some of them with ck2 imports.
+	importVanillaCountries(theConfiguration.getEU4Path(), sourceWorld.isInvasion());
+
+	// Which happens now. Translating incoming titles into EU4 tags, with new tags being added to our countries.
 	importCK2Countries(sourceWorld);
-	importVanillaProvinces(theConfiguration.getEU4Path());
+
+	// Now we can deal with provinces since we know to whom to assign them. We first import vanilla province data.
+	// Some of it will be overwritten, but not all.
+	importVanillaProvinces(theConfiguration.getEU4Path(), sourceWorld.isInvasion());
+
+	// We can link provinces to regionMapper's bindings, though this is not used at the moment.
 	regionMapper->linkProvinces(provinces);
+
+	// Next we import ck2 provinces and translate them ontop a significant part of all imported provinces.
 	importCK2Provinces(sourceWorld);
+
+	// We then link them to their respective countries. Those countries that end up with 0 provinces are defacto dead.
 	linkProvincesToCountries();
+
+	// This step is important. CK2 data is sketchy and not every character or province has culture/religion data.
+	// For those, we look at vanilla provinces and override missing bits with vanilla setup. Yeah, a bit more sunni in
+	// hordeland, but it's fine.
 	verifyReligionsAndCultures();
+
+	// With all provinces and rulers religion/culture set, only now can we import advisers, which also need religion/culture set.
+	// Those advisers coming without such data use the monarch's religion/culture.
+	importAdvisers();
+
+	// We're onto the finesse part of conversion now. HRE was shattered in CK2 World and now we're assigning electorates, free
+	// cities, and such.
 	distributeHRESubtitles(theConfiguration);
+
+	// Vassalages were also set in ck2 world but we have to transcribe those into EU4 agreements.
 	diplomacy.importAgreements(countries);
+
+	// Same for personal unions - rulers with multiple crowns either get PU agreements, or just annex the other crowns.
 	resolvePersonalUnions();
 
+	// And finally, the Dump.
 	LOG(LogLevel::Info) << "---> The Dump <---";
 	modFile.outname = theConfiguration.getOutputName();
-	output(versionParser, theConfiguration, sourceWorld.getConversionDate());
+	output(versionParser, theConfiguration, sourceWorld.getConversionDate(), sourceWorld.isInvasion());
 	LOG(LogLevel::Info) << "*** Farewell EU4, granting you independence. ***";
 }
+
+void EU4::World::importAdvisers()
+{
+	LOG(LogLevel::Info) << "-> Importing Advisers";
+	auto counter = 0;
+	for (const auto& country: countries)
+	{
+		country.second->initializeAdvisers(religionMapper, cultureMapper);
+		counter += country.second->getAdvisers().size();
+	}
+	LOG(LogLevel::Info) << "<> Imported " << counter << " advisers.";
+}
+
 
 void EU4::World::resolvePersonalUnions()
 {
@@ -301,7 +355,7 @@ void EU4::World::verifyReligionsAndCultures()
 	}
 }
 
-void EU4::World::importVanillaProvinces(const std::string& eu4Path)
+void EU4::World::importVanillaProvinces(const std::string& eu4Path, bool invasion)
 {
 	LOG(LogLevel::Info) << "-> Importing Vanilla Provinces";
 	// ---- Loading history/provinces
@@ -312,6 +366,21 @@ void EU4::World::importVanillaProvinces(const std::string& eu4Path)
 		const auto id = std::stoi(fileName.substr(0, minusLoc));
 		auto newProvince = std::make_shared<Province>(id, eu4Path + "/history/provinces/" + fileName);
 		provinces.insert(std::pair(id, newProvince));
+	}
+	if (invasion)
+	{
+		Utils::GetAllFilesInFolder("configurables/sunset/history/provinces/", fileNames);
+		for (const auto& fileName: fileNames) {
+			const auto minusLoc = fileName.find(" - ");
+			auto id = 0;
+			if (minusLoc != std::string::npos) {
+				id = std::stoi(fileName.substr(0, minusLoc));
+			} else {
+				id = std::stoi(fileName);
+			}
+			const auto& provinceItr = provinces.find(id);
+			if (provinceItr != provinces.end()) provinceItr->second->updateWith("configurables/sunset/history/provinces/" + fileName);
+		}		
 	}
 	LOG(LogLevel::Info) << ">> Loaded " << provinces.size() << " province definitions.";
 }
@@ -407,7 +476,7 @@ void EU4::World::importCK2Provinces(const CK2::World& sourceWorld)
 	LOG(LogLevel::Info) << ">> " << sourceWorld.getProvinces().size() << " CK2 provinces imported into " << counter << " EU4 provinces.";
 }
 
-void EU4::World::importVanillaCountries(const std::string& eu4Path)
+void EU4::World::importVanillaCountries(const std::string& eu4Path, bool invasion)
 {
 	LOG(LogLevel::Info) << "-> Importing Vanilla Countries";
 	// ---- Loading common/countries/
@@ -420,7 +489,15 @@ void EU4::World::importVanillaCountries(const std::string& eu4Path)
 		if (!blankCountriesFile.is_open()) throw std::runtime_error("Could not open blankMod/output/common/country_tags/01_special_tags.txt!");
 		loadCountriesFromSource(blankCountriesFile, "blankMod/output/", false);
 		blankCountriesFile.close();
-	}	
+	}
+	if (invasion)
+	{
+		std::ifstream sunset(fs::u8path("configurables/sunset/common/country_tags/zz_countries.txt"));
+		if (!sunset.is_open()) throw std::runtime_error("Could not open configurables/sunset/common/country_tags/zz_countries.txt!");
+		loadCountriesFromSource(sunset, "configurables/sunset/", true);
+		sunset.close();		
+	}
+
 	LOG(LogLevel::Info) << ">> Loaded " << countries.size() << " countries.";
 
 	LOG(LogLevel::Info) << "-> Importing Vanilla Country History";
@@ -430,6 +507,15 @@ void EU4::World::importVanillaCountries(const std::string& eu4Path)
 	for (const auto& fileName: fileNames) {
 		auto tag = fileName.substr(0, 3);
 		countries[tag]->loadHistory(eu4Path + "/history/countries/" + fileName);
+	}
+	if (invasion)
+	{
+		fileNames.clear();
+		Utils::GetAllFilesInFolder("configurables/sunset/history/countries/", fileNames);
+		for (const auto& fileName: fileNames) {
+			auto tag = fileName.substr(0, 3);
+			countries[tag]->loadHistory("configurables/sunset/history/countries/" + fileName);
+		}		
 	}
 	LOG(LogLevel::Info) << ">> Loaded " << fileNames.size() << " history files.";
 }

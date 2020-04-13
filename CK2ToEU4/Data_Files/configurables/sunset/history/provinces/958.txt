@@ -1,0 +1,11 @@
+owner = HUR
+controller = HUR
+add_core = HUR
+discovered_by = high_american
+citysize = 1000
+
+1444.11.11 = {
+	owner = HUR
+	controller = HUR
+}
+

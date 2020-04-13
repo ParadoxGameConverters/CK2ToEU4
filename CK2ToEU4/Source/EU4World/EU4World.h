@@ -32,23 +32,23 @@ class World
 
   private:
 	// void loadRegions(const Configuration& theConfiguration); waiting on geography.
-	void importVanillaCountries(const std::string& eu4Path);
+	void importVanillaCountries(const std::string& eu4Path, bool invasion);
 	void loadCountriesFromSource(std::istream& theStream, const std::string& sourcePath, bool isVanillaSource);
-	void importVanillaProvinces(const std::string& eu4Path);
+	void importVanillaProvinces(const std::string& eu4Path, bool invasion);
 	void importCK2Countries(const CK2::World& sourceWorld);
 	void importCK2Country(const std::pair<std::string, std::shared_ptr<CK2::Title>>& title, const CK2::World& sourceWorld);
 	void importCK2Provinces(const CK2::World& sourceWorld);
-	void output(const mappers::VersionParser& versionParser, const Configuration& theConfiguration, date conversionDate) const;
+	void output(const mappers::VersionParser& versionParser, const Configuration& theConfiguration, date conversionDate, bool invasion) const;
 	void createModFile(const Configuration& theConfiguration) const;
 	void outputVersion(const mappers::VersionParser& versionParser, const Configuration& theConfiguration) const;
 	void outputCommonCountriesFile(const Configuration& theConfiguration) const;
 	void outputHistoryCountries(const Configuration& theConfiguration) const;
 	void outputHistoryProvinces(const Configuration& theConfiguration) const;
 	void outputCommonCountries(const Configuration& theConfiguration) const;
-	void outputLocalization(const Configuration& theConfiguration) const;
+	void outputLocalization(const Configuration& theConfiguration, bool invasion) const;
 	void verifyReligionsAndCultures();
 	void linkProvincesToCountries();
-	void outputFlags(const Configuration& theConfiguration) const;
+	void outputFlags(const Configuration& theConfiguration, bool invasion) const;
 	void outputBookmark(const Configuration& theConfiguration, date conversionDate) const;
 	void distributeHRESubtitles(const Configuration& theConfiguration);
 	void outputEmperor(const Configuration& theConfiguration, date conversionDate) const;
@@ -56,8 +56,10 @@ class World
 		 const CK2::World& sourceWorld) const;
 	void setElectors();
 	void setFreeCities();
-	void outputDiplomacy(const Configuration& theConfiguration, const std::vector<Agreement>& agreements) const;
+	void outputDiplomacy(const Configuration& theConfiguration, const std::vector<Agreement>& agreements, bool invasion) const;
 	void resolvePersonalUnions();
+	void importAdvisers();
+	void outputAdvisers(const Configuration& theConfiguration) const;
 
 	mappers::ColorScraper colorScraper;
 	mappers::ProvinceMapper provinceMapper;

@@ -13,6 +13,12 @@ EU4::Province::Province(int id, const std::string& filePath): provID(id)
 	details = ProvinceDetails(filePath);
 }
 
+void EU4::Province::updateWith(const std::string& filePath)
+{
+	// We're doing this for special reason and from a specific source.
+	details.updateWith(filePath);
+}
+
 void EU4::Province::initializeFromCK2(std::shared_ptr<CK2::Province> origProvince,
 	 const mappers::CultureMapper& cultureMapper,
 	 const mappers::ReligionMapper& religionMapper)

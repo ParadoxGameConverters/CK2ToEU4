@@ -308,6 +308,75 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	initializeRulers(religionMapper, cultureMapper, rulerPersonalitiesMapper);
 }
 
+void EU4::Country::initializeAdvisers(const mappers::ReligionMapper& religionMapper, const mappers::CultureMapper& cultureMapper)
+{
+	// We're doing this one separate from initial country generation so that country's primary culture and religion may have had time to get
+	// initialized.
+	if (title.first.empty() || !title.second->getHolder().first) return; // Vanilla and the dead do not get these.
+	const auto& holder = title.second->getHolder().second;
+	if (!holder->getPrimaryTitle().first.empty() && title.first != holder->getPrimaryTitle().first) return; // PU's don't get advisors on secondary countries.
+
+	for (const auto& adviser: holder->getAdvisers()) {
+		Character newAdviser;
+		newAdviser.name = adviser.second->getName();
+		if (adviser.second->getDynasty().first) newAdviser.name += " " + adviser.second->getDynasty().second->getName();
+		if (details.capital) newAdviser.location = details.capital;
+		if (adviser.second->getJob() == "job_spiritual") {
+			newAdviser.type = "theologian";
+			newAdviser.skill = std::min(3, std::max(1, adviser.second->getSkills().learning / 4));
+		} else if (adviser.second->getJob() == "job_marshal") {
+			newAdviser.type = "army_organiser";
+			newAdviser.skill = std::min(3, std::max(1, adviser.second->getSkills().martial / 4));
+		} else if (adviser.second->getJob() == "job_spymaster") {
+			newAdviser.type = "spymaster";
+			newAdviser.skill = std::min(3, std::max(1, adviser.second->getSkills().intrigue / 4));
+		} else if (adviser.second->getJob() == "job_treasurer") {
+			newAdviser.type = "treasurer";
+			newAdviser.skill = std::min(3, std::max(1, adviser.second->getSkills().intrigue / 4));
+		} else if (adviser.second->getJob() == "job_chancellor") {
+			newAdviser.type = "statesman";
+			newAdviser.skill = std::min(3, std::max(1, adviser.second->getSkills().diplomacy / 4));
+		} else {
+			Log(LogLevel::Warning) << "Unrecognized job for " << adviser.first << ": " << adviser.second->getJob();
+			continue;
+		}
+		newAdviser.id = adviser.first;
+		newAdviser.appearDate = adviser.second->getBirthDate();
+		newAdviser.appearDate.subtractYears(-16);
+		newAdviser.deathDate = adviser.second->getBirthDate();
+		newAdviser.deathDate.subtractYears(-65);
+		newAdviser.female = adviser.second->isFemale();
+		if (adviser.second->getReligion().empty())
+			if (adviser.second->getDynasty().first && !adviser.second->getDynasty().second->getReligion().empty())
+			{
+				const auto& religionMatch = religionMapper.getEu4ReligionForCk2Religion(adviser.second->getDynasty().second->getReligion());
+				if (religionMatch) newAdviser.religion = *religionMatch;				
+			} else {
+				newAdviser.religion = details.monarch.religion; // taking a shortcut.
+			}
+		else {
+			const auto& religionMatch = religionMapper.getEu4ReligionForCk2Religion(adviser.second->getReligion());
+			if (religionMatch) newAdviser.religion = *religionMatch;
+		}
+		if (newAdviser.religion.empty()) continue;
+		if (adviser.second->getCulture().empty())
+			if (adviser.second->getDynasty().first && !adviser.second->getDynasty().second->getCulture().empty()) {
+				const auto& cultureMatch = cultureMapper.cultureMatch(adviser.second->getDynasty().second->getCulture(), newAdviser.religion, 0, tag);
+				if (cultureMatch) newAdviser.culture = *cultureMatch;
+			} else {
+				newAdviser.culture = details.monarch.culture; // taking a shortcut.
+			}
+		else {
+			const auto& cultureMatch = cultureMapper.cultureMatch(adviser.second->getCulture(), newAdviser.religion, 0, tag);
+			if (cultureMatch) newAdviser.culture = *cultureMatch;
+		}
+		if (newAdviser.culture.empty()) continue;
+		if (newAdviser.religion == "jewish") newAdviser.discount = true; // Tradeoff for not being promotable.
+		details.advisers.emplace_back(newAdviser);
+	}	
+}
+
+
 void EU4::Country::initializeRulers(const mappers::ReligionMapper& religionMapper, const mappers::CultureMapper& cultureMapper, const mappers::RulerPersonalitiesMapper& rulerPersonalitiesMapper)
 {
 	const auto& holder = title.second->getHolder().second;

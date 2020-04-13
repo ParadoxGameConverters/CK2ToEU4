@@ -1,0 +1,11 @@
+owner = SUS
+controller = SUS
+add_core = SUS
+discovered_by = high_american
+citysize = 1000
+
+1444.11.11 = {
+	owner = SUS
+	controller = SUS
+}
+
