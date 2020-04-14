@@ -15,7 +15,7 @@ void CK2::Barony::registerKeys()
 		const commonItems::singleString typeStr(theStream);
 		type = typeStr.getString();
 	});
-	registerRegex("(ca|ct|tp)_[A-Za-z0-9_-]+", [this](const std::string& building, std::istream& theStream) {
+	registerRegex("(ca|ct|tp|no|tb)_[A-Za-z0-9_-]+", [this](const std::string& building, std::istream& theStream) {
 		const commonItems::singleString buildingStr(theStream);
 		if (buildingStr.getString() == "yes") buildings.insert(building);
 	});

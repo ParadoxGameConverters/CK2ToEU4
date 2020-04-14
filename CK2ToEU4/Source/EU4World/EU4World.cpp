@@ -5,6 +5,7 @@
 #include <fstream>
 namespace fs = std::filesystem;
 #include "../CK2World/Characters/Character.h"
+#include "../CK2World/Provinces/Barony.h"
 #include "../CK2World/Titles/Title.h"
 #include "../Configuration/Configuration.h"
 #include <cmath>
@@ -14,15 +15,15 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 	LOG(LogLevel::Info) << "*** Hello EU4, let's get painting. ***";
 	// Scraping localizations from CK2 so we may know proper names for our countries.
 	localizationMapper.scrapeLocalizations(theConfiguration);
-	
+
 	// Ditto for colors - these only apply on non-eu4 countries.
 	colorScraper.scrapeColors(theConfiguration.getCK2Path() + "/common/landed_titles/landed_titles.txt");
-	
-	// This is our region mapper for eu4 regions, areas and superRegions. It's a pointer because we need 
+
+	// This is our region mapper for eu4 regions, areas and superRegions. It's a pointer because we need
 	// to embed it into every cultureMapper individual mapping. It works faster that way.
 	regionMapper = std::make_shared<mappers::RegionMapper>();
 	regionMapper->loadRegions(theConfiguration);
-	
+
 	// And this is the cultureMapper. It's of vital importance.
 	cultureMapper.loadRegionMapper(regionMapper);
 
@@ -46,6 +47,9 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 
 	// Next we import ck2 provinces and translate them ontop a significant part of all imported provinces.
 	importCK2Provinces(sourceWorld);
+
+	// With Ck2 provinces linked to those eu4 provinces they affect, we can adjust eu4 province dev values.
+	alterProvinceDevelopment();
 
 	// We then link them to their respective countries. Those countries that end up with 0 provinces are defacto dead.
 	linkProvincesToCountries();
@@ -76,12 +80,59 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 	LOG(LogLevel::Info) << "*** Farewell EU4, granting you independence. ***";
 }
 
+void EU4::World::alterProvinceDevelopment()
+{
+	Log(LogLevel::Info) << "-- Scaling Imported provinces";
+	// for every 10 buildings in a province we assign a dev point (barony itself counts as 3)
+	// and we adhere to the distribution key:
+	// castle: 1/2 mil 1/2 adm
+	// city: dip
+	// temple: adm
+	// nomad, tribal: mil
+	//
+	// We're ignoring hospitals at this stage.
+
+	auto totalVanillaDev = 0;
+	auto totalCK2Dev = 0;
+	auto counter = 0;
+
+	for (const auto& province: provinces) {
+		if (!province.second->getSourceProvince()) continue;
+		totalVanillaDev += province.second->getDev();
+		auto adm = 0;
+		auto dip = 0;
+		auto mil = 0;
+		const auto& baronies = province.second->getSourceProvince()->getBaronies();
+		for (const auto& barony: baronies) {
+			if (barony.second->getType().empty()) continue;
+			const auto buildingNumber = static_cast<double>(barony.second->getBuildingCount());
+			if (barony.second->getType() == "tribal" || barony.second->getType() == "nomad") {
+				mil += lround((3 + buildingNumber) / 12);
+			} else if (barony.second->getType() == "city") {
+				dip += lround((3 + buildingNumber) / 12);
+			} else if (barony.second->getType() == "temple") {
+				adm += lround((3 + buildingNumber) / 12);
+			} else if (barony.second->getType() == "castle") {
+				adm += lround((3 + buildingNumber) / 48); // third to adm
+				mil += lround((3 + buildingNumber) / 18); // two thirds to mil
+			}
+		}
+		province.second->setAdm(std::max(adm, 1));
+		province.second->setDip(std::max(dip, 1));
+		province.second->setMil(std::max(mil, 1));
+		counter++;
+		totalCK2Dev += province.second->getDev();
+	}
+
+	Log(LogLevel::Info) << "<> " << counter << " provinces scaled: " << totalCK2Dev << " development imported (vanilla had " << totalVanillaDev
+							  << ").";
+}
+
 void EU4::World::importAdvisers()
 {
 	LOG(LogLevel::Info) << "-> Importing Advisers";
 	auto counter = 0;
-	for (const auto& country: countries)
-	{
+	for (const auto& country: countries) {
 		country.second->initializeAdvisers(religionMapper, cultureMapper);
 		counter += country.second->getAdvisers().size();
 	}
@@ -367,8 +418,7 @@ void EU4::World::importVanillaProvinces(const std::string& eu4Path, bool invasio
 		auto newProvince = std::make_shared<Province>(id, eu4Path + "/history/provinces/" + fileName);
 		provinces.insert(std::pair(id, newProvince));
 	}
-	if (invasion)
-	{
+	if (invasion) {
 		Utils::GetAllFilesInFolder("configurables/sunset/history/provinces/", fileNames);
 		for (const auto& fileName: fileNames) {
 			const auto minusLoc = fileName.find(" - ");
@@ -380,7 +430,7 @@ void EU4::World::importVanillaProvinces(const std::string& eu4Path, bool invasio
 			}
 			const auto& provinceItr = provinces.find(id);
 			if (provinceItr != provinces.end()) provinceItr->second->updateWith("configurables/sunset/history/provinces/" + fileName);
-		}		
+		}
 	}
 	LOG(LogLevel::Info) << ">> Loaded " << provinces.size() << " province definitions.";
 }
@@ -482,7 +532,7 @@ void EU4::World::importVanillaCountries(const std::string& eu4Path, bool invasio
 	// ---- Loading common/countries/
 	std::ifstream eu4CountriesFile(fs::u8path(eu4Path + "/common/country_tags/00_countries.txt"));
 	if (!eu4CountriesFile.is_open()) throw std::runtime_error("Could not open " + eu4Path + "/common/country_tags/00_countries.txt!");
-	loadCountriesFromSource(eu4CountriesFile, eu4Path, true);	
+	loadCountriesFromSource(eu4CountriesFile, eu4Path, true);
 	eu4CountriesFile.close();
 	if (Utils::DoesFileExist("blankMod/output/common/country_tags/01_special_tags.txt")) {
 		std::ifstream blankCountriesFile(fs::u8path("blankMod/output/common/country_tags/01_special_tags.txt"));
@@ -490,12 +540,11 @@ void EU4::World::importVanillaCountries(const std::string& eu4Path, bool invasio
 		loadCountriesFromSource(blankCountriesFile, "blankMod/output/", false);
 		blankCountriesFile.close();
 	}
-	if (invasion)
-	{
+	if (invasion) {
 		std::ifstream sunset(fs::u8path("configurables/sunset/common/country_tags/zz_countries.txt"));
 		if (!sunset.is_open()) throw std::runtime_error("Could not open configurables/sunset/common/country_tags/zz_countries.txt!");
 		loadCountriesFromSource(sunset, "configurables/sunset/", true);
-		sunset.close();		
+		sunset.close();
 	}
 
 	LOG(LogLevel::Info) << ">> Loaded " << countries.size() << " countries.";
@@ -515,14 +564,13 @@ void EU4::World::importVanillaCountries(const std::string& eu4Path, bool invasio
 		auto tag = fileName.substr(0, 3);
 		countries[tag]->loadHistory("blankMod/output/history/countries/" + fileName);
 	}
-	if (invasion)
-	{
+	if (invasion) {
 		fileNames.clear();
 		Utils::GetAllFilesInFolder("configurables/sunset/history/countries/", fileNames);
 		for (const auto& fileName: fileNames) {
 			auto tag = fileName.substr(0, 3);
 			countries[tag]->loadHistory("configurables/sunset/history/countries/" + fileName);
-		}		
+		}
 	}
 	LOG(LogLevel::Info) << ">> Loaded " << fileNames.size() << " history files.";
 }
@@ -545,8 +593,10 @@ void EU4::World::loadCountriesFromSource(std::istream& theStream, const std::str
 
 		// We're soaking up all vanilla countries with all current definitions.
 		const auto newCountry = std::make_shared<Country>(tag, filePath);
-		if (countries.count(tag)) countries[tag] = newCountry; // Overriding vanilla EU4 with our definitions.
-		else countries.insert(std::make_pair(tag, newCountry));
+		if (countries.count(tag))
+			countries[tag] = newCountry; // Overriding vanilla EU4 with our definitions.
+		else
+			countries.insert(std::make_pair(tag, newCountry));
 		if (!isVanillaSource) specialCountryTags.insert(tag);
 	}
 }

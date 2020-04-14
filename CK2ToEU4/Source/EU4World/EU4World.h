@@ -60,6 +60,7 @@ class World
 	void resolvePersonalUnions();
 	void importAdvisers();
 	void outputAdvisers(const Configuration& theConfiguration) const;
+	void alterProvinceDevelopment();
 
 	mappers::ColorScraper colorScraper;
 	mappers::ProvinceMapper provinceMapper;
