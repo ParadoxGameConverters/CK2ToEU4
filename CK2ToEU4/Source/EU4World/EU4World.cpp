@@ -154,9 +154,9 @@ void EU4::World::distributeForts()
 void EU4::World::alterProvinceDevelopment()
 {
 	Log(LogLevel::Info) << "-- Scaling Imported provinces";
-	// for every 10 buildings in a province we assign a dev point (barony itself counts as 3)
-	// and we adhere to the distribution key:
-	// castle: 1/2 mil 1/2 adm
+	// For every 12 buildings in a province we assign a dev point (barony itself counts as 3).
+	// We adhere to the distribution key:
+	// castle: 2/3 mil 1/3 adm
 	// city: dip
 	// temple: adm
 	// nomad, tribal: mil

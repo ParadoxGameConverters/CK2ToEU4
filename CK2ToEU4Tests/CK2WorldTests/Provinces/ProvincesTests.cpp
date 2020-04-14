@@ -1,10 +1,10 @@
+#include "../../CK2ToEU4/Source/CK2World/Provinces/Barony.h"
+#include "../../CK2ToEU4/Source/CK2World/Provinces/Province.h"
+#include "../../CK2ToEU4/Source/CK2World/Provinces/Provinces.h"
+#include "../../CK2ToEU4/Source/CK2World/Wonders/Wonder.h"
+#include "../../CK2ToEU4/Source/CK2World/Wonders/Wonders.h"
 #include "gtest/gtest.h"
 #include <sstream>
-#include "../../CK2ToEU4/Source/CK2World/Provinces/Provinces.h"
-#include "../../CK2ToEU4/Source/CK2World/Provinces/Province.h"
-#include "../../CK2ToEU4/Source/CK2World/Provinces/Barony.h"
-#include "../../CK2ToEU4/Source/CK2World/Wonders/Wonders.h"
-#include "../../CK2ToEU4/Source/CK2World/Wonders/Wonder.h"
 TEST(CK2World_ProvincesTests, provincesDefaultToEmpty)
 {
 	std::stringstream input;
@@ -27,7 +27,7 @@ TEST(CK2World_ProvincesTests, provinceCanBeLoaded)
 
 	const CK2::Provinces provinces(input);
 	const auto& provinceItr = provinces.getProvinces().begin();
-	
+
 	ASSERT_EQ(provinceItr->first, 42);
 	ASSERT_EQ(provinceItr->second->getID(), 42);
 }
@@ -44,7 +44,7 @@ TEST(CK2World_ProvincesTests, invalidPrimarySettlementIsBlanked)
 	CK2::Provinces provinces(input);
 
 	provinces.linkPrimarySettlements();
-	
+
 	const auto& provinceItr = provinces.getProvinces().find(42);
 	const auto& primary = provinceItr->second->getPrimarySettlement();
 
@@ -126,7 +126,7 @@ TEST(CK2World_ProvincesTests, wonderCanBeLinked)
 	std::stringstream input2;
 	input2 << "={7={name=\"theWonder\" province=42 active=yes stage=3}}\n";
 	CK2::Wonders wonders(input2);
-	
+
 	provinces.linkWonders(wonders);
 
 	const auto& provinceItr = provinces.getProvinces().find(42);
@@ -183,8 +183,8 @@ TEST(CK2World_ProvincesTests, inactiveWondersWillNotBeLinked)
 
 	std::stringstream input2;
 	input2 << "={\n";
-	input2 << "8={name=\"theWonder\" province=42 active=no stage=3}\n";
-	input2 << "9={name=\"theWonder2\" province=43 active=no stage=3}\n";
+	input2 << "8={name=\"theWonder\" province=42 active=no stage=3}\n";	// inactive
+	input2 << "9={name=\"theWonder2\" province=43 active=no stage=3}\n"; // inactive
 	input2 << "10={name=\"theWonder3\" province=44 active=yes stage=3}\n";
 	input2 << "}\n";
 	CK2::Wonders wonders(input2);
@@ -216,8 +216,8 @@ TEST(CK2World_ProvincesTests, unfinishedWondersWillNotBeLinked)
 
 	std::stringstream input2;
 	input2 << "={\n";
-	input2 << "8={name=\"theWonder\" province=42 active=yes stage=2}\n";
-	input2 << "9={name=\"theWonder2\" province=43 active=yes stage=1}\n";
+	input2 << "8={name=\"theWonder\" province=42 active=yes stage=2}\n";	 // unfinished
+	input2 << "9={name=\"theWonder2\" province=43 active=yes stage=1}\n"; // unfinished
 	input2 << "10={name=\"theWonder3\" province=44 active=yes stage=3}\n";
 	input2 << "}\n";
 	CK2::Wonders wonders(input2);
@@ -235,4 +235,34 @@ TEST(CK2World_ProvincesTests, unfinishedWondersWillNotBeLinked)
 	ASSERT_FALSE(wonder2.second);
 	ASSERT_TRUE(wonder3.second);
 	ASSERT_EQ(wonder3.second->getName(), "theWonder3");
+}
+
+TEST(CK2World_ProvincesTests, BrokenLinkAttemptThrowsWarning)
+{
+	std::stringstream input;
+	input << "={\n";
+	input << "42={}\n";
+	input << "44={}\n";
+	input << "}\n";
+	CK2::Provinces provinces(input);
+
+	std::stringstream input2;
+	input2 << "={\n";
+	input2 << "8={name=\"theWonder\" province=42 active=yes stage=3}\n";
+	input2 << "9={name=\"theWonder2\" province=43 active=yes stage=3}\n"; // No province 43.
+	input2 << "}\n";
+	CK2::Wonders wonders(input2);
+
+	std::stringstream log;
+	auto stdOutBuf = std::cout.rdbuf();
+	std::cout.rdbuf(log.rdbuf());
+
+	provinces.linkWonders(wonders);
+
+	std::cout.rdbuf(stdOutBuf);
+	auto stringLog = log.str();
+	auto newLine = stringLog.find_first_of("\n");
+	stringLog = stringLog.substr(0, newLine);
+
+	ASSERT_EQ(stringLog, "Wonder 9 is in province 43 which doesn't exist?");
 }
