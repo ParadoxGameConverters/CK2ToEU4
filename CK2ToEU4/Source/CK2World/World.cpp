@@ -63,6 +63,11 @@ CK2::World::World(const Configuration& theConfiguration)
 		dynasties.loadDynasties(theStream);
 		LOG(LogLevel::Info) << ">> Loaded " << dynasties.getDynasties().size() << " dynasties.";
 	});
+	registerKeyword("wonder", [this](const std::string& unused, std::istream& theStream) {
+		LOG(LogLevel::Info) << "-> Loading Wonders";
+		wonders = Wonders(theStream);
+		LOG(LogLevel::Info) << ">> Loaded " << wonders.getWonders().size() << " wonders.";
+	});
 	registerKeyword("dyn_title", [this](const std::string& unused, std::istream& theStream) {
 		const auto dynTitle = Liege(theStream);
 		dynamicTitles.insert(std::pair(dynTitle.getTitle().first, dynTitle));
@@ -116,6 +121,8 @@ CK2::World::World(const Configuration& theConfiguration)
 	characters.linkCapitals(provinces);
 	LOG(LogLevel::Info) << "-- Linking Provinces With Primary Baronies";
 	provinces.linkPrimarySettlements();
+	LOG(LogLevel::Info) << "-- Linking Provinces With Wonders";
+	provinces.linkWonders(wonders);
 	LOG(LogLevel::Info) << "-- Linking Titles With Holders";
 	titles.linkHolders(characters);
 	LOG(LogLevel::Info) << "-- Linking Titles With Previous Holders";

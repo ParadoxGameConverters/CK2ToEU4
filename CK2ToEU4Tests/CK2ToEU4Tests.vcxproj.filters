@@ -233,6 +233,18 @@
     <ClCompile Include="MapperTests\RulerPersonalityMapper\RulerPersonalityMapperTests.cpp">
       <Filter>MapperTests\RulerPersonalitiesMapper</Filter>
     </ClCompile>
+    <ClCompile Include="CK2WorldTests\Wonders\WondersTests.cpp">
+      <Filter>CK2WorldTests\Wonders</Filter>
+    </ClCompile>
+    <ClCompile Include="CK2WorldTests\Wonders\WonderTests.cpp">
+      <Filter>CK2WorldTests\Wonders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Wonders\Wonder.cpp">
+      <Filter>ConverterFiles\CK2World\Wonders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Wonders\Wonders.cpp">
+      <Filter>ConverterFiles\CK2World\Wonders</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4WorldTests">
@@ -357,6 +369,12 @@
     </Filter>
     <Filter Include="MapperTests\RulerPersonalitiesMapper">
       <UniqueIdentifier>{53312d70-a300-4eac-b4c1-e377db2af167}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CK2WorldTests\Wonders">
+      <UniqueIdentifier>{c857b662-d2b0-4e75-b03f-a1ef80d9c3c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ConverterFiles\CK2World\Wonders">
+      <UniqueIdentifier>{619dfc7b-e3bd-40fb-b35b-d68844286196}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

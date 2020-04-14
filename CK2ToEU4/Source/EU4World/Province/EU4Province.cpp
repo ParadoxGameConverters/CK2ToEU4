@@ -4,6 +4,7 @@
 #include "../../Mappers/CultureMapper/CultureMapper.h"
 #include "../../Mappers/ReligionMapper/ReligionMapper.h"
 #include "../Country/Country.h"
+#include "../../CK2World/Wonders/Wonder.h"
 
 EU4::Province::Province(int id, const std::string& filePath): provID(id)
 {
@@ -87,7 +88,13 @@ void EU4::Province::initializeFromCK2(std::shared_ptr<CK2::Province> origProvinc
 
 	details.localAutonomy = 0; // let the game handle this.
 	// not touching native_size/ferocity/hostileness.
-	// not touching permanent modifiers. These mostly relate to new world anyway.
+	// not touching existing permanent modifiers. These mostly relate to new world anyway. Wonders do need to be added.
+	if (srcProvince->getWonder().first && !srcProvince->getWonder().second->isSpent()) {
+		ProvinceModifier newModifier;
+		newModifier.name = srcProvince->getWonder().second->getType();
+		details.provinceModifiers.emplace_back(newModifier);
+		srcProvince->getWonder().second->setSpent(); // We must spend it to avoid mapping it into multiple eu4 provinces.
+	}	
 	details.shipyard = false; // we'll distribute these later.
 	// not touching province_triggered_modifiers. Rome is rome.
 	details.revoltRisk = 0;				 // we can adjust this later.

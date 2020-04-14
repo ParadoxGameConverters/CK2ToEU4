@@ -5,6 +5,7 @@
 namespace CK2
 {
 class Title;
+class Wonder;
 class Barony;
 class Province: commonItems::parser
 {
@@ -17,6 +18,7 @@ class Province: commonItems::parser
 	[[nodiscard]] const auto& getPrimarySettlement() const { return primarySettlement; }
 	[[nodiscard]] const auto& getBaronies() const { return baronies; }
 	[[nodiscard]] const auto& getTitle() const { return title; }
+	[[nodiscard]] const auto& getWonder() const { return wonder; }
 
 	[[nodiscard]] auto getID() const { return provinceID; }
 	[[nodiscard]] auto getMaxSettlements() const { return maxSettlements; }
@@ -26,6 +28,7 @@ class Province: commonItems::parser
 	void discardPrimarySettlement() { primarySettlement.first.clear(); }
 	void setPrimarySettlement(std::shared_ptr<Barony> theBarony) { primarySettlement.second = std::move(theBarony); }
 	void loadHoldingTitle(const std::pair<std::string, std::shared_ptr<Title>>& theTitle) { title = theTitle; }
+	void loadWonder(const std::pair<int, std::shared_ptr<Wonder>>& theWonder) { wonder = theWonder; }
 
   private:
 	void registerKeys();
@@ -38,6 +41,7 @@ class Province: commonItems::parser
 	std::pair<std::string, std::shared_ptr<Title>> title;
 	int maxSettlements = 0;
 	std::map<std::string, std::shared_ptr<Barony>> baronies;
+	std::pair<int, std::shared_ptr<Wonder>> wonder;
 };
 } // namespace CK2
 

@@ -40,12 +40,11 @@ class Country
 	void initializeRulers(const mappers::ReligionMapper& religionMapper,
 		 const mappers::CultureMapper& cultureMapper,
 		 const mappers::RulerPersonalitiesMapper& rulerPersonalitiesMapper);
-	void initializeAdvisers(const mappers::ReligionMapper& religionMapper,
-		 const mappers::CultureMapper& cultureMapper);
+	void initializeAdvisers(const mappers::ReligionMapper& religionMapper, const mappers::CultureMapper& cultureMapper);
 
 	void outputCommons(std::ostream& output) const;
 	void outputAdvisers(std::ostream& output) const;
-	
+
 	[[nodiscard]] const auto& getCommonCountryFile() const { return commonCountryFile; }
 	[[nodiscard]] const auto& getHistoryCountryFile() const { return historyCountryFile; }
 	[[nodiscard]] const auto& getLocalizations() const { return localizations; }
@@ -58,6 +57,7 @@ class Country
 	[[nodiscard]] auto isHREEmperor() const { return details.holyRomanEmperor; }
 	[[nodiscard]] auto isinHRE() const { return details.inHRE; }
 	[[nodiscard]] int getDevelopment() const;
+	[[nodiscard]] int getCapitalID() const { return details.capital; }
 	[[nodiscard]] const auto& getGovernment() const { return details.government; }
 	[[nodiscard]] const auto& getGovernmentReforms() const { return details.reforms; }
 	[[nodiscard]] const auto& getTag() const { return tag; }
@@ -74,6 +74,7 @@ class Country
 	void setGFX(const std::string& gfx) { details.graphicalCulture = gfx; }
 	void clearProvinces() { provinces.clear(); }
 	void annexCountry(const std::pair<std::string, std::shared_ptr<Country>>& theCountry);
+	bool verifyCapital(const mappers::ProvinceMapper& provinceMapper);
 
 	friend std::ostream& operator<<(std::ostream& output, const Country& versionParser);
 

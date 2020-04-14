@@ -201,6 +201,12 @@
     <ClCompile Include="Source\Mappers\PersonalityScraper\PersonalityScraper.cpp">
       <Filter>Mappers\PersonalityScraper</Filter>
     </ClCompile>
+    <ClCompile Include="Source\CK2World\Wonders\Wonder.cpp">
+      <Filter>CK2World\Wonders</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CK2World\Wonders\Wonders.cpp">
+      <Filter>CK2World\Wonders</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CK2ToEU4Converter.h" />
@@ -399,6 +405,12 @@
     <ClInclude Include="Source\Mappers\PersonalityScraper\PersonalityScraper.h">
       <Filter>Mappers\PersonalityScraper</Filter>
     </ClInclude>
+    <ClInclude Include="Source\CK2World\Wonders\Wonder.h">
+      <Filter>CK2World\Wonders</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CK2World\Wonders\Wonders.h">
+      <Filter>CK2World\Wonders</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4World">
@@ -481,6 +493,9 @@
     </Filter>
     <Filter Include="Mappers\PersonalityScraper">
       <UniqueIdentifier>{c27ea9b0-8c61-4014-b6e6-ffa0716437d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CK2World\Wonders">
+      <UniqueIdentifier>{638c18d7-98c6-45f7-a9ed-64fc0a6bf11c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

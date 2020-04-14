@@ -2,14 +2,14 @@
 
 std::ostream& EU4::operator<<(std::ostream& output, const Country& country)
 {
-	output << "government = " << country.details.government << "\n";
+	if (!country.details.government.empty()) output << "government = " << country.details.government << "\n";
 	if (!country.details.reforms.empty()) {
 		for (const auto& reform: country.details.reforms) { output << "add_government_reform = " << reform << "\n"; }
 	}
-	output << "government_rank = " << country.details.governmentRank << "\n";
-	output << "technology_group = " << country.details.technologyGroup << "\n";
-	output << "religion = " << country.details.religion << "\n";
-	output << "primary_culture = " << country.details.primaryCulture << "\n";
+	if (country.details.governmentRank) output << "government_rank = " << country.details.governmentRank << "\n";
+	if (!country.details.technologyGroup.empty()) output << "technology_group = " << country.details.technologyGroup << "\n";
+	if (!country.details.religion.empty()) output << "religion = " << country.details.religion << "\n";
+	if (!country.details.primaryCulture.empty()) output << "primary_culture = " << country.details.primaryCulture << "\n";
 	if (country.details.capital) output << "capital = " << country.details.capital << "\n";
 	if (country.details.fixedCapital && country.details.capital) output << "fixed_capital = " << country.details.capital << "\n";
 	if (country.details.mercantilism) output << "mercantilism = " << country.details.mercantilism << "\n";
@@ -75,7 +75,7 @@ std::ostream& EU4::operator<<(std::ostream& output, const Country& country)
 
 void EU4::Country::outputCommons(std::ostream& output) const
 {
-	output << "graphical_culture = " << details.graphicalCulture << "\n";
+	if (!details.graphicalCulture.empty()) output << "graphical_culture = " << details.graphicalCulture << "\n";
 	output << "color = { " << details.color << " }\n";
 	if (details.revolutionaryColor) output << "revolutionary_colors = { " << details.revolutionaryColor << " }\n";
 	if (!details.historicalIdeaGroups.empty()) {
@@ -135,8 +135,8 @@ std::ostream& EU4::operator<<(std::ostream& output, const Character& character)
 	if (character.deathDate != date("1.1.1")) output << "\t\tdeath_date = " << character.deathDate << "\n";
 	if (character.female) output << "\t\tfemale = yes\n";
 	if (character.claim) output << "\t\tclaim = " << character.claim << "\n";
-	output << "\t\treligion = " << character.religion << "\n";
-	output << "\t\tculture = " << character.culture << "\n";
+	if (!character.religion.empty()) output << "\t\treligion = " << character.religion << "\n";
+	if (!character.culture.empty()) output << "\t\tculture = " << character.culture << "\n";
 	if (character.id) output << "\t\tadvisor_id = " << character.id << "\n";
 	if (character.location) output << "\t\tlocation = " << character.location << "\n";
 	if (character.skill) output << "\t\tskill = " << character.skill << "\n";
