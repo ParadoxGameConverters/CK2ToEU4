@@ -1,6 +1,0 @@
-altaic = {
-	khitan = {
-		primary = KHA
-		dynasty_names = { Genden Amar Tserendorj Tomorbaatar Damdinbazar Bodoo Sukhbaatar Jamyan Choibalsan Chagdarjav }
-	}
-}
