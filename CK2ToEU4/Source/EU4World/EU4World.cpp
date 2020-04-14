@@ -508,6 +508,13 @@ void EU4::World::importVanillaCountries(const std::string& eu4Path, bool invasio
 		auto tag = fileName.substr(0, 3);
 		countries[tag]->loadHistory(eu4Path + "/history/countries/" + fileName);
 	}
+	// Now our special tags.
+	fileNames.clear();
+	Utils::GetAllFilesInFolder("blankMod/output/history/countries/", fileNames);
+	for (const auto& fileName: fileNames) {
+		auto tag = fileName.substr(0, 3);
+		countries[tag]->loadHistory("blankMod/output/history/countries/" + fileName);
+	}
 	if (invasion)
 	{
 		fileNames.clear();
