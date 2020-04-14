@@ -54,6 +54,9 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 	// We then link them to their respective countries. Those countries that end up with 0 provinces are defacto dead.
 	linkProvincesToCountries();
 
+	// Country capitals are fuzzy, and need checking if we assigned them to some other country during mapping.
+	verifyCapitals();
+
 	// This step is important. CK2 data is sketchy and not every character or province has culture/religion data.
 	// For those, we look at vanilla provinces and override missing bits with vanilla setup. Yeah, a bit more sunni in
 	// hordeland, but it's fine.
@@ -73,11 +76,79 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 	// Same for personal unions - rulers with multiple crowns either get PU agreements, or just annex the other crowns.
 	resolvePersonalUnions();
 
+	// Now for the final tweaks.
+	distributeForts();
+
 	// And finally, the Dump.
 	LOG(LogLevel::Info) << "---> The Dump <---";
 	modFile.outname = theConfiguration.getOutputName();
 	output(versionParser, theConfiguration, sourceWorld.getConversionDate(), sourceWorld.isInvasion());
 	LOG(LogLevel::Info) << "*** Farewell EU4, granting you independence. ***";
+}
+
+void EU4::World::verifyCapitals()
+{
+	Log(LogLevel::Info) << "-- Verifying All countries Have Capitals";
+
+	auto counter = 0;
+	for (const auto& country: countries)
+		if (country.second->verifyCapital(provinceMapper)) counter++;
+
+	Log(LogLevel::Info) << "<> " << counter << " capitals have been reassigned.";
+}
+
+void EU4::World::distributeForts()
+{
+	Log(LogLevel::Info) << "-- Building Forts";
+
+	// We're doing this only for our new countries. We haven't deleted forts in ROTW.
+	// Countries at 4+ provinces get a capital fort. 8+ countries get one fort per area where they own 3+ provinces.
+
+	auto counterCapital = 0;
+	auto counterOther = 0;
+
+	for (const auto& country: countries) {
+		if (country.second->getTitle().first.empty()) continue;
+		if (country.second->getProvinces().size() < 4) continue; // To small to afford forts.
+		if (!country.second->getCapitalID()) continue;				// Not dealing with broken countries, thank you.
+		if (!country.second->getProvinces().count(country.second->getCapitalID())) {
+			Log(LogLevel::Warning) << country.first << " has capital province set to " << country.second->getCapitalID() << "but doesn't own it?";
+			continue; // this should have been fixed earlier by verifyCapitals!
+		}
+
+		const auto& capitalAreaName = regionMapper->getParentAreaName(country.second->getCapitalID());
+		if (!capitalAreaName) continue; // uh-huh
+
+		const auto& capitalProvince = country.second->getProvinces().find(country.second->getCapitalID());
+		capitalProvince->second->buildFort();
+		counterCapital++;
+
+		if (country.second->getProvinces().size() < 8) continue; // Too small for more forts.
+
+		std::set<std::string> builtAreas = {*capitalAreaName};
+		// Now it gets serious. We need a list of areas with 3+ provinces.
+		std::map<std::string, int> elegibleAreas;
+
+		for (const auto& province: country.second->getProvinces()) {
+			const auto& areaName = regionMapper->getParentAreaName(province.first);
+			if (!areaName) continue;
+			elegibleAreas[*areaName]++;
+		}
+
+		// And we put a fort in every one of those.
+		for (const auto& province: country.second->getProvinces()) {
+			const auto& areaName = regionMapper->getParentAreaName(province.first);
+			if (!areaName) continue;
+			if (builtAreas.count(*areaName)) continue;
+			if (elegibleAreas[*areaName] <= 2) continue;
+
+			province.second->buildFort();
+			counterOther++;
+			builtAreas.insert(*areaName);
+		}
+	}
+
+	Log(LogLevel::Info) << "<> " << counterCapital << " capital forts and " << counterOther << " other forts have been built.";
 }
 
 void EU4::World::alterProvinceDevelopment()
@@ -297,7 +368,7 @@ void EU4::World::setElectors()
 
 	for (const auto& elector: electors)
 		elector->setElector();
-	LOG(LogLevel::Info) << "-> There are " << electors.size() << " electors recognized.";
+	LOG(LogLevel::Info) << "<> There are " << electors.size() << " electors recognized.";
 }
 
 void EU4::World::setFreeCities()
@@ -326,7 +397,7 @@ void EU4::World::setFreeCities()
 			}
 		}
 	}
-	LOG(LogLevel::Info) << "-> There are " << freeCityNum << " free cities.";
+	LOG(LogLevel::Info) << "<> There are " << freeCityNum << " free cities.";
 }
 
 
@@ -620,6 +691,13 @@ std::optional<std::pair<int, std::shared_ptr<CK2::Province>>> EU4::World::determ
 		theShares[ownerTitle] = lround(ck2province->second->getBuildingWeight());
 
 		// While at it, is this province especially important? Enough so we'd sidestep regular rules?
+		// Check for capital provinces
+		if (ck2province->second->getTitle().second->getHolder().second->getCapitalProvince().first == ck2province->first) {
+			// This is the someone's capital, don't assign it away if unnecessary.
+			winner = ck2province->second->getTitle().first;
+			maxDev = 200; // Dev can go up to 300+, so yes, assign it away if someone has overbuilt a nearby province.
+		}
+		// Check for HRE emperor
 		if (ck2province->second->getTitle().second->isHREEmperor()) {
 			const auto& emperor = ck2province->second->getTitle().second->getHolder().second;
 			if (emperor->getCapitalProvince().first == ck2province->first) {

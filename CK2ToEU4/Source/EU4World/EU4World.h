@@ -8,9 +8,9 @@
 #include "../Mappers/ProvinceMapper/ProvinceMapper.h"
 #include "../Mappers/RegionMapper/RegionMapper.h"
 #include "../Mappers/ReligionMapper/ReligionMapper.h"
+#include "../Mappers/RulerPersonalitiesMapper/RulerPersonalitiesMapper.h"
 #include "../Mappers/TitleTagMapper/TitleTagMapper.h"
 #include "../Mappers/VersionParser/VersionParser.h"
-#include "../Mappers/RulerPersonalitiesMapper/RulerPersonalitiesMapper.h"
 #include "Country/Country.h"
 #include "Diplomacy/Diplomacy.h"
 #include "Output/outModFile.h"
@@ -61,6 +61,8 @@ class World
 	void importAdvisers();
 	void outputAdvisers(const Configuration& theConfiguration) const;
 	void alterProvinceDevelopment();
+	void distributeForts();
+	void verifyCapitals();
 
 	mappers::ColorScraper colorScraper;
 	mappers::ProvinceMapper provinceMapper;

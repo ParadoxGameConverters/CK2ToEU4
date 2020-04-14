@@ -22,7 +22,7 @@ EU4::Country::Country(std::string theTag, const std::string& filePath): tag(std:
 	// We also must set a dummy history filepath for those countries that don't actually have a history file.
 	const auto lastslash = filePath.find_last_of('/');
 	const auto rawname = filePath.substr(lastslash + 1, filePath.length());
-	
+
 	historyCountryFile = "history/countries/" + tag + " - " + rawname;
 }
 
@@ -61,7 +61,8 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 		details.government = newGovernment->first;
 		if (!newGovernment->second.empty()) details.reforms.insert(newGovernment->second);
 	} else {
-		Log(LogLevel::Warning) << "No government match for " << actualHolder->getGovernment() << " for title: " << title.first << ", defaulting to monarchy.";
+		Log(LogLevel::Warning) << "No government match for " << actualHolder->getGovernment() << " for title: " << title.first
+									  << ", defaulting to monarchy.";
 		details.government = "monarchy";
 	}
 	if (title.second->getSuccessionLaw() == "feudal_elective" && tag != "ROM" && tag != "HRE" && tag != "BYZ") {
@@ -308,13 +309,37 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	initializeRulers(religionMapper, cultureMapper, rulerPersonalitiesMapper);
 }
 
+bool EU4::Country::verifyCapital(const mappers::ProvinceMapper& provinceMapper)
+{
+	// We have set a provisionary capital earlier, but now we can check if it's valid.
+	if (title.first.empty()) return false;
+	if (provinces.empty()) return false;
+	if (details.capital && provinces.count(details.capital)) return false;
+
+	const auto& actualHolder = title.second->getHolder().second;
+	const auto& capitalMatch = provinceMapper.getEU4ProvinceNumbers(actualHolder->getCapitalProvince().first);
+	if (!capitalMatch.empty()) {
+		for (const auto& provinceID: capitalMatch) {
+			if (provinces.count(provinceID)) {
+				details.capital = provinceID;
+				return true;
+			}
+		}
+	}
+	// Use any other province.
+	details.capital = provinces.begin()->second->getProvinceID();
+	return true;
+}
+
+
 void EU4::Country::initializeAdvisers(const mappers::ReligionMapper& religionMapper, const mappers::CultureMapper& cultureMapper)
 {
 	// We're doing this one separate from initial country generation so that country's primary culture and religion may have had time to get
 	// initialized.
 	if (title.first.empty() || !title.second->getHolder().first) return; // Vanilla and the dead do not get these.
 	const auto& holder = title.second->getHolder().second;
-	if (!holder->getPrimaryTitle().first.empty() && title.first != holder->getPrimaryTitle().first) return; // PU's don't get advisors on secondary countries.
+	if (!holder->getPrimaryTitle().first.empty() && title.first != holder->getPrimaryTitle().first)
+		return; // PU's don't get advisors on secondary countries.
 
 	for (const auto& adviser: holder->getAdvisers()) {
 		Character newAdviser;
@@ -347,10 +372,9 @@ void EU4::Country::initializeAdvisers(const mappers::ReligionMapper& religionMap
 		newAdviser.deathDate.subtractYears(-65);
 		newAdviser.female = adviser.second->isFemale();
 		if (adviser.second->getReligion().empty())
-			if (adviser.second->getDynasty().first && !adviser.second->getDynasty().second->getReligion().empty())
-			{
+			if (adviser.second->getDynasty().first && !adviser.second->getDynasty().second->getReligion().empty()) {
 				const auto& religionMatch = religionMapper.getEu4ReligionForCk2Religion(adviser.second->getDynasty().second->getReligion());
-				if (religionMatch) newAdviser.religion = *religionMatch;				
+				if (religionMatch) newAdviser.religion = *religionMatch;
 			} else {
 				newAdviser.religion = details.monarch.religion; // taking a shortcut.
 			}
@@ -373,11 +397,13 @@ void EU4::Country::initializeAdvisers(const mappers::ReligionMapper& religionMap
 		if (newAdviser.culture.empty()) continue;
 		if (newAdviser.religion == "jewish") newAdviser.discount = true; // Tradeoff for not being promotable.
 		details.advisers.emplace_back(newAdviser);
-	}	
+	}
 }
 
 
-void EU4::Country::initializeRulers(const mappers::ReligionMapper& religionMapper, const mappers::CultureMapper& cultureMapper, const mappers::RulerPersonalitiesMapper& rulerPersonalitiesMapper)
+void EU4::Country::initializeRulers(const mappers::ReligionMapper& religionMapper,
+	 const mappers::CultureMapper& cultureMapper,
+	 const mappers::RulerPersonalitiesMapper& rulerPersonalitiesMapper)
 {
 	const auto& holder = title.second->getHolder().second;
 	// Are we the ruler's primary title? (if he has any)
@@ -493,7 +519,8 @@ void EU4::Country::setReligion(const std::string& religion)
 int EU4::Country::getDevelopment() const
 {
 	auto dev = 0;
-	for (const auto& province: provinces) dev += province.second->getDev();
+	for (const auto& province: provinces)
+		dev += province.second->getDev();
 	return dev;
 }
 
