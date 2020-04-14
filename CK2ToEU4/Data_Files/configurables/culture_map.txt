@@ -85,7 +85,7 @@ link = { ck2 = visigothic eu4 = visigothic tech = western gfx = westerngfx }
 
 link = { ck2 = armenian eu4 = armenian tech = eastern gfx = easterngfx }
 link = { ck2 = greek eu4 = goths tech = eastern gfx = easterngfx region = crimea_area }
-link = { ck2 = greek eu4 = pontic tech = eastern gfx = easterngfx region = erzurum_area }
+link = { ck2 = greek eu4 = pontic_greek tech = eastern gfx = easterngfx region = erzurum_area }
 link = { ck2 = greek eu4 = anatolian tech = eastern gfx = easterngfx region = germiyan_area region = karaman_area region = ankara_area region = cukurova_area region = rum_area region = dulkadir_area region = kastamonu_area }
 link = { ck2 = greek eu4 = magnagreek tech = eastern gfx = westerngfx region = italy_region }
 link = { ck2 = greek eu4 = greek tech = eastern gfx = easterngfx }

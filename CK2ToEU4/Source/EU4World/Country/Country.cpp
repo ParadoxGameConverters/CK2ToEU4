@@ -170,11 +170,7 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 				Log(LogLevel::Warning) << tag << ": No color defined for title " << title.first << "!";
 		}
 	}
-	// If we imported some revolutionary colors we'll keep them, otherwise, let's generate some.
-	if (!details.revolutionaryColor) {
-		details.revolutionaryColor = details.color;
-		details.revolutionaryColor.RandomlyFlunctuate(20);
-	}
+	// If we imported some revolutionary colors we'll keep them, otherwise we're ignoring this.
 	// If we imported historical idea groups, keeping them, otherwise blank.
 	details.randomChance = false; // random chance related to RNW, wo it has no effect here.
 

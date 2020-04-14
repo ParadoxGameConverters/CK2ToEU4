@@ -96,11 +96,14 @@ std::string mappers::TitleTagMapper::generateNewTag()
 	std::ostringstream generatedEU4TagStream;
 	generatedEU4TagStream << generatedEU4TagPrefix << std::setfill('0') << std::setw(2) << generatedEU4TagSuffix;
 	const auto& eu4Tag = generatedEU4TagStream.str();
+	const std::set<char> reservedPrefixes = { 'D', 'C', 'K', 'E', 'T', 'O'};
 
 	++generatedEU4TagSuffix;
 	if (generatedEU4TagSuffix > 99) {
 		generatedEU4TagSuffix = 0;
 		--generatedEU4TagPrefix;
+		while (reservedPrefixes.count(generatedEU4TagPrefix))
+			--generatedEU4TagPrefix;
 	}
 
 	return eu4Tag;
