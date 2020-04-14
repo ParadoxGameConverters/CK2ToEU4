@@ -1,5 +1,5 @@
 # Version info
 
-version = "0.0B"
-name = "init-prerelease"
+version = "0.1"
+name = "d'Asturias"
 descriptionLine = "Compatible with CK2 3.3 and EU4 1.29"
