@@ -194,6 +194,8 @@
     <ClCompile Include="Source\CK2World\Titles\Liege.cpp" />
     <ClCompile Include="Source\CK2World\Titles\Title.cpp" />
     <ClCompile Include="Source\CK2World\Titles\Titles.cpp" />
+    <ClCompile Include="Source\CK2World\Wonders\Wonder.cpp" />
+    <ClCompile Include="Source\CK2World\Wonders\Wonders.cpp" />
     <ClCompile Include="Source\CK2World\World.cpp" />
     <ClCompile Include="Source\Common\CommonFunctions.cpp" />
     <ClCompile Include="Source\Common\ID.cpp" />
@@ -263,6 +265,8 @@
     <ClInclude Include="Source\CK2World\Titles\Liege.h" />
     <ClInclude Include="Source\CK2World\Titles\Title.h" />
     <ClInclude Include="Source\CK2World\Titles\Titles.h" />
+    <ClInclude Include="Source\CK2World\Wonders\Wonder.h" />
+    <ClInclude Include="Source\CK2World\Wonders\Wonders.h" />
     <ClInclude Include="Source\CK2World\World.h" />
     <ClInclude Include="Source\Common\CommonFunctions.h" />
     <ClInclude Include="Source\Common\ID.h" />

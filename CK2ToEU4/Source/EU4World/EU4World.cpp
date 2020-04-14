@@ -697,11 +697,17 @@ std::optional<std::pair<int, std::shared_ptr<CK2::Province>>> EU4::World::determ
 			winner = ck2province->second->getTitle().first;
 			maxDev = 200; // Dev can go up to 300+, so yes, assign it away if someone has overbuilt a nearby province.
 		}
+		// Check for a wonder. For multiple wonders, sorry, only last one will prevail.
+		if (ck2province->second->getWonder().second) {
+			// This is the someone's wonder province.
+			winner = ck2province->second->getTitle().first;
+			maxDev = 500;
+		}		
 		// Check for HRE emperor
 		if (ck2province->second->getTitle().second->isHREEmperor()) {
 			const auto& emperor = ck2province->second->getTitle().second->getHolder().second;
 			if (emperor->getCapitalProvince().first == ck2province->first) {
-				// This is the empire capital, don't assign it away.
+				// This is the empire capital, never assign it away.
 				winner = ck2province->second->getTitle().first;
 				maxDev = 999;
 			}

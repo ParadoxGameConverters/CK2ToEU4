@@ -17,11 +17,11 @@ wonder_temple_pagan = {
 }
 wonder_temple_buddhist = {
 	local_tax_modifier = 1
-	tolerence_heathen = 1
+	tolerance_heathen = 1
 }
 wonder_temple_hindu = {
 	local_tax_modifier = 1
-	tolerence_heathen = 1
+	tolerance_heathen = 1
 }
 wonder_statue_ruler = {
 	legitimacy = 0.5
@@ -139,7 +139,7 @@ wonder_aztec_pyramid = {
 }
 wonder_temple_hindu_konark = {
 	local_tax_modifier = 1
-	tolerence_heathen = 1
+	tolerance_heathen = 1
 }
 wonder_apostolic_palace = {
 	local_tax_modifier = 1

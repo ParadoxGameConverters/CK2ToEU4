@@ -9,7 +9,7 @@ class ProvinceModifier: commonItems::parser
 {
   public:
 	ProvinceModifier() = default;
-	explicit ProvinceModifier(std::istream& theStream);
+	explicit ProvinceModifier(std::istream& theStream);	
 
 	// These values are open to ease management.
 	// This is a storage container for EU4::ProvinceDetails.

@@ -11,6 +11,7 @@
 #include "Provinces/Provinces.h"
 #include "Titles/Liege.h"
 #include "Titles/Titles.h"
+#include "Wonders/Wonders.h"
 #include "newParser.h"
 
 class Configuration;
@@ -61,6 +62,7 @@ class World: commonItems::parser
 	Characters characters;
 	Titles titles;
 	Dynasties dynasties;
+	Wonders wonders;
 	mappers::IAmHreMapper iAmHreMapper;
 	mappers::PersonalityScraper personalityScraper;
 	std::map<std::string, Liege> dynamicTitles; // Reusing Liege as it has identical structure

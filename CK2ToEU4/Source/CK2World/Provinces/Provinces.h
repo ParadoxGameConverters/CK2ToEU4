@@ -5,6 +5,7 @@
 namespace CK2
 {
 class Province;
+class Wonders;
 class Provinces: commonItems::parser
 {
   public:
@@ -13,6 +14,7 @@ class Provinces: commonItems::parser
 	[[nodiscard]] const auto& getProvinces() const { return provinces; }
 
 	void linkPrimarySettlements();
+	void linkWonders(const Wonders& wonders);
 
   private:
 	void registerKeys();
