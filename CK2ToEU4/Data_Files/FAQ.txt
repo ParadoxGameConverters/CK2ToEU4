@@ -1,6 +1,6 @@
 ## The FAQ
 
-Q: Is this the official coverter?
+Q: Is this the official converter?
 A: This converter has been done by the same team that specializes in other Paradox converters: 
 EU4->Vic2, Vic2->HoI4, CK2->EU3, EU3->Vic2, Vic2->HoI3, and relatively soon, Imperator->CK3
 It is not official, it does not use official converter's code (though it does recycle some data files).
@@ -46,7 +46,7 @@ A: No. We want the export to be compatible with future conversion to Vic2.
 Q: How can I customize my game after converting?
 A: Use the guide in after_converting.txt in the converter subdirectory. Scan through configurables/ folder and look into the myriad of configuration files - a great majority of these  files is intended to be modified by users to achieve specific conversion results.
 
-### Quick Trobleshooting:
+### Quick Troubleshooting:
 
 Q: The generated mod was in a different language than my savegame.
 A: At the moment, CK2ToEU4 only guarantees english localisation, but german, french and spanish are nominally supported.
