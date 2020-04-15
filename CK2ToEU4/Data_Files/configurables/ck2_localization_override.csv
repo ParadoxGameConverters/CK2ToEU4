@@ -1,4 +1,4 @@
-﻿# Put here all title and title_adj localizations vanilla CK2 is lacking, or that are inacurate.
+# Put here all title and title_adj localizations vanilla CK2 is lacking, or that are inacurate.
 # We'll load them up and output them in EU4 format.
 
 k_kosala_adj;Kosalan;Cossalane;Kosala-;;de Kosala;;;;;;;;x
@@ -13,3 +13,10 @@ k_mentese_adj;Mentese;Mentecheïde;Menteschisch;;de Mentese;;;;;;;;x
 k_orissa_adj;Orissan;Odia;Oriya;;Oriya;;;;;;;;x
 k_tamilakam_adj;Tamil;Tamoule;Tamilisch;;Tamil;;;;;;;;x
 k_tekke_adj;Tekken;de Teke;Tekeisch;;de Tekke;;;;;;;;x
+k_bengal_adj;Bengali;Bengalaise;Bengalisch;;Bengalí;;;;;;;;x
+k_gondwana_adj;Gondwanan;du Gondwana;Gondwanisch;;Gondwaní;;;;;;;;x
+k_gujarat_adj;Gujarati;du Gudjarat;Gujaratisch;;Gujaratí;;;;;;;;x
+k_maharastra_adj;Maharashtran;du Maharashtra;Maharastrisch;;Maharashtrí;;;;;;;;x
+k_malwa_adj;Malwan;du Malwa;Malwisch;;Malwí;;;;;;;;x
+k_rajputana_adj;Rajputanan;du Rajputana;Rajputanisch;;Rajputaní;;;;;;;;x
+k_sindh_adj;Sindhi;du Sindh;Sindisch;;Sindhí;;;;;;;;x
