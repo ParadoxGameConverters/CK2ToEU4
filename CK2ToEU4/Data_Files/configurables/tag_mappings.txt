@@ -87,6 +87,7 @@ link = { ck2 = c_krakowskie eu4 = KRA }
 link = { ck2 = d_mazovia eu4 = MAZ }
 link = { ck2 = d_prussia eu4 = PRU }
 link = { ck2 = d_courland eu4 = KUR }
+link = { ck2 = k_teutonic_state eu4 = TEU } # Teutonic Order
 link = { ck2 = d_teutonic_order eu4 = TEU }
 link = { ck2 = c_danzig eu4 = DNZ }
 link = { ck2 = c_zemigalians eu4 = RIG }
@@ -155,6 +156,7 @@ link = { ck2 = c_hamburg eu4 = HAM }
 link = { ck2 = e_hre eu4 = HLR }
 link = { ck2 = c_lorraine eu4 = LOR }
 link = { ck2 = c_luneburg eu4 = LUN }
+link = { ck2 = d_mainz eu4 = MAI } # Mainz
 link = { ck2 = c_mainz eu4 = MAI }
 link = { ck2 = d_meissen eu4 = MEI }
 link = { ck2 = c_meissen eu4 = MEI }
@@ -165,11 +167,13 @@ link = { ck2 = k_pomerania eu4 = POM }
 link = { ck2 = d_pommerania eu4 = POM }
 link = { ck2 = d_saxony eu4 = SAX }
 link = { ck2 = d_silesia eu4 = SIL }
+link = { ck2 = d_salzburg eu4 = SLZ }
 link = { ck2 = c_salzburg eu4 = SLZ }
 link = { ck2 = d_thuringia eu4 = THU }
 link = { ck2 = c_thuringen eu4 = THU }
 link = { ck2 = d_tyrol eu4 = TIR }
 link = { ck2 = c_tirol eu4 = TIR }
+link = { ck2 = d_trier eu4 = TRI } # Trier
 link = { ck2 = c_trier eu4 = TRI }
 link = { ck2 = c_ulm eu4 = ULM }
 link = { ck2 = c_wurzburg eu4 = WBG }
@@ -222,6 +226,7 @@ link = { ck2 = c_mantua eu4 = MAN }
 link = { ck2 = d_modena eu4 = MOD }
 link = { ck2 = c_modena eu4 = MOD }
 link = { ck2 = k_naples eu4 = NAP }
+link = { ck2 = k_papacy eu4 = PAP }
 link = { ck2 = k_papal_state eu4 = PAP }
 link = { ck2 = c_parma eu4 = PAR }
 link = { ck2 = k_pisa eu4 = PIS }
@@ -230,6 +235,7 @@ link = { ck2 = c_pisa eu4 = PIS }
 link = { ck2 = d_sardinia eu4 = SAR }
 link = { ck2 = d_savoie eu4 = SAV }
 link = { ck2 = k_sicily eu4 = SIC }
+link = { ck2 = k_trinacria eu4 = SIC } # Trinacria --> Sicily
 link = { ck2 = d_sicily eu4 = SIC }
 link = { ck2 = c_siena eu4 = SIE }
 link = { ck2 = d_toscana eu4 = TUS }
@@ -503,10 +509,11 @@ link = { ck2 = c_sticht eu4 = UTR } # Sticht --> Utrecht
 link = { ck2 = d_hesse eu4 = HES } # Hesse
 link = { ck2 = c_hesse eu4 = HES } # Hesse
 link = { ck2 = c_julich eu4 = AAC } # Aachen
-#link = { ck2 = ??? eu4 = PAL } # Impossible to map Palatinate
+link = { ck2 = d_rhine eu4 = PAL } # The Rhine --> Palatinate
 link = { ck2 = c_bamberg eu4 = ANS } # Bamberg --> Ansbach
 link = { ck2 = c_magdeburg eu4 = MAG } # Magdeburg
 #link = { ck2 = ??? eu4 = LAU } # Impossible to map Lauenburg
+link = { ck2 = d_styria eu4 = STY } # Styria
 link = { ck2 = c_steiermark eu4 = STY } # Styria
 link = { ck2 = c_monemvasia eu4 = MOE } # Monemvasia (Sparta) --> Morea
 link = { capitals = { 465 } eu4 = NOG } # Nogai
