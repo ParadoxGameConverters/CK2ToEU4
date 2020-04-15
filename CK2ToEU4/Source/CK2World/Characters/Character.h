@@ -55,6 +55,7 @@ class Character: commonItems::parser
 	[[nodiscard]] const auto& getTraits() const { return traits; }
 	[[nodiscard]] const auto& getJob() const { return job; }
 	[[nodiscard]] const auto& getAdvisers() const { return advisers; }
+	[[nodiscard]] auto isSpent() const { return spent; }
 	
 	void setDynasty(std::shared_ptr<Dynasty> theDynasty) { dynasty.second = std::move(theDynasty); }
 	void setCourtierNames(const std::map<std::string, bool>& theNames) { courtierNames = theNames; }
@@ -71,7 +72,8 @@ class Character: commonItems::parser
 	void setFather(const std::pair<int, std::shared_ptr<Character>>& theFather) { father = theFather; }
 	void registerChild(const std::pair<int, std::shared_ptr<Character>>& theChild) { children.insert(theChild); }
 	void addYears(const int years) { birthDate.subtractYears(years); }
-
+	void setSpent() { spent = true; }
+	
   private:
 	void registerKeys();
 
@@ -101,6 +103,7 @@ class Character: commonItems::parser
 	std::map<int, std::string> traits;
 	std::string job;
 	std::map<int, std::shared_ptr<Character>> advisers;
+	bool spent = false; // if adviser, is already spent?
 };
 } // namespace CK2
 

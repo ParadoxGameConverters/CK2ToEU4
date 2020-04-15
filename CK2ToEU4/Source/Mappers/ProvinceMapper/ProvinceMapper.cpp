@@ -17,6 +17,7 @@ mappers::ProvinceMapper::ProvinceMapper()
 	clearRegisteredKeywords();
 	createMappings();
 	LOG(LogLevel::Info) << "<> " << theMappings.getMappings().size() << " mappings loaded.";
+	loadOffmapChineseProvinces();
 }
 
 mappers::ProvinceMapper::ProvinceMapper(std::istream& theStream)
@@ -33,6 +34,16 @@ void mappers::ProvinceMapper::registerKeys()
 		// We support only a single, current version, so eu4-vic2 style multiple versions
 		// have been cut. There should only be a single, 0.0.0.0={} block inside province_mappings.txt
 		theMappings = ProvinceMappingsVersion(theStream);
+	});
+	registerRegex("[a-zA-Z0-9\\_.:]+", commonItems::ignoreItem);
+}
+
+void mappers::ProvinceMapper::registerOffmapKeys()
+{
+	registerKeyword("chinese_offmap_provinces", [this](const std::string& unused, std::istream& theStream) {
+		const commonItems::intList theList(theStream);
+		const auto& provList = theList.getInts();
+		offmapChineseProvinces.insert(provList.begin(), provList.end());
 	});
 	registerRegex("[a-zA-Z0-9\\_.:]+", commonItems::ignoreItem);
 }
@@ -85,4 +96,20 @@ void mappers::ProvinceMapper::determineValidProvinces(const Configuration& theCo
 		validEU4Provinces.insert(provNum);
 	}
 	LOG(LogLevel::Info) << "<> " << validEU4Provinces.size() << " valid provinces located.";
+}
+
+void mappers::ProvinceMapper::loadOffmapChineseProvinces()
+{
+	LOG(LogLevel::Info) << "-> Loading Offmap Chinese Provinces";
+	registerOffmapKeys();
+	parseFile("configurables/chinese_offmap_provinces.txt");
+	clearRegisteredKeywords();
+	LOG(LogLevel::Info) << "<> " << offmapChineseProvinces.size() << " chinese provinces loaded.";
+}
+
+void mappers::ProvinceMapper::loadOffmapChineseProvinces(std::istream& theStream)
+{
+	registerOffmapKeys();
+	parseStream(theStream);
+	clearRegisteredKeywords();
 }

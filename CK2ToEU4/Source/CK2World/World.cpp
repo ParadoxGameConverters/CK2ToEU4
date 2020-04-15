@@ -9,6 +9,7 @@
 #include "ParserHelpers.h"
 #include "Titles/Liege.h"
 #include "Titles/Title.h"
+#include "Offmaps/Offmap.h"
 #include <ZipFile.h>
 #include <cmath>
 #include <filesystem>
@@ -67,6 +68,11 @@ CK2::World::World(const Configuration& theConfiguration)
 		LOG(LogLevel::Info) << "-> Loading Wonders";
 		wonders = Wonders(theStream);
 		LOG(LogLevel::Info) << ">> Loaded " << wonders.getWonders().size() << " wonders.";
+	});
+	registerKeyword("offmap_powers", [this](const std::string& unused, std::istream& theStream) {
+		LOG(LogLevel::Info) << "-> Loading Offmaps";
+		offmaps = Offmaps(theStream);
+		LOG(LogLevel::Info) << ">> Loaded " << offmaps.getOffmaps().size() << " offmaps.";
 	});
 	registerKeyword("dyn_title", [this](const std::string& unused, std::istream& theStream) {
 		const auto dynTitle = Liege(theStream);
@@ -135,6 +141,8 @@ CK2::World::World(const Configuration& theConfiguration)
 	titles.linkProvinces(provinces, provinceTitleMapper); // Untestable due to disk access.
 	LOG(LogLevel::Info) << "-- Linking Titles With Base Titles";
 	titles.linkBaseTitles();
+	LOG(LogLevel::Info) << "-- Linking The Celestial Emperor";
+	linkCelestialEmperor();
 
 	// Filter top-tier active titles and assign them provinces.
 	LOG(LogLevel::Info) << "-- Merging Independent Baronies";
@@ -163,6 +171,39 @@ CK2::World::World(const Configuration& theConfiguration)
 	characters.assignPersonalities(personalityScraper);
 
 	LOG(LogLevel::Info) << "*** Good-bye CK2, rest in peace. ***";
+}
+
+void CK2::World::linkCelestialEmperor() const
+{
+	const auto& china = offmaps.getChina();
+	if (!china)
+	{ LOG(LogLevel::Info) << ">< No China detected.";
+		return;
+	}
+	if (!china->second->getHolder().first) {
+		LOG(LogLevel::Info) << ">< China has no emperor.";
+		return;
+	}
+	const auto& chars = characters.getCharacters();
+	const auto& characterItr = chars.find(china->second->getHolder().first);
+	if (characterItr == chars.end()) {
+		LOG(LogLevel::Info) << ">< Celestial emperor has no definition!";
+		return;
+	}
+	china->second->setHolder(std::pair(characterItr->first, characterItr->second));
+	const auto& holder = china->second->getHolder();
+	if (!holder.second->getDynasty().first) {
+		LOG(LogLevel::Info) << ">< Celestial emperor has no dynasty!";
+		return;
+	}
+	const auto& dyns = dynasties.getDynasties();
+	const auto& dynastyItr = dyns.find(holder.second->getDynasty().first);
+	if (dynastyItr == dyns.end()) {
+		LOG(LogLevel::Info) << ">< Celestial emperor's dynasty has no definition!";
+		return;
+	}
+	holder.second->setDynasty(dynastyItr->second);
+	LOG(LogLevel::Info) << "<> One Celestial Emperor linked.";
 }
 
 void CK2::World::determineHeirs()
@@ -334,7 +375,7 @@ void CK2::World::splitVassals()
 	// We have linked counties to provinces, and we know who's independent.
 	// We can now go through all titles and see what should be an independent vassal.
 	for (const auto& title: independentTitles) {
-		if (title.first == "k_papal_state" || title.first == "e_outremer") continue; // Not touching these.
+		if (title.first == "k_papal_state" || title.first == "e_outremer" || title.first == "e_china_west_governor") continue; // Not touching these.
 		auto relevantVassals = 0;
 		std::string relevantVassalPrefix;
 		if (title.first.find("e_") == 0)
@@ -600,7 +641,7 @@ void CK2::World::shatterHRE(const Configuration& theConfiguration) const
 			vassal.second->clearVassals();
 			vassal.second->clearHolder();
 			vassal.second->clearLiege();
-		} else {
+		} else if (vassal.first.find("b_") != 0) {
 			Log(LogLevel::Warning) << "Unrecognized HRE vassal: " << vassal.first;
 		}
 	}

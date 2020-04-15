@@ -245,6 +245,18 @@
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Wonders\Wonders.cpp">
       <Filter>ConverterFiles\CK2World\Wonders</Filter>
     </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Offmaps\Offmap.cpp">
+      <Filter>ConverterFiles\CK2World\Offmaps</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Offmaps\Offmaps.cpp">
+      <Filter>ConverterFiles\CK2World\Offmaps</Filter>
+    </ClCompile>
+    <ClCompile Include="CK2WorldTests\Offmaps\OffmapsTests.cpp">
+      <Filter>CK2WorldTests\Offmaps</Filter>
+    </ClCompile>
+    <ClCompile Include="CK2WorldTests\Offmaps\OffmapTests.cpp">
+      <Filter>CK2WorldTests\Offmaps</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4WorldTests">
@@ -375,6 +387,12 @@
     </Filter>
     <Filter Include="ConverterFiles\CK2World\Wonders">
       <UniqueIdentifier>{619dfc7b-e3bd-40fb-b35b-d68844286196}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ConverterFiles\CK2World\Offmaps">
+      <UniqueIdentifier>{3f6bdc7e-61be-4f55-babd-ed73ddaa83fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CK2WorldTests\Offmaps">
+      <UniqueIdentifier>{2ea84252-c232-4c4e-9a44-4a9c8fb5df22}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

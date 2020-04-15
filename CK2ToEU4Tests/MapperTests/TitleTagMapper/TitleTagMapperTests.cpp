@@ -97,3 +97,42 @@ TEST(Mappers_TitleTagMapperTests, canRegisterAllAccessedTitles)
 	ASSERT_EQ(*match5, "TST2");
 	ASSERT_EQ(*match6, "Z03");
 }
+
+TEST(Mappers_TitleTagMapperTests, canMatchChineseTagsOnTitles)
+{
+	std::stringstream dummyInput;
+	std::stringstream input;
+	input << "link = { eu4 = TST ck2 = yuan_china }\n";
+	input << "link = { eu4 = TST2 ck2 = han_china }";
+
+	mappers::TitleTagMapper theMapper(dummyInput, input);
+	const auto& match = theMapper.getChinaForTitle("han_china");
+
+	ASSERT_EQ(*match, "TST2");
+}
+
+TEST(Mappers_TitleTagMapperTests, failOnChinaMismatchWithoutFallback)
+{
+	std::stringstream dummyInput;
+	std::stringstream input;
+	input << "link = { eu4 = TST ck2 = yuan_china }\n";
+	input << "link = { eu4 = TST2 ck2 = han_china }";
+
+	mappers::TitleTagMapper theMapper(dummyInput, input);
+	const auto& match = theMapper.getChinaForTitle("tin_china");
+
+	ASSERT_FALSE(match);
+}
+
+TEST(Mappers_TitleTagMapperTests, matchOnChinaMismatchThroughFallback)
+{
+	std::stringstream dummyInput;
+	std::stringstream input;
+	input << "link = { eu4 = TST ck2 = yuan_china }\n";
+	input << "link = { eu4 = TST2 ck2 = han_china fallback = yes }";
+
+	mappers::TitleTagMapper theMapper(dummyInput, input);
+	const auto& match = theMapper.getChinaForTitle("tin_china");
+
+	ASSERT_EQ(*match, "TST2");
+}

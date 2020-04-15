@@ -12,7 +12,7 @@ CK2::Character::Character(std::istream& theStream, int chrID): charID(chrID)
 
 void CK2::Character::registerKeys()
 {
-	registerKeyword("bn", [this](const std::string& unused, std::istream& theStream) {
+	registerRegex("bn|name", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleString nameStr(theStream);
 		name = nameStr.getString();
 	});

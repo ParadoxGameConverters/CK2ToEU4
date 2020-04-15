@@ -50,6 +50,7 @@ class Province
 	void setDip(int dip) { details.baseProduction = dip; }
 	void setMil(int mil) { details.baseManpower = mil; }
 	void buildFort() { details.fort = true; }
+	void addDiscoveredBy(const std::string& bywhom) { details.discoveredBy.insert(bywhom); }
 
 	friend std::ostream& operator<<(std::ostream& output, const Province& versionParser);
 

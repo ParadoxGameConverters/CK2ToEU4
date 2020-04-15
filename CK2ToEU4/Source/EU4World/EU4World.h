@@ -56,13 +56,14 @@ class World
 		 const CK2::World& sourceWorld) const;
 	void setElectors();
 	void setFreeCities();
-	void outputDiplomacy(const Configuration& theConfiguration, const std::vector<Agreement>& agreements, bool invasion) const;
+	void outputDiplomacy(const Configuration& theConfiguration, const std::vector<std::shared_ptr<Agreement>>& agreements, bool invasion) const;
 	void resolvePersonalUnions();
 	void importAdvisers();
 	void outputAdvisers(const Configuration& theConfiguration) const;
 	void alterProvinceDevelopment();
 	void distributeForts();
 	void verifyCapitals();
+	void adjustChina(const CK2::World& sourceWorld);
 
 	mappers::ColorScraper colorScraper;
 	mappers::ProvinceMapper provinceMapper;
@@ -77,6 +78,7 @@ class World
 	mappers::LocalizationMapper localizationMapper;
 	mappers::RulerPersonalitiesMapper rulerPersonalitiesMapper;
 	std::string emperorTag;
+	std::string celestialEmperorTag;
 	Diplomacy diplomacy;
 
 	std::set<std::string> specialCountryTags; // tags we loaded from own sources and must not output into 00_country_tags.txt

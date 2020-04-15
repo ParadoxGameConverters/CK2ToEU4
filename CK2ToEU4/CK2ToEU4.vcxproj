@@ -188,6 +188,8 @@
     <ClCompile Include="Source\CK2World\Characters\Domain.cpp" />
     <ClCompile Include="Source\CK2World\Dynasties\Dynasties.cpp" />
     <ClCompile Include="Source\CK2World\Dynasties\Dynasty.cpp" />
+    <ClCompile Include="Source\CK2World\Offmaps\Offmap.cpp" />
+    <ClCompile Include="Source\CK2World\Offmaps\Offmaps.cpp" />
     <ClCompile Include="Source\CK2World\Provinces\Barony.cpp" />
     <ClCompile Include="Source\CK2World\Provinces\Province.cpp" />
     <ClCompile Include="Source\CK2World\Provinces\Provinces.cpp" />
@@ -206,6 +208,7 @@
     <ClCompile Include="Source\EU4World\Country\Country.cpp" />
     <ClCompile Include="Source\EU4World\Country\CountryDetails.cpp" />
     <ClCompile Include="Source\EU4World\Country\MonarchNames.cpp" />
+    <ClCompile Include="Source\EU4World\Diplomacy\Agreement.cpp" />
     <ClCompile Include="Source\EU4World\Diplomacy\Diplomacy.cpp" />
     <ClCompile Include="Source\EU4World\EU4World.cpp" />
     <ClCompile Include="Source\EU4World\Output\outAgreement.cpp" />
@@ -259,6 +262,8 @@
     <ClInclude Include="Source\CK2World\Characters\Domain.h" />
     <ClInclude Include="Source\CK2World\Dynasties\Dynasties.h" />
     <ClInclude Include="Source\CK2World\Dynasties\Dynasty.h" />
+    <ClInclude Include="Source\CK2World\Offmaps\Offmap.h" />
+    <ClInclude Include="Source\CK2World\Offmaps\Offmaps.h" />
     <ClInclude Include="Source\CK2World\Provinces\Barony.h" />
     <ClInclude Include="Source\CK2World\Provinces\Province.h" />
     <ClInclude Include="Source\CK2World\Provinces\Provinces.h" />
