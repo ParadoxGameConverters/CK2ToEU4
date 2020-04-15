@@ -21,6 +21,45 @@ TEST(Mappers_TitleTagMappingTests, EU4TagCanBeAdded)
 	ASSERT_EQ(theMapper.getEU4Tag(), "TST");
 }
 
+TEST(Mappers_TitleTagMappingTests, FallbackDefaultsToFalse)
+{
+	std::stringstream input;
+
+	const mappers::TitleTagMapping theMapper(input);
+
+	ASSERT_FALSE(theMapper.getFallback());
+}
+
+TEST(Mappers_TitleTagMappingTests, FallbackCanBeSet)
+{
+	std::stringstream input;
+	input << "= { fallback = yes }";
+
+	const mappers::TitleTagMapping theMapper(input);
+
+	ASSERT_TRUE(theMapper.getFallback());
+}
+
+TEST(Mappers_TitleTagMappingTests, FallbackMatchFailsWithoutEU4Tag)
+{
+	std::stringstream input;
+	input << "= { fallback = yes }";
+
+	const mappers::TitleTagMapping theMapper(input);
+
+	ASSERT_FALSE(theMapper.fallbackMatch());
+}
+
+TEST(Mappers_TitleTagMappingTests, FallbackMatchSuccedsWithEU4Tag)
+{
+	std::stringstream input;
+	input << "= { fallback = yes eu4 = TST }";
+
+	const mappers::TitleTagMapping theMapper(input);
+
+	ASSERT_TRUE(theMapper.fallbackMatch());
+}
+
 TEST(Mappers_TitleTagMappingTests, CK2TitleDefaultsToBlank)
 {
 	std::stringstream input;

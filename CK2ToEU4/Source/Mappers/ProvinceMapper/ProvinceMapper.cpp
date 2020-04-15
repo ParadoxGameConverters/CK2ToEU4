@@ -37,6 +37,16 @@ void mappers::ProvinceMapper::registerKeys()
 	registerRegex("[a-zA-Z0-9\\_.:]+", commonItems::ignoreItem);
 }
 
+void mappers::ProvinceMapper::registerOffmapKeys()
+{
+	registerKeyword("chinese_offmap_provinces", [this](const std::string& unused, std::istream& theStream) {
+		const commonItems::intList theList(theStream);
+		const auto& provList = theList.getInts();
+		offmapChineseProvinces.insert(provList.begin(), provList.end());
+	});
+	registerRegex("[a-zA-Z0-9\\_.:]+", commonItems::ignoreItem);
+}
+
 void mappers::ProvinceMapper::createMappings()
 {
 	for (const auto& mapping: theMappings.getMappings()) {
@@ -85,4 +95,20 @@ void mappers::ProvinceMapper::determineValidProvinces(const Configuration& theCo
 		validEU4Provinces.insert(provNum);
 	}
 	LOG(LogLevel::Info) << "<> " << validEU4Provinces.size() << " valid provinces located.";
+}
+
+void mappers::ProvinceMapper::loadOffmapChineseProvinces()
+{
+	LOG(LogLevel::Info) << "-> Loading Offmap Chinese Provinces";
+	registerOffmapKeys();
+	parseFile("configurables/chinese_offmap_provinces.txt");
+	clearRegisteredKeywords();
+	LOG(LogLevel::Info) << "<> " << offmapChineseProvinces.size() << " chinese provinces loaded.";
+}
+
+void mappers::ProvinceMapper::loadOffmapChineseProvinces(std::istream& theStream)
+{
+	registerOffmapKeys();
+	parseStream(theStream);
+	clearRegisteredKeywords();
 }

@@ -18,6 +18,10 @@ void mappers::TitleTagMapping::registerKeys()
 		const commonItems::singleString titleStr(theStream);
 		ck2Title = titleStr.getString();
 	});
+	registerKeyword("fallback", [this](const std::string& unused, std::istream& theStream) {
+		const commonItems::singleString fallbackStr(theStream);
+		fallback = fallbackStr.getString() == "yes";
+	});
 	registerKeyword("capitals", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::intList capList(theStream);
 		const auto& theList = capList.getInts();
@@ -36,4 +40,10 @@ std::optional<std::string> mappers::TitleTagMapping::capitalMatch(int eu4capital
 {
 	if (capitals.count(eu4capital)) return eu4Tag;
 	return std::nullopt;
+}
+
+bool mappers::TitleTagMapping::fallbackMatch() const
+{
+	if (eu4Tag.empty()) return false;
+	return fallback;
 }

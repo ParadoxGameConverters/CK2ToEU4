@@ -9,7 +9,10 @@ mappers::TitleTagMapper::TitleTagMapper()
 	registerKeys();
 	parseFile("configurables/tag_mappings.txt");
 	clearRegisteredKeywords();
-	LOG(LogLevel::Info) << "<> " << theMappings.size() << " mappings loaded.";
+	registerChineseKeys();
+	parseFile("configurables/chinese_tag_mappings.txt");
+	clearRegisteredKeywords();
+	LOG(LogLevel::Info) << "<> " << theMappings.size() << " mappings and " << chineseMappings.size() << " Chinas loaded.";
 }
 
 mappers::TitleTagMapper::TitleTagMapper(std::istream& theStream)
@@ -19,9 +22,31 @@ mappers::TitleTagMapper::TitleTagMapper(std::istream& theStream)
 	clearRegisteredKeywords();
 }
 
+mappers::TitleTagMapper::TitleTagMapper(std::istream& theStream, std::istream& chineseStream)
+{
+	registerKeys();
+	parseStream(theStream);
+	clearRegisteredKeywords();
+	registerChineseKeys();
+	parseStream(chineseStream);
+	clearRegisteredKeywords();
+}
+
 void mappers::TitleTagMapper::registerKeys()
 {
-	registerKeyword("link", [this](const std::string& unused, std::istream& theStream) { theMappings.emplace_back(TitleTagMapping(theStream)); });
+	registerKeyword("link", [this](const std::string& unused, std::istream& theStream)
+	{
+		theMappings.emplace_back(TitleTagMapping(theStream));
+	});
+	registerRegex("[a-zA-Z0-9\\_.:-]+", commonItems::ignoreItem);
+}
+
+void mappers::TitleTagMapper::registerChineseKeys()
+{
+	registerKeyword("link", [this](const std::string& unused, std::istream& theStream)
+	{
+		chineseMappings.emplace_back(TitleTagMapping(theStream));
+	});
 	registerRegex("[a-zA-Z0-9\\_.:-]+", commonItems::ignoreItem);
 }
 
@@ -107,4 +132,28 @@ std::string mappers::TitleTagMapper::generateNewTag()
 	}
 
 	return eu4Tag;
+}
+
+std::optional<std::string> mappers::TitleTagMapper::getChinaForTitle(const std::string& ck2Title)
+{
+	if (ck2Title.empty()) return std::nullopt; // Fail for nonsense.
+
+	// Try regular maps.
+	for (const auto& mapping: chineseMappings) {
+		const auto& match = mapping.titleMatch(ck2Title);
+		if (match) {
+			return *match;
+		}
+	}
+
+	// Try for fallback
+	for (const auto& mapping: chineseMappings) {
+		const auto match = mapping.fallbackMatch();
+		if (match) {
+			return mapping.getEU4Tag();
+		}
+	}
+
+	// No china?
+	return std::nullopt;
 }

@@ -46,3 +46,25 @@ TEST(Mappers_ProvinceMapperTests, canLookupEU4Provinces)
 	ASSERT_EQ(theMapper.getEU4ProvinceNumbers(2)[0], 2);
 	ASSERT_EQ(theMapper.getEU4ProvinceNumbers(2)[1], 1);
 }
+
+TEST(Mappers_ProvinceMapperTests, chineseProvincesDefaultToEmpty)
+{
+	std::stringstream dummyInput;
+	const mappers::ProvinceMapper theMapper(dummyInput);
+
+	ASSERT_TRUE(theMapper.getOffmapChineseProvinces().empty());
+}
+
+TEST(Mappers_ProvinceMapperTests, chineseProvincesCanBeLoaded)
+{
+	std::stringstream dummyInput;
+	mappers::ProvinceMapper theMapper(dummyInput);	
+	std::stringstream input;
+	input << "chinese_offmap_provinces = { 1816 1821 1822 }";
+	theMapper.loadOffmapChineseProvinces(input);
+
+	ASSERT_EQ(theMapper.getOffmapChineseProvinces().size(), 3);
+	ASSERT_EQ(*theMapper.getOffmapChineseProvinces().find(1816), 1816);
+	ASSERT_EQ(*theMapper.getOffmapChineseProvinces().find(1821), 1821);
+	ASSERT_EQ(*theMapper.getOffmapChineseProvinces().find(1822), 1822);
+}
