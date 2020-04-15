@@ -44,7 +44,7 @@ link = { ck2 = frisian eu4 = frisian tech = western gfx = westerngfx }
 # Latin
 link = { ck2 = frankish eu4 = burgundian tech = western gfx = westerngfx region = bourgogne_area }
 link = { ck2 = frankish eu4 = gascon tech = western gfx = westerngfx region = pyrenees_area region = guyenne_area region = basque_country }
-link = { ck2 = frankish eu4 = walloon tech = western gfx = westerngfx region = low_countries_region }
+link = { ck2 = frankish eu4 = wallonian tech = western gfx = westerngfx region = low_countries_region }
 link = { ck2 = frankish eu4 = cosmopolitan_french tech = western gfx = westerngfx }
 link = { ck2 = norman eu4 = normand tech = western gfx = westerngfx }
 link = { ck2 = occitan eu4 = aquitaine tech = western gfx = westerngfx region = pyrenees_area region = guyenne_area region = basque_country }
