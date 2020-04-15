@@ -207,6 +207,15 @@
     <ClCompile Include="Source\CK2World\Wonders\Wonders.cpp">
       <Filter>CK2World\Wonders</Filter>
     </ClCompile>
+    <ClCompile Include="Source\CK2World\Offmaps\Offmap.cpp">
+      <Filter>CK2World\Offmaps</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CK2World\Offmaps\Offmaps.cpp">
+      <Filter>CK2World\Offmaps</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\EU4World\Diplomacy\Agreement.cpp">
+      <Filter>EU4World\Diplomacy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CK2ToEU4Converter.h" />
@@ -411,6 +420,12 @@
     <ClInclude Include="Source\CK2World\Wonders\Wonders.h">
       <Filter>CK2World\Wonders</Filter>
     </ClInclude>
+    <ClInclude Include="Source\CK2World\Offmaps\Offmap.h">
+      <Filter>CK2World\Offmaps</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CK2World\Offmaps\Offmaps.h">
+      <Filter>CK2World\Offmaps</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4World">
@@ -496,6 +511,9 @@
     </Filter>
     <Filter Include="CK2World\Wonders">
       <UniqueIdentifier>{638c18d7-98c6-45f7-a9ed-64fc0a6bf11c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CK2World\Offmaps">
+      <UniqueIdentifier>{bd95b28f-f8d4-4712-881c-2bca3de7f6b1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

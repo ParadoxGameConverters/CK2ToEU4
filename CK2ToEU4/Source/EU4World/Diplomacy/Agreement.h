@@ -2,25 +2,35 @@
 #define AGREEMENT_H
 
 #include "Date.h"
+#include "newParser.h"
 #include <ostream>
 
 namespace EU4
 {
-class Agreement
+class Agreement: commonItems::parser
 {
   public:
+	Agreement() = default;
+	Agreement(std::istream& theStream, std::string theType);
 	Agreement(std::string _first, std::string _second, std::string _type, const date& _start_date):
-		 type(std::move(_type)), first(std::move(_first)), second(std::move(_second)), start_date(_start_date){}
+		 type(std::move(_type)), first(std::move(_first)), second(std::move(_second)), startDate(_start_date)
+	{
+	}
+	void updateTags(const std::string& oldTag, const std::string& newTag);
 
 	[[nodiscard]] const auto& getType() const { return type; }
 
 	friend std::ostream& operator<<(std::ostream& output, const Agreement& agreement);
 
   private:
+	void registerKeys();
+
 	std::string type;
 	std::string first;
 	std::string second;
-	date start_date;
+	std::string subjectType;
+	date startDate;
+	date endDate;
 };
 } // namespace EU4
 

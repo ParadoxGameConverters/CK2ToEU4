@@ -501,7 +501,7 @@ link = { ck2 = e_roman_empire eu4 = ROM }
 link = { ck2 = k_israel eu4 = ISR }
 link = { ck2 = d_knights_templar eu4 = TEM }
 link = { ck2 = c_yarkand eu4 = KAS }
-link = { ck2 = e_china_west_governor eu4 = MNG }
+# link = { ck2 = e_china_west_governor eu4 = MNG } Do not enable this, or ming will become the Western protectorate!
 
 # Left out in official DLC
 link = { ck2 = c_evreux eu4 = ALE } # Évreux --> Alençon

@@ -12,6 +12,7 @@
 #include "Titles/Liege.h"
 #include "Titles/Titles.h"
 #include "Wonders/Wonders.h"
+#include "Offmaps/Offmaps.h"
 #include "newParser.h"
 
 class Configuration;
@@ -26,6 +27,7 @@ class World: commonItems::parser
 	[[nodiscard]] const auto& getIndepTitles() const { return independentTitles; }
 	[[nodiscard]] const auto& getProvinces() const { return provinces.getProvinces(); }
 	[[nodiscard]] const auto& getConversionDate() const { return endDate; }
+	[[nodiscard]] const auto& getOffmaps() const { return offmaps; }
 	[[nodiscard]] auto isInvasion() const { return invasion; }
 
   private:
@@ -45,7 +47,8 @@ class World: commonItems::parser
 	void resolveUltimogeniture(const std::string& genderLaw, const std::pair<int, std::shared_ptr<Character>>& holder) const;
 	void resolveTanistry(const std::string& genderLaw, const std::pair<int, std::shared_ptr<Character>>& holder) const;
 	void resolveTurkish(const std::pair<int, std::shared_ptr<Character>>& holder) const;
-
+	void linkCelestialEmperor() const;
+	
 	date endDate = date("1444.11.11");
 	date startDate = date("1.1.1");
 	Version CK2Version;
@@ -63,6 +66,7 @@ class World: commonItems::parser
 	Titles titles;
 	Dynasties dynasties;
 	Wonders wonders;
+	Offmaps offmaps;
 	mappers::IAmHreMapper iAmHreMapper;
 	mappers::PersonalityScraper personalityScraper;
 	std::map<std::string, Liege> dynamicTitles; // Reusing Liege as it has identical structure

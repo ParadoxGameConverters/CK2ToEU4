@@ -250,9 +250,19 @@ void EU4::World::outputEmperor(const Configuration& theConfiguration, date conve
 		output << conversionDate << " = { emperor = --- }\n";
 	else
 		output << conversionDate << " = { emperor = " << emperorTag << " }\n";
+	output.close();
+	
+	std::ofstream output2("output/" + theConfiguration.getOutputName() + "/history/diplomacy/celestial_empire.txt");
+	if (!output2.is_open())
+		throw std::runtime_error("Could not create celestial empire diplomacy file: output/" + theConfiguration.getOutputName() + "/history/diplomacy/celestial_empire.txt!");
+	if (celestialEmperorTag.empty())
+		output2 << conversionDate << " = { celestial_emperor = --- }\n";
+	else
+		output2 << conversionDate << " = { celestial_emperor = " << celestialEmperorTag << " }\n";
+	output2.close();
 }
 
-void EU4::World::outputDiplomacy(const Configuration& theConfiguration, const std::vector<Agreement>& agreements, bool invasion) const
+void EU4::World::outputDiplomacy(const Configuration& theConfiguration, const std::vector<std::shared_ptr<Agreement>>& agreements, bool invasion) const
 {
 	std::ofstream alliances("output/" + theConfiguration.getOutputName() + "/history/diplomacy/converter_alliances.txt");
 	if (!alliances.is_open()) throw std::runtime_error("Could not create alliances history file!");
@@ -267,16 +277,16 @@ void EU4::World::outputDiplomacy(const Configuration& theConfiguration, const st
 	if (!unions.is_open()) throw std::runtime_error("Could not create unions history file!");
 
 	for (const auto& agreement: agreements) {
-		if (agreement.getType() == "guarantee") {
-			guarantees << agreement;
-		} else if (agreement.getType() == "union") {
-			unions << agreement;
-		} else if (agreement.getType() == "vassal") {
-			puppetStates << agreement;
-		} else if (agreement.getType() == "alliance") {
-			alliances << agreement;
+		if (agreement->getType() == "guarantee") {
+			guarantees << *agreement;
+		} else if (agreement->getType() == "union") {
+			unions << *agreement;
+		} else if (agreement->getType() == "vassal" || agreement->getType() == "dependency") {
+			puppetStates << *agreement;
+		} else if (agreement->getType() == "alliance") {
+			alliances << *agreement;
 		} else {
-			LOG(LogLevel::Warning) << "Cannot output diplomatic agreement type " << agreement.getType() << "!";
+			LOG(LogLevel::Warning) << "Cannot output diplomatic agreement type " << agreement->getType() << "!";
 		}
 	}
 

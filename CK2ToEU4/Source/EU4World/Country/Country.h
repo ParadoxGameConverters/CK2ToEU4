@@ -75,6 +75,9 @@ class Country
 	void clearProvinces() { provinces.clear(); }
 	void annexCountry(const std::pair<std::string, std::shared_ptr<Country>>& theCountry);
 	bool verifyCapital(const mappers::ProvinceMapper& provinceMapper);
+	void setMonarch(const Character& monarch) { details.monarch = monarch; }
+	void clearHistoryLessons() { details.historyLessons.clear(); }
+	void setConversionDate(date theDate) { conversionDate = theDate; }
 
 	friend std::ostream& operator<<(std::ostream& output, const Country& versionParser);
 

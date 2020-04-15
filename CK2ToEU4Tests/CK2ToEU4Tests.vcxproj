@@ -171,6 +171,8 @@
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Characters\Domain.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Dynasties\Dynasties.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Dynasties\Dynasty.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Offmaps\Offmap.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Offmaps\Offmaps.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Provinces\Barony.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Provinces\Province.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Provinces\Provinces.cpp" />
@@ -220,6 +222,8 @@
     <ClCompile Include="CK2WorldTests\Characters\DomainTests.cpp" />
     <ClCompile Include="CK2WorldTests\Dynasties\DynastiesTests.cpp" />
     <ClCompile Include="CK2WorldTests\Dynasties\DynastyTests.cpp" />
+    <ClCompile Include="CK2WorldTests\Offmaps\OffmapsTests.cpp" />
+    <ClCompile Include="CK2WorldTests\Offmaps\OffmapTests.cpp" />
     <ClCompile Include="CK2WorldTests\Provinces\BaronyTests.cpp" />
     <ClCompile Include="CK2WorldTests\Provinces\ProvincesTests.cpp" />
     <ClCompile Include="CK2WorldTests\Provinces\ProvinceTests.cpp" />

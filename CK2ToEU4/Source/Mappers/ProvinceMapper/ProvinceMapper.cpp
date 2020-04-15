@@ -17,6 +17,7 @@ mappers::ProvinceMapper::ProvinceMapper()
 	clearRegisteredKeywords();
 	createMappings();
 	LOG(LogLevel::Info) << "<> " << theMappings.getMappings().size() << " mappings loaded.";
+	loadOffmapChineseProvinces();
 }
 
 mappers::ProvinceMapper::ProvinceMapper(std::istream& theStream)

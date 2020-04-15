@@ -338,6 +338,7 @@ void EU4::Country::initializeAdvisers(const mappers::ReligionMapper& religionMap
 		return; // PU's don't get advisors on secondary countries.
 
 	for (const auto& adviser: holder->getAdvisers()) {
+		if (adviser.second->isSpent()) continue;
 		Character newAdviser;
 		newAdviser.name = adviser.second->getName();
 		if (adviser.second->getDynasty().first) newAdviser.name += " " + adviser.second->getDynasty().second->getName();
@@ -393,6 +394,7 @@ void EU4::Country::initializeAdvisers(const mappers::ReligionMapper& religionMap
 		if (newAdviser.culture.empty()) continue;
 		if (newAdviser.religion == "jewish") newAdviser.discount = true; // Tradeoff for not being promotable.
 		details.advisers.emplace_back(newAdviser);
+		adviser.second->setSpent();
 	}
 }
 

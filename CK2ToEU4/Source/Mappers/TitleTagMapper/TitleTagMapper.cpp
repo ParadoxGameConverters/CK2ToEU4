@@ -136,8 +136,6 @@ std::string mappers::TitleTagMapper::generateNewTag()
 
 std::optional<std::string> mappers::TitleTagMapper::getChinaForTitle(const std::string& ck2Title)
 {
-	if (ck2Title.empty()) return std::nullopt; // Fail for nonsense.
-
 	// Try regular maps.
 	for (const auto& mapping: chineseMappings) {
 		const auto& match = mapping.titleMatch(ck2Title);
