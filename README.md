@@ -1,4 +1,5 @@
 This converter is NOT YET documented on the [Crusader Kings II wiki](https://ck2.paradoxwikis.com/Crusader_Kings_II_to_Europa_Universalis_IV_Converter). 
+
 For troubleshooting, bugreporting, or other help, please visit the official [release thread](https://forum.paradoxplaza.com/forum/index.php?threads/ck2-to-eu4-converter-release-thread.1377860/#post-26480988) on the Paradox Interactive forums. 
 To help with development, please visit the official [development thread](https://forum.paradoxplaza.com/forum/index.php?threads/ck2-to-eu4-converter-development-thread.1377861/) on the Paradox forums.
 
