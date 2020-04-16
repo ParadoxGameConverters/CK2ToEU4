@@ -63,6 +63,7 @@ class Country
 	[[nodiscard]] const auto& getTag() const { return tag; }
 	[[nodiscard]] const auto& getAdvisers() const { return details.advisers; }
 	[[nodiscard]] auto getConversionDate() const { return conversionDate; }
+	[[nodiscard]] auto isExcommunicated() const { return details.excommunicated; }
 
 	void registerProvince(std::pair<int, std::shared_ptr<Province>> theProvince) { provinces.insert(std::move(theProvince)); }
 	void setPrimaryCulture(const std::string& culture);
@@ -78,6 +79,7 @@ class Country
 	void setMonarch(const Character& monarch) { details.monarch = monarch; }
 	void clearHistoryLessons() { details.historyLessons.clear(); }
 	void setConversionDate(date theDate) { conversionDate = theDate; }
+	void clearExcommunicated() { details.excommunicated = false; }
 
 	friend std::ostream& operator<<(std::ostream& output, const Country& versionParser);
 
