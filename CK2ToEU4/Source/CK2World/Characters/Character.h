@@ -28,8 +28,8 @@ class Character: commonItems::parser
 
 	void setLiege(std::shared_ptr<Character> theLiege) { liege.second = std::move(theLiege); }
 
-	[[nodiscard]] const auto& getCulture() const { return culture; }
-	[[nodiscard]] const auto& getReligion() const { return religion; }
+	[[nodiscard]] const std::string& getCulture() const;
+	[[nodiscard]] const std::string& getReligion() const;
 	[[nodiscard]] const auto& getName() const { return name; }
 	[[nodiscard]] const auto& getBirthDate() const { return birthDate; }
 	[[nodiscard]] const auto& getDeathDate() const { return deathDate; }

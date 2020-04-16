@@ -5,11 +5,11 @@
 #include <fstream>
 namespace fs = std::filesystem;
 #include "../CK2World/Characters/Character.h"
+#include "../CK2World/Dynasties/Dynasty.h"
+#include "../CK2World/Offmaps/Offmap.h"
 #include "../CK2World/Provinces/Barony.h"
 #include "../CK2World/Titles/Title.h"
-#include "../CK2World/Offmaps/Offmap.h"
 #include "../Configuration/Configuration.h"
-#include "../CK2World/Dynasties/Dynasty.h"
 #include <cmath>
 
 EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfiguration, const mappers::VersionParser& versionParser)
@@ -83,7 +83,7 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 
 	// China
 	adjustChina(sourceWorld);
-	
+
 	// And finally, the Dump.
 	LOG(LogLevel::Info) << "---> The Dump <---";
 	modFile.outname = theConfiguration.getOutputName();
@@ -98,7 +98,7 @@ void EU4::World::adjustChina(const CK2::World& sourceWorld)
 	std::string ourChinaTag;
 	// Do we have a china?
 
-	const auto& china = sourceWorld.getOffmaps().getChina();	
+	const auto& china = sourceWorld.getOffmaps().getChina();
 	if (!china) {
 		// No china. Ok, we need to run through china provinces and update ownership from ming to whatever is our chinese default.
 		const auto& chinaTag = titleTagMapper.getChinaForTitle("");
@@ -116,20 +116,18 @@ void EU4::World::adjustChina(const CK2::World& sourceWorld)
 		ourChinaTag = *chinaTag;
 	}
 	const auto& countryItr = countries.find(ourChinaTag);
-	if (countryItr == countries.end())
-	{
+	if (countryItr == countries.end()) {
 		Log(LogLevel::Warning) << ourChinaTag << " is not loaded at all!";
-		return;		
+		return;
 	}
 	const auto& ourChina = countryItr->second;
 	if (!ourChina) {
 		Log(LogLevel::Warning) << ourChinaTag << " has no loaded definition!";
 		return;
 	}
-	
+
 	// Move all china provinces under new tag
-	for (const auto& chineseProvince: provinceMapper.getOffmapChineseProvinces())
-	{
+	for (const auto& chineseProvince: provinceMapper.getOffmapChineseProvinces()) {
 		const auto provinceItr = provinces.find(chineseProvince);
 		if (provinceItr == provinces.end()) {
 			Log(LogLevel::Warning) << "Province " << chineseProvince << " is not in fact a valid province.";
@@ -140,31 +138,28 @@ void EU4::World::adjustChina(const CK2::World& sourceWorld)
 		provinceItr->second->addCore(ourChinaTag);
 	}
 
-	celestialEmperorTag = ourChinaTag;	
+	celestialEmperorTag = ourChinaTag;
 	diplomacy.updateTagsInAgreements("MNG", ourChinaTag);
-	
+
 	// Find western protectorate if possible
-	for (const auto& country: countries)
-	{
+	for (const auto& country: countries) {
 		if (country.second->getTitle().first != "e_china_west_governor") continue;
 		const auto& westernTag = country.first;
 		// Move our diplo to China
 		diplomacy.updateTagsInAgreements(westernTag, ourChinaTag);
 		// Move our provinces to China
-		for (const auto& province: country.second->getProvinces())
-		{
+		for (const auto& province: country.second->getProvinces()) {
 			province.second->addDiscoveredBy("chinese");
 			province.second->setOwner(ourChinaTag);
 			province.second->setController(ourChinaTag);
-			province.second->addCore(ourChinaTag);			
+			province.second->addCore(ourChinaTag);
 		}
-		break;		
+		break;
 	}
 
 	// Grab the emperor
 	const auto& holder = china->second->getHolder();
-	if (holder.second && holder.second->getDynasty().second)
-	{
+	if (holder.second && holder.second->getDynasty().second) {
 		// We have all data to set emperor.
 		Character emperor;
 		emperor.birthDate = holder.second->getBirthDate();
@@ -173,19 +168,35 @@ void EU4::World::adjustChina(const CK2::World& sourceWorld)
 		emperor.adm = 6;
 		emperor.dip = 4;
 		emperor.mil = 6;
-		const auto& religionMatch = religionMapper.getEu4ReligionForCk2Religion(holder.second->getReligion());
-		if (religionMatch) emperor.religion = *religionMatch;
-		const auto& cultureMatch = cultureMapper.cultureMatch(holder.second->getCulture(), emperor.religion, 0, ourChinaTag);
-		if (cultureMatch) emperor.culture = *cultureMatch;
+		std::string baseReligion;
+		if (!holder.second->getReligion().empty()) baseReligion = holder.second->getReligion();
+		if (!baseReligion.empty()) {
+			const auto& religionMatch = religionMapper.getEu4ReligionForCk2Religion(baseReligion);
+			if (religionMatch)
+				emperor.religion = *religionMatch;
+			else
+				Log(LogLevel::Warning) << "Celestial emperor has no religion from: " << baseReligion;
+		} else
+			Log(LogLevel::Warning) << "Celestial emperor could not determine base religion!";
+		std::string baseCulture;
+		if (!holder.second->getCulture().empty()) baseCulture = holder.second->getCulture();
+		if (!baseCulture.empty()) {
+			const auto& cultureMatch = cultureMapper.cultureMatch(baseCulture, emperor.religion, 0, ourChinaTag);
+			if (cultureMatch)
+				emperor.culture = *cultureMatch;
+			else
+				Log(LogLevel::Warning) << "Celestial emperor has no culture from: " << baseCulture;
+		} else
+			Log(LogLevel::Warning) << "Celestial emperor could not determine base culture!";
 		emperor.isSet = true;
 		ourChina->setConversionDate(sourceWorld.getConversionDate());
 		ourChina->clearHistoryLessons();
-		ourChina->setMonarch(emperor);		
+		ourChina->setMonarch(emperor);
 	} else {
 		Log(LogLevel::Warning) << ">< Celestial emperor has lacking definitions!";
 		return;
 	}
-	
+
 	Log(LogLevel::Info) << "<> China successfully Invaded";
 }
 
@@ -385,7 +396,8 @@ void EU4::World::resolvePersonalUnions()
 				if (title.second->getProvinces().empty()) continue;
 				// Craft a relation. Going up to a max of 3 unions.
 				if (unionCount <= 2) {
-					diplomacy.addAgreement(std::make_shared<Agreement>(primaryTitle.first, title.first, "union", primaryTitle.second->getConversionDate()));
+					diplomacy.addAgreement(
+						 std::make_shared<Agreement>(primaryTitle.first, title.first, "union", primaryTitle.second->getConversionDate()));
 					++unionCount;
 				} else {
 					// too many unions.
@@ -553,26 +565,31 @@ void EU4::World::verifyReligionsAndCultures()
 		}
 		if (country.second->getPrimaryCulture().empty()) {
 			auto max = get_max(culturalCensus);
+			Log(LogLevel::Debug) << country.first << " overriding blank culture with: " << max.first;
 			country.second->setPrimaryCulture(max.first);
 		}
 		if (country.second->getReligion().empty()) {
 			auto max = get_max(religiousCensus);
+			Log(LogLevel::Debug) << country.first << " overriding blank religion with: " << max.first;
 			country.second->setReligion(max.first);
 		}
 		if (country.second->getTechGroup().empty()) {
 			const auto& techMatch = cultureMapper.getTechGroup(country.second->getPrimaryCulture());
-			if (techMatch)
+			if (techMatch) {
+				Log(LogLevel::Debug) << country.first << " overriding blank tech group with: " << *techMatch;
 				country.second->setTechGroup(*techMatch);
-			else {
+
+			} else {
 				country.second->setTechGroup("western");
 				Log(LogLevel::Warning) << country.first << " could not determine technological group, substituting western!";
 			}
 		}
 		if (country.second->getGFX().empty()) {
 			const auto& gfxMatch = cultureMapper.getGFX(country.second->getPrimaryCulture());
-			if (gfxMatch)
+			if (gfxMatch) {
+				Log(LogLevel::Debug) << country.first << " overriding blank gfx with: " << *gfxMatch;
 				country.second->setTechGroup(*gfxMatch);
-			else {
+			} else {
 				country.second->setTechGroup("westerngfx");
 				Log(LogLevel::Warning) << country.first << " could not determine GFX, substituting westerngfx!";
 			}
@@ -805,7 +822,7 @@ std::optional<std::pair<int, std::shared_ptr<CK2::Province>>> EU4::World::determ
 			// This is the someone's wonder province.
 			winner = ck2province->second->getTitle().first;
 			maxDev = 500;
-		}		
+		}
 		// Check for HRE emperor
 		if (ck2province->second->getTitle().second->isHREEmperor()) {
 			const auto& emperor = ck2province->second->getTitle().second->getHolder().second;

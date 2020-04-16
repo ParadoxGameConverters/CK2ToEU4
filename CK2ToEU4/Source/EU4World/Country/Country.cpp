@@ -79,8 +79,6 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	std::string baseReligion;
 	if (!actualHolder->getReligion().empty())
 		baseReligion = actualHolder->getReligion();
-	else if (!actualHolder->getDynasty().second->getReligion().empty())
-		baseReligion = actualHolder->getDynasty().second->getReligion();
 	else
 		baseReligion = actualHolder->getCapitalProvince().second->getReligion();
 	const auto& religionMatch = religionMapper.getEu4ReligionForCk2Religion(baseReligion);
@@ -99,8 +97,6 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	std::string baseCulture;
 	if (!actualHolder->getCulture().empty())
 		baseCulture = actualHolder->getCulture();
-	else if (!actualHolder->getDynasty().second->getCulture().empty())
-		baseCulture = actualHolder->getDynasty().second->getCulture();
 	else
 		baseCulture = actualHolder->getCapitalProvince().second->getCulture();
 	const auto& cultureMatch = cultureMapper.cultureMatch(baseCulture, details.religion, details.capital, tag);
@@ -376,24 +372,14 @@ void EU4::Country::initializeAdvisers(const mappers::ReligionMapper& religionMap
 		newAdviser.deathDate.subtractYears(-65);
 		newAdviser.female = adviser.second->isFemale();
 		if (adviser.second->getReligion().empty())
-			if (adviser.second->getDynasty().first && !adviser.second->getDynasty().second->getReligion().empty()) {
-				const auto& religionMatch = religionMapper.getEu4ReligionForCk2Religion(adviser.second->getDynasty().second->getReligion());
-				if (religionMatch) newAdviser.religion = *religionMatch;
-			} else {
 				newAdviser.religion = details.monarch.religion; // taking a shortcut.
-			}
 		else {
 			const auto& religionMatch = religionMapper.getEu4ReligionForCk2Religion(adviser.second->getReligion());
 			if (religionMatch) newAdviser.religion = *religionMatch;
 		}
 		if (newAdviser.religion.empty()) continue;
 		if (adviser.second->getCulture().empty())
-			if (adviser.second->getDynasty().first && !adviser.second->getDynasty().second->getCulture().empty()) {
-				const auto& cultureMatch = cultureMapper.cultureMatch(adviser.second->getDynasty().second->getCulture(), newAdviser.religion, 0, tag);
-				if (cultureMatch) newAdviser.culture = *cultureMatch;
-			} else {
 				newAdviser.culture = details.monarch.culture; // taking a shortcut.
-			}
 		else {
 			const auto& cultureMatch = cultureMapper.cultureMatch(adviser.second->getCulture(), newAdviser.religion, 0, tag);
 			if (cultureMatch) newAdviser.culture = *cultureMatch;
