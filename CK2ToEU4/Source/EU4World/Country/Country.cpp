@@ -219,6 +219,8 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 
 	if (actualHolder->getWealth()) details.addTreasury = lround(7 * log2(actualHolder->getWealth()));
 	if (actualHolder->getPrestige()) details.addPrestige = -50 + std::max(-50, static_cast<int>(lround(15 * log2(actualHolder->getPrestige() - 100) - 50)));
+	if (actualHolder->hasLoan()) details.loan = true;
+	if (actualHolder->isExcommunicated()) details.excommunicated = true;
 	
 	auto nameSet = false;
 	auto nameLocalizationMatch = localizationMapper.getLocBlockForKey(title.first);

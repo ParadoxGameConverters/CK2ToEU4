@@ -1,6 +1,7 @@
 #ifndef CK2_DYNASTY_H
 #define CK2_DYNASTY_H
 #include "newParser.h"
+#include "CoatOfArms.h"
 
 namespace CK2
 {
@@ -12,7 +13,7 @@ class Dynasty: commonItems::parser
 	void updateDynasty(std::istream& theStream);
 
 	[[nodiscard]] const auto& getCulture() const { return culture; }
-	[[nodiscard]] const auto& getReligion() const { return religion; }
+	[[nodiscard]] const std::string& getReligion() const;
 	[[nodiscard]] const auto& getName() const { return name; }
 
 	[[nodiscard]] auto getID() const { return dynID; }
@@ -24,6 +25,7 @@ class Dynasty: commonItems::parser
 	std::string culture;
 	std::string religion;
 	std::string name;
+	CoatOfArms coa;
 };
 } // namespace CK2
 

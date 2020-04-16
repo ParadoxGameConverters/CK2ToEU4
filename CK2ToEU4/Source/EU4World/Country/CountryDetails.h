@@ -91,6 +91,8 @@ class CountryDetails: commonItems::parser
 	std::vector<std::pair<date, std::string>> historyLessons; // this is used to store history entries for countries we're only transcribing.
 	int addTreasury = 0;
 	int addPrestige = 0;
+	bool loan = false;
+	bool excommunicated = false;
 
 	Character monarch;
 	Character queen;

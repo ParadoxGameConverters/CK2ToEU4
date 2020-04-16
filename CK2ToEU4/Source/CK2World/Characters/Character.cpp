@@ -36,6 +36,11 @@ void CK2::Character::registerKeys()
 		const commonItems::singleString jobStr(theStream);
 		job = jobStr.getString();
 	});
+	registerKeyword("md", [this](const std::string& unused, std::istream& theStream) {
+		const auto modifierString = commonItems::singleItem(unused, theStream);
+		// We have no interest in parsing modifiers. We're looking for one explicit modifier.
+		loan = modifierString.find("borrowed_from_jews") != std::string::npos;
+	});
 	registerKeyword("tr", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::intList trList(theStream);
 		for (const auto trait: trList.getInts())
@@ -100,4 +105,11 @@ void CK2::Character::registerKeys()
 		capital = newDomain.getCapital();
 	});
 	registerRegex("[A-Za-z0-9\\:_.-]+", commonItems::ignoreItem);
+}
+
+bool CK2::Character::isExcommunicated() const
+{
+	for (const auto& trait: traits)
+		if (trait.second == "excommunicated") return true;
+	return false;
 }

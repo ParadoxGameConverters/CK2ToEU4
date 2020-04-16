@@ -186,6 +186,7 @@
     <ClCompile Include="Source\CK2World\Characters\Character.cpp" />
     <ClCompile Include="Source\CK2World\Characters\Characters.cpp" />
     <ClCompile Include="Source\CK2World\Characters\Domain.cpp" />
+    <ClCompile Include="Source\CK2World\Dynasties\CoatOfArms.cpp" />
     <ClCompile Include="Source\CK2World\Dynasties\Dynasties.cpp" />
     <ClCompile Include="Source\CK2World\Dynasties\Dynasty.cpp" />
     <ClCompile Include="Source\CK2World\Offmaps\Offmap.cpp" />
@@ -260,6 +261,7 @@
     <ClInclude Include="Source\CK2World\Characters\Character.h" />
     <ClInclude Include="Source\CK2World\Characters\Characters.h" />
     <ClInclude Include="Source\CK2World\Characters\Domain.h" />
+    <ClInclude Include="Source\CK2World\Dynasties\CoatOfArms.h" />
     <ClInclude Include="Source\CK2World\Dynasties\Dynasties.h" />
     <ClInclude Include="Source\CK2World\Dynasties\Dynasty.h" />
     <ClInclude Include="Source\CK2World\Offmaps\Offmap.h" />

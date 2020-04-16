@@ -30,5 +30,15 @@ void CK2::Dynasty::registerKeys()
 		const commonItems::singleString religionStr(theStream);
 		religion = religionStr.getString();
 	});
+	registerKeyword("coat_of_arms", [this](const std::string& unused, std::istream& theStream) {
+		coa = CoatOfArms(theStream);
+	});
 	registerRegex("[A-Za-z0-9\\:_.-]+", commonItems::ignoreItem);
+}
+
+const std::string& CK2::Dynasty::getReligion() const
+{
+	if (!religion.empty()) return religion;
+	if (!coa.getReligion().empty()) return coa.getReligion();
+	return religion;
 }

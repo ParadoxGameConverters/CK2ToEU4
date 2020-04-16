@@ -45,6 +45,7 @@ class Character: commonItems::parser
 	[[nodiscard]] auto isFemale() const { return female; }
 	[[nodiscard]] auto getPiety() const { return piety; }
 	[[nodiscard]] auto getWealth() const { return wealth; }
+	[[nodiscard]] auto hasLoan() const { return loan; }
 
 	[[nodiscard]] auto getID() const { return charID; }
 	[[nodiscard]] auto getHost() const { return host; }
@@ -57,6 +58,7 @@ class Character: commonItems::parser
 	[[nodiscard]] const auto& getJob() const { return job; }
 	[[nodiscard]] const auto& getAdvisers() const { return advisers; }
 	[[nodiscard]] auto isSpent() const { return spent; }
+	[[nodiscard]] bool isExcommunicated() const;
 	
 	void setDynasty(std::shared_ptr<Dynasty> theDynasty) { dynasty.second = std::move(theDynasty); }
 	void setCourtierNames(const std::map<std::string, bool>& theNames) { courtierNames = theNames; }
@@ -106,6 +108,7 @@ class Character: commonItems::parser
 	std::map<int, std::shared_ptr<Character>> advisers;
 	bool spent = false; // if adviser, is already spent?
 	double wealth = 0;
+	bool loan = false;  // borrowed_from_jews
 };
 } // namespace CK2
 
