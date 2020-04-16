@@ -544,6 +544,12 @@ void EU4::World::verifyReligionsAndCultures()
 	// We are checking every country if it lacks primary religion and culture. This is an issue for hordeland mainly.
 	// For those lacking setups, we'll do a provincial census and inherit those values.
 	for (const auto& country: countries) {
+		// It's possible to get non-christian countries excommunicated through broken setups. Let's clear those immediately.
+		if (country.second->isExcommunicated()) {
+			const auto& religion = country.second->getReligion();
+			if (religion != "catholic" || religion != "fraticelli") country.second->clearExcommunicated();
+		}
+		// And then proceed on checking the missing boxes.
 		if (!country.second->getReligion().empty() && !country.second->getPrimaryCulture().empty() && !country.second->getTechGroup().empty() &&
 			 !country.second->getGFX().empty())
 			continue;
