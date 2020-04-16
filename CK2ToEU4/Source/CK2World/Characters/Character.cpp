@@ -69,6 +69,10 @@ void CK2::Character::registerKeys()
 		const commonItems::singleDouble pieryDbl(theStream);
 		piety = pieryDbl.getDouble();
 	});
+	registerKeyword("wealth", [this](const std::string& unused, std::istream& theStream) {
+		const commonItems::singleDouble wealthDbl(theStream);
+		wealth = wealthDbl.getDouble();
+	});
 	registerKeyword("prs", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleDouble prsDbl(theStream);
 		prestige = prsDbl.getDouble();

@@ -61,6 +61,14 @@ std::ostream& EU4::operator<<(std::ostream& output, const Country& country)
 		output << "}\n";
 	}
 
+	if (country.details.addPrestige || country.details.addTreasury)
+	{
+		output << country.conversionDate << "= {\n";
+		output << "\tadd_prestige = " << country.details.addPrestige << "\n";
+		output << "\tadd_treasury = " << country.details.addTreasury << "\n";
+		output << "}\n";		
+	}
+
 	// this is done only for countries without a title - vanilla tags where we're regurgitating history ad verbatim.
 	if (country.getTitle().first.empty() && !country.details.historyLessons.empty()) {
 		for (const auto& historyLesson: country.details.historyLessons) {

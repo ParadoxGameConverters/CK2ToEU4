@@ -215,6 +215,10 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	// If we imported right_to_bear_arms, keeping it, otherwise blank.
 
 	// --------------  Misc
+
+	if (actualHolder->getWealth()) details.addTreasury = lround(7 * log2(actualHolder->getWealth()));
+	if (actualHolder->getPrestige()) details.addPrestige = -50 + std::max(-50, static_cast<int>(lround(15 * log2(actualHolder->getPrestige() - 100) - 50)));
+	
 	auto nameSet = false;
 	auto nameLocalizationMatch = localizationMapper.getLocBlockForKey(title.first);
 	if (nameLocalizationMatch) {

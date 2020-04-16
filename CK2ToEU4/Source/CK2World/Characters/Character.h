@@ -44,6 +44,7 @@ class Character: commonItems::parser
 	[[nodiscard]] auto getPrestige() const { return prestige; }
 	[[nodiscard]] auto isFemale() const { return female; }
 	[[nodiscard]] auto getPiety() const { return piety; }
+	[[nodiscard]] auto getWealth() const { return wealth; }
 
 	[[nodiscard]] auto getID() const { return charID; }
 	[[nodiscard]] auto getHost() const { return host; }
@@ -104,6 +105,7 @@ class Character: commonItems::parser
 	std::string job;
 	std::map<int, std::shared_ptr<Character>> advisers;
 	bool spent = false; // if adviser, is already spent?
+	double wealth = 0;
 };
 } // namespace CK2
 
