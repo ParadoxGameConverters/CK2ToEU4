@@ -257,6 +257,12 @@
     <ClCompile Include="CK2WorldTests\Offmaps\OffmapTests.cpp">
       <Filter>CK2WorldTests\Offmaps</Filter>
     </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Dynasties\CoatOfArms.cpp">
+      <Filter>ConverterFiles\CK2World\Dynasties</Filter>
+    </ClCompile>
+    <ClCompile Include="CK2WorldTests\Dynasties\CoatOfArmsTests.cpp">
+      <Filter>CK2WorldTests\Dynasties</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4WorldTests">

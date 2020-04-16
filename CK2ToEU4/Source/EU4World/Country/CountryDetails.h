@@ -31,7 +31,7 @@ typedef struct {
 	int skill = 0;
 	std::string type;
 	date appearDate = date("1.1.1");
-	bool discount = false;	
+	bool discount = false;
 } Character;
 	
 class CountryDetails: commonItems::parser
@@ -89,6 +89,10 @@ class CountryDetails: commonItems::parser
 	bool all_your_core_are_belong_to_us = false;
 	bool rightToBEARArms = false;
 	std::vector<std::pair<date, std::string>> historyLessons; // this is used to store history entries for countries we're only transcribing.
+	int addTreasury = 0;
+	int addPrestige = 0;
+	bool loan = false;
+	bool excommunicated = false;
 
 	Character monarch;
 	Character queen;

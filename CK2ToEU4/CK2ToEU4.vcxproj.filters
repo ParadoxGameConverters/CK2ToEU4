@@ -216,6 +216,9 @@
     <ClCompile Include="Source\EU4World\Diplomacy\Agreement.cpp">
       <Filter>EU4World\Diplomacy</Filter>
     </ClCompile>
+    <ClCompile Include="Source\CK2World\Dynasties\CoatOfArms.cpp">
+      <Filter>CK2World\Dynasties</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CK2ToEU4Converter.h" />
@@ -425,6 +428,9 @@
     </ClInclude>
     <ClInclude Include="Source\CK2World\Offmaps\Offmaps.h">
       <Filter>CK2World\Offmaps</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CK2World\Dynasties\CoatOfArms.h">
+      <Filter>CK2World\Dynasties</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

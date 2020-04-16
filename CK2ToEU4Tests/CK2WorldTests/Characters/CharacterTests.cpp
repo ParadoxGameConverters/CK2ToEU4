@@ -53,7 +53,7 @@ TEST(CK2World_CharacterTests, pietyCanBeSet)
 	ASSERT_NEAR(theCharacter.getPiety(), 17.43, 0.01);
 }
 
-TEST(CK2World_CharacterTests, PietyDefaultsToZero)
+TEST(CK2World_CharacterTests, pietyDefaultsToZero)
 {
 	std::stringstream input;
 	input << "=\n";
@@ -63,6 +63,33 @@ TEST(CK2World_CharacterTests, PietyDefaultsToZero)
 	const CK2::Character theCharacter(input, 42);
 
 	ASSERT_EQ(theCharacter.getPiety(), 0);
+}
+
+TEST(CK2World_CharacterTests, loanCanBeLocated)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "\tmd={\n";
+	input << "\tmodifier=\"borrowed_from_jews\"\n";
+	input << "\t}";
+	input << "}";
+
+	const CK2::Character theCharacter(input, 42);
+
+	ASSERT_TRUE(theCharacter.hasLoan());
+}
+
+TEST(CK2World_CharacterTests, loanDefaultsToFalse)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "}";
+
+	const CK2::Character theCharacter(input, 42);
+
+	ASSERT_FALSE(theCharacter.hasLoan());
 }
 
 TEST(CK2World_CharacterTests, prestigeCanBeSet)
@@ -78,7 +105,7 @@ TEST(CK2World_CharacterTests, prestigeCanBeSet)
 	ASSERT_NEAR(theCharacter.getPrestige(), 17.43, 0.01);
 }
 
-TEST(CK2World_CharacterTests, PrestigeDefaultsToZero)
+TEST(CK2World_CharacterTests, prestigeDefaultsToZero)
 {
 	std::stringstream input;
 	input << "=\n";
@@ -88,6 +115,31 @@ TEST(CK2World_CharacterTests, PrestigeDefaultsToZero)
 	const CK2::Character theCharacter(input, 42);
 
 	ASSERT_EQ(theCharacter.getPrestige(), 0);
+}
+
+TEST(CK2World_CharacterTests, wealthCanBeSet)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "\twealth=17.43";
+	input << "}";
+
+	const CK2::Character theCharacter(input, 42);
+
+	ASSERT_NEAR(theCharacter.getWealth(), 17.43, 0.01);
+}
+
+TEST(CK2World_CharacterTests, wealthDefaultsToZero)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "}";
+
+	const CK2::Character theCharacter(input, 42);
+
+	ASSERT_EQ(theCharacter.getWealth(), 0);
 }
 
 TEST(CK2World_CharacterTests, religionCanBeSet)

@@ -28,8 +28,8 @@ class Character: commonItems::parser
 
 	void setLiege(std::shared_ptr<Character> theLiege) { liege.second = std::move(theLiege); }
 
-	[[nodiscard]] const auto& getCulture() const { return culture; }
-	[[nodiscard]] const auto& getReligion() const { return religion; }
+	[[nodiscard]] const std::string& getCulture() const;
+	[[nodiscard]] const std::string& getReligion() const;
 	[[nodiscard]] const auto& getName() const { return name; }
 	[[nodiscard]] const auto& getBirthDate() const { return birthDate; }
 	[[nodiscard]] const auto& getDeathDate() const { return deathDate; }
@@ -44,6 +44,8 @@ class Character: commonItems::parser
 	[[nodiscard]] auto getPrestige() const { return prestige; }
 	[[nodiscard]] auto isFemale() const { return female; }
 	[[nodiscard]] auto getPiety() const { return piety; }
+	[[nodiscard]] auto getWealth() const { return wealth; }
+	[[nodiscard]] auto hasLoan() const { return loan; }
 
 	[[nodiscard]] auto getID() const { return charID; }
 	[[nodiscard]] auto getHost() const { return host; }
@@ -56,6 +58,7 @@ class Character: commonItems::parser
 	[[nodiscard]] const auto& getJob() const { return job; }
 	[[nodiscard]] const auto& getAdvisers() const { return advisers; }
 	[[nodiscard]] auto isSpent() const { return spent; }
+	[[nodiscard]] bool isExcommunicated() const;
 	
 	void setDynasty(std::shared_ptr<Dynasty> theDynasty) { dynasty.second = std::move(theDynasty); }
 	void setCourtierNames(const std::map<std::string, bool>& theNames) { courtierNames = theNames; }
@@ -104,6 +107,8 @@ class Character: commonItems::parser
 	std::string job;
 	std::map<int, std::shared_ptr<Character>> advisers;
 	bool spent = false; // if adviser, is already spent?
+	double wealth = 0;
+	bool loan = false;  // borrowed_from_jews
 };
 } // namespace CK2
 

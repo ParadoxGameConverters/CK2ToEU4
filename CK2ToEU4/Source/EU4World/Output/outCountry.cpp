@@ -61,6 +61,22 @@ std::ostream& EU4::operator<<(std::ostream& output, const Country& country)
 		output << "}\n";
 	}
 
+	if (country.details.addPrestige || country.details.addTreasury || country.details.loan || country.details.excommunicated)
+	{
+		output << country.conversionDate << "= {\n";
+		output << "\tadd_prestige = " << country.details.addPrestige << "\n";
+		output << "\tadd_treasury = " << country.details.addTreasury << "\n";
+		if (country.details.loan) {
+			output << "\tadd_loan = {\n";
+			output << "\t\tinterest_modifier = 0.06 #Plus the default 4% = 10% of usury\n";
+			output << "\t\tfixed_interest = no\n";
+			output << "\t\tduration = 60\n";
+			output << "\t}\n";
+		}
+		if (country.details.excommunicated) output << "\texcommunicate = " << country.tag << "\n";
+		output << "}\n";		
+	}
+
 	// this is done only for countries without a title - vanilla tags where we're regurgitating history ad verbatim.
 	if (country.getTitle().first.empty() && !country.details.historyLessons.empty()) {
 		for (const auto& historyLesson: country.details.historyLessons) {

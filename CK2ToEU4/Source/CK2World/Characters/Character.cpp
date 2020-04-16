@@ -2,6 +2,7 @@
 #include "Domain.h"
 #include "Log.h"
 #include "ParserHelpers.h"
+#include "../Dynasties/Dynasty.h"
 
 CK2::Character::Character(std::istream& theStream, int chrID): charID(chrID)
 {
@@ -36,6 +37,11 @@ void CK2::Character::registerKeys()
 		const commonItems::singleString jobStr(theStream);
 		job = jobStr.getString();
 	});
+	registerKeyword("md", [this](const std::string& unused, std::istream& theStream) {
+		const auto modifierString = commonItems::singleItem(unused, theStream);
+		// We have no interest in parsing modifiers. We're looking for one explicit modifier.
+		loan = modifierString.find("borrowed_from_jews") != std::string::npos;
+	});
 	registerKeyword("tr", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::intList trList(theStream);
 		for (const auto trait: trList.getInts())
@@ -69,6 +75,10 @@ void CK2::Character::registerKeys()
 		const commonItems::singleDouble pieryDbl(theStream);
 		piety = pieryDbl.getDouble();
 	});
+	registerKeyword("wealth", [this](const std::string& unused, std::istream& theStream) {
+		const commonItems::singleDouble wealthDbl(theStream);
+		wealth = wealthDbl.getDouble();
+	});
 	registerKeyword("prs", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleDouble prsDbl(theStream);
 		prestige = prsDbl.getDouble();
@@ -96,4 +106,27 @@ void CK2::Character::registerKeys()
 		capital = newDomain.getCapital();
 	});
 	registerRegex("[A-Za-z0-9\\:_.-]+", commonItems::ignoreItem);
+}
+
+bool CK2::Character::isExcommunicated() const
+{
+	for (const auto& trait: traits)
+		if (trait.second == "excommunicated") return true;
+	return false;
+}
+
+const std::string& CK2::Character::getReligion() const
+{
+	if (!religion.empty()) return religion;
+	if (dynasty.first && !dynasty.second->getReligion().empty()) return dynasty.second->getReligion();
+	Log(LogLevel::Warning) << "Character " << charID << " " << name << " has no religion?";
+	return religion;
+}
+
+const std::string& CK2::Character::getCulture() const
+{
+	if (!culture.empty()) return culture;
+	if (dynasty.first && !dynasty.second->getCulture().empty()) return dynasty.second->getCulture();
+	Log(LogLevel::Warning) << "Character " << charID << " " << name << " has no culture?";
+	return culture;
 }

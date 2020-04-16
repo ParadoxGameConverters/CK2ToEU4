@@ -13,6 +13,7 @@ class ModFile
 
 	friend std::ostream& operator<<(std::ostream& output, const ModFile& modFile);
 };
+std::ostream& operator<<(std::ostream& output, const ModFile& modFile);
 } // namespace EU4
 
 #endif // OUTPUT_H
