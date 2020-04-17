@@ -14,6 +14,7 @@
 #include "Wonders/Wonders.h"
 #include "Offmaps/Offmaps.h"
 #include "newParser.h"
+#include "Mods/Mods.h"
 
 class Configuration;
 
@@ -48,7 +49,9 @@ class World: commonItems::parser
 	void resolveTanistry(const std::string& genderLaw, const std::pair<int, std::shared_ptr<Character>>& holder) const;
 	void resolveTurkish(const std::pair<int, std::shared_ptr<Character>>& holder) const;
 	void linkCelestialEmperor() const;
-	
+	void verifyReligionsAndCultures(const Configuration& theConfiguration);
+	void loadDynastiesFromMods(const Configuration& theConfiguration);
+
 	date endDate = date("1444.11.11");
 	date startDate = date("1.1.1");
 	Version CK2Version;
@@ -69,6 +72,7 @@ class World: commonItems::parser
 	Offmaps offmaps;
 	mappers::IAmHreMapper iAmHreMapper;
 	mappers::PersonalityScraper personalityScraper;
+	Mods mods;
 	std::map<std::string, Liege> dynamicTitles; // Reusing Liege as it has identical structure
 
 	std::map<std::string, std::shared_ptr<Title>> independentTitles;

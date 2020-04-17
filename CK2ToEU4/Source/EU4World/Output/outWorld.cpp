@@ -112,6 +112,7 @@ void EU4::World::outputFlags(const Configuration& theConfiguration, bool invasio
 	for (const auto& country: countries) {
 		// Do we need a flag at all?
 		if (Utils::DoesFileExist(theConfiguration.getEU4Path() + "/gfx/flags/" + country.first + ".tga")) continue;
+		if (Utils::DoesFileExist("output/" + theConfiguration.getOutputName() + "/gfx/flags/" + country.first + ".tga")) continue;
 		// We do.
 		if (country.second->getTitle().first.empty()) continue; // Probably vanilla nation.
 		auto titleName = country.second->getTitle().first;
