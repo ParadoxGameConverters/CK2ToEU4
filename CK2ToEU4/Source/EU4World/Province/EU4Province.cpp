@@ -106,3 +106,24 @@ void EU4::Province::initializeFromCK2(std::shared_ptr<CK2::Province> origProvinc
 	details.brahminsChurch = false;	 // Still no.
 	details.vaisyasBurghers = false;	 // No.
 }
+
+void EU4::Province::sterilize()
+{
+	details.owner.clear();
+	details.controller.clear();
+	details.cores.clear();
+	details.inHre = false;
+	details.fort = false;
+	details.estate.clear();
+	details.discoveredBy.clear();
+	details.shipyard = false;
+	details.seatInParliament = false;
+	details.jainsBurghers = false;
+	details.rajputsNobles = false;
+	details.brahminsChurch = false;
+	details.vaisyasBurghers = false;
+	tagCountry = std::pair(std::string(), nullptr);
+	details.isCity = false;
+	// not clearing province modifiers! We're leaving great wonders right there.
+	// not touching dev, CoTs and similar!
+}
