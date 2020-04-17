@@ -19,6 +19,7 @@ class Diplomacy: commonItems::parser
 	void importAgreements(const std::map<std::string, std::shared_ptr<Country>>& countries);
 	[[nodiscard]] const auto& getAgreements() const { return agreements; }
 	void updateTagsInAgreements(const std::string& oldTag, const std::string& newTag);
+	void deleteAgreementsWithTag(const std::string& deadTag);
 
   private:
 	void registerKeys();

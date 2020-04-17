@@ -44,3 +44,14 @@ void EU4::Diplomacy::updateTagsInAgreements(const std::string& oldTag, const std
 	for (const auto& agreement: agreements)
 		agreement->updateTags(oldTag, newTag);
 }
+
+void EU4::Diplomacy::deleteAgreementsWithTag(const std::string& deadTag)
+{
+	std::vector<std::shared_ptr<Agreement>> newAgreements;
+	for (const auto& agreement: agreements)
+	{
+		if (agreement->getFirst() == deadTag || agreement->getSecond() == deadTag) continue;
+		newAgreements.emplace_back(agreement);		
+	}
+	agreements.swap(newAgreements);
+}

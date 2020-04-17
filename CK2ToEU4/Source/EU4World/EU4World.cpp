@@ -84,12 +84,48 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 	// China
 	adjustChina(sourceWorld);
 
+	// Siberia
+	siberianQuestion(theConfiguration);
+
 	// And finally, the Dump.
 	LOG(LogLevel::Info) << "---> The Dump <---";
 	modFile.outname = theConfiguration.getOutputName();
 	output(versionParser, theConfiguration, sourceWorld.getConversionDate(), sourceWorld.isInvasion());
 	LOG(LogLevel::Info) << "*** Farewell EU4, granting you independence. ***";
 }
+
+void EU4::World::siberianQuestion(const Configuration& theConfiguration)
+{
+	Log(LogLevel::Info) << "-- Burning Siberia";
+	if (theConfiguration.getSiberia() == ConfigurationDetails::SIBERIA::LEAVE_SIBERIA) {
+		Log(LogLevel::Info) << ">< Leaving Siberia alone due to Configuration.";
+		return;
+	}
+
+	auto counter = 0;
+	// We're deleting all tags with capitals in siberia at nomad or tribal level.
+	for (const auto& country: countries)
+	{
+		if (country.second->getGovernment() != "nomad" && country.second->getGovernment() != "tribal") continue;
+		if (country.second->getProvinces().empty()) continue;
+		if (!country.second->getCapitalID()) continue;
+		const auto& region = regionMapper->getParentRegionName(country.second->getCapitalID());
+		if (!region) continue;
+		if (region != "west_siberia_region" && region != "east_siberia_region") continue;
+
+		// All checks done. Let's get deleting.
+		for (const auto& province: country.second->getProvinces())
+		{
+			province.second->sterilize();
+		}		
+		country.second->clearProvinces();
+		country.second->clearExcommunicated();
+		diplomacy.deleteAgreementsWithTag(country.first);
+		++counter;
+	}
+	Log(LogLevel::Info) << "<> " << counter << " countries have been...";
+}
+
 
 void EU4::World::adjustChina(const CK2::World& sourceWorld)
 {

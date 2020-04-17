@@ -13,6 +13,7 @@ class ConfigurationDetails: commonItems::parser
 	enum class I_AM_HRE { HRE = 1, BYZANTIUM = 2, ROME = 3, CUSTOM = 4, NONE = 5 };
 	enum class SHATTER_EMPIRES { NONE = 1, ALL = 2 };
 	enum class SHATTER_LEVEL { DUTCHY = 1, KINGDOM = 2 };
+	enum class SIBERIA { CLEAR_SIBERIA = 1, LEAVE_SIBERIA = 2 };
 
 	std::string SaveGamePath;
 	std::string CK2Path;
@@ -23,6 +24,7 @@ class ConfigurationDetails: commonItems::parser
 	I_AM_HRE iAmHre = I_AM_HRE::HRE;
 	SHATTER_EMPIRES shatterEmpires = SHATTER_EMPIRES::NONE;
 	SHATTER_LEVEL shatterLevel = SHATTER_LEVEL::DUTCHY;
+	SIBERIA siberia = SIBERIA::CLEAR_SIBERIA;
 
   private:
 	void registerKeys();

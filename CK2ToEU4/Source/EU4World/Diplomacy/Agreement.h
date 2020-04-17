@@ -18,6 +18,8 @@ class Agreement: commonItems::parser
 	}
 	void updateTags(const std::string& oldTag, const std::string& newTag);
 
+	[[nodiscard]] const auto& getFirst() const { return first; }
+	[[nodiscard]] const auto& getSecond() const { return second; }
 	[[nodiscard]] const auto& getType() const { return type; }
 
 	friend std::ostream& operator<<(std::ostream& output, const Agreement& agreement);

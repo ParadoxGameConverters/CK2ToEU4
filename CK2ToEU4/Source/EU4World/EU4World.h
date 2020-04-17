@@ -64,6 +64,7 @@ class World
 	void distributeForts();
 	void verifyCapitals();
 	void adjustChina(const CK2::World& sourceWorld);
+	void siberianQuestion(const Configuration& theConfiguration);
 
 	mappers::ColorScraper colorScraper;
 	mappers::ProvinceMapper provinceMapper;

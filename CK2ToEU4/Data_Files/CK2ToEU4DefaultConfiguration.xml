@@ -123,6 +123,25 @@
 					<hasDirectlyEditableValue>true</hasDirectlyEditableValue>
 					<value></value>
 				</preference>
+				<preference>
+					<name>siberia</name>
+					<friendlyName>Clear Siberian Quagmire?</friendlyName>
+					<description>Delete all the nomads and tribals?</description>
+					<entryOptions>
+						<entryOption>
+							<name>1</name>
+							<friendlyName>1 - Burn it all down.</friendlyName>
+							<description>Clean Siberia</description>
+							<isDefault>true</isDefault>
+						</entryOption>
+						<entryOption>
+							<name>2</name>
+							<friendlyName>2 - No, I was playing those!</friendlyName>
+							<description>Leave as is</description>
+							<isDefault>false</isDefault>
+						</entryOption>
+					</entryOptions>
+				</preference>
 			</preferences>
 		</category>
 	</categories>
