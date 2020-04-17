@@ -11,6 +11,7 @@ class Dynasty: commonItems::parser
 	Dynasty(std::istream& theStream, int theDynID);
 
 	void updateDynasty(std::istream& theStream);
+	void underUpdateDynasty(std::istream& theStream);
 
 	[[nodiscard]] const auto& getCulture() const { return culture; }
 	[[nodiscard]] const std::string& getReligion() const;
@@ -20,6 +21,7 @@ class Dynasty: commonItems::parser
 
   private:
 	void registerKeys();
+	void registerUnderKeys();
 
 	int dynID = 0;
 	std::string culture;

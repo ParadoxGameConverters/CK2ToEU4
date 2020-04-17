@@ -189,6 +189,8 @@
     <ClCompile Include="Source\CK2World\Dynasties\CoatOfArms.cpp" />
     <ClCompile Include="Source\CK2World\Dynasties\Dynasties.cpp" />
     <ClCompile Include="Source\CK2World\Dynasties\Dynasty.cpp" />
+    <ClCompile Include="Source\CK2World\Mods\Mod.cpp" />
+    <ClCompile Include="Source\CK2World\Mods\Mods.cpp" />
     <ClCompile Include="Source\CK2World\Offmaps\Offmap.cpp" />
     <ClCompile Include="Source\CK2World\Offmaps\Offmaps.cpp" />
     <ClCompile Include="Source\CK2World\Provinces\Barony.cpp" />
@@ -264,6 +266,8 @@
     <ClInclude Include="Source\CK2World\Dynasties\CoatOfArms.h" />
     <ClInclude Include="Source\CK2World\Dynasties\Dynasties.h" />
     <ClInclude Include="Source\CK2World\Dynasties\Dynasty.h" />
+    <ClInclude Include="Source\CK2World\Mods\Mod.h" />
+    <ClInclude Include="Source\CK2World\Mods\Mods.h" />
     <ClInclude Include="Source\CK2World\Offmaps\Offmap.h" />
     <ClInclude Include="Source\CK2World\Offmaps\Offmaps.h" />
     <ClInclude Include="Source\CK2World\Provinces\Barony.h" />

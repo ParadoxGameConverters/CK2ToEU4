@@ -119,7 +119,6 @@ const std::string& CK2::Character::getReligion() const
 {
 	if (!religion.empty()) return religion;
 	if (dynasty.first && !dynasty.second->getReligion().empty()) return dynasty.second->getReligion();
-	Log(LogLevel::Warning) << "Character " << charID << " " << name << " has no religion?";
 	return religion;
 }
 
@@ -127,6 +126,5 @@ const std::string& CK2::Character::getCulture() const
 {
 	if (!culture.empty()) return culture;
 	if (dynasty.first && !dynasty.second->getCulture().empty()) return dynasty.second->getCulture();
-	Log(LogLevel::Warning) << "Character " << charID << " " << name << " has no culture?";
 	return culture;
 }
