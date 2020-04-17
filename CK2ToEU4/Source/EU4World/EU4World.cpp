@@ -849,7 +849,7 @@ std::optional<std::pair<int, std::shared_ptr<CK2::Province>>> EU4::World::determ
 	if (winner.empty()) return std::nullopt;
 
 	// Now that we have a winning title, let's find its largest province to use as a source.
-	maxDev = 0;
+	maxDev = -1; // We can have winning provinces with weight = 0;
 	std::pair<int, std::shared_ptr<CK2::Province>> toReturn;
 	for (const auto& province: theClaims[winner]) {
 		if (province->getBuildingWeight() > maxDev) {
@@ -857,5 +857,6 @@ std::optional<std::pair<int, std::shared_ptr<CK2::Province>>> EU4::World::determ
 			toReturn.second = province;
 		}
 	}
+	if (!toReturn.first || !toReturn.second) return std::nullopt;
 	return toReturn;
 }
