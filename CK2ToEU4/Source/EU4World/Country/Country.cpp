@@ -215,13 +215,26 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	// --------------  Misc
 
 	if (actualHolder->getWealth()) details.addTreasury = lround(7 * log2(actualHolder->getWealth()));
-	if (actualHolder->getPrestige()) details.addPrestige = -50 + std::max(-50, static_cast<int>(lround(15 * log2(actualHolder->getPrestige() - 100) - 50)));
+	if (actualHolder->getPrestige())
+		details.addPrestige = -50 + std::max(-50, static_cast<int>(lround(15 * log2(actualHolder->getPrestige() - 100) - 50)));
 	if (actualHolder->hasLoan()) details.loan = true;
 	if (actualHolder->isExcommunicated()) details.excommunicated = true;
-	
+
 	auto nameSet = false;
-	if (!title.second->getDisplayName().empty())
-	{
+	// Override for muslims
+	std::set<std::string> muslimReligions = {"sunni", "zikri", "yazidi", "ibadi", "kharijite", "shiite", "druze", "hurufi"};
+	if (muslimReligions.count(details.religion) && !actualHolder->getDynasty().second->getName().empty() && title.first != "k_rum" &&
+		 title.first != "k_israel" && title.first != "e_india") {
+		const auto& dynastyName = actualHolder->getDynasty().second->getName();
+		mappers::LocBlock newblock;
+		newblock.english = dynastyName;
+		newblock.spanish = dynastyName;
+		newblock.french = dynastyName;
+		newblock.german = dynastyName;
+		localizations.insert(std::pair(tag, newblock));
+		nameSet = true;
+	}
+	if (!nameSet && !title.second->getDisplayName().empty()) {
 		mappers::LocBlock newblock;
 		newblock.english = title.second->getDisplayName();
 		newblock.spanish = title.second->getDisplayName();
@@ -230,13 +243,12 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 		localizations.insert(std::pair(tag, newblock));
 		nameSet = true;
 	}
-	if (!nameSet)
-	{
+	if (!nameSet) {
 		auto nameLocalizationMatch = localizationMapper.getLocBlockForKey(title.first);
 		if (nameLocalizationMatch) {
 			localizations.insert(std::pair(tag, *nameLocalizationMatch));
 			nameSet = true;
-		}		
+		}
 	}
 	if (!nameSet && !title.second->getBaseTitle().first.empty()) { // see if we can match vs base title.
 		auto baseTitleName = title.second->getBaseTitle().first;
@@ -273,7 +285,18 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	if (!nameSet) Log(LogLevel::Warning) << tag << " help with localization! " << title.first;
 
 	auto adjSet = false;
-	if (!title.second->getDisplayName().empty()) {
+	if (muslimReligions.count(details.religion) && !actualHolder->getDynasty().second->getName().empty() && title.first != "k_rum" &&
+		 title.first != "k_israel" && title.first != "e_india") {
+		const auto& dynastyName = actualHolder->getDynasty().second->getName();
+		mappers::LocBlock newblock;
+		newblock.english = "the " + dynastyName;
+		newblock.spanish = "de los " + dynastyName;
+		newblock.french = "des" + dynastyName;
+		newblock.german = dynastyName + "-";
+		localizations.insert(std::pair(tag + "_ADJ", newblock));
+		adjSet = true;
+	}
+	if (!adjSet && !title.second->getDisplayName().empty()) {
 		mappers::LocBlock newblock;
 		newblock.english = "the " + title.second->getDisplayName();
 		newblock.spanish = "de los " + title.second->getDisplayName();
@@ -282,13 +305,12 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 		localizations.insert(std::pair(tag + "_ADJ", newblock));
 		adjSet = true;
 	}
-	if (!adjSet)
-	{
+	if (!adjSet) {
 		auto adjLocalizationMatch = localizationMapper.getLocBlockForKey(title.first + "_adj");
 		if (adjLocalizationMatch) {
 			localizations.insert(std::pair(tag + "_ADJ", *adjLocalizationMatch));
 			adjSet = true;
-		}		
+		}
 	}
 	if (!adjSet && !title.second->getBaseTitle().first.empty()) {
 		// see if we can match vs base title.
@@ -398,14 +420,14 @@ void EU4::Country::initializeAdvisers(const mappers::ReligionMapper& religionMap
 		newAdviser.deathDate.subtractYears(-65);
 		newAdviser.female = adviser.second->isFemale();
 		if (adviser.second->getReligion().empty())
-				newAdviser.religion = details.monarch.religion; // taking a shortcut.
+			newAdviser.religion = details.monarch.religion; // taking a shortcut.
 		else {
 			const auto& religionMatch = religionMapper.getEu4ReligionForCk2Religion(adviser.second->getReligion());
 			if (religionMatch) newAdviser.religion = *religionMatch;
 		}
 		if (newAdviser.religion.empty()) continue;
 		if (adviser.second->getCulture().empty())
-				newAdviser.culture = details.monarch.culture; // taking a shortcut.
+			newAdviser.culture = details.monarch.culture; // taking a shortcut.
 		else {
 			const auto& cultureMatch = cultureMapper.cultureMatch(adviser.second->getCulture(), newAdviser.religion, 0, tag);
 			if (cultureMatch) newAdviser.culture = *cultureMatch;
