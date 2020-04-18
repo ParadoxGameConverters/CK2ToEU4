@@ -221,10 +221,10 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	if (actualHolder->isExcommunicated()) details.excommunicated = true;
 
 	auto nameSet = false;
-	// Override for muslims
+	// Override for muslims kingdoms/empires.
 	std::set<std::string> muslimReligions = {"sunni", "zikri", "yazidi", "ibadi", "kharijite", "shiite", "druze", "hurufi"};
 	if (muslimReligions.count(details.religion) && !actualHolder->getDynasty().second->getName().empty() && title.first != "k_rum" &&
-		 title.first != "k_israel" && title.first != "e_india") {
+		 title.first != "k_israel" && title.first != "e_india" && (title.first.find("e_") == 0 || title.first.find("k_") == 0)) {
 		const auto& dynastyName = actualHolder->getDynasty().second->getName();
 		mappers::LocBlock newblock;
 		newblock.english = dynastyName;
@@ -286,22 +286,22 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 
 	auto adjSet = false;
 	if (muslimReligions.count(details.religion) && !actualHolder->getDynasty().second->getName().empty() && title.first != "k_rum" &&
-		 title.first != "k_israel" && title.first != "e_india") {
+		 title.first != "k_israel" && title.first != "e_india" && (title.first.find("e_") == 0 || title.first.find("k_") == 0)) {
 		const auto& dynastyName = actualHolder->getDynasty().second->getName();
 		mappers::LocBlock newblock;
-		newblock.english = "the " + dynastyName;
+		newblock.english = dynastyName + "s'"; // plural so Ottomans' Africa
 		newblock.spanish = "de los " + dynastyName;
-		newblock.french = "des" + dynastyName;
+		newblock.french = "des " + dynastyName;
 		newblock.german = dynastyName + "-";
 		localizations.insert(std::pair(tag + "_ADJ", newblock));
 		adjSet = true;
 	}
 	if (!adjSet && !title.second->getDisplayName().empty()) {
 		mappers::LocBlock newblock;
-		newblock.english = "the " + title.second->getDisplayName();
-		newblock.spanish = "de los " + title.second->getDisplayName();
-		newblock.french = "des" + title.second->getDisplayName();
-		newblock.german = title.second->getDisplayName() + "-";
+		newblock.english = title.second->getDisplayName() + "'s"; // singular Nordarike's Africa
+		newblock.spanish = "de " + title.second->getDisplayName();
+		newblock.french = "de " + title.second->getDisplayName();
+		newblock.german = title.second->getDisplayName() + "s";
 		localizations.insert(std::pair(tag + "_ADJ", newblock));
 		adjSet = true;
 	}
