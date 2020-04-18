@@ -12,7 +12,7 @@
 	link = { ck2 = 1790 eu4 = 438 }	# Kara-Kum Desert -> Karakum
 	link = { ck2 = 1347 eu4 = 1786 eu4 = 1784 }	# Taklamakan Desert -> Takla Makan, Tian Shan
 	link = { ck2 = 1348 eu4 = 4401 eu4 = 4400 }	# Arakanese Mountains -> Arakan Mountains, Naga Hills
-	link = { ck2 = 910 eu4 = 2425 eu4 = 1780 eu4 = 1073 eu4 = 2445 eu4 = 2430 eu4 = 1781 eu4 = 1072 eu4 = 2426 eu4 = 1055 eu4 = 1060 eu4 = 1063 eu4 = 2443 eu4 = 1064 eu4 = 2432 eu4 = 1068 eu4 = 2429 eu4 = 1069 eu4 = 1070 eu4 = 1067 eu4 = 2431 eu4 = 2442 eu4 = 1054 eu4 = 2435 eu4 = 1045 eu4 = 2437 eu4 = 1782 eu4 = 2436 eu4 = 1059 eu4 = 1062 eu4 = 1061 eu4 = 2428 eu4 = 4691 eu4 = 1075 eu4 = 2427 eu4 = 1080 eu4 = 1888 eu4 = 1056 }	# Siberian Wastes -> Nenets, Komi, Berezov, Mangazea, Baykha, Western Siberia, Obdorsk, Yamal, Kirenga, Irkutsk, Sayan, Kan, Tomsk, Chulym, Ket, Agan, Surgut, Narim, Turukhan, Uchamin, Ust-Kut, Mukhtuya, Nukhtui, Yakut, Seganka, Central Siberia, Chuna, East Tunguska, Angara, West Tunguska, Yugan, As, Tyumen, Ostyaki, Pelym, Kara Sea, Barguzin
+	link = { ck2 = 910 eu4 = 2425 eu4 = 1780 eu4 = 1073 eu4 = 2445 eu4 = 2430 eu4 = 1781 eu4 = 1072 eu4 = 2426 eu4 = 1055 eu4 = 1060 eu4 = 1063 eu4 = 2443 eu4 = 1064 eu4 = 2432 eu4 = 1068 eu4 = 2429 eu4 = 1069 eu4 = 1070 eu4 = 1067 eu4 = 2431 eu4 = 2442 eu4 = 1054 eu4 = 2435 eu4 = 1045 eu4 = 2437 eu4 = 1782 eu4 = 2436 eu4 = 1059 eu4 = 1062 eu4 = 1061 eu4 = 2428 eu4 = 4691 eu4 = 2427 eu4 = 1080 eu4 = 1888 eu4 = 1056 }	# Siberian Wastes -> Nenets, Komi, Berezov, Mangazea, Baykha, Western Siberia, Obdorsk, Yamal, Kirenga, Irkutsk, Sayan, Kan, Tomsk, Chulym, Ket, Agan, Surgut, Narim, Turukhan, Uchamin, Ust-Kut, Mukhtuya, Nukhtui, Yakut, Seganka, Central Siberia, Chuna, East Tunguska, Angara, West Tunguska, Yugan, As, Ostyaki, Pelym, Kara Sea, Barguzin
 	link = { eu4 = 4154 }	# NOTHING -> The Pyrenees
 	link = { eu4 = 4157 eu4 = 4161 eu4 = 4160 eu4 = 4159 eu4 = 4162 }	# NOTHING -> The Alps, The Alps, The Alps, The Alps, The Alps
 	link = { eu4 = 1325 }	# NOTHING -> Lake Balaton
@@ -1020,8 +1020,8 @@
 	link = { ck2 = 1843 eu4 = 1076 }	# Thisageta -> Kurgan
 	link = { ck2 = 889 ck2 = 1844 eu4 = 1078 }	# Ural, Vishera -> Tura
 	link = { ck2 = 891 eu4 = 4686 }	# Chimgi-Tura -> Ekibastuz
-	link = { ck2 = 1858 eu4 = 479 eu4 = 2354 }	# Tavda -> Kerey, Shegendyk
-	link = { ck2 = 892 eu4 = 4690 eu4 = 4689 }	# Mansia -> Ishim, Om
+	link = { ck2 = 1858 eu4 = 479 eu4 = 2354 eu4 = 4689 }	# Tavda -> Kerey, Shegendyk, Om
+	link = { ck2 = 892 eu4 = 4690 eu4 = 1075 }	# Mansia -> Ishim, Tyumen
 	link = { ck2 = 890 eu4 = 1071 }	# Khantia -> Irtesh
 	link = { ck2 = 898 eu4 = 4687 }	# Tobol -> Imakia
 	link = { ck2 = 1863 eu4 = 2434 }	# Vagay -> Barnaul
@@ -1338,11 +1338,11 @@
 	link = { ck2 = 1448 ck2 = 1515 eu4 = 2191 }	# Dunhuang, Yangguan -> Ejin
 	link = { ck2 = 1408 ck2 = 1568 eu4 = 708 }	# Anxi, Yumen -> Zhangye
 	link = { ck2 = 1513 eu4 = 2182 }	# Jiuquan -> Liangzhou
-	link = { ck2 = 1514 ck2 = 1919 eu4 = 4676 }	# Ejin, Juyan -> West Alxa
+	link = { ck2 = 1514 ck2 = 1919 eu4 = 4676 eu4 = 709 }	# MANY-TO-MANY: Ejin, Juyan -> West Alxa, Alxa
 	link = { ck2 = 1917 eu4 = 4677 }	# Gurvan Saikhan -> East Govi
 	link = { ck2 = 1453 eu4 = 2193 }	# Aj Bogd -> Govi
 	link = { ck2 = 1918 eu4 = 4678 }	# Delgerkhangai -> East Qaraqorum
-	link = { ck2 = 1456 ck2 = 1457 eu4 = 2190 }	# Ikh Bogd, Kara Khorum -> Qaraqorum
+	link = { ck2 = 1457 ck2 = 1456 eu4 = 2190 }	# Kara Khorum, Ikh Bogd -> Qaraqorum
 	link = { ck2 = 1916 ck2 = 1913 eu4 = 2117 }	# Burkhan Buudai, Suvraga Khairkhan -> Zasagt
 	link = { ck2 = 1911 ck2 = 1912 ck2 = 1910 ck2 = 1455 eu4 = 4680 }	# Khasagt Khairkhan, Otgontenger, Sutai, Zavkhan -> East Zagast
 	link = { ck2 = 1909 ck2 = 1908 ck2 = 1459 eu4 = 718 }	# Khökh Serkh, Tsambagarav, Khyargas -> Kobdo
