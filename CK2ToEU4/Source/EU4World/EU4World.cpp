@@ -749,9 +749,16 @@ void EU4::World::importCK2Provinces(const CK2::World& sourceWorld)
 		if (ck2Provinces.empty()) continue;
 		// Next, we find what province to use as its initializing source.
 		const auto& sourceProvince = determineProvinceSource(ck2Provinces, sourceWorld);
-		if (!sourceProvince) continue; // bailing for mismaps.
+		if (!sourceProvince) {
+			Log(LogLevel::Warning) << "MISMAP into province: " << province.first;
+			continue; // bailing for mismaps.
+		}
+		if (sourceProvince->first == -1)
+			province.second->sterilize(); // sterilizing wastelands
+		else {
+			province.second->initializeFromCK2(sourceProvince->second, cultureMapper, religionMapper);
+		}
 		// And finally, initialize it.
-		province.second->initializeFromCK2(sourceProvince->second, cultureMapper, religionMapper);
 		counter++;
 	}
 	LOG(LogLevel::Info) << ">> " << sourceWorld.getProvinces().size() << " CK2 provinces imported into " << counter << " EU4 provinces.";
@@ -840,13 +847,19 @@ std::optional<std::pair<int, std::shared_ptr<CK2::Province>>> EU4::World::determ
 	std::map<std::string, std::vector<std::shared_ptr<CK2::Province>>> theClaims; // title, offered province sources
 	std::map<std::string, int> theShares;														// title, development
 	std::string winner;
-	auto maxDev = 0;
+	auto maxDev = -1;
 
 	for (auto ck2ProvinceID: ck2ProvinceNumbers) {
 		const auto& ck2province = sourceWorld.getProvinces().find(ck2ProvinceID);
-		if (ck2province == sourceWorld.getProvinces().end()) continue; // Broken mapping?
+		if (ck2province == sourceWorld.getProvinces().end()) {
+			Log(LogLevel::Warning) << "Source province " << ck2ProvinceID << " is not in the list of known provinces!";
+			continue; // Broken mapping?
+		}
 		auto ownerTitle = ck2province->second->getTitle().first;
-		if (ownerTitle.empty()) continue; // Final sanity check.
+		if (ownerTitle.empty()) {
+			// This is a wasteland. It means we must blank the eu4 province, no questions asked!
+			return std::pair(-1, nullptr);
+		}
 		theClaims[ownerTitle].push_back(ck2province->second);
 		theShares[ownerTitle] = lround(ck2province->second->getBuildingWeight());
 
@@ -880,7 +893,7 @@ std::optional<std::pair<int, std::shared_ptr<CK2::Province>>> EU4::World::determ
 			maxDev = share.second;
 		}
 	}
-	if (winner.empty()) return std::nullopt;
+	if (winner.empty()) { return std::nullopt; }
 
 	// Now that we have a winning title, let's find its largest province to use as a source.
 	maxDev = -1; // We can have winning provinces with weight = 0;
@@ -891,6 +904,6 @@ std::optional<std::pair<int, std::shared_ptr<CK2::Province>>> EU4::World::determ
 			toReturn.second = province;
 		}
 	}
-	if (!toReturn.first || !toReturn.second) return std::nullopt;
+	if (!toReturn.first || !toReturn.second) { return std::nullopt; }
 	return toReturn;
 }
