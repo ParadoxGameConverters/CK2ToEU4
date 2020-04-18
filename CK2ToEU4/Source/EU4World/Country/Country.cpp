@@ -53,6 +53,7 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	if (historyCountryFile.empty()) historyCountryFile = "history/countries/" + tag + " - " + title.first + ".txt";
 
 	const auto& actualHolder = title.second->getHolder().second;
+	if (actualHolder->getDynasty().first) details.dynastyID = actualHolder->getDynasty().first;
 
 	// --------------- History section
 	details.government.clear();
@@ -219,14 +220,27 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	if (actualHolder->isExcommunicated()) details.excommunicated = true;
 	
 	auto nameSet = false;
-	auto nameLocalizationMatch = localizationMapper.getLocBlockForKey(title.first);
-	if (nameLocalizationMatch) {
-		localizations.insert(std::pair(tag, *nameLocalizationMatch));
+	if (!title.second->getDisplayName().empty())
+	{
+		mappers::LocBlock newblock;
+		newblock.english = title.second->getDisplayName();
+		newblock.spanish = title.second->getDisplayName();
+		newblock.french = title.second->getDisplayName();
+		newblock.german = title.second->getDisplayName();
+		localizations.insert(std::pair(tag, newblock));
 		nameSet = true;
+	}
+	if (!nameSet)
+	{
+		auto nameLocalizationMatch = localizationMapper.getLocBlockForKey(title.first);
+		if (nameLocalizationMatch) {
+			localizations.insert(std::pair(tag, *nameLocalizationMatch));
+			nameSet = true;
+		}		
 	}
 	if (!nameSet && !title.second->getBaseTitle().first.empty()) { // see if we can match vs base title.
 		auto baseTitleName = title.second->getBaseTitle().first;
-		nameLocalizationMatch = localizationMapper.getLocBlockForKey(baseTitleName);
+		auto nameLocalizationMatch = localizationMapper.getLocBlockForKey(baseTitleName);
 		if (nameLocalizationMatch) {
 			localizations.insert(std::pair(tag, *nameLocalizationMatch));
 			nameSet = true;
@@ -236,7 +250,7 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 		// Now get creative. This happens for c_titles that have localizations as b_title
 		auto alternateName = title.second->getName();
 		alternateName = "b_" + alternateName.substr(2, alternateName.length());
-		nameLocalizationMatch = localizationMapper.getLocBlockForKey(alternateName);
+		auto nameLocalizationMatch = localizationMapper.getLocBlockForKey(alternateName);
 		if (nameLocalizationMatch) {
 			localizations.insert(std::pair(tag, *nameLocalizationMatch));
 			nameSet = true;
@@ -259,15 +273,27 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	if (!nameSet) Log(LogLevel::Warning) << tag << " help with localization! " << title.first;
 
 	auto adjSet = false;
-	auto adjLocalizationMatch = localizationMapper.getLocBlockForKey(title.first + "_adj");
-	if (adjLocalizationMatch) {
-		localizations.insert(std::pair(tag + "_ADJ", *adjLocalizationMatch));
+	if (!title.second->getDisplayName().empty()) {
+		mappers::LocBlock newblock;
+		newblock.english = "the " + title.second->getDisplayName();
+		newblock.spanish = "de los " + title.second->getDisplayName();
+		newblock.french = "des" + title.second->getDisplayName();
+		newblock.german = title.second->getDisplayName() + "-";
+		localizations.insert(std::pair(tag + "_ADJ", newblock));
 		adjSet = true;
+	}
+	if (!adjSet)
+	{
+		auto adjLocalizationMatch = localizationMapper.getLocBlockForKey(title.first + "_adj");
+		if (adjLocalizationMatch) {
+			localizations.insert(std::pair(tag + "_ADJ", *adjLocalizationMatch));
+			adjSet = true;
+		}		
 	}
 	if (!adjSet && !title.second->getBaseTitle().first.empty()) {
 		// see if we can match vs base title.
 		auto baseTitleAdj = title.second->getBaseTitle().first + "_adj";
-		adjLocalizationMatch = localizationMapper.getLocBlockForKey(baseTitleAdj);
+		auto adjLocalizationMatch = localizationMapper.getLocBlockForKey(baseTitleAdj);
 		if (adjLocalizationMatch) {
 			localizations.insert(std::pair(tag + "_ADJ", *adjLocalizationMatch));
 			adjSet = true;
@@ -286,7 +312,7 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 		// Maybe c_something?
 		auto alternateAdj = title.second->getName() + "_adj";
 		alternateAdj = "c_" + alternateAdj.substr(2, alternateAdj.length());
-		adjLocalizationMatch = localizationMapper.getLocBlockForKey(alternateAdj);
+		auto adjLocalizationMatch = localizationMapper.getLocBlockForKey(alternateAdj);
 		if (adjLocalizationMatch) {
 			localizations.insert(std::pair(tag, *adjLocalizationMatch));
 			adjSet = true;
@@ -296,7 +322,7 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 		// Or d_something?
 		auto alternateAdj = title.second->getName() + "_adj";
 		alternateAdj = "d_" + alternateAdj.substr(2, alternateAdj.length());
-		adjLocalizationMatch = localizationMapper.getLocBlockForKey(alternateAdj);
+		auto adjLocalizationMatch = localizationMapper.getLocBlockForKey(alternateAdj);
 		if (adjLocalizationMatch) {
 			localizations.insert(std::pair(tag, *adjLocalizationMatch));
 			adjSet = true;

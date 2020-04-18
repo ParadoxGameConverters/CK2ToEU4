@@ -434,6 +434,8 @@ void CK2::World::splitVassals()
 	// We can now go through all titles and see what should be an independent vassal.
 	for (const auto& title: independentTitles) {
 		if (title.first == "k_papal_state" || title.first == "e_outremer" || title.first == "e_china_west_governor") continue; // Not touching these.
+		// let's not split hordes or tribals.
+		if (title.second->getHolder().second->getGovernment() == "tribal_government" || title.second->getHolder().second->getGovernment() == "nomadic_government") continue;
 		auto relevantVassals = 0;
 		std::string relevantVassalPrefix;
 		if (title.first.find("e_") == 0)

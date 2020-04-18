@@ -110,7 +110,16 @@ void EU4::World::outputBookmark(const Configuration& theConfiguration, date conv
 void EU4::World::outputFlags(const Configuration& theConfiguration, bool invasion) const
 {
 	for (const auto& country: countries) {
-		// Do we need a flag at all?
+		// first check is for dynasty and override flags.
+		if (country.second->getDynastyID() &&
+			 Utils::DoesFileExist("configurables/dynastyflags/" + std::to_string(country.second->getDynastyID()) + ".tga"))
+		{
+			fs::copy_file("configurables/dynastyflags/" + std::to_string(country.second->getDynastyID()) + ".tga",
+				 "output/" + theConfiguration.getOutputName() + "/gfx/flags/" + country.first + ".tga");
+			continue;
+		}
+		
+		// Otherwise, do we need a flag at all?
 		if (Utils::DoesFileExist(theConfiguration.getEU4Path() + "/gfx/flags/" + country.first + ".tga")) continue;
 		if (Utils::DoesFileExist("output/" + theConfiguration.getOutputName() + "/gfx/flags/" + country.first + ".tga")) continue;
 		// We do.

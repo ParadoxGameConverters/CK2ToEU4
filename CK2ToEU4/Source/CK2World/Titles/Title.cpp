@@ -25,6 +25,10 @@ void CK2::Title::registerKeys()
 		const commonItems::singleString lawStr(theStream);
 		laws.insert(lawStr.getString());
 	});
+	registerKeyword("name", [this](const std::string& unused, std::istream& theStream) {
+		const commonItems::singleString nameStr(theStream);
+		displayName = nameStr.getString();
+	});
 	registerKeyword("previous", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::intList listList(theStream);
 		const auto& theList = listList.getInts();

@@ -29,12 +29,12 @@ TEST(CK2World_RelationTests, TributaryStatusIsFalseForEmptyTributary)
 	ASSERT_FALSE(relation.isSecondOverlord());
 }
 
-TEST(CK2World_RelationTests, TributaryStatusIsDetectedForFirst)
+TEST(CK2World_RelationTests, OverlordStatusIsDetectedForFirst)
 {
 	std::stringstream input;
 	input << "=\n";
 	input << "{\n";
-	input << "tributary = { tributary_type = default tributary = 42}\n";
+	input << "tributary = { tributary_type = default tributary = 11}\n";
 	input << "}";
 
 	CK2::Relation relation(input, 42);
@@ -44,12 +44,12 @@ TEST(CK2World_RelationTests, TributaryStatusIsDetectedForFirst)
 	ASSERT_TRUE(relation.isSecondOverlord());
 }
 
-TEST(CK2World_RelationTests, TributaryStatusIsDetectedForSecond)
+TEST(CK2World_RelationTests, OverlordStatusIsDetectedForSecond)
 {
 	std::stringstream input;
 	input << "=\n";
 	input << "{\n";
-	input << "tributary = { tributary_type = default tributary = 11}\n";
+	input << "tributary = { tributary_type = default tributary = 42}\n";
 	input << "}";
 
 	CK2::Relation relation(input, 42);

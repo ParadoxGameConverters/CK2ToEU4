@@ -93,6 +93,7 @@ class CountryDetails: commonItems::parser
 	int addPrestige = 0;
 	bool loan = false;
 	bool excommunicated = false;
+	int dynastyID = 0;
 
 	Character monarch;
 	Character queen;
