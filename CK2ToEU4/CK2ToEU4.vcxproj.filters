@@ -225,6 +225,18 @@
     <ClCompile Include="Source\CK2World\Mods\Mods.cpp">
       <Filter>CK2World\Mods</Filter>
     </ClCompile>
+    <ClCompile Include="Source\CK2World\Relations\Relation.cpp">
+      <Filter>CK2World\Relation</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CK2World\Relations\Relations.cpp">
+      <Filter>CK2World\Relation</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CK2World\Relations\Tributary.cpp">
+      <Filter>CK2World\Relation</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CK2World\Relations\AllRelations.cpp">
+      <Filter>CK2World\Relation</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CK2ToEU4Converter.h" />
@@ -444,6 +456,18 @@
     <ClInclude Include="Source\CK2World\Mods\Mods.h">
       <Filter>CK2World\Mods</Filter>
     </ClInclude>
+    <ClInclude Include="Source\CK2World\Relations\Relation.h">
+      <Filter>CK2World\Relation</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CK2World\Relations\Relations.h">
+      <Filter>CK2World\Relation</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CK2World\Relations\Tributary.h">
+      <Filter>CK2World\Relation</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CK2World\Relations\AllRelations.h">
+      <Filter>CK2World\Relation</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4World">
@@ -535,6 +559,9 @@
     </Filter>
     <Filter Include="CK2World\Mods">
       <UniqueIdentifier>{b4ef6bfa-1e19-4608-bb13-ff782d906fad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CK2World\Relation">
+      <UniqueIdentifier>{ad570e8b-6418-4b55-b259-604cffc3bbfc}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

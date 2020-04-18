@@ -1,10 +1,11 @@
 #ifndef DIPLOMACY_H
 #define DIPLOMACY_H
 
+#include "../../CK2World/Relations/AllRelations.h"
 #include "Agreement.h"
+#include "newParser.h"
 #include <map>
 #include <vector>
-#include "newParser.h"
 
 class Configuration;
 namespace EU4
@@ -14,12 +15,19 @@ class Diplomacy: commonItems::parser
 {
   public:
 	Diplomacy();
-	
+
 	void addAgreement(std::shared_ptr<Agreement> agreement) { agreements.push_back(std::move(agreement)); }
-	void importAgreements(const std::map<std::string, std::shared_ptr<Country>>& countries);
+	void importAgreements(const std::map<std::string, std::shared_ptr<Country>>& countries, const CK2::Diplomacy& diplomacy, date conversionDate);
+
+	void importVassals(const std::map<std::string, std::shared_ptr<Country>>& countries);
+	void importTributaries(const std::map<std::string, std::shared_ptr<Country>>& countries, const CK2::Diplomacy& diplomacy, date conversionDate);
+
 	[[nodiscard]] const auto& getAgreements() const { return agreements; }
 	void updateTagsInAgreements(const std::string& oldTag, const std::string& newTag);
 	void deleteAgreementsWithTag(const std::string& deadTag);
+
+	[[nodiscard]] bool isCountryVassal(const std::string& tag) const;
+	[[nodiscard]] bool isCountryJunior(const std::string& tag) const;
 
   private:
 	void registerKeys();

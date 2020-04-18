@@ -1,0 +1,21 @@
+#include "Relations.h"
+#include "ParserHelpers.h"
+
+CK2::Relations::Relations(std::istream& theStream, std::string first)
+{
+	const auto pos = first.find('_');
+	const auto firstID = std::stoi(first.substr(pos + 1, first.length()));
+	registerKeys(firstID);
+	parseStream(theStream);
+	clearRegisteredKeywords();
+}
+
+void CK2::Relations::registerKeys(int first)
+{
+	registerRegex("\\d+", [this, first](const std::string& second, std::istream& theStream) {
+		auto newRelation = Relation(theStream, std::stoi(second));
+		newRelation.setFirst(first);
+		relations.emplace_back(newRelation);
+	});
+	registerRegex("[A-Za-z0-9\\_:.-]+", commonItems::ignoreItem);
+}
