@@ -20,6 +20,7 @@ class Title: commonItems::parser
 	Title(std::istream& theStream, std::string theName);
 
 	[[nodiscard]] const auto& getName() const { return name; }
+	[[nodiscard]] const auto& getDisplayName() const { return displayName; }
 	[[nodiscard]] const auto& getLaws() const { return laws; }
 	[[nodiscard]] const auto& getLiege() const { return liege; }
 	[[nodiscard]] const auto& getDeJureLiege() const { return deJureLiege; }
@@ -80,7 +81,8 @@ class Title: commonItems::parser
 	std::set<std::string> laws;
 	std::pair<std::string, std::shared_ptr<Liege>> liege;
 	std::pair<std::string, std::shared_ptr<Liege>> deJureLiege;
-	std::string name;
+	std::string name; // nominal name, k_something
+	std::string displayName; // visual name, "Cumania"
 	bool inHRE = false;
 	bool HREEmperor = false;
 	bool majorRevolt = false;

@@ -44,6 +44,32 @@ TEST(CK2World_TitleTests, lawCanBeAdded)
 	ASSERT_EQ(*theTitle.getLaws().begin(), "revoke_title_voting_power_0");
 }
 
+TEST(CK2World_TitleTests, displayNameDefaultsToBlank)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "}";
+
+	const CK2::Title theTitle(input, "c_test");
+
+	ASSERT_TRUE(theTitle.getDisplayName().empty());
+}
+
+TEST(CK2World_TitleTests, displayNameCanBeSet)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "\tname=\"Cuman Empire\"\n";
+	input << "}";
+
+	const CK2::Title theTitle(input, "c_test");
+
+	ASSERT_FALSE(theTitle.getDisplayName().empty());
+	ASSERT_EQ(theTitle.getDisplayName(), "Cuman Empire");
+}
+
 TEST(CK2World_TitleTests, multipleLawsCanBeAdded)
 {
 	std::stringstream input;
