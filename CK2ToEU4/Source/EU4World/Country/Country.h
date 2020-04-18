@@ -58,6 +58,7 @@ class Country
 	[[nodiscard]] auto isinHRE() const { return details.inHRE; }
 	[[nodiscard]] int getDevelopment() const;
 	[[nodiscard]] int getCapitalID() const { return details.capital; }
+	[[nodiscard]] int getDynastyID() const { return details.dynastyID; }
 	[[nodiscard]] const auto& getGovernment() const { return details.government; }
 	[[nodiscard]] const auto& getGovernmentReforms() const { return details.reforms; }
 	[[nodiscard]] const auto& getTag() const { return tag; }

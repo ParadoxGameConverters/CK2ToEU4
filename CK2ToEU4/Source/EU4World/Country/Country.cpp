@@ -53,6 +53,7 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	if (historyCountryFile.empty()) historyCountryFile = "history/countries/" + tag + " - " + title.first + ".txt";
 
 	const auto& actualHolder = title.second->getHolder().second;
+	if (actualHolder->getDynasty().first) details.dynastyID = actualHolder->getDynasty().first;
 
 	// --------------- History section
 	details.government.clear();
