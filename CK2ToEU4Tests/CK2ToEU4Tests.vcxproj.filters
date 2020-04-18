@@ -455,6 +455,30 @@
     <ClCompile Include="..\ZipLib\extlibs\bzip2\bcompress.c">
       <Filter>ConverterFiles\ZipLib\extlibs\bzip2</Filter>
     </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Relations\AllRelations.cpp">
+      <Filter>ConverterFiles\CK2World\Relations</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Relations\Relation.cpp">
+      <Filter>ConverterFiles\CK2World\Relations</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Relations\Relations.cpp">
+      <Filter>ConverterFiles\CK2World\Relations</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Relations\Tributary.cpp">
+      <Filter>ConverterFiles\CK2World\Relations</Filter>
+    </ClCompile>
+    <ClCompile Include="CK2WorldTests\Relations\AllRelationsTests.cpp">
+      <Filter>CK2WorldTests\Relations</Filter>
+    </ClCompile>
+    <ClCompile Include="CK2WorldTests\Relations\RelationsTests.cpp">
+      <Filter>CK2WorldTests\Relations</Filter>
+    </ClCompile>
+    <ClCompile Include="CK2WorldTests\Relations\RelationTests.cpp">
+      <Filter>CK2WorldTests\Relations</Filter>
+    </ClCompile>
+    <ClCompile Include="CK2WorldTests\Relations\TributaryTests.cpp">
+      <Filter>CK2WorldTests\Relations</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4WorldTests">
@@ -612,6 +636,12 @@
     </Filter>
     <Filter Include="ConverterFiles\ZipLib\extlibs\zlib">
       <UniqueIdentifier>{1a146bbf-47ca-4642-98ec-6f3bc74cc4b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ConverterFiles\CK2World\Relations">
+      <UniqueIdentifier>{9bfad4eb-b2c3-4ff5-9f17-9317a90dd95e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CK2WorldTests\Relations">
+      <UniqueIdentifier>{88ba946c-7cdd-4ccf-a89b-4f63b79b0e54}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

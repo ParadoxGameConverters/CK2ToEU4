@@ -2,19 +2,20 @@
 #define CK2_WORLD_H
 #include "../Common/Version.h"
 #include "../Mappers/IAmHreMapper/IAmHreMapper.h"
-#include "../Mappers/ProvinceTitleMapper/ProvinceTitleMapper.h"
 #include "../Mappers/PersonalityScraper/PersonalityScraper.h"
+#include "../Mappers/ProvinceTitleMapper/ProvinceTitleMapper.h"
 #include "Characters/Characters.h"
 #include "Date.h"
 #include "Dynasties/Dynasties.h"
+#include "Mods/Mods.h"
+#include "Offmaps/Offmaps.h"
 #include "Provinces/Province.h"
 #include "Provinces/Provinces.h"
+#include "Relations/AllRelations.h"
 #include "Titles/Liege.h"
 #include "Titles/Titles.h"
 #include "Wonders/Wonders.h"
-#include "Offmaps/Offmaps.h"
 #include "newParser.h"
-#include "Mods/Mods.h"
 
 class Configuration;
 
@@ -29,6 +30,7 @@ class World: commonItems::parser
 	[[nodiscard]] const auto& getProvinces() const { return provinces.getProvinces(); }
 	[[nodiscard]] const auto& getConversionDate() const { return endDate; }
 	[[nodiscard]] const auto& getOffmaps() const { return offmaps; }
+	[[nodiscard]] const auto& getDiplomacy() const { return diplomacy; }
 	[[nodiscard]] auto isInvasion() const { return invasion; }
 
   private:
@@ -74,7 +76,7 @@ class World: commonItems::parser
 	mappers::PersonalityScraper personalityScraper;
 	Mods mods;
 	std::map<std::string, Liege> dynamicTitles; // Reusing Liege as it has identical structure
-
+	Diplomacy diplomacy;
 	std::map<std::string, std::shared_ptr<Title>> independentTitles;
 	bool invasion = false;
 };

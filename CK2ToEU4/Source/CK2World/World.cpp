@@ -6,10 +6,10 @@
 #include "Date.h"
 #include "Log.h"
 #include "OSCompatibilityLayer.h"
+#include "Offmaps/Offmap.h"
 #include "ParserHelpers.h"
 #include "Titles/Liege.h"
 #include "Titles/Title.h"
-#include "Offmaps/Offmap.h"
 #include <ZipFile.h>
 #include <cmath>
 #include <filesystem>
@@ -31,9 +31,8 @@ CK2::World::World(const Configuration& theConfiguration)
 	});
 	registerKeyword("flags", [this](const std::string& unused, std::istream& theStream) {
 		// We're not interested in flags. We're here for one thing only.
-		const auto flagsItem =  commonItems::singleItem(unused, theStream);
-		if (flagsItem.find("aztec_explorers") != std::string::npos)
-		{
+		const auto flagsItem = commonItems::singleItem(unused, theStream);
+		if (flagsItem.find("aztec_explorers") != std::string::npos) {
 			// Ho boy.
 			invasion = true;
 			LOG(LogLevel::Info) << "oO Invasion detected. We're in for a ride!";
@@ -78,6 +77,11 @@ CK2::World::World(const Configuration& theConfiguration)
 		const auto dynTitle = Liege(theStream);
 		dynamicTitles.insert(std::pair(dynTitle.getTitle().first, dynTitle));
 	});
+	registerKeyword("relation", [this](const std::string& unused, std::istream& theStream) {
+		LOG(LogLevel::Info) << "-> Loading Diplomacy";
+		diplomacy = Diplomacy(theStream);
+		LOG(LogLevel::Info) << ">> Loaded " << diplomacy.getDiplomacy().size() << " personal diplomacies.";
+	});
 
 	registerRegex("[A-Za-z0-9\\_]+", commonItems::ignoreItem);
 
@@ -99,7 +103,8 @@ CK2::World::World(const Configuration& theConfiguration)
 	// We must load initializers before the savegame.
 	std::set<std::string> fileNames;
 	Utils::GetAllFilesInFolder(theConfiguration.getCK2Path() + "/common/dynasties/", fileNames);
-	for (const auto& file: fileNames) dynasties.loadDynasties(theConfiguration.getCK2Path() + "/common/dynasties/" + file);
+	for (const auto& file: fileNames)
+		dynasties.loadDynasties(theConfiguration.getCK2Path() + "/common/dynasties/" + file);
 	personalityScraper.scrapePersonalities(theConfiguration);
 
 	auto gameState = std::istringstream(saveGame.gamestate);
@@ -180,14 +185,13 @@ void CK2::World::verifyReligionsAndCultures(const Configuration& theConfiguratio
 {
 	auto insanityCounter = 0;
 	LOG(LogLevel::Info) << "-- Verifyling All Characters Have Religion And Culture Loaded";
-	for (const auto& character: characters.getCharacters())
-	{
+	for (const auto& character: characters.getCharacters()) {
 		if (character.second->getReligion().empty() || character.second->getCulture().empty()) insanityCounter++;
 	}
 	if (!insanityCounter) {
 		Log(LogLevel::Info) << "<> All " << characters.getCharacters().size() << "characters are sane.";
 		return;
-	} 
+	}
 	Log(LogLevel::Warning) << "! " << insanityCounter << " characters have lacking definitions! Attempting recovery.";
 	loadDynastiesFromMods(theConfiguration);
 }
@@ -199,8 +203,7 @@ void CK2::World::loadDynastiesFromMods(const Configuration& theConfiguration)
 	mods.loadModDirectory(theConfiguration);
 	Log(LogLevel::Info) << "-> Rummaging through mods in search of definitions.";
 	bool weAreSane = false;
-	for (const auto& mod: mods.getMods())
-	{
+	for (const auto& mod: mods.getMods()) {
 		if (Utils::doesFolderExist(mod.second + "/common/dynasties/")) {
 			Log(LogLevel::Info) << "Found something interesting in " << mod.first;
 			std::set<std::string> fileNames;
@@ -217,10 +220,10 @@ void CK2::World::loadDynastiesFromMods(const Configuration& theConfiguration)
 			Log(LogLevel::Info) << "<> All " << characters.getCharacters().size() << " characters have been sanified. Cancelling rummage.";
 			weAreSane = true;
 			break;
-		} 
+		}
 		Log(LogLevel::Warning) << "! " << insanityCounter << " characters are still lacking definitions. Continuing with the rummage.";
 	}
-	
+
 	if (!weAreSane) LOG(LogLevel::Warning) << "... We did what we could.";
 	LOG(LogLevel::Info) << "*** Intermezzo End, back to scheduled run ***";
 }
@@ -229,8 +232,8 @@ void CK2::World::loadDynastiesFromMods(const Configuration& theConfiguration)
 void CK2::World::linkCelestialEmperor() const
 {
 	const auto& china = offmaps.getChina();
-	if (!china)
-	{ LOG(LogLevel::Info) << ">< No China detected.";
+	if (!china) {
+		LOG(LogLevel::Info) << ">< No China detected.";
 		return;
 	}
 	if (!china->second->getHolder().first) {
@@ -285,7 +288,8 @@ void CK2::World::resolveTurkish(const std::pair<int, std::shared_ptr<Character>>
 	std::vector<std::pair<int, std::shared_ptr<Character>>> childVector;
 
 	// instead of filtering by id, we're filtering by raw prestige.
-	for (const auto& child: children) childVector.emplace_back(std::pair(lround(child.second->getPrestige()), child.second));
+	for (const auto& child: children)
+		childVector.emplace_back(std::pair(lround(child.second->getPrestige()), child.second));
 	std::sort(childVector.begin(), childVector.end());
 
 	for (const auto& child: childVector) {
@@ -310,7 +314,8 @@ void CK2::World::resolvePrimogeniture(const std::string& genderLaw, const std::p
 
 	// Using the awesome knowledge that a smaller ID means earlier character, we don't have to sort them by age.
 	std::vector<std::pair<int, std::shared_ptr<Character>>> childVector;
-	for (const auto& child: children) childVector.emplace_back(child);
+	for (const auto& child: children)
+		childVector.emplace_back(child);
 	std::sort(childVector.begin(), childVector.end());
 
 	std::pair<int, std::shared_ptr<Character>> son;		  // primary heir candidate
@@ -355,7 +360,8 @@ void CK2::World::resolveUltimogeniture(const std::string& genderLaw, const std::
 {
 	auto children = holder.second->getChildren();
 	std::vector<std::pair<int, std::shared_ptr<Character>>> childVector;
-	for (const auto& child: children) childVector.emplace_back(child);
+	for (const auto& child: children)
+		childVector.emplace_back(child);
 	std::sort(childVector.rbegin(), childVector.rend());
 	std::pair<int, std::shared_ptr<Character>> son;
 	std::pair<int, std::shared_ptr<Character>> daughter;
@@ -391,15 +397,14 @@ void CK2::World::gatherCourtierNames()
 {
 	// We're using this function to Locate courtiers, assemble their names as potential Monarch Names in EU4,
 	// and also while at it, to see if they hold adviser jobs.
-	
+
 	auto counter = 0;
 	auto counterAdvisors = 0;
-	std::map<int, std::map<std::string, bool>> holderCourtiers; // holder-name/male
+	std::map<int, std::map<std::string, bool>> holderCourtiers;					 // holder-name/male
 	std::map<int, std::map<int, std::shared_ptr<Character>>> holderAdvisors; // holder-advisors
-	
+
 	for (const auto& character: characters.getCharacters()) {
-		if (character.second->getHost())
-		{
+		if (character.second->getHost()) {
 			holderCourtiers[character.second->getHost()].insert(std::pair(character.second->getName(), !character.second->isFemale()));
 			if (!character.second->getJob().empty()) holderAdvisors[character.second->getHost()].insert(character);
 		}
@@ -570,7 +575,8 @@ void CK2::World::congregateProvinces()
 	// This will form actual EU4 tag and contained provinces.
 	for (const auto& title: independentTitles) {
 		title.second->congregateProvinces(independentTitles);
-		for (const auto& province: title.second->getProvinces()) province.second->loadHoldingTitle(std::pair(title.first, title.second));
+		for (const auto& province: title.second->getProvinces())
+			province.second->loadHoldingTitle(std::pair(title.first, title.second));
 		counter += title.second->getProvinces().size();
 	}
 	Log(LogLevel::Info) << "<> " << counter << " provinces held by independents.";
@@ -586,13 +592,17 @@ void CK2::World::sanityCheckifyProvinces()
 
 	for (const auto& indep: independentTitles) {
 		const auto& ownedProvinces = indep.second->getProvinces();
-		for (const auto& province: ownedProvinces) { provinceTitlesMap[province.first].push_back(indep.first); }
+		for (const auto& province: ownedProvinces) {
+			provinceTitlesMap[province.first].push_back(indep.first);
+		}
 	}
 	// and now, explode.
 	for (const auto& entry: provinceTitlesMap) {
 		if (entry.second.size() > 1) {
 			std::string warning = "Province ID: " + std::to_string(entry.first) + " is owned by: ";
-			for (const auto& owner: entry.second) { warning += owner + ","; }
+			for (const auto& owner: entry.second) {
+				warning += owner + ",";
+			}
 			Log(LogLevel::Warning) << warning;
 			sanity = false;
 		}
@@ -626,7 +636,9 @@ void CK2::World::shatterEmpires(const Configuration& theConfiguration) const
 				members.insert(std::pair(vassal.first, vassal.second));
 			} else if (vassal.first.find("k_") == 0) {
 				if (shatterKingdoms && vassal.first != "k_papal_state" && vassal.first != "k_orthodox") { // hard override for special empire members
-					for (const auto& vassalvassal: vassal.second->getVassals()) { members.insert(std::pair(vassalvassal.first, vassalvassal.second)); }
+					for (const auto& vassalvassal: vassal.second->getVassals()) {
+						members.insert(std::pair(vassalvassal.first, vassalvassal.second));
+					}
 					// Bricking the kingdom
 					vassal.second->clearVassals();
 					vassal.second->clearHolder();
@@ -640,7 +652,9 @@ void CK2::World::shatterEmpires(const Configuration& theConfiguration) const
 			}
 		}
 
-		for (const auto& member: members) { member.second->clearLiege(); }
+		for (const auto& member: members) {
+			member.second->clearLiege();
+		}
 
 		// Finally we are clearing empire's vassal links, leaving it standalone.
 		empire.second->clearVassals();
@@ -689,7 +703,9 @@ void CK2::World::shatterHRE(const Configuration& theConfiguration) const
 				hreMembers.insert(std::pair(vassal.first, vassal.second));
 				continue;
 			}
-			for (const auto& vassalvassal: vassal.second->getVassals()) { hreMembers.insert(std::pair(vassalvassal.first, vassalvassal.second)); }
+			for (const auto& vassalvassal: vassal.second->getVassals()) {
+				hreMembers.insert(std::pair(vassalvassal.first, vassalvassal.second));
+			}
 			// Bricking the kingdom.
 			vassal.second->clearVassals();
 			vassal.second->clearHolder();

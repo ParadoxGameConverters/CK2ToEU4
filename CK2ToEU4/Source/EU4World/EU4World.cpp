@@ -72,11 +72,11 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 	// cities, and such.
 	distributeHRESubtitles(theConfiguration);
 
-	// Vassalages were also set in ck2 world but we have to transcribe those into EU4 agreements.
-	diplomacy.importAgreements(countries);
-
-	// Same for personal unions - rulers with multiple crowns either get PU agreements, or just annex the other crowns.
+	// Rulers with multiple crowns either get PU agreements, or just annex the other crowns.
 	resolvePersonalUnions();
+
+	// Vassalages and tributaries were also set in ck2 world but we have to transcribe those into EU4 agreements.
+	diplomacy.importAgreements(countries, sourceWorld.getDiplomacy(), sourceWorld.getConversionDate());
 
 	// Now for the final tweaks.
 	distributeForts();
@@ -104,8 +104,7 @@ void EU4::World::siberianQuestion(const Configuration& theConfiguration)
 
 	auto counter = 0;
 	// We're deleting all tags with capitals in siberia at nomad or tribal level.
-	for (const auto& country: countries)
-	{
+	for (const auto& country: countries) {
 		if (country.second->getGovernment() != "nomad" && country.second->getGovernment() != "tribal") continue;
 		if (country.second->getProvinces().empty()) continue;
 		if (!country.second->getCapitalID()) continue;
@@ -114,10 +113,9 @@ void EU4::World::siberianQuestion(const Configuration& theConfiguration)
 		if (region != "west_siberia_region" && region != "east_siberia_region") continue;
 
 		// All checks done. Let's get deleting.
-		for (const auto& province: country.second->getProvinces())
-		{
+		for (const auto& province: country.second->getProvinces()) {
 			province.second->sterilize();
-		}		
+		}
 		country.second->clearProvinces();
 		country.second->clearExcommunicated();
 		diplomacy.deleteAgreementsWithTag(country.first);

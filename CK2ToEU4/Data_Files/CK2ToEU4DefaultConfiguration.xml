@@ -54,7 +54,7 @@
 						</entryOption>
 						<entryOption>
 							<name>2</name>
-							<friendlyName>2 - Byzantium!</friendlyName>
+							<friendlyName>2 - Byzantium! [Holy and Roman and Empire]</friendlyName>
 							<description>e_byzantium</description>
 							<isDefault>false</isDefault>
 						</entryOption>
@@ -99,13 +99,13 @@
 				</preference>
 				<preference>
 					<name>shatter_level</name>
-					<friendlyName>If we're shattering HRE/others, how far down do we go?</friendlyName>
+					<friendlyName>If we're shattering non-HRE empires, how far down do we go?</friendlyName>
 					<description>More the merrier.</description>
 					<entryOptions>
 						<entryOption>
 							<name>1</name>
-							<friendlyName>1 - Down to dutchy levels [default]</friendlyName>
-							<description>Dutchies make sense.</description>
+							<friendlyName>1 - Down to duchies</friendlyName>
+							<description>Duchies make sense.</description>
 							<isDefault>true</isDefault>
 						</entryOption>
 						<entryOption>
@@ -117,30 +117,30 @@
 					</entryOptions>
 				</preference>
 				<preference>
-					<name>output_name</name>
-					<friendlyName>Mod Output Name (optional):</friendlyName>
-					<description>Please use ASCII latin characters only.</description>
-					<hasDirectlyEditableValue>true</hasDirectlyEditableValue>
-					<value></value>
-				</preference>
-				<preference>
 					<name>siberia</name>
 					<friendlyName>Clear Siberian Quagmire?</friendlyName>
 					<description>Delete all the nomads and tribals?</description>
 					<entryOptions>
 						<entryOption>
 							<name>1</name>
-							<friendlyName>1 - Burn it all down.</friendlyName>
+							<friendlyName>1 - Burn it all down [default]</friendlyName>
 							<description>Clean Siberia</description>
 							<isDefault>true</isDefault>
 						</entryOption>
 						<entryOption>
 							<name>2</name>
-							<friendlyName>2 - No, I was playing those!</friendlyName>
+							<friendlyName>2 - No, I was playing those! [hampers Russia]</friendlyName>
 							<description>Leave as is</description>
 							<isDefault>false</isDefault>
 						</entryOption>
 					</entryOptions>
+				</preference>
+				<preference>
+					<name>output_name</name>
+					<friendlyName>Mod Output Name (optional):</friendlyName>
+					<description>Please use ASCII latin characters only.</description>
+					<hasDirectlyEditableValue>true</hasDirectlyEditableValue>
+					<value></value>
 				</preference>
 			</preferences>
 		</category>

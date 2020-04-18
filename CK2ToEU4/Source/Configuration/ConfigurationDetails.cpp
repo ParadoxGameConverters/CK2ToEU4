@@ -48,5 +48,10 @@ void ConfigurationDetails::registerKeys()
 		shatterLevel = SHATTER_LEVEL(shatterLevelInt.getInt());
 		Log(LogLevel::Info) << "Shatter Level set to: " << shatterLevelInt.getInt();
 	});
+	registerKeyword("siberia", [this](const std::string& unused, std::istream& theStream) {
+		const commonItems::singleInt siberiaInt(theStream);
+		siberia = SIBERIA(siberiaInt.getInt());
+		Log(LogLevel::Info) << "Siberia set to: " << siberiaInt.getInt();
+	});
 	registerRegex("[a-zA-Z0-9\\_.:]+", commonItems::ignoreItem);
 }
