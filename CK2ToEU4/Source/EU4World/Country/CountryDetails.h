@@ -11,6 +11,7 @@ namespace EU4
 
 typedef struct {
 	std::string name;
+	std::string monarchName; // for heirs
 	std::string dynasty;
 	int adm = 0;
 	int dip = 0;

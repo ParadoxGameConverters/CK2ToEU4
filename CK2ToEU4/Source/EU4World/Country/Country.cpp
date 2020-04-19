@@ -3,6 +3,7 @@
 #include "../../CK2World/Dynasties/Dynasty.h"
 #include "../../CK2World/Provinces/Province.h"
 #include "../../CK2World/Titles/Title.h"
+#include "../../Common/CommonFunctions.h"
 #include "../../Mappers/ColorScraper/ColorScraper.h"
 #include "../../Mappers/CultureMapper/CultureMapper.h"
 #include "../../Mappers/GovernmentsMapper/GovernmentsMapper.h"
@@ -223,8 +224,9 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	auto nameSet = false;
 	// Override for muslims kingdoms/empires.
 	std::set<std::string> muslimReligions = {"sunni", "zikri", "yazidi", "ibadi", "kharijite", "shiite", "druze", "hurufi"};
-	if (muslimReligions.count(details.religion) && !actualHolder->getDynasty().second->getName().empty() && title.first != "k_rum" &&
-		 title.first != "k_israel" && title.first != "e_india" && (title.first.find("e_") == 0 || title.first.find("k_") == 0)) {
+	if (muslimReligions.count(details.religion) && actualHolder->getDynasty().first && !actualHolder->getDynasty().second->getName().empty() &&
+		 title.first != "k_rum" && title.first != "k_israel" && title.first != "e_india" &&
+		 (title.first.find("e_") == 0 || title.first.find("k_") == 0)) {
 		const auto& dynastyName = actualHolder->getDynasty().second->getName();
 		mappers::LocBlock newblock;
 		newblock.english = dynastyName;
@@ -285,8 +287,9 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	if (!nameSet) Log(LogLevel::Warning) << tag << " help with localization! " << title.first;
 
 	auto adjSet = false;
-	if (muslimReligions.count(details.religion) && !actualHolder->getDynasty().second->getName().empty() && title.first != "k_rum" &&
-		 title.first != "k_israel" && title.first != "e_india" && (title.first.find("e_") == 0 || title.first.find("k_") == 0)) {
+	if (muslimReligions.count(details.religion) && actualHolder->getDynasty().first && !actualHolder->getDynasty().second->getName().empty() &&
+		 title.first != "k_rum" && title.first != "k_israel" && title.first != "e_india" &&
+		 (title.first.find("e_") == 0 || title.first.find("k_") == 0)) {
 		const auto& dynastyName = actualHolder->getDynasty().second->getName();
 		mappers::LocBlock newblock;
 		newblock.english = dynastyName + "s'"; // plural so Ottomans' Africa
@@ -448,7 +451,22 @@ void EU4::Country::initializeRulers(const mappers::ReligionMapper& religionMappe
 	// Are we the ruler's primary title? (if he has any)
 	if (!holder->getPrimaryTitle().first.empty() && title.first != holder->getPrimaryTitle().first) return; // PU's don't get monarchs.
 
-	details.monarch.name = holder->getName();
+	// Determine regnalness.
+	if (details.government != "republic" && !details.monarchNames.empty()) {
+		auto const& theName = holder->getName();
+		std::string roman;
+		const auto& nameItr = details.monarchNames.find(theName);
+		if (nameItr != details.monarchNames.end()) {
+			const auto regnal = nameItr->second.first;
+			if (regnal > 1) {
+				roman = cardinalToRoman(regnal);
+				roman = " " + roman;
+			}
+		}
+		details.monarch.name = holder->getName() + roman;
+	} else {
+		details.monarch.name = holder->getName();
+	}
 	if (holder->getDynasty().first) details.monarch.dynasty = holder->getDynasty().second->getName();
 	details.monarch.adm = std::min((holder->getSkills().stewardship + holder->getSkills().learning) / 4, 6);
 	details.monarch.dip = std::min((holder->getSkills().diplomacy + holder->getSkills().intrigue) / 4, 6);
@@ -496,6 +514,20 @@ void EU4::Country::initializeRulers(const mappers::ReligionMapper& religionMappe
 	if (holder->getHeir().first) {
 		const auto& heir = holder->getHeir();
 		details.heir.name = heir.second->getName();
+		// We're setting future regnalness
+		if (details.government != "republic" && !details.monarchNames.empty()) {
+			auto const& theName = heir.second->getName();
+			std::string roman;
+			const auto& nameItr = details.monarchNames.find(theName);
+			if (nameItr != details.monarchNames.end()) {
+				const auto regnal = nameItr->second.first;
+				if (regnal >= 1) {
+					roman = cardinalToRoman(regnal + 1);
+					roman = " " + roman;
+				}
+			}
+			details.heir.monarchName = heir.second->getName() + roman;
+		}
 		if (heir.second->getDynasty().first) details.heir.dynasty = heir.second->getDynasty().second->getName();
 		details.heir.adm = std::min((heir.second->getSkills().stewardship + heir.second->getSkills().learning) / 3, 6);
 		details.heir.dip = std::min((heir.second->getSkills().diplomacy + heir.second->getSkills().intrigue) / 3, 6);
@@ -523,6 +555,7 @@ void EU4::Country::initializeRulers(const mappers::ReligionMapper& religionMappe
 
 	if (conversionDate.diffInYears(details.monarch.birthDate) < 16) {
 		details.heir = details.monarch;
+		details.heir.monarchName.clear();
 		details.heir.deathDate = details.heir.birthDate;
 		details.heir.deathDate.subtractYears(-65);
 		details.heir.claim = 89; // good enough?
