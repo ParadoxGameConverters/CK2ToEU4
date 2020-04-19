@@ -28,7 +28,7 @@ technology = { #Merchants & Trade
 
 technology = { #The Barque
 	# Tech 2
-	year = 769
+	year = 760
 	
 	
 	enable = barque
@@ -42,7 +42,7 @@ technology = { #The Barque
 
 technology = { #The Early Carrack
 	# Tech 3
-	year = 1000
+	year = 769
 
 	naval_morale			=	0.1
 	naval_maintenance		= 	0.1
