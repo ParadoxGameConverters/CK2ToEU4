@@ -36,7 +36,7 @@ technology = { #Advanced Tribes
 
 technology = { #Feudal Monarchy
 	# Tech 2
-	year = 769
+	year = 760
 	
 
 	#Monarchies
@@ -49,7 +49,7 @@ technology = { #Feudal Monarchy
 
 technology = { #Medieval Administration
 	# Tech 3
-	year = 1000
+	year = 769
 
 	production_efficiency	=	0.02
 	may_support_rebels = yes

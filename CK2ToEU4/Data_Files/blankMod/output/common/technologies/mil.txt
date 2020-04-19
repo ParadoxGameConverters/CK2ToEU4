@@ -67,7 +67,7 @@ technology = {
 
 technology = {
 	# Tech 2
-	year = 769
+	year = 760
 	
 	infantry_shock		= 	0.2
 	cavalry_shock		= 	0.2
@@ -79,7 +79,7 @@ technology = {
 
 technology = {
 	# Tech 3
-	year = 1000
+	year = 769
 	
 	land_morale = 	0.5
 }
