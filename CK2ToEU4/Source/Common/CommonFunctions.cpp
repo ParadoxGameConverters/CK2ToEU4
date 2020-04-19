@@ -25,3 +25,20 @@ std::string replaceCharacter(std::string fileName, char character)
 
 	return fileName;
 }
+
+std::string cardinalToRoman(int number)
+{
+	int num[] = {1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000};
+	std::string sym[] = {"I", "IV", "V", "IX", "X", "XL", "L", "XC", "C", "CD", "D", "CM", "M"};
+	int i = 12;
+	std::string toReturn;
+	while (number > 0) {
+		int div = number / num[i];
+		number = number % num[i];
+		while (div--) {
+			toReturn += sym[i];
+		}
+		i--;
+	}
+	return toReturn;
+}

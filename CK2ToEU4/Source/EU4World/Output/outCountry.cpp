@@ -141,6 +141,7 @@ void EU4::Country::outputCommons(std::ostream& output) const
 std::ostream& EU4::operator<<(std::ostream& output, const Character& character)
 {
 	output << "\t\tname = \"" << character.name << "\"\n";
+	if (!character.monarchName.empty()) output << "\t\tmonarch_name = \"" << character.monarchName << "\"\n";
 	if (!character.dynasty.empty()) { output << "\t\tdynasty = \"" << character.dynasty << "\"\n"; }
 	if (!character.id) output << "\t\tadm = " << character.adm << "\n";
 	if (!character.id) output << "\t\tdip = " << character.dip << "\n";
