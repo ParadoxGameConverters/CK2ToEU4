@@ -154,6 +154,13 @@ void EU4::World::createModFile(const Configuration& theConfiguration) const
 							  << "output/" + theConfiguration.getOutputName() + ".mod";
 	output << modFile;
 	output.close();
+
+	std::ofstream output2("output/" + theConfiguration.getOutputName() + "/descriptor.mod");
+	if (!output2.is_open()) throw std::runtime_error("Could not create " + theConfiguration.getOutputName() + "/descriptor.mod");
+	LOG(LogLevel::Info) << "<< Writing to: "
+							  << "output/" + theConfiguration.getOutputName() + "/descriptor.mod";
+	output2 << modFile;
+	output2.close();
 }
 
 
