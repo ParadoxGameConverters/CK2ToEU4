@@ -262,9 +262,20 @@ link = { ck2 = nepali eu4 = nepali tech = chinese gfx = asiangfx }
 #Chinese
 link = { ck2 = han eu4 = chihan tech = chinese gfx = asiangfx }
 
-# Israelite - they'll be split in the future
-link = { ck2 = ashkenazi eu4 = ashkenazi tech = eastern gfx = westerngfx }
-link = { ck2 = sephardi eu4 = sephardi tech = eastern gfx = easterngfx }
+# Israelite
+link = { ck2 = ashkenazi ck2 = sephardi eu4 = ashkenazi tech = western gfx = westerngfx region = low_countries_region region = scandinavia_region region = north_german_region region = south_german_region region = british_isles_region }
+link = { ck2 = ashkenazi ck2 = sephardi eu4 = knaanic tech = eastern gfx = easterngfx region = poland_region region = baltic_region region = russia_region region = ruthenia_region region = crimea_region }
+link = { ck2 = ashkenazi ck2 = sephardi eu4 = magogic tech = nomad_group gfx = easterngfx region = ural_region region = west_siberia_region region = central_asia_region region = caucasia_region }
+link = { ck2 = ashkenazi ck2 = sephardi eu4 = yevanic tech = eastern gfx = easterngfx region = carpathia_region region = balkan_region region = anatolia_region }
+link = { ck2 = ashkenazi ck2 = sephardi eu4 = mizrahi tech = muslim gfx = muslimgfx region = persia_superregion region = arabia_region }
+link = { ck2 = ashkenazi ck2 = sephardi eu4 = israeli tech = eastern gfx = easterngfx region = mashriq_region }
+link = { ck2 = ashkenazi ck2 = sephardi eu4 = misrayim tech = muslim gfx = muslimgfx region = egypt_region }
+link = { ck2 = ashkenazi ck2 = sephardi eu4 = sephardi tech = eastern gfx = easterngfx region = iberia_region }
+link = { ck2 = ashkenazi ck2 = sephardi eu4 = zarphatic tech = eastern gfx = easterngfx region = france_region }
+link = { ck2 = ashkenazi ck2 = sephardi eu4 = laaz tech = eastern gfx = easterngfx region = italy_region }
+link = { ck2 = ashkenazi ck2 = sephardi eu4 = kaifeng tech = chinese gfx = asiangfx region = mongolia_region region = tibet_region region = china_superregion }
+link = { ck2 = ashkenazi eu4 = ashkenazi tech = eastern gfx = westerngfx } #Fallback
+link = { ck2 = sephardi eu4 = sephardi tech = eastern gfx = easterngfx } #Fallback
 
 # Misc
 link = { ck2 = horse eu4 = equine tech = western gfx = westerngfx }
