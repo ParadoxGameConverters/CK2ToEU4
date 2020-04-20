@@ -479,6 +479,12 @@
     <ClCompile Include="CK2WorldTests\Relations\TributaryTests.cpp">
       <Filter>CK2WorldTests\Relations</Filter>
     </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Vars\Vars.cpp">
+      <Filter>ConverterFiles\CK2World\Vars</Filter>
+    </ClCompile>
+    <ClCompile Include="CK2WorldTests\Vars\VarsTests.cpp">
+      <Filter>CK2WorldTests\Vars</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4WorldTests">
@@ -642,6 +648,12 @@
     </Filter>
     <Filter Include="CK2WorldTests\Relations">
       <UniqueIdentifier>{88ba946c-7cdd-4ccf-a89b-4f63b79b0e54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ConverterFiles\CK2World\Vars">
+      <UniqueIdentifier>{99681682-1905-4a45-a28f-2583de7ee15e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CK2WorldTests\Vars">
+      <UniqueIdentifier>{b604c980-2da7-4198-9dda-18c74ef2e7aa}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

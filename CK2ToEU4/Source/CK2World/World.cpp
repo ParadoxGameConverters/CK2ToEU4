@@ -82,6 +82,11 @@ CK2::World::World(const Configuration& theConfiguration)
 		diplomacy = Diplomacy(theStream);
 		LOG(LogLevel::Info) << ">> Loaded " << diplomacy.getDiplomacy().size() << " personal diplomacies.";
 	});
+	registerKeyword("vars", [this](const std::string& unused, std::istream& theStream) {
+		LOG(LogLevel::Info) << "-> Loading Variables";
+		vars = Vars(theStream);
+		LOG(LogLevel::Info) << ">> Loaded " << vars.getVars().size() << " global variables.";
+	});
 
 	registerRegex("[A-Za-z0-9\\_]+", commonItems::ignoreItem);
 

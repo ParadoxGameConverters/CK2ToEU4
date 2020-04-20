@@ -46,6 +46,7 @@ class Province
 	void addCore(const std::string& core) { details.cores.insert(core); }
 	void setOwner(const std::string& tag) { details.owner = tag; }
 	void setController(const std::string& tag) { details.controller = tag; }
+	void setReligion(const std::string& religion) { details.religion = religion; }
 	void setAdm(int adm) { details.baseTax = adm; }
 	void setDip(int dip) { details.baseProduction = dip; }
 	void setMil(int mil) { details.baseManpower = mil; }
