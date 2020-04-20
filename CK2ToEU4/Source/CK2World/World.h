@@ -15,6 +15,7 @@
 #include "Titles/Liege.h"
 #include "Titles/Titles.h"
 #include "Wonders/Wonders.h"
+#include "Vars/Vars.h"
 #include "newParser.h"
 
 class Configuration;
@@ -31,6 +32,7 @@ class World: commonItems::parser
 	[[nodiscard]] const auto& getConversionDate() const { return endDate; }
 	[[nodiscard]] const auto& getOffmaps() const { return offmaps; }
 	[[nodiscard]] const auto& getDiplomacy() const { return diplomacy; }
+	[[nodiscard]] const auto& getVars() const { return vars; }
 	[[nodiscard]] auto isInvasion() const { return invasion; }
 
   private:
@@ -77,6 +79,7 @@ class World: commonItems::parser
 	Mods mods;
 	std::map<std::string, Liege> dynamicTitles; // Reusing Liege as it has identical structure
 	Diplomacy diplomacy;
+	Vars vars;
 	std::map<std::string, std::shared_ptr<Title>> independentTitles;
 	bool invasion = false;
 };

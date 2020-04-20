@@ -231,6 +231,46 @@ void EU4::World::adjustChina(const CK2::World& sourceWorld)
 		return;
 	}
 
+	// A standalone support for Chinese Caliphates Mod begins here. We import variables from sourceworks defining
+	// weights of religions in china (sunni = 40.0, christian = 100.0), and for a total weight of 400 we distribute
+	// these religions across chinese provinces. We only do so for offmap provinces as western protectorate provinces
+	// may have had their religion already changed.
+
+	auto chineseReligions = sourceWorld.getVars().getChineseReligions();
+	if (chineseReligions)
+	{
+		const auto provinceNum = static_cast<int>(provinceMapper.getOffmapChineseProvinces().size());
+		const auto provinceWeight = 400.0/provinceNum; // religious weight of an individual province.
+		
+		for (const auto& chineseProvince: provinceMapper.getOffmapChineseProvinces()) {
+			const auto provinceItr = provinces.find(chineseProvince);
+			if (provinceItr == provinces.end()) {
+				continue;
+			}
+			bool provinceSet = false;
+			for (const auto& religiousInfluence: *chineseReligions)
+			{
+				if (religiousInfluence.second > provinceWeight)
+				{
+					if (!religiousInfluence.second) continue;
+					// is this a valid religion?
+					const auto& targetReligion = religionMapper.getEu4ReligionForCk2Religion(religiousInfluence.first);
+					if (!targetReligion)
+					{
+						(*chineseReligions)[religiousInfluence.first] = 0;
+						continue;
+					}
+					provinceItr->second->setReligion(*targetReligion);
+					(*chineseReligions)[religiousInfluence.first] -= provinceWeight;
+					if ((*chineseReligions)[religiousInfluence.first] < provinceWeight) (*chineseReligions)[religiousInfluence.first] = 0;
+					provinceSet = true;
+					break;
+				}
+			}
+			if (!provinceSet) break; // We're done.
+		}
+	}
+
 	Log(LogLevel::Info) << "<> China successfully Invaded";
 }
 

@@ -237,6 +237,9 @@
     <ClCompile Include="Source\CK2World\Relations\AllRelations.cpp">
       <Filter>CK2World\Relation</Filter>
     </ClCompile>
+    <ClCompile Include="Source\CK2World\Vars\Vars.cpp">
+      <Filter>CK2World\Vars</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CK2ToEU4Converter.h" />
@@ -468,6 +471,9 @@
     <ClInclude Include="Source\CK2World\Relations\AllRelations.h">
       <Filter>CK2World\Relation</Filter>
     </ClInclude>
+    <ClInclude Include="Source\CK2World\Vars\Vars.h">
+      <Filter>CK2World\Vars</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4World">
@@ -562,6 +568,9 @@
     </Filter>
     <Filter Include="CK2World\Relation">
       <UniqueIdentifier>{ad570e8b-6418-4b55-b259-604cffc3bbfc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CK2World\Vars">
+      <UniqueIdentifier>{3a93ff99-4b74-4ef9-af47-9027ee02386b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
