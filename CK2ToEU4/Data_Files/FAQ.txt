@@ -10,14 +10,24 @@ This is a standalone effort (and so far, the third ck2->eu4 converter to exist).
 Q: What are the main advantages between this and the official converter?
 A: Speed, precision and versatility. 
 
-While we do not do (yet) all that official converter does (no China dynasty swapping for example), but we do some other things like:
+This converter does all that official one does, with many additions and corrections:
 - Shattering any empire and using it as a base for HRE mechanics
 - Shattering empire blobs in general
 - Better and more natural dev shaping of provinces
 - Support for granulated cultures and religions, so "German" or "Italian" break apart into EU4-subcultures
+- True Chinese TAG swapping into ruling dynasty's TAG along with preserving the Celestial Emperor's culture and religion (instead of a simple Ming rename)
+- Integration of the Western Protectorate into China's mainland
 - Better provincial mappings (entirely redone to map CK 3.3 into EU4 1.29)
 - Import of councilmen as advisors
-- Fixed official converter's bugs (such as wonder replication)
+- Special flags for muslim dynasties (kingdoms and empires are named after their dynasties)
+- Dual bookmarks (for both conversion date and 1444)
+- Full tributary support, both preserving offmap tributaries and importing CK2 ones
+- Expanded EU4 religions with CK2 ones, support for these religions in Vic2 and HoI4.
+- Clearing of siberian tribe and horde OPMs
+- Importing of excommunicated rulers
+- Fixed official converter's handling of starting cash and prestige (it could be negative)
+- Fixed official converter's bug with wonder replication
+- Importing of starting loans
 - Guaranteed support for future EU4 releases
 - And, as time passes, many more features.
 
