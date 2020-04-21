@@ -1,5 +1,5 @@
-#include "gtest/gtest.h"
 #include "../../CK2ToEU4/Source/Common/CommonFunctions.h"
+#include "gtest/gtest.h"
 
 TEST(CK2World_CommonFunctionsTests, TrimPathTrimsSlashes)
 {

@@ -1,5 +1,5 @@
-#include "gtest/gtest.h"
 #include "../CK2ToEU4/Source/Mappers/ProvinceMapper/ProvinceMapper.h"
+#include "gtest/gtest.h"
 #include <sstream>
 
 TEST(Mappers_ProvinceMapperTests, emptyMappingsDefaultToEmpty)
@@ -58,7 +58,7 @@ TEST(Mappers_ProvinceMapperTests, chineseProvincesDefaultToEmpty)
 TEST(Mappers_ProvinceMapperTests, chineseProvincesCanBeLoaded)
 {
 	std::stringstream dummyInput;
-	mappers::ProvinceMapper theMapper(dummyInput);	
+	mappers::ProvinceMapper theMapper(dummyInput);
 	std::stringstream input;
 	input << "chinese_offmap_provinces = { 1816 1821 1822 }";
 	theMapper.loadOffmapChineseProvinces(input);

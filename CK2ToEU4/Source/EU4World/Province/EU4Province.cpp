@@ -1,10 +1,10 @@
 #include "EU4Province.h"
 #include "../../CK2World/Provinces/Province.h"
 #include "../../CK2World/Titles/Title.h"
+#include "../../CK2World/Wonders/Wonder.h"
 #include "../../Mappers/CultureMapper/CultureMapper.h"
 #include "../../Mappers/ReligionMapper/ReligionMapper.h"
 #include "../Country/Country.h"
-#include "../../CK2World/Wonders/Wonder.h"
 
 EU4::Province::Province(int id, const std::string& filePath): provID(id)
 {
@@ -29,7 +29,8 @@ void EU4::Province::initializeFromCK2(std::shared_ptr<CK2::Province> origProvinc
 
 	// If we're initializing this from CK2 provinces, then having an owner or being a wasteland/sea is a given -
 	// there are no uncolonized provinces in CK2.
-	if (srcProvince->getTitle().first.empty()) return;			 // wasteland.
+	if (srcProvince->getTitle().first.empty())
+		return;																 // wasteland.
 	tagCountry = srcProvince->getTitle().second->getEU4Tag(); // linking to our holder
 	details.owner = tagCountry.first;
 	details.controller = tagCountry.first;
@@ -40,37 +41,45 @@ void EU4::Province::initializeFromCK2(std::shared_ptr<CK2::Province> origProvinc
 
 	// Religion first.
 	auto religionSet = false;
-	if (!srcProvince->getReligion().empty()) {
+	if (!srcProvince->getReligion().empty())
+	{
 		auto religionMatch = religionMapper.getEu4ReligionForCk2Religion(srcProvince->getReligion());
-		if (religionMatch) {
+		if (religionMatch)
+		{
 			details.religion = *religionMatch;
 			religionSet = true;
 		}
 	}
 	// Attempt to use religion of country.
-	if (!religionSet && !tagCountry.second->getReligion().empty()) {
+	if (!religionSet && !tagCountry.second->getReligion().empty())
+	{
 		details.religion = tagCountry.second->getReligion();
 		religionSet = true;
 	}
-	if (!religionSet) {
+	if (!religionSet)
+	{
 		// owner has no religion, which is common for hordeland. We should use default eu4 religion.
 	}
 
 	auto cultureSet = false;
 	// do we even have a base culture?
-	if (!srcProvince->getCulture().empty()) {
+	if (!srcProvince->getCulture().empty())
+	{
 		auto cultureMatch = cultureMapper.cultureMatch(srcProvince->getCulture(), details.religion, provID, tagCountry.first);
-		if (cultureMatch) {
+		if (cultureMatch)
+		{
 			details.culture = *cultureMatch;
 			cultureSet = true;
 		}
 	}
 	// Attempt to use primary culture of country.
-	if (!cultureSet && !tagCountry.second->getPrimaryCulture().empty()) {
+	if (!cultureSet && !tagCountry.second->getPrimaryCulture().empty())
+	{
 		details.culture = tagCountry.second->getPrimaryCulture();
 		cultureSet = true;
 	}
-	if (!cultureSet) {
+	if (!cultureSet)
+	{
 		// owner has no culture, which is common for hordeland. We should use default eu4 culture.
 	}
 	// trade goods are retained.
@@ -89,12 +98,13 @@ void EU4::Province::initializeFromCK2(std::shared_ptr<CK2::Province> origProvinc
 	details.localAutonomy = 0; // let the game handle this.
 	// not touching native_size/ferocity/hostileness.
 	// not touching existing permanent modifiers. These mostly relate to new world anyway. Wonders do need to be added.
-	if (srcProvince->getWonder().first && !srcProvince->getWonder().second->isSpent()) {
+	if (srcProvince->getWonder().first && !srcProvince->getWonder().second->isSpent())
+	{
 		ProvinceModifier newModifier;
 		newModifier.name = srcProvince->getWonder().second->getType();
 		details.provinceModifiers.emplace_back(newModifier);
 		srcProvince->getWonder().second->setSpent(); // We must spend it to avoid mapping it into multiple eu4 provinces.
-	}	
+	}
 	details.shipyard = false; // we'll distribute these later.
 	// not touching province_triggered_modifiers. Rome is rome.
 	details.revoltRisk = 0;				 // we can adjust this later.

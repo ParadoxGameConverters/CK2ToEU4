@@ -31,9 +31,12 @@ mappers::CultureMappingRule::CultureMappingRule(std::istream& theStream)
 	});
 	registerKeyword("province", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleString provinceStr(theStream);
-		try {
+		try
+		{
 			provinces.insert(stoi(provinceStr.getString()));
-		} catch (std::exception&) {
+		}
+		catch (std::exception&)
+		{
 			Log(LogLevel::Warning) << "Invalid province ID in culture mapper: " << provinceStr.getString();
 		}
 	});
@@ -53,34 +56,45 @@ std::optional<std::string> mappers::CultureMappingRule::cultureMatch(const std::
 	 const std::string& eu4ownerTag) const
 {
 	// We need at least a viable EU4culture.
-	if (ck2culture.empty()) return std::nullopt;
+	if (ck2culture.empty())
+		return std::nullopt;
 
-	if (!cultures.count(ck2culture)) return std::nullopt;
+	if (!cultures.count(ck2culture))
+		return std::nullopt;
 
 	if (!eu4ownerTag.empty() && !owners.empty())
-		if (!owners.count(eu4ownerTag)) return std::nullopt;
+		if (!owners.count(eu4ownerTag))
+			return std::nullopt;
 
 	if (!eu4religion.empty() && !religions.empty())
-		if (!religions.count(eu4religion)) return std::nullopt;
+		if (!religions.count(eu4religion))
+			return std::nullopt;
 
 	// This is a provinces check, not regions.
 	if (eu4Province && !provinces.empty())
-		if (!provinces.count(eu4Province)) return std::nullopt;
+		if (!provinces.count(eu4Province))
+			return std::nullopt;
 
 	// This is a regions check, that checks if a provided province is within that region.
-	if (eu4Province && !regions.empty()) {
-		if (!regionMapper) throw std::runtime_error("Culture Mapper: Region Mapper is unloaded!");
+	if (eu4Province && !regions.empty())
+	{
+		if (!regionMapper)
+			throw std::runtime_error("Culture Mapper: Region Mapper is unloaded!");
 		auto regionMatch = false;
-		for (const auto& region: regions) {
-			if (!regionMapper->regionNameIsValid(region)) {
+		for (const auto& region: regions)
+		{
+			if (!regionMapper->regionNameIsValid(region))
+			{
 				Log(LogLevel::Warning) << "Checking for culture " << ck2culture << " inside invalid region: " << region << "! Fix the mapping rules!";
 				// We could say this was a match, and thus pretend this region entry doesn't exist, but it's better
 				// for the converter to explode across the logs with invalid names. So, continue.
 				continue;
 			}
-			if (regionMapper->provinceIsInRegion(eu4Province, region)) regionMatch = true;
+			if (regionMapper->provinceIsInRegion(eu4Province, region))
+				regionMatch = true;
 		}
-		if (!regionMatch) return std::nullopt;
+		if (!regionMatch)
+			return std::nullopt;
 	}
 	return destinationCulture;
 }
@@ -92,7 +106,8 @@ std::optional<std::string> mappers::CultureMappingRule::cultureRegionalMatch(con
 {
 	// This is a regional match. We need a mapping within the given region, so if the
 	// mapping rule has no regional qualifiers it needs to fail.
-	if (regions.empty()) return std::nullopt;
+	if (regions.empty())
+		return std::nullopt;
 
 	// Otherwise, as usual.
 	return cultureMatch(ck2culture, eu4religion, eu4Province, eu4ownerTag);
@@ -105,8 +120,10 @@ std::optional<std::string> mappers::CultureMappingRule::cultureNonRegionalNonRel
 {
 	// This is a non regional non religious match. We need a mapping without any region/religion, so if the
 	// mapping rule has any regional/religious qualifiers it needs to fail.
-	if (!regions.empty()) return std::nullopt;
-	if (!religions.empty()) return std::nullopt;
+	if (!regions.empty())
+		return std::nullopt;
+	if (!religions.empty())
+		return std::nullopt;
 
 	// Otherwise, as usual.
 	return cultureMatch(ck2culture, eu4religion, eu4Province, eu4ownerTag);
@@ -114,12 +131,14 @@ std::optional<std::string> mappers::CultureMappingRule::cultureNonRegionalNonRel
 
 std::optional<std::string> mappers::CultureMappingRule::getTechGroup(const std::string& incEU4Culture) const
 {
-	if (incEU4Culture == destinationCulture && !techGroup.empty()) return techGroup;
+	if (incEU4Culture == destinationCulture && !techGroup.empty())
+		return techGroup;
 	return std::nullopt;
 }
 
 std::optional<std::string> mappers::CultureMappingRule::getGFX(const std::string& incEU4Culture) const
 {
-	if (incEU4Culture == destinationCulture && !gfx.empty()) return gfx;
+	if (incEU4Culture == destinationCulture && !gfx.empty())
+		return gfx;
 	return std::nullopt;
 }

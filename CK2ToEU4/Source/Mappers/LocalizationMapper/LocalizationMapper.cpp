@@ -1,16 +1,17 @@
 #include "LocalizationMapper.h"
-#include "Log.h"
 #include "../../Configuration/Configuration.h"
-#include <set>
+#include "Log.h"
 #include "OSCompatibilityLayer.h"
 #include <fstream>
+#include <set>
 
 void mappers::LocalizationMapper::scrapeLocalizations(const Configuration& theConfiguration)
 {
 	LOG(LogLevel::Info) << "-> Reading Words";
 	std::set<std::string> filenames;
 	Utils::GetAllFilesInFolder(theConfiguration.getCK2Path() + "/localisation/", filenames);
-	for (const auto& file: filenames) {
+	for (const auto& file: filenames)
+	{
 		std::ifstream theFile(theConfiguration.getCK2Path() + "/localisation/" + file);
 		scrapeStream(theFile);
 		theFile.close();
@@ -27,11 +28,13 @@ void mappers::LocalizationMapper::scrapeLocalizations(const Configuration& theCo
 
 void mappers::LocalizationMapper::scrapeStream(std::istream& theStream)
 {
-	while (!theStream.eof()) {
+	while (!theStream.eof())
+	{
 		std::string line;
 		getline(theStream, line);
 
-		if (line[0] == '#' || line.length() < 4) continue;
+		if (line[0] == '#' || line.length() < 4)
+			continue;
 
 		auto sepLoc = line.find_first_of(';');
 		auto key = line.substr(0, sepLoc);
@@ -66,16 +69,20 @@ void mappers::LocalizationMapper::scrapeStream(std::istream& theStream)
 std::optional<mappers::LocBlock> mappers::LocalizationMapper::getLocBlockForKey(const std::string& key) const
 {
 	const auto& keyItr = localizations.find(key);
-	if (keyItr == localizations.end()) return std::nullopt;
+	if (keyItr == localizations.end())
+		return std::nullopt;
 
 	if (!keyItr->second.english.empty() && (keyItr->second.spanish.empty() || keyItr->second.german.empty() || keyItr->second.french.empty()))
 	{
 		auto newBlock = keyItr->second;
-		if (newBlock.spanish.empty()) newBlock.spanish = newBlock.english;
-		if (newBlock.german.empty()) newBlock.german = newBlock.english;
-		if (newBlock.french.empty()) newBlock.french = newBlock.english;
+		if (newBlock.spanish.empty())
+			newBlock.spanish = newBlock.english;
+		if (newBlock.german.empty())
+			newBlock.german = newBlock.english;
+		if (newBlock.french.empty())
+			newBlock.french = newBlock.english;
 		return newBlock;
 	}
 	// either all is well, or we're missing english. Can't do anything about the latter.
-	return keyItr->second;	
+	return keyItr->second;
 }

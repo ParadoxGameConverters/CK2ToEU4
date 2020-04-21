@@ -46,37 +46,53 @@ Version::Version(std::istream& theStream)
 
 bool Version::operator>=(const Version& rhs) const
 {
-	if (firstPart > rhs.firstPart) return true;
-	if (firstPart == rhs.firstPart && secondPart > rhs.secondPart) return true;
-	if (firstPart == rhs.firstPart && secondPart == rhs.secondPart && thirdPart > rhs.thirdPart) return true;
-	if (firstPart == rhs.firstPart && secondPart == rhs.secondPart && thirdPart == rhs.thirdPart && fourthPart >= rhs.fourthPart) return true;
+	if (firstPart > rhs.firstPart)
+		return true;
+	if (firstPart == rhs.firstPart && secondPart > rhs.secondPart)
+		return true;
+	if (firstPart == rhs.firstPart && secondPart == rhs.secondPart && thirdPart > rhs.thirdPart)
+		return true;
+	if (firstPart == rhs.firstPart && secondPart == rhs.secondPart && thirdPart == rhs.thirdPart && fourthPart >= rhs.fourthPart)
+		return true;
 	return false;
 }
 
 bool Version::operator>(const Version& rhs) const
 {
-	if (firstPart > rhs.firstPart) return true;
-	if (firstPart == rhs.firstPart && secondPart > rhs.secondPart) return true;
-	if (firstPart == rhs.firstPart && secondPart == rhs.secondPart && thirdPart > rhs.thirdPart) return true;
-	if (firstPart == rhs.firstPart && secondPart == rhs.secondPart && thirdPart == rhs.thirdPart && fourthPart > rhs.fourthPart) return true;
+	if (firstPart > rhs.firstPart)
+		return true;
+	if (firstPart == rhs.firstPart && secondPart > rhs.secondPart)
+		return true;
+	if (firstPart == rhs.firstPart && secondPart == rhs.secondPart && thirdPart > rhs.thirdPart)
+		return true;
+	if (firstPart == rhs.firstPart && secondPart == rhs.secondPart && thirdPart == rhs.thirdPart && fourthPart > rhs.fourthPart)
+		return true;
 	return false;
 }
 
 bool Version::operator<(const Version& rhs) const
 {
-	if (firstPart < rhs.firstPart) return true;
-	if (firstPart == rhs.firstPart && secondPart < rhs.secondPart) return true;
-	if (firstPart == rhs.firstPart && secondPart == rhs.secondPart && thirdPart < rhs.thirdPart) return true;
-	if (firstPart == rhs.firstPart && secondPart == rhs.secondPart && thirdPart == rhs.thirdPart && fourthPart < rhs.fourthPart) return true;
+	if (firstPart < rhs.firstPart)
+		return true;
+	if (firstPart == rhs.firstPart && secondPart < rhs.secondPart)
+		return true;
+	if (firstPart == rhs.firstPart && secondPart == rhs.secondPart && thirdPart < rhs.thirdPart)
+		return true;
+	if (firstPart == rhs.firstPart && secondPart == rhs.secondPart && thirdPart == rhs.thirdPart && fourthPart < rhs.fourthPart)
+		return true;
 	return false;
 }
 
 bool Version::operator<=(const Version& rhs) const
 {
-	if (firstPart < rhs.firstPart) return true;
-	if (firstPart == rhs.firstPart && secondPart < rhs.secondPart) return true;
-	if (firstPart == rhs.firstPart && secondPart == rhs.secondPart && thirdPart < rhs.thirdPart) return true;
-	if (firstPart == rhs.firstPart && secondPart == rhs.secondPart && thirdPart == rhs.thirdPart && fourthPart <= rhs.fourthPart) return true;
+	if (firstPart < rhs.firstPart)
+		return true;
+	if (firstPart == rhs.firstPart && secondPart < rhs.secondPart)
+		return true;
+	if (firstPart == rhs.firstPart && secondPart == rhs.secondPart && thirdPart < rhs.thirdPart)
+		return true;
+	if (firstPart == rhs.firstPart && secondPart == rhs.secondPart && thirdPart == rhs.thirdPart && fourthPart <= rhs.fourthPart)
+		return true;
 	return false;
 }
 

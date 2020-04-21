@@ -10,7 +10,7 @@ class TitleTagMapper: commonItems::parser
 {
   public:
 	TitleTagMapper();
-	explicit TitleTagMapper(std::istream& theStream); // testing
+	explicit TitleTagMapper(std::istream& theStream);										 // testing
 	explicit TitleTagMapper(std::istream& theStream, std::istream& chineseStream); // testing
 	void registerTitle(const std::string& ck2title, const std::string& eu4tag);
 

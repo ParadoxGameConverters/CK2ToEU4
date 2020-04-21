@@ -23,9 +23,9 @@ class GovernmentsMapping: commonItems::parser
 	void registerKeys();
 
 	std::string government;
-	std::set<std::string> ck2governments;
 	std::string reform;
 	std::string ck2title;
+	std::set<std::string> ck2governments;
 };
 } // namespace mappers
 

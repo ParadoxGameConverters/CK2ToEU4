@@ -16,7 +16,8 @@ class Titles: commonItems::parser
 {
   public:
 	Titles() = default;
-	Titles(std::istream& theStream);
+	explicit Titles(std::istream& theStream);
+
 	[[nodiscard]] const auto& getTitles() const { return titles; }
 
 	void linkHolders(const Characters& theCharacters);

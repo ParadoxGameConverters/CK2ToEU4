@@ -47,6 +47,9 @@ int CK2::Province::getBuildingWeight() const
 	// TODO: Add trade posts and hospitals.
 
 	int buildingWeight = 0;
-	for (const auto& barony: baronies) { buildingWeight += 3 + barony.second->getBuildingCount(); }
+	for (const auto& barony: baronies)
+	{
+		buildingWeight += 3 + barony.second->getBuildingCount();
+	}
 	return buildingWeight;
 }

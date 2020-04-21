@@ -16,9 +16,10 @@ class Mod: commonItems::parser
 	[[nodiscard]] auto isCompressed() const { return compressed; }
 
   private:
+	bool compressed = false;
+
 	std::string name;
 	std::string path;
-	bool compressed = false;
 };
 } // namespace CK2
 

@@ -18,11 +18,14 @@ void CK2::Domain::registerKeys()
 	});
 	registerKeyword("primary", [this](const std::string& unused, std::istream& theStream) {
 		const auto primTitleStr = commonItems::singleItem(unused, theStream);
-		if (primTitleStr.find("{") != std::string::npos) {
+		if (primTitleStr.find('{') != std::string::npos)
+		{
 			std::stringstream tempStream(primTitleStr);
 			auto newPrimTitle = std::make_shared<Liege>(tempStream);
 			primaryTitle = std::pair(newPrimTitle->getTitle().first, newPrimTitle);
-		} else {
+		}
+		else
+		{
 			auto newPrimTitle = std::make_shared<Liege>(primTitleStr);
 			primaryTitle = std::pair(newPrimTitle->getTitle().first, newPrimTitle);
 		}

@@ -35,6 +35,8 @@ void EU4::Agreement::registerKeys()
 
 void EU4::Agreement::updateTags(const std::string& oldTag, const std::string& newTag)
 {
-	if (first == oldTag) first = newTag;
-	if (second == oldTag) second = newTag;
+	if (first == oldTag)
+		first = newTag;
+	if (second == oldTag)
+		second = newTag;
 }

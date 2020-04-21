@@ -5,7 +5,8 @@
 
 mappers::ProvinceTitleGrabber::ProvinceTitleGrabber(const std::string& provincePath)
 {
-	if (!Utils::DoesFileExist(provincePath)) throw std::runtime_error(provincePath + " does not exist?");
+	if (!Utils::DoesFileExist(provincePath))
+		throw std::runtime_error(provincePath + " does not exist?");
 	registerKeys();
 	parseFile(provincePath);
 	clearRegisteredKeywords();

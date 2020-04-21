@@ -9,7 +9,8 @@ class Dynasties: commonItems::parser
 {
   public:
 	Dynasties() = default;
-	Dynasties(std::istream& theStream); // For testing
+	explicit Dynasties(std::istream& theStream); // For testing
+
 	void loadDynasties(const std::string& thePath);
 	void underLoadDynasties(const std::string& thePath);
 	void loadDynasties(std::istream& theStream);

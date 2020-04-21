@@ -1,8 +1,8 @@
-#include "gtest/gtest.h"
-#include "../CK2ToEU4/Source/CK2World/Titles/Title.h"
-#include "../CK2ToEU4/Source/CK2World/Titles/Liege.h"
 #include "../CK2ToEU4/Source/CK2World/Provinces/Province.h"
 #include "../CK2ToEU4/Source/CK2World/Provinces/Provinces.h"
+#include "../CK2ToEU4/Source/CK2World/Titles/Liege.h"
+#include "../CK2ToEU4/Source/CK2World/Titles/Title.h"
+#include "gtest/gtest.h"
 #include <sstream>
 
 TEST(CK2World_TitleTests, nameCanBeSet)
@@ -34,7 +34,7 @@ TEST(CK2World_TitleTests, lawCanBeAdded)
 	std::stringstream input;
 	input << "=\n";
 	input << "{\n";
-	input << "\tlaw=\"revoke_title_voting_power_0\"\n";	
+	input << "\tlaw=\"revoke_title_voting_power_0\"\n";
 	input << "}";
 
 	const CK2::Title theTitle(input, "c_test");
@@ -75,9 +75,9 @@ TEST(CK2World_TitleTests, multipleLawsCanBeAdded)
 	std::stringstream input;
 	input << "=\n";
 	input << "{\n";
-	input << "\tlaw=\"revoke_title_voting_power_0\"\n";	
-	input << "\tlaw=\"out_of_realm_inheritance_law_1\"\n";	
-	input << "\tlaw=\"centralization_4\"\n";	
+	input << "\tlaw=\"revoke_title_voting_power_0\"\n";
+	input << "\tlaw=\"out_of_realm_inheritance_law_1\"\n";
+	input << "\tlaw=\"centralization_4\"\n";
 	input << "}";
 
 	const CK2::Title theTitle(input, "c_test");
@@ -92,7 +92,7 @@ TEST(CK2World_TitleTests, holderCanBeSet)
 	std::stringstream input;
 	input << "=\n";
 	input << "{\n";
-	input << "\tholder=123\n";	
+	input << "\tholder=123\n";
 	input << "}";
 
 	const CK2::Title theTitle(input, "c_test");

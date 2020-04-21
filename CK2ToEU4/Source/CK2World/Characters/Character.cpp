@@ -1,8 +1,8 @@
 #include "Character.h"
+#include "../Dynasties/Dynasty.h"
 #include "Domain.h"
 #include "Log.h"
 #include "ParserHelpers.h"
-#include "../Dynasties/Dynasty.h"
 
 CK2::Character::Character(std::istream& theStream, int chrID): charID(chrID)
 {
@@ -111,20 +111,25 @@ void CK2::Character::registerKeys()
 bool CK2::Character::isExcommunicated() const
 {
 	for (const auto& trait: traits)
-		if (trait.second == "excommunicated") return true;
+		if (trait.second == "excommunicated")
+			return true;
 	return false;
 }
 
 const std::string& CK2::Character::getReligion() const
 {
-	if (!religion.empty()) return religion;
-	if (dynasty.first && !dynasty.second->getReligion().empty()) return dynasty.second->getReligion();
+	if (!religion.empty())
+		return religion;
+	if (dynasty.first && !dynasty.second->getReligion().empty())
+		return dynasty.second->getReligion();
 	return religion;
 }
 
 const std::string& CK2::Character::getCulture() const
 {
-	if (!culture.empty()) return culture;
-	if (dynasty.first && !dynasty.second->getCulture().empty()) return dynasty.second->getCulture();
+	if (!culture.empty())
+		return culture;
+	if (dynasty.first && !dynasty.second->getCulture().empty())
+		return dynasty.second->getCulture();
 	return culture;
 }

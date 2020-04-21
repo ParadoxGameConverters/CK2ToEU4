@@ -10,6 +10,7 @@ class Barony;
 class Province: commonItems::parser
 {
   public:
+	Province() = default;
 	Province(std::istream& theStream, int provID);
 
 	[[nodiscard]] const auto& getCulture() const { return culture; }
@@ -23,6 +24,7 @@ class Province: commonItems::parser
 	[[nodiscard]] auto getID() const { return provinceID; }
 	[[nodiscard]] auto getMaxSettlements() const { return maxSettlements; }
 	[[nodiscard]] auto getBaronyCount() const { return static_cast<int>(baronies.size()); }
+
 	[[nodiscard]] int getBuildingWeight() const;
 
 	void discardPrimarySettlement() { primarySettlement.first.clear(); }
@@ -34,14 +36,14 @@ class Province: commonItems::parser
 	void registerKeys();
 
 	int provinceID = 0;
+	int maxSettlements = 0;
 	std::string culture;
 	std::string religion;
 	std::string name;
 	std::pair<std::string, std::shared_ptr<Barony>> primarySettlement;
 	std::pair<std::string, std::shared_ptr<Title>> title;
-	int maxSettlements = 0;
-	std::map<std::string, std::shared_ptr<Barony>> baronies;
 	std::pair<int, std::shared_ptr<Wonder>> wonder;
+	std::map<std::string, std::shared_ptr<Barony>> baronies;
 };
 } // namespace CK2
 

@@ -15,8 +15,9 @@ class Tributary: commonItems::parser
 
   private:
 	void registerKeys();
-	std::string tributaryType;
+
 	int tributaryID = 0;
+	std::string tributaryType;
 };
 } // namespace CK2
 

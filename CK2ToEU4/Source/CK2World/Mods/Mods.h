@@ -8,24 +8,24 @@
 class Configuration;
 namespace CK2
 {
-	class Mods
-	{
-	public:
-		Mods() = default;
-		void loadModDirectory(const Configuration& theConfiguration);
-		
-		[[nodiscard]] std::optional<std::string> getModPath(const std::string& modName) const;
-		[[nodiscard]] const auto& getMods() const { return usableMods; }
+class Mods
+{
+  public:
+	Mods() = default;
+	void loadModDirectory(const Configuration& theConfiguration);
 
-	private:
-		void loadCK2ModDirectory(const Configuration& theConfiguration);
+	[[nodiscard]] std::optional<std::string> getModPath(const std::string& modName) const;
+	[[nodiscard]] const auto& getMods() const { return usableMods; }
 
-		[[nodiscard]] bool extractZip(const std::string& archive, const std::string& path) const;
+  private:
+	void loadCK2ModDirectory(const Configuration& theConfiguration);
 
-		std::map<std::string, std::string> possibleMods; // name, path to mod directory 
-		std::map<std::string, std::string> possibleCompressedMods; // name, path to zip file
-		std::map<std::string, std::string> usableMods; // name, path (original or unpacked)
-	};
-}
+	[[nodiscard]] bool extractZip(const std::string& archive, const std::string& path) const;
+
+	std::map<std::string, std::string> possibleMods;			  // name, path to mod directory
+	std::map<std::string, std::string> possibleCompressedMods; // name, path to zip file
+	std::map<std::string, std::string> usableMods;				  // name, path (original or unpacked)
+};
+} // namespace CK2
 
 #endif // CK2_MODS_H

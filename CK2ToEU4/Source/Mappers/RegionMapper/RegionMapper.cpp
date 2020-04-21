@@ -15,21 +15,24 @@ void mappers::RegionMapper::loadRegions(const Configuration& theConfiguration)
 	auto superRegionFilename = theConfiguration.getEU4Path() + "/map/superregion.txt";
 
 	std::ifstream areaStream(fs::u8path(areaFilename));
-	if (!areaStream.is_open()) throw std::runtime_error("Could not open map/area.txt!");
+	if (!areaStream.is_open())
+		throw std::runtime_error("Could not open map/area.txt!");
 	registerAreaKeys();
 	parseStream(areaStream);
 	clearRegisteredKeywords();
 	areaStream.close();
 
 	std::ifstream superRegionStream(fs::u8path(superRegionFilename));
-	if (!superRegionStream.is_open()) throw std::runtime_error("Could not open map/superregion.txt!");
+	if (!superRegionStream.is_open())
+		throw std::runtime_error("Could not open map/superregion.txt!");
 	registerSuperRegionKeys();
 	parseStream(superRegionStream);
 	clearRegisteredKeywords();
 	superRegionStream.close();
 
 	std::ifstream regionStream(fs::u8path(regionFilename));
-	if (!regionStream.is_open()) throw std::runtime_error("Could not open map/region.txt!");
+	if (!regionStream.is_open())
+		throw std::runtime_error("Could not open map/region.txt!");
 	registerRegionKeys();
 	parseStream(regionStream);
 	clearRegisteredKeywords();
@@ -86,23 +89,28 @@ void mappers::RegionMapper::registerRegionKeys()
 bool mappers::RegionMapper::provinceIsInRegion(int province, const std::string& regionName) const
 {
 	const auto& regionItr = regions.find(regionName);
-	if (regionItr != regions.end()) return regionItr->second->regionContainsProvince(province);
+	if (regionItr != regions.end())
+		return regionItr->second->regionContainsProvince(province);
 
 	// "Regions" are such a fluid term.
 	const auto& superRegionItr = superRegions.find(regionName);
-	if (superRegionItr != superRegions.end()) return superRegionItr->second->superRegionContainsProvince(province);
+	if (superRegionItr != superRegions.end())
+		return superRegionItr->second->superRegionContainsProvince(province);
 
 	// And sometimes they don't mean what people think they mean at all.
 	const auto& areaItr = areas.find(regionName);
-	if (areaItr != areas.end()) return areaItr->second->areaContainsProvince(province);
+	if (areaItr != areas.end())
+		return areaItr->second->areaContainsProvince(province);
 
 	return false;
 }
 
 std::optional<std::string> mappers::RegionMapper::getParentAreaName(const int provinceID) const
 {
-	for (const auto& area: areas) {
-		if (area.second->areaContainsProvince(provinceID)) return area.first;
+	for (const auto& area: areas)
+	{
+		if (area.second->areaContainsProvince(provinceID))
+			return area.first;
 	}
 	Log(LogLevel::Warning) << "Province ID " << provinceID << " has no parent area name!";
 	return std::nullopt;
@@ -110,8 +118,10 @@ std::optional<std::string> mappers::RegionMapper::getParentAreaName(const int pr
 
 std::optional<std::string> mappers::RegionMapper::getParentRegionName(const int provinceID) const
 {
-	for (const auto& region: regions) {
-		if (region.second->regionContainsProvince(provinceID)) return region.first;
+	for (const auto& region: regions)
+	{
+		if (region.second->regionContainsProvince(provinceID))
+			return region.first;
 	}
 	Log(LogLevel::Warning) << "Province ID " << provinceID << " has no parent region name!";
 	return std::nullopt;
@@ -119,8 +129,10 @@ std::optional<std::string> mappers::RegionMapper::getParentRegionName(const int 
 
 std::optional<std::string> mappers::RegionMapper::getParentSuperRegionName(const int provinceID) const
 {
-	for (const auto& superRegion: superRegions) {
-		if (superRegion.second->superRegionContainsProvince(provinceID)) return superRegion.first;
+	for (const auto& superRegion: superRegions)
+	{
+		if (superRegion.second->superRegionContainsProvince(provinceID))
+			return superRegion.first;
 	}
 	Log(LogLevel::Warning) << "Province ID " << provinceID << " has no parent superregion name!";
 	return std::nullopt;
@@ -129,28 +141,36 @@ std::optional<std::string> mappers::RegionMapper::getParentSuperRegionName(const
 bool mappers::RegionMapper::regionNameIsValid(const std::string& regionName) const
 {
 	const auto& regionItr = regions.find(regionName);
-	if (regionItr != regions.end()) return true;
+	if (regionItr != regions.end())
+		return true;
 
 	// Who knows what the mapper needs. All kinds of stuff.
 	const auto& superRegionItr = superRegions.find(regionName);
-	if (superRegionItr != superRegions.end()) return true;
+	if (superRegionItr != superRegions.end())
+		return true;
 
 	// And more stuff, what's the worst that could happen?
 	const auto& areaItr = areas.find(regionName);
-	if (areaItr != areas.end()) return true;
+	if (areaItr != areas.end())
+		return true;
 
 	return false;
 }
 
 void mappers::RegionMapper::linkSuperRegions()
 {
-	for (const auto& superRegion: superRegions) {
+	for (const auto& superRegion: superRegions)
+	{
 		const auto& srsRegions = superRegion.second->getRegions();
-		for (const auto& requiredRegion: srsRegions) {
+		for (const auto& requiredRegion: srsRegions)
+		{
 			const auto& regionItr = regions.find(requiredRegion.first);
-			if (regionItr != regions.end()) {
+			if (regionItr != regions.end())
+			{
 				superRegion.second->linkRegion(std::pair(regionItr->first, regionItr->second));
-			} else {
+			}
+			else
+			{
 				throw std::runtime_error("Superregion's " + superRegion.first + " region " + requiredRegion.first + " does not exist!");
 			}
 		}
@@ -159,13 +179,18 @@ void mappers::RegionMapper::linkSuperRegions()
 
 void mappers::RegionMapper::linkRegions()
 {
-	for (const auto& region: regions) {
+	for (const auto& region: regions)
+	{
 		const auto& rareas = region.second->getAreas();
-		for (const auto& requiredArea: rareas) {
+		for (const auto& requiredArea: rareas)
+		{
 			const auto& areaItr = areas.find(requiredArea.first);
-			if (areaItr != areas.end()) {
+			if (areaItr != areas.end())
+			{
 				region.second->linkArea(std::pair(areaItr->first, areaItr->second));
-			} else {
+			}
+			else
+			{
 				throw std::runtime_error("Region's " + region.first + " area " + requiredArea.first + " does not exist!");
 			}
 		}
@@ -174,13 +199,18 @@ void mappers::RegionMapper::linkRegions()
 
 void mappers::RegionMapper::linkProvinces(const std::map<int, std::shared_ptr<EU4::Province>>& theProvinces)
 {
-	for (const auto& area: areas) {
+	for (const auto& area: areas)
+	{
 		const auto& rprovinces = area.second->getProvinces();
-		for (const auto& requiredProvince: rprovinces) {
+		for (const auto& requiredProvince: rprovinces)
+		{
 			const auto& provinceItr = theProvinces.find(requiredProvince.first);
-			if (provinceItr != theProvinces.end()) {
+			if (provinceItr != theProvinces.end())
+			{
 				area.second->linkProvince(std::pair(provinceItr->first, provinceItr->second));
-			} else {
+			}
+			else
+			{
 				throw std::runtime_error("Area's " + area.first + " area " + std::to_string(requiredProvince.first) + " does not exist!");
 			}
 		}

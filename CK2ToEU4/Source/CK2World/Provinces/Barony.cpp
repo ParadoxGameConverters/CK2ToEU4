@@ -17,7 +17,8 @@ void CK2::Barony::registerKeys()
 	});
 	registerRegex("(ca|ct|tp|no|tb)_[A-Za-z0-9_-]+", [this](const std::string& building, std::istream& theStream) {
 		const commonItems::singleString buildingStr(theStream);
-		if (buildingStr.getString() == "yes") buildings.insert(building);
+		if (buildingStr.getString() == "yes")
+			buildings.insert(building);
 	});
 	registerRegex("[A-Za-z0-9\\:_.-]+", commonItems::ignoreItem);
 }

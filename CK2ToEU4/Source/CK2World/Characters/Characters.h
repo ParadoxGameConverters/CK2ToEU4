@@ -18,7 +18,9 @@ class Characters: commonItems::parser
   public:
 	Characters() = default;
 	Characters(std::istream& theStream);
+
 	[[nodiscard]] const auto& getCharacters() const { return characters; }
+
 	void linkDynasties(const Dynasties& theDynasties);
 	void linkLiegesAndSpouses();
 	void linkMothersAndFathers();

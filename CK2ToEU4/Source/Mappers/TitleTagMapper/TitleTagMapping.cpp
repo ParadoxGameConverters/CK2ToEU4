@@ -32,18 +32,21 @@ void mappers::TitleTagMapping::registerKeys()
 
 std::optional<std::string> mappers::TitleTagMapping::titleMatch(const std::string& ck2title) const
 {
-	if (ck2Title == ck2title) return eu4Tag;
+	if (ck2Title == ck2title)
+		return eu4Tag;
 	return std::nullopt;
 }
 
 std::optional<std::string> mappers::TitleTagMapping::capitalMatch(int eu4capital) const
 {
-	if (capitals.count(eu4capital)) return eu4Tag;
+	if (capitals.count(eu4capital))
+		return eu4Tag;
 	return std::nullopt;
 }
 
 bool mappers::TitleTagMapping::fallbackMatch() const
 {
-	if (eu4Tag.empty()) return false;
+	if (eu4Tag.empty())
+		return false;
 	return fallback;
 }

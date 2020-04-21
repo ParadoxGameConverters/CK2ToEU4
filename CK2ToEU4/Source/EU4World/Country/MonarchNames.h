@@ -13,7 +13,7 @@ class MonarchNames
 	explicit MonarchNames(std::istream& theStream);
 
 	[[nodiscard]] const auto& getMonarchNames() const { return monarchNames; }
-	
+
   private:
 	std::map<std::string, std::pair<int, int>> monarchNames; // name (without regnal), pair(regnal, chance)
 };

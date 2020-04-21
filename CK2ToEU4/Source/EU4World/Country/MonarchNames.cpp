@@ -8,24 +8,31 @@ EU4::MonarchNames::MonarchNames(std::istream& theStream)
 	// Parser will choke on quoted key so we'll do this manually.
 
 	std::string line;
-	while (std::getline(theStream, line)) {
-		if (line.find('{') != std::string::npos) continue;
-		if (line.find('}') != std::string::npos) return;
-		if (line.length() < 10) continue;
+	while (std::getline(theStream, line))
+	{
+		if (line.find('{') != std::string::npos)
+			continue;
+		if (line.find('}') != std::string::npos)
+			return;
+		if (line.length() < 10)
+			continue;
 
 		std::string name;
 		auto regnal = 0;
 		auto chance = 0;
-		
+
 		auto quoteLoc = line.find_first_of('\"');
 		auto newline = line.substr(quoteLoc + 1, line.length());
 		quoteLoc = newline.find_last_of('\"');
 		auto fullname = newline.substr(0, quoteLoc);
-		if (fullname.find('#') != std::string::npos) {
+		if (fullname.find('#') != std::string::npos)
+		{
 			const auto hashpos = fullname.find('#');
 			name = fullname.substr(0, hashpos - 1);
 			regnal = std::stoi(fullname.substr(hashpos + 1, fullname.length()));
-		} else {
+		}
+		else
+		{
 			name = fullname;
 		}
 
@@ -38,6 +45,6 @@ EU4::MonarchNames::MonarchNames(std::istream& theStream)
 		}
 		chance = std::stoi(newline);
 
-		monarchNames.insert(std::pair(name, std::pair(regnal, chance)));		
+		monarchNames.insert(std::pair(name, std::pair(regnal, chance)));
 	}
 }

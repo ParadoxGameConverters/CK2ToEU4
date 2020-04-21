@@ -1,5 +1,5 @@
-#include "gtest/gtest.h"
 #include "../../CK2ToEU4/Source/Mappers/CultureMapper/CultureMappingRule.h"
+#include "gtest/gtest.h"
 #include <sstream>
 
 TEST(Mappers_CultureMappingTests, eu4CultureDefaultsToBlank)

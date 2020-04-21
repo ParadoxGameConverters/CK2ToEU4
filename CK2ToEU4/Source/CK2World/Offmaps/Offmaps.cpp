@@ -1,7 +1,7 @@
 #include "Offmaps.h"
 #include "Log.h"
-#include "ParserHelpers.h"
 #include "Offmap.h"
+#include "ParserHelpers.h"
 
 CK2::Offmaps::Offmaps(std::istream& theStream)
 {
@@ -12,7 +12,7 @@ CK2::Offmaps::Offmaps(std::istream& theStream)
 
 void CK2::Offmaps::registerKeys()
 {
-	registerRegex("\\d+", [this](const std::string& wonderID, std::istream& theStream) {
+	registerRegex(R"(\d+)", [this](const std::string& wonderID, std::istream& theStream) {
 		auto newOffmap = std::make_shared<Offmap>(theStream);
 		offmaps.insert(std::pair(std::stoi(wonderID), newOffmap));
 	});
@@ -22,6 +22,7 @@ void CK2::Offmaps::registerKeys()
 std::optional<std::pair<int, std::shared_ptr<CK2::Offmap>>> CK2::Offmaps::getChina() const
 {
 	for (const auto& offmap: offmaps)
-		if (offmap.second->getType() == "offmap_china") return offmap;
+		if (offmap.second->getType() == "offmap_china")
+			return offmap;
 	return std::nullopt;
 }

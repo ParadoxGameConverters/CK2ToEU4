@@ -1,6 +1,6 @@
-#include "gtest/gtest.h"
-#include "../../CK2ToEU4/Source/Mappers/RegionMapper/Area.h"
 #include "../../CK2ToEU4/Source/EU4World/Province/EU4Province.h"
+#include "../../CK2ToEU4/Source/Mappers/RegionMapper/Area.h"
+#include "gtest/gtest.h"
 #include <sstream>
 
 TEST(Mappers_AreaTests, blankAreasLoadForNoProvinces)
@@ -56,7 +56,7 @@ TEST(Mappers_AreaTests, provinceCanLinkToEU4Province)
 
 	auto eu4Province = std::make_shared<EU4::Province>();
 
-	ASSERT_FALSE(newArea.getProvinces().find(2)->second);	
+	ASSERT_FALSE(newArea.getProvinces().find(2)->second);
 	newArea.linkProvince(std::pair(2, eu4Province));
 	ASSERT_TRUE(newArea.getProvinces().find(2)->second);
 }

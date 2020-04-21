@@ -18,7 +18,8 @@ std::string trimExtension(const std::string& fileName)
 std::string replaceCharacter(std::string fileName, char character)
 {
 	auto position = fileName.find_first_of(character);
-	while (position != std::string::npos) {
+	while (position != std::string::npos)
+	{
 		fileName.replace(position, 1, "_");
 		position = fileName.find_first_of(character);
 	}
@@ -32,10 +33,12 @@ std::string cardinalToRoman(int number)
 	std::string sym[] = {"I", "IV", "V", "IX", "X", "XL", "L", "XC", "C", "CD", "D", "CM", "M"};
 	int i = 12;
 	std::string toReturn;
-	while (number > 0) {
+	while (number > 0)
+	{
 		int div = number / num[i];
 		number = number % num[i];
-		while (div--) {
+		while (div--)
+		{
 			toReturn += sym[i];
 		}
 		i--;

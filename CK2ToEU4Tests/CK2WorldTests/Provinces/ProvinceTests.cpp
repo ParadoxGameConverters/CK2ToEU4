@@ -1,6 +1,6 @@
-#include "gtest/gtest.h"
-#include "../CK2ToEU4/Source/CK2World/Provinces/Province.h"
 #include "../CK2ToEU4/Source/CK2World/Provinces/Barony.h"
+#include "../CK2ToEU4/Source/CK2World/Provinces/Province.h"
+#include "gtest/gtest.h"
 #include <sstream>
 
 TEST(CK2World_ProvinceTests, IDCanBeSet)
@@ -164,7 +164,7 @@ TEST(CK2World_ProvinceTests, baronyNameCanBeLoaded)
 	const CK2::Province theProvince(input, 42);
 	const auto& baronies = theProvince.getBaronies();
 	const auto& baronyItr = baronies.begin();
-	
+
 	ASSERT_EQ(baronyItr->second->getName(), "b_test-baronY_name3");
 	ASSERT_EQ(baronyItr->second->getName(), baronyItr->first);
 }

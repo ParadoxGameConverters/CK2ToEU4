@@ -20,7 +20,8 @@ mappers::CultureMapper::CultureMapper()
 
 void mappers::CultureMapper::loadRegionMapper(std::shared_ptr<RegionMapper> theRegionMapper)
 {
-	for (auto& rule: cultureMapRules) rule.insertRegionMapper(theRegionMapper);
+	for (auto& rule: cultureMapRules)
+		rule.insertRegionMapper(theRegionMapper);
 }
 
 void mappers::CultureMapper::registerKeys()
@@ -37,9 +38,11 @@ std::optional<std::string> mappers::CultureMapper::cultureMatch(const std::strin
 	 int eu4Province,
 	 const std::string& eu4ownerTag) const
 {
-	for (const auto& cultureMappingRule: cultureMapRules) {
+	for (const auto& cultureMappingRule: cultureMapRules)
+	{
 		const auto& possibleMatch = cultureMappingRule.cultureMatch(ck2culture, eu4religion, eu4Province, eu4ownerTag);
-		if (possibleMatch) return *possibleMatch;
+		if (possibleMatch)
+			return *possibleMatch;
 	}
 	return std::nullopt;
 }
@@ -49,9 +52,11 @@ std::optional<std::string> mappers::CultureMapper::cultureRegionalMatch(const st
 	 int eu4Province,
 	 const std::string& eu4ownerTag) const
 {
-	for (const auto& cultureMappingRule: cultureMapRules) {
+	for (const auto& cultureMappingRule: cultureMapRules)
+	{
 		const auto& possibleMatch = cultureMappingRule.cultureRegionalMatch(ck2culture, eu4religion, eu4Province, eu4ownerTag);
-		if (possibleMatch) return *possibleMatch;
+		if (possibleMatch)
+			return *possibleMatch;
 	}
 	return std::nullopt;
 }
@@ -61,9 +66,11 @@ std::optional<std::string> mappers::CultureMapper::cultureNonRegionalNonReligiou
 	 int eu4Province,
 	 const std::string& eu4ownerTag) const
 {
-	for (const auto& cultureMappingRule: cultureMapRules) {
+	for (const auto& cultureMappingRule: cultureMapRules)
+	{
 		const auto& possibleMatch = cultureMappingRule.cultureNonRegionalNonReligiousMatch(ck2culture, eu4religion, eu4Province, eu4ownerTag);
-		if (possibleMatch) return *possibleMatch;
+		if (possibleMatch)
+			return *possibleMatch;
 	}
 	return std::nullopt;
 }
@@ -71,13 +78,15 @@ std::optional<std::string> mappers::CultureMapper::cultureNonRegionalNonReligiou
 std::optional<std::string> mappers::CultureMapper::getTechGroup(const std::string& incEU4Culture) const
 {
 	for (const auto& mapping: cultureMapRules)
-		if (mapping.getTechGroup(incEU4Culture)) return mapping.getTechGroup(incEU4Culture);
+		if (mapping.getTechGroup(incEU4Culture))
+			return mapping.getTechGroup(incEU4Culture);
 	return std::nullopt;
 }
 
 std::optional<std::string> mappers::CultureMapper::getGFX(const std::string& incEU4Culture) const
 {
 	for (const auto& mapping: cultureMapRules)
-		if (mapping.getGFX(incEU4Culture)) return mapping.getGFX(incEU4Culture);
+		if (mapping.getGFX(incEU4Culture))
+			return mapping.getGFX(incEU4Culture);
 	return std::nullopt;
 }

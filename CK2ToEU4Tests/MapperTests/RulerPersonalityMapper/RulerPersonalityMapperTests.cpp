@@ -1,5 +1,5 @@
-#include "../../CK2ToEU4/Source/Mappers/RulerPersonalitiesMapper/RulerPersonalitiesMapper.h"
 #include "../../CK2ToEU4/Source/CK2World/Characters/Character.h"
+#include "../../CK2ToEU4/Source/Mappers/RulerPersonalitiesMapper/RulerPersonalitiesMapper.h"
 #include "gtest/gtest.h"
 #include <sstream>
 
@@ -38,7 +38,7 @@ TEST(Mappers_RulerPersonalitiesMapperTests, evaluationReturnsAlphabeticallyLastT
 	auto charPair = std::pair(1, newCharacter);
 
 	auto returned = mapper.evaluatePersonalities(charPair);
-	
+
 	ASSERT_FALSE(returned.empty());
 	ASSERT_EQ(returned.count("z-personality"), 1);
 	ASSERT_EQ(returned.count("p-personality3"), 1);

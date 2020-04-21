@@ -1,6 +1,6 @@
 #include "Mod.h"
-#include "ParserHelpers.h"
 #include "Log.h"
+#include "ParserHelpers.h"
 
 CK2::Mod::Mod(std::istream& theStream)
 {
@@ -17,15 +17,23 @@ CK2::Mod::Mod(std::istream& theStream)
 	parseStream(theStream);
 	clearRegisteredKeywords();
 
-	if (!path.empty()) {
+	if (!path.empty())
+	{
 		const auto lastDot = path.find_last_of('.');
-		if (lastDot != std::string::npos) {
+		if (lastDot != std::string::npos)
+		{
 			const auto ending = path.substr(lastDot + 1, path.size());
 			compressed = ending == "zip" || ending == "bin";
 		}
 		auto lastSlash = path.find_last_of('/');
-		if (lastSlash != std::string::npos) { path = path.substr(lastSlash + 1, path.length()); }
+		if (lastSlash != std::string::npos)
+		{
+			path = path.substr(lastSlash + 1, path.length());
+		}
 		lastSlash = path.find_last_of('\\');
-		if (lastSlash != std::string::npos) { path = path.substr(lastSlash + 1, path.length()); }
+		if (lastSlash != std::string::npos)
+		{
+			path = path.substr(lastSlash + 1, path.length());
+		}
 	}
 }

@@ -1,5 +1,5 @@
-#include "gtest/gtest.h"
 #include "../../CK2ToEU4/Source/Mappers/GovernmentsMapper/GovernmentsMapper.h"
+#include "gtest/gtest.h"
 #include <sstream>
 
 TEST(Mappers_GovernmentsMapperTests, nonMatchGivesEmptyOptional)
@@ -20,7 +20,7 @@ TEST(Mappers_GovernmentsMapperTests, eu4GovernmentCanBeFound)
 
 	const mappers::GovernmentsMapper theMapper(input);
 	auto match = theMapper.matchGovernment("ck2Government", "ck2title");
-	
+
 	ASSERT_EQ(match->first, "eu4Government");
 }
 

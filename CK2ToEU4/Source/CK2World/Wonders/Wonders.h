@@ -9,7 +9,7 @@ class Wonders: commonItems::parser
 {
   public:
 	Wonders() = default;
-	Wonders(std::istream& theStream);
+	explicit Wonders(std::istream& theStream);
 
 	[[nodiscard]] const auto& getWonders() const { return wonders; }
 

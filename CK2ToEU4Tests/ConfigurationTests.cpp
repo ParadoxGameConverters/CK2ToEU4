@@ -1,5 +1,5 @@
-#include "gtest/gtest.h"
 #include "../CK2ToEU4/Source/Configuration/Configuration.h"
+#include "gtest/gtest.h"
 #include <sstream>
 
 TEST(CK2ToEU4_ConfigurationTests, EU4PathDefaultsBlank)
@@ -138,4 +138,3 @@ TEST(CK2ToEU4_ConfigurationTests, OutputNameCanBeSet)
 
 	ASSERT_EQ(testConfiguration.getOutputName(), "override");
 }
-

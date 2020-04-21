@@ -8,7 +8,7 @@ class CoatOfArms: commonItems::parser
 {
   public:
 	CoatOfArms() = default;
-	CoatOfArms(std::istream& theStream);
+	explicit CoatOfArms(std::istream& theStream);
 
 	[[nodiscard]] const auto& getReligion() const { return religion; }
 

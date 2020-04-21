@@ -54,17 +54,20 @@ class Country
 	[[nodiscard]] const auto& getGFX() const { return details.graphicalCulture; }
 	[[nodiscard]] const auto& getProvinces() const { return provinces; }
 	[[nodiscard]] const auto& getTitle() const { return title; }
-	[[nodiscard]] auto isHREEmperor() const { return details.holyRomanEmperor; }
-	[[nodiscard]] auto isinHRE() const { return details.inHRE; }
-	[[nodiscard]] int getDevelopment() const;
-	[[nodiscard]] int getCapitalID() const { return details.capital; }
-	[[nodiscard]] int getDynastyID() const { return details.dynastyID; }
 	[[nodiscard]] const auto& getGovernment() const { return details.government; }
 	[[nodiscard]] const auto& getGovernmentReforms() const { return details.reforms; }
 	[[nodiscard]] const auto& getTag() const { return tag; }
 	[[nodiscard]] const auto& getAdvisers() const { return details.advisers; }
 	[[nodiscard]] auto getConversionDate() const { return conversionDate; }
 	[[nodiscard]] auto isExcommunicated() const { return details.excommunicated; }
+	[[nodiscard]] auto isHREEmperor() const { return details.holyRomanEmperor; }
+	[[nodiscard]] auto isinHRE() const { return details.inHRE; }
+	[[nodiscard]] auto getCapitalID() const { return details.capital; }
+	[[nodiscard]] auto getDynastyID() const { return details.dynastyID; }
+
+	[[nodiscard]] int getDevelopment() const;
+
+	bool verifyCapital(const mappers::ProvinceMapper& provinceMapper);
 
 	void registerProvince(std::pair<int, std::shared_ptr<Province>> theProvince) { provinces.insert(std::move(theProvince)); }
 	void setPrimaryCulture(const std::string& culture);
@@ -76,7 +79,6 @@ class Country
 	void setGFX(const std::string& gfx) { details.graphicalCulture = gfx; }
 	void clearProvinces() { provinces.clear(); }
 	void annexCountry(const std::pair<std::string, std::shared_ptr<Country>>& theCountry);
-	bool verifyCapital(const mappers::ProvinceMapper& provinceMapper);
 	void setMonarch(const Character& monarch) { details.monarch = monarch; }
 	void clearHistoryLessons() { details.historyLessons.clear(); }
 	void setConversionDate(date theDate) { conversionDate = theDate; }
@@ -88,12 +90,12 @@ class Country
 	std::string tag;
 	std::string commonCountryFile;
 	std::string historyCountryFile;
+	date conversionDate; // for dating the monarchs in history file.
+	CountryDetails details;
+
 	std::pair<std::string, std::shared_ptr<CK2::Title>> title;
 	std::map<std::string, mappers::LocBlock> localizations;
-
-	CountryDetails details;
 	std::map<int, std::shared_ptr<Province>> provinces;
-	date conversionDate; // for dating the monarchs in history file.
 };
 } // namespace EU4
 

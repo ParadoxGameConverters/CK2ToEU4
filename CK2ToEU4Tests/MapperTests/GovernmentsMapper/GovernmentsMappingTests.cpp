@@ -1,5 +1,5 @@
-#include "gtest/gtest.h"
 #include "../../CK2ToEU4/Source/Mappers/GovernmentsMapper/GovernmentsMapping.h"
+#include "gtest/gtest.h"
 #include <sstream>
 
 
@@ -13,7 +13,6 @@ TEST(Mappers_GovernmentsMappingTests, eu4GovernmentDefaultsToBlank)
 	ASSERT_TRUE(theMapping.getGovernment().empty());
 }
 
-
 TEST(Mappers_GovernmentsMappingTests, eu4GovernmentCanBeSet)
 {
 	std::stringstream input;
@@ -24,7 +23,6 @@ TEST(Mappers_GovernmentsMappingTests, eu4GovernmentCanBeSet)
 	ASSERT_EQ(theMapping.getGovernment(), "eu4Government");
 }
 
-
 TEST(Mappers_GovernmentsMappingTests, ck2GovernmentsDefaultToEmpty)
 {
 	std::stringstream input;
@@ -34,7 +32,6 @@ TEST(Mappers_GovernmentsMappingTests, ck2GovernmentsDefaultToEmpty)
 
 	ASSERT_TRUE(theMapping.getCK2Governments().empty());
 }
-
 
 TEST(Mappers_GovernmentsMappingTests, ck2GovernmentsCanBeSet)
 {
@@ -48,7 +45,6 @@ TEST(Mappers_GovernmentsMappingTests, ck2GovernmentsCanBeSet)
 	ASSERT_EQ(*theMapping.getCK2Governments().find("religion2"), "religion2");
 }
 
-
 TEST(Mappers_GovernmentsMappingTests, ck2titleDefaultToEmpty)
 {
 	std::stringstream input;
@@ -58,7 +54,6 @@ TEST(Mappers_GovernmentsMappingTests, ck2titleDefaultToEmpty)
 
 	ASSERT_TRUE(theMapping.getCK2Title().empty());
 }
-
 
 TEST(Mappers_GovernmentsMappingTests, ck2TitleCanBeSet)
 {
@@ -79,7 +74,6 @@ TEST(Mappers_GovernmentsMappingTests, reformDefaultToEmpty)
 
 	ASSERT_TRUE(theMapping.getReform().empty());
 }
-
 
 TEST(Mappers_GovernmentsMappingTests, reformCanBeSet)
 {
