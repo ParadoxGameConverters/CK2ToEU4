@@ -9,7 +9,7 @@ class IAmHreMapper: commonItems::parser
 {
   public:
 	IAmHreMapper();
-	IAmHreMapper(std::istream& theStream);
+	explicit IAmHreMapper(std::istream& theStream);
 
 	[[nodiscard]] const auto& getHRE() const { return hre; }
 

@@ -1,7 +1,7 @@
-#include "gtest/gtest.h"
-#include <sstream>
 #include "../../CK2ToEU4/Source/CK2World/Dynasties/Dynasties.h"
 #include "../../CK2ToEU4/Source/CK2World/Dynasties/Dynasty.h"
+#include "gtest/gtest.h"
+#include <sstream>
 
 TEST(CK2World_DynastiesTests, DynastiesDefaultToEmpty)
 {
@@ -33,4 +33,3 @@ TEST(CK2World_DynastiesTests, dynastiesCanBeLoaded)
 	ASSERT_EQ(characterItr2->first, 43);
 	ASSERT_EQ(characterItr2->second->getID(), 43);
 }
-

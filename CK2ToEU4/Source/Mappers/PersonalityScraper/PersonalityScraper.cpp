@@ -11,8 +11,10 @@ void mappers::PersonalityScraper::scrapePersonalities(const Configuration& theCo
 	registerKeys();
 	std::set<std::string> fileNames;
 	Utils::GetAllFilesInFolder(theConfiguration.getCK2Path() + "/common/traits/", fileNames);
-	for (const auto& fileName: fileNames) {
-		if (fileName.find("txt") == std::string::npos) continue;
+	for (const auto& fileName: fileNames)
+	{
+		if (fileName.find("txt") == std::string::npos)
+			continue;
 		parseFile(theConfiguration.getCK2Path() + "/common/traits/" + fileName);
 	}
 	clearRegisteredKeywords();
@@ -40,6 +42,7 @@ void mappers::PersonalityScraper::registerKeys()
 std::optional<std::string> mappers::PersonalityScraper::getPersonalityForID(int ID) const
 {
 	const auto& personItr = personalities.find(ID);
-	if (personItr != personalities.end()) return personItr->second;
+	if (personItr != personalities.end())
+		return personItr->second;
 	return std::nullopt;
 }

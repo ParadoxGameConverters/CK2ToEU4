@@ -10,10 +10,29 @@ class ConfigurationDetails: commonItems::parser
 	ConfigurationDetails() = default;
 	explicit ConfigurationDetails(std::istream& theStream);
 
-	enum class I_AM_HRE { HRE = 1, BYZANTIUM = 2, ROME = 3, CUSTOM = 4, NONE = 5 };
-	enum class SHATTER_EMPIRES { NONE = 1, ALL = 2 };
-	enum class SHATTER_LEVEL { DUTCHY = 1, KINGDOM = 2 };
-	enum class SIBERIA { CLEAR_SIBERIA = 1, LEAVE_SIBERIA = 2 };
+	enum class I_AM_HRE
+	{
+		HRE = 1,
+		BYZANTIUM = 2,
+		ROME = 3,
+		CUSTOM = 4,
+		NONE = 5
+	};
+	enum class SHATTER_EMPIRES
+	{
+		NONE = 1,
+		ALL = 2
+	};
+	enum class SHATTER_LEVEL
+	{
+		DUTCHY = 1,
+		KINGDOM = 2
+	};
+	enum class SIBERIA
+	{
+		CLEAR_SIBERIA = 1,
+		LEAVE_SIBERIA = 2
+	};
 
 	std::string SaveGamePath;
 	std::string CK2Path;

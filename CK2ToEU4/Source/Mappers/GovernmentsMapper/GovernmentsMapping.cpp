@@ -32,8 +32,11 @@ void mappers::GovernmentsMapping::registerKeys()
 
 bool mappers::GovernmentsMapping::matchGovernment(const std::string& ck2Government, const std::string& incTitle) const
 {
-	if (!ck2title.empty() && ck2title != incTitle) return false; // these are reserved for their recipients only.
-	if (!ck2title.empty() && ck2title == incTitle) return true;
-	if (ck2governments.count(ck2Government)) return true;
+	if (!ck2title.empty() && ck2title != incTitle)
+		return false; // these are reserved for their recipients only.
+	if (!ck2title.empty() && ck2title == incTitle)
+		return true;
+	if (ck2governments.count(ck2Government))
+		return true;
 	return false;
 }

@@ -34,9 +34,12 @@ void CK2::Dynasties::loadDynasties(std::istream& theStream)
 void CK2::Dynasties::registerKeys()
 {
 	registerRegex("\\d+", [this](const std::string& theDynID, std::istream& theStream) {
-		if (dynasties.count(std::stoi(theDynID))) {
+		if (dynasties.count(std::stoi(theDynID)))
+		{
 			dynasties[std::stoi(theDynID)]->updateDynasty(theStream);
-		} else {
+		}
+		else
+		{
 			auto newDynasty = std::make_shared<Dynasty>(theStream, std::stoi(theDynID));
 			dynasties.insert(std::pair(newDynasty->getID(), newDynasty));
 		}
@@ -47,9 +50,12 @@ void CK2::Dynasties::registerKeys()
 void CK2::Dynasties::registerUnderKeys()
 {
 	registerRegex("\\d+", [this](const std::string& theDynID, std::istream& theStream) {
-		if (dynasties.count(std::stoi(theDynID))) {
+		if (dynasties.count(std::stoi(theDynID)))
+		{
 			dynasties[std::stoi(theDynID)]->underUpdateDynasty(theStream);
-		} else {
+		}
+		else
+		{
 			auto newDynasty = std::make_shared<Dynasty>(theStream, std::stoi(theDynID));
 			dynasties.insert(std::pair(newDynasty->getID(), newDynasty));
 		}

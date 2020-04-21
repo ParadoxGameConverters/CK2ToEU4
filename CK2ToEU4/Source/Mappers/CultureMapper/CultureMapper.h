@@ -32,8 +32,8 @@ class CultureMapper: commonItems::parser
 		 int eu4Province,
 		 const std::string& eu4ownerTag) const;
 
-		[[nodiscard]] std::optional<std::string> getTechGroup(const std::string& incEU4Culture) const;
-		[[nodiscard]] std::optional<std::string> getGFX(const std::string& incEU4Culture) const;
+	[[nodiscard]] std::optional<std::string> getTechGroup(const std::string& incEU4Culture) const;
+	[[nodiscard]] std::optional<std::string> getGFX(const std::string& incEU4Culture) const;
 
   private:
 	void registerKeys();

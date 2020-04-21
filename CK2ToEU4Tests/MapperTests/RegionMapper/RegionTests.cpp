@@ -1,6 +1,6 @@
-#include "gtest/gtest.h"
-#include "../../CK2ToEU4/Source/Mappers/RegionMapper/Region.h"
 #include "../../CK2ToEU4/Source/Mappers/RegionMapper/Area.h"
+#include "../../CK2ToEU4/Source/Mappers/RegionMapper/Region.h"
+#include "gtest/gtest.h"
 #include <sstream>
 
 TEST(Mappers_RegionTests, blankRegionLoadsWithNoAreas)

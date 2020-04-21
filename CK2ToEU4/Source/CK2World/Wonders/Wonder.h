@@ -8,7 +8,7 @@ class Wonder: commonItems::parser
 {
   public:
 	Wonder() = default;
-	Wonder(std::istream& theStream);
+	explicit Wonder(std::istream& theStream);
 
 	[[nodiscard]] const auto& getName() const { return name; }
 	[[nodiscard]] const auto& getType() const { return type; }
@@ -19,16 +19,16 @@ class Wonder: commonItems::parser
 	[[nodiscard]] auto isSpent() const { return spent; }
 
 	void setSpent() { spent = true; }
-	
+
   private:
 	void registerKeys();
 
-	std::string type;
 	int stage = 0;
-	std::string name;
 	int provinceID = 0;
 	bool active = false;
 	bool spent = false;
+	std::string type;
+	std::string name;
 };
 } // namespace CK2
 

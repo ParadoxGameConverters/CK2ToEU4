@@ -22,8 +22,9 @@ int mappers::RulerPersonalitiesMapping::evaluatePersonality(const std::set<std::
 	// In CK2 they are traits. In EU4 they are personalities.
 
 	auto score = 0;
-	for (const auto& trait: traits) 
-		if (ck2Traits.count(trait.first)) score += trait.second;
-	
+	for (const auto& trait: traits)
+		if (ck2Traits.count(trait.first))
+			score += trait.second;
+
 	return score;
 }

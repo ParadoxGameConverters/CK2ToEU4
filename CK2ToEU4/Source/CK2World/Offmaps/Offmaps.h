@@ -9,7 +9,7 @@ class Offmaps: commonItems::parser
 {
   public:
 	Offmaps() = default;
-	Offmaps(std::istream& theStream);
+	explicit Offmaps(std::istream& theStream);
 
 	[[nodiscard]] const auto& getOffmaps() const { return offmaps; }
 	[[nodiscard]] std::optional<std::pair<int, std::shared_ptr<Offmap>>> getChina() const;

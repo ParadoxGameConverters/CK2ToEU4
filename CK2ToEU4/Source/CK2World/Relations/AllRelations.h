@@ -9,7 +9,7 @@ class Diplomacy: commonItems::parser
 {
   public:
 	Diplomacy() = default;
-	Diplomacy(std::istream& theStream);
+	explicit Diplomacy(std::istream& theStream);
 
 	[[nodiscard]] const auto& getDiplomacy() const { return diplomacy; }
 

@@ -1,7 +1,7 @@
-#include "gtest/gtest.h"
-#include "../../CK2ToEU4/Source/Mappers/RegionMapper/SuperRegion.h"
-#include "../../CK2ToEU4/Source/Mappers/RegionMapper/Region.h"
 #include "../../CK2ToEU4/Source/Mappers/RegionMapper/Area.h"
+#include "../../CK2ToEU4/Source/Mappers/RegionMapper/Region.h"
+#include "../../CK2ToEU4/Source/Mappers/RegionMapper/SuperRegion.h"
+#include "gtest/gtest.h"
 #include <sstream>
 
 TEST(Mappers_SuperRegionTests, blankSuperRegionLoadsWithNoRegions)
@@ -14,7 +14,7 @@ TEST(Mappers_SuperRegionTests, blankSuperRegionLoadsWithNoRegions)
 
 TEST(Mappers_SuperRegionTests, RegionsCanBeLoaded)
 {
-	const std::vector<std::string> input = { "region1", "region2"};
+	const std::vector<std::string> input = {"region1", "region2"};
 	const mappers::SuperRegion superRegion(input);
 
 	ASSERT_FALSE(superRegion.getRegions().empty());
@@ -27,7 +27,7 @@ TEST(Mappers_SuperRegionTests, superRegionCanBeLinkedToRegion)
 	input << "areas = { test_area area2 area3 } \n";
 	auto theRegion = std::make_shared<mappers::Region>(input);
 
-	const std::vector<std::string> input2 = { "region1" };
+	const std::vector<std::string> input2 = {"region1"};
 	mappers::SuperRegion superRegion(input2);
 
 	ASSERT_FALSE(superRegion.getRegions().find("region1")->second);
@@ -46,7 +46,7 @@ TEST(Mappers_SuperRegionTests, LinkedRegionCanLocateProvince)
 	auto theRegion = std::make_shared<mappers::Region>(input);
 	theRegion->linkArea(std::pair("area2", area2));
 
-	const std::vector<std::string> input3 = { "region1" };
+	const std::vector<std::string> input3 = {"region1"};
 	mappers::SuperRegion superRegion(input3);
 	superRegion.linkRegion(std::pair("region1", theRegion));
 

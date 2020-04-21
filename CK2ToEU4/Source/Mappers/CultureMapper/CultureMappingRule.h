@@ -44,13 +44,13 @@ class CultureMappingRule: commonItems::parser
 
   private:
 	std::string destinationCulture;
+	std::string techGroup;
+	std::string gfx;
 	std::set<std::string> cultures;
 	std::set<std::string> religions;
 	std::set<std::string> regions;
 	std::set<std::string> owners;
 	std::set<int> provinces;
-	std::string techGroup;
-	std::string gfx;
 
 	std::shared_ptr<RegionMapper> regionMapper;
 };

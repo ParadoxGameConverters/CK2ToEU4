@@ -22,11 +22,14 @@ std::optional<std::map<std::string, double>> CK2::Vars::getChineseReligions() co
 	std::map<std::string, double> toReturn;
 	for (const auto& var: vars)
 	{
-		if (var.first.find("global_chinese_") != 0) continue;
-		if (var.first.length() < 17) continue;
+		if (var.first.find("global_chinese_") != 0)
+			continue;
+		if (var.first.length() < 17)
+			continue;
 		const auto subVar = var.first.substr(15, var.first.length() - 16);
-		toReturn.insert(std::pair(subVar, var.second));				
+		toReturn.insert(std::pair(subVar, var.second));
 	}
-	if (!toReturn.empty()) return toReturn;
+	if (!toReturn.empty())
+		return toReturn;
 	return std::nullopt;
 }

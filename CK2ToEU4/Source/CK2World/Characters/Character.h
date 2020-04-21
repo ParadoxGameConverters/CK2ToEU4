@@ -13,7 +13,8 @@ class Barony;
 class Dynasty;
 class Province;
 
-typedef struct {
+typedef struct
+{
 	int diplomacy = 0;
 	int martial = 0;
 	int stewardship = 0;
@@ -41,14 +42,6 @@ class Character: commonItems::parser
 	[[nodiscard]] const auto& getCapital() const { return capital; }
 	[[nodiscard]] const auto& getCapitalProvince() const { return capitalProvince; }
 	[[nodiscard]] const auto& getGovernment() const { return government; }
-	[[nodiscard]] auto getPrestige() const { return prestige; }
-	[[nodiscard]] auto isFemale() const { return female; }
-	[[nodiscard]] auto getPiety() const { return piety; }
-	[[nodiscard]] auto getWealth() const { return wealth; }
-	[[nodiscard]] auto hasLoan() const { return loan; }
-
-	[[nodiscard]] auto getID() const { return charID; }
-	[[nodiscard]] auto getHost() const { return host; }
 	[[nodiscard]] const auto& getLiege() const { return liege; }
 	[[nodiscard]] const auto& getMother() const { return mother; }
 	[[nodiscard]] const auto& getFather() const { return father; }
@@ -57,9 +50,18 @@ class Character: commonItems::parser
 	[[nodiscard]] const auto& getTraits() const { return traits; }
 	[[nodiscard]] const auto& getJob() const { return job; }
 	[[nodiscard]] const auto& getAdvisers() const { return advisers; }
+
+	[[nodiscard]] auto getPrestige() const { return prestige; }
+	[[nodiscard]] auto isFemale() const { return female; }
+	[[nodiscard]] auto getPiety() const { return piety; }
+	[[nodiscard]] auto getWealth() const { return wealth; }
+	[[nodiscard]] auto hasLoan() const { return loan; }
+	[[nodiscard]] auto getID() const { return charID; }
+	[[nodiscard]] auto getHost() const { return host; }
 	[[nodiscard]] auto isSpent() const { return spent; }
-	[[nodiscard]] bool isExcommunicated() const;
 	
+	[[nodiscard]] bool isExcommunicated() const;
+
 	void setDynasty(std::shared_ptr<Dynasty> theDynasty) { dynasty.second = std::move(theDynasty); }
 	void setCourtierNames(const std::map<std::string, bool>& theNames) { courtierNames = theNames; }
 	void setSpouses(const std::map<int, std::shared_ptr<Character>>& newSpouses) { spouses = newSpouses; }
@@ -69,46 +71,46 @@ class Character: commonItems::parser
 	void setCapitalBarony(std::shared_ptr<Barony> theCapitalBarony) { capital.second = std::move(theCapitalBarony); }
 	void insertCapitalProvince(const std::pair<int, std::shared_ptr<Province>>& theProvince) { capitalProvince = theProvince; }
 	void setTraits(const std::map<int, std::string>& theTraits) { traits = theTraits; }
-
 	void setMother(const std::pair<int, std::shared_ptr<Character>>& theMother) { mother = theMother; }
 	void setHeir(const std::pair<int, std::shared_ptr<Character>>& theHeir) { heir = theHeir; }
 	void setFather(const std::pair<int, std::shared_ptr<Character>>& theFather) { father = theFather; }
 	void registerChild(const std::pair<int, std::shared_ptr<Character>>& theChild) { children.insert(theChild); }
 	void addYears(const int years) { birthDate.subtractYears(years); }
 	void setSpent() { spent = true; }
-	
+
   private:
 	void registerKeys();
 
 	int charID = 0;
+	int host = 0; // a simple ID of the host Character, no link required.
+	bool female = false;
+	bool spent = false; // if adviser, is already spent?
+	bool loan = false;  // borrowed_from_jews
+	double piety = 0;
+	double prestige = 0;
+	double wealth = 0;
 	std::string culture;
 	std::string religion;
 	std::string name;
+	std::string government;
+	std::string job;
+	Skills skills;
+	date birthDate = date("1.1.1");
+	date deathDate = date("1.1.1");
+
 	std::pair<int, std::shared_ptr<Dynasty>> dynasty;
 	std::pair<int, std::shared_ptr<Character>> liege;
 	std::pair<int, std::shared_ptr<Character>> mother;
 	std::pair<int, std::shared_ptr<Character>> father;
 	std::map<int, std::shared_ptr<Character>> children;
 	std::pair<int, std::shared_ptr<Character>> heir;
-	Skills skills;
-	date birthDate = date("1.1.1");
-	date deathDate = date("1.1.1");
 	std::map<int, std::shared_ptr<Character>> spouses;
 	std::pair<std::string, std::shared_ptr<Liege>> primaryTitle;
 	std::pair<std::string, std::shared_ptr<Barony>> capital;
 	std::pair<int, std::shared_ptr<Province>> capitalProvince;
-	std::string government;
-	bool female = false;
-	double piety = 0;
-	double prestige = 0;
 	std::map<std::string, bool> courtierNames; // A simple list of people's names and genders. True=male.
-	int host = 0; // a simple ID of the host Character, no link required.
 	std::map<int, std::string> traits;
-	std::string job;
 	std::map<int, std::shared_ptr<Character>> advisers;
-	bool spent = false; // if adviser, is already spent?
-	double wealth = 0;
-	bool loan = false;  // borrowed_from_jews
 };
 } // namespace CK2
 

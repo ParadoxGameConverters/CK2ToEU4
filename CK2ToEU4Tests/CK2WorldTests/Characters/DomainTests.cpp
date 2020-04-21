@@ -1,5 +1,5 @@
-#include "gtest/gtest.h"
 #include "../CK2ToEU4/Source/CK2World/Characters/Domain.h"
+#include "gtest/gtest.h"
 #include <sstream>
 
 TEST(CK2World_DomainTests, capitalDefaultsToBlank)

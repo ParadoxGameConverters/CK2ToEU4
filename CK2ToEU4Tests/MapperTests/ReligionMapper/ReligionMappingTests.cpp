@@ -1,5 +1,5 @@
-#include "gtest/gtest.h"
 #include "../../CK2ToEU4/Source/Mappers/ReligionMapper/ReligionMapping.h"
+#include "gtest/gtest.h"
 #include <sstream>
 
 

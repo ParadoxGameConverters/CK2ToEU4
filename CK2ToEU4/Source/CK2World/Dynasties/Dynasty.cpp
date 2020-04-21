@@ -47,22 +47,27 @@ void CK2::Dynasty::registerUnderKeys()
 {
 	registerKeyword("name", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleString nameStr(theStream);
-		if (name.empty()) name = nameStr.getString();
+		if (name.empty())
+			name = nameStr.getString();
 	});
 	registerKeyword("culture", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleString cultureStr(theStream);
-		if (culture.empty()) culture = cultureStr.getString();
+		if (culture.empty())
+			culture = cultureStr.getString();
 	});
 	registerKeyword("religion", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleString religionStr(theStream);
-		if (religion.empty()) religion = religionStr.getString();
+		if (religion.empty())
+			religion = religionStr.getString();
 	});
 	registerRegex("[A-Za-z0-9\\:_.-]+", commonItems::ignoreItem);
 }
 
 const std::string& CK2::Dynasty::getReligion() const
 {
-	if (!religion.empty()) return religion;
-	if (!coa.getReligion().empty()) return coa.getReligion();
+	if (!religion.empty())
+		return religion;
+	if (!coa.getReligion().empty())
+		return coa.getReligion();
 	return religion;
 }

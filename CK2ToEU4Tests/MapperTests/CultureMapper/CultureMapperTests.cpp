@@ -89,10 +89,13 @@ TEST(Mappers_CultureMapperTests, cultureMapperThrowsExceptionWithoutRegionMapper
 	std::stringstream input;
 	input << "link = { eu4 = culture ck2 = qwe ck2 = test ck2 = poi religion = thereligion province = 4 owner = TAG region = atlantis }";
 	const mappers::CultureMapper culMapper(input);
-	try {
+	try
+	{
 		auto attempt = culMapper.cultureMatch("test", "", 4, "");
 		FAIL();
-	} catch (const std::runtime_error& e) {
+	}
+	catch (const std::runtime_error& e)
+	{
 		ASSERT_STREQ("Culture Mapper: Region Mapper is unloaded!", e.what());
 	}
 }

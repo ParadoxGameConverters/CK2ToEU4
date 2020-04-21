@@ -10,7 +10,7 @@ class Domain: commonItems::parser
 {
   public:
 	Domain() = default;
-	Domain(std::istream& theStream);
+	explicit Domain(std::istream& theStream);
 
 	[[nodiscard]] const auto& getCapital() const { return capital; }
 	[[nodiscard]] const auto& getPrimaryTitle() const { return primaryTitle; }

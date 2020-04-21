@@ -1,5 +1,5 @@
-#include "gtest/gtest.h"
 #include "../../CK2ToEU4/Source/Mappers/RegionMapper/RegionMapper.h"
+#include "gtest/gtest.h"
 #include <sstream>
 
 // This is a collective mapper test for Area, Region, SuperRegion and RegionMapper
@@ -30,10 +30,13 @@ TEST(Mappers_RegionMapperTests, loadingBrokenAreaWillThrowException)
 	regionStream << "test_region = { areas = { test_area } }";
 	std::stringstream superRegionStream;
 	superRegionStream << "test_superregion = { test_region }";
-	try {
+	try
+	{
 		theMapper.loadRegions(areaStream, regionStream, superRegionStream);
 		FAIL();
-	} catch (const std::runtime_error& e) {
+	}
+	catch (const std::runtime_error& e)
+	{
 		ASSERT_STREQ("Region's test_region area test_area does not exist!", e.what());
 	}
 }
@@ -47,10 +50,13 @@ TEST(Mappers_RegionMapperTests, loadingBrokenRegionWillThrowException)
 	regionStream << "broken_region = { areas = { test_area } }";
 	std::stringstream superRegionStream;
 	superRegionStream << "test_superregion = { test_region }";
-	try {
+	try
+	{
 		theMapper.loadRegions(areaStream, regionStream, superRegionStream);
 		FAIL();
-	} catch (const std::runtime_error& e) {
+	}
+	catch (const std::runtime_error& e)
+	{
 		ASSERT_STREQ("Superregion's test_superregion region test_region does not exist!", e.what());
 	}
 }
@@ -65,7 +71,7 @@ TEST(Mappers_RegionMapperTests, locationServicesWork)
 	std::stringstream superRegionStream;
 	superRegionStream << "test_superregion = { test_region }";
 	theMapper.loadRegions(areaStream, regionStream, superRegionStream);
-	
+
 	ASSERT_TRUE(theMapper.provinceIsInRegion(3, "test_area"));
 	ASSERT_TRUE(theMapper.provinceIsInRegion(2, "test_region"));
 	ASSERT_TRUE(theMapper.provinceIsInRegion(1, "test_superregion"));

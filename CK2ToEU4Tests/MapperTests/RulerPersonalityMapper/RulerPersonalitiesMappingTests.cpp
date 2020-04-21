@@ -1,5 +1,5 @@
-#include "gtest/gtest.h"
 #include "../../CK2ToEU4/Source/Mappers/RulerPersonalitiesMapper/RulerPersonalitiesMapping.h"
+#include "gtest/gtest.h"
 #include <sstream>
 
 TEST(Mappers_RulerPersonalitiesMappingTests, traitsDefaultToBlank)
@@ -32,7 +32,7 @@ TEST(Mappers_RulerPersonalitiesMappingTests, incomingTraitsScoreZeroForNoLoadedT
 	const mappers::RulerPersonalitiesMapping theMapping(input);
 
 	const std::set<std::string> incomingTraits = {"trait1", "trait2", "trait3"};
-	
+
 	ASSERT_EQ(theMapping.evaluatePersonality(incomingTraits), 0);
 }
 

@@ -1,13 +1,14 @@
 #ifndef CK2_DYNASTY_H
 #define CK2_DYNASTY_H
-#include "newParser.h"
 #include "CoatOfArms.h"
+#include "newParser.h"
 
 namespace CK2
 {
 class Dynasty: commonItems::parser
 {
   public:
+	Dynasty() = default;
 	Dynasty(std::istream& theStream, int theDynID);
 
 	void updateDynasty(std::istream& theStream);

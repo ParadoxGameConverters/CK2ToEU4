@@ -20,8 +20,8 @@ class PersonalityScraper: commonItems::parser
   private:
 	void registerKeys();
 
-	std::map<int, std::string> personalities;
 	int counter = 1; // Yes, 1.
+	std::map<int, std::string> personalities;
 };
 } // namespace mappers
 

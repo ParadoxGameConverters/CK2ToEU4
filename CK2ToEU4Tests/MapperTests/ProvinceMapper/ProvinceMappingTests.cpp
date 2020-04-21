@@ -1,5 +1,5 @@
-#include "gtest/gtest.h"
 #include "../CK2ToEU4/Source/Mappers/ProvinceMapper/ProvinceMapping.h"
+#include "gtest/gtest.h"
 #include <sstream>
 
 TEST(Mappers_ProvinceMappingTests, EU4ProvinceCanBeAdded)

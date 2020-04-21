@@ -14,7 +14,7 @@ CK2::Provinces::Provinces(std::istream& theStream)
 
 void CK2::Provinces::registerKeys()
 {
-	registerRegex("\\d+", [this](const std::string& provID, std::istream& theStream) {
+	registerRegex(R"(\d+)", [this](const std::string& provID, std::istream& theStream) {
 		auto newProvince = std::make_shared<Province>(theStream, std::stoi(provID));
 		provinces.insert(std::pair(newProvince->getID(), newProvince));
 	});
@@ -24,16 +24,24 @@ void CK2::Provinces::registerKeys()
 void CK2::Provinces::linkPrimarySettlements()
 {
 	auto counter = 0;
-	for (const auto& province: provinces) {
-		if (province.second->getPrimarySettlement().first == "---" || province.second->getPrimarySettlement().first.empty()) {
+	for (const auto& province: provinces)
+	{
+		if (province.second->getPrimarySettlement().first == "---" ||
+			 province.second->getPrimarySettlement().first.empty())
+		{
 			province.second->discardPrimarySettlement();
-		} else {
+		}
+		else
+		{
 			const auto& baronies = province.second->getBaronies();
 			const auto& baronyItr = baronies.find(province.second->getPrimarySettlement().first);
-			if (baronyItr != baronies.end()) {
+			if (baronyItr != baronies.end())
+			{
 				province.second->setPrimarySettlement(baronyItr->second);
 				counter++;
-			} else {
+			}
+			else
+			{
 				Log(LogLevel::Warning) << "Primary barony ID: " << province.second->getPrimarySettlement().first
 											  << " is not in the province: " << province.first << " !";
 			}
@@ -45,10 +53,13 @@ void CK2::Provinces::linkPrimarySettlements()
 void CK2::Provinces::linkWonders(const Wonders& wonders)
 {
 	auto counter = 0;
-	for (const auto& wonder: wonders.getWonders()) {
-		if (!wonder.second->isTransferrable()) continue;
+	for (const auto& wonder: wonders.getWonders())
+	{
+		if (!wonder.second->isTransferrable())
+			continue;
 		const auto& provinceItr = provinces.find(wonder.second->getProvinceID());
-		if (provinceItr == provinces.end()) {
+		if (provinceItr == provinces.end())
+		{
 			Log(LogLevel::Warning) << "Wonder " << wonder.first << " is in province " << wonder.second->getProvinceID()
 										  << " which doesn't exist?";
 			continue;

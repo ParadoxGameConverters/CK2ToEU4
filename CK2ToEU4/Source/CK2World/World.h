@@ -14,8 +14,8 @@
 #include "Relations/AllRelations.h"
 #include "Titles/Liege.h"
 #include "Titles/Titles.h"
-#include "Wonders/Wonders.h"
 #include "Vars/Vars.h"
+#include "Wonders/Wonders.h"
 #include "newParser.h"
 
 class Configuration;
@@ -25,7 +25,8 @@ namespace CK2
 class World: commonItems::parser
 {
   public:
-	World(const Configuration& theConfiguration);
+	explicit World(const Configuration& theConfiguration);
+
 	[[nodiscard]] const auto& getProvinceTitleMapper() const { return provinceTitleMapper; }
 	[[nodiscard]] const auto& getIndepTitles() const { return independentTitles; }
 	[[nodiscard]] const auto& getProvinces() const { return provinces.getProvinces(); }
@@ -33,11 +34,13 @@ class World: commonItems::parser
 	[[nodiscard]] const auto& getOffmaps() const { return offmaps; }
 	[[nodiscard]] const auto& getDiplomacy() const { return diplomacy; }
 	[[nodiscard]] const auto& getVars() const { return vars; }
+
 	[[nodiscard]] auto isInvasion() const { return invasion; }
 
   private:
-	void verifySave(const std::string& saveGamePath);
 	bool uncompressSave(const std::string& saveGamePath);
+
+	void verifySave(const std::string& saveGamePath);
 	void filterIndependentTitles();
 	void mergeIndependentBaronies() const;
 	void congregateProvinces();
@@ -56,32 +59,33 @@ class World: commonItems::parser
 	void verifyReligionsAndCultures(const Configuration& theConfiguration);
 	void loadDynastiesFromMods(const Configuration& theConfiguration);
 
+	bool invasion = false;
 	date endDate = date("1444.11.11");
 	date startDate = date("1.1.1");
 	Version CK2Version;
 
-	struct saveData {
+	struct saveData
+	{
 		bool compressed = false;
 		std::string metadata;
 		std::string gamestate;
 	};
 	saveData saveGame;
 
-	mappers::ProvinceTitleMapper provinceTitleMapper;
 	Provinces provinces;
 	Characters characters;
 	Titles titles;
 	Dynasties dynasties;
 	Wonders wonders;
 	Offmaps offmaps;
-	mappers::IAmHreMapper iAmHreMapper;
-	mappers::PersonalityScraper personalityScraper;
 	Mods mods;
-	std::map<std::string, Liege> dynamicTitles; // Reusing Liege as it has identical structure
 	Diplomacy diplomacy;
 	Vars vars;
+	mappers::IAmHreMapper iAmHreMapper;
+	mappers::PersonalityScraper personalityScraper;
+	mappers::ProvinceTitleMapper provinceTitleMapper;
 	std::map<std::string, std::shared_ptr<Title>> independentTitles;
-	bool invasion = false;
+	std::map<std::string, Liege> dynamicTitles; // Reusing Liege as it has identical structure
 };
 } // namespace CK2
 

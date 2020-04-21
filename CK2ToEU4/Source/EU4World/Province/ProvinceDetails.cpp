@@ -7,7 +7,8 @@ EU4::ProvinceDetails::ProvinceDetails(const std::string& filePath)
 {
 	registerKeys();
 
-	if (Utils::DoesFileExist(filePath)) {
+	if (Utils::DoesFileExist(filePath))
+	{
 		parseFile(filePath);
 	}
 	clearRegisteredKeywords();
@@ -16,7 +17,10 @@ EU4::ProvinceDetails::ProvinceDetails(const std::string& filePath)
 void EU4::ProvinceDetails::updateWith(const std::string& filePath)
 {
 	registerKeys();
-	if (Utils::DoesFileExist(filePath)) { parseFile(filePath); }
+	if (Utils::DoesFileExist(filePath))
+	{
+		parseFile(filePath);
+	}
 	clearRegisteredKeywords();
 }
 

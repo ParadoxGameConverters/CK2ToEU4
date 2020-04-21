@@ -15,6 +15,7 @@ class Relations: commonItems::parser
 
   private:
 	void registerKeys(int first);
+
 	std::vector<Relation> relations;
 };
 } // namespace CK2

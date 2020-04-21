@@ -12,6 +12,7 @@ class Relation: commonItems::parser
 	Relation(std::istream& theStream, int second);
 
 	void setFirst(const int first) { firstCharacterID = first; }
+
 	[[nodiscard]] auto getFirst() const { return firstCharacterID; }
 	[[nodiscard]] auto getSecond() const { return secondCharacterID; }
 	[[nodiscard]] auto isFirstOverlord() const { return !tributary.getTributaryType().empty() && secondCharacterID == tributary.getTributaryID(); }
@@ -20,9 +21,10 @@ class Relation: commonItems::parser
 
   private:
 	void registerKeys();
-	Tributary tributary;
+
 	int firstCharacterID = 0;
 	int secondCharacterID = 0;
+	Tributary tributary;
 };
 } // namespace CK2
 

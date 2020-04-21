@@ -8,7 +8,7 @@ namespace mappers
 class ProvinceTitleGrabber: commonItems::parser
 {
   public:
-	ProvinceTitleGrabber(const std::string& provincePath);
+	explicit ProvinceTitleGrabber(const std::string& provincePath);
 
 	[[nodiscard]] auto getID() const { return provID; }
 	[[nodiscard]] const auto& getTitle() const { return title; }

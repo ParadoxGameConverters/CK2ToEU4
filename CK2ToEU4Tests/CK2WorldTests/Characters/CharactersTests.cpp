@@ -1,13 +1,13 @@
-#include "gtest/gtest.h"
-#include <sstream>
-#include "../../CK2ToEU4/Source/CK2World/Characters/Characters.h"
 #include "../../CK2ToEU4/Source/CK2World/Characters/Character.h"
+#include "../../CK2ToEU4/Source/CK2World/Characters/Characters.h"
 #include "../../CK2ToEU4/Source/CK2World/Dynasties/Dynasties.h"
 #include "../../CK2ToEU4/Source/CK2World/Dynasties/Dynasty.h"
-#include "../../CK2ToEU4/Source/CK2World/Titles/Titles.h"
-#include "../../CK2ToEU4/Source/CK2World/Titles/Title.h"
-#include "../../CK2ToEU4/Source/CK2World/Provinces/Provinces.h"
 #include "../../CK2ToEU4/Source/CK2World/Provinces/Barony.h"
+#include "../../CK2ToEU4/Source/CK2World/Provinces/Provinces.h"
+#include "../../CK2ToEU4/Source/CK2World/Titles/Title.h"
+#include "../../CK2ToEU4/Source/CK2World/Titles/Titles.h"
+#include "gtest/gtest.h"
+#include <sstream>
 
 TEST(CK2World_CharactersTests, CharactersDefaultToEmpty)
 {
@@ -98,14 +98,14 @@ TEST(CK2World_CharactersTests, charactersDynastyLinkCannotBeSetThrowsWarning)
 	std::stringstream log;
 	auto stdOutBuf = std::cout.rdbuf();
 	std::cout.rdbuf(log.rdbuf());
-	
+
 	characters.linkDynasties(dynasties);
 
 	std::cout.rdbuf(stdOutBuf);
 	auto stringLog = log.str();
 	auto newLine = stringLog.find_first_of("\n");
 	stringLog = stringLog.substr(0, newLine);
-	
+
 	ASSERT_EQ(stringLog, "Dynasty ID: 34 has no definition!");
 }
 

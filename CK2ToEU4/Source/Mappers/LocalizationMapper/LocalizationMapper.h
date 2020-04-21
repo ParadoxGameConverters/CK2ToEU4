@@ -1,30 +1,30 @@
 #ifndef LOCALIZATION_MAPPER
 #define LOCALIZATION_MAPPER
-#include <string>
-#include <optional>
 #include <map>
+#include <optional>
+#include <string>
 
 class Configuration;
 namespace mappers
 {
-typedef struct {
+typedef struct
+{
 	std::string english;
 	std::string french;
 	std::string german;
 	std::string spanish;
 } LocBlock;
-	
+
 class LocalizationMapper
 {
   public:
 	LocalizationMapper() = default;
 	void scrapeLocalizations(const Configuration& theConfiguration);
 	void scrapeStream(std::istream& theStream);
-	
+
 	[[nodiscard]] std::optional<LocBlock> getLocBlockForKey(const std::string& key) const;
 
   private:
-
 	std::map<std::string, LocBlock> localizations;
 };
 } // namespace mappers

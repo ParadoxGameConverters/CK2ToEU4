@@ -33,8 +33,8 @@ class ProvinceMapper: commonItems::parser
 	std::map<int, std::vector<int>> CK2ToEU4ProvinceMap;
 	std::map<int, std::vector<int>> EU4ToCK2ProvinceMap;
 	std::set<int> validEU4Provinces;
-	ProvinceMappingsVersion theMappings;
 	std::set<int> offmapChineseProvinces;
+	ProvinceMappingsVersion theMappings;
 };
 } // namespace mappers
 

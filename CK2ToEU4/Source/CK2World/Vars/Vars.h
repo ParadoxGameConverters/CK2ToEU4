@@ -8,7 +8,7 @@ class Vars: commonItems::parser
 {
   public:
 	Vars() = default;
-	Vars(std::istream& theStream);
+	explicit Vars(std::istream& theStream);
 
 	[[nodiscard]] const auto& getVars() const { return vars; } // for testing
 	[[nodiscard]] std::optional<std::map<std::string, double>> getChineseReligions() const;

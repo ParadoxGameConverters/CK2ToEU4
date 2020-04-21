@@ -10,7 +10,7 @@ class Provinces: commonItems::parser
 {
   public:
 	Provinces() = default;
-	Provinces(std::istream& theStream);
+	explicit Provinces(std::istream& theStream);
 	[[nodiscard]] const auto& getProvinces() const { return provinces; }
 
 	void linkPrimarySettlements();
