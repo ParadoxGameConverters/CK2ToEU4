@@ -52,6 +52,7 @@ class ProvinceDetails: commonItems::parser
 	std::set<std::string> latentGoods;
 	std::set<std::string> provinceTriggeredModifiers;
 	std::set<std::string> claims;
+	std::set<std::string> permanentClaims;
 	std::vector<ProvinceModifier> provinceModifiers;
 
   private:

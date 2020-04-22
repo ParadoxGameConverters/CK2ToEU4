@@ -201,6 +201,7 @@ void CK2::Titles::linkProvinces(const Provinces& theProvinces, const mappers::Pr
 			if (provinceItr != titleProvinceMap.end())
 			{
 				title.second->registerProvince(std::pair(provinceItr->second->getID(), provinceItr->second));
+				title.second->registerDeJureProvince(std::pair(provinceItr->second->getID(), provinceItr->second));
 				counter++;
 			}
 			else

@@ -44,6 +44,7 @@ class World: commonItems::parser
 	void filterIndependentTitles();
 	void mergeIndependentBaronies() const;
 	void congregateProvinces();
+	void congregateDeJureProvinces();
 	void sanityCheckifyProvinces();
 	void shatterHRE(const Configuration& theConfiguration) const;
 	void shatterEmpires(const Configuration& theConfiguration) const;

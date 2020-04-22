@@ -78,6 +78,9 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 	// Vassalages and tributaries were also set in ck2 world but we have to transcribe those into EU4 agreements.
 	diplomacy.importAgreements(countries, sourceWorld.getDiplomacy(), sourceWorld.getConversionDate());
 
+	// We're distributing permanent claims according to dejure distribution.
+	distributeClaims();
+	
 	// Now for the final tweaks.
 	distributeForts();
 
@@ -92,6 +95,43 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 	modFile.outname = theConfiguration.getOutputName();
 	output(versionParser, theConfiguration, sourceWorld.getConversionDate(), sourceWorld.isInvasion());
 	LOG(LogLevel::Info) << "*** Farewell EU4, granting you independence. ***";
+}
+
+void EU4::World::distributeClaims()
+{
+	Log(LogLevel::Info) << "-- Distributing DeJure Claims";
+	auto counter = 0;	
+	std::map<int, std::set<std::string>> claimsRegister; // ck2 province, eu4 tag claims
+
+	// Mapping all countries with all their claims.
+	for (const auto& country: countries)
+	{
+		if (country.second->getTitle().first.empty())
+			continue;
+		for (const auto& DJprovince: country.second->getTitle().second->getDeJureProvinces())
+		{
+			claimsRegister[DJprovince.first].insert(country.first);
+		}
+	}
+
+	// And then rolling through provinces and applying those claims.
+	for (const auto& province: provinces)
+	{
+		if (!province.second->getSourceProvince())
+			continue;
+		const auto& claimItr = claimsRegister.find(province.second->getSourceProvince()->getID());
+		if (claimItr == claimsRegister.end())
+			continue;
+		for (const auto& tag: claimItr->second)
+		{
+			if (tag == province.second->getOwner())
+				continue;
+			// since de jure claims are based on DE JURE land, we're adding it even for PU or vassal land.
+			province.second->addPermanentClaim(tag);
+			counter++;
+		}		
+	}	
+	Log(LogLevel::Info) << "<> " << counter << " claims have been distributed.";
 }
 
 void EU4::World::siberianQuestion(const Configuration& theConfiguration)

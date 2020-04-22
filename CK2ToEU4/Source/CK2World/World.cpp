@@ -178,6 +178,8 @@ CK2::World::World(const Configuration& theConfiguration)
 	gatherCourtierNames();
 	LOG(LogLevel::Info) << "-- Congregating Provinces for Independent Titles";
 	congregateProvinces();
+	LOG(LogLevel::Info) << "-- Congregating DeJure Provinces for Independent Titles";
+	congregateDeJureProvinces();
 	LOG(LogLevel::Info) << "-- Performing Province Sanity Check";
 	sanityCheckifyProvinces();
 	LOG(LogLevel::Info) << "-- Filtering Provinceless Titles";
@@ -676,6 +678,18 @@ void CK2::World::congregateProvinces()
 	Log(LogLevel::Info) << "<> " << counter << " provinces held by independents.";
 }
 
+void CK2::World::congregateDeJureProvinces()
+{
+	auto counter = 0;
+	// We're linking all dejure provinces under the title as these will be the base
+	// for that title's permanent claims, unless already owned.
+	for (const auto& title: independentTitles)
+	{
+		title.second->congregateDeJureProvinces();
+		counter += title.second->getDeJureProvinces().size();
+	}
+	Log(LogLevel::Info) << "<> " << counter << " de jure provinces claimed by independents.";
+}
 
 void CK2::World::sanityCheckifyProvinces()
 {
