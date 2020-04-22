@@ -63,6 +63,7 @@ class World
 	void verifyCapitals();
 	void adjustChina(const CK2::World& sourceWorld);
 	void siberianQuestion(const Configuration& theConfiguration);
+	void distributeClaims();
 
 	[[nodiscard]] std::optional<std::pair<int, std::shared_ptr<CK2::Province>>> determineProvinceSource(const std::vector<int>& ck2ProvinceNumbers,
 		 const CK2::World& sourceWorld) const;

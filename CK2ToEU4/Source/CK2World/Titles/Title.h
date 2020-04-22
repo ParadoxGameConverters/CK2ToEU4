@@ -30,6 +30,7 @@ class Title: commonItems::parser
 	[[nodiscard]] const auto& getGeneratedLiege() const { return generatedLiege; }
 	[[nodiscard]] const auto& getDeJureVassals() const { return deJureVassals; }
 	[[nodiscard]] const auto& getProvinces() const { return provinces; }
+	[[nodiscard]] const auto& getDeJureProvinces() const { return deJureProvinces; }
 	[[nodiscard]] const auto& getBaseTitle() const { return baseTitle; }
 	[[nodiscard]] const auto& getColor() const { return color; }
 	[[nodiscard]] const auto& getGenderLaw() const { return genderLaw; }
@@ -42,8 +43,10 @@ class Title: commonItems::parser
 	[[nodiscard]] auto isMajorRevolt() const { return majorRevolt; }
 
 	[[nodiscard]] std::map<int, std::shared_ptr<Province>> coalesceProvinces() const;
+	[[nodiscard]] std::map<int, std::shared_ptr<Province>> coalesceDeJureProvinces() const;
 
 	void congregateProvinces(const std::map<std::string, std::shared_ptr<Title>>& independentTitles);
+	void congregateDeJureProvinces();
 	void setHolder(std::shared_ptr<Character> theHolder) { holder.second = std::move(theHolder); }
 	void setLiegePrimaryTitle(std::shared_ptr<Title> theTitle) const { liege.second->setTitle(std::move(theTitle)); }
 	void setBaseTitleTitle(std::shared_ptr<Title> theTitle) const { baseTitle.second->setTitle(std::move(theTitle)); }
@@ -61,6 +64,7 @@ class Title: commonItems::parser
 	void registerGeneratedVassal(const std::pair<std::string, std::shared_ptr<Title>>& theVassal);
 	void registerDeJureVassal(const std::pair<std::string, std::shared_ptr<Title>>& theVassal) { deJureVassals.insert(theVassal); }
 	void registerProvince(const std::pair<int, std::shared_ptr<Province>>& theProvince) { provinces.insert(theProvince); }
+	void registerDeJureProvince(const std::pair<int, std::shared_ptr<Province>>& theProvince) { deJureProvinces.insert(theProvince); }
 	void registerEU4Tag(const std::pair<std::string, std::shared_ptr<EU4::Country>>& theCountry) { tagCountry = theCountry; }
 	void clearVassals() { vassals.clear(); }
 	void clearGeneratedVassals() { generatedVassals.clear(); }
@@ -89,6 +93,7 @@ class Title: commonItems::parser
 
 	std::set<std::string> laws;
 	std::map<int, std::shared_ptr<Province>> provinces;
+	std::map<int, std::shared_ptr<Province>> deJureProvinces;
 	std::map<std::string, std::shared_ptr<Title>> vassals;
 	std::map<std::string, std::shared_ptr<Title>> deJureVassals;
 	std::map<int, std::shared_ptr<Character>> previousHolders;

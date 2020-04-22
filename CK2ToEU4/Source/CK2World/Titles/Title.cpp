@@ -108,6 +108,16 @@ void CK2::Title::congregateProvinces(const std::map<std::string, std::shared_ptr
 	}
 }
 
+void CK2::Title::congregateDeJureProvinces()
+{
+	// We're gathering de jure vassal de jure provinces and adding to our own.
+	for (const auto& deJureVassal: deJureVassals)
+	{
+		const auto& deJureVassalDeJureProvinces = deJureVassal.second->coalesceDeJureProvinces();
+		deJureProvinces.insert(deJureVassalDeJureProvinces.begin(), deJureVassalDeJureProvinces.end());
+	}
+}
+
 std::map<int, std::shared_ptr<CK2::Province>> CK2::Title::coalesceProvinces() const
 {
 	// We're gathering vassal provinces + our own, and passing them on, adding nothing to ourselves.
@@ -118,6 +128,19 @@ std::map<int, std::shared_ptr<CK2::Province>> CK2::Title::coalesceProvinces() co
 		toReturn.insert(vassalProvinces.begin(), vassalProvinces.end());
 	}
 	toReturn.insert(provinces.begin(), provinces.end());
+	return toReturn;
+}
+
+std::map<int, std::shared_ptr<CK2::Province>> CK2::Title::coalesceDeJureProvinces() const
+{
+	// We're gathering vassal dejure provinces + our own, and passing them on, adding nothing to ourselves.
+	std::map<int, std::shared_ptr<Province>> toReturn;
+	for (const auto& deJureVassal: deJureVassals)
+	{
+		const auto& vassalDeJureProvinces = deJureVassal.second->coalesceDeJureProvinces();
+		toReturn.insert(vassalDeJureProvinces.begin(), vassalDeJureProvinces.end());
+	}
+	toReturn.insert(deJureProvinces.begin(), deJureProvinces.end());
 	return toReturn;
 }
 

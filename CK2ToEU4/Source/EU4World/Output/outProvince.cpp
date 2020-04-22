@@ -50,6 +50,9 @@ std::ostream& EU4::operator<<(std::ostream& output, const Province& province)
 	if (!province.details.claims.empty())
 		for (const auto& claim: province.details.claims)
 			output << "add_claim = " << claim << "\n";
+	if (!province.details.permanentClaims.empty())
+		for (const auto& claim: province.details.permanentClaims)
+			output << "add_permanent_claim = " << claim << "\n";
 	if (!province.details.discoveredBy.empty())
 		for (const auto& disc: province.details.discoveredBy)
 			output << "discovered_by = " << disc << "\n";

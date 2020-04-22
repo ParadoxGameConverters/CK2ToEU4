@@ -122,6 +122,8 @@ void EU4::Province::sterilize()
 	details.owner.clear();
 	details.controller.clear();
 	details.cores.clear();
+	details.claims.clear();
+	details.permanentClaims.clear();
 	details.inHre = false;
 	details.fort = false;
 	details.estate.clear();
