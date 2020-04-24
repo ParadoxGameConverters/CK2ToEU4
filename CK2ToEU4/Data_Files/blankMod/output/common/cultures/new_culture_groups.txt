@@ -135,23 +135,19 @@ barbaro_germanic = {
 }
 roman_group = {
 	graphical_culture = westerngfx
-
-	male_names = { Acilius Aebutius Aelius Aemilius Albius Amatius Annaeus Anneius Annius Antonius Arrius
-		Artorius Asinius Atilius Atius Aurelius Autronius Caecilius Caedicius Caelius Calidius
-		Calpurnius Cassius Claudius Cloelius Cocceius Cominius Cornelius Coruncanius Curiatius
-		Curius Curtius Decius Didius Domitius Duilius Durmius Equitius Fabius Fabricius Fannius
-		Flavius Fulvius Furius Gabinius Galerius Geganius Gellius Geminius Genucius Gratius
-		Herennius Hirtius Horatius Hortensius Hostilius Iulius Iunius Iuventius Laelius Lartius
-		Licinius Livius Lucilius Lucretius Manlius Marcius Marius Memmius Menenius Minicius
-		Minius Minucius Modius Mucius Naevius Nautius Numerius Numicius Octavius Ovidius
-		Papirius Petronius Pinarius Pompeius Pompilius Pontius Popillius Porcius Postumius
-		Quinctilius Quinctius Rubellius Rufius Rutilius Sallustius Salonius Salvius Scribonius
-		Seius Sempronius Sentius Sergius Sertorius Servilius Sextius Sicinius Suetonius Sulpicius
-		Tarpeius Tarquitius Terentius Titinius Titurius Tuccius Tullius Ulpius Valerius Vedius
-		Velleius Vergilius Verginius Vibius Villius Vipsanius Vitellius Vitruvius Volumnius }	
-
-	roman = {
-		primary = ROM
+	# For the sake of simplicity, all the names are shared throughout the whole group
+	roman = { primary = ROM }
+	hispanic = { primary = ROM }
+	aegyptian = { primary = ROM }
+	arabus = { primary = ROM }
+	graecus = { primary = ROM }
+	gaulic = { primary = ROM }
+	hispanic = { primary = ROM }
+	theodisc = { primary = ROM }
+	pannonian = { primary = ROM }
+	wenedyk = { primary = ROM }
+	britannian = { primary = ROM }
+	hyperborean = { primary = ROM }
 		male_names = { Acilius Aebutius Aelius Aemilius Albius Amatius Annaeus Anneius Annius Antonius Arrius
 		Artorius Asinius Atilius Atius Aurelius Autronius Caecilius Caedicius Caelius Calidius
 		Calpurnius Cassius Claudius Cloelius Cocceius Cominius Cornelius Coruncanius Curiatius
@@ -183,7 +179,6 @@ roman_group = {
 		Silanus Silo Silus Stolo Strabo Structus Sulla Sura Taurus Triarius Trigeminus Trio Tubero
 		Tubertus Tubulus Tuditanus Tullus Turdus Varro Varus Vatia Verres Vespillo Vetus Vitulus
 		Volusus	}
-	}
 	female_names = { Acilia Aebutia Aelia Aemilia Albia Amatia Annaea Anneia Annia Antonia Arria
 		Artoria Asinia Atilia Atia Aurelia Autronia Caecilia Caedicia Caelia Calidia
 		Calpurnia Cassia Claudia Cloelia Cocceia Cominia Cornelia Coruncania Curiatia
