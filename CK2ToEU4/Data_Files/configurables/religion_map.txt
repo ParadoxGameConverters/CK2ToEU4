@@ -4,6 +4,7 @@
 
 # Pagan
 
+link = { ck2 = pagan eu4 = pagan_religion }
 link = { ck2 = norse_pagan eu4 = animism }
 link = { ck2 = norse_pagan_reformed eu4 = norse_pagan_reformed }
 link = { ck2 = tengri_pagan eu4 = tengri_pagan_reformed }
