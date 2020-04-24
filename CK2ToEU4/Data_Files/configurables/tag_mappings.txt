@@ -118,7 +118,6 @@ link = { ck2 = k_wales eu4 = WLS }
 link = { ck2 = k_chernigov eu4 = CHR }
 link = { ck2 = d_chernigov eu4 = CHR }
 link = { ck2 = c_chernigov eu4 = CHR }
-link = { ck2 = d_pomeralia eu4 = DNZ }
 link = { ck2 = c_danzig eu4 = DNZ }
 link = { ck2 = d_kiev eu4 = KIE }
 link = { ck2 = c_kiev eu4 = KIE }
@@ -135,7 +134,6 @@ link = { ck2 = c_vorotynsk eu4 = OKA }
 link = { ck2 = c_mozhaysk eu4 = OKA }
 link = { ck2 = k_poland eu4 = POL }
 link = { ck2 = d_prussia eu4 = PRU }
-link = { ck2 = d_pruthenians eu4 = PRU }
 link = { ck2 = c_riga eu4 = RIG }
 link = { ck2 = c_zemigalians eu4 = RIG }
 link = { ck2 = k_teutonic_state eu4 = TEU }
@@ -237,7 +235,6 @@ link = { ck2 = d_rhine eu4 = PAL } # The Rhine --> Palatinate
 link = { ck2 = c_pfalz eu4 = PAL }
 link = { ck2 = k_pomerania eu4 = POM }
 link = { ck2 = d_pommerania eu4 = POM }
-link = { ck2 = c_schwaben eu4 = RVA }
 link = { ck2 = c_furstenberg eu4 = RVA }
 link = { ck2 = k_saxony eu4 = SAX }
 link = { ck2 = d_saxony eu4 = SAX }
@@ -260,7 +257,6 @@ link = { ck2 = c_trier eu4 = TRI }
 link = { ck2 = c_ulm eu4 = ULM }
 link = { ck2 = c_verden eu4 = VER }
 link = { ck2 = c_wurzburg eu4 = WBG }
-link = { ck2 = d_munster_germany eu4 = WES }
 link = { ck2 = c_wurttemberg eu4 = WUR }
 
 # Spain
@@ -422,12 +418,9 @@ link = { ck2 = c_vaspurakan eu4 = BTL }
 link = { ck2 = c_asir eu4 = DAW }
 link = { ck2 = k_eretnid eu4 = ERE }
 link = { ck2 = c_kaisereia eu4 = ERE }
-link = { ck2 = d_damascus eu4 = FAD }
-link = { ck2 = c_al_mafraq eu4 = FAD }
 link = { ck2 = k_germiyan eu4 = GRM }
 link = { ck2 = d_hadramut eu4 = HDR }
 link = { ck2 = c_hijaz eu4 = HED }
-link = { ck2 = d_galilee eu4 = LEB }
 link = { ck2 = c_beirut eu4 = LEB }
 link = { ck2 = k_nubia eu4 = MAK }
 link = { ck2 = d_nubia eu4 = MAK }
@@ -455,6 +448,7 @@ link = { ck2 = k_iraq eu4 = IRQ }
 link = { ck2 = k_karaman eu4 = KAR }
 link = { ck2 = k_syria eu4 = SYR }
 link = { ck2 = d_syria eu4 = SYR }
+link = { ck2 = d_damascus eu4 = SYR }
 link = { ck2 = d_palmyra eu4 = SYR }
 link = { ck2 = c_syria eu4 = SYR }
 link = { ck2 = k_trebizond eu4 = TRE }
@@ -539,14 +533,14 @@ link = { ck2 = k_persia eu4 = PER }
 link = { ck2 = d_qom eu4 = QOM }
 link = { ck2 = d_jibal eu4 = QOM }
 link = { ck2 = c_qom eu4 = QOM }
-link = { ck2 = k_baluchistan eu4 = SIS }
+link = { ck2 = k_baluchistan eu4 = SIS } #Named Sistan in CK2
 link = { ck2 = d_sistan eu4 = SIS }
 link = { ck2 = d_mazandaran eu4 = TAB }
 link = { ck2 = c_tabaristan eu4 = TAB }
 link = { ck2 = d_tabriz eu4 = TBR }
 link = { ck2 = c_tabriz eu4 = TBR }
 link = { ck2 = e_timurids eu4 = TIM }
-link = { ck2 = k_khiva eu4 = TRS }
+link = { ck2 = k_khiva eu4 = TRS } #Named Transoxiana in CK2
 link = { ck2 = c_yazd eu4 = YZD }
 
 # Americas
@@ -580,7 +574,6 @@ link = { ck2 = c_mali eu4 = MAL }
 link = { ck2 = c_kosti eu4 = NUB }
 link = { ck2 = c_wagadougou eu4 = MSI }
 link = { ck2 = c_soso eu4 = SOF }
-link = { ck2 = c_kebbi eu4 = SOK } #There is a barony of Sokoto in this province
 link = { ck2 = k_songhay eu4 = SON }
 link = { ck2 = d_songhay eu4 = SON }
 link = { ck2 = c_songhay eu4 = SON }
