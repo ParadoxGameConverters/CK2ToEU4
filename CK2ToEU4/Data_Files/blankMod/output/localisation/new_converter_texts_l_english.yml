@@ -24,6 +24,8 @@
  side_by_side_desc: "We know that strength is not in numbers, rather, it can be found in the bonds between us. On the battlefield we are fearless because we know that our brothers in arms have got our back."
  hero_of_the_legends: "Hero of the Legends"
  hero_of_the_legends_desc: "As younglings we were brought up on mother’s milk and ancient legends. The most well-known tell of a mighty hero who will one day lead our nation to greatness. Their arrival is approaching – we can feel it in our blood."
+ 
+ ##Religious Rebels
  jain_demand_desc: "The religious rebels fight for the $RELIGION$ religion. They demand that we recognize its supremacy or at the very least cease our efforts to convert them and let them worship in peace."
  jain_rebels_demand: "Convert $COUNTRYNAME$"
  jain_rebels_demand_desc: "The religious rebels fight for the $RELIGION$ religion. They demand that we recognize its supremacy or at the very least cease our efforts to convert them and let them worship in peace."
@@ -100,6 +102,7 @@
  kharijite_religion_desc: "The Kharijites are a branch of Islam that was marginalized and repressed early in the 7th century. They believe that any unrepentant sinner is a Kafir, also rejecting the notion of infallibility of the Caliphs."
  druze_religion_desc: "The Druze religion originated in the Ismaili sect of Shi'a Islam, but has many features of gnosticism, neoplatonism in addition to the Abrahamic religions."
  hurufi_religion_desc: "The Hurufi faith is a mystical, kabbalistic, Sufi sect within Islam."
+ qarmatian_religion_desc: "The Qarmatians are a heteredox branch of Shi'a Islam that combine elements of Zoroastrianism. They reject the mainstream succession of the Shi'ite rulers and the Hajj pilgrimage." 
  samaritan_faith_religion_desc: "Samaritanism is an Abrahamic religion closely related to Judaism. Samaritans assert their worship is the true religion of the ancient Israelites prior to the Babylonian Exile, preserved by those who remained in the Land of Israel, as opposed to Judaism, which they assert is a related but altered and amended religion."
  karaite_faith_religion_desc: "Karaite Judaism is a Jewish movement characterized by the recognition of the Tanakh alone as its supreme legal authority in Jewish religious law and theology. In this it is distinct from mainstream Rabbinic Judaism. Karaites maintain that all of the divine commandments handed down to Moses by God were recorded in the written Torah, without additional Oral Law or explanation."
  khurmazta_religion_desc: "Khurmazta (Zarvana) is syncretic form of Zoroastrianism which was practiced among the Sogdians. It mixes Zoroastrianism with Hinduism, Buddhism and various pagan religions. Aside from Khurmazta, lesser deities such as Weshparkar, God of Wind, are worshipped and made offerings, usually in form of small statues."
@@ -149,6 +152,10 @@
  hurufi_rebels_name: "$RELIGION$ Zealots"
  hurufi_rebels_desc: "Religious fanatics tend to rise up in provinces controlled by nations of a different faith. They seek to spread their faith and smite all unbelievers."
  hurufi_rebels_army: "$RELIGION$ Army"
+ qarmatian_rebels_title: "Religious"
+ qarmatian_rebels_name: "$RELIGION$ Zealots"
+ qarmatian_rebels_desc: "Religious fanatics tend to rise up in provinces controlled by nations of a different faith. They seek to spread their faith and smite all unbelievers."
+ qarmatian_rebels_army: "$RELIGION$ Army" 
  samaritan_rebels_title: "Religious"
  samaritan_rebels_name: "$RELIGION$ Zealots"
  samaritan_rebels_desc: "Religious fanatics tend to rise up in provinces controlled by nations of a different faith. They seek to spread their faith and smite all unbelievers."
@@ -180,4 +187,19 @@
  generic_rebels_name: "$RELIGION$ Zealots"
  generic_rebels_desc: "Religious fanatics tend to rise up in provinces controlled by nations of a different faith. They seek to spread their faith and smite all unbelievers."
  generic_rebels_army: "$RELIGION$ Army"
+ 
+ ##Personal Deities
+ #Khurmazta
+ ZZZ_enhanced_desi:0 "Desi"
+ ZZZ_enhanced_desi_desc:0 "Desi is the goddess of the bounty. The use of her idols as devotional items is widespread as are sacrifices in her name."
+ ZZZ_enhanced_parn:0 "Parn"
+ ZZZ_enhanced_parn_desc:0 "Parn is the god of good fortune and royal glory."
+ ZZZ_enhanced_nanaiya:0 "Nanaiya"
+ ZZZ_enhanced_nanaiya_desc:0 "Nanaiya the Sensual One is the four-armed goddess of love and pleasure."
+ ZZZ_enhanced_weshparkar:0 "Weshparkar"
+ ZZZ_enhanced_weshparkar_desc:0 "Weshparkar is the god of the wind."
+ ZZZ_enhanced_wishaghn:0 "Wishaghn"
+ ZZZ_enhanced_wishaghn_desc:0 "Wishaghn is the god of victory."
+ ZZZ_enhanced_zurvan:0 "Zurvan"
+ ZZZ_enhanced_zurvan_desc:0 "Zurvan is the god of knowledge and the king of the gods."
  
