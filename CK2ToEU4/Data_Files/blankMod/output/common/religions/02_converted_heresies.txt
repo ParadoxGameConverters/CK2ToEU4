@@ -687,9 +687,29 @@ muslim = {
 			diplomatic_upkeep = 1
 			stability_cost_modifier = -0.1
 		}
-		heretic = { DRUZE ZAIDI }
+		heretic = { DRUZE ZAIDI QARMATIAN }
 		
 		uses_piety = yes				# Uses piety mechanics
+	}
+	qarmatian = {
+		color = { 0.2 0.7 0.1 }
+		icon = 61
+		country = {
+			heir_chance = 1.0
+			tolerance_heretic = -1 # No time for the "superstitious nonsense" of the other Muslim religions
+			loot_amount = 0.25
+			may_perform_slave_raid = yes
+		}
+		province = {
+			local_missionary_strength = -0.01
+		}
+		country_as_secondary = {
+			loot_amount = 0.25
+			may_perform_slave_raid = yes
+		}
+		heretic = { DRUZE ZAIDI HURUFI }
+		
+		fervor = yes			# Uses fervor mechanics
 	}
 }
 
@@ -724,7 +744,7 @@ zoroastrian_group = {
 		heretic = { MAZDAKI }
 	}
 	khurmazta = {
-		icon = 47
+		icon = 116
 		color = { 0.5 0.6 0.3 }
 		country = {
 			stability_cost_modifier = -0.1
@@ -735,6 +755,8 @@ zoroastrian_group = {
 			global_tax_modifier = 0.1
 		}
 		heretic = { MAZDAKI }
+		
+		personal_deity = yes
 	}
 }
 
