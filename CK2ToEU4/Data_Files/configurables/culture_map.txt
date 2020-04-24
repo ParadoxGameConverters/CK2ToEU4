@@ -53,8 +53,19 @@ link = { eu4 = dalmatian ck2 = dalmatian tech = western gfx = westerngfx }
 link = { eu4 = outremer ck2 = outremer tech = western gfx = westerngfx }
 link = { eu4 = sardinian ck2 = sardinian tech = western gfx = westerngfx }
 
-# Roman: the split - will come in the future
-link = { eu4 = roman ck2 = roman tech = western gfx = westerngfx }
+# Roman: the split
+link = { eu4 = carthaginian ck2 = roman tech = western gfx = easterngfx region = maghreb_region }
+link = { eu4 = hispanic ck2 = roman tech = western gfx = westerngfx region = iberia_region }
+link = { eu4 = aegyptian ck2 = roman tech = western gfx = easterngfx region = egypt_region }
+link = { eu4 = arabus ck2 = roman tech = western gfx = easterngfx region = mashriq_region region = arabia_region }
+link = { eu4 = graecus ck2 = roman tech = western gfx = easterngfx region = anatolia_region region = balkan_region }
+link = { eu4 = gaulic ck2 = roman tech = western gfx = westerngfx region = france_region region = low_countries_region }
+link = { eu4 = theodisc ck2 = roman tech = western gfx = westerngfx region = north_german_region region = south_german_region }
+link = { eu4 = pannonian ck2 = roman tech = western gfx = easterngfx region = carpathia_region }
+link = { eu4 = wenedyk ck2 = roman tech = western gfx = easterngfx region = russia_region region = ural_region region = baltic_region region = poland_region region = ruthenia_region region = crimea_region }
+link = { eu4 = britannian ck2 = roman tech = western gfx = westerngfx region = british_isles_region }
+link = { eu4 = hyperborean ck2 = roman tech = western gfx = inuitgfx region = scandinavia_region }
+link = { eu4 = roman ck2 = roman tech = western gfx = westerngfx } #Fallback
 
 # Italian: the split
 link = { eu4 = ligurian ck2 = italian tech = western gfx = westerngfx region = liguria_area }
