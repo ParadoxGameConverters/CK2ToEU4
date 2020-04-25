@@ -604,7 +604,7 @@ void CK2::World::filterIndependentTitles()
 		}
 	}
 
-	// Check if we hold any actual land (c_something). (Only necessary for the holder,
+	// Check if we hold any actual land (b|c_something). (Only necessary for the holder,
 	// no need to recurse, we're just filtering landless titular titles like mercenaries
 	// or landless Pope. If a character holds a landless titular title along actual title
 	// (like Caliphate), it's not relevant at this stage as he's independent anyway.
@@ -613,7 +613,7 @@ void CK2::World::filterIndependentTitles()
 	std::set<int> countyHolders;
 	for (const auto& title: allTitles)
 	{
-		if (title.second->getHolder().first && title.second->getName().find("c_") == 0)
+		if (title.second->getHolder().first && (title.second->getName().find("c_") == 0 || title.second->getName().find("b_") == 0))
 		{
 			countyHolders.insert(title.second->getHolder().first);
 		}
@@ -672,7 +672,9 @@ void CK2::World::congregateProvinces()
 	{
 		title.second->congregateProvinces(independentTitles);
 		for (const auto& province: title.second->getProvinces())
+		{
 			province.second->loadHoldingTitle(std::pair(title.first, title.second));
+		}
 		counter += title.second->getProvinces().size();
 	}
 	Log(LogLevel::Info) << "<> " << counter << " provinces held by independents.";
@@ -849,7 +851,8 @@ void CK2::World::shatterHRE(const Configuration& theConfiguration) const
 		}
 		else if (vassal.first.find("k_") == 0)
 		{
-			if (vassal.first == "k_papal_state" || vassal.first == "k_orthodox") // hard override for special HRE members
+			if (vassal.first == "k_papal_state" || vassal.first == "k_orthodox" ||
+				 theConfiguration.getShatterHRELevel() == ConfigurationDetails::SHATTER_HRE_LEVEL::KINGDOM) // hard override for special HRE members
 			{
 				hreMembers.insert(std::pair(vassal.first, vassal.second));
 				continue;

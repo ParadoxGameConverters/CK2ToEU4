@@ -79,6 +79,25 @@
 					</entryOptions>
 				</preference>
 				<preference>
+					<name>shatter_hre_level</name>
+					<friendlyName>If we're shattering HRE, how far down do we go?</friendlyName>
+					<description>More the merrier.</description>
+					<entryOptions>
+						<entryOption>
+							<name>1</name>
+							<friendlyName>1 - Down to duchies [default]</friendlyName>
+							<description>Need Duchies for stability</description>
+							<isDefault>true</isDefault>
+						</entryOption>
+						<entryOption>
+							<name>2</name>
+							<friendlyName>2 - Keep kingdoms if any [not recommended]</friendlyName>
+							<description>Kingdoms remain.</description>
+							<isDefault>false</isDefault>
+						</entryOption>
+					</entryOptions>
+				</preference>
+				<preference>
 					<name>shatter_empires</name>
 					<friendlyName>Should we shatter other empires?</friendlyName>
 					<description>Makes the game more dynamic. New countries won't be united.</description>

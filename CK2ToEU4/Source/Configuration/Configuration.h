@@ -19,6 +19,7 @@ class Configuration: commonItems::parser
 	[[nodiscard]] const auto& getHRE() const { return details.iAmHre; }
 	[[nodiscard]] const auto& getShatterEmpires() const { return details.shatterEmpires; }
 	[[nodiscard]] const auto& getShatterLevel() const { return details.shatterLevel; }
+	[[nodiscard]] const auto& getShatterHRELevel() const { return details.shatterHRELevel; }
 	[[nodiscard]] const auto& getSiberia() const { return details.siberia; }
 
   private:
