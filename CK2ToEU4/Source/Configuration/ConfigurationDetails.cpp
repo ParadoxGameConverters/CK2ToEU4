@@ -48,6 +48,11 @@ void ConfigurationDetails::registerKeys()
 		shatterLevel = SHATTER_LEVEL(shatterLevelInt.getInt());
 		Log(LogLevel::Info) << "Shatter Level set to: " << shatterLevelInt.getInt();
 	});
+	registerKeyword("shatter_hre_level", [this](const std::string& unused, std::istream& theStream) {
+		const commonItems::singleInt shatterHRELevelInt(theStream);
+		shatterHRELevel = SHATTER_HRE_LEVEL(shatterHRELevelInt.getInt());
+		Log(LogLevel::Info) << "Shatter HRE Level set to: " << shatterHRELevelInt.getInt();
+	});
 	registerKeyword("siberia", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleInt siberiaInt(theStream);
 		siberia = SIBERIA(siberiaInt.getInt());

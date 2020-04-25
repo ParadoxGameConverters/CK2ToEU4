@@ -80,7 +80,7 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 
 	// We're distributing permanent claims according to dejure distribution.
 	distributeClaims();
-	
+
 	// Now for the final tweaks.
 	distributeForts();
 
@@ -100,7 +100,7 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 void EU4::World::distributeClaims()
 {
 	Log(LogLevel::Info) << "-- Distributing DeJure Claims";
-	auto counter = 0;	
+	auto counter = 0;
 	std::map<int, std::set<std::string>> claimsRegister; // ck2 province, eu4 tag claims
 
 	// Mapping all countries with all their claims.
@@ -129,8 +129,8 @@ void EU4::World::distributeClaims()
 			// since de jure claims are based on DE JURE land, we're adding it even for PU or vassal land.
 			province.second->addPermanentClaim(tag);
 			counter++;
-		}		
-	}	
+		}
+	}
 	Log(LogLevel::Info) << "<> " << counter << " claims have been distributed.";
 }
 
@@ -991,7 +991,9 @@ void EU4::World::importCK2Provinces(const CK2::World& sourceWorld)
 			continue; // bailing for mismaps.
 		}
 		if (sourceProvince->first == -1)
+		{
 			province.second->sterilize(); // sterilizing wastelands
+		}
 		else
 		{
 			province.second->initializeFromCK2(sourceProvince->second, cultureMapper, religionMapper);

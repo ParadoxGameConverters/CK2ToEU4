@@ -28,6 +28,11 @@ class ConfigurationDetails: commonItems::parser
 		DUTCHY = 1,
 		KINGDOM = 2
 	};
+	enum class SHATTER_HRE_LEVEL
+	{
+		DUTCHY = 1,
+		KINGDOM = 2
+	};
 	enum class SIBERIA
 	{
 		CLEAR_SIBERIA = 1,
@@ -42,6 +47,7 @@ class ConfigurationDetails: commonItems::parser
 
 	I_AM_HRE iAmHre = I_AM_HRE::HRE;
 	SHATTER_EMPIRES shatterEmpires = SHATTER_EMPIRES::NONE;
+	SHATTER_HRE_LEVEL shatterHRELevel = SHATTER_HRE_LEVEL::DUTCHY;
 	SHATTER_LEVEL shatterLevel = SHATTER_LEVEL::DUTCHY;
 	SIBERIA siberia = SIBERIA::CLEAR_SIBERIA;
 
