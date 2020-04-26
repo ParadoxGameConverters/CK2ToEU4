@@ -730,7 +730,7 @@ void CK2::World::sanityCheckifyProvinces()
 
 void CK2::World::shatterEmpires(const Configuration& theConfiguration) const
 {
-	if (theConfiguration.getShatterEmpires() == ConfigurationDetails::SHATTER_EMPIRES::NONE)
+	if (theConfiguration.getShatterEmpires() == Configuration::SHATTER_EMPIRES::NONE)
 	{
 		Log(LogLevel::Info) << ">< Empire shattering disabled by configuration.";
 		return;
@@ -739,7 +739,7 @@ void CK2::World::shatterEmpires(const Configuration& theConfiguration) const
 	bool shatterKingdoms;
 	switch (theConfiguration.getShatterLevel())
 	{
-		case ConfigurationDetails::SHATTER_LEVEL::KINGDOM:
+		case Configuration::SHATTER_LEVEL::KINGDOM:
 			shatterKingdoms = false;
 			break;
 		default:
@@ -801,7 +801,7 @@ void CK2::World::shatterEmpires(const Configuration& theConfiguration) const
 
 void CK2::World::shatterHRE(const Configuration& theConfiguration) const
 {
-	if (theConfiguration.getHRE() == ConfigurationDetails::I_AM_HRE::NONE)
+	if (theConfiguration.getHRE() == Configuration::I_AM_HRE::NONE)
 	{
 		Log(LogLevel::Info) << ">< HRE Mechanics and shattering overridden by configuration.";
 		return;
@@ -810,16 +810,16 @@ void CK2::World::shatterHRE(const Configuration& theConfiguration) const
 	std::string hreTitle;
 	switch (theConfiguration.getHRE())
 	{
-		case ConfigurationDetails::I_AM_HRE::HRE:
+		case Configuration::I_AM_HRE::HRE:
 			hreTitle = "e_hre";
 			break;
-		case ConfigurationDetails::I_AM_HRE::BYZANTIUM:
+		case Configuration::I_AM_HRE::BYZANTIUM:
 			hreTitle = "e_byzantium";
 			break;
-		case ConfigurationDetails::I_AM_HRE::ROME:
+		case Configuration::I_AM_HRE::ROME:
 			hreTitle = "e_roman_empire";
 			break;
-		case ConfigurationDetails::I_AM_HRE::CUSTOM:
+		case Configuration::I_AM_HRE::CUSTOM:
 			hreTitle = iAmHreMapper.getHRE();
 			break;
 		default:
@@ -852,7 +852,7 @@ void CK2::World::shatterHRE(const Configuration& theConfiguration) const
 		else if (vassal.first.find("k_") == 0)
 		{
 			if (vassal.first == "k_papal_state" || vassal.first == "k_orthodox" ||
-				 theConfiguration.getShatterHRELevel() == ConfigurationDetails::SHATTER_HRE_LEVEL::KINGDOM) // hard override for special HRE members
+				 theConfiguration.getShatterHRELevel() == Configuration::SHATTER_HRE_LEVEL::KINGDOM) // hard override for special HRE members
 			{
 				hreMembers.insert(std::pair(vassal.first, vassal.second));
 				continue;

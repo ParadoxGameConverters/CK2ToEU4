@@ -51,9 +51,6 @@
     <ClCompile Include="Source\Configuration\Configuration.cpp">
       <Filter>Configuration</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Configuration\ConfigurationDetails.cpp">
-      <Filter>Configuration</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Mappers\ProvinceTitleMapper\ProvinceTitleMapper.cpp">
       <Filter>Mappers\ProvinceTitleMapper</Filter>
     </ClCompile>
@@ -283,9 +280,6 @@
       <Filter>Common</Filter>
     </ClInclude>
     <ClInclude Include="Source\Configuration\Configuration.h">
-      <Filter>Configuration</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Configuration\ConfigurationDetails.h">
       <Filter>Configuration</Filter>
     </ClInclude>
     <ClInclude Include="Source\Mappers\ProvinceTitleMapper\ProvinceTitleMapper.h">

@@ -137,7 +137,7 @@ void EU4::World::distributeClaims()
 void EU4::World::siberianQuestion(const Configuration& theConfiguration)
 {
 	Log(LogLevel::Info) << "-- Burning Siberia";
-	if (theConfiguration.getSiberia() == ConfigurationDetails::SIBERIA::LEAVE_SIBERIA)
+	if (theConfiguration.getSiberia() == Configuration::SIBERIA::LEAVE_SIBERIA)
 	{
 		Log(LogLevel::Info) << ">< Leaving Siberia alone due to Configuration.";
 		return;
@@ -617,7 +617,7 @@ void EU4::World::resolvePersonalUnions()
 
 void EU4::World::distributeHRESubtitles(const Configuration& theConfiguration)
 {
-	if (theConfiguration.getHRE() == ConfigurationDetails::I_AM_HRE::NONE)
+	if (theConfiguration.getHRE() == Configuration::I_AM_HRE::NONE)
 		return;
 	LOG(LogLevel::Info) << "-> Locating Emperor";
 	// Emperor may or may not be set.

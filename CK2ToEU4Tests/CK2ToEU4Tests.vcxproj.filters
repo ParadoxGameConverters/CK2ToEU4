@@ -32,9 +32,6 @@
     <ClCompile Include="..\CK2ToEU4\Source\Configuration\Configuration.cpp">
       <Filter>ConverterFiles\Configuration</Filter>
     </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\Configuration\ConfigurationDetails.cpp">
-      <Filter>ConverterFiles\Configuration</Filter>
-    </ClCompile>
     <ClCompile Include="..\CK2ToEU4\Source\Common\CommonFunctions.cpp">
       <Filter>ConverterFiles\Common</Filter>
     </ClCompile>
