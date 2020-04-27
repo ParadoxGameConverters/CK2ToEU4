@@ -1,0 +1,23 @@
+ZZZ_enhanced_mighty_temple = {
+	potential = {
+	}
+	trigger = {
+		owner = {
+			OR = {
+				religion = hellenic_pagan
+				religion = hellenic_pagan_reformed
+				religion = pagan_religion
+				has_adopted_cult = hellenic_cult
+			}
+		}
+	}
+	prestige = 0.5
+	missionaries = 1
+	tolerance_own = 1
+	
+	on_activation = {
+	}
+	
+	on_deactivation = {
+	}
+}
