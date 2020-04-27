@@ -1,0 +1,13 @@
+#Scripted effect for Extra Fetishist cult mechanics.
+on_battle_lost_country = {
+	ZZZ_enhanced_converter_battle_cult_spreading_effect = yes
+}
+on_province_owner_change = {
+	if = {
+		limit = {
+			has_province_modifier = ZZZ_enhanced_mighty_temple_being_built
+		}
+		FROM = { country_event = ZZZ_enhanced_fetishist.83 }
+	}
+}
+

@@ -1,0 +1,19 @@
+l_spanish:
+ #These are here to replace Country Specific government names to make them more open
+ ottoman_government:0 "Gobierno de Padishah"
+ ottoman_government_desc:0 "El gobierno de Padishah es en muchos sentidos sinónimo de la familia real. El harén asegura que nunca faltarán herederos para el Padishah, o "Rey Maestro"."
+ english_monarchy:0 "Monarquía Fletada"
+ english_monarchy_desc:0 "Una monarquía autorizada es una monarquía representativa, con un parlamento llamado regularmente por el monarca gobernante. Se basa en los privilegios definidos en una carta firmada por el Monarca y sus vasallos."
+ mamluk_government:0 "Gobierno esclavo circasiano"
+ mamluk_government_desc:0 "Este estado fue tomado una vez por los soldados esclavos circasianos y se mantiene a través de la importación continua de esclavos soldados circasianos."
+ indian_sultanate_reform:0 "Sultanato Dharmico"
+ indian_sultanate_reform_desc:0 "Gobernados por una minoría musulmana, los sultanes han tenido que evolucionar y expandir las ideas musulmanas tradicionales del reinado. Mientras siguen siendo estados islámicos, el papel de los Dhimmi, que tradicionalmente abarca judíos y cristianos, se ha extendido a las religiones dharmicas."
+ prussian_monarchy:0 "Monarquía Estratocrática"
+ prussian_monarchy_desc:0 "Una forma gubernamental bajo un monarca, que se puede describir más como un ejército con un estado, que un estado con un ejército."
+ mughal_government:0 "Sistema Diwan"
+ mughal_government_desc:0 "Si hay algo que nuestra dinastía ha aprendido a lo largo de los siglos es que debemos ser capaces de adoptar a la población local en las regiones en las que nos expandimos. Asegurémonos de aprender de aquellos que conquistamos para que nuestro imperio pueda seguir creciendo."
+ 
+ 
+ 
+ 
+ 
