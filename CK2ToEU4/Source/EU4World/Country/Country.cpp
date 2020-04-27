@@ -251,7 +251,7 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 
 	auto nameSet = false;
 	// Override for muslims kingdoms/empires.
-	std::set<std::string> muslimReligions = {"sunni", "zikri", "yazidi", "ibadi", "kharijite", "shiite", "druze", "hurufi"};
+	std::set<std::string> muslimReligions = {"sunni", "zikri", "yazidi", "ibadi", "kharijite", "shiite", "druze", "hurufi", "qarmatian"};
 	if (muslimReligions.count(details.religion) && actualHolder->getDynasty().first && !actualHolder->getDynasty().second->getName().empty() &&
 		 title.first != "k_rum" && title.first != "k_israel" && title.first != "e_india" && (title.first.find("e_") == 0 || title.first.find("k_") == 0))
 	{
