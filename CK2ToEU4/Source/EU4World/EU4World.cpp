@@ -1100,7 +1100,7 @@ std::optional<std::pair<int, std::shared_ptr<CK2::Province>>> EU4::World::determ
 	std::map<std::string, int> theShares;														// title, development
 	std::string winner;
 	auto maxDev = -1;
-
+	std::pair<int, std::shared_ptr<CK2::Province>> wonderProvince = std::pair(0, nullptr);
 	for (auto ck2ProvinceID: ck2ProvinceNumbers)
 	{
 		const auto& ck2province = sourceWorld.getProvinces().find(ck2ProvinceID);
@@ -1132,6 +1132,7 @@ std::optional<std::pair<int, std::shared_ptr<CK2::Province>>> EU4::World::determ
 			// This is the someone's wonder province.
 			winner = ck2province->second->getTitle().first;
 			maxDev = 500;
+			wonderProvince = std::pair(ck2province->first, ck2province->second);
 		}
 		// Check for HRE emperor
 		if (ck2province->second->getTitle().second->isHREEmperor())
@@ -1161,6 +1162,13 @@ std::optional<std::pair<int, std::shared_ptr<CK2::Province>>> EU4::World::determ
 
 	// Now that we have a winning title, let's find its largest province to use as a source.
 	maxDev = -1; // We can have winning provinces with weight = 0;
+
+	// if we hold a wonder, skip this part.
+	if (wonderProvince.first && wonderProvince.second->getTitle().first == winner)
+	{
+		return wonderProvince;
+	}
+	
 	std::pair<int, std::shared_ptr<CK2::Province>> toReturn;
 	for (const auto& province: theClaims[winner])
 	{
