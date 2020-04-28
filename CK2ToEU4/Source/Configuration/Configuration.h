@@ -10,6 +10,12 @@ class Configuration: commonItems::parser
 	Configuration();
 	explicit Configuration(std::istream& theStream);
 
+	enum class SUNSET
+	{
+		DEFAULT = 1,
+		DISABLED = 2,
+		ACTIVE = 3
+	};
 	enum class I_AM_HRE
 	{
 		HRE = 1,
@@ -51,6 +57,7 @@ class Configuration: commonItems::parser
 	[[nodiscard]] const auto& getShatterLevel() const { return shatterLevel; }
 	[[nodiscard]] const auto& getShatterHRELevel() const { return shatterHRELevel; }
 	[[nodiscard]] const auto& getSiberia() const { return siberia; }
+	[[nodiscard]] const auto& getSunset() const { return sunset; }
 
   private:
 	void registerKeys();
@@ -69,6 +76,7 @@ class Configuration: commonItems::parser
 	SHATTER_HRE_LEVEL shatterHRELevel = SHATTER_HRE_LEVEL::DUTCHY;
 	SHATTER_LEVEL shatterLevel = SHATTER_LEVEL::DUTCHY;
 	SIBERIA siberia = SIBERIA::CLEAR_SIBERIA;
+	SUNSET sunset = SUNSET::DEFAULT;
 };
 
 #endif // CONFIGURATION_H

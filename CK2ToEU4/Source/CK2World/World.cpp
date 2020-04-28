@@ -189,7 +189,16 @@ CK2::World::World(const Configuration& theConfiguration)
 	LOG(LogLevel::Info) << "-- Decyphering Personalities";
 	characters.assignPersonalities(personalityScraper);
 
+	alterSunset(theConfiguration);
 	LOG(LogLevel::Info) << "*** Good-bye CK2, rest in peace. ***";
+}
+
+void CK2::World::alterSunset(const Configuration& theConfiguration)
+{
+	if (theConfiguration.getSunset() == Configuration::SUNSET::ACTIVE)
+		invasion = true;
+	else if (theConfiguration.getSunset() == Configuration::SUNSET::DISABLED)
+		invasion = false;	
 }
 
 void CK2::World::verifyReligionsAndCultures(const Configuration& theConfiguration)

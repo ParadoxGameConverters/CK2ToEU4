@@ -98,11 +98,15 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 		// We failed to get a religion. This is not an issue. We'll set it later from the majority of owned provinces.
 		details.religion.clear();
 	}
-	const auto& capitalMatch = provinceMapper.getEU4ProvinceNumbers(actualHolder->getCapitalProvince().first);
-	if (!capitalMatch.empty())
-		details.capital = *capitalMatch.begin();
-	else
-		details.capital = 0; // We will see warning about this earlier, no need for more spam.
+	// Change capitals for anyone not aztec.
+	if (tag != "AZT")
+	{
+		const auto& capitalMatch = provinceMapper.getEU4ProvinceNumbers(actualHolder->getCapitalProvince().first);
+		if (!capitalMatch.empty())
+			details.capital = *capitalMatch.begin();
+		else
+			details.capital = 0; // We will see warning about this earlier, no need for more spam.
+	}
 	// do we have a culture?
 	std::string baseCulture;
 	if (!actualHolder->getCulture().empty())
