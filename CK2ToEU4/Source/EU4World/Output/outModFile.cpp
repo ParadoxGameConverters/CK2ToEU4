@@ -4,7 +4,6 @@ std::ostream& EU4::operator<<(std::ostream& output, const ModFile& modFile)
 {
 	output << "name = \"Converted - " << modFile.outname << "\"\n";
 	output << "path = \"mod/" << modFile.outname << "\"\n";
-	output << "user_dir = \"" << modFile.outname << "\"\n";
 	output << "normal_or_historical_nations = yes\n";
 	output << "supported_version = \"1.29.*\"\n";
 	output << "replace_path = \"history/countries/\"\n";
