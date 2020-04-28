@@ -13,8 +13,6 @@ build_script:
     msbuild CK2ToEU4Tests/CK2ToEU4Tests.vcxproj /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 test_script:
 - ps: >-
-    vstest.console.exe /logger:Appveyor frontend\Frontend.Core.Tests\bin\Release\Frontend.Core.Tests.dll
-    
     CK2ToEU4Tests\Release\CK2ToEU4Tests.exe --gtest_output=xml:tests.xml
     
     $wc = New-Object 'System.Net.WebClient'
