@@ -10,8 +10,6 @@ build_script:
 
     msbuild CK2ToEU4/CK2ToEU4.vcxproj -property:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
     
-    msbuild Fronter/Fronter.vcxproj -property:Configuration=Release /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
-
     msbuild CK2ToEU4Tests/CK2ToEU4Tests.vcxproj /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 test_script:
 - ps: >-
