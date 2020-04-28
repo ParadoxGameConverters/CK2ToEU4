@@ -35,11 +35,11 @@ class World: commonItems::parser
 	[[nodiscard]] const auto& getDiplomacy() const { return diplomacy; }
 	[[nodiscard]] const auto& getVars() const { return vars; }
 
-	[[nodiscard]] auto isInvasion() const { return invasion; }
+	[[nodiscard]] auto isInvasion() const { return (invasion); }
 
   private:
 	bool uncompressSave(const std::string& saveGamePath);
-
+	void alterSunset(const Configuration& theConfiguration);
 	void verifySave(const std::string& saveGamePath);
 	void filterIndependentTitles();
 	void mergeIndependentBaronies() const;

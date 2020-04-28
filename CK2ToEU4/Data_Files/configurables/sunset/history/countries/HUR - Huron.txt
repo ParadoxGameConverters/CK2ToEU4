@@ -50,7 +50,7 @@ capital = 988	# Huron
 		adm = 0
 		dip = 2
 		mil = 5
-		leader = {	name = "Adario"                	type = general	rank = 0	fire = 3	shock = 1	manuever = 3	siege = 1}
+		leader = {	name = "Adario"                	type = general	fire = 3	shock = 1	manuever = 3	siege = 1}
 	}
 }
 

@@ -72,6 +72,11 @@ void Configuration::registerKeys()
 		siberia = SIBERIA(std::stoi(siberiaString.getString()));
 		Log(LogLevel::Info) << "Siberia set to: " << siberiaString.getString();
 	});
+	registerKeyword("sunset", [this](const std::string& unused, std::istream& theStream) {
+		const commonItems::singleString sunsetString(theStream);
+		sunset = SUNSET(std::stoi(sunsetString.getString()));
+		Log(LogLevel::Info) << "Sunset set to: " << sunsetString.getString();
+	});
 	registerRegex("[a-zA-Z0-9\\_.:]+", commonItems::ignoreItem);
 }
 

@@ -70,7 +70,7 @@ capital = 948	# Ohio
 		adm = 5
 		dip = 6
 		mil = 5
-		leader = {	name = "Tecumseh"              	type = general	rank = 0	fire = 5	shock = 2	manuever = 5	siege = 1}
+		leader = {	name = "Tecumseh"              	type = general	fire = 5	shock = 2	manuever = 5	siege = 1}
 	}
 }
 
