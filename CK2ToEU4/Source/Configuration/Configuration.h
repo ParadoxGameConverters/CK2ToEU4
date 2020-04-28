@@ -1,7 +1,6 @@
 #ifndef CONFIGURATION_H
 #define CONFIGURATION_H
 
-#include "ConfigurationDetails.h"
 #include "Date.h"
 #include "newParser.h"
 
@@ -11,16 +10,47 @@ class Configuration: commonItems::parser
 	Configuration();
 	explicit Configuration(std::istream& theStream);
 
-	[[nodiscard]] const auto& getSaveGamePath() const { return details.SaveGamePath; }
-	[[nodiscard]] const auto& getCK2Path() const { return details.CK2Path; }
-	[[nodiscard]] const auto& getCK2ModsPath() const { return details.CK2ModsPath; }
-	[[nodiscard]] const auto& getEU4Path() const { return details.EU4Path; }
-	[[nodiscard]] const auto& getOutputName() const { return details.outputName; }
-	[[nodiscard]] const auto& getHRE() const { return details.iAmHre; }
-	[[nodiscard]] const auto& getShatterEmpires() const { return details.shatterEmpires; }
-	[[nodiscard]] const auto& getShatterLevel() const { return details.shatterLevel; }
-	[[nodiscard]] const auto& getShatterHRELevel() const { return details.shatterHRELevel; }
-	[[nodiscard]] const auto& getSiberia() const { return details.siberia; }
+	enum class I_AM_HRE
+	{
+		HRE = 1,
+		BYZANTIUM = 2,
+		ROME = 3,
+		CUSTOM = 4,
+		NONE = 5
+	};
+	enum class SHATTER_EMPIRES
+	{
+		NONE = 1,
+		ALL = 2
+	};
+	enum class SHATTER_LEVEL
+	{
+		DUTCHY = 1,
+		KINGDOM = 2
+	};
+	enum class SHATTER_HRE_LEVEL
+	{
+		DUTCHY = 1,
+		KINGDOM = 2
+	};
+	enum class SIBERIA
+	{
+		CLEAR_SIBERIA = 1,
+		LEAVE_SIBERIA = 2
+	};
+
+
+
+	[[nodiscard]] const auto& getSaveGamePath() const { return SaveGamePath; }
+	[[nodiscard]] const auto& getCK2Path() const { return CK2Path; }
+	[[nodiscard]] const auto& getCK2ModsPath() const { return CK2ModsPath; }
+	[[nodiscard]] const auto& getEU4Path() const { return EU4Path; }
+	[[nodiscard]] const auto& getOutputName() const { return outputName; }
+	[[nodiscard]] const auto& getHRE() const { return iAmHre; }
+	[[nodiscard]] const auto& getShatterEmpires() const { return shatterEmpires; }
+	[[nodiscard]] const auto& getShatterLevel() const { return shatterLevel; }
+	[[nodiscard]] const auto& getShatterHRELevel() const { return shatterHRELevel; }
+	[[nodiscard]] const auto& getSiberia() const { return siberia; }
 
   private:
 	void registerKeys();
@@ -28,7 +58,17 @@ class Configuration: commonItems::parser
 	void verifyCK2Path() const;
 	void verifyEU4Path() const;
 
-	ConfigurationDetails details;
+	std::string SaveGamePath;
+	std::string CK2Path;
+	std::string CK2ModsPath;
+	std::string EU4Path;
+	std::string outputName;
+
+	I_AM_HRE iAmHre = I_AM_HRE::HRE;
+	SHATTER_EMPIRES shatterEmpires = SHATTER_EMPIRES::NONE;
+	SHATTER_HRE_LEVEL shatterHRELevel = SHATTER_HRE_LEVEL::DUTCHY;
+	SHATTER_LEVEL shatterLevel = SHATTER_LEVEL::DUTCHY;
+	SIBERIA siberia = SIBERIA::CLEAR_SIBERIA;
 };
 
 #endif // CONFIGURATION_H

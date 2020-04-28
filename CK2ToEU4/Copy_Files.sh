@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Copy converter globals
-cp "Data_Files/configuration.txt" "Release-Linux/configuration.txt"
 cp "Data_Files/ReadMe.txt" "Release-Linux/ReadMe.txt"
 cp "Data_Files/FAQ.txt" "Release-Linux/FAQ.txt"
 cp "Data_Files/after_converting.txt" "Release-Linux/after_converting.txt"

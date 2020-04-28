@@ -191,7 +191,6 @@
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Wonders\Wonders.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Common\CommonFunctions.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Configuration\Configuration.cpp" />
-    <ClCompile Include="..\CK2ToEU4\Source\Configuration\ConfigurationDetails.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\CultureMapper\CultureMapper.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\CultureMapper\CultureMappingRule.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\GovernmentsMapper\GovernmentsMapper.cpp" />
