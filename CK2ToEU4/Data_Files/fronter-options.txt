@@ -1,0 +1,123 @@
+option = {
+	name = i_am_hre
+	displayName = "Which empire inherits EU4 HRE mechanics and shatters?"
+	tooltip = "Only one empire can use HRE mechanics."
+	radioSelector = {
+		radioOption = {
+			name = 1
+			displayName = "The HRE [obviously]"
+			tooltip = "e_hre"
+			default = true
+		}
+		radioOption = {
+			name = 2
+			displayName = "Byzantium! [Holy and Roman and Empire]"
+			tooltip = "e_byzantium"
+			default = false
+		}
+		radioOption = {
+			name = 3
+			displayName = "Uh, Rome?"
+			tooltip = "e_roman_empire"
+			default = false		
+		}
+		radioOption = {
+			name = 4
+			displayName = "Defined in i_am_hre.txt"
+			tooltip = "As defined manually"
+			default = false
+		}
+		radioOption = {		
+			name = 5
+			displayName = "None [no HRE shattering]"
+			tooltip = "Dropped."
+			default = false
+		}
+	}
+}
+option = {
+	name = shatter_hre_level
+	displayName = "If we're shattering HRE, how far down do we go?"
+	tooltip = "HRE should be shattered to duchies as it increases prince number and thus stability."
+	radioSelector = {
+		radioOption = {
+			name = 1
+			displayName = "Down to duchies [default]"
+			tooltip = "Need Duchies for stability"
+			default = true
+		}
+		radioOption = {
+			name = 2
+			displayName = "Keep kingdoms if any [not recommended]"
+			tooltip = "Kingdoms remain."
+			default = false
+		}
+	}
+}
+option = {
+	name = shatter_empires
+	displayName = "Should we shatter other empires?"
+	tooltip = "Makes the game more dynamic. New countries won't be united."
+	radioSelector = {
+		radioOption = {
+			name = 1
+			displayName = "No, as they were [default]"
+			tooltip = "Uses CK2 states."
+			default = true
+		}
+		radioOption = {
+			name = 2
+			displayName = "All of them! [interesting]"
+			tooltip = "All empires are broken down."
+			default = false
+		}
+	}
+}
+option = {
+	name = shatter_level
+	displayName = "If we're shattering non-HRE empires, how far down do we go?"
+	tooltip = "More the merrier."
+	radioSelector = {
+		radioOption = {
+			name = 1
+			displayName = "Down to duchies"
+			tooltip = "Duchies make sense."
+			default = true
+		}
+		radioOption = {
+			name = 2
+			displayName = "Keep kingdoms if any"
+			tooltip = "Kingdoms remain."
+			default = false
+		}
+	}
+}
+option = {
+	name = siberia
+	displayName = "Clear Siberian Quagmire?"
+	tooltip = "Delete all the nomads and tribals?"
+	radioSelector = {
+		radioOption = {
+			name = 1
+			displayName = "Burn it all down [default]"
+			tooltip = "Clean Siberia"
+			default = true
+		}
+		radioOption = {
+			name = 2
+			displayName = "No, I was playing those! [hampers Russia]"
+			tooltip = "Leave as is"
+			default = false
+		}
+	}
+}
+option = {
+	name = output_name
+	displayName = "Mod Output Name (optional):"
+	tooltip = "Please don't use cyrillic or chinese..."
+	textSelector = {	
+		value = ""
+		editable = true
+		tooltip = "Optional name for the converted mod"
+	}
+}

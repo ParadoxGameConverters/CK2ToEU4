@@ -1,0 +1,59 @@
+﻿name = CK2ToEU4
+converterFolder = CK2ToEU4
+displayName = "Crusader Kings II To Europa Universalis IV"
+sourceGame = "Crusader Kings II"
+targetGame = "Europa Universalis IV"
+
+requiredFolder = {
+	name = CK2directory
+	displayName = "Crusader Kings 2 Install directory"
+	tooltip = "A path on your computer where Crusader Kings 2 is installed"
+	mandatory = true
+	searchPathType = steamFolder
+	searchPathID = 203770
+}
+requiredFolder = {
+	name = CK2ModsDirectory
+	displayName = "Crusader Kings 2 Mods Directory"
+	tooltip = "A path on your computer where Crusader Kings 2 keeps mods"
+	mandatory = true
+	searchPathType = windowsUsersFolder
+	searchPath = "Paradox Interactive\Crusader Kings II\mod"
+}
+requiredFolder = {
+	name = EU4directory
+	displayName = "Europa Universalis 4 Install directory"
+	tooltip = "A path on your computer where Europa Universalis 4 is installed"
+	mandatory = true
+	searchPathType = steamFolder
+	searchPathID = 236850
+}
+requiredFolder = {
+	name = targetGameModPath
+	displayName = "Europa Universalis 4 Mods directory"
+	tooltip = "A path on your computer where Europa Universalis 4 keeps mods"
+	mandatory = true
+	searchPathType = windowsUsersFolder
+	searchPath = "Paradox Interactive\Europa Universalis IV\mod"
+}
+requiredFile = {
+	name = converterExe
+	displayName = "Path to the converter executable"
+	tooltip = "Path to CK2ToEU4Converter.exe"
+	mandatory = true
+	outputtable = false
+	searchPathType = converterFolder
+	searchPath = "CK2ToEU4"
+	allowedExtension = "*.exe"
+	fileName = "CK2ToEU4Converter.exe"
+}
+requiredFile = {
+	name = SaveGame
+	displayName = "Path to the CK2 Savegame"
+	tooltip = "Path to your savegame from CK2"
+	mandatory = true
+	outputtable = true
+	searchPathType = windowsUsersFolder
+	searchPath = "Paradox Interactive\Crusader Kings II\save games"
+	allowedExtension = "*.ck2"
+}
