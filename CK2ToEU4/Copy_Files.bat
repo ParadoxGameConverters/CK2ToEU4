@@ -1,11 +1,13 @@
 echo on
 rem Copy converter data files
-copy "Data_Files\configuration.txt" "..\Release\CK2ToEU4\configuration.txt"
-copy "Data_Files\ReadMe.txt" "..\Release\CK2ToEU4\readme.txt"
+mkdir "..\Release\Configuration"
+copy "Data_Files\fronter-configuration.txt" "..\Release\Configuration\fronter-configuration.txt"
+copy "Data_Files\fronter-options.txt" "..\Release\Configuration\fronter-options.txt"
 copy "Data_Files\ReadMe.txt" "..\Release\readme.txt"
+
+copy "Data_Files\log.txt" "..\Release\CK2ToEU4\log.txt"
+copy "Data_Files\ReadMe.txt" "..\Release\CK2ToEU4\readme.txt"
 copy "Data_Files\FAQ.txt" "..\Release\CK2ToEU4\FAQ.txt"
-copy "Data_Files\CK2ToEU4DefaultConfiguration.xml" "..\Release\Configuration\CK2ToEU4DefaultConfiguration.xml"
-copy "Data_Files\SupportedConvertersDefault.xml" "..\Release\Configuration\SupportedConvertersDefault.xml"
 copy "Data_Files\license.txt" "..\Release\CK2ToEU4\license.txt"
 copy "Data_Files\after_converting.txt" "..\Release\CK2ToEU4\after_converting.txt"
 

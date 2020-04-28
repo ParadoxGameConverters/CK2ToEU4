@@ -1,10 +1,13 @@
 #include "CK2ToEU4Converter.h"
 #include "Log.h"
+#include <fstream>
 
 int main(const int argc, const char* argv[])
 {
 	try
 	{
+		std::ofstream clearLog("log.txt");
+		clearLog.close();
 		const mappers::VersionParser versionParser;
 		Log(LogLevel::Info) << versionParser;
 		if (argc >= 2)
