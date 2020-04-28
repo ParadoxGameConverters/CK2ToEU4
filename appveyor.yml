@@ -6,7 +6,7 @@ build_script:
 - cmd: >-
     git submodule update --init --recursive
 
-    msbuild CK2ToEU4.sln /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+    msbuild -m CK2ToEU4.sln /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 
 test_script:
 - ps: >-
