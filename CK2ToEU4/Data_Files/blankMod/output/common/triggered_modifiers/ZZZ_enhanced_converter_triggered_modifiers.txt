@@ -1,0 +1,21 @@
+ZZZ_enhanced_unreformed_religion = {
+	potential = {
+		NOT = { has_global_flag = ZZZ_enhanced_random_world }
+		OR = {
+			religion = norse_pagan
+			religion = tengri_pagan
+			religion = baltic_pagan
+			religion = finnish_pagan
+			religion = slavic_pagan
+			religion = hellenic_pagan
+			religion = zun_pagan
+			religion = bon
+		}
+	}
+
+	trigger = {
+		always = yes
+	}
+	
+	global_missionary_strength = -0.005
+}

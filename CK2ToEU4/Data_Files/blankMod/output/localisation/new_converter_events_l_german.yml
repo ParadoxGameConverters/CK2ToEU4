@@ -1,4 +1,54 @@
 ﻿l_german: 
+ #Religion
+ ZZZ_enhanced_religion.1.t:0 "The [From.Religion.GetName] Reformation"
+ ZZZ_enhanced_religion.1.desc:0 "[From.Monarch.GetTitle] [From.Monarch.GetName] hat eine Vision erhalten! In dieser Vision standen die Anhänger der Götter auseinander, und einer nach dem anderen wurden sie von einem mächtigen Kreuz aus Holz beiseite gefegt. Bald gab es keine Anhänger der Götter mehr, und [From.Monarch.GetTitle] [From.Monarch.GetName] sah, wie Odin selbst langsam verblasste. Plötzlich gab es ein helles Licht, und da war Thor, der das Holzkreuz zerschmetterte, und hinter ihm standen alle, die beiseite gefegt wurden, und zerstörten zusammen das, gegen das sie allein machtlos waren. [From.Monarch.GetTitle] [From.Monarch.GetName] vertraut auf die Vision von seine und hat eine neue religiöse Hierarchie etabliert. Darüber hinaus hat sie seine die meisten gelehrten Theologen damit beauftragt, die großen Sagen so zu standardisieren, dass es jeweils eine endgültige Ausgabe gibt. Zusammen sind diese standardisierten Sagen als The Heilögu Sögurnar bekannt."
+ ZZZ_enhanced_religion.1.a:0 "Odin führt uns!"
+ ZZZ_enhanced_religion.1.aa:0 "Odin führt uns!"
+ ZZZ_enhanced_religion.1.b:0 "LÜGNER! SCHARLATAN!"
+ ZZZ_enhanced_religion.1.c:0 "Verfluchte Heiden!"
+ 
+ ZZZ_enhanced_religion.2.desc:0 "Die alte Religion [From.Religion.GetName] wird von fremden Heiden angegriffen! Eine großartige Geschichte hat die Runde gemacht und die Bauern angezündet. Diese Geschichte, die einfach als Amžina Ugnis oder "Eine ewige Flamme" bekannt ist und oft von Barden und Mumien aufgeführt wird, bringt die Praktizierenden von [From.Religion.GetName] auf ein höheres Niveau als diejenigen, die anderen Überzeugungen folgen. Die Stärke dieses religiösen Aufschwungs hat eine große Konferenz von Theologen erzwungen. Während der Konferenz haben einige wichtige Führer eine Reihe von Reformen vorangetrieben, darunter eine lockere, aber unbestreitbare Hierarchie und die glaubensweite Akzeptanz der Amžina Ugnis als endgültigen heiligen Text für den Glauben [From.Religion.GetName]."
+ ZZZ_enhanced_religion.2.a:0 "Die Götter haben diese Männer und Frauen geführt!"
+ ZZZ_enhanced_religion.2.aa:0 "Die Götter haben diese Männer und Frauen geführt!"
+ ZZZ_enhanced_religion.2.b:0 "Blithering idioten!"
+ ZZZ_enhanced_religion.2.c:0 "Verfluchte heiden!"
+ 
+ ZZZ_enhanced_religion.3.desc:0 "Es ist Zeit für die Gejagten, die Jäger zu werden. Müde von den ständigen Einfällen benachbarter Ketzer und Heiden versammelten sich [From.Religion.GetName] Theologen aus dem ganzen Land zu einer großen Versammlung. Dort konsolidierten sie die Mythen des [From.Religion.GetName] zu einem einzigen Epos, The Kalevala. Während der Arbeit an dem Epos entschieden sich die Theologen für eine einfache, aber klare Hierarchie, um sicherzustellen, dass die bei der Versammlung gelegten Grundlagen nicht mit der Zeit verloren gehen."
+ ZZZ_enhanced_religion.3.a:0 "Wir werden diejenigen vernichten, die sich den Göttern widersetzen!"
+ ZZZ_enhanced_religion.3.aa:0 "Wir werden diejenigen vernichten, die sich den Göttern widersetzen!"
+ ZZZ_enhanced_religion.3.b:0 "Dies wird [Root.Religion.GetName] zerstören, nicht speichern!"
+ ZZZ_enhanced_religion.3.c:0 "Verfluchte Heiden!"
+ 
+ ZZZ_enhanced_religion.4.desc:0 "Unser Glaube ist größer als der Himmel und unangreifbar. Zumindest wurden die Gläubigen [From.Religion.GetName] unterrichtet, aber in letzter Zeit wurde diese unbestreitbare Tatsache in Frage gestellt, als ketzerische und heidnische Kräfte in ihr heiliges Land eindringen. Als Reaktion auf diese Aggressionen wurde eine große Versammlung von Theologen einberufen, und es wurde beschlossen, dass es Zeit war, zurückzuschlagen. Eine kirchliche Hierarchie wurde gebildet, eine große Aufzählung der heiligen Inschriftensteine wurde angeordnet. Unter Verwendung des aus diesen Steinen gesammelten Textes hat [From.Monarch.GetTitle] [From.Monarch.GetName] ein massives Bauprojekt in Auftrag gegeben. Auf einem großen Berg soll eine bearbeitete Version aller sanktionierten Inschriften angebracht werden, und diese ausgewählten Texte werden es tun gemeinsam werden die offiziellen Mieter des reformierten Glaubens [From.Religion.GetName]. Diese offizielle Sammlung ist einfach als The Inscriptions zu bezeichnen."
+ ZZZ_enhanced_religion.4.a:0 "Noch einmal unangreifbar!"
+ ZZZ_enhanced_religion.4.aa:0 "Noch einmal unangreifbar!"
+ ZZZ_enhanced_religion.4.b:0 "Nichts weiter als ein Eitelkeitsprojekt!"
+ ZZZ_enhanced_religion.4.c:0 "Verfluchte Heiden!"
+ 
+ ZZZ_enhanced_religion.5.desc:0 "Die nachricht verbreitete sich wie ein lauffeuer in allen ländern von [From.Religion.GetName]. Es sollte eine Synode von Theologen geben, deren Größe beispiellos sein würde. Überall hatten Omen-Leser genau die gleichen Vorzeichen gelesen, dass die Götter und die Zyklen bald vergessen würden, wenn es keine Veränderung gäbe. Zusammen haben die Theologen den Glauben [From.Religion.GetName] reformiert, um besser auf die Herausforderungen der Neuzeit vorbereitet zu sein. Mit einer strengen kirchlichen Hierarchie und einem offiziellen Kompendium heiliger Mythen und Legenden, die einfach als The Tales bekannt sind, wurde der Glaube [From.Religion.GetName] erfolgreich wiedergeboren!"
+ ZZZ_enhanced_religion.5.a:0 "Der Zyklus wird nicht unterbrochen!"
+ ZZZ_enhanced_religion.5.aa:0 "Der Zyklus wird nicht unterbrochen!"
+ ZZZ_enhanced_religion.5.b:0 "Dies wird unseren Kreis brechen!"
+ ZZZ_enhanced_religion.5.c:0 "Verfluchte Heiden!"
+ 
+ ZZZ_enhanced_religion.6.desc:0 "¡El sol atraviesa la oscuridad! La antigua religión [From.Religion.GetName] ha sido reformada, sus enseñanzas y profecías han sido sopesadas por su autenticidad y compiladas en un solo volumen, El Libro del Sol. Los teólogos [de.Religion.GetName] se han reunido en una gran convocatoria, cerrando las puertas hasta que se pueda establecer una clara jerarquía eclesiástica. En celebración de la reforma de su fe."
+ ZZZ_enhanced_religion.6.a:0 "Alle sollen die Sonne preisen!"
+ ZZZ_enhanced_religion.6.aa:0 "Alle sollen die Sonne preisen!"
+ ZZZ_enhanced_religion.6.b:0 "Dunkelheit nimm diese Ketzer!"
+ ZZZ_enhanced_religion.6.c:0 "Verfluchte Heiden!"
+ 
+ ZZZ_enhanced_religion.7.desc:0 "Die Zeit vergeht, und die Anhänger der Religion [From.Religion.GetName] haben Angst, dass die alten Wege verschwinden und durch ihre aggressiveren Nachbarn ersetzt werden. Als Antwort auf diese Befürchtungen hat [From.Monarch.GetTitle] [From.Monarch.GetName] ein großes Konklave der am meisten gelehrten Theologen des Landes aufgerufen. Durch viele schlaflose Tage und Nächte ist das Konklave in Übereinstimmung mit mehreren wichtigen religiösen Angelegenheiten entstanden, einschließlich der Standardisierung des Mdodus und der Organisation von Mönchen."
+ ZZZ_enhanced_religion.7.a:0 "Die alten Wege werden niemals sterben!"
+ ZZZ_enhanced_religion.7.aa:0 "Die alten Wege werden niemals sterben!"
+ ZZZ_enhanced_religion.7.b:0 "Dummköpfe!"
+ ZZZ_enhanced_religion.7.c:0 "Verfluchte Heiden!"
+ 
+ ZZZ_enhanced_religion.8.desc:0 "Wie ein Phönix aus der Asche wurde die alte und verehrte Religion der Griechen und Römer wiedergeboren. [From.Monarch.GetTitle] [From.Monarch.GetName] forderte die christliche Kirche zum ersten Mal seit Jahrhunderten zur Herrschaft in ganz Europa auf und hat es geschafft, eine funktionierende Hierarchie von Auguren und ein kodifiziertes Glaubenssystem wiederherzustellen, das so detailliert ist wie das christliche und Islamische Gegenstücke. Die Anhänger des hellenischen Glaubens, die nicht mehr in die Vergangenheit verbannt sind, blicken jetzt in die Zukunft."
+ ZZZ_enhanced_religion.8.a:0 "Allmächtiger Jupiter, zeig uns den Weg!"
+ ZZZ_enhanced_religion.8.aa:0 "Allmächtiger Jupiter, zeig uns den Weg!"
+ ZZZ_enhanced_religion.8.b:0 "Wollen sie wieder irrelevant werden!?"
+ ZZZ_enhanced_religion.8.c:0 "Verfluchte Heiden!" 
+
  #Fetishist
  ZZZ_enhanced_fetishist.4.t:0 "Ältere Führung"
  ZZZ_enhanced_fetishist.4.d:0 "Wir haben Menschen getroffen und gesehen, die wir zunächst für unsere eigenen gehalten haben. Wir stellten jedoch schnell fest, dass ihre Wege anders waren als unsere. Sie waren organisierter und ihre Schamanen schienen alle auf die gleiche Weise ausgebildet zu sein, mit einer Struktur, die impliziert, dass einige Schamanen einen höheren Rang als andere haben. Überraschenderweise akzeptieren alle Schamanen dieser Menschen dies und folgen ihren Vorgesetzten ohne Frage. Diese Leute behaupten, dass sie uns einmal sehr ähnlich waren, aber größere Wahrheiten über das Universum entdeckt haben und dass sie damit diejenigen zurückschlagen konnten, die die alten Wege in Frage stellen würden."

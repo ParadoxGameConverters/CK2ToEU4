@@ -1,4 +1,54 @@
 ﻿l_spanish: 
+ #Religion
+ ZZZ_enhanced_religion.1.t:0 "La reforma [From.Religion.GetName]"
+ ZZZ_enhanced_religion.1.desc:0 "[From.Monarch.GetTitle] [From.Monarch.GetName] ha recibido una visión! En esta visión, los seguidores de los dioses se mantuvieron separados, y uno por uno fueron barridos por una poderosa cruz hecha de madera. Pronto no quedaron seguidores de los dioses, y [From.Monarch.GetTitle] [From.Monarch.GetName] vio al propio Odin desvaneciéndose lentamente. De repente, había una luz brillante, y estaba Thor, rompiendo la cruz de madera, y detrás de él estaban todos los barridos, destruyendo juntos aquello contra lo que no tenían poder. Confiando en la visión sus, [From.Monarch.GetTitle] [From.Monarch.GetName] ha establecido una nueva jerarquía religiosa. Además, [From.GetElEllaDir] también le ha encomendado a sus a los teólogos más eruditos la estandarización de las grandes sagas para que haya una única edición definitiva de cada una. Colectivamente, estas sagas estandarizadas se conocerán como The Heilögu Sögurnar."
+ ZZZ_enhanced_religion.1.a:0 "¡Odin nos guía!"
+ ZZZ_enhanced_religion.1.aa:0 "¡Odin nos guía!"
+ ZZZ_enhanced_religion.1.b:0 "¡MENTIROSO! ¡CHARLATÁN!"
+ ZZZ_enhanced_religion.1.c:0 "Heathens maldito!"
+ 
+ ZZZ_enhanced_religion.2.desc:0 "¡La antigua religión [From.Religion.GetName] está siendo atacada por paganos extranjeros! Una gran historia ha estado dando vueltas, disparando al campesinado. Conocida simplemente como Amžina Ugnis, o "An Eternal Flame", esta historia, a menudo interpretada por bardos y mimos, eleva a los practicantes de [From.Religion.GetName] a un nivel más alto que aquellos que siguen otras creencias. La fuerza de este surgimiento religioso ha forzado una gran conferencia de teólogos. Durante la conferencia, algunos líderes clave impulsaron una serie de reformas, incluida una jerarquía laxa pero incuestionable, y la aceptación de toda la fe de Amžina Ugnis como el texto sagrado definitivo para la fe [From.Religion.GetName]."
+ ZZZ_enhanced_religion.2.a:0 "¡Los dioses han guiado a estos hombres y mujeres!"
+ ZZZ_enhanced_religion.2.aa:0 "¡Los dioses han guiado a estos hombres y mujeres!"
+ ZZZ_enhanced_religion.2.b:0 "¡Idiotas deslumbrantes!"
+ ZZZ_enhanced_religion.2.c:0 "Heathens maldito!"
+ 
+ ZZZ_enhanced_religion.3.desc:0 "Es hora de que los cazados se conviertan en cazadores. Cansados de las constantes incursiones de los herejes y paganos vecinos, los teólogos de [From.Religion.GetName] de todo el país se reunieron en una gran asamblea. Allí consolidaron los mitos de [From.Religion.GetName] en una sola epopeya, The Kalevala. Mientras trabajaban en la épica, los teólogos decidieron una jerarquía simple pero clara, asegurando que las bases establecidas en la asamblea no se pierdan con el tiempo."
+ ZZZ_enhanced_religion.3.a:0 "¡Destruiremos a los que se oponen a los dioses!"
+ ZZZ_enhanced_religion.3.aa:0 "¡Destruiremos a los que se oponen a los dioses!"
+ ZZZ_enhanced_religion.3.b:0 "Esto destruirá [Root.Religion.GetName], ¡no lo guardará!"
+ ZZZ_enhanced_religion.3.c:0 "Heathens maldito!"
+ 
+ ZZZ_enhanced_religion.4.desc:0 "Más vasto que el cielo, nuestra fe es incuestionable. O eso fue lo que enseñaron a los fieles [From.Religion.GetName], pero recientemente este hecho innegable ha sido cuestionado a medida que las fuerzas herejes y paganas invaden sus tierras santas. En respuesta a estas agresiones, se convocó una gran congregación de teólogos, y se decidió que era hora de contraatacar. Se formó una jerarquía eclesiástica, se ordenó una gran enumeración de las Piedras de la Inscripción Sagrada. Usando el texto recogido de estas piedras, [From.Monarch.GetTitle] [From.Monarch.GetName] encargó un proyecto de construcción masivo, una gran montaña debe tener una versión editada de todas las inscripciones sancionadas inscritas en ella, y estos textos elegidos conviértase colectivamente en los inquilinos oficiales de la fe reformada [From.Religion.GetName]. Esta colección oficial se conocerá simplemente como The Inscriptions."
+ ZZZ_enhanced_religion.4.a:0 "¡Inaccesible una vez más!"
+ ZZZ_enhanced_religion.4.aa:0 "¡Inaccesible una vez más!"
+ ZZZ_enhanced_religion.4.b:0 "¡Nada más que un proyecto de vanidad!"
+ ZZZ_enhanced_religion.4.c:0 "Heathens maldito!"
+ 
+ ZZZ_enhanced_religion.5.desc:0 "La noticia se extendió como un incendio forestal en todas las tierras de [From.Religion.GetName]. Debía haber un sínodo de teólogos, cuyo tamaño no tendría precedentes. Todos los lectores de augurio en todas partes habían leído exactamente los mismos presagios, que los dioses y los ciclos pronto serían olvidados si no hubiera cambios. Reunidos, los teólogos han reformado la fe [From.Religion.GetName] para que esté mejor equipada para enfrentar los desafíos de la era moderna. ¡Con una estricta jerarquía eclesiástica y un compendio oficial de santos mitos y leyendas conocidos simplemente como The Tales, la fe [From.Religion.GetName] ha renacido con éxito!"
+ ZZZ_enhanced_religion.5.a:0 "¡El ciclo no se romperá!"
+ ZZZ_enhanced_religion.5.aa:0 "¡El ciclo no se romperá!"
+ ZZZ_enhanced_religion.5.b:0 "¡Esto romperá nuestro círculo!"
+ ZZZ_enhanced_religion.5.c:0 "Heathens maldito!"
+ 
+ ZZZ_enhanced_religion.6.desc:0 "¡El sol atraviesa la oscuridad! La antigua religión [From.Religion.GetName] ha sido reformada, sus enseñanzas y profecías han sido sopesadas por su autenticidad y compiladas en un solo volumen, El Libro del Sol. Los teólogos [de.Religion.GetName] se han reunido en una gran convocatoria, cerrando las puertas hasta que se pueda establecer una clara jerarquía eclesiástica. En celebración de la reforma de su fe."
+ ZZZ_enhanced_religion.6.a:0 "Todos alabarán al sol!"
+ ZZZ_enhanced_religion.6.aa:0 "Todos alabarán al sol!"
+ ZZZ_enhanced_religion.6.b:0 "¡La oscuridad toma a estos herejes!"
+ ZZZ_enhanced_religion.6.c:0 "Heathens maldito!"
+ 
+ ZZZ_enhanced_religion.7.desc:0 "El tiempo avanza y los seguidores de la religión [From.Religion.GetName] han temido que las viejas formas se desvanezcan para ser reemplazadas por sus vecinos más agresivos. En respuesta a estos temores, [From.Monarch.GetTitle] [From.Monarch.GetName] ha llamado a un gran cónclave de los teólogos más eruditos de la tierra. A través de muchos días y noches de insomnio, el cónclave ha surgido de acuerdo sobre varios asuntos religiosos importantes, incluida la estandarización de los Mdodus y la organización de los monjes."
+ ZZZ_enhanced_religion.7.a:0 "¡Las viejas formas nunca morirán!"
+ ZZZ_enhanced_religion.7.aa:0 "¡Las viejas formas nunca morirán!"
+ ZZZ_enhanced_religion.7.b:0 "¡Tontos!"
+ ZZZ_enhanced_religion.7.c:0 "Heathens maldito!"
+ 
+ ZZZ_enhanced_religion.8.desc:0 "Como un fénix de las cenizas, la antigua y venerada religión de los griegos y los romanos ha renacido. Desafiando a la Iglesia cristiana por el dominio en toda Europa por primera vez en siglos, [From.Monarch.GetTitle] [From.Monarch.GetName] ha logrado restaurar una jerarquía de trabajo de Augurios y un sistema de creencias codificado tan detallado como su cristiano y Contrapartes islámicas. Ya no relegados al pasado, los seguidores de la fe helénica ahora miran hacia el futuro."
+ ZZZ_enhanced_religion.8.a:0 "¡Todopoderoso Júpiter, muéstranos el camino!"
+ ZZZ_enhanced_religion.8.aa:0 "¡Todopoderoso Júpiter, muéstranos el camino!"
+ ZZZ_enhanced_religion.8.b:0 "¿¡Quieren volver a ser irrelevantes!?"
+ ZZZ_enhanced_religion.8.c:0 "Heathens maldito!" 
+
  #Fetishist
  ZZZ_enhanced_fetishist.4.t:0 "Liderazgo de Ancianos"
  ZZZ_enhanced_fetishist.4.d:0 "Hemos conocido y visto personas que al principio confundimos con las nuestras. Sin embargo, pronto nos dimos cuenta de que sus formas eran diferentes a las nuestras. Estaban más organizados y todos sus chamanes parecían estar entrenados de la misma manera, con una estructura que implica que algunos chamanes tienen un rango más alto que otros. Sorprendentemente, todos los chamanes de estas personas aceptan esto y siguen a sus superiores sin dudarlo. Estas personas afirman que una vez fueron muy parecidos a nosotros, pero que descubrieron verdades más grandes sobre el universo y que al hacerlo pudieron derrotar a quienes desafiarían las viejas costumbres."
