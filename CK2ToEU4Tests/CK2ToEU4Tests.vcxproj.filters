@@ -3,30 +3,30 @@
   <ItemGroup>
     <ClCompile Include="..\googletest\googletest\src\gtest-all.cc" />
     <ClCompile Include="..\googletest\googletest\src\gtest_main.cc" />
-    <ClCompile Include="..\common_items\Color.cpp">
+    <ClCompile Include="..\commonItems\Color.cpp">
       <Filter>ConverterFiles\commonItems</Filter>
     </ClCompile>
-    <ClCompile Include="..\common_items\Log.cpp">
+    <ClCompile Include="..\commonItems\Log.cpp">
       <Filter>ConverterFiles\commonItems</Filter>
     </ClCompile>
-    <ClCompile Include="..\common_items\newParser.cpp">
+    <ClCompile Include="..\commonItems\newParser.cpp">
       <Filter>ConverterFiles\commonItems</Filter>
     </ClCompile>
-    <ClCompile Include="..\common_items\Object.cpp">
+    <ClCompile Include="..\commonItems\Object.cpp">
       <Filter>ConverterFiles\commonItems</Filter>
     </ClCompile>
-    <ClCompile Include="..\common_items\ParserHelpers.cpp">
+    <ClCompile Include="..\commonItems\ParserHelpers.cpp">
       <Filter>ConverterFiles\commonItems</Filter>
     </ClCompile>
-    <ClCompile Include="..\common_items\WinUtils.cpp">
+    <ClCompile Include="..\commonItems\WinUtils.cpp">
       <Filter>ConverterFiles\commonItems</Filter>
     </ClCompile>
     <ClCompile Include="ConfigurationTests.cpp" />
     <ClCompile Include="..\googletest\googlemock\src\gmock-all.cc" />
-    <ClCompile Include="..\common_items\Date.cpp">
+    <ClCompile Include="..\commonItems\Date.cpp">
       <Filter>ConverterFiles\commonItems</Filter>
     </ClCompile>
-    <ClCompile Include="..\common_items\iconvlite.cpp">
+    <ClCompile Include="..\commonItems\iconvlite.cpp">
       <Filter>ConverterFiles\commonItems</Filter>
     </ClCompile>
     <ClCompile Include="..\CK2ToEU4\Source\Configuration\Configuration.cpp">

@@ -1,5 +1,5 @@
 [submodule "commonItems"]
-	path = common_items
+	path = commonItems
 	url = https://github.com/ParadoxGameConverters/commonItems/
 [submodule "googletest"]
 	path = googletest

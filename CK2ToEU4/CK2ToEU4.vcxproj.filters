@@ -3,34 +3,34 @@
   <ItemGroup>
     <ClCompile Include="Source\CK2ToEU4Converter.cpp" />
     <ClCompile Include="Source\main.cpp" />
-    <ClCompile Include="..\common_items\CommonUtils.cpp">
+    <ClCompile Include="..\commonItems\CommonUtils.cpp">
       <Filter>CommonItems</Filter>
     </ClCompile>
-    <ClCompile Include="..\common_items\Color.cpp">
+    <ClCompile Include="..\commonItems\Color.cpp">
       <Filter>CommonItems</Filter>
     </ClCompile>
-    <ClCompile Include="..\common_items\Date.cpp">
+    <ClCompile Include="..\commonItems\Date.cpp">
       <Filter>CommonItems</Filter>
     </ClCompile>
-    <ClCompile Include="..\common_items\Log.cpp">
+    <ClCompile Include="..\commonItems\Log.cpp">
       <Filter>CommonItems</Filter>
     </ClCompile>
-    <ClCompile Include="..\common_items\newParser.cpp">
+    <ClCompile Include="..\commonItems\newParser.cpp">
       <Filter>CommonItems</Filter>
     </ClCompile>
-    <ClCompile Include="..\common_items\ParserHelpers.cpp">
+    <ClCompile Include="..\commonItems\ParserHelpers.cpp">
       <Filter>CommonItems</Filter>
     </ClCompile>
-    <ClCompile Include="..\common_items\WinUtils.cpp">
+    <ClCompile Include="..\commonItems\WinUtils.cpp">
       <Filter>CommonItems</Filter>
     </ClCompile>
-    <ClCompile Include="..\common_items\StringUtils.cpp">
+    <ClCompile Include="..\commonItems\StringUtils.cpp">
       <Filter>CommonItems</Filter>
     </ClCompile>
-    <ClCompile Include="..\common_items\Object.cpp">
+    <ClCompile Include="..\commonItems\Object.cpp">
       <Filter>CommonItems</Filter>
     </ClCompile>
-    <ClCompile Include="..\common_items\iconvlite.cpp">
+    <ClCompile Include="..\commonItems\iconvlite.cpp">
       <Filter>CommonItems</Filter>
     </ClCompile>
     <ClCompile Include="Source\Mappers\VersionParser\VersionParser.cpp">
@@ -120,7 +120,7 @@
     <ClCompile Include="Source\EU4World\Country\CountryDetails.cpp">
       <Filter>EU4World\Country</Filter>
     </ClCompile>
-    <ClCompile Include="..\common_items\CardinalToOrdinal.cpp">
+    <ClCompile Include="..\commonItems\CardinalToOrdinal.cpp">
       <Filter>CommonItems</Filter>
     </ClCompile>
     <ClCompile Include="Source\EU4World\Output\outCountry.cpp">
@@ -240,31 +240,31 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CK2ToEU4Converter.h" />
-    <ClInclude Include="..\common_items\Color.h">
+    <ClInclude Include="..\commonItems\Color.h">
       <Filter>CommonItems</Filter>
     </ClInclude>
-    <ClInclude Include="..\common_items\Date.h">
+    <ClInclude Include="..\commonItems\Date.h">
       <Filter>CommonItems</Filter>
     </ClInclude>
-    <ClInclude Include="..\common_items\Log.h">
+    <ClInclude Include="..\commonItems\Log.h">
       <Filter>CommonItems</Filter>
     </ClInclude>
-    <ClInclude Include="..\common_items\newParser.h">
+    <ClInclude Include="..\commonItems\newParser.h">
       <Filter>CommonItems</Filter>
     </ClInclude>
-    <ClInclude Include="..\common_items\OSCompatibilityLayer.h">
+    <ClInclude Include="..\commonItems\OSCompatibilityLayer.h">
       <Filter>CommonItems</Filter>
     </ClInclude>
-    <ClInclude Include="..\common_items\ParserHelpers.h">
+    <ClInclude Include="..\commonItems\ParserHelpers.h">
       <Filter>CommonItems</Filter>
     </ClInclude>
-    <ClInclude Include="..\common_items\StringUtils.h">
+    <ClInclude Include="..\commonItems\StringUtils.h">
       <Filter>CommonItems</Filter>
     </ClInclude>
-    <ClInclude Include="..\common_items\Object.h">
+    <ClInclude Include="..\commonItems\Object.h">
       <Filter>CommonItems</Filter>
     </ClInclude>
-    <ClInclude Include="..\common_items\iconvlite.h">
+    <ClInclude Include="..\commonItems\iconvlite.h">
       <Filter>CommonItems</Filter>
     </ClInclude>
     <ClInclude Include="Source\Mappers\VersionParser\VersionParser.h">
@@ -351,7 +351,7 @@
     <ClInclude Include="Source\EU4World\Country\CountryDetails.h">
       <Filter>EU4World\Country</Filter>
     </ClInclude>
-    <ClInclude Include="..\common_items\CardinalToOrdinal.h">
+    <ClInclude Include="..\commonItems\CardinalToOrdinal.h">
       <Filter>CommonItems</Filter>
     </ClInclude>
     <ClInclude Include="Source\EU4World\Province\ProvinceDetails.h">
