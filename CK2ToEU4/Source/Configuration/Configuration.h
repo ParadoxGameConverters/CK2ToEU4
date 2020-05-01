@@ -10,6 +10,11 @@ class Configuration: commonItems::parser
 	Configuration();
 	explicit Configuration(std::istream& theStream);
 
+	enum class DEVELOPMENT
+	{
+		IMPORT = 1,
+		VANILLA = 2
+	};
 	enum class SUNSET
 	{
 		DEFAULT = 1,
@@ -45,8 +50,6 @@ class Configuration: commonItems::parser
 		LEAVE_SIBERIA = 2
 	};
 
-
-
 	[[nodiscard]] const auto& getSaveGamePath() const { return SaveGamePath; }
 	[[nodiscard]] const auto& getCK2Path() const { return CK2Path; }
 	[[nodiscard]] const auto& getCK2ModsPath() const { return CK2ModsPath; }
@@ -58,6 +61,7 @@ class Configuration: commonItems::parser
 	[[nodiscard]] const auto& getShatterHRELevel() const { return shatterHRELevel; }
 	[[nodiscard]] const auto& getSiberia() const { return siberia; }
 	[[nodiscard]] const auto& getSunset() const { return sunset; }
+	[[nodiscard]] const auto& getDevelopment() const { return development; }
 
   private:
 	void registerKeys();
@@ -77,6 +81,7 @@ class Configuration: commonItems::parser
 	SHATTER_LEVEL shatterLevel = SHATTER_LEVEL::DUTCHY;
 	SIBERIA siberia = SIBERIA::CLEAR_SIBERIA;
 	SUNSET sunset = SUNSET::DEFAULT;
+	DEVELOPMENT development = DEVELOPMENT::IMPORT;
 };
 
 #endif // CONFIGURATION_H
