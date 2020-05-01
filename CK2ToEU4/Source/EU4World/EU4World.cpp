@@ -51,7 +51,7 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 	importCK2Provinces(sourceWorld);
 
 	// With Ck2 provinces linked to those eu4 provinces they affect, we can adjust eu4 province dev values.
-	alterProvinceDevelopment();
+	if (theConfiguration.getDevelopment() == Configuration::DEVELOPMENT::IMPORT) alterProvinceDevelopment();
 
 	// We then link them to their respective countries. Those countries that end up with 0 provinces are defacto dead.
 	linkProvincesToCountries();

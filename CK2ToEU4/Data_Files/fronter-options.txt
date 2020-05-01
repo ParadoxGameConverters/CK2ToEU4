@@ -93,6 +93,25 @@ option = {
 	}
 }
 option = {
+	name = development
+	displayName = "How to handle province development?"
+	tooltip = "Should we stick to vanilla or import CK2?"
+	radioSelector = {
+		radioOption = {
+			name = 1
+			displayName = "Use CK2 provinces' development"
+			tooltip = "The proper way"
+			default = true
+		}
+		radioOption = {
+			name = 2
+			displayName = "No, stick to EU4 vanilla ['ahistorical']"
+			tooltip = "Leave as is"
+			default = false
+		}
+	}
+}
+option = {
 	name = siberia
 	displayName = "Clear Siberian Quagmire?"
 	tooltip = "Delete all the nomads and tribals?"
