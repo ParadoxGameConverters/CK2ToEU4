@@ -70,8 +70,8 @@ std::optional<std::string> mappers::CultureMappingRule::cultureMatch(const std::
 		if (!religions.count(eu4religion))
 			return std::nullopt;
 
-	// This is a provinces check, not regions.
-	if (eu4Province && !provinces.empty())
+	// This is a straight province check, not regions.
+	if (eu4Province && !provinces.empty() && regions.empty())
 		if (!provinces.count(eu4Province))
 			return std::nullopt;
 
@@ -93,6 +93,9 @@ std::optional<std::string> mappers::CultureMappingRule::cultureMatch(const std::
 			if (regionMapper->provinceIsInRegion(eu4Province, region))
 				regionMatch = true;
 		}
+		// This is an override if we have a province outside the regions specified.
+		if (!provinces.empty() && provinces.count(eu4Province))
+			regionMatch = true;
 		if (!regionMatch)
 			return std::nullopt;
 	}
