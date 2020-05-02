@@ -198,7 +198,7 @@ void CK2::World::alterSunset(const Configuration& theConfiguration)
 	if (theConfiguration.getSunset() == Configuration::SUNSET::ACTIVE)
 		invasion = true;
 	else if (theConfiguration.getSunset() == Configuration::SUNSET::DISABLED)
-		invasion = false;	
+		invasion = false;
 }
 
 void CK2::World::verifyReligionsAndCultures(const Configuration& theConfiguration)
@@ -755,11 +755,13 @@ void CK2::World::shatterEmpires(const Configuration& theConfiguration) const
 			shatterKingdoms = true;
 	}
 	const auto& allTitles = titles.getTitles();
-
+	
 	for (const auto& empire: allTitles)
 	{
-		if (empire.first.find("e_") != 0)
-			continue; // Not an empire.
+		if (theConfiguration.getShatterEmpires() == Configuration::SHATTER_EMPIRES::CUSTOM && !shatterEmpiresMapper.isEmpireShatterable(empire.first))
+			continue; // Only considering those listed.
+		if (empire.first.find("e_") != 0 && !(empire.first.find("k_") == 0 && shatterKingdoms))
+			continue; // Not an empire and not a kingdom with kingdom shattering enabled.
 		if (empire.second->getVassals().empty())
 			continue; // Not relevant.
 
@@ -790,7 +792,7 @@ void CK2::World::shatterEmpires(const Configuration& theConfiguration) const
 					members.insert(std::pair(vassal.first, vassal.second));
 				}
 			}
-			else
+			else if (vassal.first.find("b_") != 0)
 			{
 				Log(LogLevel::Warning) << "Unrecognized vassal level: " << vassal.first;
 			}

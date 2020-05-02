@@ -210,6 +210,7 @@
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\ReligionMapper\ReligionMapping.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\RulerPersonalitiesMapper\RulerPersonalitiesMapper.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\RulerPersonalitiesMapper\RulerPersonalitiesMapping.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\ShatterEmpiresMapper\ShatterEmpiresMapper.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\TitleTagMapper\TitleTagMapper.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\TitleTagMapper\TitleTagMapping.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\VersionParser\VersionParser.cpp" />
@@ -326,6 +327,7 @@
     <ClCompile Include="MapperTests\ReligionMapper\ReligionMappingTests.cpp" />
     <ClCompile Include="MapperTests\RulerPersonalityMapper\RulerPersonalitiesMappingTests.cpp" />
     <ClCompile Include="MapperTests\RulerPersonalityMapper\RulerPersonalityMapperTests.cpp" />
+    <ClCompile Include="MapperTests\ShatterEmpiresMapper\ShatterEmpiresMapperTests.cpp" />
     <ClCompile Include="MapperTests\TitleTagMapper\TitleTagMapperTests.cpp" />
     <ClCompile Include="MapperTests\TitleTagMapper\TitleTagMappingTests.cpp" />
     <ClCompile Include="MapperTests\VersionParser\VersionParserTests.cpp" />

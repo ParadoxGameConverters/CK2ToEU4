@@ -32,7 +32,8 @@ class Configuration: commonItems::parser
 	enum class SHATTER_EMPIRES
 	{
 		NONE = 1,
-		ALL = 2
+		ALL = 2,
+		CUSTOM = 3
 	};
 	enum class SHATTER_LEVEL
 	{
