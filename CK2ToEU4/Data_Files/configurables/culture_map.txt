@@ -174,11 +174,12 @@ link = { eu4 = andalucian ck2 = andalusian_arabic tech = muslim gfx = muslimgfx 
 
 # Russian: the split
 
-link = { eu4 = byelorussian ck2 = russian tech = eastern gfx = easterngfx region = baltic_region }
+link = { eu4 = byelorussian ck2 = russian tech = eastern gfx = easterngfx region = baltic_region region = minsk_area region = smolensk_area }
 link = { eu4 = karelian ck2 = russian tech = eastern gfx = easterngfx region = karelia_area }
 link = { eu4 = novgorodian ck2 = russian tech = eastern gfx = easterngfx region = novgorod_area region = pskov_area region = beloozero_area }
 link = { eu4 = ruthenian ck2 = russian tech = eastern gfx = easterngfx region = ruthenia_region region = crimea_region }
 link = { eu4 = russian ck2 = russian tech = eastern gfx = easterngfx region = russia_region } #Muscovite
+link = { eu4 = kishinyov ck2 = russian tech = eastern gfx = easterngfx region = carpathia_region region = poland_region }
 link = { eu4 = russian_culture ck2 = russian tech = eastern gfx = easterngfx } #Fallback
 
 # East Slavic
@@ -219,6 +220,7 @@ link = { eu4 = azerbaijani ck2 = persian tech = muslim gfx = muslimgfx region = 
 link = { eu4 = khorasani ck2 = persian tech = muslim gfx = muslimgfx region = khorasan_area }
 link = { eu4 = mazandarani ck2 = persian tech = muslim gfx = muslimgfx region = makran_area }
 link = { eu4 = luri ck2 = persian tech = muslim gfx = muslimgfx region = luristan_area region = khuzestan_area }
+link = { eu4 = tajik ck2 = persian tech = muslim gfx = muslimgfx region = central_asia_region }
 link = { eu4 = persian ck2 = persian tech = muslim gfx = muslimgfx }
 link = { eu4 = kurdish ck2 = kurdish tech = muslim gfx = muslimgfx }
 link = { eu4 = baluchi ck2 = baloch tech = muslim gfx = muslimgfx }
