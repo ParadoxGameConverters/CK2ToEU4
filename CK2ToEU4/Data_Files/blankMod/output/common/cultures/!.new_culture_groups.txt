@@ -140,6 +140,7 @@ roman_group = {
 	hispanic = { primary = ROM }
 	aegyptian = { primary = ROM }
 	arabus = { primary = ROM }
+	carthaginian = { primary = ROM }
 	graecus = { primary = ROM }
 	gaulic = { primary = ROM }
 	hispanic = { primary = ROM }
