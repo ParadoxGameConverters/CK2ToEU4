@@ -1,6 +1,5 @@
 #include "Vars.h"
 #include "ParserHelpers.h"
-#include "Log.h"
 
 CK2::Vars::Vars(std::istream& theStream)
 {
@@ -33,14 +32,4 @@ std::optional<std::map<std::string, double>> CK2::Vars::getChineseReligions() co
 	if (!toReturn.empty())
 		return toReturn;
 	return std::nullopt;
-}
-
-bool CK2::Vars::isTengriReformed() const
-{
-	const auto& varIterator = vars.find("tengri_reformation");
-	if (varIterator != vars.end())
-	{
-		return true;
-	}
-	return false;
 }

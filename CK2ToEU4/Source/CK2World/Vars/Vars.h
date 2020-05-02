@@ -12,7 +12,6 @@ class Vars: commonItems::parser
 
 	[[nodiscard]] const auto& getVars() const { return vars; } // for testing
 	[[nodiscard]] std::optional<std::map<std::string, double>> getChineseReligions() const;
-	[[nodiscard]] bool isTengriReformed() const;
 
   private:
 	void registerKeys();

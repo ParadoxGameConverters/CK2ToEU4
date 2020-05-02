@@ -85,7 +85,7 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 	distributeForts();
 
 	// Tengri
-	fixTengri(sourceWorld);
+	fixTengri();
 
 	// China
 	adjustChina(sourceWorld);
@@ -351,23 +351,17 @@ void EU4::World::adjustChina(const CK2::World& sourceWorld)
 	Log(LogLevel::Info) << "<> China successfully Invaded";
 }
 
-void EU4::World::fixTengri(const CK2::World& sourceWorld)
+void EU4::World::fixTengri()
 {
-	// We need to convert all unmapped EU4 Tengri provinces to Old Tengri (Unreformed) 
-	// Do not convert provinces owned by a MAPPED tag that is Reformed Tengri
+	// We need to convert all unmapped EU4 Tengri provinces to Old Tengri (Unreformed)
 	Log(LogLevel::Info) << "<> Checking for Reformed Tengri";
 	for (const auto& province : provinces)
 	{
 		if (!province.second->getSourceProvince())
 		{
-			// province.second is the pointer to an actual eu4::Province, which may or may not have a Source Province
-			// Convert if province is owned by no-one (uncolonized) or if the owner is not a mapped tag AND Tengri actually has been reformed.
-			if (province.second->getOwner().empty() || !sourceWorld.getVars().isTengriReformed() || (province.second->getTagCountry().second && province.second->getTagCountry().second->getTitle().first.empty()))
+			if (province.second->getReligion() == "tengri_pagan_reformed")
 			{
-				if (province.second->getReligion() == "tengri_pagan_reformed")
-				{
-					province.second->setReligion("tengri_pagan");
-				}
+				province.second->setReligion("tengri_pagan");
 			}
 		}
 	}
