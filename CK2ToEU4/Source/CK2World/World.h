@@ -2,6 +2,7 @@
 #define CK2_WORLD_H
 #include "../Common/Version.h"
 #include "../Mappers/IAmHreMapper/IAmHreMapper.h"
+#include "../Mappers/ShatterEmpiresMapper/ShatterEmpiresMapper.h"
 #include "../Mappers/PersonalityScraper/PersonalityScraper.h"
 #include "../Mappers/ProvinceTitleMapper/ProvinceTitleMapper.h"
 #include "Characters/Characters.h"
@@ -82,6 +83,7 @@ class World: commonItems::parser
 	Mods mods;
 	Diplomacy diplomacy;
 	Vars vars;
+	mappers::ShatterEmpiresMapper shatterEmpiresMapper;
 	mappers::IAmHreMapper iAmHreMapper;
 	mappers::PersonalityScraper personalityScraper;
 	mappers::ProvinceTitleMapper provinceTitleMapper;

@@ -67,8 +67,14 @@ option = {
 		}
 		radioOption = {
 			name = 2
-			displayName = "All of them! [interesting]"
+			displayName = "All of them! [shattered world!]"
 			tooltip = "All empires are broken down."
+			default = false
+		}
+		radioOption = {
+			name = 3
+			displayName = "Defined in shatter_empires.txt"
+			tooltip = "As defined manually"
 			default = false
 		}
 	}

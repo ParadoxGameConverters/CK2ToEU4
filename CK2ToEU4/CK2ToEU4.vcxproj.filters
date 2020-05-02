@@ -237,6 +237,9 @@
     <ClCompile Include="Source\CK2World\Vars\Vars.cpp">
       <Filter>CK2World\Vars</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Mappers\ShatterEmpiresMapper\ShatterEmpiresMapper.cpp">
+      <Filter>Mappers\ShatterEmpiresMapper</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CK2ToEU4Converter.h" />
@@ -468,6 +471,9 @@
     <ClInclude Include="Source\CK2World\Vars\Vars.h">
       <Filter>CK2World\Vars</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Mappers\ShatterEmpiresMapper\ShatterEmpiresMapper.h">
+      <Filter>Mappers\ShatterEmpiresMapper</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4World">
@@ -565,6 +571,9 @@
     </Filter>
     <Filter Include="CK2World\Vars">
       <UniqueIdentifier>{3a93ff99-4b74-4ef9-af47-9027ee02386b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mappers\ShatterEmpiresMapper">
+      <UniqueIdentifier>{4f92d686-7359-4af8-82fb-d0f4289c0003}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
