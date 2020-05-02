@@ -5,6 +5,7 @@
 #include "../../Mappers/CultureMapper/CultureMapper.h"
 #include "../../Mappers/ReligionMapper/ReligionMapper.h"
 #include "../Country/Country.h"
+#include "../../CK2World/Characters/Character.h"
 
 EU4::Province::Province(int id, const std::string& filePath): provID(id)
 {
@@ -50,6 +51,16 @@ void EU4::Province::initializeFromCK2(std::shared_ptr<CK2::Province> origProvinc
 			religionSet = true;
 		}
 	}
+	// Attempt to use religion of ruler in THAT province.
+	if (!religionSet && srcProvince->getTitle().second->getHolder().first && !srcProvince->getTitle().second->getHolder().second->getReligion().empty())
+	{
+		auto religionMatch = religionMapper.getEu4ReligionForCk2Religion(srcProvince->getTitle().second->getHolder().second->getReligion());
+		if (religionMatch)
+		{
+			details.religion = *religionMatch;
+			religionSet = true;
+		}
+	}
 	// Attempt to use religion of country.
 	if (!religionSet && !tagCountry.second->getReligion().empty())
 	{
@@ -60,12 +71,21 @@ void EU4::Province::initializeFromCK2(std::shared_ptr<CK2::Province> origProvinc
 	{
 		// owner has no religion, which is common for hordeland. We should use default eu4 religion.
 	}
-
 	auto cultureSet = false;
 	// do we even have a base culture?
 	if (!srcProvince->getCulture().empty())
 	{
 		auto cultureMatch = cultureMapper.cultureMatch(srcProvince->getCulture(), details.religion, provID, tagCountry.first);
+		if (cultureMatch)
+		{
+			details.culture = *cultureMatch;
+			cultureSet = true;
+		}
+	}
+	// Attempt to use primary culture of ruler in THAT province.
+	if (!cultureSet && srcProvince->getTitle().second->getHolder().first && !srcProvince->getTitle().second->getHolder().second->getCulture().empty())
+	{
+		auto cultureMatch = cultureMapper.cultureMatch(srcProvince->getTitle().second->getHolder().second->getCulture(), details.religion, provID, tagCountry.first);
 		if (cultureMatch)
 		{
 			details.culture = *cultureMatch;
