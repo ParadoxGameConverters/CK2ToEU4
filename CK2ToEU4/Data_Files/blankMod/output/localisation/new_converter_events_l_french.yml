@@ -1,4 +1,54 @@
 ﻿l_english: 
+ #Religion
+ ZZZ_enhanced_religion.1.t:0 "La réforme [From.Religion.GetName]"
+ ZZZ_enhanced_religion.1.desc:0 "[From.Monarch.GetTitle] [From.Monarch.GetName] a reçu une vision! Dans cette vision, les disciples des dieux se tenaient à l'écart, et un par un, ils étaient balayés par une puissante croix en bois. Bientôt, il n'y eut plus de disciples des dieux, et [From.Monarch.GetTitle] [From.Monarch.GetName] vit Odin lui-même disparaître lentement. Soudain, il y avait une lumière brillante, et il y avait Thor, brisant la croix de bois, et derrière lui se tenaient tous ceux balayés, détruisant ensemble ce contre quoi ils étaient impuissants seuls. En faisant confiance à la vision de ses, [From.Monarch.GetTitle] [From.Monarch.GetName] a établi une nouvelle hiérarchie religieuse. En outre, [From.GetIlElleDir] a également chargé ses les théologiens les plus instruits de standardiser les grandes sagas afin qu'il n'y ait qu'une seule édition définitive de chacun. Collectivement, ces sagas normalisées doivent être connues sous le nom de Heilögu Sögurnar."
+ ZZZ_enhanced_religion.1.a:0 "Odin nous guide!"
+ ZZZ_enhanced_religion.1.aa:0 "Odin nous guide!"
+ ZZZ_enhanced_religion.1.b:0 "MENTEUR! CHARLATAN!"
+ ZZZ_enhanced_religion.1.c:0 "Païens maudits!"
+ 
+ ZZZ_enhanced_religion.2.desc:0 "L'ancienne religion [From.Religion.GetName] est attaquée par des païens étrangers! Une grande histoire a fait le tour, enflammant la paysannerie. Connue simplement sous le nom d'Amžina Ugnis, ou "Une flamme éternelle", cette histoire, souvent interprétée par des bardes et des momiers, élève les praticiens de [From.Religion.GetName] à un niveau supérieur à ceux qui suivent d'autres croyances. La force de cette montée religieuse a forcé une grande conférence de théologiens. Au cours de la conférence, quelques dirigeants clés ont fait avancer une série de réformes, y compris une hiérarchie souple mais incontestable, et l'acceptation de l'Amžina Ugnis comme le texte sacré définitif de la foi [From.Religion.GetName]."
+ ZZZ_enhanced_religion.2.a:0 "Les dieux ont guidé ces hommes et ces femmes!"
+ ZZZ_enhanced_religion.2.aa:0 "Les dieux ont guidé ces hommes et ces femmes!"
+ ZZZ_enhanced_religion.2.b:0 "Des idiots fulminants!"
+ ZZZ_enhanced_religion.2.c:0 "Païens maudits!"
+ 
+ ZZZ_enhanced_religion.3.desc:0 "Il est temps que les chassés deviennent les chasseurs. Lassés des incursions constantes des hérétiques et des païens voisins, les théologiens de [From.Religion.GetName] de tout le pays se sont réunis dans une grande assemblée. Là, ils ont consolidé les mythes de [From.Religion.GetName] en une seule épopée, The Kalevala. Tout en travaillant sur l'épopée, les théologiens ont décidé d'une hiérarchie simple mais claire, garantissant que les fondations posées à l'assemblée ne seraient pas perdues avec le temps."
+ ZZZ_enhanced_religion.3.a:0 "Nous détruirons ceux qui s'opposent aux dieux!"
+ ZZZ_enhanced_religion.3.aa:0 "Nous détruirons ceux qui s'opposent aux dieux!"
+ ZZZ_enhanced_religion.3.b:0 "Cela détruira [Root.Religion.GetName], pas le sauver!"
+ ZZZ_enhanced_religion.3.c:0 "Païens maudits!"
+ 
+ ZZZ_enhanced_religion.4.desc:0 "Plus vaste que le ciel, notre foi est inattaquable. C'est du moins ce que les fidèles de [From.Religion.GetName] ont appris, mais récemment ce fait indéniable a été remis en question alors que les forces hérétiques et païennes empiètent sur leurs terres saintes. En réponse à ces agressions, une grande assemblée de théologiens a été convoquée et il a été décidé qu'il était temps de riposter. Une hiérarchie ecclésiastique s'est formée, une grande énumération des Pierres de Sainte Inscription a été ordonnée. En utilisant le texte recueilli à partir de ces pierres, [From.Monarch.GetTitle] [From.Monarch.GetName] a commandé un projet de construction massif, une grande montagne doit avoir une version éditée de toutes les inscriptions sanctionnées qui y sont inscrites, et ces textes choisis seront devenir collectivement les locataires officiels de la foi réformée [From.Religion.GetName]. Cette collection officielle doit être connue simplement comme les Inscriptions."
+ ZZZ_enhanced_religion.4.a:0 "Inattaquable une fois de plus!"
+ ZZZ_enhanced_religion.4.aa:0 "Inattaquable une fois de plus!"
+ ZZZ_enhanced_religion.4.b:0 "Rien de plus qu'un projet de vanité!"
+ ZZZ_enhanced_religion.4.c:0 "Païens maudits!"
+ 
+ ZZZ_enhanced_religion.5.desc:0 "La nouvelle s'est répandue comme une traînée de poudre dans tous les pays [From.Religion.GetName]. Il devait y avoir un synode de théologiens, dont la taille serait sans précédent. Partout, les lecteurs d'Omen avaient tous lu exactement les mêmes présages, que les dieux et les cycles seraient bientôt oubliés s'il n'y avait pas de changement. Réunis, les théologiens ont réformé la foi [From.Religion.GetName] afin qu'elle soit mieux outillée pour faire face aux défis de l'ère moderne. Avec une hiérarchie d'église stricte et un recueil officiel de mythes et légendes sacrés connus simplement sous le nom de The Tales, la foi [From.Religion.GetName] a réussi à renaître!"
+ ZZZ_enhanced_religion.5.a:0 "Le cycle ne sera pas rompu!"
+ ZZZ_enhanced_religion.5.aa:0 "Le cycle ne sera pas rompu!"
+ ZZZ_enhanced_religion.5.b:0 "Cela brisera notre cercle!"
+ ZZZ_enhanced_religion.5.c:0 "Païens maudits!"
+ 
+ ZZZ_enhanced_religion.6.desc:0 "Le soleil perce l'obscurité! L'ancienne religion [From.Religion.GetName] a été réformée, ses enseignements et ses prophéties ont été pondérés pour leur authenticité et compilés en un seul volume, Le Livre du Soleil. [From.Religion.GetName] les théologiens se sont réunis dans une grande convocation, verrouillant les portes jusqu'à ce qu'une hiérarchie claire de l'église puisse être établie. Pour célébrer la réforme de leur foi."
+ ZZZ_enhanced_religion.6.a:0 "Tous loueront le soleil!"
+ ZZZ_enhanced_religion.6.aa:0 "Tous loueront le soleil!"
+ ZZZ_enhanced_religion.6.b:0 "Les ténèbres prennent ces hérétiques!"
+ ZZZ_enhanced_religion.6.c:0 "Païens maudits!"
+ 
+ ZZZ_enhanced_religion.7.desc:0 "Le temps passe et les adeptes de la religion [From.Religion.GetName] ont peur que les anciennes méthodes disparaissent pour être remplacées par leurs voisins plus agressifs. En réponse à ces craintes, [From.Monarch.GetTitle] [From.Monarch.GetName] a appelé un grand conclave des théologiens les plus savants du pays. À travers de nombreux jours et nuits d'insomnie, le conclave a émergé en accord sur plusieurs questions religieuses importantes, y compris la normalisation du Mdodus et l'organisation des moines."
+ ZZZ_enhanced_religion.7.a:0 "Les anciennes voies ne mourront jamais!"
+ ZZZ_enhanced_religion.7.aa:0 "Les anciennes voies ne mourront jamais!"
+ ZZZ_enhanced_religion.7.b:0 "Imbéciles!"
+ ZZZ_enhanced_religion.7.c:0 "Païens maudits!"
+ 
+ ZZZ_enhanced_religion.8.desc:0 "Comme un phénix des cendres, la religion ancienne et vénérée des Grecs et des Romains a renaître. Défiant l'Église chrétienne pour la domination à travers l'Europe pour la première fois depuis des siècles, [From.Monarch.GetTitle] [From.Monarch.GetName] a réussi à restaurer une hiérarchie de travail d'Augurs et un système de croyance codifié toujours aussi détaillé que son chrétien et Homologues islamiques. N'étant plus relégués au passé, les adeptes de la foi hellénique se tournent désormais vers l'avenir."
+ ZZZ_enhanced_religion.8.a:0 "Tout-puissant Jupiter, montre-nous le chemin!"
+ ZZZ_enhanced_religion.8.aa:0 "Tout-puissant Jupiter, montre-nous le chemin!"
+ ZZZ_enhanced_religion.8.b:0 "Souhaitent-ils redevenir hors de propos!?"
+ ZZZ_enhanced_religion.8.c:0 "Païens maudits!"
+ 
  #Fetishist
  ZZZ_enhanced_fetishist.4.t:0 "Leadership des Aînés"
  ZZZ_enhanced_fetishist.4.d:0 "Nous avons rencontré et vu des gens que nous avons d'abord confondus avec les nôtres. Cependant, nous nous sommes vite rendu compte que leurs voies étaient différentes des nôtres. Ils étaient plus organisés et leurs chamans semblaient tous être formés de la même manière, avec une structure qui implique que certains chamans ont un rang supérieur à d'autres. Étonnamment, tous les chamans de ces gens l'acceptent et suivent leurs supérieurs sans question. Ces gens affirment qu’autrefois ils nous ressemblaient beaucoup, mais qu’ils ont découvert de plus grandes vérités sur l’univers et qu’ainsi ils ont pu repousser ceux qui défieraient les anciennes méthodes."

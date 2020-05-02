@@ -1,4 +1,54 @@
 ﻿l_english: 
+ #Religion
+ ZZZ_enhanced_religion.1.t:0 "The [From.Religion.GetName] Reformation"
+ ZZZ_enhanced_religion.1.desc:0 "[From.Monarch.GetTitle] [From.Monarch.GetName] has recieved a vision! In this vision the followers of the gods stood apart, and one by one they were swept aside by a mighty cross made of wood. Soon there were no followers of the gods left, and [From.Monarch.GetTitle] [From.Monarch.GetName] saw Odin himself slowly fading. Suddenly there was a bright light, and there was Thor, smashing the wooden cross, and behind him stood all those swept aside, together destroying that which they were powerless against alone. Trusting in [From.Monarch.GetHerHis] vision, [From.Monarch.GetTitle] [From.Monarch.GetName] has established a new religious hierarchy. Additionally, [From.Monarch.GetSheHe] has also tasked [From.Monarch.GetHerHis] most learned theologians with standardizing the great sagas so that there will be a single definitive edition of each. Collectively these standardized sagas are to be known as The Heilögu Sögurnar."
+ ZZZ_enhanced_religion.1.a:0 "Odin Guides Us!"
+ ZZZ_enhanced_religion.1.aa:0 "Odin Guides Us!"
+ ZZZ_enhanced_religion.1.b:0 "LIAR! CHARLATAN!"
+ ZZZ_enhanced_religion.1.c:0 "Accursed Heathens!"
+ 
+ ZZZ_enhanced_religion.2.desc:0 "The ancient [From.Religion.GetName] religion is under attack from foreign heathens! A great tale has been making the rounds, firing up the peasantry. Known simply as Amžina Ugnis, or "An Eternal Flame", this story, often performed by bards and mummers, raises the practicioners of [From.Religion.GetName] to a higher level than those that follow other beliefs. The strength of this religious upswell has forced a great conference of theologians. During the conference a few key leaders pushed forward a series of reforms, including a loose but unquestionable hierarchy, and the faith-wide acceptance of the Amžina Ugnis as the definitive holy text for the [From.Religion.GetName] faith."
+ ZZZ_enhanced_religion.2.a:0 "The gods have guided these men and women!"
+ ZZZ_enhanced_religion.2.aa:0 "The gods have guided these men and women!"
+ ZZZ_enhanced_religion.2.b:0 "Blithering idiots!"
+ ZZZ_enhanced_religion.2.c:0 "Accursed Heathens!"
+ 
+ ZZZ_enhanced_religion.3.desc:0 "It is time for the hunted to become the hunters. Tired of the constant incursions from neighboring heretics and heathens, [From.Religion.GetName] theologians from across the land gathered together in a great assembly. There they consolidated the myths of the [From.Religion.GetName] into a single epic, The Kalevala. While working on the epic, the theologians decided upon a simple but clear hierarchy, ensuring that the foundations laid at the assembly would not be lost with time."
+ ZZZ_enhanced_religion.3.a:0 "We shall destroy those who oppose the gods!"
+ ZZZ_enhanced_religion.3.aa:0 "We shall destroy those who oppose the gods!"
+ ZZZ_enhanced_religion.3.b:0 "This will destroy [Root.Religion.GetName], not save it!"
+ ZZZ_enhanced_religion.3.c:0 "Accursed Heathens!"
+ 
+ ZZZ_enhanced_religion.4.desc:0 "Vaster than the sky, our faith is unassailable. Or so the [From.Religion.GetName] faithful were taught, but recently this undeniable fact has come under question as heretic and heathen forces encroach upon their holy lands. In response to these aggressions, a great congregation of theologians was called, and it was decided that it was time to strike back. A church hierarchy was formed, a great enumeration of the Holy Inscription Stones was ordered. Using the text gathered from these stones, [From.Monarch.GetTitle] [From.Monarch.GetName] commissioned a massive building project, a large mountain is to have an edited version of all sanctioned inscriptions enscribed upon it, and these chosen texts will collectively become the official tenants of the reformed [From.Religion.GetName] faith. This official collection is to be known simply as The Inscriptions."
+ ZZZ_enhanced_religion.4.a:0 "Unassailable once more!"
+ ZZZ_enhanced_religion.4.aa:0 "Unassailable once more!"
+ ZZZ_enhanced_religion.4.b:0 "Nothing more than a vanity project!"
+ ZZZ_enhanced_religion.4.c:0 "Accursed Heathens!"
+ 
+ ZZZ_enhanced_religion.5.desc:0 "The news spread like wild-fire across all [From.Religion.GetName] lands. There was to be a synod of theologians, the size of which would be unprecedented. Omen readers everywhere had all read the exact same omens, that the gods and the cycles would soon be forgotten if there was no change. Gathered together, the theologians have reformed the [From.Religion.GetName] faith so that it is better equipped to face the challenges of the modern era. With a strict church hierarchy and an official compendium of holy myths and legends known simply as The Tales, the [From.Religion.GetName] faith has succesfully been reborn!"
+ ZZZ_enhanced_religion.5.a:0 "The cycle will not be broken!"
+ ZZZ_enhanced_religion.5.aa:0 "The cycle will not be broken!"
+ ZZZ_enhanced_religion.5.b:0 "This will break our circle!"
+ ZZZ_enhanced_religion.5.c:0 "Accursed Heathens!"
+ 
+ ZZZ_enhanced_religion.6.desc:0 "The sun breaks through the darkness! The ancient [From.Religion.GetName] religion has been reformed, its teachings and prophecies have been weighted for their authenticity and compiled into a single volume, The Book of the Sun. [From.Religion.GetName] theologians have gathered together in a great convocation, locking the doors until a clear church hierarchy could be established. In celebration of their faith's reformation."
+ ZZZ_enhanced_religion.6.a:0 "All shall praise the sun!"
+ ZZZ_enhanced_religion.6.aa:0 "All shall praise the sun!"
+ ZZZ_enhanced_religion.6.b:0 "Darkness take these heretics!"
+ ZZZ_enhanced_religion.6.c:0 "Accursed Heathens!"
+ 
+ ZZZ_enhanced_religion.7.desc:0 "Time marches on, and the followers of the [From.Religion.GetName] religion have become fearful that the old ways will fade away to be replaced by their more aggressive neighbors. In response to these fears, [From.Monarch.GetTitle] [From.Monarch.GetName] has called a great conclave of the most learned theologians of the land. Through many sleepless days and nights, the conclave has emerged in agreement over several important religious matters including the standardization of the Mdodus and the organization of monks."
+ ZZZ_enhanced_religion.7.a:0 "The old ways shall never die!"
+ ZZZ_enhanced_religion.7.aa:0 "The old ways shall never die!"
+ ZZZ_enhanced_religion.7.b:0 "Fools!"
+ ZZZ_enhanced_religion.7.c:0 "Accursed Heathens!"
+ 
+ ZZZ_enhanced_religion.8.desc:0 "Like a phoenix from the ashes, the ancient and revered religion of the Greeks and the Romans has been reborn. Challenging the Christian Church for domination across Europe for the first time in centuries, [From.Monarch.GetTitle] [From.Monarch.GetName] has managed to restore a working hierarchy of Augurs and a codified belief system everymuch as detailed as its Christian and Islamic counterparts. No longer relegated to the past, the adherents of the Hellenic faith now look to the future."
+ ZZZ_enhanced_religion.8.a:0 "Almighty Jupiter, show us the way!"
+ ZZZ_enhanced_religion.8.aa:0 "Almighty Jupiter, show us the way!"
+ ZZZ_enhanced_religion.8.b:0 "Do they wish to become irrelevant again!?"
+ ZZZ_enhanced_religion.8.c:0 "Accursed Heathens!" 
+
  #Fetishist
  ZZZ_enhanced_fetishist.4.t:0 "Elder Leadership"
  ZZZ_enhanced_fetishist.4.d:0 "We have met and seen people who at first we mistook for our own. However, we soon realized that their ways were different from our own. They were more organized and their shamans all seemed to be trained in the same manner, with a structure that implies that some shamans rank higher than others. Surprisingly, all the shamans of these people accept this and follow their superiors without question. These people claim that once they were much like us, but that they have discovered greater truths about the universe and that in doing so they have been able to beat back those who would challenge the old ways."
@@ -218,12 +268,6 @@
  ZZZ_enhanced_fetishist.96.b:0 "It is no business of ours if they were fooled."
  
  #MISC
- ZZZ_enhanced_misc.2.t:0 "Increase Low Development Regions?"
- ZZZ_enhanced_misc.2.desc:0 "The converter often has a habit of leaving certain regions underdeveloped, leading to weird situations where countries will take then lose large swaths of relatively worthless land all game. Taking this option will increase the development in the chosen regions, however this means that the overall development in the game will increase, possibly by a few hundred development. Please keep this in mind, especially since the overall development of converted games tends to be slightly higher than the base game, it just tends to be concentrated in certain regions. This option is just here so that low development regions will play out more like in a normal game."
- ZZZ_enhanced_misc.2.a:0 "Increase Development Of Russia."
- ZZZ_enhanced_misc.2.b:0 "Increase Development Of West Africa."
- ZZZ_enhanced_misc.2.c:0 "Increase Development Of Russia AND West Africa."
- ZZZ_enhanced_misc.2.d:0 "No thank you."
  ZZZ_enhanced_misc.4.t:0 "The Abolition of Slavery"
  ZZZ_enhanced_misc.4.d:0 "Slavery, once an almost innocuous practice has become a most terrible thing. Long gone are the days of temporary slavery, slaves in the modern world are subjected to a lifetime of servitude that gets passed on to their children. We can no longer condone this practice, and as such the slave trade and slavery is henceforth prohibited throughout our nation."
  ZZZ_enhanced_misc.4.a:0 "Freedom for all!"

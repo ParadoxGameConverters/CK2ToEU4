@@ -216,13 +216,13 @@ pagan_religion_rebels = {
 	}
 }
 ######################################################################
-# Baltic Pagan Reformed rebels. Disgruntled fanatics.
+# Old Romuva rebels. Disgruntled fanatics.
 ######################################################################
-baltic_pagan_reformed_rebels = {
+baltic_pagan_rebels = {
 
 	area = nation 					# Sticks to provinces of their nation
 	government = theocracy 			# Desires Theocracy
-	religion = baltic_pagan_reformed
+	religion = baltic_pagan
 	defection = religion			# Defects to countries of their religion
 	defect_delay = 120				# Held provinces will auto-defect after 18 months, regardless of accept/enforce demands.
 	independence = none				# Does not strive for independence
@@ -259,7 +259,7 @@ baltic_pagan_reformed_rebels = {
 		}
 		modifier = {
 			factor = 0.0
-			NOT = { religion = baltic_pagan_reformed }
+			NOT = { religion = baltic_pagan }
 		}
 		modifier = {
 			factor = 0.001
@@ -304,14 +304,14 @@ baltic_pagan_reformed_rebels = {
 		}
 		modifier = {
 			factor = 0.0
-			religion = baltic_pagan_reformed
-			owner = { religion = baltic_pagan_reformed }
+			religion = baltic_pagan
+			owner = { religion = baltic_pagan }
 		}
 		modifier = {
 			factor = 2.0
-			NOT = { religion = baltic_pagan_reformed }
+			NOT = { religion = baltic_pagan }
 			any_neighbor_province = {
-	 			religion = baltic_pagan_reformed
+	 			religion = baltic_pagan
 	 			NOT = { has_province_modifier = "forced_conversion" }
 	 		}
 	 	}
@@ -341,7 +341,7 @@ baltic_pagan_reformed_rebels = {
 	siege_won_effect = {
 		if = {
 			limit = {
-				religion = baltic_pagan_reformed
+				religion = baltic_pagan
 			}
 			add_province_modifier = {
 				name = "religious_violence"
@@ -350,9 +350,9 @@ baltic_pagan_reformed_rebels = {
 		}
 		if = {
 			limit = {
-				NOT = { religion = baltic_pagan_reformed }
+				NOT = { religion = baltic_pagan }
 			}
-			change_religion = baltic_pagan_reformed
+			change_religion = baltic_pagan
 			add_province_modifier = {
 				name = "forced_conversion"
 				duration = 730
@@ -362,7 +362,7 @@ baltic_pagan_reformed_rebels = {
 	
 	# Country scope
 	can_negotiate_trigger = {
-		religion_group = pagan
+		religion_group = muslim
 	}
 	
 	# Country scope
@@ -377,7 +377,7 @@ baltic_pagan_reformed_rebels = {
 	demands_enforced_effect = {
 		if = {
 			limit = {
-				NOT = { religion_group = pagan }
+				NOT = { religion_group = muslim }
 			}
 			add_prestige = -50
 			every_owned_province = {
@@ -395,7 +395,7 @@ baltic_pagan_reformed_rebels = {
 		}
 		if = {
 			limit = {
-				religion = baltic_pagan_reformed
+				religion = baltic_pagan
 			}
 			add_country_modifier = {
 				name = "religious_intolerance"
@@ -404,23 +404,23 @@ baltic_pagan_reformed_rebels = {
 		}
 		if = {
 			limit = {
-				religion_group = pagan
-				NOT = { religion = baltic_pagan_reformed }
+				religion_group = muslim
+				NOT = { religion = baltic_pagan }
 			}
-			change_religion = baltic_pagan_reformed
+			change_religion = baltic_pagan
 			force_converted = yes
 		}
 	}
 }
 
 ######################################################################
-# Finnish Pagan Reformed rebels. Disgruntled fanatics.
+# Old Norse rebels. Disgruntled fanatics.
 ######################################################################
-finnish_pagan_reformed_rebels = {
+norse_pagan_rebels = {
 
 	area = nation 					# Sticks to provinces of their nation
 	government = theocracy 			# Desires Theocracy
-	religion = finnish_pagan_reformed
+	religion = norse_pagan
 	defection = religion			# Defects to countries of their religion
 	defect_delay = 120				# Held provinces will auto-defect after 18 months, regardless of accept/enforce demands.
 	independence = none				# Does not strive for independence
@@ -457,7 +457,7 @@ finnish_pagan_reformed_rebels = {
 		}
 		modifier = {
 			factor = 0.0
-			NOT = { religion = finnish_pagan_reformed }
+			NOT = { religion = norse_pagan }
 		}
 		modifier = {
 			factor = 0.001
@@ -502,14 +502,14 @@ finnish_pagan_reformed_rebels = {
 		}
 		modifier = {
 			factor = 0.0
-			religion = finnish_pagan_reformed
-			owner = { religion = finnish_pagan_reformed }
+			religion = norse_pagan
+			owner = { religion = norse_pagan }
 		}
 		modifier = {
 			factor = 2.0
-			NOT = { religion = finnish_pagan_reformed }
+			NOT = { religion = norse_pagan }
 			any_neighbor_province = {
-	 			religion = finnish_pagan_reformed
+	 			religion = norse_pagan
 	 			NOT = { has_province_modifier = "forced_conversion" }
 	 		}
 	 	}
@@ -539,7 +539,7 @@ finnish_pagan_reformed_rebels = {
 	siege_won_effect = {
 		if = {
 			limit = {
-				religion = finnish_pagan_reformed
+				religion = norse_pagan
 			}
 			add_province_modifier = {
 				name = "religious_violence"
@@ -548,9 +548,9 @@ finnish_pagan_reformed_rebels = {
 		}
 		if = {
 			limit = {
-				NOT = { religion = finnish_pagan_reformed }
+				NOT = { religion = norse_pagan }
 			}
-			change_religion = finnish_pagan_reformed
+			change_religion = norse_pagan
 			add_province_modifier = {
 				name = "forced_conversion"
 				duration = 730
@@ -560,7 +560,7 @@ finnish_pagan_reformed_rebels = {
 	
 	# Country scope
 	can_negotiate_trigger = {
-		religion_group = pagan
+		religion_group = muslim
 	}
 	
 	# Country scope
@@ -575,7 +575,7 @@ finnish_pagan_reformed_rebels = {
 	demands_enforced_effect = {
 		if = {
 			limit = {
-				NOT = { religion_group = pagan }
+				NOT = { religion_group = muslim }
 			}
 			add_prestige = -50
 			every_owned_province = {
@@ -593,7 +593,7 @@ finnish_pagan_reformed_rebels = {
 		}
 		if = {
 			limit = {
-				religion = animism
+				religion = norse_pagan
 			}
 			add_country_modifier = {
 				name = "religious_intolerance"
@@ -602,23 +602,23 @@ finnish_pagan_reformed_rebels = {
 		}
 		if = {
 			limit = {
-				religion_group = pagan
-				NOT = { religion = animism }
+				religion_group = muslim
+				NOT = { religion = norse_pagan }
 			}
-			change_religion = animism
+			change_religion = norse_pagan
 			force_converted = yes
 		}
 	}
 }
 
 ######################################################################
-# Slavic Pagan Reformed rebels. Disgruntled fanatics.
+# Old Tengri rebels. Disgruntled fanatics.
 ######################################################################
-slavic_pagan_reformed_rebels = {
+tengri_pagan_rebels = {
 
 	area = nation 					# Sticks to provinces of their nation
 	government = theocracy 			# Desires Theocracy
-	religion = slavic_pagan_reformed
+	religion = tengri_pagan
 	defection = religion			# Defects to countries of their religion
 	defect_delay = 120				# Held provinces will auto-defect after 18 months, regardless of accept/enforce demands.
 	independence = none				# Does not strive for independence
@@ -655,7 +655,7 @@ slavic_pagan_reformed_rebels = {
 		}
 		modifier = {
 			factor = 0.0
-			NOT = { religion = slavic_pagan_reformed }
+			NOT = { religion = tengri_pagan }
 		}
 		modifier = {
 			factor = 0.001
@@ -700,14 +700,14 @@ slavic_pagan_reformed_rebels = {
 		}
 		modifier = {
 			factor = 0.0
-			religion = slavic_pagan_reformed
-			owner = { religion = slavic_pagan_reformed }
+			religion = tengri_pagan
+			owner = { religion = tengri_pagan }
 		}
 		modifier = {
 			factor = 2.0
-			NOT = { religion = slavic_pagan_reformed }
+			NOT = { religion = tengri_pagan }
 			any_neighbor_province = {
-	 			religion = slavic_pagan_reformed
+	 			religion = tengri_pagan
 	 			NOT = { has_province_modifier = "forced_conversion" }
 	 		}
 	 	}
@@ -737,7 +737,7 @@ slavic_pagan_reformed_rebels = {
 	siege_won_effect = {
 		if = {
 			limit = {
-				religion = slavic_pagan_reformed
+				religion = tengri_pagan
 			}
 			add_province_modifier = {
 				name = "religious_violence"
@@ -746,9 +746,9 @@ slavic_pagan_reformed_rebels = {
 		}
 		if = {
 			limit = {
-				NOT = { religion = slavic_pagan_reformed }
+				NOT = { religion = tengri_pagan }
 			}
-			change_religion = slavic_pagan_reformed
+			change_religion = tengri_pagan
 			add_province_modifier = {
 				name = "forced_conversion"
 				duration = 730
@@ -758,7 +758,7 @@ slavic_pagan_reformed_rebels = {
 	
 	# Country scope
 	can_negotiate_trigger = {
-		religion_group = pagan
+		religion_group = muslim
 	}
 	
 	# Country scope
@@ -773,7 +773,7 @@ slavic_pagan_reformed_rebels = {
 	demands_enforced_effect = {
 		if = {
 			limit = {
-				NOT = { religion_group = pagan }
+				NOT = { religion_group = muslim }
 			}
 			add_prestige = -50
 			every_owned_province = {
@@ -791,7 +791,7 @@ slavic_pagan_reformed_rebels = {
 		}
 		if = {
 			limit = {
-				religion = slavic_pagan_reformed
+				religion = tengri_pagan
 			}
 			add_country_modifier = {
 				name = "religious_intolerance"
@@ -800,23 +800,23 @@ slavic_pagan_reformed_rebels = {
 		}
 		if = {
 			limit = {
-				religion_group = pagan
-				NOT = { religion = slavic_pagan_reformed }
+				religion_group = muslim
+				NOT = { religion = tengri_pagan }
 			}
-			change_religion = slavic_pagan_reformed
+			change_religion = tengri_pagan
 			force_converted = yes
 		}
 	}
 }
 
 ######################################################################
-# Zunist Reformed rebels. Disgruntled fanatics.
+# Old Zun rebels. Disgruntled fanatics.
 ######################################################################
-zunist_rebels = {
+zun_pagan_rebels = {
 
 	area = nation 					# Sticks to provinces of their nation
 	government = theocracy 			# Desires Theocracy
-	religion = zun_pagan_reformed
+	religion = zun_pagan
 	defection = religion			# Defects to countries of their religion
 	defect_delay = 120				# Held provinces will auto-defect after 18 months, regardless of accept/enforce demands.
 	independence = none				# Does not strive for independence
@@ -853,7 +853,7 @@ zunist_rebels = {
 		}
 		modifier = {
 			factor = 0.0
-			NOT = { religion = zun_pagan_reformed }
+			NOT = { religion = zun_pagan }
 		}
 		modifier = {
 			factor = 0.001
@@ -898,14 +898,14 @@ zunist_rebels = {
 		}
 		modifier = {
 			factor = 0.0
-			religion = zun_pagan_reformed
-			owner = { religion = zun_pagan_reformed }
+			religion = zun_pagan
+			owner = { religion = zun_pagan }
 		}
 		modifier = {
 			factor = 2.0
-			NOT = { religion = zun_pagan_reformed }
+			NOT = { religion = zun_pagan }
 			any_neighbor_province = {
-	 			religion = zun_pagan_reformed
+	 			religion = zun_pagan
 	 			NOT = { has_province_modifier = "forced_conversion" }
 	 		}
 	 	}
@@ -935,7 +935,7 @@ zunist_rebels = {
 	siege_won_effect = {
 		if = {
 			limit = {
-				religion = zun_pagan_reformed
+				religion = zun_pagan
 			}
 			add_province_modifier = {
 				name = "religious_violence"
@@ -944,9 +944,9 @@ zunist_rebels = {
 		}
 		if = {
 			limit = {
-				NOT = { religion = zun_pagan_reformed }
+				NOT = { religion = zun_pagan }
 			}
-			change_religion = zun_pagan_reformed
+			change_religion = zun_pagan
 			add_province_modifier = {
 				name = "forced_conversion"
 				duration = 730
@@ -956,7 +956,7 @@ zunist_rebels = {
 	
 	# Country scope
 	can_negotiate_trigger = {
-		religion_group = pagan
+		religion_group = muslim
 	}
 	
 	# Country scope
@@ -971,7 +971,7 @@ zunist_rebels = {
 	demands_enforced_effect = {
 		if = {
 			limit = {
-				NOT = { religion_group = pagan }
+				NOT = { religion_group = muslim }
 			}
 			add_prestige = -50
 			every_owned_province = {
@@ -989,7 +989,7 @@ zunist_rebels = {
 		}
 		if = {
 			limit = {
-				religion = zun_pagan_reformed
+				religion = zun_pagan
 			}
 			add_country_modifier = {
 				name = "religious_intolerance"
@@ -998,23 +998,23 @@ zunist_rebels = {
 		}
 		if = {
 			limit = {
-				religion_group = pagan
-				NOT = { religion = zun_pagan_reformed }
+				religion_group = muslim
+				NOT = { religion = zun_pagan }
 			}
-			change_religion = zun_pagan_reformed
+			change_religion = zun_pagan
 			force_converted = yes
 		}
 	}
 }
 
 ######################################################################
-# Bon Reformed rebels. Disgruntled fanatics.
+# Old Slavic rebels. Disgruntled fanatics.
 ######################################################################
-bon_rebels = {
+slavic_pagan_rebels = {
 
 	area = nation 					# Sticks to provinces of their nation
 	government = theocracy 			# Desires Theocracy
-	religion = bon
+	religion = slavic_pagan
 	defection = religion			# Defects to countries of their religion
 	defect_delay = 120				# Held provinces will auto-defect after 18 months, regardless of accept/enforce demands.
 	independence = none				# Does not strive for independence
@@ -1051,7 +1051,7 @@ bon_rebels = {
 		}
 		modifier = {
 			factor = 0.0
-			NOT = { religion = bon }
+			NOT = { religion = slavic_pagan }
 		}
 		modifier = {
 			factor = 0.001
@@ -1096,14 +1096,14 @@ bon_rebels = {
 		}
 		modifier = {
 			factor = 0.0
-			religion = bon
-			owner = { religion = bon }
+			religion = slavic_pagan
+			owner = { religion = slavic_pagan }
 		}
 		modifier = {
 			factor = 2.0
-			NOT = { religion = bon }
+			NOT = { religion = slavic_pagan }
 			any_neighbor_province = {
-	 			religion = bon
+	 			religion = slavic_pagan
 	 			NOT = { has_province_modifier = "forced_conversion" }
 	 		}
 	 	}
@@ -1133,7 +1133,7 @@ bon_rebels = {
 	siege_won_effect = {
 		if = {
 			limit = {
-				religion = bon
+				religion = slavic_pagan
 			}
 			add_province_modifier = {
 				name = "religious_violence"
@@ -1142,9 +1142,9 @@ bon_rebels = {
 		}
 		if = {
 			limit = {
-				NOT = { religion = bon }
+				NOT = { religion = slavic_pagan }
 			}
-			change_religion = bon
+			change_religion = slavic_pagan
 			add_province_modifier = {
 				name = "forced_conversion"
 				duration = 730
@@ -1154,7 +1154,7 @@ bon_rebels = {
 	
 	# Country scope
 	can_negotiate_trigger = {
-		religion_group = pagan
+		religion_group = muslim
 	}
 	
 	# Country scope
@@ -1169,7 +1169,7 @@ bon_rebels = {
 	demands_enforced_effect = {
 		if = {
 			limit = {
-				NOT = { religion_group = pagan }
+				NOT = { religion_group = muslim }
 			}
 			add_prestige = -50
 			every_owned_province = {
@@ -1187,7 +1187,7 @@ bon_rebels = {
 		}
 		if = {
 			limit = {
-				religion = bon
+				religion = slavic_pagan
 			}
 			add_country_modifier = {
 				name = "religious_intolerance"
@@ -1196,23 +1196,23 @@ bon_rebels = {
 		}
 		if = {
 			limit = {
-				religion_group = pagan
-				NOT = { religion = bon }
+				religion_group = muslim
+				NOT = { religion = slavic_pagan }
 			}
-			change_religion = bon
+			change_religion = slavic_pagan
 			force_converted = yes
 		}
 	}
 }
 
 ######################################################################
-# Hellenic Pagan Reformed rebels. Disgruntled fanatics.
+# Reformed Bon rebels. Disgruntled fanatics.
 ######################################################################
-hellenic_pagan_rebels = {
+bon_reformed_rebels = {
 
 	area = nation 					# Sticks to provinces of their nation
 	government = theocracy 			# Desires Theocracy
-	religion = hellenic_pagan
+	religion = bon_reformed
 	defection = religion			# Defects to countries of their religion
 	defect_delay = 120				# Held provinces will auto-defect after 18 months, regardless of accept/enforce demands.
 	independence = none				# Does not strive for independence
@@ -1249,7 +1249,7 @@ hellenic_pagan_rebels = {
 		}
 		modifier = {
 			factor = 0.0
-			NOT = { religion = hellenic_pagan }
+			NOT = { religion = bon_reformed }
 		}
 		modifier = {
 			factor = 0.001
@@ -1294,14 +1294,14 @@ hellenic_pagan_rebels = {
 		}
 		modifier = {
 			factor = 0.0
-			religion = hellenic_pagan
-			owner = { religion = hellenic_pagan }
+			religion = bon_reformed
+			owner = { religion = bon_reformed }
 		}
 		modifier = {
 			factor = 2.0
-			NOT = { religion = hellenic_pagan }
+			NOT = { religion = bon_reformed }
 			any_neighbor_province = {
-	 			religion = hellenic_pagan
+	 			religion = bon_reformed
 	 			NOT = { has_province_modifier = "forced_conversion" }
 	 		}
 	 	}
@@ -1331,7 +1331,7 @@ hellenic_pagan_rebels = {
 	siege_won_effect = {
 		if = {
 			limit = {
-				religion = hellenic_pagan
+				religion = bon_reformed
 			}
 			add_province_modifier = {
 				name = "religious_violence"
@@ -1340,9 +1340,9 @@ hellenic_pagan_rebels = {
 		}
 		if = {
 			limit = {
-				NOT = { religion = hellenic_pagan }
+				NOT = { religion = bon_reformed }
 			}
-			change_religion = hellenic_pagan
+			change_religion = bon_reformed
 			add_province_modifier = {
 				name = "forced_conversion"
 				duration = 730
@@ -1352,7 +1352,7 @@ hellenic_pagan_rebels = {
 	
 	# Country scope
 	can_negotiate_trigger = {
-		religion_group = pagan
+		religion_group = muslim
 	}
 	
 	# Country scope
@@ -1367,7 +1367,7 @@ hellenic_pagan_rebels = {
 	demands_enforced_effect = {
 		if = {
 			limit = {
-				NOT = { religion_group = pagan }
+				NOT = { religion_group = muslim }
 			}
 			add_prestige = -50
 			every_owned_province = {
@@ -1385,7 +1385,7 @@ hellenic_pagan_rebels = {
 		}
 		if = {
 			limit = {
-				religion = hellenic_pagan
+				religion = bon_reformed
 			}
 			add_country_modifier = {
 				name = "religious_intolerance"
@@ -1394,10 +1394,208 @@ hellenic_pagan_rebels = {
 		}
 		if = {
 			limit = {
-				religion_group = pagan
-				NOT = { religion = hellenic_pagan }
+				religion_group = muslim
+				NOT = { religion = bon_reformed }
 			}
-			change_religion = hellenic_pagan
+			change_religion = bon_reformed
+			force_converted = yes
+		}
+	}
+}
+
+######################################################################
+# Reformed Hellenic rebels. Disgruntled fanatics.
+######################################################################
+hellenic_pagan_reformed_rebels = {
+
+	area = nation 					# Sticks to provinces of their nation
+	government = theocracy 			# Desires Theocracy
+	religion = hellenic_pagan_reformed
+	defection = religion			# Defects to countries of their religion
+	defect_delay = 120				# Held provinces will auto-defect after 18 months, regardless of accept/enforce demands.
+	independence = none				# Does not strive for independence
+	unit_transfer = yes
+	gfx_type = culture_province
+	
+	resilient = no
+	reinforcing = yes
+	general = yes
+	smart = yes
+	
+	artillery = 0.0
+	infantry = 0.7
+	cavalry = 0.3
+	
+	morale = 1.1
+
+	# Possible handle actions
+	handle_action_negotiate = yes
+	handle_action_stability = yes
+	handle_action_build_core = yes
+	handle_action_send_missionary = yes		
+	
+	# The rebel type with the highest modifier for this province gets picked
+	spawn_chance = {
+		factor = 1
+		modifier = {
+			factor = 0.5
+			is_overseas = yes
+		}
+		modifier = {
+			factor = 0.0
+			owner = { religion = ROOT }
+		}
+		modifier = {
+			factor = 0.0
+			NOT = { religion = hellenic_pagan_reformed }
+		}
+		modifier = {
+			factor = 0.001
+			tolerance_to_this = 5
+		}
+		modifier = {
+			factor = 0.5
+			tolerance_to_this = 2
+		}
+		modifier = {
+			factor = 5.0
+			owner = { has_country_flag = religious_turmoil }
+		}		
+		modifier = {
+			factor = 2000
+			has_missionary = yes
+		}
+		modifier = {
+			factor = 2
+			NOT = { tolerance_to_this = 1 }
+		}
+		modifier = {
+			factor = 2
+			NOT = { tolerance_to_this = -1 }
+		}
+		modifier = {
+			factor = 2
+			NOT = { tolerance_to_this = -2 }
+		}
+	}
+ 
+ 	# This is checked for EACH province in the Area of Operations
+	movement_evaluation = {
+		factor = 1
+		modifier = {
+			factor = 0.5
+			units_in_province = 1
+		}
+		modifier = {
+			factor = 0.001
+			controlled_by = REB
+		}
+		modifier = {
+			factor = 0.0
+			religion = hellenic_pagan_reformed
+			owner = { religion = hellenic_pagan_reformed }
+		}
+		modifier = {
+			factor = 2.0
+			NOT = { religion = hellenic_pagan_reformed }
+			any_neighbor_province = {
+	 			religion = hellenic_pagan_reformed
+	 			NOT = { has_province_modifier = "forced_conversion" }
+	 		}
+	 	}
+		modifier = {
+			factor = 1.5
+			unrest = 2
+		}
+		modifier = {
+			factor = 1.5
+			unrest = 4
+		}
+		modifier = {
+			factor = 1.5
+			unrest = 6
+		}
+	}
+ 
+ 	# Province Scope
+ 	siege_won_trigger = {
+		NOT = {
+			AND = {
+				owned_by = PAP
+				is_capital = yes
+			}
+		}
+ 	}
+	siege_won_effect = {
+		if = {
+			limit = {
+				religion = hellenic_pagan_reformed
+			}
+			add_province_modifier = {
+				name = "religious_violence"
+				duration = 730
+			}
+		}
+		if = {
+			limit = {
+				NOT = { religion = hellenic_pagan_reformed }
+			}
+			change_religion = hellenic_pagan_reformed
+			add_province_modifier = {
+				name = "forced_conversion"
+				duration = 730
+			}
+		}
+	}
+	
+	# Country scope
+	can_negotiate_trigger = {
+		religion_group = muslim
+	}
+	
+	# Country scope
+	can_enforce_trigger = {
+		always = yes
+	}
+	
+	# Localisation for their demands
+	demands_description = "generic_rebels_demand"
+	
+	# Country Scope	
+	demands_enforced_effect = {
+		if = {
+			limit = {
+				NOT = { religion_group = muslim }
+			}
+			add_prestige = -50
+			every_owned_province = {
+				limit = {
+					has_rebel_faction = REB
+				}
+				add_local_autonomy = 20
+			}
+		}
+		if = {
+			limit = {
+				tag = PAP
+			}
+			add_stability = -1
+		}
+		if = {
+			limit = {
+				religion = hellenic_pagan_reformed
+			}
+			add_country_modifier = {
+				name = "religious_intolerance"
+				duration = 3650
+			}
+		}
+		if = {
+			limit = {
+				religion_group = muslim
+				NOT = { religion = hellenic_pagan_reformed }
+			}
+			change_religion = hellenic_pagan_reformed
 			force_converted = yes
 		}
 	}

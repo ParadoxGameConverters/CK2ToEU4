@@ -1,4 +1,32 @@
 ﻿l_german:
+ ZZZ_enhanced_reform_norse_pagan_title:0 "Reform [Root.Religion.GetName]"
+ ZZZ_enhanced_reform_norse_pagan_desc:0 "Reformiere den Glauben [Root.Religion.GetName] in eine organisierte Religion. Der reformierte Glaube hat keinen Bekehrungsfehler und ist für andere Glaubensrichtungen nicht einfacher zu bekehren."
+ 
+ ZZZ_enhanced_reform_baltic_pagan_title:0 "Reform [Root.Religion.GetName]"
+ ZZZ_enhanced_reform_baltic_pagan_desc:0 "Reformiere den Glauben [Root.Religion.GetName] in eine organisierte Religion. Der reformierte Glaube hat keinen Bekehrungsfehler und ist für andere Glaubensrichtungen nicht einfacher zu bekehren."
+ 
+ ZZZ_enhanced_reform_finnish_pagan_title:0 "Reform [Root.Religion.GetName]"
+ ZZZ_enhanced_reform_finnish_pagan_desc:0 "Reformiere den Glauben [Root.Religion.GetName] in eine organisierte Religion. Der reformierte Glaube hat keinen Bekehrungsfehler und ist für andere Glaubensrichtungen nicht einfacher zu bekehren."
+ 
+ ZZZ_enhanced_reform_tengri_pagan_title:0 "Reform [Root.Religion.GetName]"
+ ZZZ_enhanced_reform_tengri_pagan_desc:0 "Reformiere den Glauben [Root.Religion.GetName] in eine organisierte Religion. Der reformierte Glaube hat keinen Bekehrungsfehler und ist für andere Glaubensrichtungen nicht einfacher zu bekehren."
+ 
+ ZZZ_enhanced_reform_slavic_pagan_title:0 "Reform [Root.Religion.GetName]"
+ ZZZ_enhanced_reform_slavic_pagan_desc:0 "Reformiere den Glauben [Root.Religion.GetName] in eine organisierte Religion. Der reformierte Glaube hat keinen Bekehrungsfehler und ist für andere Glaubensrichtungen nicht einfacher zu bekehren."
+ 
+ ZZZ_enhanced_reform_zun_pagan_title:0 "Reform [Root.Religion.GetName]"
+ ZZZ_enhanced_reform_zun_pagan_desc:0 "Reformiere den Glauben [Root.Religion.GetName] in eine organisierte Religion. Der reformierte Glaube hat keinen Bekehrungsfehler und ist für andere Glaubensrichtungen nicht einfacher zu bekehren."
+ 
+ ZZZ_enhanced_reform_bon_title:0 "Reform [Root.Religion.GetName]"
+ ZZZ_enhanced_reform_bon_desc:0 "Reformiere den Glauben [Root.Religion.GetName] in eine organisierte Religion. Der reformierte Glaube hat keinen Bekehrungsfehler und ist für andere Glaubensrichtungen nicht einfacher zu bekehren."
+ 
+ ZZZ_enhanced_reform_hellenic_title:0 "Reform [Root.Religion.GetName]"
+ ZZZ_enhanced_reform_hellenic_desc:0 "Reformiere den Glauben [Root.Religion.GetName] in eine organisierte Religion. Der reformierte Glaube hat keinen Bekehrungsfehler und ist für andere Glaubensrichtungen nicht einfacher zu bekehren."
+  
+ ZZZ_enhanced_reform_african_title:0 "Religiöse Reformen verabschieden"
+ ZZZ_enhanced_reform_african_desc:0 "Wir haben gezeigt, dass manchmal die alten Wege nicht immer die besten sind. Man kann sich mit der Zeit ändern und trotzdem sein Erbe und seine Persönlichkeit bewahren. Es gibt diejenigen, die es nicht mögen werden, aber wir müssen unsere Schamanen in die Moderne ziehen und die Reformen übernehmen, die für andere so gut funktioniert haben."
+ 
+
  spreading_of_reformed_pagan_rituals_title:0 "Verbreitung $RELIGION$ Rituale"
  spreading_of_reformed_pagan_rituals_desc:0 "Die Konversion zur Religion $RELIGION$ erfordert nichts, jeder Mensch kann seine eigenen religiösen Rituale leiten. Solange Sie die richtigen Rituale durchführen, gelten Sie als wahrer Anhänger des Nachfolgers. Lassen Sie uns immer mehr unserer Untertanen ermutigen, unsere Wege kennenzulernen, damit sie zumindest anfangen können, sie anzubeten."
  

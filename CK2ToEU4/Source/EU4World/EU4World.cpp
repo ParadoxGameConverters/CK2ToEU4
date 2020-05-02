@@ -84,6 +84,9 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 	// Now for the final tweaks.
 	distributeForts();
 
+	// Tengri
+	fixTengri();
+
 	// China
 	adjustChina(sourceWorld);
 
@@ -346,6 +349,33 @@ void EU4::World::adjustChina(const CK2::World& sourceWorld)
 	}
 
 	Log(LogLevel::Info) << "<> China successfully Invaded";
+}
+
+void EU4::World::fixTengri()
+{
+	// We need to convert all unmapped EU4 Tengri provinces to Old Tengri (Unreformed)
+	Log(LogLevel::Info) << "<> Checking for Reformed Tengri";
+	for (const auto& province : provinces)
+	{
+		if (!province.second->getSourceProvince())
+		{
+			if (province.second->getReligion() == "tengri_pagan_reformed")
+			{
+				province.second->setReligion("tengri_pagan");
+			}
+		}
+	}
+	for (const auto& country : countries)
+	{
+		if (country.second->getTitle().first.empty())
+		{
+			if (country.second->getReligion() == "tengri_pagan_reformed")
+			{
+				country.second->setReligion("tengri_pagan");
+			}
+		}
+	}
+	Log(LogLevel::Info) << "-- Tengri successfully unreformed";
 }
 
 void EU4::World::verifyCapitals()
