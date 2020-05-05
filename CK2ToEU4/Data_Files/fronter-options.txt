@@ -1,228 +1,173 @@
 option = {
 	name = i_am_hre
-	displayName_english = "Which empire inherits EU4 HRE mechanics and shatters?"
-	displayName_french = "Quel empire hérite de la mécanique EU4 HRE et se brise?"
-	tooltip_english = "Only one empire can use HRE mechanics."
-	tooltip_french = "Un seul empire peut utiliser la mécanique HRE."
+	displayName = OPTION1
+	tooltip = OPTION1TIP
 	radioSelector = {
 		radioOption = {
 			name = 1
-			displayName_english = "The HRE [obviously]"
-			displayName_french = "L'HRE [évidemment]"
-			tooltip_english = "e_hre"
-			tooltip_french = "e_hre"
+			displayName = OP1R1
+			tooltip = OP1R1TIP
 			default = true
 		}
 		radioOption = {
 			name = 2
-			displayName_english = "Byzantium! [Holy and Roman and Empire]"
-			displayName_french = "Byzance! [Saint et Romain et Empire]"
-			tooltip_english = "e_byzantium"
-			tooltip_french = "e_byzantium"
+			displayName = OP1R2
+			tooltip = OP1R2TIP
 			default = false
 		}
 		radioOption = {
 			name = 3
-			displayName_english = "Uh, Rome?"
-			displayName_french = "Euh, Rome?"
-			tooltip_english = "e_roman_empire"
-			tooltip_french = "e_roman_empire"
+			displayName = OP1R3
+			tooltip = OP1R3TIP
 			default = false		
 		}
 		radioOption = {
 			name = 4
-			displayName_english = "Defined in i_am_hre.txt"
-			displayName_french = "Défini dans i_am_hre.txt"
-			tooltip_english = "As defined manually."
-			tooltip_french = "Comme défini manuellement."
+			displayName = OP1R4
+			tooltip = OP1R4TIP
 			default = false
 		}
 		radioOption = {		
 			name = 5
-			displayName_english = "None [no HRE shattering]"
-			displayName_french = "Aucun [aucun HRE brisant]"
-			tooltip_english = "Dropped."
-			tooltip_french = "Chuté."
+			displayName = OP1R5
+			tooltip = OP1R5TIP
 			default = false
 		}
 	}
 }
 option = {
 	name = shatter_hre_level
-	displayName_english = "If we're shattering HRE, how far down do we go?"
-	displayName_french = "Si nous brisons l'EDH, jusqu'où allons-nous?"
-	tooltip_english = "HRE should be shattered to duchies as it increases prince number and thus stability."
-	tooltip_french = "L'EDH devrait être brisée en duchés car elle augmente le nombre de prince et donc la stabilité."
+	displayName = OPTION2
+	tooltip = OPTION2TIP
 	radioSelector = {
 		radioOption = {
 			name = 1
-			displayName_english = "Down to duchies [default]"
-			displayName_french = "Jusqu'aux duchés [par défaut]"
-			tooltip_english = "Need Duchies for stability."
-			tooltip_french = "Besoin de duchés pour la stabilité."
+			displayName = OP2R1
+			tooltip = OP2R1TIP
 			default = true
 		}
 		radioOption = {
 			name = 2
-			displayName_english = "Keep kingdoms if any [not recommended]"
-			displayName_french = "Gardez les royaumes le cas échéant [non recommandé]"
-			tooltip_english = "Kingdoms remain."
-			tooltip_french = "Les royaumes restent."
+			displayName = OP2R2
+			tooltip = OP2R2TIP
 			default = false
 		}
 	}
 }
 option = {
 	name = shatter_empires
-	displayName_english = "Should we shatter other empires?"
-	displayName_french = "Faut-il briser d'autres empires?"
-	tooltip_english = "Makes the game more dynamic. New countries won't be united."
-	tooltip_french = "Rend le jeu plus dynamique. De nouveaux pays ne seront pas unis."
+	displayName = OPTION3
+	tooltip = OPTION3TIP
 	radioSelector = {
 		radioOption = {
 			name = 1
-			displayName_english = "No, as they were [default]"
-			displayName_french = "Non, comme ils l'étaient [par défaut]"
-			tooltip_english = "Uses CK2 states."
-			tooltip_french = "Utilise les états CK2."
+			displayName = OP3R1
+			tooltip = OP3R1TIP
 			default = true
 		}
 		radioOption = {
 			name = 2
-			displayName_english = "All of them! [shattered world!]"
-			displayName_french = "Tous! [monde brisé!]"
-			tooltip_english = "All empires are broken down."
-			tooltip_french = "Tous les empires sont détruits."
+			displayName = OP3R2
+			tooltip = OP3R2TIP
 			default = false
 		}
 		radioOption = {
 			name = 3
-			displayName_english = "Defined in shatter_empires.txt"
-			displayName_french = "Défini dans shatter_empires.txt"
-			tooltip_english = "As defined manually."
-			tooltip_french = "Comme défini manuellement."
+			displayName = OP3R3
+			tooltip = OP3R3TIP
 			default = false
 		}
 	}
 }
 option = {
 	name = shatter_level
-	displayName_english = "If we're shattering non-HRE empires, how far down do we go?"
-	displayName_french = "Si nous détruisons des empires non-EDH, jusqu'où allons-nous?"
-	tooltip_english = "More the merrier."
-	tooltip_french = "Plus on est de fous."
+	displayName = OPTION4
+	tooltip = OPTION4TIP
 	radioSelector = {
 		radioOption = {
 			name = 1
-			displayName_english = "Down to duchies."
-			displayName_french = "Jusqu'aux duchés."
-			tooltip_english = "Duchies make sense."
-			tooltip_french = "Les duchés ont du sens."
+			displayName = OP4R1
+			tooltip = OP4R1TIP
 			default = true
 		}
 		radioOption = {
 			name = 2
-			displayName_english = "Keep kingdoms if any."
-			displayName_french = "Gardez les royaumes le cas échéant."
-			tooltip_english = "Kingdoms remain."
-			tooltip_french = "Les royaumes restent."
+			displayName = OP4R2
+			tooltip = OP4R2TIP
 			default = false
 		}
 	}
 }
 option = {
 	name = development
-	displayName_english = "How do we handle province development?"
-	displayName_french = "Comment gérons-nous le développement de la province?"
-	tooltip_english = "Should we stick to vanilla or import CK2?"
-	tooltip_french = "Faut-il s'en tenir à la vanille ou importer du CK2?"
+	displayName = OPTION5
+	tooltip = OPTION5TIP
 	radioSelector = {
 		radioOption = {
 			name = 1
-			displayName_english = "Use CK2 provinces' development."
-			displayName_french = "Utiliser le développement des provinces CK2."
-			tooltip_english = "The proper way."
-			tooltip_french = "La bonne façon."
+			displayName = OP5R1
+			tooltip = OP5R1TIP
 			default = true
 		}
 		radioOption = {
 			name = 2
-			displayName_english = "No, stick to EU4 vanilla ['ahistorical']"
-			displayName_french = "Non, respectez la vanille EU4 ['ahistorique']"
-			tooltip_english = "Leave as is."
-			tooltip_french = "Laissez tel quel."
+			displayName = OP5R2
+			tooltip = OP5R2TIP
 			default = false
 		}
 	}
 }
 option = {
 	name = siberia
-	displayName_english = "Clear Siberian Quagmire?"
-	displayName_french = "Clair bourbier de Sibérie?"
-	tooltip_english = "Delete all the nomads and tribals?"
-	tooltip_french = "Supprimer tous les nomades et tribaux?"
+	displayName = OPTION6
+	tooltip = OPTION6TIP
 	radioSelector = {
 		radioOption = {
 			name = 1
-			displayName_english = "Burn it all down [default]"
-			displayName_french = "Gravez le tout [par défaut]"
-			tooltip_english = "Clean Siberia."
-			tooltip_french = "La Sibérie propre."
+			displayName = OP6R1
+			tooltip = OP6R1TIP
 			default = true
 		}
 		radioOption = {
 			name = 2
-			displayName_english = "No, I was playing those! [hampers Russia]"
-			displayName_french = "Non, je jouais ça! [entrave la Russie]"
-			tooltip_english = "Leave as is."
-			tooltip_french = "Laissez tel quel."
+			displayName = OP6R2
+			tooltip = OP6R2TIP
 			default = false
 		}
 	}
 }
 option = {
 	name = sunset
-	displayName_english = "Should we touch Sunset?"
-	displayName_french = "Faut-il toucher le coucher du soleil?"
-	tooltip_english = "How should we deal with Sunset?"
-	tooltip_french = "Comment devons-nous gérer le coucher du soleil?"
+	displayName = OPTION7
+	tooltip = OPTION7TIP
 	radioSelector = {
 		radioOption = {
 			name = 1
-			displayName_english = "As-is, inherit CK2 state."
-			displayName_french = "En l'état, héritez de l'état CK2."
-			tooltip_english = "Change nothing."
-			tooltip_french = "Ne change rien."
+			displayName = OP7R1
+			tooltip = OP7R1TIP
 			default = true
 		}
 		radioOption = {
 			name = 2
-			displayName_english = "Get rid of them!"
-			displayName_french = "Se débarrasser d'eux!"
-			tooltip_english = "Reset to vanilla state."
-			tooltip_french = "Rétablir l'état vanille."
+			displayName = OP7R2
+			tooltip = OP7R2TIP
 			default = false
 		}
 		radioOption = {
 			name = 3
-			displayName_english = "No, no, I WANT the Sunset active!"
-			displayName_french = "Non, non, JE VEUX que le coucher du soleil soit actif!"
-			tooltip_english = "Enforce Sunset."
-			tooltip_french = "Appliquer le coucher du soleil."
+			displayName = OP7R3
+			tooltip = OP7R3TIP
 			default = false
 		}
 	}
 }
 option = {
 	name = output_name
-	displayName_english = "Mod Output Name (optional):"
-	displayName_french = "Nom de sortie du module (facultatif):"
-	tooltip_english = "Please don't use cyrillic or chinese..."
-	tooltip_french = "Veuillez ne pas utiliser cyrillique ou chinois ..."
+	displayName = OPTION8
+	tooltip = OPTION8TIP
 	textSelector = {	
 		value = ""
 		editable = true
-		tooltip_english = "Optional name for the converted mod."
-		tooltip_french = "Nom facultatif pour le mod converti."
+		tooltip = OPTION8TEXTTIP
 	}
 }
