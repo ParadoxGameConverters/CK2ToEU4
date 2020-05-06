@@ -230,7 +230,7 @@ void CK2::World::linkElectors()
 	// Make a registry of indep titles and their holders.
 	std::map<int, std::map<std::string, std::shared_ptr<Title>>> holderTitles; // holder/titles
 	std::pair<int, std::shared_ptr<Character>> hreHolder;
-	
+
 	for (const auto& title: independentTitles)
 	{
 		if (title.second->getHolder().first)
@@ -260,44 +260,45 @@ void CK2::World::linkElectors()
 		{
 			continue; // We're skipping the emperor for 8-slot setups.
 		}
+
 		const auto& charItr = allCharacters.find(elector);
 		if (charItr == allCharacters.end())
 		{
 			continue; // Non-existent fellow?
 		}
+
 		// How many indep titles does he hold? If any?
 		const auto& regItr = holderTitles.find(elector);
 		if (regItr == holderTitles.end())
 		{
 			continue; // This fellow was cheated out of electorate titles.
 		}
+
 		if (regItr->second.size() > 1)
 		{
-			// Which titles is his primary?
+			// Which title is his primary?
 			const auto& primaryTitle = charItr->second->getPrimaryTitle();
 			if (primaryTitle.first.empty())
 			{
 				// We have a person without a primary title, possibly an ex-king, holding multiple actual titles.
 				// To make matters worse, he may not even be of a religion allowing PUs.
 				// Well, grab the first one with some land.
-				auto foundPrimary = false;
 				for (const auto& title: regItr->second)
 				{
 					if (!title.second->getProvinces().empty())
 					{
 						title.second->setElectorate();
 						counter++;
-						foundPrimary = true;
 						break;
 					}
 				}
-				if (!foundPrimary)
-				{
-					continue; // no helping this fellow.
-				}
+				// otherwise no helping this fellow.
 			}
-			primaryTitle.second->getTitle().second->setElectorate();
-			counter++;
+			else
+			{
+				primaryTitle.second->getTitle().second->setElectorate();
+				counter++;
+			}
 		}
 		else
 		{
@@ -876,7 +877,7 @@ void CK2::World::shatterEmpires(const Configuration& theConfiguration) const
 			shatterKingdoms = true;
 	}
 	const auto& allTitles = titles.getTitles();
-	
+
 	for (const auto& empire: allTitles)
 	{
 		if (theConfiguration.getShatterEmpires() == Configuration::SHATTER_EMPIRES::CUSTOM && !shatterEmpiresMapper.isEmpireShatterable(empire.first))
