@@ -1,45 +1,45 @@
 ﻿name = CK2ToEU4
 converterFolder = CK2ToEU4
-displayName = DISPLAYNAME
-sourceGame = SOURCEGAME
-targetGame = TARGETGAME
+displayName = CK2DISPLAYNAME
+sourceGame = CK2GAME
+targetGame = EU4GAME
 
 requiredFolder = {
 	name = CK2directory
-	displayName = FOLDER1
-	tooltip = FOLDER1TIP
+	displayName = CK2FOLDER
+	tooltip = CK2FOLDERIP
 	mandatory = true
 	searchPathType = steamFolder
 	searchPathID = 203770
 }
 requiredFolder = {
 	name = CK2ModsDirectory
-	displayName = FOLDER2
-	tooltip = FOLDER2TIP
+	displayName = CK2MOD
+	tooltip = CK2MODTIP
 	mandatory = true
 	searchPathType = windowsUsersFolder
 	searchPath = "Paradox Interactive\Crusader Kings II\mod"
 }
 requiredFolder = {
 	name = EU4directory
-	displayName = FOLDER3
-	tooltip = FOLDER3TIP
+	displayName = EU4FOLDER
+	tooltip = EU4FOLDERTIP
 	mandatory = true
 	searchPathType = steamFolder
 	searchPathID = 236850
 }
 requiredFolder = {
 	name = targetGameModPath
-	displayName = FOLDER4
-	tooltip = FOLDER4TIP
+	displayName = EU4MOD
+	tooltip = EU4MODTIP
 	mandatory = true
 	searchPathType = windowsUsersFolder
 	searchPath = "Paradox Interactive\Europa Universalis IV\mod"
 }
 requiredFile = {
 	name = converterExe
-	displayName = FILE1
-	tooltip = FILE1TIP
+	displayName = EU4FILE
+	tooltip = EU4FILETIP
 	mandatory = true
 	outputtable = false
 	searchPathType = converterFolder
@@ -49,8 +49,8 @@ requiredFile = {
 }
 requiredFile = {
 	name = SaveGame
-	displayName = FILE2
-	tooltip = FILE2TIP
+	displayName = EU4SAVE
+	tooltip = EU4SAVETIP
 	mandatory = true
 	outputtable = true
 	searchPathType = windowsUsersFolder
