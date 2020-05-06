@@ -1,173 +1,173 @@
 option = {
 	name = i_am_hre
-	displayName = OPTION1
-	tooltip = OPTION1TIP
+	displayName = WHOHRE
+	tooltip = WHOHRETIP
 	radioSelector = {
 		radioOption = {
 			name = 1
-			displayName = OP1R1
-			tooltip = OP1R1TIP
+			displayName = WHOHRE1
+			tooltip = WHOHRE1TIP
 			default = true
 		}
 		radioOption = {
 			name = 2
-			displayName = OP1R2
-			tooltip = OP1R2TIP
+			displayName = WHOHRE2
+			tooltip = WHOHRE2TIP
 			default = false
 		}
 		radioOption = {
 			name = 3
-			displayName = OP1R3
-			tooltip = OP1R3TIP
+			displayName = WHOHRE3
+			tooltip = WHOHRE3TIP
 			default = false		
 		}
 		radioOption = {
 			name = 4
-			displayName = OP1R4
-			tooltip = OP1R4TIP
+			displayName = WHOHRE4
+			tooltip = WHOHRE4TIP
 			default = false
 		}
 		radioOption = {		
 			name = 5
-			displayName = OP1R5
-			tooltip = OP1R5TIP
+			displayName = WHOHRE5
+			tooltip = WHOHRE5TIP
 			default = false
 		}
 	}
 }
 option = {
 	name = shatter_hre_level
-	displayName = OPTION2
-	tooltip = OPTION2TIP
+	displayName = SHAHRE
+	tooltip = SHAHRETIP
 	radioSelector = {
 		radioOption = {
 			name = 1
-			displayName = OP2R1
-			tooltip = OP2R1TIP
+			displayName = SHAHRE1
+			tooltip = SHAHRE1TIP
 			default = true
 		}
 		radioOption = {
 			name = 2
-			displayName = OP2R2
-			tooltip = OP2R2TIP
+			displayName = SHAHRE2
+			tooltip = SHAHRE2TIP
 			default = false
 		}
 	}
 }
 option = {
 	name = shatter_empires
-	displayName = OPTION3
-	tooltip = OPTION3TIP
+	displayName = SHAALL
+	tooltip = SHAALLTIP
 	radioSelector = {
 		radioOption = {
 			name = 1
-			displayName = OP3R1
-			tooltip = OP3R1TIP
+			displayName = SHAALL1
+			tooltip = SHAALL1TIP
 			default = true
 		}
 		radioOption = {
 			name = 2
-			displayName = OP3R2
-			tooltip = OP3R2TIP
+			displayName = SHAALL2
+			tooltip = SHAALL2TIP
 			default = false
 		}
 		radioOption = {
 			name = 3
-			displayName = OP3R3
-			tooltip = OP3R3TIP
+			displayName = SHAALL3
+			tooltip = SHAALL3TIP
 			default = false
 		}
 	}
 }
 option = {
 	name = shatter_level
-	displayName = OPTION4
-	tooltip = OPTION4TIP
+	displayName = SHADIP
+	tooltip = SHADIPTIP
 	radioSelector = {
 		radioOption = {
 			name = 1
-			displayName = OP4R1
-			tooltip = OP4R1TIP
+			displayName = SHADIP1
+			tooltip = SHADIP1TIP
 			default = true
 		}
 		radioOption = {
 			name = 2
-			displayName = OP4R2
-			tooltip = OP4R2TIP
+			displayName = SHADIP2
+			tooltip = SHADIP2TIP
 			default = false
 		}
 	}
 }
 option = {
 	name = development
-	displayName = OPTION5
-	tooltip = OPTION5TIP
+	displayName = DEVELO
+	tooltip = DEVELOTIP
 	radioSelector = {
 		radioOption = {
 			name = 1
-			displayName = OP5R1
-			tooltip = OP5R1TIP
+			displayName = DEVELO1
+			tooltip = DEVELO1TIP
 			default = true
 		}
 		radioOption = {
 			name = 2
-			displayName = OP5R2
-			tooltip = OP5R2TIP
+			displayName = DEVELO2
+			tooltip = DEVELO2TIP
 			default = false
 		}
 	}
 }
 option = {
 	name = siberia
-	displayName = OPTION6
-	tooltip = OPTION6TIP
+	displayName = GULAG
+	tooltip = GULAGTIP
 	radioSelector = {
 		radioOption = {
 			name = 1
-			displayName = OP6R1
-			tooltip = OP6R1TIP
+			displayName = GULAG1
+			tooltip = GULAG1TIP
 			default = true
 		}
 		radioOption = {
 			name = 2
-			displayName = OP6R2
-			tooltip = OP6R2TIP
+			displayName = GULAG2
+			tooltip = GULAG2TIP
 			default = false
 		}
 	}
 }
 option = {
 	name = sunset
-	displayName = OPTION7
-	tooltip = OPTION7TIP
+	displayName = AZTEC
+	tooltip = AZTECTIP
 	radioSelector = {
 		radioOption = {
 			name = 1
-			displayName = OP7R1
-			tooltip = OP7R1TIP
+			displayName = AZTEC1
+			tooltip = AZTEC1TIP
 			default = true
 		}
 		radioOption = {
 			name = 2
-			displayName = OP7R2
-			tooltip = OP7R2TIP
+			displayName = AZTEC2
+			tooltip = AZTEC2TIP
 			default = false
 		}
 		radioOption = {
 			name = 3
-			displayName = OP7R3
-			tooltip = OP7R3TIP
+			displayName = AZTEC3
+			tooltip = AZTEC3TIP
 			default = false
 		}
 	}
 }
 option = {
 	name = output_name
-	displayName = OPTION8
-	tooltip = OPTION8TIP
+	displayName = MODNAME
+	tooltip = MODNAMETIP
 	textSelector = {	
 		value = ""
 		editable = true
-		tooltip = OPTION8TEXTTIP
+		tooltip = MODNAMETIP2
 	}
 }
