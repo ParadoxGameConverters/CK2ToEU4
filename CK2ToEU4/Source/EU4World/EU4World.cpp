@@ -693,7 +693,7 @@ void EU4::World::setElectors()
 				electors.emplace_back(country.second);
 				electorBishops++;
 				continue;
-			}			
+			}
 			// Let's shove all hre members into appropriate categories.
 			if (country.second->getGovernment() == "theocracy")
 			{
