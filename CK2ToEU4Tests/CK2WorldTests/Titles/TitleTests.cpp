@@ -449,3 +449,32 @@ TEST(CK2World_TitleTests, ColorCanBeLoaded)
 	ASSERT_EQ(theTitle.getColor().g(), 5);
 	ASSERT_EQ(theTitle.getColor().b(), 6);
 }
+
+TEST(CK2World_TitleTests, electorsDefaultToEmpty)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "}";
+
+	const CK2::Title theTitle(input, "c_test");
+
+	ASSERT_TRUE(theTitle.getElectors().empty());
+}
+
+TEST(CK2World_TitleTests, electorsCanBeSet)
+{
+	std::stringstream input;
+	input << "=\n";
+	input << "{\n";
+	input << "\tsuccession_electors = { 1 2 3 }\n";
+	input << "}";
+
+	const CK2::Title theTitle(input, "c_test");
+
+	ASSERT_EQ(theTitle.getElectors().size(), 3);
+	ASSERT_TRUE(theTitle.getElectors().count(1));
+	ASSERT_TRUE(theTitle.getElectors().count(2));
+	ASSERT_TRUE(theTitle.getElectors().count(3));
+}
+

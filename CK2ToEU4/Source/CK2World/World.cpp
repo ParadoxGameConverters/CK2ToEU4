@@ -178,6 +178,8 @@ CK2::World::World(const Configuration& theConfiguration)
 	gatherCourtierNames();
 	LOG(LogLevel::Info) << "-- Congregating Provinces for Independent Titles";
 	congregateProvinces();
+	LOG(LogLevel::Info) << "-- Distributing Electorates";
+	linkElectors();
 	LOG(LogLevel::Info) << "-- Congregating DeJure Provinces for Independent Titles";
 	congregateDeJureProvinces();
 	LOG(LogLevel::Info) << "-- Performing Province Sanity Check";
@@ -191,6 +193,120 @@ CK2::World::World(const Configuration& theConfiguration)
 
 	alterSunset(theConfiguration);
 	LOG(LogLevel::Info) << "*** Good-bye CK2, rest in peace. ***";
+}
+
+void CK2::World::linkElectors()
+{
+	// Finding electorates is not entirely trivial. CK2 has 8 slots, one of which is usually the Emperor himself, but
+	// he is not considered an elector in EU4 sense unless he holds one of the electorate titles which are historical.
+	// However, CK2 doesn't care about titles, it stores people, so a multiduke with a secondary electoral title will still
+	// be elector and we need to flag his primary title as electorate one, as other duchies will possibly be annexed or PU-d.
+	// Moreover, these electors may not even be indeps after HRE shattering as player may opt to keep kingdoms but electors were
+	// under these kings. We can't help that.
+
+	const auto& allTitles = titles.getTitles();
+	const auto& hre = allTitles.find("e_hre");
+	if (hre == allTitles.end())
+	{
+		Log(LogLevel::Info) << ">< HRE does not exist.";
+		return;
+	}
+	auto electors = hre->second->getElectors();
+	if (electors.empty())
+	{
+		Log(LogLevel::Info) << ">< HRE does not have electors.";
+		return;
+	}
+	if (hre->second->getSuccessionLaw() != "feudal_elective")
+	{
+		Log(LogLevel::Info) << ">< HRE does not have feudal elective succession law.";
+		return;
+	}
+
+	const auto& allCharacters = characters.getCharacters();
+	auto counter = 0;
+
+	// Preambule done, we start here.
+	// Make a registry of indep titles and their holders.
+	std::map<int, std::map<std::string, std::shared_ptr<Title>>> holderTitles; // holder/titles
+	std::pair<int, std::shared_ptr<Character>> hreHolder;
+	
+	for (const auto& title: independentTitles)
+	{
+		if (title.second->getHolder().first)
+		{
+			holderTitles[title.second->getHolder().first].insert(title);
+			if (title.second->isHREEmperor())
+			{
+				hreHolder = title.second->getHolder();
+			}
+		}
+	}
+
+	if (!hreHolder.first)
+	{
+		Log(LogLevel::Info) << ">< HRE does not have an emperor.";
+		return;
+	}
+
+	// Now roll through electors and flag their primary titles as electors. If kings get electorate status
+	// but kingdoms are also shattered, tough luck? Their primary duchy won't inherit electorate as they could
+	// end up with multiple electorates, and that's possible only through EU4 gameplay and causes massive
+	// penalties to IA.
+
+	for (auto& elector: electors)
+	{
+		if (electors.size() > 7 && elector == hreHolder.first)
+		{
+			continue; // We're skipping the emperor for 8-slot setups.
+		}
+		const auto& charItr = allCharacters.find(elector);
+		if (charItr == allCharacters.end())
+		{
+			continue; // Non-existent fellow?
+		}
+		// How many indep titles does he hold? If any?
+		const auto& regItr = holderTitles.find(elector);
+		if (regItr == holderTitles.end())
+		{
+			continue; // This fellow was cheated out of electorate titles.
+		}
+		if (regItr->second.size() > 1)
+		{
+			// Which titles is his primary?
+			const auto& primaryTitle = charItr->second->getPrimaryTitle();
+			if (primaryTitle.first.empty())
+			{
+				// We have a person without a primary title, possibly an ex-king, holding multiple actual titles.
+				// To make matters worse, he may not even be of a religion allowing PUs.
+				// Well, grab the first one with some land.
+				auto foundPrimary = false;
+				for (const auto& title: regItr->second)
+				{
+					if (!title.second->getProvinces().empty())
+					{
+						title.second->setElectorate();
+						counter++;
+						foundPrimary = true;
+						break;
+					}
+				}
+				if (!foundPrimary)
+				{
+					continue; // no helping this fellow.
+				}
+			}
+			primaryTitle.second->getTitle().second->setElectorate();
+			counter++;
+		}
+		else
+		{
+			regItr->second.begin()->second->setElectorate();
+			counter++;
+		}
+	}
+
+	Log(LogLevel::Info) << "<> " << counter << " electorates linked.";
 }
 
 void CK2::World::alterSunset(const Configuration& theConfiguration)
@@ -663,8 +779,13 @@ void CK2::World::mergeIndependentBaronies() const
 				if (djLiege.first.find("c_") == 0)
 				{
 					// we're golden.
-					title.second->overrideLiege();
-					counter++;
+					if (!title.second)
+						Log(LogLevel::Error) << "Where is title link for " << title.first << "?";
+					else
+					{
+						title.second->overrideLiege();
+						counter++;
+					}
 				}
 			}
 		}

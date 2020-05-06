@@ -60,6 +60,7 @@ class World: commonItems::parser
 	void linkCelestialEmperor() const;
 	void verifyReligionsAndCultures(const Configuration& theConfiguration);
 	void loadDynastiesFromMods(const Configuration& theConfiguration);
+	void linkElectors();
 
 	bool invasion = false;
 	date endDate = date("1444.11.11");

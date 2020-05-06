@@ -37,9 +37,11 @@ class Title: commonItems::parser
 	[[nodiscard]] const auto& getSuccessionLaw() const { return successionLaw; }
 	[[nodiscard]] const auto& getEU4Tag() const { return tagCountry; }
 	[[nodiscard]] const auto& getPreviousHolders() const { return previousHolders; }
+	[[nodiscard]] const auto& getElectors() const { return electors; }
 
 	[[nodiscard]] auto isInHRE() const { return inHRE; }
 	[[nodiscard]] auto isHREEmperor() const { return HREEmperor; }
+	[[nodiscard]] auto isElector() const { return electorate; }
 	[[nodiscard]] auto isMajorRevolt() const { return majorRevolt; }
 
 	[[nodiscard]] std::map<int, std::shared_ptr<Province>> coalesceProvinces() const;
@@ -56,6 +58,7 @@ class Title: commonItems::parser
 	void setDJLiegeBaseTitle(std::shared_ptr<Title> theBaseTitle) const { deJureLiege.second->setBaseTitle(std::move(theBaseTitle)); }
 	void setInHRE() { inHRE = true; }
 	void setHREEmperor() { HREEmperor = true; }
+	void setElectorate() { electorate = true; }
 	void setPreviousHolders(const std::map<int, std::shared_ptr<Character>>& thePreviousHolders) { previousHolders = thePreviousHolders; }
 	void overrideLiege() { liege = deJureLiege; }
 	void overrideLiege(const std::pair<std::string, std::shared_ptr<Liege>>& theLiege) { liege = theLiege; }
@@ -85,6 +88,7 @@ class Title: commonItems::parser
 	bool inHRE = false;
 	bool HREEmperor = false;
 	bool majorRevolt = false;
+	bool electorate = false;
 	std::string name;			 // nominal name, k_something
 	std::string displayName; // visual name, "Cumania"
 	std::string genderLaw;	 // for succession
@@ -92,6 +96,7 @@ class Title: commonItems::parser
 	commonItems::Color color;
 
 	std::set<std::string> laws;
+	std::set<int> electors;
 	std::map<int, std::shared_ptr<Province>> provinces;
 	std::map<int, std::shared_ptr<Province>> deJureProvinces;
 	std::map<std::string, std::shared_ptr<Title>> vassals;
