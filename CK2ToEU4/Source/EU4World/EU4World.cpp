@@ -485,7 +485,7 @@ void EU4::World::distributeForts()
 void EU4::World::alterProvinceDevelopment()
 {
 	Log(LogLevel::Info) << "-- Scaling Imported provinces";
-	// For every 12 buildings in a province we assign a dev point (barony itself counts as 3).
+	// For every 10 buildings in a province we assign a dev point (barony itself counts as 3).
 	// We adhere to the distribution key:
 	// castle: 2/3 mil 1/3 adm
 	// city: dip
@@ -514,20 +514,20 @@ void EU4::World::alterProvinceDevelopment()
 			const auto buildingNumber = static_cast<double>(barony.second->getBuildingCount());
 			if (barony.second->getType() == "tribal" || barony.second->getType() == "nomad")
 			{
-				mil += lround((3 + buildingNumber) / 12);
+				mil += lround((3 + buildingNumber) / 10);
 			}
 			else if (barony.second->getType() == "city")
 			{
-				dip += lround((3 + buildingNumber) / 12);
+				dip += lround((3 + buildingNumber) / 10);
 			}
 			else if (barony.second->getType() == "temple")
 			{
-				adm += lround((3 + buildingNumber) / 12);
+				adm += lround((3 + buildingNumber) / 10);
 			}
 			else if (barony.second->getType() == "castle")
 			{
-				adm += lround((3 + buildingNumber) / 48); // third to adm
-				mil += lround((3 + buildingNumber) / 18); // two thirds to mil
+				adm += lround((3 + buildingNumber) / 30); // third to adm
+				mil += lround((3 + buildingNumber) / 15); // two thirds to mil
 			}
 		}
 		province.second->setAdm(std::max(adm, 1));
