@@ -159,9 +159,6 @@ CK2::World::World(const Configuration& theConfiguration)
 	LOG(LogLevel::Info) << "-- Linking The Celestial Emperor";
 	linkCelestialEmperor();
 
-	// Intermezzo
-	verifyReligionsAndCultures(theConfiguration);
-
 	// Filter top-tier active titles and assign them provinces.
 	LOG(LogLevel::Info) << "-- Merging Independent Baronies";
 	mergeIndependentBaronies();
@@ -350,62 +347,6 @@ void CK2::World::alterSunset(const Configuration& theConfiguration)
 	else if (theConfiguration.getSunset() == Configuration::SUNSET::DISABLED)
 		invasion = false;
 }
-
-void CK2::World::verifyReligionsAndCultures(const Configuration& theConfiguration)
-{
-	auto insanityCounter = 0;
-	LOG(LogLevel::Info) << "-- Verifyling All Characters Have Religion And Culture Loaded";
-	for (const auto& character: characters.getCharacters())
-	{
-		if (character.second->getReligion().empty() || character.second->getCulture().empty())
-			insanityCounter++;
-	}
-	if (!insanityCounter)
-	{
-		Log(LogLevel::Info) << "<> All " << characters.getCharacters().size() << "characters are sane.";
-		return;
-	}
-	Log(LogLevel::Warning) << "! " << insanityCounter << " characters have lacking definitions! Attempting recovery.";
-	loadDynastiesFromMods(theConfiguration);
-}
-
-void CK2::World::loadDynastiesFromMods(const Configuration& theConfiguration)
-{
-	LOG(LogLevel::Info) << "*** Intermezzo ***";
-	Log(LogLevel::Info) << "-> Rummaging through mods in search of definitions.";
-	bool weAreSane = false;
-	for (const auto& mod: mods.getMods())
-	{
-		if (Utils::doesFolderExist(mod.second + "/common/dynasties/"))
-		{
-			Log(LogLevel::Info) << "Found something interesting in " << mod.first;
-			std::set<std::string> fileNames;
-			Utils::GetAllFilesInFolder(mod.second + "/common/dynasties/", fileNames);
-			for (const auto& file: fileNames)
-				dynasties.underLoadDynasties(mod.second + "/common/dynasties/" + file);
-		}
-		else
-			continue;
-		auto insanityCounter = 0;
-		for (const auto& character: characters.getCharacters())
-		{
-			if (character.second->getReligion().empty() || character.second->getCulture().empty())
-				insanityCounter++;
-		}
-		if (!insanityCounter)
-		{
-			Log(LogLevel::Info) << "<> All " << characters.getCharacters().size() << " characters have been sanified. Cancelling rummage.";
-			weAreSane = true;
-			break;
-		}
-		Log(LogLevel::Warning) << "! " << insanityCounter << " characters are still lacking definitions. Continuing with the rummage.";
-	}
-
-	if (!weAreSane)
-		LOG(LogLevel::Warning) << "... We did what we could.";
-	LOG(LogLevel::Info) << "*** Intermezzo End, back to scheduled run ***";
-}
-
 
 void CK2::World::linkCelestialEmperor() const
 {

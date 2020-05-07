@@ -58,8 +58,6 @@ class World: commonItems::parser
 	void resolveTanistry(const std::string& genderLaw, const std::pair<int, std::shared_ptr<Character>>& holder) const;
 	void resolveTurkish(const std::pair<int, std::shared_ptr<Character>>& holder) const;
 	void linkCelestialEmperor() const;
-	void verifyReligionsAndCultures(const Configuration& theConfiguration);
-	void loadDynastiesFromMods(const Configuration& theConfiguration);
 	void linkElectors();
 	void loadDynasties(const Configuration& theConfiguration);
 	void loadProvinces(const Configuration& theConfiguration);
