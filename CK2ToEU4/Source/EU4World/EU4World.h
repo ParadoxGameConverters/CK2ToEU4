@@ -38,7 +38,7 @@ class World
 	void importCK2Countries(const CK2::World& sourceWorld);
 	void importCK2Country(const std::pair<std::string, std::shared_ptr<CK2::Title>>& title, const CK2::World& sourceWorld);
 	void importCK2Provinces(const CK2::World& sourceWorld);
-	void output(const mappers::VersionParser& versionParser, const Configuration& theConfiguration, date conversionDate, bool invasion) const;
+	void output(const mappers::VersionParser& versionParser, const Configuration& theConfiguration, const CK2::World& sourceWorld) const;
 	void createModFile(const Configuration& theConfiguration) const;
 	void outputVersion(const mappers::VersionParser& versionParser, const Configuration& theConfiguration) const;
 	void outputCommonCountriesFile(const Configuration& theConfiguration) const;
@@ -48,7 +48,7 @@ class World
 	void outputLocalization(const Configuration& theConfiguration, bool invasion) const;
 	void verifyReligionsAndCultures();
 	void linkProvincesToCountries();
-	void outputFlags(const Configuration& theConfiguration, bool invasion) const;
+	void outputFlags(const Configuration& theConfiguration, const CK2::World& sourceWorld) const;
 	void outputBookmark(const Configuration& theConfiguration, date conversionDate) const;
 	void distributeHRESubtitles(const Configuration& theConfiguration);
 	void outputEmperor(const Configuration& theConfiguration, date conversionDate) const;
@@ -65,6 +65,7 @@ class World
 	void fixTengri();
 	void siberianQuestion(const Configuration& theConfiguration);
 	void distributeClaims();
+	void scrapeColors(const Configuration& theConfiguration, const CK2::World& sourceWorld);
 
 	[[nodiscard]] std::optional<std::pair<int, std::shared_ptr<CK2::Province>>> determineProvinceSource(const std::vector<int>& ck2ProvinceNumbers,
 		 const CK2::World& sourceWorld) const;

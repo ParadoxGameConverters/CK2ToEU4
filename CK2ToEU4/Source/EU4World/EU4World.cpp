@@ -16,10 +16,10 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 {
 	LOG(LogLevel::Info) << "*** Hello EU4, let's get painting. ***";
 	// Scraping localizations from CK2 so we may know proper names for our countries.
-	localizationMapper.scrapeLocalizations(theConfiguration);
+	localizationMapper.scrapeLocalizations(theConfiguration, sourceWorld.getMods().getMods());
 
 	// Ditto for colors - these only apply on non-eu4 countries.
-	colorScraper.scrapeColors(theConfiguration.getCK2Path() + "/common/landed_titles/landed_titles.txt");
+	scrapeColors(theConfiguration, sourceWorld);
 
 	// This is our region mapper for eu4 regions, areas and superRegions. It's a pointer because we need
 	// to embed it into every cultureMapper individual mapping. It works faster that way.
@@ -97,8 +97,32 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 	// And finally, the Dump.
 	LOG(LogLevel::Info) << "---> The Dump <---";
 	modFile.outname = theConfiguration.getOutputName();
-	output(versionParser, theConfiguration, sourceWorld.getConversionDate(), sourceWorld.isInvasion());
+	output(versionParser, theConfiguration, sourceWorld);
 	LOG(LogLevel::Info) << "*** Farewell EU4, granting you independence. ***";
+}
+
+void EU4::World::scrapeColors(const Configuration& theConfiguration, const CK2::World& sourceWorld)
+{
+	LOG(LogLevel::Info) << "-> Soaking Up Colors";
+	std::set<std::string> fileNames;
+	Utils::GetAllFilesInFolder(theConfiguration.getCK2Path() + "/common/landed_titles/", fileNames);
+	for (const auto& file: fileNames)
+	{
+		if (file.find(".txt") == std::string::npos) continue;
+		colorScraper.scrapeColors(theConfiguration.getCK2Path() + "/common/landed_titles/" + file);
+	}
+	for (const auto& mod: sourceWorld.getMods().getMods())
+	{
+		fileNames.clear();
+		Utils::GetAllFilesInFolder(mod.second + "/common/landed_titles/", fileNames);
+		if (!fileNames.empty()) Log(LogLevel::Info) << "\t>> Found some colors in: " << mod.first;
+		for (const auto& file: fileNames)
+		{
+			if (file.find(".txt") == std::string::npos) continue;
+			colorScraper.scrapeColors(mod.second + "/common/landed_titles/" + file);
+		}
+	}
+	LOG(LogLevel::Info) << ">> " << colorScraper.getColors().size() << " colors soaked up.";
 }
 
 void EU4::World::distributeClaims()
@@ -1054,8 +1078,7 @@ void EU4::World::importCK2Provinces(const CK2::World& sourceWorld)
 		const auto& sourceProvince = determineProvinceSource(ck2Provinces, sourceWorld);
 		if (!sourceProvince)
 		{
-			Log(LogLevel::Warning) << "MISMAP into province: " << province.first;
-			continue; // bailing for mismaps.
+			continue; // MISMAP, or simply have mod provinces loaded we're not using.
 		}
 		if (sourceProvince->first == -1)
 		{
@@ -1172,9 +1195,8 @@ std::optional<std::pair<int, std::shared_ptr<CK2::Province>>> EU4::World::determ
 	{
 		const auto& ck2province = sourceWorld.getProvinces().find(ck2ProvinceID);
 		if (ck2province == sourceWorld.getProvinces().end())
-		{
-			Log(LogLevel::Warning) << "Source province " << ck2ProvinceID << " is not in the list of known provinces!";
-			continue; // Broken mapping?
+		{			
+			continue; // Broken mapping, or loaded a mod changing provinces without using it. 
 		}
 		auto ownerTitle = ck2province->second->getTitle().first;
 		if (ownerTitle.empty())

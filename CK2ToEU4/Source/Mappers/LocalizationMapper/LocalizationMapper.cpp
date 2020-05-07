@@ -5,7 +5,7 @@
 #include <fstream>
 #include <set>
 
-void mappers::LocalizationMapper::scrapeLocalizations(const Configuration& theConfiguration)
+void mappers::LocalizationMapper::scrapeLocalizations(const Configuration& theConfiguration, const std::map<std::string, std::string>& mods)
 {
 	LOG(LogLevel::Info) << "-> Reading Words";
 	std::set<std::string> filenames;
@@ -16,6 +16,23 @@ void mappers::LocalizationMapper::scrapeLocalizations(const Configuration& theCo
 		scrapeStream(theFile);
 		theFile.close();
 	}
+	for (const auto& mod: mods)
+	{
+		if (Utils::doesFolderExist(mod.second + "/localisation/"))
+		{
+			Log(LogLevel::Info) << "\t>> Found some words in: " << mod.second + "/localization/";
+			filenames.clear();
+			Utils::GetAllFilesInFolder(mod.second + "/localisation/", filenames);
+			for (const auto& file: filenames)
+			{
+				if (file.find(".csv") == std::string::npos) continue;
+				std::ifstream theFile(mod.second + "/localisation/" + file);
+				scrapeStream(theFile);
+				theFile.close();
+			}			
+		}
+	}
+	
 	// Override with our keys
 	if (Utils::DoesFileExist("configurables/ck2_localization_override.csv"))
 	{

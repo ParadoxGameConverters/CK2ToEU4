@@ -79,5 +79,5 @@ link = { title = d_hurufi gov = monarchy reform = feudal_theocracy }
 link = { title = d_qarmatian gov = monarchy reform = feudal_theocracy }
 link = { title = d_mamluks gov = monarchy reform = mamluk_government }
 
-
-
+# ---- SUPPORTED MODS ----- Sons of Vinland
+link = { gov = tribal ck2gov = amerindian_tribal_government }
