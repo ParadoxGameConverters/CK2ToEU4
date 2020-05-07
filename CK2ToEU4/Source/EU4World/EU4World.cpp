@@ -51,7 +51,8 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 	importCK2Provinces(sourceWorld);
 
 	// With Ck2 provinces linked to those eu4 provinces they affect, we can adjust eu4 province dev values.
-	if (theConfiguration.getDevelopment() == Configuration::DEVELOPMENT::IMPORT) alterProvinceDevelopment();
+	if (theConfiguration.getDevelopment() == Configuration::DEVELOPMENT::IMPORT)
+		alterProvinceDevelopment();
 
 	// We then link them to their respective countries. Those countries that end up with 0 provinces are defacto dead.
 	linkProvincesToCountries();
@@ -355,7 +356,7 @@ void EU4::World::fixTengri()
 {
 	// We need to convert all unmapped EU4 Tengri provinces to Old Tengri (Unreformed)
 	Log(LogLevel::Info) << "<> Checking for Reformed Tengri";
-	for (const auto& province : provinces)
+	for (const auto& province: provinces)
 	{
 		if (!province.second->getSourceProvince())
 		{
@@ -365,7 +366,7 @@ void EU4::World::fixTengri()
 			}
 		}
 	}
-	for (const auto& country : countries)
+	for (const auto& country: countries)
 	{
 		if (country.second->getTitle().first.empty())
 		{
@@ -674,6 +675,9 @@ void EU4::World::setElectors()
 	std::vector<std::pair<int, std::shared_ptr<Country>>> duchies;	  // dev-tag
 	std::vector<std::pair<int, std::shared_ptr<Country>>> republics; // dev-tag
 	std::vector<std::shared_ptr<Country>> electors;
+	int electorBishops = 0;
+	int electorRepublics = 0;
+	int electorDuchies = 0;
 
 	// We need to be careful about papacy and orthodox holders
 	for (const auto& country: countries)
@@ -686,21 +690,49 @@ void EU4::World::setElectors()
 			if (country.first == "PAP" || holder.second->getPrimaryTitle().first == "k_orthodox")
 			{
 				// override to always be elector
-				bishops.emplace_back(std::pair(99999, country.second));
+				electors.emplace_back(country.second);
+				electorBishops++;
 				continue;
 			}
 			// Let's shove all hre members into appropriate categories.
 			if (country.second->getGovernment() == "theocracy")
 			{
-				bishops.emplace_back(std::pair(lround(holder.second->getPiety()), country.second));
+				if (country.second->getTitle().second->isElector())
+				{
+					electorBishops++;
+					electors.emplace_back(country.second);
+				}
+				else
+				{
+					bishops.emplace_back(std::pair(lround(holder.second->getPiety()), country.second));
+				}
 			}
 			else if (country.second->getGovernment() == "monarchy")
 			{
-				duchies.emplace_back(std::pair(country.second->getDevelopment(), country.second));
+				if (country.second->getTitle().second->isElector())
+				{
+					electorDuchies++;
+					electors.emplace_back(country.second);
+				}
+				else
+				{
+					duchies.emplace_back(std::pair(country.second->getDevelopment(), country.second));
+				}
 			}
 			else if (country.second->getGovernment() == "republic")
 			{
-				republics.emplace_back(std::pair(country.second->getDevelopment(), country.second));
+				// No free cities, thank you!
+				if (country.second->getGovernmentReforms().count("free_city"))
+					continue;
+				if (country.second->getTitle().second->isElector())
+				{
+					electorRepublics++;
+					electors.emplace_back(country.second);
+				}
+				else
+				{
+					republics.emplace_back(std::pair(country.second->getDevelopment(), country.second));
+				}
 			} // skipping tribal and similar.
 		}
 	}
@@ -711,15 +743,17 @@ void EU4::World::setElectors()
 
 	for (const auto& bishop: bishops)
 	{
-		if (electors.size() >= 3)
+		if (electors.size() >= 7 || electorBishops >= 3)
 			break;
 		electors.emplace_back(bishop.second);
+		electorBishops++;
 	}
 	for (const auto& republic: republics)
 	{
-		if (electors.size() >= 3)
+		if (electors.size() >= 7 || electorBishops + electorRepublics >= 3)
 			break;
 		electors.emplace_back(republic.second);
+		electorRepublics++;
 	}
 	for (const auto& duchy: duchies)
 	{
@@ -729,7 +763,10 @@ void EU4::World::setElectors()
 	}
 
 	for (const auto& elector: electors)
+	{
 		elector->setElector();
+		Log(LogLevel::Info) << "\t- Electorate set: " << elector->getTag() << " (from " << elector->getTitle().first << ")";
+	}
 	LOG(LogLevel::Info) << "<> There are " << electors.size() << " electors recognized.";
 }
 
@@ -741,7 +778,7 @@ void EU4::World::setFreeCities()
 	for (const auto& country: countries)
 	{
 		if (country.second->isinHRE() && country.second->getGovernment() == "republic" && country.second->getProvinces().size() == 1 &&
-			 country.second->getTitle().second->getGeneratedLiege().first.empty() && freeCityNum < 8)
+			 country.second->getTitle().second->getGeneratedLiege().first.empty() && !country.second->getTitle().second->isElector() && freeCityNum < 8)
 		{
 			country.second->overrideReforms("free_city");
 			++freeCityNum;
@@ -754,7 +791,7 @@ void EU4::World::setFreeCities()
 		{
 			if (country.second->isinHRE() && country.second->getGovernment() != "republic" && !country.second->isHREEmperor() &&
 				 country.second->getGovernmentReforms().empty() && country.second->getProvinces().size() == 1 &&
-				 country.second->getTitle().second->getGeneratedLiege().first.empty() && freeCityNum < 8)
+				 country.second->getTitle().second->getGeneratedLiege().first.empty() && !country.second->getTitle().second->isElector() && freeCityNum < 8)
 			{
 				if (country.first == "HAB")
 					continue; // For Iohannes who is sensitive about Austria.
@@ -1198,7 +1235,7 @@ std::optional<std::pair<int, std::shared_ptr<CK2::Province>>> EU4::World::determ
 	{
 		return wonderProvince;
 	}
-	
+
 	std::pair<int, std::shared_ptr<CK2::Province>> toReturn;
 	for (const auto& province: theClaims[winner])
 	{

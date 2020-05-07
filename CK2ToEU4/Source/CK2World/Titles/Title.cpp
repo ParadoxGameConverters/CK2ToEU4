@@ -1,7 +1,6 @@
 #include "Title.h"
 #include "../Characters/Character.h"
 #include "../Provinces/Province.h"
-#include "Liege.h"
 #include "Log.h"
 #include "ParserHelpers.h"
 
@@ -46,6 +45,11 @@ void CK2::Title::registerKeys()
 	registerKeyword("succession", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleString successionStr(theStream);
 		successionLaw = successionStr.getString();
+	});
+	registerKeyword("succession_electors", [this](const std::string& unused, std::istream& theStream) {
+		const commonItems::intList theList(theStream);
+		const auto& electorIDs = theList.getInts();
+		electors.insert(electorIDs.begin(), electorIDs.end());
 	});
 	registerKeyword("base_title", [this](const std::string& unused, std::istream& theStream) {
 		// This can either be a single string or a Liege object.
