@@ -503,9 +503,9 @@ void EU4::World::alterProvinceDevelopment()
 		if (!province.second->getSourceProvince())
 			continue;
 		totalVanillaDev += province.second->getDev();
-		auto adm = 0;
-		auto dip = 0;
-		auto mil = 0;
+		auto adm = 0.0;
+		auto dip = 0.0;
+		auto mil = 0.0;
 		const auto& baronies = province.second->getSourceProvince()->getBaronies();
 		for (const auto& barony: baronies)
 		{
@@ -514,25 +514,25 @@ void EU4::World::alterProvinceDevelopment()
 			const auto buildingNumber = static_cast<double>(barony.second->getBuildingCount());
 			if (barony.second->getType() == "tribal" || barony.second->getType() == "nomad")
 			{
-				mil += lround((3 + buildingNumber) / 10);
+				mil += (3 + buildingNumber) / 10;
 			}
 			else if (barony.second->getType() == "city")
 			{
-				dip += lround((3 + buildingNumber) / 10);
+				dip += (3 + buildingNumber) / 10;
 			}
 			else if (barony.second->getType() == "temple")
 			{
-				adm += lround((3 + buildingNumber) / 10);
+				adm += (3 + buildingNumber) / 10;
 			}
 			else if (barony.second->getType() == "castle")
 			{
-				adm += lround((3 + buildingNumber) / 30); // third to adm
-				mil += lround((3 + buildingNumber) / 15); // two thirds to mil
+				adm += (3 + buildingNumber) / 30; // third to adm
+				mil += (3 + buildingNumber) / 15; // two thirds to mil
 			}
 		}
-		province.second->setAdm(std::max(adm, 1));
-		province.second->setDip(std::max(dip, 1));
-		province.second->setMil(std::max(mil, 1));
+		province.second->setAdm(std::max(static_cast<int>(std::lround(adm)), 1));
+		province.second->setDip(std::max(static_cast<int>(std::lround(dip)), 1));
+		province.second->setMil(std::max(static_cast<int>(std::lround(mil)), 1));
 		counter++;
 		totalCK2Dev += province.second->getDev();
 	}

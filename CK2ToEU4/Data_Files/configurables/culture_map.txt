@@ -18,7 +18,7 @@ link = { eu4 = alsatian ck2 = german tech = western gfx = westerngfx region = up
 link = { eu4 = austrian ck2 = german tech = western gfx = westerngfx region = austria_proper_area region = inner_austria_area region = tirol_area region = italy_region region = carpathia_region }
 link = { eu4 = bavarian ck2 = german tech = western gfx = westerngfx region = lower_bavaria_area region = upper_bavaria_area }
 link = { eu4 = franconian ck2 = german tech = western gfx = westerngfx region = franconia_area  }
-link = { eu4 = prussian ck2 = german tech = western gfx = westerngfx region = mittelmark_area region = neumark_area region = west_prussia_area region = east_prussia_area region = samogitia_area region = curonia_area region = livonia_area region = poland_region region = hinter_pommern_area}
+link = { eu4 = prussian ck2 = german tech = western gfx = westerngfx region = mittelmark_area region = neumark_area region = west_prussia_area region = east_prussia_area region = samogitia_area region = curonia_area region = livonia_area region = poland_region region = hinter_pommern_area region = vorpommern_area region = mecklenburg_area }
 link = { eu4 = hessian ck2 = german tech = western gfx = westerngfx region = hesse_area region = lower_rhineland_area region = north_rhine_area } #Rhenish
 link = { eu4 = saxon ck2 = german tech = western gfx = westerngfx region = south_saxony_area region = thuringia_area region = northern_saxony_area }
 link = { eu4 = sudeten ck2 = german tech = western gfx = westerngfx region = erzgebirge_area region = bohemia_area }
