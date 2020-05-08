@@ -4,11 +4,9 @@
 
 void mappers::ColorScraper::scrapeColors(const std::string& filePath)
 {
-	LOG(LogLevel::Info) << "-> Soaking Up Colors";
 	registerKeys();
 	parseFile(filePath);
 	clearRegisteredKeywords();
-	LOG(LogLevel::Info) << ">> " << titleColors.size() << " colors soaked up.";
 }
 
 void mappers::ColorScraper::scrapeColors(std::istream& theStream, std::string theName)
@@ -26,7 +24,13 @@ void mappers::ColorScraper::registerKeys()
 		ColorScraper newScraper;
 		newScraper.scrapeColors(theStream, titleName);
 		auto foundColors = newScraper.getColors();
-		titleColors.insert(foundColors.begin(), foundColors.end());
+		for (const auto& foundColor: foundColors)
+		{
+			if (titleColors.count(foundColor.first))
+				titleColors[foundColor.first] = foundColor.second; // Overwriting for mod sources
+			else
+				titleColors.insert(foundColors.begin(), foundColors.end());
+		}
 	});
 
 	registerRegex("color", [this](const std::string& unused, std::istream& theStream) {

@@ -561,9 +561,9 @@ void EU4::Country::initializeRulers(const mappers::ReligionMapper& religionMappe
 	}
 	if (holder->getDynasty().first)
 		details.monarch.dynasty = holder->getDynasty().second->getName();
-	details.monarch.adm = std::min((holder->getSkills().stewardship + holder->getSkills().learning) / 4, 6);
-	details.monarch.dip = std::min((holder->getSkills().diplomacy + holder->getSkills().intrigue) / 4, 6);
-	details.monarch.mil = std::min((holder->getSkills().martial + holder->getSkills().learning) / 4, 6);
+	details.monarch.adm = std::min((holder->getSkills().stewardship + holder->getSkills().learning) / 3, 6);
+	details.monarch.dip = std::min((holder->getSkills().diplomacy + holder->getSkills().intrigue) / 3, 6);
+	details.monarch.mil = std::min((holder->getSkills().martial + holder->getSkills().learning) / 3, 6);
 	details.monarch.birthDate = holder->getBirthDate();
 	details.monarch.female = holder->isFemale();
 	// religion and culture were already determining our country's primary culture and religion. If we set there, we'll copy here.
@@ -584,9 +584,9 @@ void EU4::Country::initializeRulers(const mappers::ReligionMapper& religionMappe
 			details.queen.name = spouse.second->getName();
 			if (spouse.second->getDynasty().first)
 				details.queen.dynasty = spouse.second->getDynasty().second->getName();
-			details.queen.adm = std::min((spouse.second->getSkills().stewardship + spouse.second->getSkills().learning) / 4, 6);
-			details.queen.dip = std::min((spouse.second->getSkills().diplomacy + spouse.second->getSkills().intrigue) / 4, 6);
-			details.queen.mil = std::min((spouse.second->getSkills().martial + spouse.second->getSkills().learning) / 4, 6);
+			details.queen.adm = std::min((spouse.second->getSkills().stewardship + spouse.second->getSkills().learning) / 3, 6);
+			details.queen.dip = std::min((spouse.second->getSkills().diplomacy + spouse.second->getSkills().intrigue) / 3, 6);
+			details.queen.mil = std::min((spouse.second->getSkills().martial + spouse.second->getSkills().learning) / 3, 6);
 			details.queen.birthDate = spouse.second->getBirthDate();
 			details.queen.female = spouse.second->isFemale();
 			if (spouse.second->getReligion().empty())
@@ -637,9 +637,9 @@ void EU4::Country::initializeRulers(const mappers::ReligionMapper& religionMappe
 		}
 		if (heir.second->getDynasty().first)
 			details.heir.dynasty = heir.second->getDynasty().second->getName();
-		details.heir.adm = std::min((heir.second->getSkills().stewardship + heir.second->getSkills().learning) / 3, 6);
-		details.heir.dip = std::min((heir.second->getSkills().diplomacy + heir.second->getSkills().intrigue) / 3, 6);
-		details.heir.mil = std::min((heir.second->getSkills().martial + heir.second->getSkills().learning) / 3, 6);
+		details.heir.adm = std::min((heir.second->getSkills().stewardship + heir.second->getSkills().learning) / 2, 6);
+		details.heir.dip = std::min((heir.second->getSkills().diplomacy + heir.second->getSkills().intrigue) / 2, 6);
+		details.heir.mil = std::min((heir.second->getSkills().martial + heir.second->getSkills().learning) / 2, 6);
 		details.heir.birthDate = heir.second->getBirthDate();
 		details.heir.female = heir.second->isFemale();
 		if (heir.second->getReligion().empty())

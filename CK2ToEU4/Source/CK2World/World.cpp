@@ -14,6 +14,7 @@
 #include <cmath>
 #include <filesystem>
 #include <fstream>
+#include "Mods/Mods.h"
 
 namespace fs = std::filesystem;
 
@@ -109,11 +110,12 @@ CK2::World::World(const Configuration& theConfiguration)
 		saveGame.gamestate = inStream.str();
 	}
 
+	Log(LogLevel::Info) << "-> Locating mods in mod folder";
+	mods.loadModDirectory(theConfiguration);
+
 	// We must load initializers before the savegame.
-	std::set<std::string> fileNames;
-	Utils::GetAllFilesInFolder(theConfiguration.getCK2Path() + "/common/dynasties/", fileNames);
-	for (const auto& file: fileNames)
-		dynasties.loadDynasties(theConfiguration.getCK2Path() + "/common/dynasties/" + file);
+	loadDynasties(theConfiguration);
+	
 	personalityScraper.scrapePersonalities(theConfiguration);
 
 	auto gameState = std::istringstream(saveGame.gamestate);
@@ -121,8 +123,7 @@ CK2::World::World(const Configuration& theConfiguration)
 	clearRegisteredKeywords();
 	LOG(LogLevel::Info) << ">> Loaded " << dynamicTitles.size() << " dynamic titles.";
 	LOG(LogLevel::Info) << "-> Importing Province Titles";
-	provinceTitleMapper.loadProvinces(theConfiguration.getCK2Path());
-
+	loadProvinces(theConfiguration);
 
 	LOG(LogLevel::Info) << "*** Building World ***";
 
@@ -158,9 +159,6 @@ CK2::World::World(const Configuration& theConfiguration)
 	LOG(LogLevel::Info) << "-- Linking The Celestial Emperor";
 	linkCelestialEmperor();
 
-	// Intermezzo
-	verifyReligionsAndCultures(theConfiguration);
-
 	// Filter top-tier active titles and assign them provinces.
 	LOG(LogLevel::Info) << "-- Merging Independent Baronies";
 	mergeIndependentBaronies();
@@ -193,6 +191,38 @@ CK2::World::World(const Configuration& theConfiguration)
 
 	alterSunset(theConfiguration);
 	LOG(LogLevel::Info) << "*** Good-bye CK2, rest in peace. ***";
+}
+
+void CK2::World::loadDynasties(const Configuration& theConfiguration)
+{
+	std::set<std::string> fileNames;
+	Utils::GetAllFilesInFolder(theConfiguration.getCK2Path() + "/common/dynasties/", fileNames);
+	for (const auto& file: fileNames)
+		dynasties.loadDynasties(theConfiguration.getCK2Path() + "/common/dynasties/" + file);
+	for (const auto& mod: mods.getMods())
+	{
+		fileNames.clear();
+		Utils::GetAllFilesInFolder(mod.second + "/common/dynasties/", fileNames);
+		for (const auto& file: fileNames)
+		{
+			Log(LogLevel::Info) << "\t>> Loading additional dynasties from mod source: " << mod.second + "/common/dynasties/" + file;
+			dynasties.loadDynasties(mod.second + "/common/dynasties/" + file);		
+		}
+	}
+}
+
+void CK2::World::loadProvinces(const Configuration& theConfiguration)
+{
+	provinceTitleMapper.loadProvinces(theConfiguration.getCK2Path());
+
+	for (const auto& mod: mods.getMods())
+	{
+		if (fs::exists(mod.second + "/history/provinces/"))
+		{
+			Log(LogLevel::Info) << "\t>> Loading additional provinces from mod source: " << mod.second + "/history/provinces/";
+			provinceTitleMapper.loadProvinces(mod.second);
+		}
+	}
 }
 
 void CK2::World::linkElectors()
@@ -317,64 +347,6 @@ void CK2::World::alterSunset(const Configuration& theConfiguration)
 	else if (theConfiguration.getSunset() == Configuration::SUNSET::DISABLED)
 		invasion = false;
 }
-
-void CK2::World::verifyReligionsAndCultures(const Configuration& theConfiguration)
-{
-	auto insanityCounter = 0;
-	LOG(LogLevel::Info) << "-- Verifyling All Characters Have Religion And Culture Loaded";
-	for (const auto& character: characters.getCharacters())
-	{
-		if (character.second->getReligion().empty() || character.second->getCulture().empty())
-			insanityCounter++;
-	}
-	if (!insanityCounter)
-	{
-		Log(LogLevel::Info) << "<> All " << characters.getCharacters().size() << "characters are sane.";
-		return;
-	}
-	Log(LogLevel::Warning) << "! " << insanityCounter << " characters have lacking definitions! Attempting recovery.";
-	loadDynastiesFromMods(theConfiguration);
-}
-
-void CK2::World::loadDynastiesFromMods(const Configuration& theConfiguration)
-{
-	LOG(LogLevel::Info) << "*** Intermezzo ***";
-	Log(LogLevel::Info) << "-> Locating mods in mod folder";
-	mods.loadModDirectory(theConfiguration);
-	Log(LogLevel::Info) << "-> Rummaging through mods in search of definitions.";
-	bool weAreSane = false;
-	for (const auto& mod: mods.getMods())
-	{
-		if (Utils::doesFolderExist(mod.second + "/common/dynasties/"))
-		{
-			Log(LogLevel::Info) << "Found something interesting in " << mod.first;
-			std::set<std::string> fileNames;
-			Utils::GetAllFilesInFolder(mod.second + "/common/dynasties/", fileNames);
-			for (const auto& file: fileNames)
-				dynasties.underLoadDynasties(mod.second + "/common/dynasties/" + file);
-		}
-		else
-			continue;
-		auto insanityCounter = 0;
-		for (const auto& character: characters.getCharacters())
-		{
-			if (character.second->getReligion().empty() || character.second->getCulture().empty())
-				insanityCounter++;
-		}
-		if (!insanityCounter)
-		{
-			Log(LogLevel::Info) << "<> All " << characters.getCharacters().size() << " characters have been sanified. Cancelling rummage.";
-			weAreSane = true;
-			break;
-		}
-		Log(LogLevel::Warning) << "! " << insanityCounter << " characters are still lacking definitions. Continuing with the rummage.";
-	}
-
-	if (!weAreSane)
-		LOG(LogLevel::Warning) << "... We did what we could.";
-	LOG(LogLevel::Info) << "*** Intermezzo End, back to scheduled run ***";
-}
-
 
 void CK2::World::linkCelestialEmperor() const
 {

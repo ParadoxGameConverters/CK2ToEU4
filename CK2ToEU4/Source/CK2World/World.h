@@ -35,7 +35,7 @@ class World: commonItems::parser
 	[[nodiscard]] const auto& getOffmaps() const { return offmaps; }
 	[[nodiscard]] const auto& getDiplomacy() const { return diplomacy; }
 	[[nodiscard]] const auto& getVars() const { return vars; }
-
+	[[nodiscard]] const auto& getMods() const { return mods; }
 	[[nodiscard]] auto isInvasion() const { return (invasion); }
 
   private:
@@ -58,9 +58,9 @@ class World: commonItems::parser
 	void resolveTanistry(const std::string& genderLaw, const std::pair<int, std::shared_ptr<Character>>& holder) const;
 	void resolveTurkish(const std::pair<int, std::shared_ptr<Character>>& holder) const;
 	void linkCelestialEmperor() const;
-	void verifyReligionsAndCultures(const Configuration& theConfiguration);
-	void loadDynastiesFromMods(const Configuration& theConfiguration);
 	void linkElectors();
+	void loadDynasties(const Configuration& theConfiguration);
+	void loadProvinces(const Configuration& theConfiguration);
 
 	bool invasion = false;
 	date endDate = date("1444.11.11");

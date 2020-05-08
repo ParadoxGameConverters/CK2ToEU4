@@ -1353,4 +1353,47 @@
 	link = { ck2 = 1920 ck2 = 1925 ck2 = 1924 eu4 = 4668 }	# Orkhon, Tuul, Chikoi -> West Ih Huree
 	link = { ck2 = 1923 eu4 = 4220 eu4 = 2116 }	# Khilok -> Khiagt, Ih Huree
 	link = { ck2 = 1921 ck2 = 1460 ck2 = 1922 eu4 = 1057 }	# Selenge, Baygal, Uda -> Ude
+	
+	# ---- SUPPORTED MODS ----- Sons of Vinland - North America / Canada
+	link = { ck2 = 2331 eu4 = 1104 } #kujalleq
+	link = { ck2 = 3510 eu4 = 1105 } #ivittuut
+	link = { ck2 = 3333 ck2 = 3535 eu4 = 2574 } #agvituk sheshatshiu
+	link = { ck2 = 3336 eu4 = 997 } #pakuashipi
+	link = { ck2 = 3532 eu4 = 2574 } #nunajnguk
+	link = { ck2 = 3542 ck = 3543 eu4 = 981 } #maqtukwek, siinalk
+	link = { ck2 = 3544 eu4 = 980 } #beothuk
+	link = { ck2 = 3545 eu4 = 2573 } #wabana
+	link = { ck2 = 3537 eu4 = 996 } #unamenshipit
+	link = { ck2 = 3538 eu4 = 2576 } #uashat
+	link = { ck2 = 3556 eu4 = 2578 } #natigosteg
+	link = { ck2 = 3539 eu4 = 2577 } #pessamit
+	link = { ck2 = 3540 eu4 = 995} #chicoutimi
+	link = { ck2 = 3540 ck2 = 3539 eu4 = 2579 } #pessamit chicoutimi
+	link = { ck2 = 3541 eu4 = 2580 } #nitaskinan
+	link = { ck2 = 3615 eu4 = 994 } #stadacona
+	link = { ck2 = 3653 eu4 = 990 } #hochelaga
+	link = { ck2 = 3547 eu4 = 982 } #unamakik
+	link = { ck2 = 3548 eu4 = 983 } #epekwitk
+	link = { ck2 = 3550 eu4 = 984 } #piktuk
+	link = { ck2 = 3551 ck2 = 3552 eu4 = 2569 } #eskikewakik sipeknikatik
+	link = { ck2 = 3553 eu4 = 2568 } #kespukwitk
+	link = { ck2 = 3554 eu4 = 985 } #siknikt
+	link = { ck2 = 3555 eu4 = 986 } #kespek
+	link = { ck2 = 3554 ck2 = 3555 eu4 = 2572 }#siknikt kespek
+	link = { ck2 = 3605 eu4 = 2570 } #wolystoq
+	link = { ck2 = 3606 eu4 = 2571 } #madawaska
+	link = { ck2 = 3607 eu4 = 2582 } #maliseet
+	link = { ck2 = 3608 eu4 = 2567 } #aroostook
+	link = { ck2 = 3609 eu4 = 2566 } #passamaquoddy
+	link = { ck2 = 3610 eu4 = 971 eu4 = 2565 }#penobscott
+	link = { ck2 = 3611 eu4 = 2013} #androscoggin
+	link = { ck2 = 3613 eu4 = 2012} #arsigantegok 
+	link = { ck2 = 3614 eu4 = 2583} #etchemins 
+	link = { ck2 = 3617 eu4 = 2584} #loup
+	link = { ck2 = 3619 eu4 = 970 eu4 = 2562} #merrimack
+	link = { ck2 = 3621 eu4 = 2563 eu4 = 2564} #missiquoi 
+	link = { ck2 = 3623 eu4 = 2559 } #adirondack
+	link = { ck2 = 3625 eu4 = 963 eu4 = 969} #mahican
+	link = { ck2 = 3627 eu4 = 2561 eu4 = 968 eu4 = 966} #wampanoag
+	link = { ck2 = 3631 eu4 = 967 eu4 = 2010 eu4 = 965 eu4 = 2560} #manhattan
 }

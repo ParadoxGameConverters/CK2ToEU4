@@ -8,8 +8,10 @@ namespace fs = std::filesystem;
 #include "OSCompatibilityLayer.h"
 #include "outCountry.h"
 
-void EU4::World::output(const mappers::VersionParser& versionParser, const Configuration& theConfiguration, date conversionDate, bool invasion) const
+void EU4::World::output(const mappers::VersionParser& versionParser, const Configuration& theConfiguration, const CK2::World& sourceWorld) const
 {
+	const auto invasion = sourceWorld.isInvasion();
+	const date conversionDate = sourceWorld.getConversionDate();
 	LOG(LogLevel::Info) << "<- Creating Output Folder";
 	fs::create_directory("output");
 	if (fs::exists("output/" + theConfiguration.getOutputName()))
@@ -65,7 +67,7 @@ void EU4::World::output(const mappers::VersionParser& versionParser, const Confi
 	outputDiplomacy(theConfiguration, diplomacy.getAgreements(), invasion);
 
 	LOG(LogLevel::Info) << "<- Moving Flags";
-	outputFlags(theConfiguration, invasion);
+	outputFlags(theConfiguration, sourceWorld);
 
 	LOG(LogLevel::Info) << "<- Replacing Bookmark";
 	outputBookmark(theConfiguration, conversionDate);
@@ -109,8 +111,29 @@ void EU4::World::outputBookmark(const Configuration& theConfiguration, date conv
 	out_bookmarks_txt.close();
 }
 
-void EU4::World::outputFlags(const Configuration& theConfiguration, bool invasion) const
+void EU4::World::outputFlags(const Configuration& theConfiguration, const CK2::World& sourceWorld) const
 {
+	const auto invasion = sourceWorld.isInvasion();
+	// Make a flag source registry
+	std::map<std::string, std::set<std::string>> sourceFlagSources; // filename/fullpath
+
+	std::set<std::string> fileNames;
+	Utils::GetAllFilesInFolder(theConfiguration.getCK2Path() + "/gfx/flags/", fileNames);
+	for (const auto& file: fileNames)
+		sourceFlagSources[file].insert(theConfiguration.getCK2Path() + "/gfx/flags/" + file);
+
+	for (const auto& mod: sourceWorld.getMods().getMods())
+	{
+		if (fs::exists(mod.second + "/gfx/flags/"))
+		{
+			Log(LogLevel::Info) << "\t>> Found some flags over in: " << mod.second << "/gfx/flags/";
+			fileNames.clear();
+			Utils::GetAllFilesInFolder(mod.second + "/gfx/flags/", fileNames);
+			for (const auto& file: fileNames)
+				sourceFlagSources[file].insert(mod.second + "/gfx/flags/" + file);
+		}
+	}
+
 	for (const auto& country: countries)
 	{
 		// first check is for dynasty and override flags.
@@ -131,18 +154,18 @@ void EU4::World::outputFlags(const Configuration& theConfiguration, bool invasio
 			continue; // Probably vanilla nation.
 		auto titleName = country.second->getTitle().first;
 		std::string fileName;
-		if (Utils::DoesFileExist(theConfiguration.getCK2Path() + "/gfx/flags/" + titleName + ".tga"))
-			fileName = theConfiguration.getCK2Path() + "/gfx/flags/" + titleName + ".tga";
+		if (sourceFlagSources.count(titleName + ".tga"))				  // we have some sources for this
+			fileName = *sourceFlagSources[titleName + ".tga"].begin(); // So use the first one.
 		if (fileName.empty() && !country.second->getTitle().second->getBaseTitle().first.empty())
 		{
 			titleName = country.second->getTitle().second->getBaseTitle().first;
-			if (Utils::DoesFileExist(theConfiguration.getCK2Path() + "/gfx/flags/" + titleName + ".tga"))
-				fileName = theConfiguration.getCK2Path() + "/gfx/flags/" + titleName + ".tga";
+			if (sourceFlagSources.count(titleName + ".tga")) // we have some sources for base title
+				fileName = *sourceFlagSources[titleName + ".tga"].begin();
 			if (fileName.empty() && !country.second->getTitle().second->getBaseTitle().second->getBaseTitle().first.empty())
 			{
 				titleName = country.second->getTitle().second->getBaseTitle().second->getBaseTitle().first;
-				if (Utils::DoesFileExist(theConfiguration.getCK2Path() + "/gfx/flags/" + titleName + ".tga"))
-					fileName = theConfiguration.getCK2Path() + "/gfx/flags/" + titleName + ".tga";
+				if (sourceFlagSources.count(titleName + ".tga")) // we have some sources for base title base title
+					fileName = *sourceFlagSources[titleName + ".tga"].begin();
 			}
 		}
 		if (fileName.empty())

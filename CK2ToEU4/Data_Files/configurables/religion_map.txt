@@ -74,3 +74,9 @@ link = { ck2 = buddhist eu4 = buddhism }
 link = { ck2 = hindu eu4 = hinduism }
 link = { ck2 = jain eu4 = jain }
 link = { ck2 = taoist eu4 = confucianism }
+
+# ---- SUPPORTED MODS ----- Sons of Vinland
+link = { ck2 = inuit_pagan eu4 = totemism}
+link = { ck2 = inuit_pagan_reformed eu4 = totemismm}
+link = { ck2 = algic_pagan eu4 = totemism}
+link = { ck2 = algic_pagan_reformed eu4 = totemism}
