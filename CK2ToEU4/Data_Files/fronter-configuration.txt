@@ -49,8 +49,8 @@ requiredFile = {
 }
 requiredFile = {
 	name = SaveGame
-	displayName = EU4SAVE
-	tooltip = EU4SAVETIP
+	displayName = CK2SAVE
+	tooltip = CK2SAVETIP
 	mandatory = true
 	outputtable = true
 	searchPathType = windowsUsersFolder
