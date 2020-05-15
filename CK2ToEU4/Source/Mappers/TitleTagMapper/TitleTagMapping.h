@@ -1,7 +1,7 @@
 #ifndef TITLE_TAG_MAPPING_H
 #define TITLE_TAG_MAPPING_H
 
-#include "newParser.h"
+#include "Parser.h"
 #include <set>
 
 namespace mappers

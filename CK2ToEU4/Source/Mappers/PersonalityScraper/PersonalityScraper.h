@@ -1,7 +1,7 @@
 #ifndef PERSONALITY_SCRAPER
 #define PERSONALITY_SCRAPER
 
-#include "newParser.h"
+#include "Parser.h"
 
 class Configuration;
 namespace mappers

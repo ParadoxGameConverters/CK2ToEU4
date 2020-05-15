@@ -1,7 +1,7 @@
 #ifndef I_AM_HRE_MAPPER
 #define I_AM_HRE_MAPPER
 
-#include "newParser.h"
+#include "Parser.h"
 
 namespace mappers
 {

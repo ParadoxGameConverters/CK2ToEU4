@@ -1,6 +1,6 @@
 #ifndef CK2_WORLD_H
 #define CK2_WORLD_H
-#include "../Common/Version.h"
+#include "GameVersion.h"
 #include "../Mappers/IAmHreMapper/IAmHreMapper.h"
 #include "../Mappers/ShatterEmpiresMapper/ShatterEmpiresMapper.h"
 #include "../Mappers/PersonalityScraper/PersonalityScraper.h"
@@ -17,7 +17,7 @@
 #include "Titles/Titles.h"
 #include "Vars/Vars.h"
 #include "Wonders/Wonders.h"
-#include "newParser.h"
+#include "Parser.h"
 
 class Configuration;
 
@@ -65,7 +65,7 @@ class World: commonItems::parser
 	bool invasion = false;
 	date endDate = date("1444.11.11");
 	date startDate = date("1.1.1");
-	Version CK2Version;
+	GameVersion CK2Version;
 
 	struct saveData
 	{

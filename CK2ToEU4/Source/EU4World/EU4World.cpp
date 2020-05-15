@@ -104,8 +104,7 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 void EU4::World::scrapeColors(const Configuration& theConfiguration, const CK2::World& sourceWorld)
 {
 	LOG(LogLevel::Info) << "-> Soaking Up Colors";
-	std::set<std::string> fileNames;
-	Utils::GetAllFilesInFolder(theConfiguration.getCK2Path() + "/common/landed_titles/", fileNames);
+	auto fileNames = Utils::GetAllFilesInFolder(theConfiguration.getCK2Path() + "/common/landed_titles/");
 	for (const auto& file: fileNames)
 	{
 		if (file.find(".txt") == std::string::npos) continue;
@@ -113,8 +112,7 @@ void EU4::World::scrapeColors(const Configuration& theConfiguration, const CK2::
 	}
 	for (const auto& mod: sourceWorld.getMods().getMods())
 	{
-		fileNames.clear();
-		Utils::GetAllFilesInFolder(mod.second + "/common/landed_titles/", fileNames);
+		fileNames = Utils::GetAllFilesInFolder(mod.second + "/common/landed_titles/");
 		if (!fileNames.empty()) Log(LogLevel::Info) << "\t>> Found some colors in: " << mod.first;
 		for (const auto& file: fileNames)
 		{
@@ -945,8 +943,7 @@ void EU4::World::importVanillaProvinces(const std::string& eu4Path, bool invasio
 {
 	LOG(LogLevel::Info) << "-> Importing Vanilla Provinces";
 	// ---- Loading history/provinces
-	std::set<std::string> fileNames;
-	Utils::GetAllFilesInFolder(eu4Path + "/history/provinces/", fileNames);
+	auto fileNames = Utils::GetAllFilesInFolder(eu4Path + "/history/provinces/");
 	for (const auto& fileName: fileNames)
 	{
 		const auto minusLoc = fileName.find(" - ");
@@ -956,7 +953,7 @@ void EU4::World::importVanillaProvinces(const std::string& eu4Path, bool invasio
 	}
 	if (invasion)
 	{
-		Utils::GetAllFilesInFolder("configurables/sunset/history/provinces/", fileNames);
+		fileNames = Utils::GetAllFilesInFolder("configurables/sunset/history/provinces/");
 		for (const auto& fileName: fileNames)
 		{
 			const auto minusLoc = fileName.find(" - ");
@@ -1124,16 +1121,14 @@ void EU4::World::importVanillaCountries(const std::string& eu4Path, bool invasio
 
 	LOG(LogLevel::Info) << "-> Importing Vanilla Country History";
 	// ---- Loading history/countries/
-	std::set<std::string> fileNames;
-	Utils::GetAllFilesInFolder(eu4Path + "/history/countries/", fileNames);
+	auto fileNames = Utils::GetAllFilesInFolder(eu4Path + "/history/countries/");
 	for (const auto& fileName: fileNames)
 	{
 		auto tag = fileName.substr(0, 3);
 		countries[tag]->loadHistory(eu4Path + "/history/countries/" + fileName);
 	}
 	// Now our special tags.
-	fileNames.clear();
-	Utils::GetAllFilesInFolder("blankMod/output/history/countries/", fileNames);
+	fileNames = Utils::GetAllFilesInFolder("blankMod/output/history/countries/");
 	for (const auto& fileName: fileNames)
 	{
 		auto tag = fileName.substr(0, 3);
@@ -1141,8 +1136,7 @@ void EU4::World::importVanillaCountries(const std::string& eu4Path, bool invasio
 	}
 	if (invasion)
 	{
-		fileNames.clear();
-		Utils::GetAllFilesInFolder("configurables/sunset/history/countries/", fileNames);
+		fileNames = Utils::GetAllFilesInFolder("configurables/sunset/history/countries/");
 		for (const auto& fileName: fileNames)
 		{
 			auto tag = fileName.substr(0, 3);

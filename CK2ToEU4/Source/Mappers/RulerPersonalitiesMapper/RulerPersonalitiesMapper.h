@@ -2,7 +2,7 @@
 #define RULER_PERSONALITY_MAPPER_H
 
 #include "RulerPersonalitiesMapping.h"
-#include "newParser.h"
+#include "Parser.h"
 #include <set>
 
 namespace CK2

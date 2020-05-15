@@ -2,7 +2,7 @@
 #define AGREEMENT_H
 
 #include "Date.h"
-#include "newParser.h"
+#include "Parser.h"
 #include <ostream>
 
 namespace EU4

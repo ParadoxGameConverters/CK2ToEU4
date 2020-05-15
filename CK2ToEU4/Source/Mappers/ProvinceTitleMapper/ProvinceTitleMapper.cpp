@@ -10,8 +10,7 @@ void mappers::ProvinceTitleMapper::loadProvinces(const std::string& CK2Path)
 {
 	// Goal of this mapper is to determine what c_title maps to what provinceID. It's not as trivial as it sounds.
 
-	std::set<std::string> provinceFilenames;
-	Utils::GetAllFilesInFolder(CK2Path + "/history/provinces", provinceFilenames);
+	auto provinceFilenames = Utils::GetAllFilesInFolder(CK2Path + "/history/provinces");
 	if (provinceFilenames.empty())
 		throw std::runtime_error(CK2Path + "/history/provinces is empty?");
 	for (const auto& provinceFilename: provinceFilenames)

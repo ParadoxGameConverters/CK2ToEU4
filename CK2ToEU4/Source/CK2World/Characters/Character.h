@@ -3,7 +3,7 @@
 #include "../Provinces/Barony.h"
 #include "../Titles/Liege.h"
 #include "Date.h"
-#include "newParser.h"
+#include "Parser.h"
 
 namespace CK2
 {

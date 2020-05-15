@@ -3,7 +3,7 @@
 #include "../../CK2World/Dynasties/Dynasty.h"
 #include "../../CK2World/Provinces/Province.h"
 #include "../../CK2World/Titles/Title.h"
-#include "../../Common/CommonFunctions.h"
+#include "CommonFunctions.h"
 #include "../../Mappers/ColorScraper/ColorScraper.h"
 #include "../../Mappers/CultureMapper/CultureMapper.h"
 #include "../../Mappers/GovernmentsMapper/GovernmentsMapper.h"

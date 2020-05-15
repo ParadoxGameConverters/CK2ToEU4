@@ -1,6 +1,6 @@
 #ifndef CK2_CHARACTERS_H
 #define CK2_CHARACTERS_H
-#include "newParser.h"
+#include "Parser.h"
 
 namespace mappers
 {

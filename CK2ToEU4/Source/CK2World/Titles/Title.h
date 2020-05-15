@@ -2,7 +2,7 @@
 #define CK2_TITLE_H
 #include "Color.h"
 #include "Liege.h"
-#include "newParser.h"
+#include "Parser.h"
 #include <set>
 
 namespace EU4

@@ -1,7 +1,7 @@
 #ifndef PROVINCE_TITLE_GRABBER
 #define PROVINCE_TITLE_GRABBER
 
-#include "newParser.h"
+#include "Parser.h"
 
 namespace mappers
 {

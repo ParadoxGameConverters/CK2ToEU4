@@ -2,7 +2,7 @@
 #define PROVINCE_MAPPER_H
 
 #include "ProvinceMappingsVersion.h"
-#include "newParser.h"
+#include "Parser.h"
 #include <map>
 #include <set>
 

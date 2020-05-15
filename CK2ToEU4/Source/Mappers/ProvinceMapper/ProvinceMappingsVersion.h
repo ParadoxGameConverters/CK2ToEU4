@@ -2,7 +2,7 @@
 #define PROVINCE_MAPPING_VERSION_H
 
 #include "ProvinceMapping.h"
-#include "newParser.h"
+#include "Parser.h"
 
 namespace mappers
 {

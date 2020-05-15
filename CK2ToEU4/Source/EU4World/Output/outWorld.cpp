@@ -13,26 +13,27 @@ void EU4::World::output(const mappers::VersionParser& versionParser, const Confi
 	const auto invasion = sourceWorld.isInvasion();
 	const date conversionDate = sourceWorld.getConversionDate();
 	LOG(LogLevel::Info) << "<- Creating Output Folder";
-	fs::create_directory("output");
-	if (fs::exists("output/" + theConfiguration.getOutputName()))
+	
+	Utils::TryCreateFolder("output");
+	if (Utils::DoesFolderExist("output/" + theConfiguration.getOutputName()))
 	{
 		Log(LogLevel::Info) << "<< Deleting existing mod folder.";
-		fs::remove_all("output/" + theConfiguration.getOutputName());
+		Utils::DeleteFolder("output/" + theConfiguration.getOutputName());
 	}
 	LOG(LogLevel::Info) << "<- Copying Mod Template";
-	fs::copy("blankMod/output", "output/output", fs::copy_options::recursive);
+	Utils::CopyFolder("blankMod/output", "output/output");
 	LOG(LogLevel::Info) << "<- Moving Mod Template >> " << theConfiguration.getOutputName();
-	fs::rename("output/output", "output/" + theConfiguration.getOutputName());
+	Utils::RenameFolder("output/output", "output/" + theConfiguration.getOutputName());
 
-	fs::create_directory("output/" + theConfiguration.getOutputName() + "/history/");
-	fs::create_directory("output/" + theConfiguration.getOutputName() + "/history/countries/");
-	fs::create_directory("output/" + theConfiguration.getOutputName() + "/history/advisors/");
-	fs::create_directory("output/" + theConfiguration.getOutputName() + "/history/provinces/");
-	fs::create_directory("output/" + theConfiguration.getOutputName() + "/history/diplomacy/");
-	fs::create_directory("output/" + theConfiguration.getOutputName() + "/common/");
-	fs::create_directory("output/" + theConfiguration.getOutputName() + "/common/countries/");
-	fs::create_directory("output/" + theConfiguration.getOutputName() + "/common/country_tags/");
-	fs::create_directory("output/" + theConfiguration.getOutputName() + "/localisation/");
+	Utils::TryCreateFolder("output/" + theConfiguration.getOutputName() + "/history/");
+	Utils::TryCreateFolder("output/" + theConfiguration.getOutputName() + "/history/countries/");
+	Utils::TryCreateFolder("output/" + theConfiguration.getOutputName() + "/history/advisors/");
+	Utils::TryCreateFolder("output/" + theConfiguration.getOutputName() + "/history/provinces/");
+	Utils::TryCreateFolder("output/" + theConfiguration.getOutputName() + "/history/diplomacy/");
+	Utils::TryCreateFolder("output/" + theConfiguration.getOutputName() + "/common/");
+	Utils::TryCreateFolder("output/" + theConfiguration.getOutputName() + "/common/countries/");
+	Utils::TryCreateFolder("output/" + theConfiguration.getOutputName() + "/common/country_tags/");
+	Utils::TryCreateFolder("output/" + theConfiguration.getOutputName() + "/localisation/");
 
 	LOG(LogLevel::Info) << "<- Crafting .mod File";
 	createModFile(theConfiguration);
@@ -117,18 +118,16 @@ void EU4::World::outputFlags(const Configuration& theConfiguration, const CK2::W
 	// Make a flag source registry
 	std::map<std::string, std::set<std::string>> sourceFlagSources; // filename/fullpath
 
-	std::set<std::string> fileNames;
-	Utils::GetAllFilesInFolder(theConfiguration.getCK2Path() + "/gfx/flags/", fileNames);
+	auto fileNames = Utils::GetAllFilesInFolder(theConfiguration.getCK2Path() + "/gfx/flags/");
 	for (const auto& file: fileNames)
 		sourceFlagSources[file].insert(theConfiguration.getCK2Path() + "/gfx/flags/" + file);
 
 	for (const auto& mod: sourceWorld.getMods().getMods())
 	{
-		if (fs::exists(mod.second + "/gfx/flags/"))
+		if (Utils::DoesFolderExist(mod.second + "/gfx/flags/"))
 		{
 			Log(LogLevel::Info) << "\t>> Found some flags over in: " << mod.second << "/gfx/flags/";
-			fileNames.clear();
-			Utils::GetAllFilesInFolder(mod.second + "/gfx/flags/", fileNames);
+			fileNames = Utils::GetAllFilesInFolder(mod.second + "/gfx/flags/");
 			for (const auto& file: fileNames)
 				sourceFlagSources[file].insert(mod.second + "/gfx/flags/" + file);
 		}
@@ -139,7 +138,7 @@ void EU4::World::outputFlags(const Configuration& theConfiguration, const CK2::W
 		// first check is for dynasty and override flags.
 		if (country.second->getDynastyID() && Utils::DoesFileExist("configurables/dynastyflags/" + std::to_string(country.second->getDynastyID()) + ".tga"))
 		{
-			fs::copy_file("configurables/dynastyflags/" + std::to_string(country.second->getDynastyID()) + ".tga",
+			Utils::TryCopyFile("configurables/dynastyflags/" + std::to_string(country.second->getDynastyID()) + ".tga",
 				 "output/" + theConfiguration.getOutputName() + "/gfx/flags/" + country.first + ".tga");
 			continue;
 		}
@@ -171,10 +170,10 @@ void EU4::World::outputFlags(const Configuration& theConfiguration, const CK2::W
 		if (fileName.empty())
 			Log(LogLevel::Warning) << "failed to locate flag for " << country.first << ": " << country.second->getTitle().first;
 		else
-			fs::copy_file(fileName, "output/" + theConfiguration.getOutputName() + "/gfx/flags/" + country.first + ".tga");
+			Utils::TryCopyFile(fileName, "output/" + theConfiguration.getOutputName() + "/gfx/flags/" + country.first + ".tga");
 	}
 	if (invasion)
-		fs::copy_file("configurables/sunset/gfx/flags/SDM.tga", "output/" + theConfiguration.getOutputName() + "/gfx/flags/SDM.tga");
+		Utils::TryCopyFile("configurables/sunset/gfx/flags/SDM.tga", "output/" + theConfiguration.getOutputName() + "/gfx/flags/SDM.tga");
 }
 
 void EU4::World::createModFile(const Configuration& theConfiguration) const
@@ -233,10 +232,9 @@ void EU4::World::outputLocalization(const Configuration& theConfiguration, bool 
 
 	if (invasion)
 	{
-		std::set<std::string> fileNames;
-		Utils::GetAllFilesInFolder("configurables/sunset/localisation/", fileNames);
+		auto fileNames = Utils::GetAllFilesInFolder("configurables/sunset/localisation/");
 		for (const auto& fileName: fileNames)
-			fs::copy("configurables/sunset/localisation/" + fileName, "output/" + theConfiguration.getOutputName() + "/localisation/" + fileName);
+			Utils::TryCopyFile("configurables/sunset/localisation/" + fileName, "output/" + theConfiguration.getOutputName() + "/localisation/" + fileName);
 	}
 }
 
@@ -382,7 +380,7 @@ void EU4::World::outputDiplomacy(const Configuration& theConfiguration, const st
 		diplo << "\n";
 		diplo.close();
 		// and move over our alliances.
-		fs::copy_file("configurables/sunset/history/diplomacy/SunsetInvasion.txt",
+		Utils::TryCopyFile("configurables/sunset/history/diplomacy/SunsetInvasion.txt",
 			 "output/" + theConfiguration.getOutputName() + "/history/diplomacy/SunsetInvasion.txt");
 	}
 }

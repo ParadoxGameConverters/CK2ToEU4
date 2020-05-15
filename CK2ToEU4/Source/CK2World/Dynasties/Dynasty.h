@@ -1,7 +1,7 @@
 #ifndef CK2_DYNASTY_H
 #define CK2_DYNASTY_H
 #include "CoatOfArms.h"
-#include "newParser.h"
+#include "Parser.h"
 
 namespace CK2
 {
