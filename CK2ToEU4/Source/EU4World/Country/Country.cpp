@@ -8,6 +8,7 @@
 #include "../../Mappers/CultureMapper/CultureMapper.h"
 #include "../../Mappers/GovernmentsMapper/GovernmentsMapper.h"
 #include "../../Mappers/ProvinceMapper/ProvinceMapper.h"
+#include "../../Mappers/RegionMapper/RegionMapper.h"
 #include "../../Mappers/ReligionMapper/ReligionMapper.h"
 #include "../../Mappers/RulerPersonalitiesMapper/RulerPersonalitiesMapper.h"
 #include "../Province/EU4Province.h"
@@ -62,7 +63,7 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	// --------------- History section
 	details.government.clear();
 	details.reforms.clear();
-	const auto& newGovernment = governmentsMapper.matchGovernment(actualHolder->getGovernment(), title.first);
+	const auto& newGovernment = governmentsMapper.matchGovernment(actualHolder->getGovernment(), title.first);	
 	if (newGovernment)
 	{
 		details.government = newGovernment->first;
@@ -73,17 +74,14 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	{
 		Log(LogLevel::Warning) << "No government match for " << actualHolder->getGovernment() << " for title: " << title.first << ", defaulting to monarchy.";
 		details.government = "monarchy";
-	}
-	if (title.second->getSuccessionLaw() == "feudal_elective" && tag != "ROM" && tag != "HRE" && tag != "BYZ")
-	{
-		details.reforms = {"elective_monarchy"};
-	}
+	}	
 	if (title.first.find("e_") == 0)
 		details.governmentRank = 3;
 	else if (title.first.find("k_") == 0)
 		details.governmentRank = 2;
 	else
 		details.governmentRank = 1;
+	// Reforms will be set later to ensure that all other aspects of a country have been correctly set first
 	// do we have a religion?
 	std::string baseReligion;
 	if (!actualHolder->getReligion().empty())
@@ -250,7 +248,7 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 		details.addPrestige = -50 + std::max(-50, static_cast<int>(lround(15 * log2(actualHolder->getPrestige() - 100) - 50)));
 	if (actualHolder->hasLoan())
 		details.loan = true;
-	if (actualHolder->isExcommunicated())
+	if (actualHolder->hasTrait("excommunicated"))
 		details.excommunicated = true;
 
 	auto nameSet = false;
@@ -696,6 +694,12 @@ void EU4::Country::setPrimaryCulture(const std::string& culture)
 	if (details.heir.isSet && details.heir.culture.empty())
 		details.heir.culture = culture;
 }
+
+void EU4::Country::setMajorityReligion(const std::string& religion)
+{
+	details.majorityReligion = religion;
+}
+
 void EU4::Country::setReligion(const std::string& religion)
 {
 	details.religion = religion;
@@ -738,4 +742,377 @@ void EU4::Country::annexCountry(const std::pair<std::string, std::shared_ptr<Cou
 	theCountry.second->getTitle().second->clearGeneratedVassals();
 
 	// Bricking the title -> eu4tag is not necessary and not desirable. As soon as the country has 0 provinces, it's effectively dead.
+}
+
+void EU4::Country::setReforms(std::shared_ptr<mappers::RegionMapper> regionMapper)
+{
+	// Setting the Primary Religion (The religion most common in the country, not the religion of the country, needed for some reforms)
+	if (details.majorityReligion.empty() || details.majorityReligion == "noreligion")
+	{
+		std::map<std::string, int> religionDevelopment; // religion, development
+		int primeDev = -1;
+		std::string primeReligion;
+		for (const auto& province: provinces)
+		{
+			religionDevelopment[province.second->getReligion()] += province.second->getDev();
+			if (religionDevelopment[province.second->getReligion()] > primeDev)
+			{
+				primeReligion = province.second->getReligion();
+				primeDev = religionDevelopment[province.second->getReligion()];
+			}
+		}
+		setMajorityReligion(primeReligion);
+	}
+
+	const auto& actualHolder = title.second->getHolder().second;
+	bool isMerc= false;
+
+	// Checking to see if you have a center of trade with level 2 or higher
+	bool hasTradeCenterLevelTwo = false;
+	for (const auto& province: provinces)
+	{
+		if (province.second->getCenterOfTradeLevel() >= 2)
+		{
+			hasTradeCenterLevelTwo = true;
+			break;
+		}
+	}
+	
+	// Muslims
+	std::set<std::string> muslimReligions = {"sunni", "zikri", "yazidi", "ibadi", "kharijite", "shiite", "druze", "hurufi", "qarmatian"};
+	// Mazdans
+	std::set<std::string> mazdanReligions = {"zoroastrian", "mazdaki", "manichean", "khurmazta"};
+	// Buddhists
+	std::set<std::string> buddhistReligions = {"buddhism", "vajrayana", "mahayana"};
+	// Eastern
+	std::set<std::string> easternReligions = {"confucianism", "shinto", "buddhism", "vajrayana", "mahayana"};
+	// Indians (Dharmic + Buddhists)
+	std::set<std::string> indianReligions = {"buddhism", "vajrayana", "mahayana", "hinduism", "jain"};	
+	// Protestants
+	std::set<std::string> protestantReligions = {"protestant", "reformed", "cathar", "waldensian", "lollard"};
+	// Orthodox
+	std::set<std::string> orthodoxReligions = {"orthodox", "monothelite", "iconoclast", "paulician", "bogomilist"};
+	// Pagan
+	std::set<std::string> paganReligions = {"pagan_religion", "norse_pagan", "norse_pagan_reformed", "tengri_pagan", "tengri_pagan_reformed", "baltic_pagan",
+											"baltic_pagan_reformed", "finnish_pagan", "finnish_pagan_reformed", "slavic_pagan", "slavic_pagan_reformed", 
+											"shamanism", "west_african_pagan_reformed", "hellenic_pagan", "hellenic_pagan_reformed", "zun_pagan", 
+											"zun_pagan_reformed", "bon", "bon_reformed", "animism", "totemism", "inti", "nahuatl", "mesoamerican_religion"};
+
+	// Russian Cultures (Not all East Slavic)
+	std::set<std::string> russianCultures = {"ilmenian", "volhynian", "severian", "russian", "russian_culture", "novgorodian", "ryazanian"};
+	// Dravidian Culture Group
+	std::set<std::string> dravidianCultures = {"kannada", "malayalam", "tamil", "telegu"};
+	// Western Aryan Culture Group
+	std::set<std::string> westAryanCultures = {"gujarati", "saurashtri", "marathi", "sindhi", "rajput", "malvi"};
+	// Baltic Culture Group
+	std::set<std::string> balticCultures = {"estonian", "lithuanian", "latvian", "old_prussian"};
+
+	// GENERIC REFORMS
+	std::set<std::string> laws = title.second->getLaws();
+	std::string governmentType = "despotic"; //Despotic will be the default
+	short numberOfLaws = 0;
+		// These are the council laws that give power to the council. The ones that give power to the monarch would end in 0 instead of 1
+		if (title.second->getLaws().count("law_voting_power_1"))
+			numberOfLaws++;
+		if (title.second->getLaws().count("banish_voting_power_1"))
+			numberOfLaws++;
+		if (title.second->getLaws().count("execution_voting_power_1"))
+			numberOfLaws++;
+		if (title.second->getLaws().count("revoke_title_voting_power_1"))
+			numberOfLaws++;
+		if (title.second->getLaws().count("grant_title_voting_power_1"))
+			numberOfLaws++;
+		if (title.second->getLaws().count("imprison_voting_power_1"))
+			numberOfLaws++;
+		if (title.second->getLaws().count("war_voting_power_1"))
+			numberOfLaws++;
+	if (numberOfLaws >= 6)
+		governmentType = "aristocratic";
+	else if (numberOfLaws >= 2 && numberOfLaws < 7)
+		governmentType = "despotic";
+	else
+		governmentType = "absolute";
+
+	// MONARCHIES
+	if (details.government == "monarchy")
+	{
+		// Electoral
+		if (title.second->getSuccessionLaw() == "feudal_elective" && tag != "ROM" && tag != "HRE" && tag != "BYZ")
+		{
+			details.reforms.clear();
+			details.reforms = {"elective_monarchy"};
+		}
+		// Weird Edge Cases
+		else if (title.second->getSuccessionLaw() == "byzantine_elective" && (title.first.find("e_roman_empire") || title.first.find("e_byzantium")))
+		{
+			details.reforms.clear();
+			details.reforms = {"autocracy_reform"};
+		}
+		else if (title.second->getSuccessionLaw() == "byzantine_elective" && !title.first.find("e_"))
+		{
+			details.reforms.clear();
+			details.reforms = {"feudalism_reform"};
+		}
+		else if (title.second->getSuccessionLaw() == "open_elective") //Should only be applicable to Mercenary Companies
+		{
+			details.government.clear();
+			details.government = "republic";
+			details.reforms.clear();
+			details.reforms = {"noble_elite_reform"};
+			isMerc = true;
+		}
+		else if (actualHolder->getGovernment() == "roman_imperial_government " || actualHolder->getGovernment() == "chinese_imperial_government")
+		{
+			details.reforms.clear();
+			details.reforms = {"autocracy_reform"};
+		}
+		// Iqta
+		else if (actualHolder->getGovernment() == "muslim_government" && muslimReligions.count(details.religion) && (governmentType == "aristocratic" ||
+			     governmentType == "despotic"))
+		{
+			details.reforms.clear();
+			details.reforms = {"iqta"};
+		}
+		// Feudalism
+		else if (governmentType == "aristocratic")
+		{
+			details.reforms.clear();
+			details.reforms = {"feudalism_reform"};
+		}
+		// English Monarchy (Renamed in the converter, only thing between Feudalism and Autocracy)
+		else if (governmentType == "despotic")
+		{
+			details.reforms.clear();
+			details.reforms = {"english_monarchy"};
+		}
+		// Ottoman Government (Renamed in converter)
+		else if (actualHolder->getGovernment() == "muslim_government" && muslimReligions.count(details.religion) && governmentType == "absolute")
+		{
+			details.reforms.clear();
+			details.reforms = {"ottoman_government"};
+		}
+		// Autocracy, also the fallback
+		else// if (governmentType == "absolute")
+		{
+			details.reforms.clear();
+			details.reforms = {"autocracy_reform"};
+		}
+	}
+	//REPUBLICS
+	if (details.government == "republic" && !details.reforms.count("noble_elite_reform"))
+	{
+		// Weird Edge Cases
+		if (actualHolder->getGovernment() == "confucian_bureaucracy")
+		{
+			details.government.clear();
+			details.government = "monarchy";
+			details.reforms.clear();
+			details.reforms = {"autocracy_reform"};
+		}
+		//Merchant Republic
+		else if (actualHolder->getGovernment() == "merchant_republic_government")
+		{
+			details.reforms.clear();
+			details.reforms = {"merchants_reform"};
+		}
+		// Oligarchic Republic
+		else if (actualHolder->getGovernment() == "republic_government" && governmentType != "aristocratic")
+		{
+			details.reforms.clear();
+			details.reforms = {"oligarchy_reform"};
+		}
+		// Noble Elites, also the fallback
+		else
+		{
+			details.reforms.clear();
+			details.reforms = {"noble_elite_reform"};
+		}
+	}
+	//TRIBES
+	if (details.government == "tribal")
+	{
+		// Tribal Kingdoms
+		if (title.second->getSuccessionLaw() == "gavelkind")
+		{
+			details.reforms.clear();
+			details.reforms = {"tribal_kingdom"};
+		}
+		// Hordes
+		else if (actualHolder->getGovernment() == "nomadic_government")
+		{
+			details.reforms.clear();
+			details.reforms = {"steppe_horde"};
+		}
+		// Siberian Tribes
+		else if (regionMapper->provinceIsInRegion(details.capital, "west_siberia_region") ||
+			     regionMapper->provinceIsInRegion(details.capital, "east_siberia_region"))
+		{
+			details.reforms.clear();
+			details.reforms = {"siberian_tribe"};
+		}
+		// Tribal Federations
+		else if (muslimReligions.count(details.religion))
+		{
+			details.reforms.clear();
+			details.reforms = {"tribal_federation"};
+		}
+		// Tribal Despotism, also the fallback
+		else
+		{
+			details.reforms.clear();
+			details.reforms = {"tribal_despotism"};
+		}
+	}
+	//THEOCRACIES
+	if (details.government == "theocracy")
+	{
+		// Papacy
+		if (tag == "PAP" || tag == "FAP" || title.first.find("k_papal_state") == 0 || title.first.find("d_fraticelli") == 0)
+		{
+			details.reforms.clear();
+			details.reforms = {"papacy_reform"};
+		}
+		// Holy Orders
+		else if (title.second->getSuccessionLaw() == "open_elective")
+		{
+			details.reforms.clear();
+			details.reforms = {"monastic_order_reform"};
+		}
+		// All Other Theocracies
+		else
+		{
+			details.reforms.clear();
+			details.reforms = {"leading_clergy_reform"};
+		}
+	}		
+
+	// SPECIFIC REFORMS
+	// Great Mongolia (Mongol Empire)
+	if (tag == "MGE" && details.government == "tribal")
+	{
+		details.reforms.clear();
+		details.reforms = {"great_mongol_state_reform"};
+	}
+
+	// Mughal Diwan System is a LEVEL 2 REFORM
+
+	// Prussian Government
+	else if (details.government == "monarchy" && tag == "PRU" && protestantReligions.count(details.religion))
+	{
+		details.reforms.clear();
+		details.reforms = {"prussian_monarchy"};
+	}		
+	// Tsardom
+	else if (details.government == "monarchy" && (tag == "UKR" || (tag == "RUS" && (orthodoxReligions.count(details.religion) ||
+		     details.religion == "slavic_pagan" ||  details.religion == "slavic_pagan_reformed"))))
+	{
+		details.reforms.clear();
+		details.reforms = {"tsardom"};
+	}		
+	// Principality
+	else if (details.government == "monarchy" && details.governmentRank != 3 && (orthodoxReligions.count(details.religion) || details.religion == "slavic_pagan" ||
+			 details.religion == "slavic_pagan_reformed") && russianCultures.count(details.primaryCulture) && tag != "POL" && tag != "PAP" && tag != "HLR")
+	{
+		details.reforms.clear();
+		details.reforms = {"principality"};
+	}
+	// Veche Republic
+	else if (details.government == "republic" && details.governmentRank != 3 && (orthodoxReligions.count(details.religion) || details.religion == "slavic_pagan" ||
+		     details.religion == "slavic_pagan_reformed") && russianCultures.count(details.primaryCulture) && tag != "POL" && tag != "PAP" && tag != "HLR")
+	{
+		details.reforms.clear();
+		details.reforms = {"veche_republic"};
+	}
+	// Peasant Republic
+	else if (details.government != "theocracy" && tag != "ROM" && tag != "HRE" && tag != "BYZ" && actualHolder->hasTrait("peasant_leader") && 
+	         ((title.first.find("c_") == 0) || details.government == "republic"))
+	{
+		details.government.clear();
+		details.government = "republic";
+		details.reforms.clear();
+		details.reforms = {"peasants_republic"};
+	}
+	// Mamluk (Renamed in converter)
+	else if (muslimReligions.count(details.religion) && isMerc && (regionMapper->provinceIsInRegion(details.capital, "near_east_superregion") ||
+			 regionMapper->provinceIsInRegion(details.capital, "eastern_europe_superregion") || regionMapper->provinceIsInRegion(details.capital, "persia_superregion") ||
+			 regionMapper->provinceIsInRegion(details.capital, "egypt_region") || regionMapper->provinceIsInRegion(details.capital, "maghreb_region") ||
+			 regionMapper->provinceIsInRegion(details.capital, "central_asia_region")))
+	{
+		if (!details.acceptedCultures.count("circassian") && details.primaryCulture != "circassian")
+			details.acceptedCultures.insert("circassian");
+		details.government.clear();
+		details.government = "monarchy";
+		details.reforms.clear();
+		details.reforms = {"mamluk_government"};
+	}
+	// Indian Sultanate (Renamed in Converter)
+	else if ((details.reforms.count("feudalism_reform") || details.reforms.count("autocracy_reform") || details.reforms.count("iqta") ||
+			 details.reforms.count("ottoman_government")) && muslimReligions.count(details.religion) && indianReligions.count(details.majorityReligion))
+	{
+		details.reforms.clear();
+		details.reforms = {"indian_sultanate_reform"};
+	}
+	// Mandala
+	else if ((details.reforms.count("feudalism_reform") || details.reforms.count("english_monarchy")) && details.technologyGroup == "chinese" &&
+			 (paganReligions.count(details.religion) || muslimReligions.count(details.religion) || easternReligions.count(details.religion) ||
+			 indianReligions.count(details.religion)))
+	{
+		details.reforms.clear();
+		details.reforms = {"mandala_reform"};
+	}
+	// Nayankara
+	else if ((details.reforms.count("feudalism_reform") || details.reforms.count("english_monarchy")) && indianReligions.count(details.religion) &&
+			 details.technologyGroup == "indian" && (dravidianCultures.count(details.primaryCulture) || details.primaryCulture == "oriya" ||
+			 details.primaryCulture == "sinhala"))
+	{
+		details.reforms.clear();
+		details.reforms = {"nayankara_reform"};
+	}
+	// Rajput
+	else if ((details.reforms.count("feudalism_reform") || details.reforms.count("english_monarchy") || details.reforms.count("autocracy_reform")) &&
+			  details.technologyGroup == "indian" && details.primaryCulture != "marathi" && (details.primaryCulture == "vindhyan" || westAryanCultures.count(details.primaryCulture)))
+	{
+		details.reforms.clear();
+		details.reforms = {"rajput_kingdom"};
+	}		
+	// Gond Kingdom
+	else if ((details.reforms.count("feudalism_reform") || details.reforms.count("english_monarchy") || details.reforms.count("autocracy_reform")) &&
+			 details.technologyGroup == "indian" && details.primaryCulture == "gondi")
+	{
+		details.reforms.clear();
+		details.reforms = {"gond_kingdom"};
+	}
+	// Plutocratic
+	else if ((details.reforms.count("feudalism_reform") || details.reforms.count("english_monarchy") || ((details.reforms.count("autocracy_reform") || details.reforms.count("ottoman_government"))
+		     && details.governmentRank != 3)) && (details.technologyGroup == "indian" || details.technologyGroup == "muslim" || details.technologyGroup == "chinese" ||
+			 details.technologyGroup == "east_african") && hasTradeCenterLevelTwo)
+	{
+		details.reforms.clear();
+		details.reforms = {"plutocratic_reform"};
+	}
+	// Grand Duchy
+	else if ((details.reforms.count("feudalism_reform") || details.reforms.count("english_monarchy") || details.reforms.count("autocracy_reform")) && details.governmentRank == 1 &&
+			 (tag == "LUX" || tag == "BAD" || tag == "TUS" || tag == "FIN" || tag == "LIT" || details.primaryCulture == "finnish" || balticCultures.count(details.primaryCulture)))
+	{
+		details.reforms.clear();
+		details.reforms = {"grand_duchy_reform"};
+	}
+	// Free City (HRE)
+	else if (details.inHRE == true && details.government == "republic" && provinces.size() == 1)
+	{
+		details.reforms.clear();
+		details.reforms = {"free_city"};
+	}
+	// Trading City
+	else if (details.reforms.count("merchants_reform") && provinces.size() == 1)
+	{
+		details.reforms.clear();
+		details.reforms = {"trading_city"};
+	}
+	// Dutch Republic
+	else if (details.government == "republic" && tag == "NED")
+	{
+		details.reforms.clear();
+		details.reforms = {"dutch_republic"};
+	}
 }

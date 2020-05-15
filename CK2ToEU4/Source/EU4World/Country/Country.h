@@ -4,6 +4,7 @@
 #include "../../CK2World/Titles/Title.h"
 #include "../../Mappers/LocalizationMapper/LocalizationMapper.h"
 #include "CountryDetails.h"
+#include "../../Mappers/RegionMapper/RegionMapper.h"
 #include <memory>
 #include <string>
 
@@ -49,6 +50,7 @@ class Country
 	[[nodiscard]] const auto& getHistoryCountryFile() const { return historyCountryFile; }
 	[[nodiscard]] const auto& getLocalizations() const { return localizations; }
 	[[nodiscard]] const auto& getPrimaryCulture() const { return details.primaryCulture; }
+	[[nodiscard]] const auto& getMajorityReligion() const { return details.majorityReligion; }
 	[[nodiscard]] const auto& getReligion() const { return details.religion; }
 	[[nodiscard]] const auto& getTechGroup() const { return details.technologyGroup; }
 	[[nodiscard]] const auto& getGFX() const { return details.graphicalCulture; }
@@ -71,6 +73,7 @@ class Country
 
 	void registerProvince(std::pair<int, std::shared_ptr<Province>> theProvince) { provinces.insert(std::move(theProvince)); }
 	void setPrimaryCulture(const std::string& culture);
+	void setMajorityReligion(const std::string& religion);
 	void setReligion(const std::string& religion);
 	void overrideReforms(const std::string& reform) { details.reforms = {reform}; }
 	void setGovernment(const std::string& government) { details.government = government; }
@@ -83,6 +86,8 @@ class Country
 	void clearHistoryLessons() { details.historyLessons.clear(); }
 	void setConversionDate(date theDate) { conversionDate = theDate; }
 	void clearExcommunicated() { details.excommunicated = false; }
+
+	void EU4::Country::setReforms(std::shared_ptr<mappers::RegionMapper> regionMapper);
 
 	friend std::ostream& operator<<(std::ostream& output, const Country& versionParser);
 

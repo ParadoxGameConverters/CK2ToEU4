@@ -36,11 +36,13 @@ class Province
 	[[nodiscard]] const auto& getReligion() const { return details.religion; }
 	[[nodiscard]] const auto& getCulture() const { return details.culture; }
 	[[nodiscard]] const auto& getSourceProvince() const { return srcProvince; }
+	[[nodiscard]] const auto& getCenterOfTradeLevel() const { return details.centerOfTrade; }
 	[[nodiscard]] auto getDev() const { return details.baseTax + details.baseProduction + details.baseManpower; }
 	[[nodiscard]] auto getAdm() const { return details.baseTax; }
 	[[nodiscard]] auto getMil() const { return details.baseManpower; }
 	[[nodiscard]] auto getDip() const { return details.baseProduction; }
 	[[nodiscard]] auto getProvinceID() const { return provID; }
+	
 
 	void registerTagCountry(const std::pair<std::string, std::shared_ptr<Country>>& theCountry) { tagCountry = theCountry; }
 	void addCore(const std::string& tag) { details.cores.insert(tag); }

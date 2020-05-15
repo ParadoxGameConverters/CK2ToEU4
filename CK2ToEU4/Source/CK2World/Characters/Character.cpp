@@ -108,10 +108,10 @@ void CK2::Character::registerKeys()
 	registerRegex("[A-Za-z0-9\\:_.-]+", commonItems::ignoreItem);
 }
 
-bool CK2::Character::isExcommunicated() const
+bool CK2::Character::hasTrait(std::string wantedTrait) const
 {
 	for (const auto& trait: traits)
-		if (trait.second == "excommunicated")
+		if (trait.second == wantedTrait)
 			return true;
 	return false;
 }

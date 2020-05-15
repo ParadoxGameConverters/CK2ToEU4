@@ -65,6 +65,9 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 	// hordeland, but it's fine.
 	verifyReligionsAndCultures();
 
+	// With all religious/cultural matters taken care of, we can now set reforms
+	setAllCountryReforms(sourceWorld);
+
 	// With all provinces and rulers religion/culture set, only now can we import advisers, which also need religion/culture set.
 	// Those advisers coming without such data use the monarch's religion/culture.
 	importAdvisers();
@@ -904,6 +907,12 @@ void EU4::World::verifyReligionsAndCultures()
 			Log(LogLevel::Debug) << country.first << " overriding blank culture with: " << max.first;
 			country.second->setPrimaryCulture(max.first);
 		}
+		if (country.second->getMajorityReligion().empty())
+		{
+			auto max = get_max(religiousCensus);
+			Log(LogLevel::Info) << country.first << "'s majority religion is: " << max.first;
+			country.second->setMajorityReligion(max.first);
+		}
 		if (country.second->getReligion().empty())
 		{
 			auto max = get_max(religiousCensus);
@@ -1062,7 +1071,6 @@ void EU4::World::importCK2Country(const std::pair<std::string, std::shared_ptr<C
 	}
 }
 
-
 void EU4::World::importCK2Provinces(const CK2::World& sourceWorld)
 {
 	LOG(LogLevel::Info) << "-> Importing CK2 Provinces";
@@ -1092,6 +1100,16 @@ void EU4::World::importCK2Provinces(const CK2::World& sourceWorld)
 		counter++;
 	}
 	LOG(LogLevel::Info) << ">> " << sourceWorld.getProvinces().size() << " CK2 provinces imported into " << counter << " EU4 provinces.";
+}
+
+void EU4::World::setAllCountryReforms(const CK2::World& sourceWorld)
+{
+	for (const auto& country: countries)
+	{
+		if (country.second->getTitle().first.empty())
+			continue;
+		country.second->setReforms(regionMapper);
+	}
 }
 
 void EU4::World::importVanillaCountries(const std::string& eu4Path, bool invasion)
