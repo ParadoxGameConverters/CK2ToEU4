@@ -629,7 +629,7 @@ void EU4::World::resolvePersonalUnions()
 			heathen = true;
 
 		// We now have a holder, his primary, and religion. Let's resolve multiple crowns.
-		if (!heathen)
+		if (!heathen && primaryTitle.second->getGovernment() == "monarchy")
 		{
 			auto unionCount = 0;
 			for (const auto& title: holderTitle.second)
