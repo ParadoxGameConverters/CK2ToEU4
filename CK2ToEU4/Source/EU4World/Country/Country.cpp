@@ -768,15 +768,7 @@ void Country::setReforms(std::shared_ptr<mappers::RegionMapper> regionMapper)
 	bool isMerc= false;
 
 	// Checking to see if you have a center of trade with level 2 or higher
-	bool hasTradeCenterLevelTwo = false;
-	for (const auto& province: provinces)
-	{
-		if (province.second->getCenterOfTradeLevel() >= 2)
-		{
-			hasTradeCenterLevelTwo = true;
-			break;
-		}
-	}
+	bool hasTradeCenterLevelTwo = std::any_of(provinces.begin(), provinces.end(), [](const Province& p){ return province.second->getCenterOfTradeLevel() >= 2;}
 	
 	// Muslims
 	std::set<std::string> muslimReligions = {"sunni", "zikri", "yazidi", "ibadi", "kharijite", "shiite", "druze", "hurufi", "qarmatian"};
