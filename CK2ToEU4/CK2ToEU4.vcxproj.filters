@@ -3,9 +3,6 @@
   <ItemGroup>
     <ClCompile Include="Source\CK2ToEU4Converter.cpp" />
     <ClCompile Include="Source\main.cpp" />
-    <ClCompile Include="..\commonItems\CommonUtils.cpp">
-      <Filter>CommonItems</Filter>
-    </ClCompile>
     <ClCompile Include="..\commonItems\Color.cpp">
       <Filter>CommonItems</Filter>
     </ClCompile>
@@ -15,9 +12,6 @@
     <ClCompile Include="..\commonItems\Log.cpp">
       <Filter>CommonItems</Filter>
     </ClCompile>
-    <ClCompile Include="..\commonItems\newParser.cpp">
-      <Filter>CommonItems</Filter>
-    </ClCompile>
     <ClCompile Include="..\commonItems\ParserHelpers.cpp">
       <Filter>CommonItems</Filter>
     </ClCompile>
@@ -25,9 +19,6 @@
       <Filter>CommonItems</Filter>
     </ClCompile>
     <ClCompile Include="..\commonItems\StringUtils.cpp">
-      <Filter>CommonItems</Filter>
-    </ClCompile>
-    <ClCompile Include="..\commonItems\Object.cpp">
       <Filter>CommonItems</Filter>
     </ClCompile>
     <ClCompile Include="..\commonItems\iconvlite.cpp">
@@ -41,12 +32,6 @@
     </ClCompile>
     <ClCompile Include="Source\CK2World\World.cpp">
       <Filter>CK2World</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Common\ID.cpp">
-      <Filter>Common</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Common\Version.cpp">
-      <Filter>Common</Filter>
     </ClCompile>
     <ClCompile Include="Source\Configuration\Configuration.cpp">
       <Filter>Configuration</Filter>
@@ -62,9 +47,6 @@
     </ClCompile>
     <ClCompile Include="Source\CK2World\Provinces\Provinces.cpp">
       <Filter>CK2World\Province</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Common\CommonFunctions.cpp">
-      <Filter>Common</Filter>
     </ClCompile>
     <ClCompile Include="Source\CK2World\Provinces\Barony.cpp">
       <Filter>CK2World\Province</Filter>
@@ -119,9 +101,6 @@
     </ClCompile>
     <ClCompile Include="Source\EU4World\Country\CountryDetails.cpp">
       <Filter>EU4World\Country</Filter>
-    </ClCompile>
-    <ClCompile Include="..\commonItems\CardinalToOrdinal.cpp">
-      <Filter>CommonItems</Filter>
     </ClCompile>
     <ClCompile Include="Source\EU4World\Output\outCountry.cpp">
       <Filter>EU4World\Output</Filter>
@@ -240,6 +219,18 @@
     <ClCompile Include="Source\Mappers\ShatterEmpiresMapper\ShatterEmpiresMapper.cpp">
       <Filter>Mappers\ShatterEmpiresMapper</Filter>
     </ClCompile>
+    <ClCompile Include="..\commonItems\CommonFunctions.cpp">
+      <Filter>CommonItems</Filter>
+    </ClCompile>
+    <ClCompile Include="..\commonItems\GameVersion.cpp">
+      <Filter>CommonItems</Filter>
+    </ClCompile>
+    <ClCompile Include="..\commonItems\OSCommonLayer.cpp">
+      <Filter>CommonItems</Filter>
+    </ClCompile>
+    <ClCompile Include="..\commonItems\Parser.cpp">
+      <Filter>CommonItems</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CK2ToEU4Converter.h" />
@@ -252,9 +243,6 @@
     <ClInclude Include="..\commonItems\Log.h">
       <Filter>CommonItems</Filter>
     </ClInclude>
-    <ClInclude Include="..\commonItems\newParser.h">
-      <Filter>CommonItems</Filter>
-    </ClInclude>
     <ClInclude Include="..\commonItems\OSCompatibilityLayer.h">
       <Filter>CommonItems</Filter>
     </ClInclude>
@@ -262,9 +250,6 @@
       <Filter>CommonItems</Filter>
     </ClInclude>
     <ClInclude Include="..\commonItems\StringUtils.h">
-      <Filter>CommonItems</Filter>
-    </ClInclude>
-    <ClInclude Include="..\commonItems\Object.h">
       <Filter>CommonItems</Filter>
     </ClInclude>
     <ClInclude Include="..\commonItems\iconvlite.h">
@@ -275,12 +260,6 @@
     </ClInclude>
     <ClInclude Include="Source\CK2World\World.h">
       <Filter>CK2World</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Common\ID.h">
-      <Filter>Common</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Common\Version.h">
-      <Filter>Common</Filter>
     </ClInclude>
     <ClInclude Include="Source\Configuration\Configuration.h">
       <Filter>Configuration</Filter>
@@ -296,9 +275,6 @@
     </ClInclude>
     <ClInclude Include="Source\CK2World\Provinces\Provinces.h">
       <Filter>CK2World\Province</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Common\CommonFunctions.h">
-      <Filter>Common</Filter>
     </ClInclude>
     <ClInclude Include="Source\CK2World\Provinces\Barony.h">
       <Filter>CK2World\Province</Filter>
@@ -353,9 +329,6 @@
     </ClInclude>
     <ClInclude Include="Source\EU4World\Country\CountryDetails.h">
       <Filter>EU4World\Country</Filter>
-    </ClInclude>
-    <ClInclude Include="..\commonItems\CardinalToOrdinal.h">
-      <Filter>CommonItems</Filter>
     </ClInclude>
     <ClInclude Include="Source\EU4World\Province\ProvinceDetails.h">
       <Filter>EU4World\Province</Filter>
@@ -474,6 +447,15 @@
     <ClInclude Include="Source\Mappers\ShatterEmpiresMapper\ShatterEmpiresMapper.h">
       <Filter>Mappers\ShatterEmpiresMapper</Filter>
     </ClInclude>
+    <ClInclude Include="..\commonItems\CommonFunctions.h">
+      <Filter>CommonItems</Filter>
+    </ClInclude>
+    <ClInclude Include="..\commonItems\GameVersion.h">
+      <Filter>CommonItems</Filter>
+    </ClInclude>
+    <ClInclude Include="..\commonItems\Parser.h">
+      <Filter>CommonItems</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4World">
@@ -493,9 +475,6 @@
     </Filter>
     <Filter Include="EU4World\Output">
       <UniqueIdentifier>{5b048b58-a54b-4e0a-9aa3-40c1fca7e6c7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Common">
-      <UniqueIdentifier>{3a14f222-13e4-43cb-862d-55bfdc23cf3a}</UniqueIdentifier>
     </Filter>
     <Filter Include="Configuration">
       <UniqueIdentifier>{36ede7bf-90fe-435c-9ad1-c3917789ded5}</UniqueIdentifier>

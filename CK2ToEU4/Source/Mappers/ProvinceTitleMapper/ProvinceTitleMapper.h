@@ -1,7 +1,7 @@
 #ifndef PROVINCE_TITLE_MAPPER
 #define PROVINCE_TITLE_MAPPER
 
-#include "newParser.h"
+#include "Parser.h"
 
 namespace CK2
 {

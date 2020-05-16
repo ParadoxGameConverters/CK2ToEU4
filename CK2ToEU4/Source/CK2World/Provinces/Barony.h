@@ -1,6 +1,6 @@
 #ifndef CK2_BARONY_H
 #define CK2_BARONY_H
-#include "newParser.h"
+#include "Parser.h"
 #include <set>
 
 namespace CK2

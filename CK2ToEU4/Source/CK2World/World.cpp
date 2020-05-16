@@ -1,6 +1,6 @@
 #include "World.h"
-#include "../Common/CommonFunctions.h"
-#include "../Common/Version.h"
+#include "CommonFunctions.h"
+#include "GameVersion.h"
 #include "../Configuration/Configuration.h"
 #include "Characters/Character.h"
 #include "Date.h"
@@ -43,7 +43,7 @@ CK2::World::World(const Configuration& theConfiguration)
 	});
 	registerKeyword("version", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleString versionString(theStream);
-		CK2Version = Version(versionString.getString());
+		CK2Version = GameVersion(versionString.getString());
 		Log(LogLevel::Info) << "<> Savegame version: " << versionString.getString();
 	});
 	registerKeyword("provinces", [this](const std::string& unused, std::istream& theStream) {
@@ -195,16 +195,16 @@ CK2::World::World(const Configuration& theConfiguration)
 
 void CK2::World::loadDynasties(const Configuration& theConfiguration)
 {
-	std::set<std::string> fileNames;
-	Utils::GetAllFilesInFolder(theConfiguration.getCK2Path() + "/common/dynasties/", fileNames);
+	auto fileNames = Utils::GetAllFilesInFolder(theConfiguration.getCK2Path() + "/common/dynasties/");
 	for (const auto& file: fileNames)
 		dynasties.loadDynasties(theConfiguration.getCK2Path() + "/common/dynasties/" + file);
 	for (const auto& mod: mods.getMods())
 	{
-		fileNames.clear();
-		Utils::GetAllFilesInFolder(mod.second + "/common/dynasties/", fileNames);
+		fileNames = Utils::GetAllFilesInFolder(mod.second + "/common/dynasties/");
 		for (const auto& file: fileNames)
 		{
+			if (file.find(".txt") == std::string::npos)
+				continue;
 			Log(LogLevel::Info) << "\t>> Loading additional dynasties from mod source: " << mod.second + "/common/dynasties/" + file;
 			dynasties.loadDynasties(mod.second + "/common/dynasties/" + file);		
 		}
@@ -217,7 +217,7 @@ void CK2::World::loadProvinces(const Configuration& theConfiguration)
 
 	for (const auto& mod: mods.getMods())
 	{
-		if (fs::exists(mod.second + "/history/provinces/"))
+		if (Utils::DoesFolderExist(mod.second + "/history/provinces/"))
 		{
 			Log(LogLevel::Info) << "\t>> Loading additional provinces from mod source: " << mod.second + "/history/provinces/";
 			provinceTitleMapper.loadProvinces(mod.second);

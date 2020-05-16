@@ -2,7 +2,7 @@
 #define GOVERNMENTS_MAPPER
 
 #include "GovernmentsMapping.h"
-#include "newParser.h"
+#include "Parser.h"
 
 namespace mappers
 {

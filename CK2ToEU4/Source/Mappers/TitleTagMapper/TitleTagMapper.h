@@ -2,7 +2,7 @@
 #define TITLE_TAG_MAPPER_H
 
 #include "TitleTagMapping.h"
-#include "newParser.h"
+#include "Parser.h"
 
 namespace mappers
 {

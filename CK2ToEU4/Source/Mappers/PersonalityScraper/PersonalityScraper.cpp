@@ -9,8 +9,7 @@ void mappers::PersonalityScraper::scrapePersonalities(const Configuration& theCo
 {
 	LOG(LogLevel::Info) << "-> Examiming Personalities";
 	registerKeys();
-	std::set<std::string> fileNames;
-	Utils::GetAllFilesInFolder(theConfiguration.getCK2Path() + "/common/traits/", fileNames);
+	auto fileNames = Utils::GetAllFilesInFolder(theConfiguration.getCK2Path() + "/common/traits/");
 	for (const auto& fileName: fileNames)
 	{
 		if (fileName.find("txt") == std::string::npos)

@@ -1,7 +1,7 @@
 #ifndef CK2_MOD_H
 #define CK2_MOD_H
 
-#include "newParser.h"
+#include "Parser.h"
 
 namespace CK2
 {

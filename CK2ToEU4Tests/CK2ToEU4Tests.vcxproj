@@ -189,7 +189,6 @@
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Vars\Vars.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Wonders\Wonder.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Wonders\Wonders.cpp" />
-    <ClCompile Include="..\CK2ToEU4\Source\Common\CommonFunctions.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Configuration\Configuration.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\CultureMapper\CultureMapper.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\CultureMapper\CultureMappingRule.cpp" />
@@ -215,12 +214,15 @@
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\TitleTagMapper\TitleTagMapping.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\VersionParser\VersionParser.cpp" />
     <ClCompile Include="..\commonItems\Color.cpp" />
+    <ClCompile Include="..\commonItems\CommonFunctions.cpp" />
     <ClCompile Include="..\commonItems\Date.cpp" />
+    <ClCompile Include="..\commonItems\GameVersion.cpp" />
     <ClCompile Include="..\commonItems\iconvlite.cpp" />
     <ClCompile Include="..\commonItems\Log.cpp" />
-    <ClCompile Include="..\commonItems\newParser.cpp" />
-    <ClCompile Include="..\commonItems\Object.cpp" />
+    <ClCompile Include="..\commonItems\OSCommonLayer.cpp" />
+    <ClCompile Include="..\commonItems\Parser.cpp" />
     <ClCompile Include="..\commonItems\ParserHelpers.cpp" />
+    <ClCompile Include="..\commonItems\StringUtils.cpp" />
     <ClCompile Include="..\commonItems\WinUtils.cpp" />
     <ClCompile Include="..\googletest\googlemock\src\gmock-all.cc" />
     <ClCompile Include="..\googletest\googletest\src\gtest-all.cc" />
@@ -308,7 +310,6 @@
     <ClCompile Include="CK2WorldTests\Vars\VarsTests.cpp" />
     <ClCompile Include="CK2WorldTests\Wonders\WondersTests.cpp" />
     <ClCompile Include="CK2WorldTests\Wonders\WonderTests.cpp" />
-    <ClCompile Include="CommonTests\CommonFunctionsTests.cpp" />
     <ClCompile Include="ConfigurationTests.cpp" />
     <ClCompile Include="MapperTests\CultureMapper\CultureMapperTests.cpp" />
     <ClCompile Include="MapperTests\CultureMapper\CultureMappingTests.cpp" />

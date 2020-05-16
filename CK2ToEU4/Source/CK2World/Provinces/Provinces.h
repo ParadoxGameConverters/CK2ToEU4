@@ -1,6 +1,6 @@
 #ifndef CK2_PROVINCES_H
 #define CK2_PROVINCES_H
-#include "newParser.h"
+#include "Parser.h"
 
 namespace CK2
 {

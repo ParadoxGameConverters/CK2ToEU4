@@ -8,8 +8,7 @@
 void mappers::LocalizationMapper::scrapeLocalizations(const Configuration& theConfiguration, const std::map<std::string, std::string>& mods)
 {
 	LOG(LogLevel::Info) << "-> Reading Words";
-	std::set<std::string> filenames;
-	Utils::GetAllFilesInFolder(theConfiguration.getCK2Path() + "/localisation/", filenames);
+	auto filenames = Utils::GetAllFilesInFolder(theConfiguration.getCK2Path() + "/localisation/");
 	for (const auto& file: filenames)
 	{
 		std::ifstream theFile(theConfiguration.getCK2Path() + "/localisation/" + file);
@@ -18,11 +17,10 @@ void mappers::LocalizationMapper::scrapeLocalizations(const Configuration& theCo
 	}
 	for (const auto& mod: mods)
 	{
-		if (Utils::doesFolderExist(mod.second + "/localisation/"))
+		if (Utils::DoesFolderExist(mod.second + "/localisation/"))
 		{
 			Log(LogLevel::Info) << "\t>> Found some words in: " << mod.second + "/localization/";
-			filenames.clear();
-			Utils::GetAllFilesInFolder(mod.second + "/localisation/", filenames);
+			filenames = Utils::GetAllFilesInFolder(mod.second + "/localisation/");
 			for (const auto& file: filenames)
 			{
 				if (file.find(".csv") == std::string::npos) continue;

@@ -4,7 +4,7 @@
 #include "Area.h"
 #include "Region.h"
 #include "SuperRegion.h"
-#include "newParser.h"
+#include "Parser.h"
 #include <map>
 
 class Configuration;

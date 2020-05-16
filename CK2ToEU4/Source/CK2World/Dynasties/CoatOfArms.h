@@ -1,6 +1,6 @@
 #ifndef CK2_COAT_OF_ARMS_H
 #define CK2_COAT_OF_ARMS_H
-#include "newParser.h"
+#include "Parser.h"
 
 namespace CK2
 {

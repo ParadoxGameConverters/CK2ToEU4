@@ -1,6 +1,6 @@
 #ifndef CK2_OFFMAP_H
 #define CK2_OFFMAP_H
-#include "newParser.h"
+#include "Parser.h"
 
 namespace CK2
 {

@@ -1,5 +1,5 @@
 #include "Configuration.h"
-#include "../Common/CommonFunctions.h"
+#include "CommonFunctions.h"
 #include "Log.h"
 #include "OSCompatibilityLayer.h"
 #include "ParserHelpers.h"
@@ -88,7 +88,7 @@ void Configuration::registerKeys()
 
 void Configuration::verifyCK2Path() const
 {
-	if (!Utils::doesFolderExist(CK2Path))
+	if (!Utils::DoesFolderExist(CK2Path))
 		throw std::runtime_error(CK2Path + " does not exist!");
 	if (!Utils::DoesFileExist(CK2Path + "/CK2game.exe") && !Utils::DoesFileExist(CK2Path + "/CK2game"))
 		throw std::runtime_error(CK2Path + " does not contain Crusader Kings 2!");
@@ -99,7 +99,7 @@ void Configuration::verifyCK2Path() const
 
 void Configuration::verifyEU4Path() const
 {
-	if (!Utils::doesFolderExist(EU4Path))
+	if (!Utils::DoesFolderExist(EU4Path))
 		throw std::runtime_error(EU4Path + " does not exist!");
 	if (!Utils::DoesFileExist(EU4Path + "/eu4.exe") && !Utils::DoesFileExist(EU4Path + "/eu4"))
 		throw std::runtime_error(EU4Path + " does not contain Europa Universalis 4!");

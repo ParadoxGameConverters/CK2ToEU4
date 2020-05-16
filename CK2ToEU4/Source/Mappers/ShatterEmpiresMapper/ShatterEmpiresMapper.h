@@ -1,7 +1,7 @@
 #ifndef SHATTER_EMPIRES_MAPPER
 #define SHATTER_EMPIRES_MAPPER
 
-#include "newParser.h"
+#include "Parser.h"
 #include <set>
 
 namespace mappers
