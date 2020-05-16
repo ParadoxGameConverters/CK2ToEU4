@@ -744,7 +744,7 @@ void EU4::Country::annexCountry(const std::pair<std::string, std::shared_ptr<Cou
 	// Bricking the title -> eu4tag is not necessary and not desirable. As soon as the country has 0 provinces, it's effectively dead.
 }
 
-void Country::setReforms(std::shared_ptr<mappers::RegionMapper> regionMapper)
+void EU4::Country::setReforms(std::shared_ptr<mappers::RegionMapper> regionMapper)
 {
 	// Setting the Primary Religion (The religion most common in the country, not the religion of the country, needed for some reforms)
 	if (details.majorityReligion.empty() || details.majorityReligion == "noreligion")
