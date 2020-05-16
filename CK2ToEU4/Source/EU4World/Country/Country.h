@@ -87,7 +87,7 @@ class Country
 	void setConversionDate(date theDate) { conversionDate = theDate; }
 	void clearExcommunicated() { details.excommunicated = false; }
 
-	void EU4::Country::setReforms(std::shared_ptr<mappers::RegionMapper> regionMapper);
+	void Country::setReforms(std::shared_ptr<mappers::RegionMapper> regionMapper);
 
 	friend std::ostream& operator<<(std::ostream& output, const Country& versionParser);
 
