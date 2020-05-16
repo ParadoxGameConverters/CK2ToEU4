@@ -66,7 +66,7 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 	verifyReligionsAndCultures();
 
 	// With all religious/cultural matters taken care of, we can now set reforms
-	setAllCountryReforms(sourceWorld);
+	assignAllCountryReforms(sourceWorld);
 
 	// With all provinces and rulers religion/culture set, only now can we import advisers, which also need religion/culture set.
 	// Those advisers coming without such data use the monarch's religion/culture.
@@ -1102,13 +1102,13 @@ void EU4::World::importCK2Provinces(const CK2::World& sourceWorld)
 	LOG(LogLevel::Info) << ">> " << sourceWorld.getProvinces().size() << " CK2 provinces imported into " << counter << " EU4 provinces.";
 }
 
-void EU4::World::setAllCountryReforms(const CK2::World& sourceWorld)
+void EU4::World::assignAllCountryReforms(const CK2::World& sourceWorld)
 {
 	for (const auto& country: countries)
 	{
 		if (country.second->getTitle().first.empty())
 			continue;
-		country.second->setReforms(regionMapper);
+		country.second->assignReforms(regionMapper);
 	}
 }
 
