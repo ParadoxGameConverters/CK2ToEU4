@@ -67,7 +67,6 @@ void CK2::Mods::loadCK2ModDirectory(const Configuration& theConfiguration)
 				if (!theMod.isCompressed())
 				{
 					std::string recordDirectory;
-					Log(LogLevel::Debug) << "checking dir:" << CK2ModsPath + "/" + theMod.getPath();
 					if (Utils::DoesFolderExist(CK2ModsPath + "/" + theMod.getPath()))
 					{
 						recordDirectory = CK2ModsPath + "/" + theMod.getPath();

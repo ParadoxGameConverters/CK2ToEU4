@@ -15,6 +15,8 @@ void mappers::ProvinceTitleMapper::loadProvinces(const std::string& CK2Path)
 		throw std::runtime_error(CK2Path + "/history/provinces is empty?");
 	for (const auto& provinceFilename: provinceFilenames)
 	{
+		if (provinceFilename.find(".txt") == std::string::npos)
+			continue;
 		auto newProvince = ProvinceTitleGrabber(CK2Path + "/history/provinces/" + provinceFilename);
 
 		// At this stage, single provinceID can point to multiple c_titles, as well as a single

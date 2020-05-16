@@ -203,6 +203,8 @@ void CK2::World::loadDynasties(const Configuration& theConfiguration)
 		fileNames = Utils::GetAllFilesInFolder(mod.second + "/common/dynasties/");
 		for (const auto& file: fileNames)
 		{
+			if (file.find(".txt") == std::string::npos)
+				continue;
 			Log(LogLevel::Info) << "\t>> Loading additional dynasties from mod source: " << mod.second + "/common/dynasties/" + file;
 			dynasties.loadDynasties(mod.second + "/common/dynasties/" + file);		
 		}
