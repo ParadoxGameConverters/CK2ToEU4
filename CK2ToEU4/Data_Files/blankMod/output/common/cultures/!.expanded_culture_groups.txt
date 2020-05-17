@@ -155,6 +155,9 @@ iranian = {
 	saka = {
 		primary = KAS
 	}
+	tajik = { 
+		primary = PER
+	}
 }
 latin = {
 	italian = {
@@ -307,7 +310,4 @@ turko_semitic = {
 			Rajiya Sadiya Salma Sitara Thana Zahra Zahra Zuhayra
 		}
 	}
-}
-iranian	= {
-	tajik = { primary = PER }
 }

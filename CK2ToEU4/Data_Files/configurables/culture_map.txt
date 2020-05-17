@@ -105,7 +105,10 @@ link = { eu4 = anatolian ck2 = greek tech = eastern gfx = easterngfx region = ge
 link = { eu4 = magnagreek ck2 = greek tech = eastern gfx = westerngfx region = italy_region }
 link = { eu4 = greek ck2 = greek tech = eastern gfx = easterngfx }
 link = { eu4 = alan ck2 = alan tech = eastern gfx = easterngfx }
+link = { eu4 = circassian ck2 = alan tech = eastern gfx = easterngfx region = circassia_area } #Circassian is needed for Mamluk Government type, so let's try to make it happen
 link = { eu4 = circassian ck2 = georgian tech = eastern gfx = easterngfx region = circassia_area }
+link = { eu4 = circassian ck2 = assyrian tech = eastern gfx = easterngfx region = circassia_area }
+link = { eu4 = circassian ck2 = coptic tech = eastern gfx = easterngfx region = circassia_area }
 link = { eu4 = dagestani ck2 = georgian tech = eastern gfx = easterngfx region = dagestan_area }
 link = { eu4 = georgian ck2 = georgian tech = eastern gfx = easterngfx }
 link = { eu4 = assyrian ck2 = assyrian tech = eastern gfx = easterngfx }

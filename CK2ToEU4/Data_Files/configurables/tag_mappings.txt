@@ -610,7 +610,7 @@ link = { ck2 = c_anxi eu4 = HMI }
 link = { ck2 = e_il-khanate eu4 = ILK }
 link = { ck2 = k_khotan eu4 = KAS }
 link = { ck2 = c_yarkand eu4 = KAS }
-link = { ck2 = e_mongol_empire eu4 = KHA }
+link = { ck2 = e_mongol_empire eu4 = MGE }
 link = { ck2 = k_mongolia eu4 = KHA }
 
 #Tibet

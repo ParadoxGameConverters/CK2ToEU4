@@ -72,6 +72,7 @@ class CountryDetails: commonItems::parser
 	commonItems::Color revolutionaryColor;
 
 	std::string primaryCulture = "noculture";
+	std::string majorityReligion = "noreligion";
 	std::string religion = "noreligion";
 	std::string graphicalCulture = "westerngfx";
 	std::string government = "monarchy";
