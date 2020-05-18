@@ -14,9 +14,9 @@ EU4::MonarchNames::MonarchNames(std::istream& theStream)
 			continue;
 		if (line.find('}') != std::string::npos)
 			return;
-		if (line.length() < 10)
+		if (line.length() < 5)
 			continue;
-		if (line.find('#') == 0)
+		if (line.at(0) == '#')
 			continue;
 
 		std::string name;

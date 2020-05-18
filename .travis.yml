@@ -16,9 +16,9 @@ addons:
 before_install:
   - mkdir $HOME/usr
   - export PATH="$HOME/usr/bin:$PATH"
-  - wget https://cmake.org/files/v3.10/cmake-3.10.0-rc1-Linux-x86_64.sh
-  - chmod +x cmake-3.10.0-rc1-Linux-x86_64.sh
-  - ./cmake-3.10.0-rc1-Linux-x86_64.sh --prefix=$HOME/usr --exclude-subdir --skip-license
+  - wget https://cmake.org/files/v3.17/cmake-3.17.2-Linux-x86_64.sh
+  - chmod +x cmake-3.17.2-Linux-x86_64.sh
+  - ./cmake-3.17.2-Linux-x86_64.sh --prefix=$HOME/usr --exclude-subdir --skip-license
 script:
   # Export CC and CXX to tell cmake which compiler to use
   - export CC=/usr/bin/gcc-8
@@ -26,6 +26,5 @@ script:
   # Check versions of gcc, g++ and cmake
   - gcc -v && g++ -v && cmake --version
   # Run your build commands next
-  - cd CK2ToEU4
   - build_linux.sh
   
