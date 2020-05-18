@@ -12,6 +12,7 @@ add_compile_options("-std=c++17")
 add_compile_options("-lstdc++fs")
 add_compile_options("-O2")
 add_compile_options("-pthread")
+add_link_options(-no-pie)
 
 include_directories("../commonItems")
 include_directories("../ZipLib")

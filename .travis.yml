@@ -27,5 +27,5 @@ script:
   - gcc -v && g++ -v && cmake --version
   # Run your build commands next
   - cd CK2ToEU4
-  - cmake -H. -Bbuild
-  - cmake --build ./build -- -j3
+  - build_lunux.sh
+  
