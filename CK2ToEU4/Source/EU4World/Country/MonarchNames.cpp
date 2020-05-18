@@ -16,14 +16,20 @@ EU4::MonarchNames::MonarchNames(std::istream& theStream)
 			return;
 		if (line.length() < 10)
 			continue;
+		if (line.find('#') == 0)
+			continue;
 
 		std::string name;
 		auto regnal = 0;
 		auto chance = 0;
 
 		auto quoteLoc = line.find_first_of('\"');
+		if (quoteLoc == std::string::npos)
+			continue;
 		auto newline = line.substr(quoteLoc + 1, line.length());
 		quoteLoc = newline.find_last_of('\"');
+		if (quoteLoc == std::string::npos)
+			continue;
 		auto fullname = newline.substr(0, quoteLoc);
 		if (fullname.find('#') != std::string::npos)
 		{

@@ -9,7 +9,7 @@ EU4::CountryDetails::CountryDetails(const std::string& filePath)
 	registerKeys();
 	if (Utils::DoesFileExist(filePath))
 	{
-		Log(LogLevel::Debug) << "parsing";
+		Log(LogLevel::Debug) << "parsing " << filePath;
 		parseFile(filePath);
 	}
 	clearRegisteredKeywords();
