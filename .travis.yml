@@ -19,6 +19,11 @@ before_install:
   - wget https://cmake.org/files/v3.17/cmake-3.17.2-Linux-x86_64.sh
   - chmod +x cmake-3.17.2-Linux-x86_64.sh
   - ./cmake-3.17.2-Linux-x86_64.sh --prefix=$HOME/usr --exclude-subdir --skip-license
+before_script:
+  - sudo apt-key adv --fetch-keys https://repos.codelite.org/CodeLite.asc
+  - sudo apt-add-repository 'deb https://repos.codelite.org/wx3.1.3/ubuntu/ focal universe'
+  - sudo apt-get update
+  - sudo apt-get install libwxbase3.1-0-unofficial3 libwxbase3.1unofficial3-dev libwxgtk3.1-0-unofficial3 libwxgtk3.1unofficial3-dev wx3.1-headers wx-common
 script:
   # Export CC and CXX to tell cmake which compiler to use
   - export CC=/usr/bin/gcc-9
@@ -27,4 +32,3 @@ script:
   - gcc -v && g++ -v && cmake --version
   # Run your build commands next
   - ./build_linux.sh
-  
