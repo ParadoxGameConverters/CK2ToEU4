@@ -5,12 +5,15 @@
 
 EU4::CountryDetails::CountryDetails(const std::string& filePath)
 {
+	Log(LogLevel::Debug) << "in details";
 	registerKeys();
 	if (Utils::DoesFileExist(filePath))
 	{
+		Log(LogLevel::Debug) << "parsing";
 		parseFile(filePath);
 	}
 	clearRegisteredKeywords();
+	Log(LogLevel::Debug) << "in details out";
 }
 
 EU4::CountryDetails::CountryDetails(std::istream& theStream)

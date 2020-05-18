@@ -1192,6 +1192,7 @@ void EU4::World::loadCountriesFromSource(std::istream& theStream, const std::str
 			countries.insert(std::make_pair(tag, newCountry));
 		if (!isVanillaSource)
 			specialCountryTags.insert(tag);
+		Log(LogLevel::Debug) << tag << " out";
 	}
 }
 
