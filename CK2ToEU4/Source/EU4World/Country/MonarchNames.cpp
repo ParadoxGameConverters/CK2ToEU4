@@ -35,7 +35,15 @@ EU4::MonarchNames::MonarchNames(std::istream& theStream)
 		{
 			const auto hashpos = fullname.find('#');
 			name = fullname.substr(0, hashpos - 1);
-			regnal = std::stoi(fullname.substr(hashpos + 1, fullname.length()));
+			try
+			{
+				regnal = std::stoi(fullname.substr(hashpos + 1, fullname.length()));
+			}
+			catch (std::exception& e)
+			{
+				Log(LogLevel::Warning) << "Broken Monarch regnal in line: " << line << " : " << e.what();
+				continue;
+			}
 		}
 		else
 		{
@@ -49,7 +57,15 @@ EU4::MonarchNames::MonarchNames(std::istream& theStream)
 			const auto hashpos = newline.find('#');
 			newline = newline.substr(0, hashpos);
 		}
-		chance = std::stoi(newline);
+		try
+		{
+			chance = std::stoi(newline);
+		}
+		catch (std::exception& e)
+		{
+			Log(LogLevel::Warning) << "Broken Monarch chance in line: " << line << " : " << e.what();
+			continue;
+		}
 
 		monarchNames.insert(std::pair(name, std::pair(regnal, chance)));
 	}
