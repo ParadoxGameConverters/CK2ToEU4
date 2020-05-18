@@ -27,7 +27,6 @@ EU4::Country::Country(std::string theTag, const std::string& filePath): tag(std:
 	const auto rawname = filePath.substr(lastslash + 1, filePath.length());
 
 	historyCountryFile = "history/countries/" + tag + " - " + rawname;
-	Log(LogLevel::Debug) << "hcf " << historyCountryFile;
 }
 
 void EU4::Country::loadHistory(const std::string& filePath)
