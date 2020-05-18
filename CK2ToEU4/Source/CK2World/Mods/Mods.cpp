@@ -93,7 +93,7 @@ void CK2::Mods::loadCK2ModDirectory(const Configuration& theConfiguration)
 					}
 
 					possibleCompressedMods.insert(std::make_pair(theMod.getName(), recordDirectory));
-					Log(LogLevel::Info) << "\t\tFound a compessed mod named " << theMod.getName() << " with a mod file at "
+					Log(LogLevel::Info) << "\t\tFound a compressed mod named " << theMod.getName() << " with a mod file at "
 											  << CK2ModsPath << "/" << filename << " and itself at " << recordDirectory;
 				}
 			}
