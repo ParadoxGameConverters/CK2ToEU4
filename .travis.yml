@@ -21,8 +21,8 @@ before_install:
   - ./cmake-3.17.2-Linux-x86_64.sh --prefix=$HOME/usr --exclude-subdir --skip-license
 script:
   # Export CC and CXX to tell cmake which compiler to use
-  - export CC=/usr/bin/gcc-8
-  - export CXX=/usr/bin/g++-8
+  - export CC=/usr/bin/gcc-9
+  - export CXX=/usr/bin/g++-9
   # Check versions of gcc, g++ and cmake
   - gcc -v && g++ -v && cmake --version
   # Run your build commands next
