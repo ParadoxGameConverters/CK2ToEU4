@@ -1174,6 +1174,7 @@ void EU4::World::loadCountriesFromSource(std::istream& theStream, const std::str
 		if (line[0] == '#' || line.length() < 4)
 			continue;
 		auto tag = line.substr(0, 3);
+		Log(LogLevel::Debug) << tag;
 
 		// All file paths are in quotes. The ones outside are commented, so we can use those as markers.
 		auto quoteLoc = line.find_first_of('\"');
@@ -1183,6 +1184,7 @@ void EU4::World::loadCountriesFromSource(std::istream& theStream, const std::str
 		const auto filePath = sourcePath + "/common/" + countryLine;
 
 		// We're soaking up all vanilla countries with all current definitions.
+		Log(LogLevel::Debug) << "creating " << tag;
 		const auto newCountry = std::make_shared<Country>(tag, filePath);
 		if (countries.count(tag))
 			countries[tag] = newCountry; // Overriding vanilla EU4 with our definitions.
