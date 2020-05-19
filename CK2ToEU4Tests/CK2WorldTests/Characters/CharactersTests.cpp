@@ -103,10 +103,10 @@ TEST(CK2World_CharactersTests, charactersDynastyLinkCannotBeSetThrowsWarning)
 
 	std::cout.rdbuf(stdOutBuf);
 	auto stringLog = log.str();
-	auto newLine = stringLog.find_first_of("\n");
+	auto newLine = stringLog.find_first_of('\n');
 	stringLog = stringLog.substr(0, newLine);
 
-	ASSERT_EQ(stringLog, "Dynasty ID: 34 has no definition!");
+	ASSERT_EQ(stringLog, "[WARNING] Dynasty ID: 34 has no definition!");
 }
 
 
@@ -161,10 +161,10 @@ TEST(CK2World_CharactersTests, charactersLiegeLinkCannotBeSetThrowsWarning)
 
 	std::cout.rdbuf(stdOutBuf);
 	auto stringLog = log.str();
-	auto newLine = stringLog.find_first_of("\n");
+	auto newLine = stringLog.find_first_of('\n');
 	stringLog = stringLog.substr(0, newLine);
 
-	ASSERT_EQ(stringLog, "Liege ID: 33 has no definition!");
+	ASSERT_EQ(stringLog, "[WARNING] Liege ID: 33 has no definition!");
 }
 
 
@@ -231,10 +231,10 @@ TEST(CK2World_CharactersTests, charactersPrimaryTitleLinkCannotBeSetThrowsWarnin
 
 	std::cout.rdbuf(stdOutBuf);
 	auto stringLog = log.str();
-	auto newLine = stringLog.find_first_of("\n");
+	auto newLine = stringLog.find_first_of('\n');
 	stringLog = stringLog.substr(0, newLine);
 
-	ASSERT_EQ(stringLog, "Primary title ID: k_test has no definition!");
+	ASSERT_EQ(stringLog, "[WARNING] Primary title ID: k_test has no definition!");
 }
 
 TEST(CK2World_CharactersTests, charactersPrimaryBaseTitleLinkDefaultsToNull)
@@ -326,10 +326,10 @@ TEST(CK2World_CharactersTests, charactersPrimaryBaseTitleLinkCannotBeSetThrowsWa
 
 	std::cout.rdbuf(stdOutBuf);
 	auto stringLog = log.str();
-	auto newLine = stringLog.find_first_of("\n");
+	auto newLine = stringLog.find_first_of('\n');
 	stringLog = stringLog.substr(0, newLine);
 
-	ASSERT_EQ(stringLog, "Base title ID: c_skyward has no definition!");
+	ASSERT_EQ(stringLog, "[WARNING] Base title ID: c_skyward has no definition!");
 }
 
 TEST(CK2World_CharactersTests, charactersCapitalLinkDefaultsToNull)
@@ -411,10 +411,10 @@ TEST(CK2World_CharactersTests, charactersCapitalLinkCannotBeSetThrowsWarning)
 
 	std::cout.rdbuf(stdOutBuf);
 	auto stringLog = log.str();
-	auto newLine = stringLog.find_first_of("\n");
+	auto newLine = stringLog.find_first_of('\n');
 	stringLog = stringLog.substr(0, newLine);
 
-	ASSERT_EQ(stringLog, "Capital barony ID: b_test has no definition!");
+	ASSERT_EQ(stringLog, "[WARNING] Capital barony ID: b_test has no definition!");
 }
 
 
@@ -493,10 +493,10 @@ TEST(CK2World_CharactersTests, charactersFatherLinkCannotBeSetThrowsWarning)
 
 	std::cout.rdbuf(stdOutBuf);
 	auto stringLog = log.str();
-	auto newLine = stringLog.find_first_of("\n");
+	auto newLine = stringLog.find_first_of('\n');
 	stringLog = stringLog.substr(0, newLine);
 
-	ASSERT_EQ(stringLog, "Father ID: 21 has no definition!");
+	ASSERT_EQ(stringLog, "[WARNING] Father ID: 21 has no definition!");
 }
 
 TEST(CK2World_CharactersTests, charactersMotherLinkCannotBeSetThrowsWarning)
@@ -519,10 +519,10 @@ TEST(CK2World_CharactersTests, charactersMotherLinkCannotBeSetThrowsWarning)
 
 	std::cout.rdbuf(stdOutBuf);
 	auto stringLog = log.str();
-	auto newLine = stringLog.find_first_of("\n");
+	auto newLine = stringLog.find_first_of('\n');
 	stringLog = stringLog.substr(0, newLine);
 
-	ASSERT_EQ(stringLog, "Mother ID: 19 has no definition!");
+	ASSERT_EQ(stringLog, "[WARNING] Mother ID: 19 has no definition!");
 }
 
 TEST(CK2World_CharactersTests, charactersChildrenDefaultsToEmpty)
