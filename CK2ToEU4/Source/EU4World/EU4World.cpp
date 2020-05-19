@@ -976,7 +976,6 @@ void EU4::World::importVanillaProvinces(const std::string& eu4Path, bool invasio
 		{
 			if (fileName.find(".txt") == std::string::npos) continue;
 			const auto minusLoc = fileName.find(" - ");
-			if (minusLoc == std::string::npos) continue;
 			auto id = 0;
 			if (minusLoc != std::string::npos)
 			{
