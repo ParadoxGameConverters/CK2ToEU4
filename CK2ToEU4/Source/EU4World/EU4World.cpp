@@ -955,32 +955,37 @@ void EU4::World::importVanillaProvinces(const std::string& eu4Path, bool invasio
 	auto fileNames = Utils::GetAllFilesInFolder(eu4Path + "/history/provinces/");
 	for (const auto& fileName: fileNames)
 	{
-		const auto minusLoc = fileName.find(" - ");
-		const auto id = std::stoi(fileName.substr(0, minusLoc));
-		auto newProvince = std::make_shared<Province>(id, eu4Path + "/history/provinces/" + fileName);
-		provinces.insert(std::pair(id, newProvince));
+		if (fileName.find(".txt") == std::string::npos) continue;
+		try
+		{
+			const auto id = std::stoi(fileName);
+			auto newProvince = std::make_shared<Province>(id, eu4Path + "/history/provinces/" + fileName);
+			if (provinces.count(id))
+			{
+				Log(LogLevel::Warning) << "Vanilla province duplication - " << id << " already loaded! Overwriting.";
+				provinces[id] = newProvince;
+			}
+			else
+				provinces.insert(std::pair(id, newProvince));
+		}
+		catch (std::exception& e)
+		{
+			Log(LogLevel::Warning) << "Invalid province filename: " << eu4Path << "/history/provinces/" << fileName << " : " << e.what();
+		}
 	}
+	LOG(LogLevel::Info) << ">> Loaded " << provinces.size() << " province definitions.";
 	if (invasion)
 	{
 		fileNames = Utils::GetAllFilesInFolder("configurables/sunset/history/provinces/");
 		for (const auto& fileName: fileNames)
 		{
-			const auto minusLoc = fileName.find(" - ");
-			auto id = 0;
-			if (minusLoc != std::string::npos)
-			{
-				id = std::stoi(fileName.substr(0, minusLoc));
-			}
-			else
-			{
-				id = std::stoi(fileName);
-			}
+			if (fileName.find(".txt") == std::string::npos) continue;			
+			auto id = std::stoi(fileName);
 			const auto& provinceItr = provinces.find(id);
 			if (provinceItr != provinces.end())
 				provinceItr->second->updateWith("configurables/sunset/history/provinces/" + fileName);
 		}
 	}
-	LOG(LogLevel::Info) << ">> Loaded " << provinces.size() << " province definitions.";
 }
 
 void EU4::World::importCK2Countries(const CK2::World& sourceWorld)
