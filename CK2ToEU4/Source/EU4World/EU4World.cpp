@@ -955,17 +955,28 @@ void EU4::World::importVanillaProvinces(const std::string& eu4Path, bool invasio
 	auto fileNames = Utils::GetAllFilesInFolder(eu4Path + "/history/provinces/");
 	for (const auto& fileName: fileNames)
 	{
+		if (fileName.find(".txt") == std::string::npos) continue;
 		const auto minusLoc = fileName.find(" - ");
-		const auto id = std::stoi(fileName.substr(0, minusLoc));
-		auto newProvince = std::make_shared<Province>(id, eu4Path + "/history/provinces/" + fileName);
-		provinces.insert(std::pair(id, newProvince));
+		if (minusLoc == std::string::npos) continue;
+		try
+		{
+			const auto id = std::stoi(fileName.substr(0, minusLoc));
+			auto newProvince = std::make_shared<Province>(id, eu4Path + "/history/provinces/" + fileName);
+			provinces.insert(std::pair(id, newProvince));
+		}
+		catch (std::exception& e)
+		{
+			Log(LogLevel::Warning) << "Invalid province filename: " << eu4Path + "/history/provinces/" + fileName << " : " << e.what();
+		}
 	}
 	if (invasion)
 	{
 		fileNames = Utils::GetAllFilesInFolder("configurables/sunset/history/provinces/");
 		for (const auto& fileName: fileNames)
 		{
+			if (fileName.find(".txt") == std::string::npos) continue;
 			const auto minusLoc = fileName.find(" - ");
+			if (minusLoc == std::string::npos) continue;
 			auto id = 0;
 			if (minusLoc != std::string::npos)
 			{
