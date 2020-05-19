@@ -17,3 +17,5 @@ cd ..
 
 cp CK2ToEU4/Data_Files/*yml Release/Configuration/
 cp CK2ToEU4/Data_Files/fronter*txt Release/Configuration/
+
+tar -cjf CK2ToEU4-dev-release.tar.bz2 Release
