@@ -106,7 +106,7 @@ TEST(CK2World_CharactersTests, charactersDynastyLinkCannotBeSetThrowsWarning)
 	auto newLine = stringLog.find_first_of('\n');
 	stringLog = stringLog.substr(0, newLine);
 
-	ASSERT_EQ(stringLog, "[WARNING] Dynasty ID: 34 has no definition!");
+	ASSERT_EQ(stringLog, " [WARNING] Dynasty ID: 34 has no definition!");
 }
 
 
@@ -164,7 +164,7 @@ TEST(CK2World_CharactersTests, charactersLiegeLinkCannotBeSetThrowsWarning)
 	auto newLine = stringLog.find_first_of('\n');
 	stringLog = stringLog.substr(0, newLine);
 
-	ASSERT_EQ(stringLog, "[WARNING] Liege ID: 33 has no definition!");
+	ASSERT_EQ(stringLog, " [WARNING] Liege ID: 33 has no definition!");
 }
 
 
@@ -234,7 +234,7 @@ TEST(CK2World_CharactersTests, charactersPrimaryTitleLinkCannotBeSetThrowsWarnin
 	auto newLine = stringLog.find_first_of('\n');
 	stringLog = stringLog.substr(0, newLine);
 
-	ASSERT_EQ(stringLog, "[WARNING] Primary title ID: k_test has no definition!");
+	ASSERT_EQ(stringLog, " [WARNING] Primary title ID: k_test has no definition!");
 }
 
 TEST(CK2World_CharactersTests, charactersPrimaryBaseTitleLinkDefaultsToNull)
@@ -329,7 +329,7 @@ TEST(CK2World_CharactersTests, charactersPrimaryBaseTitleLinkCannotBeSetThrowsWa
 	auto newLine = stringLog.find_first_of('\n');
 	stringLog = stringLog.substr(0, newLine);
 
-	ASSERT_EQ(stringLog, "[WARNING] Base title ID: c_skyward has no definition!");
+	ASSERT_EQ(stringLog, " [WARNING] Base title ID: c_skyward has no definition!");
 }
 
 TEST(CK2World_CharactersTests, charactersCapitalLinkDefaultsToNull)
@@ -414,7 +414,7 @@ TEST(CK2World_CharactersTests, charactersCapitalLinkCannotBeSetThrowsWarning)
 	auto newLine = stringLog.find_first_of('\n');
 	stringLog = stringLog.substr(0, newLine);
 
-	ASSERT_EQ(stringLog, "[WARNING] Capital barony ID: b_test has no definition!");
+	ASSERT_EQ(stringLog, " [WARNING] Capital barony ID: b_test has no definition!");
 }
 
 
@@ -496,7 +496,7 @@ TEST(CK2World_CharactersTests, charactersFatherLinkCannotBeSetThrowsWarning)
 	auto newLine = stringLog.find_first_of('\n');
 	stringLog = stringLog.substr(0, newLine);
 
-	ASSERT_EQ(stringLog, "[WARNING] Father ID: 21 has no definition!");
+	ASSERT_EQ(stringLog, " [WARNING] Father ID: 21 has no definition!");
 }
 
 TEST(CK2World_CharactersTests, charactersMotherLinkCannotBeSetThrowsWarning)
@@ -522,7 +522,7 @@ TEST(CK2World_CharactersTests, charactersMotherLinkCannotBeSetThrowsWarning)
 	auto newLine = stringLog.find_first_of('\n');
 	stringLog = stringLog.substr(0, newLine);
 
-	ASSERT_EQ(stringLog, "[WARNING] Mother ID: 19 has no definition!");
+	ASSERT_EQ(stringLog, " [WARNING] Mother ID: 19 has no definition!");
 }
 
 TEST(CK2World_CharactersTests, charactersChildrenDefaultsToEmpty)
