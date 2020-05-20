@@ -17,85 +17,109 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 	LOG(LogLevel::Info) << "*** Hello EU4, let's get painting. ***";
 	// Scraping localizations from CK2 so we may know proper names for our countries.
 	localizationMapper.scrapeLocalizations(theConfiguration, sourceWorld.getMods().getMods());
+	Log(LogLevel::Progress) << "50 %";
 
 	// Ditto for colors - these only apply on non-eu4 countries.
 	scrapeColors(theConfiguration, sourceWorld);
+	Log(LogLevel::Progress) << "51 %";
 
 	// This is our region mapper for eu4 regions, areas and superRegions. It's a pointer because we need
 	// to embed it into every cultureMapper individual mapping. It works faster that way.
 	regionMapper = std::make_shared<mappers::RegionMapper>();
 	regionMapper->loadRegions(theConfiguration);
+	Log(LogLevel::Progress) << "52 %";
 
 	// And this is the cultureMapper. It's of vital importance.
 	cultureMapper.loadRegionMapper(regionMapper);
+	Log(LogLevel::Progress) << "53 %";
 
 	// This is a valid province scraper. It looks at eu4 map data and notes which eu4 provinces are in fact valid.
 	// ... It's not used at all.
 	provinceMapper.determineValidProvinces(theConfiguration);
+	Log(LogLevel::Progress) << "54 %";
 
 	// We start conversion by importing vanilla eu4 countries, history and common sections included.
 	// We'll overwrite some of them with ck2 imports.
 	importVanillaCountries(theConfiguration.getEU4Path(), sourceWorld.isInvasion());
+	Log(LogLevel::Progress) << "55 %";
 
 	// Which happens now. Translating incoming titles into EU4 tags, with new tags being added to our countries.
 	importCK2Countries(sourceWorld);
+	Log(LogLevel::Progress) << "56 %";
 
 	// Now we can deal with provinces since we know to whom to assign them. We first import vanilla province data.
 	// Some of it will be overwritten, but not all.
 	importVanillaProvinces(theConfiguration.getEU4Path(), sourceWorld.isInvasion());
+	Log(LogLevel::Progress) << "57 %";
 
 	// We can link provinces to regionMapper's bindings, though this is not used at the moment.
 	regionMapper->linkProvinces(provinces);
+	Log(LogLevel::Progress) << "58 %";
 
 	// Next we import ck2 provinces and translate them ontop a significant part of all imported provinces.
 	importCK2Provinces(sourceWorld);
+	Log(LogLevel::Progress) << "59 %";
 
 	// With Ck2 provinces linked to those eu4 provinces they affect, we can adjust eu4 province dev values.
 	if (theConfiguration.getDevelopment() == Configuration::DEVELOPMENT::IMPORT)
 		alterProvinceDevelopment();
+	Log(LogLevel::Progress) << "60 %";
 
 	// We then link them to their respective countries. Those countries that end up with 0 provinces are defacto dead.
 	linkProvincesToCountries();
+	Log(LogLevel::Progress) << "61 %";
 
 	// Country capitals are fuzzy, and need checking if we assigned them to some other country during mapping.
 	verifyCapitals();
+	Log(LogLevel::Progress) << "62 %";
 
 	// This step is important. CK2 data is sketchy and not every character or province has culture/religion data.
 	// For those, we look at vanilla provinces and override missing bits with vanilla setup. Yeah, a bit more sunni in
 	// hordeland, but it's fine.
 	verifyReligionsAndCultures();
+	Log(LogLevel::Progress) << "63 %";
 
 	// With all religious/cultural matters taken care of, we can now set reforms
 	assignAllCountryReforms(sourceWorld);
+	Log(LogLevel::Progress) << "64 %";
 
 	// With all provinces and rulers religion/culture set, only now can we import advisers, which also need religion/culture set.
 	// Those advisers coming without such data use the monarch's religion/culture.
 	importAdvisers();
+	Log(LogLevel::Progress) << "65 %";
 
 	// We're onto the finesse part of conversion now. HRE was shattered in CK2 World and now we're assigning electorates, free
 	// cities, and such.
 	distributeHRESubtitles(theConfiguration);
+	Log(LogLevel::Progress) << "66 %";
 
 	// Rulers with multiple crowns either get PU agreements, or just annex the other crowns.
 	resolvePersonalUnions();
+	Log(LogLevel::Progress) << "67 %";
 
 	// Vassalages and tributaries were also set in ck2 world but we have to transcribe those into EU4 agreements.
 	diplomacy.importAgreements(countries, sourceWorld.getDiplomacy(), sourceWorld.getConversionDate());
+	Log(LogLevel::Progress) << "68 %";
 
 	// We're distributing permanent claims according to dejure distribution.
 	distributeClaims();
+	Log(LogLevel::Progress) << "69 %";
 
 	// Now for the final tweaks.
 	distributeForts();
+	Log(LogLevel::Progress) << "70 %";
 
 	// Tengri
 	fixTengri();
+	Log(LogLevel::Progress) << "71 %";
 
 	// China
 	adjustChina(sourceWorld);
+	Log(LogLevel::Progress) << "72 %";
 
 	// Siberia
 	siberianQuestion(theConfiguration);
+	Log(LogLevel::Progress) << "73 %";
 
 	// And finally, the Dump.
 	LOG(LogLevel::Info) << "---> The Dump <---";

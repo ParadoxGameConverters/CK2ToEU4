@@ -6,9 +6,11 @@
 
 void convertCK2ToEU4(const mappers::VersionParser& versionParser)
 {
+	Log(LogLevel::Progress) << "0 %";
 	const Configuration theConfiguration;
 	const CK2::World sourceWorld(theConfiguration);
 	EU4::World destWorld(sourceWorld, theConfiguration, versionParser);
 
 	LOG(LogLevel::Info) << "* Conversion complete *";
+	Log(LogLevel::Progress) << "100 %";
 }

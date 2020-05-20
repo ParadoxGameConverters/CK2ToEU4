@@ -92,6 +92,7 @@ CK2::World::World(const Configuration& theConfiguration)
 	});
 
 	registerRegex("[A-Za-z0-9\\_]+", commonItems::ignoreItem);
+	Log(LogLevel::Progress) << "4 %";
 
 	LOG(LogLevel::Info) << "-> Verifying CK2 save.";
 	verifySave(theConfiguration.getSaveGamePath());
@@ -112,85 +113,119 @@ CK2::World::World(const Configuration& theConfiguration)
 
 	Log(LogLevel::Info) << "-> Locating mods in mod folder";
 	mods.loadModDirectory(theConfiguration);
+	Log(LogLevel::Progress) << "6 %";
 
 	// We must load initializers before the savegame.
 	loadDynasties(theConfiguration);
-	
+	Log(LogLevel::Progress) << "7 %";
+
 	personalityScraper.scrapePersonalities(theConfiguration);
+	Log(LogLevel::Progress) << "8 %";
 
 	auto gameState = std::istringstream(saveGame.gamestate);
 	parseStream(gameState);
+	Log(LogLevel::Progress) << "10 %";
 	clearRegisteredKeywords();
 	LOG(LogLevel::Info) << ">> Loaded " << dynamicTitles.size() << " dynamic titles.";
 	LOG(LogLevel::Info) << "-> Importing Province Titles";
 	loadProvinces(theConfiguration);
+	Log(LogLevel::Progress) << "12 %";
 
 	LOG(LogLevel::Info) << "*** Building World ***";
 
 	// Link all the intertwining pointers
 	LOG(LogLevel::Info) << "-- Filtering Excess Province Titles";
 	provinceTitleMapper.filterSelf(provinces, titles);
+	Log(LogLevel::Progress) << "13 %";
 	LOG(LogLevel::Info) << "-- Linking Characters With Dynasties";
 	characters.linkDynasties(dynasties);
+	Log(LogLevel::Progress) << "14 %";
 	LOG(LogLevel::Info) << "-- Linking Characters With Lieges and Spouses";
 	characters.linkLiegesAndSpouses();
+	Log(LogLevel::Progress) << "15 %";
 	LOG(LogLevel::Info) << "-- Linking Characters With Family";
 	characters.linkMothersAndFathers();
+	Log(LogLevel::Progress) << "16 %";
 	LOG(LogLevel::Info) << "-- Linking Characters With Primary Titles";
 	characters.linkPrimaryTitles(titles);
+	Log(LogLevel::Progress) << "17 %";
 	LOG(LogLevel::Info) << "-- Linking Characters With Capitals";
 	characters.linkCapitals(provinces);
+	Log(LogLevel::Progress) << "18 %";
 	LOG(LogLevel::Info) << "-- Linking Provinces With Primary Baronies";
 	provinces.linkPrimarySettlements();
+	Log(LogLevel::Progress) << "19 %";
 	LOG(LogLevel::Info) << "-- Linking Provinces With Wonders";
 	provinces.linkWonders(wonders);
+	Log(LogLevel::Progress) << "20 %";
 	LOG(LogLevel::Info) << "-- Linking Titles With Holders";
 	titles.linkHolders(characters);
+	Log(LogLevel::Progress) << "21 %";
 	LOG(LogLevel::Info) << "-- Linking Titles With Previous Holders";
 	titles.linkPreviousHolders(characters);
+	Log(LogLevel::Progress) << "22 %";
 	LOG(LogLevel::Info) << "-- Linking Titles With Liege and DeJure Titles";
 	titles.linkLiegePrimaryTitles();
+	Log(LogLevel::Progress) << "23 %";
 	LOG(LogLevel::Info) << "-- Linking Titles With Vassals and DeJure Vassals";
 	titles.linkVassals();
+	Log(LogLevel::Progress) << "24 %";
 	LOG(LogLevel::Info) << "-- Linking Titles With Provinces";
 	titles.linkProvinces(provinces, provinceTitleMapper); // Untestable due to disk access.
+	Log(LogLevel::Progress) << "25 %";
 	LOG(LogLevel::Info) << "-- Linking Titles With Base Titles";
 	titles.linkBaseTitles();
+	Log(LogLevel::Progress) << "26 %";
 	LOG(LogLevel::Info) << "-- Linking The Celestial Emperor";
 	linkCelestialEmperor();
+	Log(LogLevel::Progress) << "30 %";
 
 	// Filter top-tier active titles and assign them provinces.
 	LOG(LogLevel::Info) << "-- Merging Independent Baronies";
 	mergeIndependentBaronies();
+	Log(LogLevel::Progress) << "32 %";
 	LOG(LogLevel::Info) << "-- Merging Revolts Into Base";
 	titles.mergeRevolts();
+	Log(LogLevel::Progress) << "33 %";
 	LOG(LogLevel::Info) << "-- Shattering HRE";
 	shatterHRE(theConfiguration);
+	Log(LogLevel::Progress) << "34 %";
 	LOG(LogLevel::Info) << "-- Shattering Empires";
 	shatterEmpires(theConfiguration);
+	Log(LogLevel::Progress) << "35 %";
 	LOG(LogLevel::Info) << "-- Filtering Independent Titles";
 	filterIndependentTitles();
+	Log(LogLevel::Progress) << "36 %";
 	LOG(LogLevel::Info) << "-- Splitting Off Vassals";
 	splitVassals();
+	Log(LogLevel::Progress) << "37 %";
 	LOG(LogLevel::Info) << "-- Rounding Up Some People";
 	gatherCourtierNames();
+	Log(LogLevel::Progress) << "38 %";
 	LOG(LogLevel::Info) << "-- Congregating Provinces for Independent Titles";
 	congregateProvinces();
+	Log(LogLevel::Progress) << "39 %";
 	LOG(LogLevel::Info) << "-- Distributing Electorates";
 	linkElectors();
+	Log(LogLevel::Progress) << "40 %";
 	LOG(LogLevel::Info) << "-- Congregating DeJure Provinces for Independent Titles";
 	congregateDeJureProvinces();
+	Log(LogLevel::Progress) << "41 %";
 	LOG(LogLevel::Info) << "-- Performing Province Sanity Check";
 	sanityCheckifyProvinces();
+	Log(LogLevel::Progress) << "42 %";
 	LOG(LogLevel::Info) << "-- Filtering Provinceless Titles";
 	filterProvincelessTitles();
+	Log(LogLevel::Progress) << "43 %";
 	LOG(LogLevel::Info) << "-- Determining Heirs";
 	determineHeirs();
+	Log(LogLevel::Progress) << "44 %";
 	LOG(LogLevel::Info) << "-- Decyphering Personalities";
 	characters.assignPersonalities(personalityScraper);
-
+	Log(LogLevel::Progress) << "45 %";
 	alterSunset(theConfiguration);
 	LOG(LogLevel::Info) << "*** Good-bye CK2, rest in peace. ***";
+	Log(LogLevel::Progress) << "47 %";
 }
 
 void CK2::World::loadDynasties(const Configuration& theConfiguration)

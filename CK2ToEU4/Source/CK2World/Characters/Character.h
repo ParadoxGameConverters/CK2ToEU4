@@ -13,7 +13,7 @@ class Barony;
 class Dynasty;
 class Province;
 
-typedef struct
+typedef struct Skills
 {
 	int diplomacy = 0;
 	int martial = 0;
