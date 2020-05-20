@@ -114,7 +114,7 @@ TEST(CK2World_ProvincesTests, primarySettlementLinkCannotBeSetThrowsWarning)
 	auto newLine = stringLog.find_first_of('\n');
 	stringLog = stringLog.substr(0, newLine);
 
-	ASSERT_EQ(stringLog, "[WARNING] Primary barony ID: b_test is not in the province: 42 !");
+	ASSERT_EQ(stringLog, " [WARNING] Primary barony ID: b_test is not in the province: 42 !");
 }
 
 TEST(CK2World_ProvincesTests, wonderCanBeLinked)
@@ -264,5 +264,5 @@ TEST(CK2World_ProvincesTests, BrokenLinkAttemptThrowsWarning)
 	auto newLine = stringLog.find_first_of('\n');
 	stringLog = stringLog.substr(0, newLine);
 
-	ASSERT_EQ(stringLog, "[WARNING] Wonder 9 is in province 43 which doesn't exist?");
+	ASSERT_EQ(stringLog, " [WARNING] Wonder 9 is in province 43 which doesn't exist?");
 }

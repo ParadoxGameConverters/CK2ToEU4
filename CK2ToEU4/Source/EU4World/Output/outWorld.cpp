@@ -20,10 +20,15 @@ void EU4::World::output(const mappers::VersionParser& versionParser, const Confi
 		Log(LogLevel::Info) << "<< Deleting existing mod folder.";
 		Utils::DeleteFolder("output/" + theConfiguration.getOutputName());
 	}
+	Log(LogLevel::Progress) << "80 %";
+
 	LOG(LogLevel::Info) << "<- Copying Mod Template";
 	Utils::CopyFolder("blankMod/output", "output/output");
+	Log(LogLevel::Progress) << "81 %";
+
 	LOG(LogLevel::Info) << "<- Moving Mod Template >> " << theConfiguration.getOutputName();
 	Utils::RenameFolder("output/output", "output/" + theConfiguration.getOutputName());
+	Log(LogLevel::Progress) << "82 %";
 
 	Utils::TryCreateFolder("output/" + theConfiguration.getOutputName() + "/history/");
 	Utils::TryCreateFolder("output/" + theConfiguration.getOutputName() + "/history/countries/");
@@ -34,44 +39,57 @@ void EU4::World::output(const mappers::VersionParser& versionParser, const Confi
 	Utils::TryCreateFolder("output/" + theConfiguration.getOutputName() + "/common/countries/");
 	Utils::TryCreateFolder("output/" + theConfiguration.getOutputName() + "/common/country_tags/");
 	Utils::TryCreateFolder("output/" + theConfiguration.getOutputName() + "/localisation/");
+	Log(LogLevel::Progress) << "83 %";
 
 	LOG(LogLevel::Info) << "<- Crafting .mod File";
 	createModFile(theConfiguration);
+	Log(LogLevel::Progress) << "84 %";
 
 	// Record converter version
 	LOG(LogLevel::Info) << "<- Writing version";
 	outputVersion(versionParser, theConfiguration);
+	Log(LogLevel::Progress) << "85 %";
 
 	// Output common\countries.txt
 	LOG(LogLevel::Info) << "<- Creating countries.txt";
 	outputCommonCountriesFile(theConfiguration);
+	Log(LogLevel::Progress) << "86 %";
 
 	LOG(LogLevel::Info) << "<- Writing Country Commons";
 	outputCommonCountries(theConfiguration);
+	Log(LogLevel::Progress) << "87 %";
 
 	LOG(LogLevel::Info) << "<- Writing Country Histories";
 	outputHistoryCountries(theConfiguration);
+	Log(LogLevel::Progress) << "88 %";
 
 	LOG(LogLevel::Info) << "<- Writing Advisers";
 	outputAdvisers(theConfiguration);
+	Log(LogLevel::Progress) << "89 %";
 
 	LOG(LogLevel::Info) << "<- Writing Provinces";
 	outputHistoryProvinces(theConfiguration);
+	Log(LogLevel::Progress) << "90 %";
 
 	LOG(LogLevel::Info) << "<- Writing Localization";
 	outputLocalization(theConfiguration, invasion);
+	Log(LogLevel::Progress) << "91 %";
 
 	LOG(LogLevel::Info) << "<- Writing Emperor";
 	outputEmperor(theConfiguration, conversionDate);
+	Log(LogLevel::Progress) << "92 %";
 
 	LOG(LogLevel::Info) << "<- Writing Diplomacy";
 	outputDiplomacy(theConfiguration, diplomacy.getAgreements(), invasion);
+	Log(LogLevel::Progress) << "93 %";
 
 	LOG(LogLevel::Info) << "<- Moving Flags";
 	outputFlags(theConfiguration, sourceWorld);
+	Log(LogLevel::Progress) << "94 %";
 
 	LOG(LogLevel::Info) << "<- Replacing Bookmark";
 	outputBookmark(theConfiguration, conversionDate);
+	Log(LogLevel::Progress) << "95 %";
 }
 
 void EU4::World::outputAdvisers(const Configuration& theConfiguration) const
