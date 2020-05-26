@@ -604,13 +604,13 @@ void CK2::World::gatherCourtierNames()
 			if (containerItr != holderCourtiers.end())
 			{
 				title.second->getHolder().second->setCourtierNames(containerItr->second);
-				counter += containerItr->second.size();
+				counter += static_cast<int>(containerItr->second.size());
 			}
 			const auto adviserItr = holderAdvisors.find(title.second->getHolder().first);
 			if (adviserItr != holderAdvisors.end())
 			{
 				title.second->getHolder().second->setAdvisers(adviserItr->second);
-				counterAdvisors += adviserItr->second.size();
+				counterAdvisors += static_cast<int>(adviserItr->second.size());
 			}
 		}
 	}
@@ -701,7 +701,7 @@ bool CK2::World::uncompressSave(const std::string& saveGamePath)
 		return false;
 	for (size_t entryNum = 0; entryNum < savefile->GetEntriesCount(); ++entryNum)
 	{
-		const auto& entry = savefile->GetEntry(entryNum);
+		const auto& entry = savefile->GetEntry(static_cast<int>(entryNum));
 		const auto& name = entry->GetName();
 		if (name == "meta")
 		{
@@ -813,7 +813,7 @@ void CK2::World::congregateProvinces()
 		{
 			province.second->loadHoldingTitle(std::pair(title.first, title.second));
 		}
-		counter += title.second->getProvinces().size();
+		counter += static_cast<int>(title.second->getProvinces().size());
 	}
 	Log(LogLevel::Info) << "<> " << counter << " provinces held by independents.";
 }
@@ -826,7 +826,7 @@ void CK2::World::congregateDeJureProvinces()
 	for (const auto& title: independentTitles)
 	{
 		title.second->congregateDeJureProvinces();
-		counter += title.second->getDeJureProvinces().size();
+		counter += static_cast<int>(title.second->getDeJureProvinces().size());
 	}
 	Log(LogLevel::Info) << "<> " << counter << " de jure provinces claimed by independents.";
 }

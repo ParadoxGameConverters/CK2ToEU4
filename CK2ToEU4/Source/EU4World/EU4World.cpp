@@ -572,7 +572,7 @@ void EU4::World::importAdvisers()
 	for (const auto& country: countries)
 	{
 		country.second->initializeAdvisers(religionMapper, cultureMapper);
-		counter += country.second->getAdvisers().size();
+		counter += static_cast<int>(country.second->getAdvisers().size());
 	}
 	LOG(LogLevel::Info) << "<> Imported " << counter << " advisers.";
 }

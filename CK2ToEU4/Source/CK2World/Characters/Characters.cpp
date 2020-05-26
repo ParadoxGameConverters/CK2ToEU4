@@ -221,7 +221,7 @@ void CK2::Characters::assignPersonalities(const mappers::PersonalityScraper& per
 			if (traitMatch)
 				translatedTraits.insert(std::pair(trait.first, *traitMatch));
 		}
-		counter += translatedTraits.size();
+		counter += static_cast<int>(translatedTraits.size());
 		character.second->setTraits(translatedTraits);
 	}
 	Log(LogLevel::Info) << "<> " << counter << " personalities observed.";

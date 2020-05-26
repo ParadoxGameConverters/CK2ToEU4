@@ -167,7 +167,7 @@ bool CK2::Mods::extractZip(const std::string& archive, const std::string& path) 
 		return false;
 	for (size_t entryNum = 0; entryNum < modfile->GetEntriesCount(); ++entryNum)
 	{
-		const auto& entry = modfile->GetEntry(entryNum);
+		const auto& entry = modfile->GetEntry(static_cast<int>(entryNum));
 		const auto& inpath = entry->GetFullName();
 		const auto& name = entry->GetName();
 		if (entry->IsDirectory())
