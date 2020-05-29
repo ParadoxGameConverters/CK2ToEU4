@@ -1,0 +1,94 @@
+country_decisions = {
+
+	ZZZ_remove_elective_challenge = {
+		major = yes
+		potential = {
+			has_reform = elective_monarchy
+			NOT = { has_country_flag = pol_zebrzydowski_rebellion_flag }
+		}
+		allow = {
+			adm_tech = 15
+			adm = 3
+			dip = 2
+			mil = 2
+		}
+		effect = {
+			set_country_flag = pol_zebrzydowski_rebellion_flag
+		
+			add_country_modifier = {
+				name = "pol_zebrzydowski_rebellion_flag"
+				duration = -1
+				desc = "END_OF_ROYAL_STRUGGLE"
+			}
+			add_stability = -3
+			
+			random_owned_province = {
+				limit = {
+					is_capital = yes
+				}
+				polish_noble_rebels = 6
+			}
+			random_owned_province = {
+				limit = {
+					is_capital = no
+				}
+				polish_noble_rebels = 3
+			}
+			random_owned_province = {
+				limit = {
+					is_capital = no
+				}
+				polish_noble_rebels = 3
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				OR = {
+					is_at_war = yes
+					had_recent_war = 5
+				}
+			}				
+		}
+		ai_importance = 400
+	}
+	
+	ZZZ_remove_elective_final = {
+		major = yes
+		potential = {
+			had_country_flag = { flag = pol_zebrzydowski_rebellion_flag days = 1100 }
+		}
+		allow = {
+			NOT = { num_of_rebel_controlled_provinces = 1 }
+		}
+		effect = {
+			remove_country_modifier = pol_pact_conventa
+			remove_country_modifier = pol_zebrzydowski_rebellion_flag
+			clr_country_flag = pol_zebrzydowski_rebellion_flag
+			clr_country_flag = pol_konfederacja_flag
+			clr_country_flag = pol_pact_conventa_flag
+			remove_country_modifier = pol_sejm_veto
+			remove_country_modifier = pol_sejm_refuse_troops
+			remove_country_modifier = pol_sejm_comply_policies
+			add_prestige = 50
+			add_stability = 3
+			add_legitimacy = 50
+			if = {
+				limit = {
+					has_reform = elective_monarchy
+				}
+				remove_government_reform = elective_monarchy
+				add_government_reform = autocracy_reform
+				set_legacy_government = administrative_monarchy
+				remove_heir = yes
+				add_absolutism = 10
+			}
+		}
+		ai_will_do = {
+			factor = 100		
+		}
+		ai_importance = 4000
+	}
+		
+}

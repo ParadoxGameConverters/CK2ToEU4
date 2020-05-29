@@ -1,16 +1,13 @@
 country_decisions = {
 	
-	# Catholics
+	# New Christian Religions
 	institute_the_societas_jesu = {
 		potential = {
 			OR = {
 				tag = POR
 				tag = SPA
 			}
-			OR = {
-				religion = catholic
-				religion = fraticelli
-			}
+			religion = fraticelli
 			NOT = { has_country_modifier = the_societas_jesu }
 			NOT = { has_country_modifier = jesuits_expelled }
 		}
@@ -35,6 +32,7 @@ country_decisions = {
 			NOT = { has_dlc = "Dharma" }
 			government = theocracy
 			religion_group = christian
+			NOT = { religion = catholic }
 			NOT = { religion = protestant }
 			NOT = { religion = reformed }
 			NOT = { has_reform = papal_government }
@@ -105,10 +103,7 @@ country_decisions = {
 	statue_in_restraint_of_appeals = {
 		potential = {
 			NOT = { has_country_modifier = the_statue_in_restraint_of_appeals }
-			OR = {
-				religion = catholic
-				religion = fraticelli
-			}
+			religion = fraticelli
 			exists = PAP
 			NOT = { tag = PAP }
 		}
@@ -169,10 +164,7 @@ country_decisions = {
 		potential = {
 			has_country_modifier = the_statue_in_restraint_of_appeals
 			NOT = { has_country_modifier = revocation_of_restraint_of_appeals }
-			OR = {
-				religion = catholic 
-				religion = fraticelli
-			}
+			religion = fraticelli
 			exists = PAP
 		}
 		allow = {
@@ -220,10 +212,7 @@ country_decisions = {
 		allow = {
 			is_free_or_tributary_trigger = yes
 			is_at_war = no
-			OR = {
-				religion = catholic
-				religion = fraticelli
-			}
+			religion = fraticelli
 			owns = 118 # Rome
 		}
 		effect = {
@@ -246,10 +235,7 @@ country_decisions = {
 			NOT = { has_idea = ecumenism }
 			NOT = { has_idea = liberty_egalite_fraternity }
 			NOT = { religion_years = { protestant = 150 } }
-			OR = {
-				religion = catholic
-				religion = fraticelli
-			}
+			religion = fraticelli
 		}
 		allow = {
 			OR = {
@@ -331,8 +317,6 @@ country_decisions = {
 			NOT = { has_dlc = "Dharma" }
 			government = theocracy
 			OR = {
-				religion = protestant
-				religion = reformed
 				religion = cathar
 				religion = waldensian
 				religion = lollard
@@ -400,8 +384,6 @@ country_decisions = {
 		potential = {
 			NOT = { has_country_modifier = the_test_act }
 			OR = {
-				religion = protestant
-				religion = reformed
 				religion = cathar
 				religion = waldensian
 				religion = lollard
@@ -426,8 +408,6 @@ country_decisions = {
 		potential = {
 			NOT = { has_country_modifier = the_dissolution_of_the_monasteries }
 			OR = {
-				religion = protestant
-				religion = reformed
 				religion = cathar
 				religion = waldensian
 				religion = lollard
@@ -464,8 +444,6 @@ country_decisions = {
 		potential = {
 			NOT = { has_country_modifier = the_popery_act }
 			OR = {
-				religion = protestant
-				religion = reformed
 				religion = cathar
 				religion = waldensian
 				religion = lollard
@@ -503,9 +481,6 @@ country_decisions = {
 			custom_trigger_tooltip = {
 				tooltip = the_dominant_religion_is_a_form_of_islam_tooltip
 				OR = {
-					dominant_religion = sunni
-					dominant_religion = shiite
-					dominant_religion = ibadi
 					dominant_religion = zikri
 					dominant_religion = yazidi
 					dominant_religion = kharijite
@@ -538,6 +513,7 @@ country_decisions = {
 		potential = {
 			NOT = { has_country_modifier = restricted_offices }
 			religion_group = jewish_group
+			NOT = { religion = jewish }
 		}
 		allow = {
 			ADM = 3
@@ -561,10 +537,7 @@ country_decisions = {
 		potential = {
 			NOT = { has_country_modifier = yellow_shamanism_modifier }
 			NOT = { has_country_modifier = black_shamanism_modifier }
-			OR = {
-				religion = tengri_pagan
-				religion = tengri_pagan_reformed
-			}
+			religion = tengri_pagan
 		}
 		allow = {
 			ADM = 3
@@ -583,10 +556,7 @@ country_decisions = {
 	tengri_black_shamanism = {
 		potential = {
 			NOT = { has_country_modifier = black_shamanism_modifier }
-			OR = {
-				religion = tengri_pagan
-				religion = tengri_pagan_reformed
-			}
+			religion = tengri_pagan
 			NOT = { has_secondary_religion = yes }
 		}
 		allow = {
@@ -610,10 +580,7 @@ country_decisions = {
 	
 	tengri_expel_the_khojas = {
 		potential = {
-			OR = {
-				religion = tengri_pagan
-				religion = tengri_pagan_reformed
-			}
+			religion = tengri_pagan
 			has_country_flag = khojas_established
 			NOT = { has_country_flag = end_of_khojas }
 			num_of_cities = 2
@@ -676,6 +643,7 @@ country_decisions = {
 		potential = {
 			NOT = { has_country_modifier = rites_of_admission_modifier }
 			religion_group = zoroastrian_group
+			NOT = { religion = zoroastrian }
 		}
 		allow = {
 			stability = 2
@@ -702,6 +670,7 @@ country_decisions = {
 		potential = {
 			NOT = { has_country_modifier = royal_fires_modifier }
 			religion_group = zoroastrian_group
+			NOT = { religion = zoroastrian }
 		}
 		allow = {
 			government_rank = 3
@@ -740,6 +709,7 @@ country_decisions = {
 		potential = {
 			NOT = { has_country_modifier = reunification_with_parsees }
 			religion_group = zoroastrian_group
+			NOT = { religion = zoroastrian }
 		}
 		allow = {
 			owns_core_province = 428 #Teheran
@@ -784,10 +754,7 @@ country_decisions = {
 	animism_ritual_education = {
 		potential = {
 			NOT = { has_country_modifier = ritual_education_modifier }
-			OR = {
-				religion = animism
-				religion = pagan_religion
-			}
+			religion = pagan_religion
 			any_owned_province = {
 				NOT = { religion = owner }
 			}
@@ -818,7 +785,6 @@ country_decisions = {
 		potential = {
 			NOT = { has_country_modifier = wandering_shamans_modifier }
 			OR = {
-				religion = shamanism
 				religion = west_african_pagan
 				religion = west_african_pagan_reformed
 			}
@@ -851,10 +817,12 @@ country_decisions = {
 	spreading_of_norse_rituals = {
 		potential = {
 			NOT = { has_country_modifier = spreading_norse_rituals }
+			religion = norse_pagan
 			religion = norse_pagan_reformed
 		}
 		allow = {
 			ADM = 3
+			adm_tech = 8
 		}
 		effect = {	
 			add_country_modifier = {
@@ -884,6 +852,7 @@ country_decisions = {
 		}
 		allow = {
 			ADM = 3
+			adm_tech = 8
 		}
 		effect = {	
 			add_country_modifier = {

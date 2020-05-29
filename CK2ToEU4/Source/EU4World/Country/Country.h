@@ -66,6 +66,7 @@ class Country
 	[[nodiscard]] auto isinHRE() const { return details.inHRE; }
 	[[nodiscard]] auto getCapitalID() const { return details.capital; }
 	[[nodiscard]] auto getDynastyID() const { return details.dynastyID; }
+	[[nodiscard]] auto getHasDynastyName() const { return details.hasDynastyName; }
 
 	[[nodiscard]] int getDevelopment() const;
 
@@ -79,6 +80,7 @@ class Country
 	void setGovernment(const std::string& government) { details.government = government; }
 	void setElector() { details.elector = true; }
 	void setTechGroup(const std::string& tech) { details.technologyGroup = tech; }
+	void setTitle(const std::string& newTitle) { title.first = newTitle; }
 	void setGFX(const std::string& gfx) { details.graphicalCulture = gfx; }
 	void clearProvinces() { provinces.clear(); }
 	void annexCountry(const std::pair<std::string, std::shared_ptr<Country>>& theCountry);
@@ -86,6 +88,7 @@ class Country
 	void clearHistoryLessons() { details.historyLessons.clear(); }
 	void setConversionDate(date theDate) { conversionDate = theDate; }
 	void clearExcommunicated() { details.excommunicated = false; }
+	void setLocalizations(const mappers::LocBlock& newBlock);
 
 	void assignReforms(std::shared_ptr<mappers::RegionMapper> regionMapper);
 

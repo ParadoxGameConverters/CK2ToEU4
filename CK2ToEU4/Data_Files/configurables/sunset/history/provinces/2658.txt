@@ -3,7 +3,11 @@ controller = MAY
 add_core = MAY
 culture = mayan
 religion = mesoamerican_religion
-discovered_by = high_american
+discovered_by = high_american
+discovered_by = north_american
+discovered_by = mesoamerican
+discovered_by = south_american
+discovered_by = andean
 discovered_by = mesoamerican
 citysize = 1000
 

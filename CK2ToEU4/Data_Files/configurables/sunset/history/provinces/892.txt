@@ -1,16 +1,13 @@
 owner = AZT
 controller = AZT
-add_core = AZT
-culture = aztek
-religion = nahuatl
-discovered_by = mesoamerican
-discovered_by = high_american
+add_core = AZTadd_core = WIC
+culture = wichita
+religion = totemism
+discovered_by = mesoamericanbase_tax = 10base_production = 3base_manpower = 8trade_goods = grain
+discovered_by = high_american
+discovered_by = north_american
+discovered_by = mesoamerican
+discovered_by = south_american
+discovered_by = andean
 citysize = 1000
-
-1444.11.11 = {
-	owner = AZT
-	controller = AZT
-	culture = aztek
-	religion = nahuatl
-}
 

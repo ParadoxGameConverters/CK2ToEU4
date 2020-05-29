@@ -1,6 +1,6 @@
 sudanese = {
 	daju = {
-		primary = KAM
+		primary = DAR
 		dynasty_names = { Wattara Toure Salim-Suwari Drame Saghanughu }
 	}
 }
@@ -13,7 +13,7 @@ sahelian = {
 }
 altaic = {
 	khitan = {
-		primary = KHA
+		primary = LIO
 		dynasty_names = { Genden Amar Tserendorj Tomorbaatar Damdinbazar Bodoo Sukhbaatar Jamyan Choibalsan Chagdarjav }
 	}
 }
@@ -43,7 +43,7 @@ british = {
 
 gaelic = {
 	pictish = {
-		primary = SCO
+		primary = HSC
 		dynasty_names = { "map Artcois" "map Bargoit" "map Buthud" "map Enfret" "map Eru" "map Gyrom" "map Lutrin" "map Mailcon" "map Munait" "map Taixali" "map Uleo" "map Wthoil" Circin Deoardivois Diuberr Erilich "Gaed Brechach" Gurthinmoch Ini Loc Morbet Necton Olgudach Smertae Tina Uecla Uip Vepogenus Wurgest }
 	}
 }
@@ -87,10 +87,10 @@ germanic = {
 		primary = ALS
 	}
 	sudeten = {
-		primary = GER
+		primary = BOH
 	}
 	frisian = {
-		primary = NED
+		primary = EFR
 		male_names = { 
 			Adolf Adriaan Alexander Andreas Antoon Andries Antonius Abraham
 			Barthout
@@ -147,7 +147,7 @@ germanic = {
 }
 iranian = {
 	sogdian = {
-		primary = KHO
+		primary = KOK
 	}
 	tocharian = {
 		primary = KAS
@@ -156,7 +156,7 @@ iranian = {
 		primary = KAS
 	}
 	tajik = { 
-		primary = PER
+		primary = TRS
 	}
 }
 latin = {
@@ -165,7 +165,7 @@ latin = {
 		dynasty_names = { "de Liguori" "della Rovere" "di Borbone di Parma" "di Robilant" "di Savoia" "di Savoia-Aosta" "La Màrmora" "Pacoret de Saint Bon" "Thaon di Revel" Albricci Anfora Baratieri Bava-Beccaris Bonaccorsi Cadorna Cagni Canevaro Caraga Caviglia Ceccherini Clary Colonna d'Absburgo-Toscana Dezza Diaz Filomarino Giardino Gironda Govone Gravina Lanza Lombardo Lunardi Molinelli Orengo Orsini Pecori-Giraldi Perruchetti Pianelli Pironti Porro Ramorino Ricotti-Magnani Sanna Scammacca Solari Torlonia Turrisi Vaccari Zunica }
 	}
 	dalmatian = {
-		primary = ITA
+		primary = MON
 		dynasty_names = { "de Liguori" "della Rovere" "di Borbone di Parma" "di Robilant" "di Savoia" "di Savoia-Aosta" "La Màrmora" "Pacoret de Saint Bon" "Thaon di Revel" Albricci Anfora Baratieri Bava-Beccaris Bonaccorsi Cadorna Cagni Canevaro Caraga Caviglia Ceccherini Clary Colonna d'Absburgo-Toscana Dezza Diaz Filomarino Giardino Gironda Govone Gravina Lanza Lombardo Lunardi Molinelli Orengo Orsini Pecori-Giraldi Perruchetti Pianelli Pironti Porro Ramorino Ricotti-Magnani Sanna Scammacca Solari Torlonia Turrisi Vaccari Zunica }
 	}
 }
@@ -182,16 +182,16 @@ french = {
 }
 oghuz = {
 	pecheneg = {
-		primary = KAZ
+		primary = GLH
 	}
 	cuman = {
-		primary = KAZ
+		primary = GLH
 	}
 	bolghar = {
-		primary = KAZ
+		primary = BUL
 	}
 	avar = {
-		primary = KAZ
+		primary = AVR
 	}
 	khazar = {
 		primary = KAZ
@@ -202,7 +202,7 @@ oghuz = {
 }
 scandinavian = {
 	norse = {
-		primary = DAN
+		primary = SCA
 		dynasty_names = { Arnórsson Ásgeirsson Benediktsson Bjarnasen Björnsson Eggers Eldjárn Hafstein Hansen
 		Hermannsson Johánesson Jónsson Magnússon Stefánsson Steinthosson Thórdarson Thórhallson Thorláksson Thurs }
 	}
@@ -217,7 +217,7 @@ east_slavic = {
 				Shuvalov Surkov Tukhachevskiy Yegorov Yudenich Vorontsov Voroshilov Zavoyko }
 	}
 	volhynian = {
-		primary = KIE
+		primary = VOL
 		dynasty_names = { Aleksseyev Antonov Azarov Badanov Brusilov Budonnyy Chibisov Denikin
 				Dragomirov Frolov Golivin Grishin Gurko Ivanov Konev Konstantinov Kornilov
 				Kolchak Kuropatkin Lazarev Makarov Men'shikov Nakhimov Nebogatov
@@ -241,7 +241,7 @@ east_slavic = {
 				Shuvalov Surkov Tukhachevskiy Yegorov Yudenich Vorontsov Voroshilov Zavoyko }
 	}
 	kishinyov = {
-		primary = RUS
+		primary = VOL
 		dynasty_names = { Aleksseyev Antonov Azarov Badanov Brusilov Budonnyy Chibisov Denikin
 				Dragomirov Frolov Golivin Grishin Gurko Ivanov Konev Konstantinov Kornilov
 				Kolchak Kuropatkin Lazarev Makarov Men'shikov Nakhimov Nebogatov
@@ -270,7 +270,7 @@ south_slavic = {
 
 burman = {
 	tangut = {
-		primary = KAM
+		primary = TAU
 		dynasty_names = { Dzasa Wangyal Shatra Lungshar Rinpoche Chöphel Shakabpa Tashi }
 	}
 	zhangzhung = {

@@ -94,8 +94,14 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 	// China
 	adjustChina(sourceWorld);
 
+	// Check for duplicate country names and rename accordingly
+	fixDuplicateNames();
+
 	// Siberia
 	siberianQuestion(theConfiguration);
+
+	// African Passes
+	africaQuestion();
 
 	// And finally, the Dump.
 	LOG(LogLevel::Info) << "---> The Dump <---";
@@ -163,6 +169,183 @@ void EU4::World::distributeClaims()
 	Log(LogLevel::Info) << "<> " << counter << " claims have been distributed.";
 }
 
+void EU4::World::fixDuplicateNames()
+{
+	Log(LogLevel::Info) << "-- Fixing Duplicate Names";
+	int numberNames = 0;
+
+	//Iterate through countries and assign their names as keywords. If a name appears more than once, add it to list of pointers
+	std::map<const std::string, std::vector<std::shared_ptr<EU4::Country>>> nameMap;
+	for (const auto& country : countries)
+	{
+		if (country.second->getLocalizations().find(country.first)->second.english.empty())
+			continue;
+		nameMap[country.second->getLocalizations().find(country.first)->second.english].emplace_back(country.second);
+	}
+		
+	// Now we iterate through all names and see how many have multiple pointers (i.e - How many names are taken up by more than 1 country?)
+	for (auto& tempNameMap: nameMap)
+	{
+		if (tempNameMap.second.size() > 1)
+		{
+			//Reorder countries in list by development (highest -> lowest)
+			std::sort(
+				tempNameMap.second.begin(),
+				tempNameMap.second.end(),
+				[](auto a, auto b) 
+				{ return a->getDevelopment() > b->getDevelopment(); }
+			);
+			//Now we name the countries based on their order
+			
+			bool isSecret = false;
+			mappers::LocBlock newBlock;
+			mappers::LocBlock oldBlock;
+			for (auto i = 0; i < tempNameMap.second.size(); i++)
+			{
+				bool dynastyNames = false;
+				oldBlock = countries.find(tempNameMap.second[i]->getTag())->second->getLocalizations().find(tempNameMap.second[i]->getTag())->second;
+				//Muslim check
+				if (countries.find(tempNameMap.second[i]->getTag())->second->getHasDynastyName())
+					dynastyNames = true;
+				if (oldBlock.english.find("Greater ") != std::string::npos || oldBlock.english.find("Lesser ") != std::string::npos)
+				{
+					if (i == 0)
+					{
+						oldBlock.english = oldBlock.english.erase(0, 9); // -Major
+						oldBlock.spanish = oldBlock.spanish.erase(0, 5); // -Gran
+						oldBlock.french = oldBlock.french.erase(0, 7); // -Grande
+						oldBlock.german = oldBlock.german.erase(0, 5); // -Groß
+
+						newBlock.english = oldBlock.english + " Major";
+						newBlock.spanish = oldBlock.spanish + " Maior";
+						newBlock.french = oldBlock.french + " Majeur";
+						newBlock.german = oldBlock.german + " Maior";
+						countries.find(tempNameMap.second[i]->getTag())->second->setLocalizations(newBlock);
+						numberNames++;
+						continue;
+					}
+					else if (i == 1)
+					{
+						oldBlock.english = oldBlock.english.erase(0, 7); // -Lesser
+						oldBlock.spanish = oldBlock.spanish.erase(0, 8); // -Pequeña
+						oldBlock.french = oldBlock.french.erase(0, 7);	 // -Petite
+						oldBlock.german = oldBlock.german.erase(0, 6);	 // -Klein
+
+						newBlock.english = oldBlock.english + " Minor";
+						newBlock.spanish = oldBlock.spanish + " Minor";
+						newBlock.french = oldBlock.french + " Mineur";
+						newBlock.german = oldBlock.german + " Minor";
+						countries.find(tempNameMap.second[i]->getTag())->second->setLocalizations(newBlock);
+						numberNames++;
+						continue;
+					}
+				}
+				else if(i == 0 && !dynastyNames)
+				{
+					newBlock.english = "Greater " + oldBlock.english;
+					newBlock.spanish = "Gran " + oldBlock.spanish;
+					newBlock.french = "Grande " + oldBlock.french;
+					newBlock.german = "Groß " + oldBlock.german;
+					countries.find(tempNameMap.second[i]->getTag())->second->setLocalizations(newBlock);
+					numberNames++;
+					continue;
+				}
+				else if(i == 1 && !dynastyNames)
+				{
+					newBlock.english = "Lesser " + oldBlock.english;
+					newBlock.spanish = "Pequeña " + oldBlock.spanish;
+					newBlock.french = "Petite " + oldBlock.french;
+					newBlock.german = "Klein " + oldBlock.german;
+					countries.find(tempNameMap.second[i]->getTag())->second->setLocalizations(newBlock);
+					numberNames++;
+					continue;
+				}
+				else if (dynastyNames)
+				{
+					if (i == 0)
+					{
+						isSecret = true; // This is so that the normal Third Country shenanigans does not happen here
+						continue;		 // The biggest Dynasty country gets to keep their name unchanged
+					}
+					else if (i == 1)
+					{
+						// Name gets put before its title, e.g - Ottoman Crimea
+						
+						newBlock.english = oldBlock.english + " " + countries.find(tempNameMap.second[i]->getTag())->second->getTitle().second->getDisplayName();
+						newBlock.spanish = oldBlock.spanish + " " + countries.find(tempNameMap.second[i]->getTag())->second->getTitle().second->getDisplayName();
+						newBlock.french = oldBlock.french + " " + countries.find(tempNameMap.second[i]->getTag())->second->getTitle().second->getDisplayName();
+						newBlock.german = oldBlock.german + " " + countries.find(tempNameMap.second[i]->getTag())->second->getTitle().second->getDisplayName();
+						countries.find(tempNameMap.second[i]->getTag())->second->setLocalizations(newBlock);
+						numberNames++;
+						continue;
+					}
+					else if (i > 1 && i != 3)
+					{
+						// Check to see if anyone already has your title's name
+						bool nameTaken = false;
+						bool anotherTitle = false;
+						for (auto tempNameMap2: nameMap)
+							if (tempNameMap2.first.compare(countries.find(tempNameMap.second[i]->getTag())->second->getTitle().second->getDisplayName()))
+								nameTaken = true;
+						// Just name the country after the title
+						if (!nameTaken)
+						{
+							newBlock.english = countries.find(tempNameMap.second[i]->getTag())->second->getTitle().second->getDisplayName();
+							newBlock.spanish = countries.find(tempNameMap.second[i]->getTag())->second->getTitle().second->getDisplayName();
+							newBlock.french = countries.find(tempNameMap.second[i]->getTag())->second->getTitle().second->getDisplayName();
+							newBlock.german = countries.find(tempNameMap.second[i]->getTag())->second->getTitle().second->getDisplayName();
+							countries.find(tempNameMap.second[i]->getTag())->second->setLocalizations(newBlock);
+							numberNames++;
+							continue;
+						}
+						// Alrighty then, you're going to be compared to the number of countries that have that title
+						else if (!anotherTitle)
+						{
+							newBlock.english = "Hinter " + countries.find(tempNameMap.second[i]->getTag())->second->getTitle().second->getDisplayName();
+							newBlock.spanish = "Hinter " + countries.find(tempNameMap.second[i]->getTag())->second->getTitle().second->getDisplayName();
+							newBlock.french = "Hinter " + countries.find(tempNameMap.second[i]->getTag())->second->getTitle().second->getDisplayName();
+							newBlock.german = "Hinter " + countries.find(tempNameMap.second[i]->getTag())->second->getTitle().second->getDisplayName();
+							countries.find(tempNameMap.second[i]->getTag())->second->setLocalizations(newBlock);
+							anotherTitle = true;
+							numberNames++;
+							continue;
+						}
+						else // This will repeat stuff if there are more than 5 countries that share a name, hopefully that will not be an issue
+						{
+							newBlock.english = "Further " + countries.find(tempNameMap.second[i]->getTag())->second->getTitle().second->getDisplayName();
+							newBlock.spanish = "Lejos " + countries.find(tempNameMap.second[i]->getTag())->second->getTitle().second->getDisplayName();
+							newBlock.french = "Plus " + countries.find(tempNameMap.second[i]->getTag())->second->getTitle().second->getDisplayName();
+							newBlock.german = "Ferner " + countries.find(tempNameMap.second[i]->getTag())->second->getTitle().second->getDisplayName();
+							countries.find(tempNameMap.second[i]->getTag())->second->setLocalizations(newBlock);
+							numberNames++;
+							continue;
+						}
+					}
+				}
+				if (!isSecret)
+				{
+					// This country's name stays (This will happen to the THIRD country that shares a name)
+					isSecret = true;
+					continue;
+				}
+				else if (isSecret) 
+				{
+					// The FOURTH country with the same name will be named secret.
+					newBlock.english = "Secret " + oldBlock.english;
+					newBlock.spanish = oldBlock.spanish + " Secreta";
+					newBlock.french = oldBlock.french + " Secrète";
+					newBlock.german = "Geheimnis " + oldBlock.german;
+					countries.find(tempNameMap.second[i]->getTag())->second->setLocalizations(newBlock);
+					numberNames++;
+					continue;
+				}
+			}
+		}
+	}
+
+	Log(LogLevel::Info) << ">< " << numberNames << " names unduplicated.";
+}
+
 void EU4::World::siberianQuestion(const Configuration& theConfiguration)
 {
 	Log(LogLevel::Info) << "-- Burning Siberia";
@@ -199,6 +382,33 @@ void EU4::World::siberianQuestion(const Configuration& theConfiguration)
 		++counter;
 	}
 	Log(LogLevel::Info) << "<> " << counter << " countries have been...";
+}
+
+void EU4::World::africaQuestion()
+{
+	Log(LogLevel::Info) << "-- Checking Africa";
+
+	// If a country has a province on both ends of the pass it stays, otherwise the pass is getting cleared
+	// Tuat Pass
+	if (provinces.find(1128)->second->getOwner() != provinces.find(2466)->second->getOwner() && provinces.find(1128)->second->getOwner() != provinces.find(2460)->second->getOwner())
+	{
+		provinces.find(1127)->second->sterilize();
+		Log(LogLevel::Info) << ">< Tuat Steralized";
+	}
+	// Djado-Tajhari Pass
+	if (provinces.find(2448)->second->getOwner() != provinces.find(2275)->second->getOwner() && provinces.find(2448)->second->getOwner() != provinces.find(2277)->second->getOwner())
+	{
+		provinces.find(2474)->second->sterilize();
+		provinces.find(2475)->second->sterilize();
+		Log(LogLevel::Info) << ">< Tuat Djado-Tajhari Steralized";
+	}
+	// Central Sahara (Only Waddai and Al-Junaynah)
+	if (provinces.find(1219)->second->getOwner() != provinces.find(2288)->second->getOwner() && provinces.find(1219)->second->getOwner() != provinces.find(1159)->second->getOwner())
+	{
+		provinces.find(774)->second->sterilize();
+		provinces.find(2932)->second->sterilize();
+		Log(LogLevel::Info) << ">< Central Sahara Steralized";
+	}
 }
 
 
@@ -380,7 +590,7 @@ void EU4::World::adjustChina(const CK2::World& sourceWorld)
 void EU4::World::fixTengri()
 {
 	// We need to convert all unmapped EU4 Tengri provinces to Old Tengri (Unreformed)
-	Log(LogLevel::Info) << "<> Checking for Reformed Tengri";
+	Log(LogLevel::Info) << "-- Checking for Reformed Tengri";
 	for (const auto& province: provinces)
 	{
 		if (!province.second->getSourceProvince())
@@ -401,7 +611,7 @@ void EU4::World::fixTengri()
 			}
 		}
 	}
-	Log(LogLevel::Info) << "-- Tengri successfully unreformed";
+	Log(LogLevel::Info) << ">< Tengri successfully unreformed";
 }
 
 void EU4::World::verifyCapitals()
@@ -852,6 +1062,12 @@ void EU4::World::linkProvincesToCountries()
 			Log(LogLevel::Warning) << "Province " << province.first << " owner " << province.second->getOwner() << " has no country!";
 		}
 	}
+
+	//1210 - Dawaro needs to be given to Adal (Since Ethiopia could be a country)
+	provinces.find(1210)->second->sterilize();
+	provinces.find(1210)->second->addCore("ADA");
+	provinces.find(1210)->second->setOwner("ADA");
+	provinces.find(1210)->second->setController("ADA");
 }
 
 template <typename KeyType, typename ValueType> std::pair<KeyType, ValueType> get_max(const std::map<KeyType, ValueType>& x)

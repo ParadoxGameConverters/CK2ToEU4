@@ -1,0 +1,88 @@
+########################################
+# Events for Religious Reforms system
+#
+# written by Martin Anward
+########################################
+
+# CK2-EU4 CONVERSION, WE DELETED THESE FOR THE SUNSET INVASION
+# This file should only appear of you turned Sunset Invasion ON,
+# if you did not, please report this immediately.
+
+namespace = religious_reforms
+
+# Nahuatl reform
+country_event = {
+	id = religious_reforms.1
+	title = religious_reforms.1.t
+	desc = religious_reforms.1.d
+	picture = ANGRY_MOB_eventPicture
+	hidden = yes
+
+	is_triggered_only = yes
+	
+	trigger = {
+		has_dlc = "El Dorado"
+		religion = nahuatl
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = religious_reforms.1.a
+	}
+}
+
+# Inti reform
+country_event = {
+	id = religious_reforms.2
+	title = religious_reforms.2.t
+	desc = religious_reforms.2.d
+	picture = CIVIL_WAR_eventPicture
+	hidden = yes
+
+	is_triggered_only = yes
+	
+	trigger = {
+		has_dlc = "El Dorado"
+		religion = inti
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+	}	
+	
+	option = {
+		name = religious_reforms.2.a	
+	}
+}
+
+# Mayan reform
+country_event = {
+	id = religious_reforms.3
+	title = religious_reforms.3.t
+	desc = religious_reforms.3.d
+	picture = ANGRY_MOB_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		has_dlc = "El Dorado"
+		religion = mesoamerican_religion
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+	}
+	
+	option = {
+		name = religious_reforms.1.a
+	}
+}

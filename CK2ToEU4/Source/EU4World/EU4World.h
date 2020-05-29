@@ -67,6 +67,8 @@ class World
 	void distributeClaims();
 	void scrapeColors(const Configuration& theConfiguration, const CK2::World& sourceWorld);
 	void assignAllCountryReforms(const CK2::World& sourceWorld);
+	void africaQuestion();
+	void fixDuplicateNames();
 
 	[[nodiscard]] std::optional<std::pair<int, std::shared_ptr<CK2::Province>>> determineProvinceSource(const std::vector<int>& ck2ProvinceNumbers,
 		 const CK2::World& sourceWorld) const;

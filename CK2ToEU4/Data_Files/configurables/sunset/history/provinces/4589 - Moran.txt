@@ -1,10 +1,15 @@
 owner = AZT
 controller = AZT
 add_core = AZT
-culture = aztek
+add_core = ITZ
+culture = putun
 religion = nahuatl
 discovered_by = mesoamerican
 discovered_by = high_american
+discovered_by = north_american
+discovered_by = mesoamerican
+discovered_by = south_american
+discovered_by = andean
 capital = "Moran"
 trade_goods = cocoa
 hre = no

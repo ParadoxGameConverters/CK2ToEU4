@@ -1,14 +1,11 @@
 owner = CRE
 controller = CRE
-add_core = CRE
+add_core = CREadd_core = ARW
 culture = creek
-religion = totemism
-discovered_by = high_american
-citysize = 1000
-1444.11.11 = {
-	owner = CRE
-	controller = CRE
-	culture = creek
-	religion = totemism
-}
-
+religion = totemismbase_tax = 3base_production = 1base_manpower = 2trade_goods = fish
+discovered_by = high_american
+discovered_by = north_american
+discovered_by = mesoamerican
+discovered_by = south_american
+discovered_by = andean
+citysize = 1000

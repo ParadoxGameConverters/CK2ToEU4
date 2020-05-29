@@ -1,14 +1,12 @@
 owner = CRE
 controller = CRE
-add_core = CRE
-culture = creek
+add_core = CREadd_core = CAB
+culture = carib
 religion = totemism
-discovered_by = high_american
+discovered_by = high_american
+discovered_by = north_american
+discovered_by = mesoamerican
+discovered_by = south_american
+discovered_by = andean
 citysize = 1000
-1444.11.11 = {
-	owner = CRE
-	controller = CRE
-	culture = creek
-	religion = totemism
-}
 

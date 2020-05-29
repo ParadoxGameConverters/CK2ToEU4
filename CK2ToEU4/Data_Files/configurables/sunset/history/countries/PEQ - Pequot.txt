@@ -1,0 +1,18 @@
+government = monarchy
+add_government_reform = autocracy_reform
+mercantilism = 0.1
+primary_culture = pequot
+religion = totemism
+technology_group = north_american
+capital = 2010 # Connecticut
+
+
+1444.11.11 = {
+	monarch = {
+		name = "Sassious"
+		dynasty = "Shenecosset"
+		adm = 3
+		dip = 4
+		mil = 2
+	}
+}

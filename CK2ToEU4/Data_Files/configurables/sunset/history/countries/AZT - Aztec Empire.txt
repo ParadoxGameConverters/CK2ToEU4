@@ -15,6 +15,18 @@ technology_group = high_american
 capital = 852	# Mexico
 historical_rival = INC
 
+1443.1.1 = { 
+	leader = {	
+		name = "Tlotzin Xocoyol"	
+		type = explorer	
+		fire = 2
+		shock = 2
+		manuever = 4
+		siege = 6
+		death_date = 1462.12.31
+	}
+}
+
 1391.1.1 = {
 	monarch = {
 		name = "Huitzilihuitl"

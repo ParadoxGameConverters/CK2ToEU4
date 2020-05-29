@@ -1,2 +1,3 @@
 discovered_by = AZT
+discovered_by = INC
 discovered_by = MAY

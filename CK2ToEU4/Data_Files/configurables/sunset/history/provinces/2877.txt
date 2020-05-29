@@ -1,17 +1,11 @@
 owner = INC
 controller = INC
 add_core = INC
-culture = inca
-religion = inti
-discovered_by = high_american
-discovered_by = mesoamerican
+culture = huarpe
+religion = animismbase_tax = 3base_production = 10base_manpower = 9trade_goods = copper
+discovered_by = high_american
+discovered_by = north_american
+discovered_by = mesoamerican
+discovered_by = south_american
 discovered_by = andean
-citysize = 1000
-
-1444.11.11 = {
-	owner = INC
-	controller = INC
-	culture = inca
-	religion = inti
-}
-
+citysize = 1000

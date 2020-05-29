@@ -49,6 +49,18 @@ historical_rival = AZT
 	}
 }
 
+1443.1.1 = { 
+	leader = {	
+		name = "Yamqui Mayta Apo"	
+		type = explorer	
+		fire = 3
+		shock = 3
+		manuever = 6
+		siege = 0
+		death_date = 1470.10.15
+	}
+}
+
 1445.1.1 = {
 	heir = {
 		name = "Tupac-Yupanqui"

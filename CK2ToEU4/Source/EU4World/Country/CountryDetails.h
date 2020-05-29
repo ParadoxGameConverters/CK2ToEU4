@@ -59,6 +59,7 @@ class CountryDetails: commonItems::parser
 	bool rightToBEARArms = false;
 	bool loan = false;
 	bool excommunicated = false;
+	bool hasDynastyName = false; // Country name comes from dynasty rather than Title. (Ottomans, Seljuks, Abbasids, etc.)
 	int addTreasury = 0;
 	int addPrestige = 0;
 	int dynastyID = 0;

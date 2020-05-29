@@ -1,7 +1,11 @@
 owner = IRO
 controller = IRO
 add_core = IRO
-discovered_by = high_american
+discovered_by = high_american
+discovered_by = north_american
+discovered_by = mesoamerican
+discovered_by = south_american
+discovered_by = andean
 citysize = 1000
 
 1444.11.11 = {
