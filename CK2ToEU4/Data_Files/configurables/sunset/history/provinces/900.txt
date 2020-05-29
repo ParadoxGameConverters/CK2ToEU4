@@ -1,15 +1,15 @@
-owner = OSA
-controller = OSA
-add_core = OSA
+owner = OSA
+controller = OSA
+add_core = OSA
 discovered_by = high_american
 discovered_by = north_american
 discovered_by = mesoamerican
 discovered_by = south_american
-discovered_by = andean
-citysize = 1000
-
-1444.11.11 = {
-	owner = OSA
-	controller = OSA
-}
+discovered_by = andean
+citysize = 1000
+
+1444.11.11 = {
+	owner = OSA
+	controller = OSA
+}
 

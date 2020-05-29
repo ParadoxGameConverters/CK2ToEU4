@@ -1,15 +1,15 @@
-owner = POT
-controller = POT
-add_core = POT
+owner = POT
+controller = POT
+add_core = POT
 discovered_by = high_american
 discovered_by = north_american
 discovered_by = mesoamerican
 discovered_by = south_american
-discovered_by = andean
-citysize = 1000
-
-1444.11.11 = {
-	owner = POT
-	controller = POT
-}
+discovered_by = andean
+citysize = 1000
+
+1444.11.11 = {
+	owner = POT
+	controller = POT
+}
 

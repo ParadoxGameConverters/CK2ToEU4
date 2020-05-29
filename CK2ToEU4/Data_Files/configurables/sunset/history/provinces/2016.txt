@@ -1,15 +1,15 @@
-owner = ASI
-controller = ASI
-add_core = ASI
+owner = ASI
+controller = ASI
+add_core = ASI
 discovered_by = high_american
 discovered_by = north_american
 discovered_by = mesoamerican
 discovered_by = south_american
-discovered_by = andean
-citysize = 1000
-
-1444.11.11 = {
-	owner = ASI
-	controller = ASI
-}
+discovered_by = andean
+citysize = 1000
+
+1444.11.11 = {
+	owner = ASI
+	controller = ASI
+}
 

@@ -170,7 +170,7 @@ historical_rival = INC
 		adm = 5
 		dip = 3
 		mil = 6
-		leader = {	name = "Ahuitzotl"             	type = general	rank = 0	fire = 3	shock = 5	manuever = 3	siege = 0}
+		leader = {	name = "Ahuitzotl"             	type = general	fire = 3	shock = 5	manuever = 3	siege = 0}
 	}
 }
 		
@@ -181,7 +181,7 @@ historical_rival = INC
 		adm = 5
 		dip = 3
 		mil = 6
-		leader = {	name = "Ahuitzotl"             	type = general	rank = 0	fire = 3	shock = 5	manuever = 3	siege = 0}
+		leader = {	name = "Ahuitzotl"             	type = general	fire = 3	shock = 5	manuever = 3	siege = 0}
 	}
 }
 
@@ -196,7 +196,7 @@ historical_rival = INC
 		adm = 2
 		dip = 0
 		mil = 0
-		leader = {	name = "Moctezuma II"          	type = general	rank = 0	fire = 2	shock = 3	manuever = 2	siege = 0}
+		leader = {	name = "Moctezuma II"          	type = general	fire = 2	shock = 3	manuever = 2	siege = 0}
 	}
 }
 		
@@ -207,7 +207,7 @@ historical_rival = INC
 		adm = 2
 		dip = 0
 		mil = 0
-		leader = {	name = "Moctezuma II"          	type = general	rank = 0	fire = 2	shock = 3	manuever = 2	siege = 0}
+		leader = {	name = "Moctezuma II"          	type = general	fire = 2	shock = 3	manuever = 2	siege = 0}
 	}
 }
 

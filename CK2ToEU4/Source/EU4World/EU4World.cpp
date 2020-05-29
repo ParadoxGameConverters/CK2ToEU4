@@ -390,24 +390,35 @@ void EU4::World::africaQuestion()
 
 	// If a country has a province on both ends of the pass it stays, otherwise the pass is getting cleared
 	// Tuat Pass
-	if (provinces.find(1128)->second->getOwner() != provinces.find(2466)->second->getOwner() && provinces.find(1128)->second->getOwner() != provinces.find(2460)->second->getOwner())
+	if (provinces.find(1128)->second != NULL && provinces.find(2466)->second != NULL && provinces.find(2460)->second != NULL)
 	{
-		provinces.find(1127)->second->sterilize();
-		Log(LogLevel::Info) << ">< Tuat Steralized";
+		if (provinces.find(1128)->second->getOwner() != provinces.find(2466)->second->getOwner() && provinces.find(1128)->second->getOwner() != provinces.find(2460)->second->getOwner())
+		{
+			provinces.find(1127)->second->sterilize();
+			Log(LogLevel::Info) << ">< Tuat Steralized";
+		}
 	}
 	// Djado-Tajhari Pass
-	if (provinces.find(2448)->second->getOwner() != provinces.find(2275)->second->getOwner() && provinces.find(2448)->second->getOwner() != provinces.find(2277)->second->getOwner())
+	if (provinces.find(2448)->second != NULL && provinces.find(2275)->second != NULL && provinces.find(2277)->second != NULL)
 	{
-		provinces.find(2474)->second->sterilize();
-		provinces.find(2475)->second->sterilize();
-		Log(LogLevel::Info) << ">< Tuat Djado-Tajhari Steralized";
+		if (provinces.find(2448)->second->getOwner() != provinces.find(2275)->second->getOwner() && provinces.find(2448)->second->getOwner() != provinces.find(2277)->second->getOwner())
+		{
+			provinces.find(2474)->second->sterilize();
+			provinces.find(2475)->second->sterilize();
+			Log(LogLevel::Info) << ">< Tuat Djado-Tajhari Steralized";
+		}
 	}
 	// Central Sahara (Only Waddai and Al-Junaynah)
-	if (provinces.find(1219)->second->getOwner() != provinces.find(2288)->second->getOwner() && provinces.find(1219)->second->getOwner() != provinces.find(1159)->second->getOwner())
+	if (provinces.find(1219)->second != NULL && provinces.find(2288)->second != NULL && provinces.find(1159)->second != NULL)
 	{
-		provinces.find(774)->second->sterilize();
-		provinces.find(2932)->second->sterilize();
-		Log(LogLevel::Info) << ">< Central Sahara Steralized";
+		if (provinces.find(1219)->second->getOwner() != provinces.find(2288)->second->getOwner() && provinces.find(1219)->second->getOwner() != provinces.find(1159)->second->getOwner()
+			&& !provinces.find(1219)->second->getOwner().compare("Waddai") && !provinces.find(2288)->second->getOwner().compare("Waddai") &&  
+			!provinces.find(1159)->second->getOwner().compare("Waddai")) // Not half-Bad chance they'll be a Waddai Duchy, let's try not to steralize a duchy's namesake province.
+		{
+			provinces.find(774)->second->sterilize();
+			provinces.find(2932)->second->sterilize();
+			Log(LogLevel::Info) << ">< Central Sahara Steralized";
+		}
 	}
 }
 

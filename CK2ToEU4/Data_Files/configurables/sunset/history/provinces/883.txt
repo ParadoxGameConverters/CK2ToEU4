@@ -1,13 +1,13 @@
-owner = AZT
-controller = AZT
-add_core = AZTadd_core = LIP
-culture = lipan
-religion = nahuatl
-discovered_by = mesoamericanbase_tax = 7base_production = 2base_manpower = 5trade_goods = grain
+owner = AZT
+controller = AZT
+add_core = AZTadd_core = LIP
+culture = lipan
+religion = nahuatl
+discovered_by = mesoamericanbase_tax = 7base_production = 2base_manpower = 5trade_goods = grain
 discovered_by = high_american
 discovered_by = north_american
 discovered_by = mesoamerican
 discovered_by = south_american
-discovered_by = andean
-citysize = 1000
+discovered_by = andean
+citysize = 1000
 

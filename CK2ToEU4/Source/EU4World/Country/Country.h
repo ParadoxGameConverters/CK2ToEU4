@@ -80,7 +80,6 @@ class Country
 	void setGovernment(const std::string& government) { details.government = government; }
 	void setElector() { details.elector = true; }
 	void setTechGroup(const std::string& tech) { details.technologyGroup = tech; }
-	void setTitle(const std::string& newTitle) { title.first = newTitle; }
 	void setGFX(const std::string& gfx) { details.graphicalCulture = gfx; }
 	void clearProvinces() { provinces.clear(); }
 	void annexCountry(const std::pair<std::string, std::shared_ptr<Country>>& theCountry);
