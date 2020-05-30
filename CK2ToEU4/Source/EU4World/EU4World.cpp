@@ -197,7 +197,11 @@ void EU4::World::siberianQuestion(const Configuration& theConfiguration)
 	}
 
 	auto counter = 0;
-	// We're deleting all tags with capitals in siberia at nomad or tribal level.
+
+	// We're deleting all tags with:
+	// * capital is in Siberia
+	// * nomad or tribal level
+	// * no more than 5 provinces
 	for (const auto& country: countries)
 	{
 		if (country.second->getGovernment() != "nomad" && country.second->getGovernment() != "tribal")
@@ -211,6 +215,8 @@ void EU4::World::siberianQuestion(const Configuration& theConfiguration)
 			continue;
 		if (region != "west_siberia_region" && region != "east_siberia_region")
 			continue;
+		if (country.second->getProvinces().size() > 5)
+			continue;
 
 		// All checks done. Let's get deleting.
 		for (const auto& province: country.second->getProvinces())
@@ -222,7 +228,7 @@ void EU4::World::siberianQuestion(const Configuration& theConfiguration)
 		diplomacy.deleteAgreementsWithTag(country.first);
 		++counter;
 	}
-	Log(LogLevel::Info) << "<> " << counter << " countries have been...";
+	Log(LogLevel::Info) << "<> " << counter << " Siberian countries have been removed";
 }
 
 
