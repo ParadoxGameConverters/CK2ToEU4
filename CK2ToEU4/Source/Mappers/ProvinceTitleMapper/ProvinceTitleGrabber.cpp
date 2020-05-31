@@ -12,9 +12,14 @@ mappers::ProvinceTitleGrabber::ProvinceTitleGrabber(const std::string& provinceP
 	clearRegisteredKeywords();
 
 	const auto path = trimPath(provincePath);
-	const auto minusPosition = path.find(" - ");
-	const auto idString = path.substr(0, minusPosition);
-	provID = std::stoi(idString);
+	try
+	{
+		provID = std::stoi(path);
+	}
+	catch (std::exception& e)
+	{
+		Log(LogLevel::Warning) << "Province filename " << provincePath << " is not a valid name, skipping this province: " << e.what();
+	}
 }
 
 void mappers::ProvinceTitleGrabber::registerKeys()
