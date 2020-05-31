@@ -121,7 +121,7 @@ const std::string& CK2::Character::getReligion() const
 	// The CK2 save omits the character religion in the case where the character religion matches the dynasty religion.
 	if (religion.empty() && dynasty.second)
 	{
-		const std::string& dynastyReligion = dynasty.second->getReligion();
+		const auto& dynastyReligion = dynasty.second->getReligion();
 		if (!dynastyReligion.empty())
 			return dynastyReligion;
 	}
