@@ -65,8 +65,8 @@ void CK2::Dynasty::registerUnderKeys()
 
 const std::string& CK2::Dynasty::getReligion() const
 {
-	if (!religion.empty())
-		return religion;
+	// CK2 seems to prefer the dynasty religion in the coat_of_arms section. As such we only
+	// fall back to the nominal dynasty religion if there's no religion in the coat_of_arms section.
 	if (!coa.getReligion().empty())
 		return coa.getReligion();
 	return religion;
