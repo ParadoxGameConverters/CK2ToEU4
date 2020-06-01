@@ -267,6 +267,7 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 		newblock.french = dynastyName;
 		newblock.german = dynastyName;
 		localizations.insert(std::pair(tag, newblock));
+		dynastyFlag = true;
 		nameSet = true;
 	}
 	if (!nameSet && !title.second->getDisplayName().empty())

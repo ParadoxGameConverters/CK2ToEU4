@@ -13,7 +13,7 @@ void EU4::World::output(const mappers::VersionParser& versionParser, const Confi
 	const auto invasion = sourceWorld.isInvasion();
 	const date conversionDate = sourceWorld.getConversionDate();
 	LOG(LogLevel::Info) << "<- Creating Output Folder";
-	
+
 	Utils::TryCreateFolder("output");
 	if (Utils::DoesFolderExist("output/" + theConfiguration.getOutputName()))
 	{
@@ -154,7 +154,8 @@ void EU4::World::outputFlags(const Configuration& theConfiguration, const CK2::W
 	for (const auto& country: countries)
 	{
 		// first check is for dynasty and override flags.
-		if (country.second->getDynastyID() && Utils::DoesFileExist("configurables/dynastyflags/" + std::to_string(country.second->getDynastyID()) + ".tga"))
+		if (country.second->useDynastyFlag() && country.second->getDynastyID() &&
+			 Utils::DoesFileExist("configurables/dynastyflags/" + std::to_string(country.second->getDynastyID()) + ".tga"))
 		{
 			Utils::TryCopyFile("configurables/dynastyflags/" + std::to_string(country.second->getDynastyID()) + ".tga",
 				 "output/" + theConfiguration.getOutputName() + "/gfx/flags/" + country.first + ".tga");
