@@ -66,6 +66,7 @@ class Country
 	[[nodiscard]] auto isinHRE() const { return details.inHRE; }
 	[[nodiscard]] auto getCapitalID() const { return details.capital; }
 	[[nodiscard]] auto getDynastyID() const { return details.dynastyID; }
+	[[nodiscard]] auto useDynastyFlag() const { return dynastyFlag; }
 
 	[[nodiscard]] int getDevelopment() const;
 
@@ -97,6 +98,7 @@ class Country
 	std::string historyCountryFile;
 	date conversionDate; // for dating the monarchs in history file.
 	CountryDetails details;
+	bool dynastyFlag = false; // Should the converter try to use a dynasty flag (if one is available)?
 
 	std::pair<std::string, std::shared_ptr<CK2::Title>> title;
 	std::map<std::string, mappers::LocBlock> localizations;
