@@ -332,7 +332,7 @@ void EU4::World::fixDuplicateNames()
 					isSecret = true;
 					continue;
 				}
-				else if (isSecret) 
+				else
 				{
 					// The FOURTH country with the same name will be named secret.
 					newBlock.english = "Secret " + oldBlock.english;
