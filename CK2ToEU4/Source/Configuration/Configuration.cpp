@@ -13,6 +13,7 @@ Configuration::Configuration()
 	setOutputName();
 	verifyCK2Path();
 	verifyEU4Path();
+	Log(LogLevel::Progress) << "3 %";
 }
 
 Configuration::Configuration(std::istream& theStream)

@@ -118,10 +118,14 @@ bool CK2::Character::hasTrait(const std::string& wantedTrait) const
 
 const std::string& CK2::Character::getReligion() const
 {
-	if (!religion.empty())
-		return religion;
-	if (dynasty.first && !dynasty.second->getReligion().empty())
-		return dynasty.second->getReligion();
+	// The CK2 save omits the character religion in the case where the character religion matches the dynasty religion.
+	if (religion.empty() && dynasty.second)
+	{
+		const auto& dynastyReligion = dynasty.second->getReligion();
+		if (!dynastyReligion.empty())
+			return dynastyReligion;
+	}
+
 	return religion;
 }
 
@@ -129,7 +133,7 @@ const std::string& CK2::Character::getCulture() const
 {
 	if (!culture.empty())
 		return culture;
-	if (dynasty.first && !dynasty.second->getCulture().empty())
+	if (dynasty.second && !dynasty.second->getCulture().empty())
 		return dynasty.second->getCulture();
 	return culture;
 }

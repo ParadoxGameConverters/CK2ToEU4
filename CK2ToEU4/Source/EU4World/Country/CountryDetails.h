@@ -9,7 +9,7 @@
 namespace EU4
 {
 
-typedef struct
+typedef struct Character
 {
 	bool isSet = false;
 	bool regency = false;

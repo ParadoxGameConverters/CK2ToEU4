@@ -93,7 +93,7 @@ void CK2::Mods::loadCK2ModDirectory(const Configuration& theConfiguration)
 					}
 
 					possibleCompressedMods.insert(std::make_pair(theMod.getName(), recordDirectory));
-					Log(LogLevel::Info) << "\t\tFound a compessed mod named " << theMod.getName() << " with a mod file at "
+					Log(LogLevel::Info) << "\t\tFound a compressed mod named " << theMod.getName() << " with a mod file at "
 											  << CK2ModsPath << "/" << filename << " and itself at " << recordDirectory;
 				}
 			}
@@ -167,7 +167,7 @@ bool CK2::Mods::extractZip(const std::string& archive, const std::string& path) 
 		return false;
 	for (size_t entryNum = 0; entryNum < modfile->GetEntriesCount(); ++entryNum)
 	{
-		const auto& entry = modfile->GetEntry(entryNum);
+		const auto& entry = modfile->GetEntry(static_cast<int>(entryNum));
 		const auto& inpath = entry->GetFullName();
 		const auto& name = entry->GetName();
 		if (entry->IsDirectory())
