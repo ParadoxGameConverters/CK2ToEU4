@@ -1,15 +1,11 @@
 owner = AZT
 
-
 controller = AZT
-
 
 add_core = AZT
 add_core = YOK
 
-
 culture = chontales
-
 
 religion = nahuatl
 
@@ -19,7 +15,6 @@ base_manpower = 1
 
 trade_goods = cocoa
 
-
 discovered_by = mesoamerican
 discovered_by = high_american
 discovered_by = north_american
@@ -27,8 +22,6 @@ discovered_by = mesoamerican
 discovered_by = south_american
 discovered_by = andean
 
-
 citysize = 1000
-
 
 

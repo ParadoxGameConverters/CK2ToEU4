@@ -3,8 +3,8 @@ add_government_reform = autocracy_reform
 mercantilism = 0.1
 primary_culture = iroquois
 religion = totemism
-technology_group = north_american
-capital = 971	# Abnaki
+technology_group = high_american
+capital = 970	# Merrimack
 
 
 1444.11.11 = {

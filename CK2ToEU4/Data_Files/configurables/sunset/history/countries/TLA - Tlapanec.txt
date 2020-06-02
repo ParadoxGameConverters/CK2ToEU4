@@ -1,13 +1,10 @@
 government = tribal
 add_government_reform = tribal_kingdom
 government_rank = 1
-technology_group = mesoamerican
+technology_group = high_american
 religion = nahuatl
 primary_culture = tlapanec
 capital = 849
-add_adm_tech = 2
-add_dip_tech = 2
-add_mil_tech = 2
 
 1440.1.1 =
 {monarch ={name ="Jituh Zniá"

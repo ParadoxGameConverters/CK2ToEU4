@@ -64,6 +64,7 @@ class Country
 	[[nodiscard]] auto isExcommunicated() const { return details.excommunicated; }
 	[[nodiscard]] auto isHREEmperor() const { return details.holyRomanEmperor; }
 	[[nodiscard]] auto isinHRE() const { return details.inHRE; }
+	[[nodiscard]] auto isSunsetCountry() const { return details.isSunsetCountry; }
 	[[nodiscard]] auto getCapitalID() const { return details.capital; }
 	[[nodiscard]] auto getDynastyID() const { return details.dynastyID; }
 	[[nodiscard]] auto getHasDynastyName() const { return details.hasDynastyName; }
@@ -72,12 +73,13 @@ class Country
 
 	bool verifyCapital(const mappers::ProvinceMapper& provinceMapper);
 
-	void registerProvince(std::pair<int, std::shared_ptr<Province>> theProvince) { provinces.insert(std::move(theProvince)); }
+	void registerProvince(std::pair<int, std::shared_ptr<Province>> theProvince) { provinces.insert(std::move(theProvince)); }	
 	void setPrimaryCulture(const std::string& culture);
 	void setMajorityReligion(const std::string& religion);
 	void setReligion(const std::string& religion);
 	void overrideReforms(const std::string& reform) { details.reforms = {reform}; }
 	void setGovernment(const std::string& government) { details.government = government; }
+	void setSunsetCountry(bool isSunsetCountry) { details.isSunsetCountry = isSunsetCountry; }
 	void setElector() { details.elector = true; }
 	void setTechGroup(const std::string& tech) { details.technologyGroup = tech; }
 	void setGFX(const std::string& gfx) { details.graphicalCulture = gfx; }

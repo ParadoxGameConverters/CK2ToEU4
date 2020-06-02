@@ -66,6 +66,20 @@ aridoamerican = {
 	}
 	
 }
+central_algonquian = {
+	mesquakie = {
+		primary = POT
+		dynasty_names = {
+			Winewak Karakuntie Moyese Plante Wanyandie Aseniwuche
+		}
+		male_names = {
+			Nîshwi Nethwi Nyêwi Nyânanwi Neniwa Ihkwêwa Anemôha Kîshethwa Tepehkî-Kîshethwa   
+		}
+		female_names = {
+			Nepi Wâpeshk Athâw Meshkw Mahkatêw Mîchiwa Wâpatamwa Ehtamwa Nakamowa Nâkwêwa
+		}
+	}
+}
 chibchan = {
 	miskito = {
 		primary = MIS
@@ -79,6 +93,24 @@ chibchan = {
 		}
 		female_names = {
 			Axomamma Cavillaca Chia China Kantuta Nina Ana Maiara
+		}
+	}
+}
+eastern_algonquian = {
+	mahican = {
+		primary = MAH
+		dynasty_names = {
+			Muhhcanneuw Mehckentowoon Wawyachtonoc Westenhuck Wiekagjoc Shecomeco Wechquadnach Pamperaug Bantam Weataug 
+			Scaticook Mahaiwe Wikwajek Chaghnet Horikan Kaunaumeek Kenuckpacook Maringoman Monemius Nepaug Paanpaack Peantam 
+			Potick Potie Shodac Shakehook Unawat Wechquadnach Wequadnack Wiatiae Winooskeek Wyeck
+		}
+		male_names = {
+			Maumauntissekun Shabash Wassamapah Uncas Chingachgook Etowohkoam Aupamut Konkapot Quinney Skicket Chemaucum Thebeant 
+			Kithteeleland Lapahnihe Apacahund Netahopuna Tunis Caghkoo Petchenanalas Quenaghtoothmait Pooshies Nanotetauxien 
+			Sarcoxey Neconhecond Kockkatowha
+		}
+		female_names = {
+			Awashonks Djitsbudnaca Weetamoo Wootonekanuske
 		}
 	}
 }
@@ -106,6 +138,20 @@ maya = {
 		}
 		female_names = {
 			Sacnite Adsila Aiyana Ayasha Ayita Bly Dena Halona Kimi Magena Nayeli Kisa Eme
+		}
+	}
+}
+penutian = {
+	yokuts = {
+		primary = YKT
+		dynasty_names = {
+			Wishram Wasco Atfalati Yamel Lakmiut Chepenafa Santiam Chelamela Calapooya Yoncalla
+		}
+		male_names = {
+			Comcomly Tumulth Napesa Injice Tasyah Nessick Etnama Cheenlenten Nasyah Absaquil Quintioosan Talsapeer 
+		}
+		female_names = {
+			Elvamox Ethete Natane Bly Dae Cocheta Ekta Ela Elina Ila Imala Inayat Kushala Kusuma Liluye Lipika Lolaksi 
 		}
 	}
 }

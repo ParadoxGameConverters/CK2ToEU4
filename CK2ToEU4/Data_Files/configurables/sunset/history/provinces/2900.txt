@@ -1,14 +1,10 @@
 owner = INC
 
-
 controller = INC
-
 
 add_core = INC
 
-
 culture = maipurean
-
 
 religion = animism
 
@@ -18,19 +14,15 @@ base_manpower = 1
 
 trade_goods = cocoa
 
-
 discovered_by = high_american
 discovered_by = north_american
 discovered_by = mesoamerican
 discovered_by = south_american
 discovered_by = andean
 
-
 discovered_by = mesoamerican
 
-
 discovered_by = andean
-
 
 citysize = 1000
 

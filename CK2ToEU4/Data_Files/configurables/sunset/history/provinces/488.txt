@@ -1,19 +1,25 @@
-owner = MAY
-controller = MAY
-add_core = MAY
-culture = mayan
-religion = mesoamerican_religion
+owner = MAY
+
+controller = MAY
+
+add_core = MAY
+
+culture = mayan
+
+religion = mesoamerican_religion
+
+base_tax = 10
+base_production = 10
+base_manpower = 10
+
+trade_goods = sugar
+
 discovered_by = high_american
 discovered_by = north_american
 discovered_by = mesoamerican
 discovered_by = south_american
-discovered_by = andean
-discovered_by = mesoamerican
-citysize = 1000
-
-1444.11.11 = {
-	owner = MAY
-	controller = MAY
-	culture = mayan
-	religion = mesoamerican_religion
-}
+discovered_by = andean
+
+citysize = 1000
+
+center_of_trade = 3

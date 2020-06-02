@@ -29,7 +29,6 @@ class World
 {
   public:
 	World(const CK2::World& sourceWorld, const Configuration& theConfiguration, const mappers::VersionParser& versionParser);
-
   private:
 	// void loadRegions(const Configuration& theConfiguration); waiting on geography.
 	void importVanillaCountries(const std::string& eu4Path, bool invasion);
@@ -44,6 +43,7 @@ class World
 	void outputCommonCountriesFile(const Configuration& theConfiguration) const;
 	void outputHistoryCountries(const Configuration& theConfiguration) const;
 	void outputHistoryProvinces(const Configuration& theConfiguration) const;
+	void outputInvasionExtras(const Configuration& theConfiguration, bool invasion) const;
 	void outputCommonCountries(const Configuration& theConfiguration) const;
 	void outputLocalization(const Configuration& theConfiguration, bool invasion) const;
 	void verifyReligionsAndCultures();

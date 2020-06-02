@@ -97,6 +97,10 @@ void EU4::ProvinceDetails::registerKeys()
 		const commonItems::singleString claimStr(theStream);
 		claims.insert(claimStr.getString());
 	});
+	registerKeyword("add_permanent_claim", [this](const std::string& unused, std::istream& theStream) {
+		const commonItems::singleString claimStr(theStream);
+		permanentClaims.insert(claimStr.getString());
+	});
 	registerKeyword("discovered_by", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleString discoveredStr(theStream);
 		discoveredBy.insert(discoveredStr.getString());

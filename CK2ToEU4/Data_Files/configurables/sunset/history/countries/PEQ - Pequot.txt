@@ -1,10 +1,11 @@
 government = monarchy
 add_government_reform = autocracy_reform
+add_army_professionalism = 0.05
 mercantilism = 0.1
 primary_culture = pequot
 religion = totemism
-technology_group = north_american
-capital = 2010 # Connecticut
+technology_group = high_american
+capital = 968 # Massachusetts
 
 
 1444.11.11 = {

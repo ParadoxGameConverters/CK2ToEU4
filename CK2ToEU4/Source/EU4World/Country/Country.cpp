@@ -923,6 +923,7 @@ void EU4::Country::assignReforms(std::shared_ptr<mappers::RegionMapper> regionMa
 		{
 			details.reforms.clear();
 			details.reforms = {"merchants_reform"};
+			details.mercantilism = 25;
 		}
 		// Oligarchic Republic
 		else if (actualHolder->getGovernment() == "republic_government" && governmentType != "aristocratic")
@@ -1031,6 +1032,7 @@ void EU4::Country::assignReforms(std::shared_ptr<mappers::RegionMapper> regionMa
 	{
 		details.reforms.clear();
 		details.reforms = {"veche_republic"};
+		details.mercantilism = 25;
 	}
 	// Peasant Republic
 	else if (details.government != "theocracy" && tag != "ROM" && tag != "HRE" && tag != "BYZ" && actualHolder->hasTrait("peasant_leader") && 
@@ -1098,6 +1100,7 @@ void EU4::Country::assignReforms(std::shared_ptr<mappers::RegionMapper> regionMa
 	{
 		details.reforms.clear();
 		details.reforms = {"plutocratic_reform"};
+		details.mercantilism = 15;
 	}
 	// Grand Duchy
 	else if ((details.reforms.count("feudalism_reform") || details.reforms.count("english_monarchy") || details.reforms.count("autocracy_reform")) && details.governmentRank == 1 &&
@@ -1111,17 +1114,20 @@ void EU4::Country::assignReforms(std::shared_ptr<mappers::RegionMapper> regionMa
 	{
 		details.reforms.clear();
 		details.reforms = {"free_city"};
+		details.mercantilism = 25;
 	}
 	// Trading City
 	else if (details.reforms.count("merchants_reform") && provinces.size() == 1)
 	{
 		details.reforms.clear();
 		details.reforms = {"trading_city"};
+		details.mercantilism = 25;
 	}
 	// Dutch Republic
 	else if (details.government == "republic" && tag == "NED")
 	{
 		details.reforms.clear();
 		details.reforms = {"dutch_republic"};
+		details.mercantilism = 15;
 	}
 }

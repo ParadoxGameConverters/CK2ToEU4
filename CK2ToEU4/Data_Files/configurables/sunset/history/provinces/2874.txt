@@ -1,14 +1,10 @@
 owner = INC
 
-
 controller = INC
-
 
 add_core = INC
 
-
 culture = patagonian
-
 
 religion = animism
 
@@ -18,12 +14,10 @@ base_manpower = 9
 
 trade_goods = fish
 
-
 discovered_by = high_american
 discovered_by = north_american
 discovered_by = mesoamerican
 discovered_by = south_american
 discovered_by = andean
-
 
 citysize = 1000

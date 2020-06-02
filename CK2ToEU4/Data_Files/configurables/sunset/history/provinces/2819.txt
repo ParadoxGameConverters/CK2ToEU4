@@ -1,14 +1,10 @@
 owner = MCA
 
-
 controller = MCA
-
 
 add_core = MCA
 
-
 culture = muisca
-
 
 religion = animism
 
@@ -18,21 +14,16 @@ base_manpower = 5
 
 trade_goods = naval_supplies
 
-
 discovered_by = high_american
 discovered_by = north_american
 discovered_by = mesoamerican
 discovered_by = south_american
 discovered_by = andean
 
-
 discovered_by = mesoamerican
-
 
 discovered_by = andean
 
-
 citysize = 1000
-
 
 

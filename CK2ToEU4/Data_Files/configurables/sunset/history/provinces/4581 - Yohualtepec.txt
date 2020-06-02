@@ -24,4 +24,3 @@ discovered_by = andean
 
 citysize = 1000
 
-

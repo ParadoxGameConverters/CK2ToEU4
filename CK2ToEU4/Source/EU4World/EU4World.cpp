@@ -200,6 +200,8 @@ void EU4::World::fixDuplicateNames()
 			bool isSecret = false;
 			mappers::LocBlock newBlock;
 			mappers::LocBlock oldBlock;
+			bool nameTaken = false;
+			bool anotherTitle = false;
 			for (auto i = 0; i < tempNameMap.second.size(); i++)
 			{
 				bool dynastyNames = false;
@@ -281,11 +283,9 @@ void EU4::World::fixDuplicateNames()
 					}
 					else if (i > 1 && i != 3)
 					{
-						// Check to see if anyone already has your title's name
-						bool nameTaken = false;
-						bool anotherTitle = false;
+						// Check to see if anyone already has your title's name						
 						for (auto tempNameMap2: nameMap)
-							if (tempNameMap2.first.compare(countries.find(tempNameMap.second[i]->getTag())->second->getTitle().second->getDisplayName()))
+							if (!tempNameMap2.first.compare(countries.find(tempNameMap.second[i]->getTag())->second->getTitle().second->getDisplayName()))
 								nameTaken = true;
 						// Just name the country after the title
 						if (!nameTaken)
@@ -295,10 +295,14 @@ void EU4::World::fixDuplicateNames()
 							newBlock.french = countries.find(tempNameMap.second[i]->getTag())->second->getTitle().second->getDisplayName();
 							newBlock.german = countries.find(tempNameMap.second[i]->getTag())->second->getTitle().second->getDisplayName();
 							countries.find(tempNameMap.second[i]->getTag())->second->setLocalizations(newBlock);
+							nameTaken = true;
 							numberNames++;
 							continue;
 						}
 						// Alrighty then, you're going to be compared to the number of countries that have that title
+						for (auto tempNameMap2: nameMap)
+							if (!tempNameMap2.first.compare("Hinter " + countries.find(tempNameMap.second[i]->getTag())->second->getTitle().second->getDisplayName()))
+								anotherTitle = true;
 						else if (!anotherTitle)
 						{
 							newBlock.english = "Hinter " + countries.find(tempNameMap.second[i]->getTag())->second->getTitle().second->getDisplayName();
@@ -1385,6 +1389,8 @@ void EU4::World::importVanillaCountries(const std::string& eu4Path, bool invasio
 		for (const auto& fileName: fileNames)
 		{
 			auto tag = fileName.substr(0, 3);
+			countries[tag]->setSunsetCountry(true);
+			countries[tag]->clearHistoryLessons();
 			countries[tag]->loadHistory("configurables/sunset/history/countries/" + fileName);
 		}
 	}

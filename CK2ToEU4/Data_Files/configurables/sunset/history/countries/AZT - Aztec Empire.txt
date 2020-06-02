@@ -1,21 +1,23 @@
 government = monarchy
 add_government_reform = feudalism_reform
+add_army_professionalism = 0.1
 government_rank = 3
-#aristocracy_plutocracy = -5
-#centralization_decentralization = 5
-#innovative_narrowminded = 5
 mercantilism = 0.1
-#offensive_defensive = -5
-#land_naval = -5
-#quality_quantity = 5
-#serfdom_freesubjects = -5
 primary_culture = aztek
 religion = nahuatl
 technology_group = high_american
 capital = 852	# Mexico
 historical_rival = INC
 
-1443.1.1 = { 
+#offensive_defensive = -5
+#land_naval = -5
+#quality_quantity = 5
+#serfdom_freesubjects = -5
+#aristocracy_plutocracy = -5
+#centralization_decentralization = 5
+#innovative_narrowminded = 5
+
+1443.1.1 = {
 	leader = {	
 		name = "Tlotzin Xocoyol"	
 		type = explorer	

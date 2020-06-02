@@ -1,16 +1,12 @@
 owner = TLA
 
-
 controller = TLA
-
 
 add_core = TLA
 add_core = MIX
 add_core = COI
 
-
 culture = mixtec
-
 
 religion = nahuatl
 
@@ -20,15 +16,12 @@ base_manpower = 2
 
 trade_goods = dyes
 
-
 discovered_by = high_american
 discovered_by = north_american
 discovered_by = mesoamerican
 discovered_by = south_american
 discovered_by = andean
 
-
 citysize = 1000
-
 
 

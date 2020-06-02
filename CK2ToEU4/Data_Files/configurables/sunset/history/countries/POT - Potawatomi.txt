@@ -1,7 +1,7 @@
 government = monarchy
 add_government_reform = autocracy_reform
 mercantilism = 0.1
-primary_culture = anishinabe
+primary_culture = mesquakie
 religion = totemism
 technology_group = high_american
 capital = 944 # Potawatomi

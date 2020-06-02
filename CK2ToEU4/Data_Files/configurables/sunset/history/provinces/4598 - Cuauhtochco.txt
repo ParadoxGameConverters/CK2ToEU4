@@ -5,7 +5,7 @@ controller = TLX
 add_core = TLX
 add_core = TOT
 
-culture = totanac
+culture = totonac
 
 religion = nahuatl
 

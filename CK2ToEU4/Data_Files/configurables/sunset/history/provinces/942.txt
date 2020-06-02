@@ -1,15 +1,22 @@
-owner = MMI
-controller = MMI
-add_core = MMI
+owner = MMI
+
+controller = MMI
+
+add_core = MMI
+
+culture = illini
+religion = totemism
+
+base_tax = 2
+base_production = 1
+base_manpower = 6
+
+trade_goods = fur
+
 discovered_by = high_american
 discovered_by = north_american
 discovered_by = mesoamerican
 discovered_by = south_american
-discovered_by = andean
-citysize = 1000
-
-1444.11.11 = {
-	owner = MMI
-	controller = MMI
-}
+discovered_by = andean
 
+citysize = 1000

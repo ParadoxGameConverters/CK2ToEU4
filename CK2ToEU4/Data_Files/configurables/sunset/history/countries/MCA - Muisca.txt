@@ -1,13 +1,10 @@
 government = tribal
 add_government_reform = tribal_kingdom
 government_rank = 1
-technology_group = andean
+technology_group = high_american
 religion = inti
 primary_culture = muisca
 capital = 825
-add_adm_tech = 2
-add_dip_tech = 2
-add_mil_tech = 2
 unit_type = south_american
 1444.1.1 =
 {monarch ={name ="Meicuchuca"

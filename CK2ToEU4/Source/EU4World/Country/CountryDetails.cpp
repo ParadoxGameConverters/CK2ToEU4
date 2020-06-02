@@ -49,7 +49,7 @@ void EU4::CountryDetails::registerKeys()
 	registerKeyword("historical_idea_groups", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::stringList ideaList(theStream);
 		const auto& theIdeas = ideaList.getStrings();
-		historicalIdeaGroups.insert(theIdeas.begin(), theIdeas.end());
+		historicalIdeaGroups.assign(theIdeas.begin(), theIdeas.end());
 	});
 	registerKeyword("historical_score", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleInt scoreInt(theStream);
@@ -119,6 +119,7 @@ void EU4::CountryDetails::registerHistoryKeys()
 	});
 	registerKeyword("add_government_reform", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleString reformStr(theStream);
+		reforms.clear();
 		reforms.insert(reformStr.getString());
 	});
 	registerKeyword("government_rank", [this](const std::string& unused, std::istream& theStream) {
@@ -148,6 +149,18 @@ void EU4::CountryDetails::registerHistoryKeys()
 	registerKeyword("mercantilism", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleInt mercInt(theStream);
 		mercantilism = mercInt.getInt();
+	});
+	registerKeyword("add_adm_tech", [this](const std::string& unused, std::istream& theStream) {
+		const commonItems::singleInt aat(theStream);
+		addedAdminTech = aat.getInt();
+	});
+	registerKeyword("add_dip_tech", [this](const std::string& unused, std::istream& theStream) {
+		const commonItems::singleInt adt(theStream);
+		addedDipTech = adt.getInt();
+	});
+	registerKeyword("add_mil_tech", [this](const std::string& unused, std::istream& theStream) {
+		const commonItems::singleInt amt(theStream);
+		addedMilTech = amt.getInt();
 	});
 	registerKeyword("unit_type", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleString unitsStr(theStream);

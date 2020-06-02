@@ -1,7 +1,9 @@
-government = monarchy
-add_government_reform = autocracy_reform
+government = tribal
+add_government_reform = tribal_kingdom
+government_rank = 2
 mercantilism = 0.1
 primary_culture = cree
+add_accepted_culture = chipewyan
 religion = totemism
 technology_group = high_american
 capital = 1002 # Abitbi
