@@ -66,7 +66,7 @@ void CK2::Titles::linkPreviousHolders(const Characters& theCharacters)
 				}
 				else
 				{
-					Log(LogLevel::Warning) << "Previous Holder ID: " << previousHolder.first << " has no definition!";
+					//Log(LogLevel::Warning) << "Previous Holder ID: " << previousHolder.first << " has no definition!";
 				}
 			}
 			title.second->setPreviousHolders(previousHolders);

@@ -1,3 +1,1 @@
-1444.11.11 = {
-	discovered_by = INC
-}
+discovered_by = INC

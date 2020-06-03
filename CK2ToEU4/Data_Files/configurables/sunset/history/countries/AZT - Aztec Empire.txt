@@ -1,19 +1,34 @@
 government = monarchy
 add_government_reform = feudalism_reform
+add_army_professionalism = 0.1
 government_rank = 3
-#aristocracy_plutocracy = -5
-#centralization_decentralization = 5
-#innovative_narrowminded = 5
 mercantilism = 0.1
+primary_culture = aztek
+religion = nahuatl
+technology_group = high_american
+unit_type = high_american
+capital = 852	# Mexico
+historical_rival = INC
+
 #offensive_defensive = -5
 #land_naval = -5
 #quality_quantity = 5
 #serfdom_freesubjects = -5
-primary_culture = aztek
-religion = nahuatl
-technology_group = high_american
-capital = 852	# Mexico
-historical_rival = INC
+#aristocracy_plutocracy = -5
+#centralization_decentralization = 5
+#innovative_narrowminded = 5
+
+1443.1.1 = {
+	leader = {	
+		name = "Tlotzin Xocoyol"	
+		type = explorer	
+		fire = 2
+		shock = 2
+		manuever = 4
+		siege = 6
+		death_date = 1462.12.31
+	}
+}
 
 1391.1.1 = {
 	monarch = {
@@ -158,7 +173,7 @@ historical_rival = INC
 		adm = 5
 		dip = 3
 		mil = 6
-		leader = {	name = "Ahuitzotl"             	type = general	rank = 0	fire = 3	shock = 5	manuever = 3	siege = 0}
+		leader = {	name = "Ahuitzotl"             	type = general	fire = 3	shock = 5	manuever = 3	siege = 0}
 	}
 }
 		
@@ -169,7 +184,7 @@ historical_rival = INC
 		adm = 5
 		dip = 3
 		mil = 6
-		leader = {	name = "Ahuitzotl"             	type = general	rank = 0	fire = 3	shock = 5	manuever = 3	siege = 0}
+		leader = {	name = "Ahuitzotl"             	type = general	fire = 3	shock = 5	manuever = 3	siege = 0}
 	}
 }
 
@@ -184,7 +199,7 @@ historical_rival = INC
 		adm = 2
 		dip = 0
 		mil = 0
-		leader = {	name = "Moctezuma II"          	type = general	rank = 0	fire = 2	shock = 3	manuever = 2	siege = 0}
+		leader = {	name = "Moctezuma II"          	type = general	fire = 2	shock = 3	manuever = 2	siege = 0}
 	}
 }
 		
@@ -195,7 +210,7 @@ historical_rival = INC
 		adm = 2
 		dip = 0
 		mil = 0
-		leader = {	name = "Moctezuma II"          	type = general	rank = 0	fire = 2	shock = 3	manuever = 2	siege = 0}
+		leader = {	name = "Moctezuma II"          	type = general	fire = 2	shock = 3	manuever = 2	siege = 0}
 	}
 }
 

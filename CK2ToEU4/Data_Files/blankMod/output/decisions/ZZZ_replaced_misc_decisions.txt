@@ -1,6 +1,6 @@
 country_decisions = {
 
-	capital_in_belgrade = {
+	capital_in_belgrade = { #New Religions
 		potential = {
 			tag = SER
 			NOT = { capital = 4239 }
@@ -12,7 +12,6 @@ country_decisions = {
 			adm_power = 50
 			4239 = {
 				OR = {
-					religion = orthodox
 					religion = iconoclast
 					religion = bogomilist
 					religion = monothelite
@@ -39,7 +38,7 @@ country_decisions = {
 		ai_importance = 400
 	}
 	
-	steppe_horde_reform = {
+	steppe_horde_reform = { #New Secondary Religions
 		major = yes
 		potential = {
 			has_reform = steppe_horde
@@ -74,10 +73,6 @@ country_decisions = {
 				limit = {
 					technology_group = nomad_group
 					OR = {
-						religion_group = muslim
-						secondary_religion = sunni
-						secondary_religion = shiite
-						secondary_religion = ibadi
 						secondary_religion = zikri
 						secondary_religion = yazidi
 						secondary_religion = kharijite
@@ -100,11 +95,6 @@ country_decisions = {
 			if = {
 				limit = {
 					technology_group = nomad_group
-					NOT = { religion_group = muslim }
-					NOT = { religion_group = christian }
-					NOT = { secondary_religion = sunni }
-					NOT = { secondary_religion = shiite }
-					NOT = { secondary_religion = ibadi }
 					NOT = {	secondary_religion = zikri }
 					NOT = {	secondary_religion = yazidi }
 					NOT = {	secondary_religion = kharijite }

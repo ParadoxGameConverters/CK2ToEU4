@@ -1,6 +1,6 @@
 country_decisions = {
 
-	armenia_nation = {
+	armenia_nation = { ##Monophysite Option
 		major = yes
 		potential = {
 			normal_or_historical_nations = yes
@@ -55,10 +55,7 @@ country_decisions = {
 			NOT = { exists = ARM }
 			is_at_war = no
 			is_free_or_tributary_trigger = yes
-			OR = {
-				religion = coptic
-				religion = monophysite
-			}
+			religion = monophysite
 			is_nomad = no
 			owns_core_province = 327	# Cilicia
 			owns_core_province = 419	# Yerevan
@@ -140,7 +137,7 @@ country_decisions = {
 		ai_importance = 400 #
 	}
 	
-	restore_byzantine_empire = {
+	restore_byzantine_empire = { # New Religions/Cultures
 		major = yes
 		potential = {
 			was_never_end_game_tag_trigger = yes
@@ -155,17 +152,34 @@ country_decisions = {
 			NOT = { tag = ROM }
 			NOT = { tag = TUR }
 			OR = {
-				primary_culture = greek
-				primary_culture = pontic_greek
-			}
-			OR = {
-				religion = orthodox
-				religion = iconoclast
-				religion = bogomilist
-				religion = monothelite
-				religion = paulician
-				religion = hellenic_pagan
-				religion = hellenic_pagan_reformed
+				AND = { #New Cultures
+					culture_group = byzantine
+					NOT = { primary_culture = greek }
+					NOT = { primary_culture = pontic_greek }
+					OR = {
+						religion = orthodox
+						religion = iconoclast
+						religion = bogomilist
+						religion = monothelite
+						religion = paulician
+						religion = hellenic_pagan
+						religion = hellenic_pagan_reformed
+					}
+				}
+				AND = { #New Religions
+					OR = {
+						primary_culture = greek
+						primary_culture = pontic_greek
+					}
+					OR = {
+						religion = iconoclast
+						religion = bogomilist
+						religion = monothelite
+						religion = paulician
+						religion = hellenic_pagan
+						religion = hellenic_pagan_reformed
+					}
+				}
 			}
 		}
 		provinces_to_highlight = {
@@ -295,7 +309,7 @@ country_decisions = {
 		}
 	}
 	
-	institute_prussian_monarchy = {
+	institute_prussian_monarchy = { #New Religions
 		major = yes
 		potential = {
 			NOT = { has_dlc = "Dharma" }
@@ -307,8 +321,6 @@ country_decisions = {
 
 		allow = {
 			OR = {
-				religion = protestant
-				religion = reformed
 				religion = cathar
 				religion = waldensian
 				religion = lollard
@@ -320,7 +332,7 @@ country_decisions = {
 		}
 	}
 
-	form_kingdom_of_prussia = {
+	form_kingdom_of_prussia = { #New Religions/Cultures
 		major = yes
 		potential = {
 			normal_or_historical_nations = yes
@@ -364,8 +376,6 @@ country_decisions = {
 			NOT = { exists = PRU }
 			adm_tech = 10
 			OR = {
-				religion = protestant
-				religion = reformed
 				religion = cathar
 				religion = waldensian
 				religion = lollard
@@ -390,10 +400,7 @@ country_decisions = {
 			random_owned_province = {
 				limit = {
 					OR = {
-						culture = pommeranian
-						culture = saxon
-						culture = prussian
-						culture = german
+						culture_group = germanic
 						culture = old_prussian
 					}
 				}
@@ -418,9 +425,7 @@ country_decisions = {
 					limit = { 
 						is_capital = no 
 						OR = {
-							culture = saxon
-							culture = pommeranian
-							culture = german
+							culture_group = germanic
 							culture = old_prussian
 						}
 					} 
@@ -455,7 +460,7 @@ country_decisions = {
 		}
 	}
 	
-	prussian_nation = {
+	prussian_nation = { #New Religions
 		major = yes
 		potential = {
 			normal_or_historical_nations = yes
@@ -498,8 +503,6 @@ country_decisions = {
 			adm_tech = 10
 			is_at_war = no
 			OR = {
-				religion = protestant
-				religion = reformed
 				religion = cathar
 				religion = waldensian
 				religion = lollard
@@ -561,7 +564,7 @@ country_decisions = {
 		}
 	}
 	
-	prussian_nation_general = {
+	prussian_nation_general = { #New Religions
 		major = yes
 		potential = {
 			normal_or_historical_nations = yes
@@ -577,10 +580,7 @@ country_decisions = {
 				is_religion_enabled = reformed
 			}
 			OR = {
-				primary_culture = pommeranian
-				primary_culture = saxon
-				primary_culture = prussian
-				primary_culture = german
+				culture_group = germanic
 				primary_culture = old_prussian
 			}
 			NOT = { tag = PRU }
@@ -615,8 +615,6 @@ country_decisions = {
 			is_nomad = no
 			is_at_war = no
 			OR = {
-				religion = protestant
-				religion = reformed
 				religion = cathar
 				religion = waldensian
 				religion = lollard
@@ -671,9 +669,7 @@ country_decisions = {
 				limit = { 
 					is_capital = no 
 					OR = {
-						culture = saxon
-						culture = pommeranian
-						culture = german
+						culture_group = germanic
 						culture = old_prussian
 					}
 				} 
@@ -697,7 +693,7 @@ country_decisions = {
 		}
 	}
 	
-	ruthenian_nation = {
+	ruthenian_nation = { #New Cultures
 		major = yes
 		potential = {
 			normal_or_historical_nations = yes
@@ -712,10 +708,9 @@ country_decisions = {
 			NOT = { tag = RUS }
 			NOT = { exists = UKR }
 			OR = {
-				primary_culture = byelorussian
-				primary_culture = ruthenian
 				primary_culture = volhynian
 				primary_culture = severian
+				primary_culture = kishinyov
 				AND = {
 					tag = KIE
 					culture_group = east_slavic
@@ -825,7 +820,7 @@ country_decisions = {
 		ai_importance = 500		
 	}
 	
-	russian_nation = {
+	russian_nation = { #New Cultures
 		major = yes
 		potential = {
 			normal_or_historical_nations = yes
@@ -844,11 +839,12 @@ country_decisions = {
 			}
 			NOT = { tag = PAP }
 			NOT = { tag = HLR }
-			OR = {
-				culture_group = east_slavic
-			}
+			culture_group = east_slavic
 			NOT = { primary_culture = byelorussian }
 			NOT = { primary_culture = ruthenian }
+			NOT = { primary_culture = russian }
+			NOT = { primary_culture = novgorodian }
+			NOT = { primary_culture = ryazanian }
 			OR = {
 				ai = no
 				AND = {

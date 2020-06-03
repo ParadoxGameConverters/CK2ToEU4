@@ -1,19 +1,34 @@
 government = monarchy
 add_government_reform = autocracy_reform
+add_army_professionalism = 0.1
 government_rank = 3
+mercantilism = 0.1
+primary_culture = inca
+religion = inti
+technology_group = high_american
+unit_type = high_american
+capital = 808	# Cuzco
+historical_rival = AZT
+
 #aristocracy_plutocracy = -5
 #centralization_decentralization = 5
 #innovative_narrowminded = 5
-mercantilism = 0.1
 #offensive_defensive = -5
 #land_naval = -5
 #quality_quantity = 4
 #serfdom_freesubjects = -5
-primary_culture = inca
-religion = inti
-technology_group = high_american
-capital = 808	# Cuzco
-historical_rival = AZT
+
+1443.1.1 = {
+	leader = {	
+		name = "Yamqui Mayta"	
+		type = explorer	
+		fire = 4
+		shock = 4
+		manuever = 6
+		siege = 0
+		death_date = 1465.1.15
+	}
+}
 
 1399.1.1 = {
 	monarch = {
@@ -46,6 +61,18 @@ historical_rival = AZT
 		adm = 5
 		dip = 4
 		mil = 6
+	}
+}
+
+1443.1.1 = { 
+	leader = {	
+		name = "Yamqui Mayta Apo"	
+		type = explorer	
+		fire = 3
+		shock = 3
+		manuever = 6
+		siege = 0
+		death_date = 1470.10.15
 	}
 }
 

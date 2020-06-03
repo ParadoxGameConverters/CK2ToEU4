@@ -63,6 +63,12 @@ void EU4::World::output(const mappers::VersionParser& versionParser, const Confi
 	outputHistoryCountries(theConfiguration);
 	Log(LogLevel::Progress) << "88 %";
 
+	if (invasion)
+	{
+		LOG(LogLevel::Info) << "<- Writing Sunset Invasion Files";
+		outputInvasionExtras(theConfiguration, invasion);
+	}
+
 	LOG(LogLevel::Info) << "<- Writing Advisers";
 	outputAdvisers(theConfiguration);
 	Log(LogLevel::Progress) << "89 %";
@@ -154,7 +160,7 @@ void EU4::World::outputFlags(const Configuration& theConfiguration, const CK2::W
 	for (const auto& country: countries)
 	{
 		// first check is for dynasty and override flags.
-		if (country.second->useDynastyFlag() && country.second->getDynastyID() &&
+		if (country.second->getHasDynastyName() && country.second->getDynastyID() &&
 			 Utils::DoesFileExist("configurables/dynastyflags/" + std::to_string(country.second->getDynastyID()) + ".tga"))
 		{
 			Utils::TryCopyFile("configurables/dynastyflags/" + std::to_string(country.second->getDynastyID()) + ".tga",
@@ -321,6 +327,27 @@ void EU4::World::outputCommonCountries(const Configuration& theConfiguration) co
 		country.second->outputCommons(output);
 		output.close();
 	}
+}
+
+void EU4::World::outputInvasionExtras(const Configuration& theConfiguration, bool invasion) const
+{
+	//Sunset Religions
+	auto files = Utils::GetAllFilesInFolder("configurables/sunset/common/religions/");
+	for (const auto& file: files)
+		Utils::TryCopyFile("configurables/sunset/common/religions/" + file, "output/" + theConfiguration.getOutputName() + "/common/religions/" + file);
+	//Sunset Ideas
+	files = Utils::GetAllFilesInFolder("configurables/sunset/common/ideas/");
+	for (const auto& file: files)
+		Utils::TryCopyFile("configurables/sunset/common/ideas/" + file, "output/" + theConfiguration.getOutputName() + "/common/ideas/" + file);
+	// Sunset Cultures
+	files = Utils::GetAllFilesInFolder("configurables/sunset/common/cultures/");
+	for (const auto& file: files)
+		Utils::TryCopyFile("configurables/sunset/common/cultures/" + file, "output/" + theConfiguration.getOutputName() + "/common/cultures/" + file);
+	// Sunset Decisions
+	files = Utils::GetAllFilesInFolder("configurables/sunset/decisions/");
+	for (const auto& file: files)
+		Utils::TryCopyFile("configurables/sunset/decisions/" + file, "output/" + theConfiguration.getOutputName() + "/decisions/" + file);
+
 }
 
 void EU4::World::outputEmperor(const Configuration& theConfiguration, date conversionDate) const

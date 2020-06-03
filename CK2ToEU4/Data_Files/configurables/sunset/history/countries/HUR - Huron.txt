@@ -11,6 +11,7 @@ mercantilism = 0.1
 primary_culture = huron
 religion = totemism
 technology_group = high_american
+unit_type = high_american
 capital = 988	# Huron
 
 1399.1.1 = {

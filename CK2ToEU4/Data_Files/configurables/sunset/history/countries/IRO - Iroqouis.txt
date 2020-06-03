@@ -1,17 +1,21 @@
 government = republic
-add_government_reform = merchants_reform
+add_government_reform = federal_republic
+add_army_professionalism = 0.075
+government_rank = 2
+mercantilism = 0.2
+primary_culture = iroquois
+religion = totemism
+technology_group = high_american
+unit_type = high_american
+capital = 960 #Onondaga
+
 #aristocracy_plutocracy = 5
 #centralization_decentralization = 5
 #innovative_narrowminded = 0
-mercantilism = 0.1
 #offensive_defensive = 5
 #land_naval = -5
 #quality_quantity = 0
 #serfdom_freesubjects = 5
-primary_culture = iroquois
-religion = totemism
-technology_group = high_american
-capital = 960 #Onondaga
 
 
 1399.1.1 = {

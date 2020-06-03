@@ -59,6 +59,8 @@ class CountryDetails: commonItems::parser
 	bool rightToBEARArms = false;
 	bool loan = false;
 	bool excommunicated = false;
+	bool hasDynastyName = false; // Country name comes from dynasty rather than Title. (Ottomans, Seljuks, Abbasids, etc.)
+	bool isSunsetCountry = false;
 	int addTreasury = 0;
 	int addPrestige = 0;
 	int dynastyID = 0;
@@ -66,6 +68,9 @@ class CountryDetails: commonItems::parser
 	int governmentRank = 1;
 	int mercantilism = 0;
 	int historicalScore = 0;
+	int addedAdminTech = 0;
+	int addedDipTech = 0;
+	int addedMilTech = 0;
 	double armyProfessionalism = 0;
 	double piety = 0;
 	commonItems::Color color;
@@ -90,13 +95,13 @@ class CountryDetails: commonItems::parser
 	std::set<std::string> historicalRivals;
 	std::set<std::string> historicalFriends;
 	std::set<std::string> harmonizedReligions;
-	std::set<std::string> historicalIdeaGroups;
+	std::vector<std::string> historicalIdeaGroups;
 	std::set<std::string> historicalUnits;
 	std::set<std::string> leaderNames;
 	std::set<std::string> shipNames;
 	std::set<std::string> armyNames;
 	std::set<std::string> fleetNames;
-	std::map<std::string, std::pair<int, int>> monarchNames;	 // name (without regnal), pair(regnal, chance)
+	std::map<std::string, std::pair<int, int>> monarchNames;	 // name (without regnal), pair(regnal, chance)	
 	std::vector<std::pair<date, std::string>> historyLessons; // this is used to store history entries for countries we're only transcribing.
 
 	Character monarch;

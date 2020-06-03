@@ -43,6 +43,15 @@
  tangut: "Tangut"
  zhangzhung: "Zhangzhung"
  sumpa: "Sumpa"
+ equine_group:0 "Equidae" #Family for horses
+ cat_group:0 "Felidae" #Family for cats
+ hedgehog_group:0 "Erinaceidae" #Family for Hedgehogs
+ bear_group:0 "Ursidae" #Family for bears
+ duck_group:0 "Anatidae" #Family for ducks
+ dog_group:0 "Canidae" #Family for dogs
+ elephant_group:0 "Elephantidae" #This isn't made up, this really is the Family name of Elephants
+ red_panda_group:0 "Ailuridae" #Family for Red Pandas
+ dragon_group:0 "Drachidae" #Taken from CKII
  equine: "Horse"
  cat: "Cat"
  bear: "Bear"

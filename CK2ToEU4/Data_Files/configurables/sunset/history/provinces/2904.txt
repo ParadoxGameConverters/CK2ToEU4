@@ -1,2 +1,9 @@
-discovered_by = high_american
+culture = maipurean
+
+discovered_by = high_american
+discovered_by = north_american
+discovered_by = mesoamerican
+discovered_by = south_american
+discovered_by = andean
+
 

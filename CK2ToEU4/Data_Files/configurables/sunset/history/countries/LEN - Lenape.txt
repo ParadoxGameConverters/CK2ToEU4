@@ -4,7 +4,8 @@ mercantilism = 0.1
 primary_culture = delaware
 religion = totemism
 technology_group = high_american
-capital = 956	# Lenape
+unit_type = high_american
+capital = 957	# Delaware
 
 
 1444.11.11 = {

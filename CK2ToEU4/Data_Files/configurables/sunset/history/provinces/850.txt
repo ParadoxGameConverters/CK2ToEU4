@@ -1,16 +1,25 @@
-owner = TLX
-controller = TLX
-add_core = TLX
-culture = aztek
-religion = nahuatl
-discovered_by = mesoamerican
-discovered_by = high_american
-citysize = 1000
-
-1444.11.11 = {
-	owner = TLX
-	controller = TLX
-	culture = aztek
-	religion = nahuatl
-}
+owner = TLX
 
+controller = TLX
+
+add_core = TLX
+
+culture = aztek
+
+religion = nahuatl
+
+base_tax = 8
+base_production = 8
+base_manpower = 8
+
+trade_goods = sugar
+
+discovered_by = high_american
+discovered_by = north_american
+discovered_by = mesoamerican
+discovered_by = south_american
+discovered_by = andean
+
+citysize = 1000
+
+fort_15th = yes

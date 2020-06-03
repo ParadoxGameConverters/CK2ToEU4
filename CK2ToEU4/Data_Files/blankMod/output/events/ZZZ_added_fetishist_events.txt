@@ -91,8 +91,8 @@ country_event = {
 					}
 					AND = {
 						OR = {
-							religion = bon_pagan
-							religion = bon_pagan_reformed
+							religion = bon
+							religion = bon_reformed
 						}
 						ROOT = { NOT = { has_unlocked_cult = bon_cult } }
 					}
@@ -255,8 +255,8 @@ country_event = {
 			if = {
 				limit = {
 					OR = {
-						religion = bon_pagan
-						religion = bon_pagan_reformed
+						religion = bon
+						religion = bon_reformed
 					}
 					ROOT = {  NOT = { has_unlocked_cult = bon_cult } }
 				}
@@ -391,8 +391,8 @@ country_event = {
 				}
 				AND = {
 					OR = {
-						religion = bon_pagan
-						religion = bon_pagan_reformed
+						religion = bon
+						religion = bon_reformed
 					}
 					ROOT = { NOT = { has_unlocked_cult = bon_cult } }
 				}
@@ -514,8 +514,8 @@ country_event = {
 					}
 					AND = {
 						OR = {
-							religion = bon_pagan
-							religion = bon_pagan_reformed
+							religion = bon
+							religion = bon_reformed
 						}
 						ROOT = { NOT = { has_unlocked_cult = bon_cult } }
 					}
@@ -677,8 +677,8 @@ country_event = {
 			if = {
 				limit = {
 					OR = {
-						religion = bon_pagan
-						religion = bon_pagan_reformed
+						religion = bon
+						religion = bon_reformed
 					}
 					ROOT = {  NOT = { has_unlocked_cult = bon_cult } }
 				}
@@ -811,8 +811,8 @@ country_event = {
 				}
 				AND = {
 					OR = {
-						religion = bon_pagan
-						religion = bon_pagan_reformed
+						religion = bon
+						religion = bon_reformed
 					}
 					ROOT = { NOT = { has_unlocked_cult = bon_cult } }
 				}
@@ -5365,16 +5365,16 @@ country_event = {
 			limit = {
 				NOT = {
 					any_owned_province = {
-						religion = bon_pagan_reformed
+						religion = bon_reformed
 					}
 					any_known_country = {
-						religion = bon_pagan_reformed
+						religion = bon_reformed
 					}
 				}
 			}
 			define_advisor = {
 				skill = 2
-				religion = bon_pagan
+				religion = bon
 				type = philosopher
 				discount = yes
 			}
@@ -5383,16 +5383,16 @@ country_event = {
 			limit = {
 				OR = {
 					any_owned_province = {
-						religion = bon_pagan_reformed
+						religion = bon_reformed
 					}
 					any_known_country = {
-						religion = bon_pagan_reformed
+						religion = bon_reformed
 					}
 				}
 			}
 			define_advisor = {
 				skill = 2
-				religion = bon_pagan_reformed
+				religion = bon_reformed
 				type = philosopher
 				discount = yes
 			}
@@ -5420,8 +5420,8 @@ country_event = {
 		has_dlc = "Rights of Man"
 		any_neighbor_country = {
 			OR = {
-				religion = bon_pagan
-				religion = bon_pagan_reformed
+				religion = bon
+				religion = bon_reformed
 			}
 		}
 	}
@@ -5431,8 +5431,8 @@ country_event = {
 			random_neighbor_country = {
 				limit = {
 					OR = {
-						religion = bon_pagan
-						religion = bon_pagan_reformed
+						religion = bon
+						religion = bon_reformed
 					}
 				}
 				save_event_target_as = bon_neighbor
@@ -5481,8 +5481,8 @@ province_event = {
 			factor = 0.9
 			any_neighbor_province = {
 				OR = {
-					religion = bon_pagan
-					religion = bon_pagan_reformed
+					religion = bon
+					religion = bon_reformed
 				}
 			}
 		}
@@ -5494,14 +5494,14 @@ province_event = {
 		trigger = {
 			NOT = {
 				any_owned_province = {
-					religion = bon_pagan_reformed
+					religion = bon_reformed
 				}
 				any_known_country = {
-					religion = bon_pagan_reformed
+					religion = bon_reformed
 				}
 			}
 		}
-		change_religion = bon_pagan
+		change_religion = bon
 		add_province_modifier = {
 			name = "ZZZ_bon_pagan_migration_into_africa"
 			duration = 3650
@@ -5512,14 +5512,14 @@ province_event = {
 		trigger = {
 			OR = {
 				any_owned_province = {
-					religion = bon_pagan_reformed
+					religion = bon_reformed
 				}
 				any_known_country = {
-					religion = bon_pagan_reformed
+					religion = bon_reformed
 				}
 			}
 		}
-		change_religion = bon_pagan_reformed
+		change_religion = bon_reformed
 		add_province_modifier = {
 			name = "ZZZ_bon_pagan_migration_into_africa"
 			duration = 3650

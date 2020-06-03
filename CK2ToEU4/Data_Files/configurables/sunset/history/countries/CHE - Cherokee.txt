@@ -1,17 +1,21 @@
 government = theocracy
 add_government_reform = leading_clergy_reform
+add_army_professionalism = 0.05
+government_rank = 2
+mercantilism = 0.1
+primary_culture = cherokee
+religion = totemism
+technology_group = high_american
+unit_type = high_american
+capital = 952
+
 #aristocracy_plutocracy = 5
 #centralization_decentralization = 5
 #innovative_narrowminded = 0
-mercantilism = 0.1
 #offensive_defensive = 5
 #land_naval = -5
 #quality_quantity = 0
 #serfdom_freesubjects = 5
-primary_culture = cherokee
-religion = totemism
-technology_group = high_american
-capital = 925	# Tuskogee
 
 
 1399.1.1 = {

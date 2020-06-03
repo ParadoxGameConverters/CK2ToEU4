@@ -4,6 +4,7 @@ mercantilism = 0.1
 primary_culture = equine
 religion = tengri_pagan_reformed
 technology_group = high_american
+unit_type = high_american
 capital = 1002 # Abitbi
 
 

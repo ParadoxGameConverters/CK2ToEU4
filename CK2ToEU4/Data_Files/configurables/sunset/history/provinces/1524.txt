@@ -1,4 +1,5 @@
-1444.11.11 = {
-	discovered_by = AZT
-	discovered_by = MAY
-}
+discovered_by = high_american
+discovered_by = north_american
+discovered_by = mesoamerican
+discovered_by = south_american
+discovered_by = andean

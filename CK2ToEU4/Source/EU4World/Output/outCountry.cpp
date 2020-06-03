@@ -26,7 +26,10 @@ std::ostream& EU4::operator<<(std::ostream& output, const Country& country)
 	if (country.details.mercantilism)
 		output << "mercantilism = " << country.details.mercantilism << "\n";
 	if (!country.details.unitType.empty())
+	{
 		output << "unit_type = " << country.details.unitType << "\n";
+	}
+
 	if (!country.details.religiousSchool.empty())
 		output << "religious_school = " << country.details.religiousSchool << "\n";
 	if (!country.details.cults.empty())
@@ -45,6 +48,12 @@ std::ostream& EU4::operator<<(std::ostream& output, const Country& country)
 	}
 	if (country.details.armyProfessionalism != 0)
 		output << "add_army_professionalism = " << country.details.armyProfessionalism << "\n";
+	if (country.details.addedAdminTech != 0)
+		output << "add_adm_tech = " << country.details.addedAdminTech << "\n";
+	if (country.details.addedDipTech != 0)
+		output << "add_dip_tech = " << country.details.addedDipTech << "\n";
+	if (country.details.addedMilTech != 0)
+		output << "add_mil_tech = " << country.details.addedMilTech << "\n";
 	if (!country.details.historicalRivals.empty())
 	{
 		for (const auto& rival: country.details.historicalRivals)
@@ -121,8 +130,8 @@ std::ostream& EU4::operator<<(std::ostream& output, const Country& country)
 		output << "}\n";
 	}
 
-	// this is done only for countries without a title - vanilla tags where we're regurgitating history ad verbatim.
-	if (country.getTitle().first.empty() && !country.details.historyLessons.empty())
+	// this is done only for countries without a title - vanilla tags where we're regurgitating history ad verbatim, also Sunset Invasion Countries
+	if ((country.getTitle().first.empty() || country.isSunsetCountry()) && !country.details.historyLessons.empty())
 	{
 		for (const auto& historyLesson: country.details.historyLessons)
 		{

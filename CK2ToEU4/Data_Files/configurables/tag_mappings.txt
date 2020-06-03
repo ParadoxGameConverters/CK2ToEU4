@@ -48,6 +48,7 @@ link = { ck2 = d_bosnia eu4 = BOS }
 link = { ck2 = e_bulgaria eu4 = BUL }
 link = { ck2 = k_bulgaria eu4 = BUL }
 link = { ck2 = e_byzantium eu4 = BYZ }
+link = { ck2 = d_cephalonia eu4 = CEP }
 link = { ck2 = c_cephalonia eu4 = CEP }
 link = { ck2 = k_croatia eu4 = CRO }
 link = { ck2 = d_croatia eu4 = CRO }

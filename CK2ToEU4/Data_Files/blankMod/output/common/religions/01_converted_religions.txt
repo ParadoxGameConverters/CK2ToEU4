@@ -94,7 +94,7 @@ pagan = {
 	}
 	bon = {
 		color = { 8 140 131 }
-		icon = 60
+		icon = 129
 		country = {
 			tolerance_heretic = 1
 			shock_damage_received = -0.1
