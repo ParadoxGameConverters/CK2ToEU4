@@ -78,7 +78,7 @@ TEST(CK2World_DynastyTests, religionFallsBackOnCoatOfArmsReligion)
 	ASSERT_EQ(theDynasty.getReligion(), "sunni");
 }
 
-TEST(CK2World_DynastyTests, religionOverridesCoatOfArmsReligion)
+TEST(CK2World_DynastyTests, religionCoatOfArmsOverridesReligion)
 {
 	std::stringstream input;
 	input << "=\n";
@@ -90,7 +90,7 @@ TEST(CK2World_DynastyTests, religionOverridesCoatOfArmsReligion)
 	const CK2::Dynasty theDynasty(input, 42);
 
 	ASSERT_FALSE(theDynasty.getReligion().empty());
-	ASSERT_EQ(theDynasty.getReligion(), "catholic");
+	ASSERT_EQ(theDynasty.getReligion(), "sunni");
 }
 
 TEST(CK2World_DynastyTests, nameCanBeSet)

@@ -4,7 +4,6 @@ copy "Data_Files\log.txt" "..\Release\CK2ToEU4\"
 copy "Data_Files\configuration-example.txt" "..\Release\CK2ToEU4\"
 copy "Resources\msvcp140_codecvt_ids.dll" "..\Release\CK2ToEU4\"
 copy "Resources\vcruntime140_1.dll" "..\Release\CK2ToEU4\"
-copy "Resources\VC_redist.x64.exe" "..\Release\CK2ToEU4\"
 
 mkdir "..\Release\Configuration"
 copy "Data_Files\fronter-configuration.txt" "..\Release\Configuration\"
