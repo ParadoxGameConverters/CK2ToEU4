@@ -634,7 +634,7 @@
 	link = { ck2 = 795 eu4 = 2317 eu4 = 2319 }	# Asyut -> Minya, Manfalut
 	link = { ck2 = 800 ck2 = 2001 eu4 = 359 }	# Gizeh, Faiyum -> Fayyum
 	link = { ck2 = 796 ck2 = 2002 eu4 = 361 eu4 = 4318 }	# MANY-TO-MANY: Cairo, Akhmim -> Cairo, Atfih
-	link = { ck2 = 790 ck2 = 788 eu4 = 2315 }	# Sarqihya, Farama -> Suez
+	link = { ck2 = 790 ck2 = 788 ck2 = 2006 eu4 = 2315 }	# Sarqihya, Farama, Kolzum -> Suez
 	link = { ck2 = 789 eu4 = 4316 }	# Pelusia -> Mansura
 	link = { ck2 = 798 eu4 = 363 }	# Delta -> Damietta
 	link = { ck2 = 799 eu4 = 362 }	# Gabiyaha -> Rosetta
@@ -642,7 +642,8 @@
 	link = { ck2 = 2004 eu4 = 4317 }	# Kharibta -> Buhaira
 	link = { ck2 = 802 eu4 = 358 }	# Alexandria -> Alexandria
 	link = { ck2 = 785 ck2 = 787 ck2 = 786 eu4 = 365 }	# Sinai, El-Arish, Eilat -> Sinai
-	link = { ck2 = 804 ck2 = 803 eu4 = 2326 eu4 = 2325 }	# MANY-TO-MANY: Al Alamayn, Quattara -> Bardiyah, Tarrana
+	link = { ck2 = 2005 eu4 = 2325 }	# Paraetonium -> Tarrana
+	link = { ck2 = 804 ck2 = 803 eu4 = 2326 }	# Al Alamayn, Quattara -> Bardiyah
 	link = { ck2 = 806 ck2 = 805 ck2 = 807 eu4 = 357 }	# Cyrenaica, Tobruk, Senoussi -> Darnah
 	link = { ck2 = 808 ck2 = 1721 eu4 = 356 }	# Benghazi, Ajadabiya -> Cyrenaica
 	link = { ck2 = 809 ck2 = 1722 eu4 = 355 }	# Syrte, Tadjrift -> Sirt
