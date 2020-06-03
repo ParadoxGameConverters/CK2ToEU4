@@ -4,6 +4,7 @@ mercantilism = 0.1
 primary_culture = dakota
 religion = totemism
 technology_group = high_american
+unit_type = high_american
 capital = 969 # Pocumtuk
 
 

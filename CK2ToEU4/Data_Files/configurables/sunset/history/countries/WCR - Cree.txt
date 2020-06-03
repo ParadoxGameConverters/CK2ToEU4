@@ -6,6 +6,7 @@ primary_culture = cree
 add_accepted_culture = chipewyan
 religion = totemism
 technology_group = high_american
+unit_type = high_american
 capital = 1002 # Abitbi
 
 

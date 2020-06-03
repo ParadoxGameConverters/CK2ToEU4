@@ -4,6 +4,7 @@ government_rank = 1
 primary_culture = yokuts
 religion = totemism
 technology_group = high_american
+unit_type = high_american
 capital = 4638
 
 

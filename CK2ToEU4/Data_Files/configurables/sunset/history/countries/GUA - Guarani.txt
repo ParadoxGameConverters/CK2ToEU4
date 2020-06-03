@@ -4,6 +4,7 @@ government_rank = 2
 primary_culture = guarani
 religion = animism
 technology_group = high_american
+unit_type = high_american
 capital = 2884
 
 

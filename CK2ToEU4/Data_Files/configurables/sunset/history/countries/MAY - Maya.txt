@@ -4,6 +4,7 @@ add_army_professionalism = 0.075
 government_rank = 3
 mercantilism = 0.25
 technology_group = high_american
+unit_type = high_american
 primary_culture = mayan
 religion = mesoamerican_religion
 capital = 488	# Petén

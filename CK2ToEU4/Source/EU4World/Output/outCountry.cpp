@@ -27,10 +27,7 @@ std::ostream& EU4::operator<<(std::ostream& output, const Country& country)
 		output << "mercantilism = " << country.details.mercantilism << "\n";
 	if (!country.details.unitType.empty())
 	{
-		if (country.isSunsetCountry())
-			output << "unit_type = high_american" << "\n";
-		else 
-			output << "unit_type = " << country.details.unitType << "\n";
+		output << "unit_type = " << country.details.unitType << "\n";
 	}
 
 	if (!country.details.religiousSchool.empty())

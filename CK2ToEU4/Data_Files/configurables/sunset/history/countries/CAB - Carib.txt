@@ -4,6 +4,7 @@ government_rank = 1
 primary_culture = carib
 religion = animism
 technology_group = high_american
+unit_type = high_american
 capital = 2805
 historical_rival = ARW
 

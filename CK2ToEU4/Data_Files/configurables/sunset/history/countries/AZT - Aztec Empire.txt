@@ -6,6 +6,7 @@ mercantilism = 0.1
 primary_culture = aztek
 religion = nahuatl
 technology_group = high_american
+unit_type = high_american
 capital = 852	# Mexico
 historical_rival = INC
 

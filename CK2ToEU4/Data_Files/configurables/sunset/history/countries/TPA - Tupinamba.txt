@@ -4,6 +4,7 @@ government_rank = 1
 primary_culture = tupinamba
 religion = animism
 technology_group = high_american
+unit_type = high_american
 capital = 763
 
 1444.11.11 = {

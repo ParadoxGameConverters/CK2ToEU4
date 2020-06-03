@@ -347,15 +347,6 @@ void EU4::World::outputInvasionExtras(const Configuration& theConfiguration, boo
 	files = Utils::GetAllFilesInFolder("configurables/sunset/decisions/");
 	for (const auto& file: files)
 		Utils::TryCopyFile("configurables/sunset/decisions/" + file, "output/" + theConfiguration.getOutputName() + "/decisions/" + file);
-	/*// Sunset Country History
-	files = Utils::GetAllFilesInFolder("configurables/sunset/history/countries/");
-	for (const auto& file: files)
-	{
-		std::ofstream history("output/" + theConfiguration.getOutputName() + "/history/countries/" + file);
-		history << "\n";
-		history.close();
-		Utils::TryCopyFile("configurables/sunset/history/countries/" + file, "output/" + theConfiguration.getOutputName() + "/history/countries/" + file);
-	}*/
 
 }
 

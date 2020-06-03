@@ -2,6 +2,7 @@ government = tribal
 add_government_reform = tribal_kingdom
 government_rank = 1
 technology_group = high_american
+unit_type = high_american
 religion = inti
 primary_culture = muisca
 capital = 825

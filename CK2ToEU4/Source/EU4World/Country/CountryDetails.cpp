@@ -48,8 +48,7 @@ void EU4::CountryDetails::registerKeys()
 	});
 	registerKeyword("historical_idea_groups", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::stringList ideaList(theStream);
-		const auto& theIdeas = ideaList.getStrings();
-		historicalIdeaGroups.assign(theIdeas.begin(), theIdeas.end());
+		historicalIdeaGroups = ideaList.getStrings();
 	});
 	registerKeyword("historical_score", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleInt scoreInt(theStream);

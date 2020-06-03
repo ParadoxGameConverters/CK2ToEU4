@@ -424,7 +424,8 @@ void EU4::World::africaQuestion()
 
 	// If a country has a province on both ends of the pass it stays, otherwise the pass is getting cleared
 	// Tuat Pass
-	if (provinces.find(1128)->second != NULL && provinces.find(2466)->second != NULL && provinces.find(2460)->second != NULL)
+	if (provinces.find(1128) != provinces.end() && provinces.find(1128)->second && provinces.find(2466) != provinces.end() && provinces.find(2466)->second && 
+		provinces.find(2460) != provinces.end() && provinces.find(2460)->second)
 	{
 		if (provinces.find(1128)->second->getOwner() != provinces.find(2466)->second->getOwner() && provinces.find(1128)->second->getOwner() != provinces.find(2460)->second->getOwner())
 		{
@@ -433,7 +434,8 @@ void EU4::World::africaQuestion()
 		}
 	}
 	// Djado-Tajhari Pass
-	if (provinces.find(2448)->second != NULL && provinces.find(2275)->second != NULL && provinces.find(2277)->second != NULL)
+	if (provinces.find(2448) != provinces.end() && provinces.find(2448)->second && provinces.find(2275) != provinces.end() && provinces.find(2275)->second &&
+		provinces.find(2277) != provinces.end() && provinces.find(2277)->second)
 	{
 		if (provinces.find(2448)->second->getOwner() != provinces.find(2275)->second->getOwner() && provinces.find(2448)->second->getOwner() != provinces.find(2277)->second->getOwner())
 		{
@@ -443,7 +445,8 @@ void EU4::World::africaQuestion()
 		}
 	}
 	// Central Sahara (Only Waddai and Al-Junaynah)
-	if (provinces.find(1219)->second != NULL && provinces.find(2288)->second != NULL && provinces.find(1159)->second != NULL)
+	if (provinces.find(1219) != provinces.end() && provinces.find(1219)->second && provinces.find(2288) != provinces.end() && provinces.find(2288)->second &&
+		provinces.find(1159) != provinces.end() && provinces.find(1159)->second)
 	{
 		if (provinces.find(1219)->second->getOwner() != provinces.find(2288)->second->getOwner() && provinces.find(1219)->second->getOwner() != provinces.find(1159)->second->getOwner()
 			&& !provinces.find(1219)->second->getOwner().compare("Waddai") && !provinces.find(2288)->second->getOwner().compare("Waddai") &&  
@@ -1109,10 +1112,13 @@ void EU4::World::linkProvincesToCountries()
 	}
 
 	//1210 - Dawaro needs to be given to Adal (Since Ethiopia could be a country)
-	provinces.find(1210)->second->sterilize();
-	provinces.find(1210)->second->addCore("ADA");
-	provinces.find(1210)->second->setOwner("ADA");
-	provinces.find(1210)->second->setController("ADA");
+	if (provinces.find(1210) != provinces.end() && provinces.find(1210)->second)
+	{
+		provinces.find(1210)->second->sterilize();
+		provinces.find(1210)->second->addCore("ADA");
+		provinces.find(1210)->second->setOwner("ADA");
+		provinces.find(1210)->second->setController("ADA");
+	}
 }
 
 template <typename KeyType, typename ValueType> std::pair<KeyType, ValueType> get_max(const std::map<KeyType, ValueType>& x)

@@ -6,6 +6,7 @@ mercantilism = 0.1
 primary_culture = inca
 religion = inti
 technology_group = high_american
+unit_type = high_american
 capital = 808	# Cuzco
 historical_rival = AZT
 

@@ -6,6 +6,7 @@ mercantilism = 0.2
 primary_culture = iroquois
 religion = totemism
 technology_group = high_american
+unit_type = high_american
 capital = 960 #Onondaga
 
 #aristocracy_plutocracy = 5

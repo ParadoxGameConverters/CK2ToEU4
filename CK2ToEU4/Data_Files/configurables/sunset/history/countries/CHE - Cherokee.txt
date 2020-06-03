@@ -6,6 +6,7 @@ mercantilism = 0.1
 primary_culture = cherokee
 religion = totemism
 technology_group = high_american
+unit_type = high_american
 capital = 952
 
 #aristocracy_plutocracy = 5

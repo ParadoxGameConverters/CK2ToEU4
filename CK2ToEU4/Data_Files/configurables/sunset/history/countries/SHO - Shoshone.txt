@@ -4,6 +4,7 @@ mercantilism = 0.1
 primary_culture = shoshone
 religion = totemism
 technology_group = high_american
+unit_type = high_american
 capital = 2020	# Bannock
 
 
