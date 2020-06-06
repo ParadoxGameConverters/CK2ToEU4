@@ -252,27 +252,7 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 		details.excommunicated = true;
 
 	auto nameSet = false;
-	// Override for kingdoms/empires that use Dynasty Names
-	std::set<std::string> dynastyTitleNames = {"turkish", "karluk", "khitan", "bedouin_arabic", "maghreb_arabic", "levantine_arabic", "egyptian_arabic", 
-											   "andalusian_arabic", "persian", "kurdish", "afghan", "baloch", "bengali", "oriya", "assamese", "hindustani",
-											   "gujarati", "panjabi", "rajput", "sindhi", "marathi", "sinhala", "tamil", "telegu", "kannada" };
-	std::set<std::string> hardcodedExclusions = {"k_rum", "k_israel", "e_india", "e_il-khanate", "e_persia", "e_mali", "k_mali", "k_ghana", "k_songhay",
-												 "e_hre", "e_rome", "e_byzantium"};
-	if (details.government == "monarchy" && dynastyTitleNames.count(details.primaryCulture) && actualHolder->getDynasty().first &&
-		 !actualHolder->getDynasty().second->getName().empty() && !hardcodedExclusions.count(title.first) &&
-		 (title.first.find("e_") == 0 || title.first.find("k_") == 0))
-	{
-		const auto& dynastyName = actualHolder->getDynasty().second->getName();
-		mappers::LocBlock newblock;
-		newblock.english = dynastyName;
-		newblock.spanish = dynastyName;
-		newblock.french = dynastyName;
-		newblock.german = dynastyName;
-		localizations.insert(std::pair(tag, newblock));
-		details.hasDynastyName = true;
-		nameSet = true;
-	}
-	if (!nameSet && !title.second->getDisplayName().empty())
+	if (nameSet && !title.second->getDisplayName().empty())
 	{
 		mappers::LocBlock newblock;
 		newblock.english = title.second->getDisplayName();
@@ -328,6 +308,59 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 			nameSet = true;
 		}
 	}
+
+	// Override for kingdoms/empires that use Dynasty Names
+	std::set<std::string> dynastyTitleNames = {"turkish",
+		 "karluk",
+		 "khitan",
+		 "bedouin_arabic",
+		 "maghreb_arabic",
+		 "levantine_arabic",
+		 "egyptian_arabic",
+		 "andalusian_arabic",
+		 "persian",
+		 "kurdish",
+		 "afghan",
+		 "baloch",
+		 "bengali",
+		 "oriya",
+		 "assamese",
+		 "hindustani",
+		 "gujarati",
+		 "panjabi",
+		 "rajput",
+		 "sindhi",
+		 "marathi",
+		 "sinhala",
+		 "tamil",
+		 "telegu",
+		 "kannada"};
+	
+	std::set<std::string> hardcodedExclusions =
+		 {"k_rum", "k_israel", "e_india", "e_il-khanate", "e_persia", "e_mali", "k_mali", "k_ghana", "k_songhay", "e_hre", "e_rome", "e_byzantium"};
+	
+	if (details.government == "monarchy" && dynastyTitleNames.count(details.primaryCulture) && actualHolder->getDynasty().first &&
+		 !actualHolder->getDynasty().second->getName().empty() && !hardcodedExclusions.count(title.first) &&
+		 (title.first.find("e_") == 0 || title.first.find("k_") == 0))
+	{
+		const auto& dynastyName = actualHolder->getDynasty().second->getName();
+		mappers::LocBlock newblock;
+		newblock.english = dynastyName;
+		newblock.spanish = dynastyName;
+		newblock.french = dynastyName;
+		newblock.german = dynastyName;
+
+		// If we already set a canonical name, don't just overwrite, save it for future reference (Ottoman Crimea)
+		if (nameSet)
+		{
+			localizations.insert(std::pair("canonical", localizations[tag]));
+		}
+		
+		localizations[tag] = newblock;
+		details.hasDynastyName = true;
+		nameSet = true;
+	}
+
 	// giving up.
 	if (!nameSet)
 		Log(LogLevel::Warning) << tag << " help with localization! " << title.first;
