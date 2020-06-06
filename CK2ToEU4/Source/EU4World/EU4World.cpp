@@ -307,7 +307,6 @@ void EU4::World::fixDuplicateNames()
 
 		for (auto i = 0; i < static_cast<int>(countryBatch.second.size()); i++)
 		{
-			const auto clones = static_cast<int>(countryBatch.second.size());
 			mappers::LocBlock newBlock;
 			const auto& actualCountry = countryBatch.second[i];
 			const auto& actualTag = actualCountry->getTag();
