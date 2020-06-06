@@ -17,6 +17,9 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 	LOG(LogLevel::Info) << "*** Hello EU4, let's get painting. ***";
 	// Scraping localizations from CK2 so we may know proper names for our countries.
 	localizationMapper.scrapeLocalizations(theConfiguration, sourceWorld.getMods().getMods());
+
+	// Scrape Primary Tags for nationalities
+	primaryTagMapper.loadPrimaryTags(theConfiguration);
 	Log(LogLevel::Progress) << "50 %";
 
 	// Ditto for colors - these only apply on non-eu4 countries.
@@ -103,6 +106,10 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 
 	// We're distributing permanent claims according to dejure distribution.
 	distributeClaims();
+
+	// We're distributing dead cores according to cultures.
+	distributeDeadCores();
+
 	Log(LogLevel::Progress) << "69 %";
 
 	// Now for the final tweaks.
@@ -118,7 +125,8 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 	Log(LogLevel::Progress) << "72 %";
 
 	// Check for duplicate country names and rename accordingly
-	fixDuplicateNames();
+	// TODO FIX this
+	// fixDuplicateNames();
 
 	// Siberia
 	siberianQuestion(theConfiguration);
@@ -140,20 +148,59 @@ void EU4::World::scrapeColors(const Configuration& theConfiguration, const CK2::
 	auto fileNames = Utils::GetAllFilesInFolder(theConfiguration.getCK2Path() + "/common/landed_titles/");
 	for (const auto& file: fileNames)
 	{
-		if (file.find(".txt") == std::string::npos) continue;
+		if (file.find(".txt") == std::string::npos)
+			continue;
 		colorScraper.scrapeColors(theConfiguration.getCK2Path() + "/common/landed_titles/" + file);
 	}
 	for (const auto& mod: sourceWorld.getMods().getMods())
 	{
 		fileNames = Utils::GetAllFilesInFolder(mod.second + "/common/landed_titles/");
-		if (!fileNames.empty()) Log(LogLevel::Info) << "\t>> Found some colors in: " << mod.first;
+		if (!fileNames.empty())
+			Log(LogLevel::Info) << "\t>> Found some colors in: " << mod.first;
 		for (const auto& file: fileNames)
 		{
-			if (file.find(".txt") == std::string::npos) continue;
+			if (file.find(".txt") == std::string::npos)
+				continue;
 			colorScraper.scrapeColors(mod.second + "/common/landed_titles/" + file);
 		}
 	}
 	LOG(LogLevel::Info) << ">> " << colorScraper.getColors().size() << " colors soaked up.";
+}
+
+void EU4::World::distributeDeadCores()
+{
+	Log(LogLevel::Info) << "-- Distributing Dead Cores";
+	auto counter = 0;
+
+	// Make a register of dead country tags we are allowed to use
+	std::set<std::string> deadTags;
+
+	for (const auto& country: countries)
+		if (country.second->getProvinces().empty())
+			deadTags.insert(country.first);
+
+	// Then, for all provinces, see if their culture has a primary nation, and if we're allowed to insert it.
+	for (const auto& province: provinces)
+	{
+		// Don't touch ROTW
+		if (!province.second->getSourceProvince())
+			continue;
+		// Don't touch stuff we left empty
+		if (province.second->getOwner().empty())
+			continue;
+
+		const auto& primaryTag = primaryTagMapper.getPrimaryTagForCulture(province.second->getCulture());
+		if (primaryTag)
+		{
+			if (deadTags.count(*primaryTag))
+			{
+				// We're ok to use this.
+				province.second->addCore(*primaryTag);
+				++counter;
+			}
+		}
+	}
+	Log(LogLevel::Info) << "<> " << counter << " dead cores have been distributed.";
 }
 
 void EU4::World::distributeClaims()
@@ -198,39 +245,41 @@ void EU4::World::fixDuplicateNames()
 	Log(LogLevel::Info) << "-- Fixing Duplicate Names";
 	int numberNames = 0;
 
-	//Iterate through countries and assign their names as keywords. If a name appears more than once, add it to list of pointers
-	std::map<const std::string, std::vector<std::shared_ptr<EU4::Country>>> nameMap;
-	for (const auto& country : countries)
+	// Iterate through countries and assign their names as keywords. If a name appears more than once, add it to list of pointers
+	std::map<const std::string, std::vector<std::shared_ptr<Country>>> nameMap;
+	for (const auto& country: countries)
 	{
-		if (country.second->getLocalizations().find(country.first)->second.english.empty())
+		const auto& countryLocs = country.second->getLocalizations();
+		if (countryLocs.empty())
 			continue;
-		nameMap[country.second->getLocalizations().find(country.first)->second.english].emplace_back(country.second);
+		if (countryLocs.find(country.first) == countryLocs.end())
+			continue;
+		if (countryLocs.find(country.first)->second.english.empty())
+			continue;
+		nameMap[countryLocs.find(country.first)->second.english].emplace_back(country.second);
 	}
-		
+
 	// Now we iterate through all names and see how many have multiple pointers (i.e - How many names are taken up by more than 1 country?)
 	for (auto& tempNameMap: nameMap)
 	{
 		if (tempNameMap.second.size() > 1)
 		{
-			//Reorder countries in list by development (highest -> lowest)
-			std::sort(
-				tempNameMap.second.begin(),
-				tempNameMap.second.end(),
-				[](auto a, auto b) 
-				{ return a->getDevelopment() > b->getDevelopment(); }
-			);
-			//Now we name the countries based on their order
-			
-			bool isSecret = false;
+			// Reorder countries in list by development (highest -> lowest)
+			std::sort(tempNameMap.second.begin(), tempNameMap.second.end(), [](auto a, auto b) {
+				return a->getDevelopment() > b->getDevelopment();
+			});
+			// Now we name the countries based on their order
+
+			auto isSecret = false;
 			mappers::LocBlock newBlock;
 			mappers::LocBlock oldBlock;
-			bool nameTaken = false;
-			bool anotherTitle = false;
-			for (auto i = 0; i < tempNameMap.second.size(); i++)
+			auto nameTaken = false;
+			auto anotherTitle = false;
+			for (auto i = 0; i < static_cast<int>(tempNameMap.second.size()); i++)
 			{
-				bool dynastyNames = false;
+				auto dynastyNames = false;
 				oldBlock = countries.find(tempNameMap.second[i]->getTag())->second->getLocalizations().find(tempNameMap.second[i]->getTag())->second;
-				//Muslim check
+				// Muslim check
 				if (countries.find(tempNameMap.second[i]->getTag())->second->getHasDynastyName())
 					dynastyNames = true;
 				if (oldBlock.english.find("Greater ") != std::string::npos || oldBlock.english.find("Lesser ") != std::string::npos)
@@ -239,8 +288,8 @@ void EU4::World::fixDuplicateNames()
 					{
 						oldBlock.english = oldBlock.english.erase(0, 9); // -Major
 						oldBlock.spanish = oldBlock.spanish.erase(0, 5); // -Gran
-						oldBlock.french = oldBlock.french.erase(0, 7); // -Grande
-						oldBlock.german = oldBlock.german.erase(0, 5); // -Groß
+						oldBlock.french = oldBlock.french.erase(0, 7);	 // -Grande
+						oldBlock.german = oldBlock.german.erase(0, 5);	 // -Groß
 
 						newBlock.english = oldBlock.english + " Major";
 						newBlock.spanish = oldBlock.spanish + " Maior";
@@ -250,7 +299,7 @@ void EU4::World::fixDuplicateNames()
 						numberNames++;
 						continue;
 					}
-					else if (i == 1)
+					if (i == 1)
 					{
 						oldBlock.english = oldBlock.english.erase(0, 7); // -Lesser
 						oldBlock.spanish = oldBlock.spanish.erase(0, 8); // -Pequeña
@@ -266,7 +315,7 @@ void EU4::World::fixDuplicateNames()
 						continue;
 					}
 				}
-				else if(i == 0 && !dynastyNames)
+				else if (i == 0 && !dynastyNames)
 				{
 					newBlock.english = "Greater " + oldBlock.english;
 					newBlock.spanish = "Gran " + oldBlock.spanish;
@@ -276,7 +325,7 @@ void EU4::World::fixDuplicateNames()
 					numberNames++;
 					continue;
 				}
-				else if(i == 1 && !dynastyNames)
+				else if (i == 1 && !dynastyNames)
 				{
 					newBlock.english = "Lesser " + oldBlock.english;
 					newBlock.spanish = "Pequeña " + oldBlock.spanish;
@@ -291,12 +340,12 @@ void EU4::World::fixDuplicateNames()
 					if (i == 0)
 					{
 						isSecret = true; // This is so that the normal Third Country shenanigans does not happen here
-						continue;		 // The biggest Dynasty country gets to keep their name unchanged
+						continue;		  // The biggest Dynasty country gets to keep their name unchanged
 					}
-					else if (i == 1)
+					if (i == 1)
 					{
 						// Name gets put before its title, e.g - Ottoman Crimea
-						
+
 						newBlock.english = oldBlock.english + " " + countries.find(tempNameMap.second[i]->getTag())->second->getTitle().second->getDisplayName();
 						newBlock.spanish = oldBlock.spanish + " " + countries.find(tempNameMap.second[i]->getTag())->second->getTitle().second->getDisplayName();
 						newBlock.french = oldBlock.french + " " + countries.find(tempNameMap.second[i]->getTag())->second->getTitle().second->getDisplayName();
@@ -305,11 +354,11 @@ void EU4::World::fixDuplicateNames()
 						numberNames++;
 						continue;
 					}
-					else if (i > 1 && i != 3)
+					if (i > 1 && i != 3)
 					{
-						// Check to see if anyone already has your title's name						
-						for (auto tempNameMap2: nameMap)
-							if (!tempNameMap2.first.compare(countries.find(tempNameMap.second[i]->getTag())->second->getTitle().second->getDisplayName()))
+						// Check to see if anyone already has your title's name
+						for (const auto& tempNameMap2: nameMap)
+							if (tempNameMap2.first == countries.find(tempNameMap.second[i]->getTag())->second->getTitle().second->getDisplayName())
 								nameTaken = true;
 						// Just name the country after the title
 						if (!nameTaken)
@@ -324,37 +373,34 @@ void EU4::World::fixDuplicateNames()
 							continue;
 						}
 						// Alrighty then, you're going to be compared to the number of countries that have that title
-						for (auto tempNameMap2: nameMap)
-							if (!tempNameMap2.first.compare("Hinter " + countries.find(tempNameMap.second[i]->getTag())->second->getTitle().second->getDisplayName()))
+						for (const auto& tempNameMap2: nameMap)
+							if (tempNameMap2.first == "Hinter " + countries.find(tempNameMap.second[i]->getTag())->second->getTitle().second->getDisplayName())
 								anotherTitle = true;
-						else if (!anotherTitle)
-						{
-							newBlock.english = "Hinter " + countries.find(tempNameMap.second[i]->getTag())->second->getTitle().second->getDisplayName();
-							newBlock.spanish = "Hinter " + countries.find(tempNameMap.second[i]->getTag())->second->getTitle().second->getDisplayName();
-							newBlock.french = "Hinter " + countries.find(tempNameMap.second[i]->getTag())->second->getTitle().second->getDisplayName();
-							newBlock.german = "Hinter " + countries.find(tempNameMap.second[i]->getTag())->second->getTitle().second->getDisplayName();
-							countries.find(tempNameMap.second[i]->getTag())->second->setLocalizations(newBlock);
-							anotherTitle = true;
-							numberNames++;
-							continue;
-						}
-						else // This will repeat stuff if there are more than 5 countries that share a name, hopefully that will not be an issue
-						{
-							newBlock.english = "Further " + countries.find(tempNameMap.second[i]->getTag())->second->getTitle().second->getDisplayName();
-							newBlock.spanish = "Lejos " + countries.find(tempNameMap.second[i]->getTag())->second->getTitle().second->getDisplayName();
-							newBlock.french = "Plus " + countries.find(tempNameMap.second[i]->getTag())->second->getTitle().second->getDisplayName();
-							newBlock.german = "Ferner " + countries.find(tempNameMap.second[i]->getTag())->second->getTitle().second->getDisplayName();
-							countries.find(tempNameMap.second[i]->getTag())->second->setLocalizations(newBlock);
-							numberNames++;
-							continue;
-						}
+							else if (!anotherTitle)
+							{
+								newBlock.english = "Hinter " + countries.find(tempNameMap.second[i]->getTag())->second->getTitle().second->getDisplayName();
+								newBlock.spanish = "Hinter " + countries.find(tempNameMap.second[i]->getTag())->second->getTitle().second->getDisplayName();
+								newBlock.french = "Hinter " + countries.find(tempNameMap.second[i]->getTag())->second->getTitle().second->getDisplayName();
+								newBlock.german = "Hinter " + countries.find(tempNameMap.second[i]->getTag())->second->getTitle().second->getDisplayName();
+								countries.find(tempNameMap.second[i]->getTag())->second->setLocalizations(newBlock);
+								anotherTitle = true;
+								numberNames++;
+							}
+							else // This will repeat stuff if there are more than 5 countries that share a name, hopefully that will not be an issue
+							{
+								newBlock.english = "Further " + countries.find(tempNameMap.second[i]->getTag())->second->getTitle().second->getDisplayName();
+								newBlock.spanish = "Lejos " + countries.find(tempNameMap.second[i]->getTag())->second->getTitle().second->getDisplayName();
+								newBlock.french = "Plus " + countries.find(tempNameMap.second[i]->getTag())->second->getTitle().second->getDisplayName();
+								newBlock.german = "Ferner " + countries.find(tempNameMap.second[i]->getTag())->second->getTitle().second->getDisplayName();
+								countries.find(tempNameMap.second[i]->getTag())->second->setLocalizations(newBlock);
+								numberNames++;
+							}
 					}
 				}
 				if (!isSecret)
 				{
 					// This country's name stays (This will happen to the THIRD country that shares a name)
 					isSecret = true;
-					continue;
 				}
 				else
 				{
@@ -365,13 +411,12 @@ void EU4::World::fixDuplicateNames()
 					newBlock.german = "Geheimnis " + oldBlock.german;
 					countries.find(tempNameMap.second[i]->getTag())->second->setLocalizations(newBlock);
 					numberNames++;
-					continue;
 				}
 			}
 		}
 	}
 
-	Log(LogLevel::Info) << ">< " << numberNames << " names unduplicated.";
+	Log(LogLevel::Info) << "<> " << numberNames << " names unduplicated.";
 }
 
 void EU4::World::siberianQuestion(const Configuration& theConfiguration)
@@ -424,36 +469,42 @@ void EU4::World::africaQuestion()
 
 	// If a country has a province on both ends of the pass it stays, otherwise the pass is getting cleared
 	// Tuat Pass
-	if (provinces.find(1128) != provinces.end() && provinces.find(1128)->second && provinces.find(2466) != provinces.end() && provinces.find(2466)->second && 
-		provinces.find(2460) != provinces.end() && provinces.find(2460)->second)
+	if (provinces.find(1128) != provinces.end() && provinces.find(1128)->second && provinces.find(2466) != provinces.end() && provinces.find(2466)->second &&
+		 provinces.find(2460) != provinces.end() && provinces.find(2460)->second)
 	{
-		if (provinces.find(1128)->second->getOwner() != provinces.find(2466)->second->getOwner() && provinces.find(1128)->second->getOwner() != provinces.find(2460)->second->getOwner())
+		if (provinces.find(1128)->second->getOwner() != provinces.find(2466)->second->getOwner() &&
+			 provinces.find(1128)->second->getOwner() != provinces.find(2460)->second->getOwner())
 		{
-			provinces.find(1127)->second->sterilize();
+			if (provinces.find(1127) != provinces.end() && provinces.find(1127)->second)
+				provinces.find(1127)->second->sterilize();
 			Log(LogLevel::Info) << ">< Tuat Steralized";
 		}
 	}
 	// Djado-Tajhari Pass
 	if (provinces.find(2448) != provinces.end() && provinces.find(2448)->second && provinces.find(2275) != provinces.end() && provinces.find(2275)->second &&
-		provinces.find(2277) != provinces.end() && provinces.find(2277)->second)
+		 provinces.find(2277) != provinces.end() && provinces.find(2277)->second)
 	{
-		if (provinces.find(2448)->second->getOwner() != provinces.find(2275)->second->getOwner() && provinces.find(2448)->second->getOwner() != provinces.find(2277)->second->getOwner())
+		if (provinces.find(2448)->second->getOwner() != provinces.find(2275)->second->getOwner() &&
+			 provinces.find(2448)->second->getOwner() != provinces.find(2277)->second->getOwner())
 		{
-			provinces.find(2474)->second->sterilize();
-			provinces.find(2475)->second->sterilize();
+			if (provinces.find(2474) != provinces.end() && provinces.find(2474)->second)
+				provinces.find(2474)->second->sterilize();
+			if (provinces.find(2475) != provinces.end() && provinces.find(2475)->second)
+				provinces.find(2475)->second->sterilize();
 			Log(LogLevel::Info) << ">< Tuat Djado-Tajhari Steralized";
 		}
 	}
 	// Central Sahara (Only Waddai and Al-Junaynah)
 	if (provinces.find(1219) != provinces.end() && provinces.find(1219)->second && provinces.find(2288) != provinces.end() && provinces.find(2288)->second &&
-		provinces.find(1159) != provinces.end() && provinces.find(1159)->second)
+		 provinces.find(1159) != provinces.end() && provinces.find(1159)->second)
 	{
-		if (provinces.find(1219)->second->getOwner() != provinces.find(2288)->second->getOwner() && provinces.find(1219)->second->getOwner() != provinces.find(1159)->second->getOwner()
-			&& !provinces.find(1219)->second->getOwner().compare("Waddai") && !provinces.find(2288)->second->getOwner().compare("Waddai") &&  
-			!provinces.find(1159)->second->getOwner().compare("Waddai")) // Not half-Bad chance they'll be a Waddai Duchy, let's try not to steralize a duchy's namesake province.
+		if (provinces.find(1219)->second->getOwner() != provinces.find(2288)->second->getOwner() &&
+			 provinces.find(1219)->second->getOwner() != provinces.find(1159)->second->getOwner())
 		{
-			provinces.find(774)->second->sterilize();
-			provinces.find(2932)->second->sterilize();
+			if (provinces.find(774) != provinces.end() && provinces.find(774)->second)
+				provinces.find(774)->second->sterilize();
+			if (provinces.find(2932) != provinces.end() && provinces.find(2932)->second)
+				provinces.find(2932)->second->sterilize();
 			Log(LogLevel::Info) << ">< Central Sahara Steralized";
 		}
 	}
@@ -1111,7 +1162,7 @@ void EU4::World::linkProvincesToCountries()
 		}
 	}
 
-	//1210 - Dawaro needs to be given to Adal (Since Ethiopia could be a country)
+	// 1210 - Dawaro needs to be given to Adal (Since Ethiopia could be a country)
 	if (provinces.find(1210) != provinces.end() && provinces.find(1210)->second)
 	{
 		provinces.find(1210)->second->sterilize();
@@ -1222,7 +1273,8 @@ void EU4::World::importVanillaProvinces(const std::string& eu4Path, bool invasio
 	auto fileNames = Utils::GetAllFilesInFolder(eu4Path + "/history/provinces/");
 	for (const auto& fileName: fileNames)
 	{
-		if (fileName.find(".txt") == std::string::npos) continue;
+		if (fileName.find(".txt") == std::string::npos)
+			continue;
 		try
 		{
 			const auto id = std::stoi(fileName);
@@ -1246,7 +1298,8 @@ void EU4::World::importVanillaProvinces(const std::string& eu4Path, bool invasio
 		fileNames = Utils::GetAllFilesInFolder("configurables/sunset/history/provinces/");
 		for (const auto& fileName: fileNames)
 		{
-			if (fileName.find(".txt") == std::string::npos) continue;			
+			if (fileName.find(".txt") == std::string::npos)
+				continue;
 			auto id = std::stoi(fileName);
 			const auto& provinceItr = provinces.find(id);
 			if (provinceItr != provinces.end())
@@ -1481,8 +1534,8 @@ std::optional<std::pair<int, std::shared_ptr<CK2::Province>>> EU4::World::determ
 	{
 		const auto& ck2province = sourceWorld.getProvinces().find(ck2ProvinceID);
 		if (ck2province == sourceWorld.getProvinces().end())
-		{			
-			continue; // Broken mapping, or loaded a mod changing provinces without using it. 
+		{
+			continue; // Broken mapping, or loaded a mod changing provinces without using it.
 		}
 		auto ownerTitle = ck2province->second->getTitle().first;
 		if (ownerTitle.empty())

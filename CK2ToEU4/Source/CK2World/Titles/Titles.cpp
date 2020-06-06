@@ -66,7 +66,7 @@ void CK2::Titles::linkPreviousHolders(const Characters& theCharacters)
 				}
 				else
 				{
-					//Log(LogLevel::Warning) << "Previous Holder ID: " << previousHolder.first << " has no definition!";
+					// We are not throwing warning here because shattering a world makes a huge mess and tons of characters will go MIA.
 				}
 			}
 			title.second->setPreviousHolders(previousHolders);
