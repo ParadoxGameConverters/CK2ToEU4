@@ -5,6 +5,7 @@
 #include "../Mappers/CultureMapper/CultureMapper.h"
 #include "../Mappers/GovernmentsMapper/GovernmentsMapper.h"
 #include "../Mappers/LocalizationMapper/LocalizationMapper.h"
+#include "../Mappers/PrimaryTagMapper/PrimaryTagMapper.h"
 #include "../Mappers/ProvinceMapper/ProvinceMapper.h"
 #include "../Mappers/RegionMapper/RegionMapper.h"
 #include "../Mappers/ReligionMapper/ReligionMapper.h"
@@ -29,6 +30,7 @@ class World
 {
   public:
 	World(const CK2::World& sourceWorld, const Configuration& theConfiguration, const mappers::VersionParser& versionParser);
+
   private:
 	// void loadRegions(const Configuration& theConfiguration); waiting on geography.
 	void importVanillaCountries(const std::string& eu4Path, bool invasion);
@@ -65,6 +67,7 @@ class World
 	void fixTengri();
 	void siberianQuestion(const Configuration& theConfiguration);
 	void distributeClaims();
+	void distributeDeadCores();
 	void scrapeColors(const Configuration& theConfiguration, const CK2::World& sourceWorld);
 	void assignAllCountryReforms(const CK2::World& sourceWorld);
 	void africaQuestion();
@@ -88,6 +91,7 @@ class World
 	mappers::GovernmentsMapper governmentsMapper;
 	mappers::LocalizationMapper localizationMapper;
 	mappers::RulerPersonalitiesMapper rulerPersonalitiesMapper;
+	mappers::PrimaryTagMapper primaryTagMapper;
 	ModFile modFile;
 	Diplomacy diplomacy;
 };

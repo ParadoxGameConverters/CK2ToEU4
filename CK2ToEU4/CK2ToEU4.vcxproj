@@ -388,6 +388,9 @@
     <ClCompile Include="Source\Mappers\IAmHreMapper\IAmHreMapper.cpp" />
     <ClCompile Include="Source\Mappers\LocalizationMapper\LocalizationMapper.cpp" />
     <ClCompile Include="Source\Mappers\PersonalityScraper\PersonalityScraper.cpp" />
+    <ClCompile Include="Source\Mappers\PrimaryTagMapper\PrimaryTagCultureGroup.cpp" />
+    <ClCompile Include="Source\Mappers\PrimaryTagMapper\PrimaryTagMapper.cpp" />
+    <ClCompile Include="Source\Mappers\PrimaryTagMapper\PrimaryTagCulture.cpp" />
     <ClCompile Include="Source\Mappers\ProvinceMapper\ProvinceMapper.cpp" />
     <ClCompile Include="Source\Mappers\ProvinceMapper\ProvinceMapping.cpp" />
     <ClCompile Include="Source\Mappers\ProvinceMapper\ProvinceMappingsVersion.cpp" />
@@ -465,6 +468,9 @@
     <ClInclude Include="Source\Mappers\IAmHreMapper\IAmHreMapper.h" />
     <ClInclude Include="Source\Mappers\LocalizationMapper\LocalizationMapper.h" />
     <ClInclude Include="Source\Mappers\PersonalityScraper\PersonalityScraper.h" />
+    <ClInclude Include="Source\Mappers\PrimaryTagMapper\PrimaryTagCultureGroup.h" />
+    <ClInclude Include="Source\Mappers\PrimaryTagMapper\PrimaryTagMapper.h" />
+    <ClInclude Include="Source\Mappers\PrimaryTagMapper\PrimaryTagCulture.h" />
     <ClInclude Include="Source\Mappers\ProvinceMapper\ProvinceMapper.h" />
     <ClInclude Include="Source\Mappers\ProvinceMapper\ProvinceMapping.h" />
     <ClInclude Include="Source\Mappers\ProvinceMapper\ProvinceMappingsVersion.h" />

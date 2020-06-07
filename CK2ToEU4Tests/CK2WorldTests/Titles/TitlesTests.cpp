@@ -166,37 +166,6 @@ TEST(CK2World_TitlesTests, previousHolderLinksCanBeSet)
 	ASSERT_EQ(previousHolder->second->getName(), "von Test");
 }
 
-TEST(CK2World_TitlesTests, previousHolderLinkCannotBeSetThrowsWarning)
-{
-	std::stringstream input;
-	input << "=\n";
-	input << "{\n";
-	input << "c_title={previous={34 35}}\n";
-	input << "}";
-	CK2::Titles titles(input);
-
-	std::stringstream input2;
-	input2 << "=\n";
-	input2 << "{\n";
-	input2 << "34={bn=\"von Test\"}\n";
-	input2 << "36={bn=\"von Gangrene\"}\n";
-	input2 << "}";
-	CK2::Characters characters(input2);
-
-	std::stringstream log;
-	auto stdOutBuf = std::cout.rdbuf();
-	std::cout.rdbuf(log.rdbuf());
-
-	titles.linkPreviousHolders(characters);
-
-	std::cout.rdbuf(stdOutBuf);
-	auto stringLog = log.str();
-	auto newLine = stringLog.find_first_of('\n');
-	stringLog = stringLog.substr(0, newLine);
-
-	ASSERT_EQ(stringLog, " [WARNING] Previous Holder ID: 35 has no definition!");
-}
-
 TEST(CK2World_TitlesTests, liegePrimaryTitleLinkDefaultsToNull)
 {
 	std::stringstream input;

@@ -491,6 +491,24 @@
     <ClCompile Include="..\commonItems\StringUtils.cpp">
       <Filter>ConverterFiles\commonItems</Filter>
     </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\PrimaryTagMapper\PrimaryTagCulture.cpp">
+      <Filter>ConverterFiles\Mappers\PrimaryTagMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\PrimaryTagMapper\PrimaryTagCultureGroup.cpp">
+      <Filter>ConverterFiles\Mappers\PrimaryTagMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\PrimaryTagMapper\PrimaryTagMapper.cpp">
+      <Filter>ConverterFiles\Mappers\PrimaryTagMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="MapperTests\PrimaryTagMapper\PrimaryTagCultureGroupTests.cpp">
+      <Filter>MapperTests\PrimaryTagMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="MapperTests\PrimaryTagMapper\PrimaryTagCultureTests.cpp">
+      <Filter>MapperTests\PrimaryTagMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="MapperTests\PrimaryTagMapper\PrimaryTagMapperTests.cpp">
+      <Filter>MapperTests\PrimaryTagMapper</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4WorldTests">
@@ -660,6 +678,12 @@
     </Filter>
     <Filter Include="ConverterFiles\Mappers\ShatterEmpiresMapper">
       <UniqueIdentifier>{7d41d767-a731-4ae3-b94e-06aee8b1dcef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ConverterFiles\Mappers\PrimaryTagMapper">
+      <UniqueIdentifier>{ece70144-0534-424d-b3c2-4438be8b6660}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MapperTests\PrimaryTagMapper">
+      <UniqueIdentifier>{9ca0ce05-0567-4eb9-89e5-9269c3a889d6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
