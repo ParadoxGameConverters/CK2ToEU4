@@ -70,7 +70,7 @@ link = { ck2 = samaritan eu4 = samaritan_faith }
 link = { ck2 = karaite eu4 = karaite_faith }
 
 # Indian
-link = { ck2 = buddhist eu4 = buddhism }
+link = { ck2 = buddhist eu4 = vajrayana }
 link = { ck2 = hindu eu4 = hinduism }
 link = { ck2 = jain eu4 = jain }
 link = { ck2 = taoist eu4 = confucianism }

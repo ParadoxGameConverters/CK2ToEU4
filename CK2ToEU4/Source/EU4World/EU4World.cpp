@@ -133,6 +133,11 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 
 	// African Passes
 	africaQuestion();
+	Log(LogLevel::Progress) << "74 %";
+
+	// Indian buddhisms
+	indianQuestion();
+	Log(LogLevel::Progress) << "75 %";
 
 	// And finally, the Dump.
 	LOG(LogLevel::Info) << "---> The Dump <---";
@@ -140,6 +145,46 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 	output(versionParser, theConfiguration, sourceWorld);
 	LOG(LogLevel::Info) << "*** Farewell EU4, granting you independence. ***";
 }
+
+void EU4::World::indianQuestion()
+{
+	// countries with capitals in india or persia superregions, need to have their provinces updated to buddhism (from vajrayana),
+	// as well as state religion if vajrayana.
+	LOG(LogLevel::Info) << "-> Resolving the Indian Question";
+	auto countryCounter = 0;
+	auto provinceCounter = 0;
+	
+	for (const auto& country: countries)
+	{
+		if (!country.second->getTitle().second) continue;
+		if (country.second->getProvinces().empty()) continue;
+
+		const auto capitalID = country.second->getCapitalID();
+		if (!capitalID) continue;
+
+		const auto& capitalSuperRegion = regionMapper->getParentSuperRegionName(capitalID);
+		if (!capitalSuperRegion) continue;
+
+		if (*capitalSuperRegion == "india_superregion" || *capitalSuperRegion == "persia_superregion")
+		{
+			// Let's convert to buddhism.
+			if (country.second->getReligion() == "vajrayana")
+			{
+				country.second->setReligion("buddhism");
+				country.second->correctRoyaltyToBuddhism();
+				++countryCounter;
+			}
+			for (const auto& province: country.second->getProvinces())
+				if (province.second->getReligion() == "vajrayana")
+				{
+					province.second->setReligion("buddhism");
+					++provinceCounter;
+				}
+		}
+	}
+	LOG(LogLevel::Info) << "-> " << countryCounter << " countries and " << provinceCounter << " provinces resolved.";
+}
+
 
 void EU4::World::scrapeColors(const Configuration& theConfiguration, const CK2::World& sourceWorld)
 {

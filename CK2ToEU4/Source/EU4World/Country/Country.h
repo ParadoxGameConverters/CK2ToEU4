@@ -90,6 +90,7 @@ class Country
 	void setConversionDate(date theDate) { conversionDate = theDate; }
 	void clearExcommunicated() { details.excommunicated = false; }
 	void setLocalizations(const mappers::LocBlock& newBlock);
+	void correctRoyaltyToBuddhism();
 
 	void assignReforms(std::shared_ptr<mappers::RegionMapper> regionMapper);
 

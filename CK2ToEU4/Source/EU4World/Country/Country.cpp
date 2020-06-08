@@ -1195,3 +1195,17 @@ void EU4::Country::assignReforms(std::shared_ptr<mappers::RegionMapper> regionMa
 		details.mercantilism = 15;
 	}
 }
+
+void EU4::Country::correctRoyaltyToBuddhism()
+{
+	if (details.monarch.religion == "vajrayana")
+		details.monarch.religion = "buddhism";
+	if (details.queen.religion == "vajrayana")
+		details.queen.religion = "buddhism";
+	if (details.heir.religion == "vajrayana")
+		details.heir.religion = "buddhism";
+	for (auto& adviser: details.advisers)
+		if (adviser.religion == "vajrayana")
+			adviser.religion = "buddhism";
+}
+

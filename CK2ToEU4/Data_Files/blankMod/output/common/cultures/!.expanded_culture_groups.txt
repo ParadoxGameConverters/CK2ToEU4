@@ -268,7 +268,7 @@ south_slavic = {
 	}
 }
 
-burman = {
+tibetan_group = {
 	tangut = {
 		primary = TAU
 		dynasty_names = { Dzasa Wangyal Shatra Lungshar Rinpoche Chöphel Shakabpa Tashi }
