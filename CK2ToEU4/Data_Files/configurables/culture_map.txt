@@ -11,6 +11,7 @@ link = { eu4 = norse ck2 = norse tech = western gfx = westerngfx }
 link = { eu4 = swedish ck2 = swedish tech = western gfx = westerngfx }
 link = { eu4 = norwegian ck2 = norwegian tech = western gfx = westerngfx }
 link = { eu4 = danish ck2 = danish tech = western gfx = westerngfx }
+link = { eu4 = icelandic ck2 = norse ck2 = norwegian ck2 = danish ck2 = swedish region = subarctic_islands_area tech = western gfx = westerngfx }
 link = { eu4 = hannoverian ck2 = old_saxon tech = western gfx = westerngfx }
 
 # German: the split
@@ -83,6 +84,7 @@ link = { eu4 = sardinian ck2 = italian tech = western gfx = westerngfx region = 
 link = { eu4 = sicilian ck2 = italian tech = western gfx = westerngfx region = sicily_area }
 link = { eu4 = tuscan ck2 = italian tech = western gfx = westerngfx region = tuscany_area }
 link = { eu4 = venetian ck2 = italian tech = western gfx = westerngfx region = venetia_area region = carinthia_area }
+link = { eu4 = dalmatian ck2 = italian tech = western gfx = westerngfx region = east_adriatic_coast_area region = croatia_area region = albania_area }
 link = { eu4 = italian ck2 = italian tech = western gfx = westerngfx } #Fallback
 
 # Iberian

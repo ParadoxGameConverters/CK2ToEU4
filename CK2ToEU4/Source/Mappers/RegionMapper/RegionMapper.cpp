@@ -72,7 +72,14 @@ void mappers::RegionMapper::registerSuperRegionKeys()
 {
 	registerRegex("[\\w_]+", [this](const std::string& sregionName, std::istream& theStream) {
 		const commonItems::stringList theList(theStream);
-		auto newSRegion = std::make_shared<SuperRegion>(theList.getStrings());
+		std::vector<std::string> regions;
+		for (const auto& region: theList.getStrings())
+		{
+			if (region == "restrict_charter")
+				continue;
+			regions.emplace_back(region);
+		}
+		auto newSRegion = std::make_shared<SuperRegion>(regions);
 		superRegions.insert(std::make_pair(sregionName, newSRegion));
 	});
 }
