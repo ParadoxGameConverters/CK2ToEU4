@@ -26,6 +26,7 @@ link = { eu4 = sudeten ck2 = german tech = western gfx = westerngfx region = erz
 link = { eu4 = swabian ck2 = german tech = western gfx = westerngfx region = palatinate_area region = lower_swabia_area region = upper_swabia_area region = north_rhine_area }
 link = { eu4 = swiss ck2 = german tech = western gfx = westerngfx region = switzerland_area region = romandie_area }
 link = { eu4 = flemish ck2 = german tech = western gfx = westerngfx region = low_countries_region }
+link = { eu4 = lower_saxon ck2 = german tech = western gfx = westerngfx province = 44 province = 45 province = 53 province = 54 province = 57 province = 1758 province = 1775 province = 1857 province = 1874 province = 4141 province = 4771 province = 4772 province = 4773 } # Lower Saxon
 link = { eu4 = hannoverian ck2 = german tech = western gfx = westerngfx region = westphalia_area region = weser_area region = braunschweig_area region = lower_saxony_area } # Westphalian
 link = { eu4 = german ck2 = german tech = western gfx = westerngfx } #Fallback
 
@@ -37,6 +38,7 @@ link = { eu4 = old_lombard ck2 = lombard tech = western gfx = westerngfx }
 # West Germanic
 
 link = { eu4 = frankish ck2 = old_frankish tech = western gfx = westerngfx }
+link = { eu4 = cornish ck2 = english tech = western gfx = westerngfx province = 233 }
 link = { eu4 = english ck2 = english tech = western gfx = westerngfx }
 link = { eu4 = anglo_saxon ck2 = saxon tech = western gfx = westerngfx }
 link = { eu4 = frisian ck2 = dutch tech = western gfx = westerngfx region = weser_area region = frisia_area }
