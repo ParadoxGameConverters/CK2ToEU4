@@ -64,7 +64,7 @@ wonder_amphitheater = {
 	general_cost = -0.1
 }
 wonder_palace = {
-	max_states = 5
+	governing_capacity = 250
 	monthly_splendor = 1
 }
 wonder_garden = {
