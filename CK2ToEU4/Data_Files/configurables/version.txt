@@ -1,5 +1,5 @@
 # Version info
 
 version = "1.0"
-name = "Capet-prerelease"
-descriptionLine = "Compatible with CK2 3.3 and EU4 1.29"
+name = "Capet"
+descriptionLine = "Compatible with CK2 3.3 and EU4 1.30"
