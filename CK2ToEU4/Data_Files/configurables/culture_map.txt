@@ -15,19 +15,20 @@ link = { eu4 = icelandic ck2 = norse ck2 = norwegian ck2 = danish ck2 = swedish 
 link = { eu4 = hannoverian ck2 = old_saxon tech = western gfx = westerngfx }
 
 # German: the split
-link = { eu4 = alsatian ck2 = german tech = western gfx = westerngfx region = upper_rhineland_area region = lorraine_area region = champagne_area }
-link = { eu4 = austrian ck2 = german tech = western gfx = westerngfx region = austria_proper_area region = inner_austria_area region = tirol_area region = italy_region region = carpathia_region }
-link = { eu4 = bavarian ck2 = german tech = western gfx = westerngfx region = lower_bavaria_area region = upper_bavaria_area }
-link = { eu4 = franconian ck2 = german tech = western gfx = westerngfx region = franconia_area  }
-link = { eu4 = prussian ck2 = german tech = western gfx = westerngfx region = mittelmark_area region = neumark_area region = west_prussia_area region = east_prussia_area region = samogitia_area region = curonia_area region = livonia_area region = poland_region region = hinter_pommern_area region = vorpommern_area region = mecklenburg_area }
+link = { eu4 = alsatian ck2 = german tech = western gfx = westerngfx region = upper_rhineland_area region = alsace_area region = lorraine_area region = france_region }
+link = { eu4 = austrian ck2 = german tech = western gfx = westerngfx region = austria_proper_area region = inner_austria_area region = tirol_area region = carinthia_area region = italy_region region = carpathia_region region = balkan_region }
+link = { eu4 = bavarian ck2 = german tech = western gfx = westerngfx region = lower_bavaria_area region = upper_bavaria_area region = east_bavaria_area }
+link = { eu4 = franconian ck2 = german tech = western gfx = westerngfx region = franconia_area region = upper_franconia_area }
+# Keep sudeten above prussian for silesia.
+link = { eu4 = sudeten ck2 = german tech = western gfx = westerngfx region = erzgebirge_area region = bohemia_area region = moravia_area region = lusatia_area region = silesia_area }
+link = { eu4 = prussian ck2 = german tech = western gfx = westerngfx region = mittelmark_area region = neumark_area region = hinter_pommern_area region = vorpommern_area region = mecklenburg_area region = poland_region region = poland_region region = baltic_region }
 link = { eu4 = hessian ck2 = german tech = western gfx = westerngfx region = hesse_area region = lower_rhineland_area region = north_rhine_area } #Rhenish
 link = { eu4 = saxon ck2 = german tech = western gfx = westerngfx region = south_saxony_area region = thuringia_area region = northern_saxony_area }
-link = { eu4 = sudeten ck2 = german tech = western gfx = westerngfx region = erzgebirge_area region = bohemia_area }
 link = { eu4 = swabian ck2 = german tech = western gfx = westerngfx region = palatinate_area region = lower_swabia_area region = upper_swabia_area region = north_rhine_area }
 link = { eu4 = swiss ck2 = german tech = western gfx = westerngfx region = switzerland_area region = romandie_area }
 link = { eu4 = flemish ck2 = german tech = western gfx = westerngfx region = low_countries_region }
-link = { eu4 = lower_saxon ck2 = german tech = western gfx = westerngfx province = 44 province = 45 province = 53 province = 54 province = 57 province = 1758 province = 1775 province = 1857 province = 1874 province = 4141 province = 4771 province = 4772 province = 4773 } # Lower Saxon
-link = { eu4 = hannoverian ck2 = german tech = western gfx = westerngfx region = westphalia_area region = weser_area region = braunschweig_area region = lower_saxony_area } # Westphalian
+link = { eu4 = lower_saxon ck2 = german tech = western gfx = westerngfx province = 4773 province = 57 province = 1758 province = 4141 province = 54 province = 4771 region = holstein_area region = lower_saxony_area } # Lower Saxon
+link = { eu4 = hannoverian ck2 = german tech = western gfx = westerngfx region = westphalia_area region = lower_saxony_area region = north_westphalia_area province = 55 province = 2971 province = 1874 } # Westphalian
 link = { eu4 = german ck2 = german tech = western gfx = westerngfx } #Fallback
 
 # Central Germanic
