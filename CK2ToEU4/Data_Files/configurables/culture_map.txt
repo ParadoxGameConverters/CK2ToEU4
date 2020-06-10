@@ -11,21 +11,24 @@ link = { eu4 = norse ck2 = norse tech = western gfx = westerngfx }
 link = { eu4 = swedish ck2 = swedish tech = western gfx = westerngfx }
 link = { eu4 = norwegian ck2 = norwegian tech = western gfx = westerngfx }
 link = { eu4 = danish ck2 = danish tech = western gfx = westerngfx }
+link = { eu4 = icelandic ck2 = norse ck2 = norwegian ck2 = danish ck2 = swedish region = subarctic_islands_area tech = western gfx = westerngfx }
 link = { eu4 = hannoverian ck2 = old_saxon tech = western gfx = westerngfx }
 
 # German: the split
-link = { eu4 = alsatian ck2 = german tech = western gfx = westerngfx region = upper_rhineland_area region = lorraine_area region = champagne_area }
-link = { eu4 = austrian ck2 = german tech = western gfx = westerngfx region = austria_proper_area region = inner_austria_area region = tirol_area region = italy_region region = carpathia_region }
-link = { eu4 = bavarian ck2 = german tech = western gfx = westerngfx region = lower_bavaria_area region = upper_bavaria_area }
-link = { eu4 = franconian ck2 = german tech = western gfx = westerngfx region = franconia_area  }
-link = { eu4 = prussian ck2 = german tech = western gfx = westerngfx region = mittelmark_area region = neumark_area region = west_prussia_area region = east_prussia_area region = samogitia_area region = curonia_area region = livonia_area region = poland_region region = hinter_pommern_area region = vorpommern_area region = mecklenburg_area }
+link = { eu4 = alsatian ck2 = german tech = western gfx = westerngfx region = upper_rhineland_area region = alsace_area region = lorraine_area region = brittany_area region = normandy_area region = lorraine_area region = picardy_area region = champagne_area region = ile_de_france_area region = loire_area region = bourgogne_area region = west_burgundy_area region = poitou_area region = orleans_area }
+link = { eu4 = austrian ck2 = german tech = western gfx = westerngfx region = austria_proper_area region = inner_austria_area region = tirol_area region = carinthia_area region = italy_region region = carpathia_region region = balkan_region }
+link = { eu4 = bavarian ck2 = german tech = western gfx = westerngfx region = lower_bavaria_area region = upper_bavaria_area region = east_bavaria_area }
+link = { eu4 = franconian ck2 = german tech = western gfx = westerngfx region = franconia_area region = upper_franconia_area }
+# Keep sudeten above prussian for silesia.
+link = { eu4 = sudeten ck2 = german tech = western gfx = westerngfx region = erzgebirge_area region = bohemia_area region = moravia_area region = lusatia_area region = silesia_area }
+link = { eu4 = prussian ck2 = german tech = western gfx = westerngfx region = mittelmark_area region = neumark_area region = hinter_pommern_area region = vorpommern_area region = mecklenburg_area region = poland_region region = poland_region region = baltic_region }
 link = { eu4 = hessian ck2 = german tech = western gfx = westerngfx region = hesse_area region = lower_rhineland_area region = north_rhine_area } #Rhenish
 link = { eu4 = saxon ck2 = german tech = western gfx = westerngfx region = south_saxony_area region = thuringia_area region = northern_saxony_area }
-link = { eu4 = sudeten ck2 = german tech = western gfx = westerngfx region = erzgebirge_area region = bohemia_area }
 link = { eu4 = swabian ck2 = german tech = western gfx = westerngfx region = palatinate_area region = lower_swabia_area region = upper_swabia_area region = north_rhine_area }
-link = { eu4 = swiss ck2 = german tech = western gfx = westerngfx region = switzerland_area region = romandie_area }
+link = { eu4 = swiss ck2 = german tech = western gfx = westerngfx region = switzerland_area region = romandie_area region = provence_area region = guyenne_area region = languedoc_area region = massif_central_area region = savoy_dauphine_area region = pyrenees_area }
 link = { eu4 = flemish ck2 = german tech = western gfx = westerngfx region = low_countries_region }
-link = { eu4 = hannoverian ck2 = german tech = western gfx = westerngfx region = westphalia_area region = weser_area region = braunschweig_area region = lower_saxony_area } # Westphalian
+link = { eu4 = lower_saxon ck2 = german tech = western gfx = westerngfx province = 4773 province = 57 province = 1758 province = 4141 province = 54 province = 4771 region = holstein_area region = lower_saxony_area } # Lower Saxon
+link = { eu4 = hannoverian ck2 = german tech = western gfx = westerngfx region = westphalia_area region = lower_saxony_area region = north_westphalia_area province = 55 province = 2971 province = 1874 } # Westphalian
 link = { eu4 = german ck2 = german tech = western gfx = westerngfx } #Fallback
 
 # Central Germanic
@@ -36,6 +39,7 @@ link = { eu4 = old_lombard ck2 = lombard tech = western gfx = westerngfx }
 # West Germanic
 
 link = { eu4 = frankish ck2 = old_frankish tech = western gfx = westerngfx }
+link = { eu4 = cornish ck2 = english tech = western gfx = westerngfx province = 233 }
 link = { eu4 = english ck2 = english tech = western gfx = westerngfx }
 link = { eu4 = anglo_saxon ck2 = saxon tech = western gfx = westerngfx }
 link = { eu4 = frisian ck2 = dutch tech = western gfx = westerngfx region = weser_area region = frisia_area }
@@ -83,6 +87,7 @@ link = { eu4 = sardinian ck2 = italian tech = western gfx = westerngfx region = 
 link = { eu4 = sicilian ck2 = italian tech = western gfx = westerngfx region = sicily_area }
 link = { eu4 = tuscan ck2 = italian tech = western gfx = westerngfx region = tuscany_area }
 link = { eu4 = venetian ck2 = italian tech = western gfx = westerngfx region = venetia_area region = carinthia_area }
+link = { eu4 = dalmatian ck2 = italian tech = western gfx = westerngfx region = east_adriatic_coast_area region = croatia_area region = albania_area }
 link = { eu4 = italian ck2 = italian tech = western gfx = westerngfx } #Fallback
 
 # Iberian

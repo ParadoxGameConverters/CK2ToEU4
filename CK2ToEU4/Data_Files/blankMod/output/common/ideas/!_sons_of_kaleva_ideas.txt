@@ -17,7 +17,7 @@ sons_of_kaleva_ideas = {
 	free = yes
 	
 	ZZZ_large_order = {
-		max_states = 5
+		governing_capacity = 250
 		state_maintenance_modifier = -0.25
 	}
 	ZZZ_kalevan_trade = {

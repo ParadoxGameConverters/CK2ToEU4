@@ -507,7 +507,7 @@ ORI_ideas = {
 PUN_ideas = {
 	trigger = {
 		OR = {
-			tag = FUN
+			tag = PUN
 			AND = {
 				num_of_cities = 15
 				is_subject = no
@@ -917,7 +917,7 @@ KHI_ideas = {
 
 JNP_ideas = {
 	trigger = {
-		tag = JNF
+		tag = JNP
 	}
 }
 
@@ -1106,7 +1106,7 @@ CEP_ideas = {
 
 LOR_ideas = {
 	trigger = {
-		tag = LOW
+		tag = LOR
 	}
 }
 

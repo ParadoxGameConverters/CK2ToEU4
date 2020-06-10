@@ -26,10 +26,8 @@ void mappers::ColorScraper::registerKeys()
 		auto foundColors = newScraper.getColors();
 		for (const auto& foundColor: foundColors)
 		{
-			if (titleColors.count(foundColor.first))
-				titleColors[foundColor.first] = foundColor.second; // Overwriting for mod sources
-			else
-				titleColors.insert(foundColors.begin(), foundColors.end());
+			if (!foundColor.second) continue;
+			titleColors[foundColor.first] = foundColor.second; // Overwriting for mod sources
 		}
 	});
 
@@ -44,6 +42,6 @@ std::optional<commonItems::Color> mappers::ColorScraper::getColorForTitle(const 
 {
 	const auto& titleItr = titleColors.find(titleName);
 	if (titleItr != titleColors.end())
-		return titleItr->second;
+		return titleItr->second;		
 	return std::nullopt;
 }

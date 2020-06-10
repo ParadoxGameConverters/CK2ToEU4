@@ -772,3 +772,51 @@ link = { ck2 = d_knights_templar eu4 = TEM }
 # Left out in official DLC
 
 #link = { ck2 = ??? eu4 = MUG } # Impossible to map Mughal Empire
+
+# 1.30 EU4 mappings
+link = { ck2 = d_dalmatia eu4 = DAL } # Dalmatia
+link = { ck2 = c_oberbayern eu4 = UBV } # Oberbayen => Münich
+#link = { ck2 = ??? eu4 = LBV } # Landshut
+#link = { ck2 = ??? eu4 = ING } # Ingolstadt
+link = { ck2 = c_passau eu4 = PSS } # Passau
+#link = { ck2 = ??? eu4 = MBZ } # Montfort-Bregenz
+#link = { ck2 = ??? eu4 = KNZ } # Konstanz
+link = { ck2 = c_lausitz eu4 = ROT } # Lausitz => Rothenburg
+#link = { ck2 = ??? eu4 = BYT } # Bayreuth
+link = { ck2 = c_regensburg eu4 = REG } # Regensburg
+link = { ck2 = c_geneve eu4 = GNV } # Geneva
+link = { ck2 = d_raetia eu4 = TTL } # Raetia => Graubünden
+link = { ck2 = c_opole eu4 = OPL } # Opole
+link = { ck2 = c_lower_silesia eu4 = GLG } # Lower Silesia => Glogau
+link = { ck2 = c_bologna eu4 = BLG } # Bologna
+link = { ck2 = c_padova eu4 = PDV } # Padova
+link = { ck2 = c_saluzzo eu4 = SZO } # Saluzzo
+link = { ck2 = d_spoleto eu4 = SPL } # Spoleto
+link = { ck2 = c_spoleto eu4 = SPL } # Spoleto
+link = { ck2 = c_wolgast eu4 = WOL } # Wolgast
+link = { ck2 = c_stettin eu4 = STE } # Stettin
+link = { ck2 = d_rugen eu4 = RUG } # Rügen
+link = { ck2 = c_rugen eu4 = RUG } # Rügen
+#link = { ck2 = ??? eu4 = CLI } # Cilli
+#link = { ck2 = ??? eu4 = HRZ } # Herzegovina
+link = { ck2 = c_trent eu4 = TNT } # Trent
+link = { ck2 = c_berg eu4 = BRG } # Berg
+link = { ck2 = c_sundgau eu4 = MLH } # Mulhouse
+link = { ck2 = c_bamberg eu4 = BAM } # Bamberg
+#link = { ck2 = ??? eu4 = RUP } # Ruppin
+link = { ck2 = c_gottingen eu4 = LPP } # Gottingen => Lippe
+#link = { ck2 = ??? eu4 = PAD } # Paderborn
+#link = { ck2 = ??? eu4 = CLB } # Calenberg
+#link = { ck2 = ??? eu4 = DWT } # Donauwörth
+link = { ck2 = c_osnabruck eu4 = OSN } # Osnabrück
+link = { ck2 = d_verona eu4 = VRN } # Verona
+link = { ck2 = c_verona eu4 = VRN } # Verona
+#link = { ck2 = ??? eu4 = COB } # Coburg
+link = { ck2 = k_lotharingia eu4 = LOT } # Lotharingia
+link = { ck2 = c_perugia eu4 = PGA } # Perugia
+link = { ck2 = k_sicily eu4 = TTS } # Sicily
+link = { ck2 = k_franconia eu4 = FKN } # Franconia
+link = { ck2 = d_franconia eu4 = FKN } # Franconia
+link = { ck2 = k_swabia eu4 = SWA } # Swabia
+link = { ck2 = d_swabia eu4 = SWA } # Swabia
+link = { ck2 = c_schwaben eu4 = SWA } # Swabia

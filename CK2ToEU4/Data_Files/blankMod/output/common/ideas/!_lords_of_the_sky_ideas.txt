@@ -28,7 +28,7 @@ lords_of_the_sky_ideas = {
 		cav_to_inf_ratio = 0.5
 	}
 	ZZZ_the_sprawling_sky = {
-		max_states = 10
+		governing_capacity = 500
 	}
 	ZZZ_or_else = {
 		unjustified_demands = -0.2

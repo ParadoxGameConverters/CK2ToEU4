@@ -16,7 +16,7 @@ english_monarchy = {
 	legacy_equivalent = english_monarchy_legacy
 	start_territory_to_estates = 0.3
 	modifiers = {
-		max_states = 1
+		governing_capacity = 50
 		legitimacy = 0.5
 		global_unrest = -1
 		max_absolutism = -30
@@ -25,6 +25,10 @@ english_monarchy = {
 	conditional = {
 		allow = { has_dlc = "Common Sense" }
 		has_parliament = yes
+	}
+	
+	custom_attributes = {
+		blocked_call_diet = yes
 	}
 }
 
@@ -50,7 +54,7 @@ ottoman_government = {
 		unjustified_demands = -0.1
 		legitimacy = 0.5
 		max_absolutism = 5
-		max_states = 3
+		governing_capacity = 150
 	}
 
 	custom_attributes = {
@@ -93,11 +97,13 @@ mamluk_government = {
 
 	modifiers = {
 		num_accepted_cultures = 3
+		#-50% cost to promote cultures
 		global_autonomy = -0.025
 		monarch_admin_power = 2
 		same_culture_advisor_cost = -0.25
 		promote_culture_cost = -0.5
-		max_states = 1
+		governing_capacity = 50
+		nobles_influence_modifier = 0.1
 	}
 
 	conditional = {
@@ -127,7 +133,7 @@ grand_duchy_reform = {
 	valid_for_nation_designer = yes
 	nation_designer_cost = 10
 	modifiers = {
-		max_states = 2
+		governing_capacity = 100
 	}
 }
 prussian_monarchy = {
@@ -163,6 +169,8 @@ prussian_monarchy = {
 		global_autonomy = -0.075
 		max_absolutism = 10
 		monarch_military_power = 3
+		nobles_loyalty_modifier = 0.1
+		governing_capacity_modifier = -0.5
 	}
 
 	conditional = {
@@ -210,7 +218,7 @@ principality = {
 	modifiers = {
 		global_unrest = -1
 		global_tax_modifier = 0.05
-		max_states = 2
+		governing_capacity = 100
 	}
 
 	conditional = {
@@ -256,7 +264,7 @@ veche_republic = {
 	}
 	modifiers = {
 		merchants = 1
-		max_states = 1
+		governing_capacity = 50
 		max_absolutism = -50
 	}
 	valid_for_nation_designer = yes
@@ -378,6 +386,7 @@ federal_republic = {
 	custom_attributes = {
 		enables_plutocratic_idea_group = yes
 		enables_aristocratic_idea_group = no
+		blocked_call_diet = yes
 	}
 	conditional = {
 		allow = {
@@ -436,7 +445,7 @@ tsardom = {
 		global_manpower_modifier = 0.20
 		yearly_absolutism = 0.1
 		global_autonomy = -0.05
-		max_states = 5
+		governing_capacity = 250
 	}
 
 	conditional = {
@@ -461,7 +470,7 @@ mughal_government = {
 
 	modifiers = {
 		tolerance_own = 1
-		max_states = 3
+		governing_capacity = 150
 	}
 
 	assimilation_cultures = {
@@ -638,7 +647,7 @@ mansabdari_reform = {
 	}
 	modifiers = {
 		army_tradition_decay = -0.003
-		max_states = 3
+		governing_capacity = 150
 	}
 }
 zabt_reform = {
@@ -648,10 +657,13 @@ zabt_reform = {
 		has_reform = mughal_government
 	}
 	modifiers = {
-		max_states = 3
+		governing_capacity = 150
 	}
 }
 monastic_order_reform = {
+	potential = {
+		NOT = { tag = PAP }
+	}
 	modifiers = {
 		fort_maintenance_modifier = -0.2
 	}

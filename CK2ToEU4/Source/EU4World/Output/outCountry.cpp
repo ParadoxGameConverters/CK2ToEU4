@@ -121,7 +121,7 @@ std::ostream& EU4::operator<<(std::ostream& output, const Country& country)
 		{
 			output << "\tadd_loan = {\n";
 			output << "\t\tinterest_modifier = 0.06 #Plus the default 4% = 10% of usury\n";
-			output << "\t\tfixed_interest = no\n";
+			output << "\t\tfixed_interest = 1\n";
 			output << "\t\tduration = 60\n";
 			output << "\t}\n";
 		}

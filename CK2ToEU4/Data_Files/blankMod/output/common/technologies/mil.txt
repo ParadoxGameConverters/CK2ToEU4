@@ -67,7 +67,7 @@ technology = {
 
 technology = {
 	# Tech 2
-	year = 760
+	year = 750
 	
 	infantry_shock		= 	0.2
 	cavalry_shock		= 	0.2
@@ -615,7 +615,7 @@ technology = {
 	year = 1805
 	
 	#Impulse Warfare
-	sprite_level = 5	
+	#sprite_level = 5	
 	
 	military_tactics	=	0.25
 	land_morale			=	1.0
