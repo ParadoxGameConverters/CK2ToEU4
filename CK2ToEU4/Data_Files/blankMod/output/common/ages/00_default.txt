@@ -696,7 +696,7 @@ age_of_absolutism = {
 					}
 					AND = {
 						government_rank = 3
-						culture = scandinavian
+						culture_group = scandinavian
 					}
 				}						
 			}
