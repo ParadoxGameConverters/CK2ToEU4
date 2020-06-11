@@ -214,19 +214,11 @@ renaissance = {
 	}
 	start_chance = 5		#in 100 for when a province can_start
 	
-	
 	on_start = institution_events.2
-	
-	
-	
-
-	
 	
 	can_embrace = {
 		owner = { has_institution = feudalism }
 	}
-
-
 	
 	embracement_speed = {
 		modifier = {
@@ -396,7 +388,11 @@ new_world_i = {
 		}
 		is_in_capital_area = yes
 		owner = { 
-			has_idea = quest_for_the_new_world 
+			has_idea = quest_for_the_new_world
+			OR = {
+				num_of_trade_companies = 1
+				colony = 1
+			}
 			OR = {
 				north_america = { has_discovered = PREV }
 				south_america = { has_discovered = PREV }
@@ -410,15 +406,9 @@ new_world_i = {
 	on_start = institution_events.3
 	
 	
-	
-
-	
-	
 	can_embrace = {
 		always = yes
 	}
-
-
 	
 	embracement_speed = {
 	
@@ -595,16 +585,13 @@ printing_press = {
 		}
 
 	}
-	start_chance = 5		#in 100 for when a province can_start
+	start_chance = 5		#in 100 for when a province can_start	
 	
-	
-	on_start = institution_events.4
-	
+	on_start = institution_events.4	
 	
 	can_embrace = {
 		always = yes
 	}
-
 	
 	embracement_speed = {
 	
@@ -698,6 +685,83 @@ printing_press = {
 				owner = {
 					is_colonial_nation = yes
 					overlord = { has_institution = printing_press }
+				}
+			}
+		}
+		modifier = {
+			factor = 2
+			potential = {
+				owner = {
+					religion_group = christian
+				}
+			}
+			if = {
+				limit = { has_dlc = "Rule Britannia" }
+				custom_trigger_tooltip = {
+					tooltip = tooltip_owner_protestant
+					is_owned_by_trade_company = no
+					owner = {
+						OR = {
+							religion = protestant
+							religion = reformed
+							religion = anglican
+							religion = hussite
+							religion = cathar
+							religion = waldensian
+							religion = lollard
+						}
+					}
+				}
+			}
+			else = {
+				custom_trigger_tooltip = {
+					tooltip = tooltip_owner_protestant
+					is_owned_by_trade_company = no
+					owner = {
+						OR = {
+							religion = protestant
+							religion = reformed
+							religion = anglican
+							religion = hussite
+							religion = cathar
+							religion = waldensian
+							religion = lollard
+						}
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 1
+			if = {
+				limit = {
+					has_dlc = "Rule Britannia"
+				}
+				custom_trigger_tooltip = {
+					tooltip = tooltip_province_protestant_RB
+					OR = {
+						religion = reformed
+						religion = protestant
+						religion = anglican
+						religion = hussite
+						religion = cathar
+						religion = waldensian
+						religion = lollard
+					}
+				}
+			}
+			else = {
+				custom_trigger_tooltip = {
+					tooltip = tooltip_province_protestant
+					OR = {
+						religion = reformed
+						religion = protestant
+						religion = anglican
+						religion = hussite
+						religion = cathar
+						religion = waldensian
+						religion = lollard
+					}
 				}
 			}
 		}
@@ -1605,27 +1669,6 @@ industrialization = {
 
 	historical_start_date = 1750.1.1
 	historical_start_province = 244 #Lancashire
-
-	history = {
-		OR = {
-			AND = {
-				is_year = 1780
-				continent = europe
-				OR = {
-					owner = { technology_group = western }
-					owner = { technology_group = high_american }
-				}
-			}
-			
-			AND = {
-				is_year = 1820
-				OR = {
-					owner = { technology_group = western }
-					owner = { technology_group = high_american }
-				}
-			}
-		}
-	}
 	
 	can_start = {
 		is_year = 1750
