@@ -249,24 +249,6 @@ east_slavic = {
 				Shuvalov Surkov Tukhachevskiy Yegorov Yudenich Vorontsov Voroshilov Zavoyko }
 	}
 }
-south_slavic = {
-	carantanian = { #Slovene
-		primary = SLO
-		dynasty_names = { Arnic Avbelj Avsenik Bajuk Bitenc Cankar Cec Cernigoj Czipott Dolar
-		Drolc Duletic Globocnik Gobec Godina Golob Haus Hladnik Ivanek Kantušer
-		Kidric Komar Kopitar Kraigher Lipovsek Lipušcek Macek Maister Marinko Miklošic
-		Mravlajk Pengov Pešek Peterle Pirec Plecnik Rozman Rupnik Sarh Srebrnic
-		Tomažic Tomšic Urbancic Vega "Von Windisch-Grätz" Žagar Žerjal Žižke Zornada Zupancic }
-	}
-	bosnian = {
-		primary = BOS
-		dynasty_names = { Abdic Arapovic Basgic Belkic Bijedic Catic Cauševic Ceric Colakovic Dizdar
-		Dizdarevic Džikic Džumhur Ekrem Gradašcevic Halilovic Husrev Ibiševic Ilhamija Imamovic
-		Isakovic Izetbegovic Kodro Konjic Kulenovic Lagumdžija Ljajic Ljubicic Ljubijankic Mehmedinovic
-		Muradbegovic Muzurovic Osmanagic Peco Plakalo Pozderac Prazina Rizvanbegovic Šabanadžovic Salihovic
-		Sarajlic Selimovic Silajdžic Sokolovic Spaho Terzic Tihic Turajlic Tükcan Ugljanin }
-	}
-}
 
 tibetan_group = {
 	tangut = {
@@ -308,6 +290,26 @@ turko_semitic = {
 			Karima Khandan Khaterah Khatira Kinah Lala Madiha Mahdokht Nazy Neelab Negar Niki Nikoo Noushin Rabiya
 			Mahsa Mahwash Marwa Mastana Mehri Mina Minoo Munawwar Muzhdah Nahal Najela Nasiba Nastaran Nazaneen 
 			Rajiya Sadiya Salma Sitara Thana Zahra Zahra Zuhayra
+		}
+	}
+}
+west_slavic = {	
+	graphical_culture = easterngfx
+	slovak = {
+		primary = SLO
+		male_names = {
+			Matej Jan Lukas Stefan Pavol Peter Juraj Jozef Marek Daniel Moric Samuel Martin Ondrej Anton Karol
+			Hugolín Tomas Ludovít Viliam Mikulas Ignac Jaroslav Jaromir Miroslav Drahoslav Svatopluk Mojmir
+			Dobroslav Radoslav Radomír Kazimír Vlastimil Vitazoslav Blahoslav Svetozar Bonifac Vratislav
+			Vladislav Vladimir Cyril Konstantin Metod Bohuslav Drahomir Prokop Jergus Tichomir Bartolomej
+			Luboslav Lubomir Levoslav Stanislav
+		}
+		female_names = {
+			Maria Anna Alzbeta Ludmila Eva Jaroslava Jarmila Amalia Margareta Hana			 
+		}
+		dynasty_names = {
+			Stibor Bel Kollar Podmanický Hatnanský Pongrac Bosniak Veseléni Zichy Turzo Andráši
+			Zapolský Palfi Cáki Balaša Báthory
 		}
 	}
 }
