@@ -234,3 +234,23 @@ turko_semitic = {
 		}
 	}
 }
+west_slavic = {	
+	graphical_culture = easterngfx
+	slovak = {
+		primary = SLO
+		male_names = {
+			Matej Jan Lukas Stefan Pavol Peter Juraj Jozef Marek Daniel Moric Samuel Martin Ondrej Anton Karol
+			Hugolín Tomas Ludovít Viliam Mikulas Ignac Jaroslav Jaromir Miroslav Drahoslav Svatopluk Mojmir
+			Dobroslav Radoslav Radomír Kazimír Vlastimil Vitazoslav Blahoslav Svetozar Bonifac Vratislav
+			Vladislav Vladimir Cyril Konstantin Metod Bohuslav Drahomir Prokop Jergus Tichomir Bartolomej
+			Luboslav Lubomir Levoslav Stanislav
+		}
+		female_names = {
+			Maria Anna Alzbeta Ludmila Eva Jaroslava Jarmila Amalia Margareta Hana			 
+		}
+		dynasty_names = {
+			Stibor Bel Kollar Podmanický Hatnanský Pongrac Bosniak Veseléni Zichy Turzo Andráši
+			Zapolský Palfi Cáki Balaša Báthory
+		}
+	}
+}

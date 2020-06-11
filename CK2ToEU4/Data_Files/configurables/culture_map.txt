@@ -39,7 +39,7 @@ link = { eu4 = old_lombard ck2 = lombard tech = western gfx = westerngfx }
 # West Germanic
 
 link = { eu4 = frankish ck2 = old_frankish tech = western gfx = westerngfx }
-link = { eu4 = cornish ck2 = english tech = western gfx = westerngfx province = 233 }
+link = { eu4 = cornish ck2 = english ck2 = breton tech = western gfx = westerngfx province = 233 province = 4373 }
 link = { eu4 = english ck2 = english tech = western gfx = westerngfx }
 link = { eu4 = anglo_saxon ck2 = saxon tech = western gfx = westerngfx }
 link = { eu4 = frisian ck2 = dutch tech = western gfx = westerngfx region = weser_area region = frisia_area }
@@ -77,16 +77,16 @@ link = { eu4 = roman ck2 = roman tech = western gfx = westerngfx } #Fallback
 
 # Italian: the split
 link = { eu4 = ligurian ck2 = italian tech = western gfx = westerngfx region = liguria_area }
-link = { eu4 = lombard ck2 = italian tech = western gfx = westerngfx region = lombardy_area region = switzerland_area }
+link = { eu4 = lombard ck2 = italian tech = western gfx = westerngfx region = lombardy_area region = po_valley_area region = switzerland_area }
 link = { eu4 = maltese ck2 = italian tech = western gfx = westerngfx province = 126 }
-link = { eu4 = umbrian ck2 = italian tech = western gfx = westerngfx region = central_italy_area province = 118 }
+link = { eu4 = umbrian ck2 = italian tech = western gfx = westerngfx region = central_italy_area region = lazio_area }
 link = { eu4 = neapolitan ck2 = italian tech = western gfx = westerngfx region = naples_area region = apulia_area region = calabria_area }
 link = { eu4 = piedmontese ck2 = italian tech = western gfx = westerngfx region = piedmont_area region = savoy_dauphine_area region = provence_area region = romandie_area }
 link = { eu4 = romagnan ck2 = italian tech = western gfx = westerngfx region = emilia_romagna_area }
 link = { eu4 = sardinian ck2 = italian tech = western gfx = westerngfx region = corsica_sardinia_area }
 link = { eu4 = sicilian ck2 = italian tech = western gfx = westerngfx region = sicily_area }
 link = { eu4 = tuscan ck2 = italian tech = western gfx = westerngfx region = tuscany_area }
-link = { eu4 = venetian ck2 = italian tech = western gfx = westerngfx region = venetia_area region = carinthia_area }
+link = { eu4 = venetian ck2 = italian tech = western gfx = westerngfx region = venetia_area region = carinthia_area region = tirol_area }
 link = { eu4 = dalmatian ck2 = italian tech = western gfx = westerngfx region = east_adriatic_coast_area region = croatia_area region = albania_area }
 link = { eu4 = italian ck2 = italian tech = western gfx = westerngfx } #Fallback
 
@@ -106,7 +106,7 @@ link = { eu4 = visigothic ck2 = visigothic tech = western gfx = westerngfx }
 link = { eu4 = armenian ck2 = armenian tech = eastern gfx = easterngfx }
 link = { eu4 = goths ck2 = greek tech = eastern gfx = easterngfx region = crimea_area }
 link = { eu4 = pontic_greek ck2 = greek tech = eastern gfx = easterngfx region = erzurum_area }
-link = { eu4 = anatolian ck2 = greek tech = eastern gfx = easterngfx region = germiyan_area region = karaman_area region = ankara_area region = cukurova_area region = rum_area region = dulkadir_area region = kastamonu_area }
+link = { eu4 = anatolian ck2 = greek tech = eastern gfx = easterngfx region = germiyan_area region = karaman_area region = ankara_area region = cukurova_area region = rum_area region = dulkadir_area region = kastamonu_area region = mashriq_region }
 link = { eu4 = magnagreek ck2 = greek tech = eastern gfx = westerngfx region = italy_region }
 link = { eu4 = greek ck2 = greek tech = eastern gfx = easterngfx }
 link = { eu4 = circassian ck2 = alan tech = eastern gfx = easterngfx region = circassia_area } #Circassian is needed for Mamluk Government type, so let's try to make it happen
