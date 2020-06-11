@@ -232,7 +232,7 @@ link = { eu4 = croatian ck2 = croatian tech = eastern gfx = easterngfx }
 link = { eu4 = serbian ck2 = serbian tech = eastern gfx = easterngfx }
 link = { eu4 = romanian ck2 = romanian tech = eastern gfx = easterngfx }
 link = { eu4 = bulgarian ck2 = bulgarian tech = eastern gfx = easterngfx }
-link = { eu4 = carantanian ck2 = carantanian tech = eastern gfx = easterngfx }
+link = { eu4 = slovene ck2 = carantanian tech = eastern gfx = easterngfx }
 link = { eu4 = bosnian ck2 = bosnian tech = eastern gfx = easterngfx }
 link = { eu4 = albanian ck2 = arberian tech = eastern gfx = easterngfx }
 
