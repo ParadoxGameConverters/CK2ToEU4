@@ -92,7 +92,6 @@ void Configuration::registerKeys()
 	registerRegex("[a-zA-Z0-9\\_.:]+", commonItems::ignoreItem);
 }
 
-
 void Configuration::verifyCK2Path() const
 {
 	if (!Utils::DoesFolderExist(CK2Path))
