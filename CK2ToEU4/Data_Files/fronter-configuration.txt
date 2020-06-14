@@ -3,6 +3,7 @@ converterFolder = CK2ToEU4
 displayName = CK2DISPLAYNAME
 sourceGame = CK2GAME
 targetGame = EU4GAME
+autoGenerateModsFrom = CK2ModsDirectory
 
 requiredFolder = {
 	name = CK2directory
