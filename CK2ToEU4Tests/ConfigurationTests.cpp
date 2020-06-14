@@ -120,3 +120,28 @@ TEST(CK2ToEU4_ConfigurationTests, OutputNameCanBeSet)
 
 	ASSERT_EQ(testConfiguration.getOutputName(), "override");
 }
+
+TEST(CK2ToEU4_ConfigurationTests, ModFileNamesDefaultToEmpty)
+{
+	std::stringstream input("");
+	const Configuration testConfiguration(input);
+
+	ASSERT_TRUE(testConfiguration.getModFileNames().empty());
+}
+
+TEST(CK2ToEU4_ConfigurationTests, ModFileNamesCanBeLoaded)
+{
+	std::stringstream input;
+	input << "selectedMods = {\n";
+	input << "\t\"modfilename1.mod\"\n";
+	input << "\t\"oddlyshaped.mod.mod.mod.mod\"\n";
+	input << "\t\"mod with spaces.mod\"\n";
+	input << "\t\"oddlyshaped.mod.mod.mod.mod\"\n";
+	input << "}";
+	const Configuration testConfiguration(input);
+
+	ASSERT_EQ(testConfiguration.getModFileNames().size(), 3);
+	ASSERT_TRUE(testConfiguration.getModFileNames().count("modfilename1.mod"));
+	ASSERT_TRUE(testConfiguration.getModFileNames().count("oddlyshaped.mod.mod.mod.mod"));
+	ASSERT_TRUE(testConfiguration.getModFileNames().count("mod with spaces.mod"));
+}

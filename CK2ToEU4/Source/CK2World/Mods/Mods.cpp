@@ -13,6 +13,12 @@ namespace fs = std::filesystem;
 
 void CK2::Mods::loadModDirectory(const Configuration& theConfiguration)
 {
+	if (theConfiguration.getModFileNames().empty())
+	{
+		Log(LogLevel::Info) << "No mods were selected to be used in configuration. Skipping mod processing.";
+		return;
+	}
+	
 	loadCK2ModDirectory(theConfiguration);
 
 	Log(LogLevel::Info) << "\tDetermining Mod Usability";
@@ -43,7 +49,7 @@ void CK2::Mods::loadModDirectory(const Configuration& theConfiguration)
 }
 
 void CK2::Mods::loadCK2ModDirectory(const Configuration& theConfiguration)
-{
+{	
 	const auto& CK2ModsPath = theConfiguration.getCK2ModsPath();
 	if (!Utils::DoesFolderExist(CK2ModsPath))
 		throw std::invalid_argument(
@@ -54,8 +60,10 @@ void CK2::Mods::loadCK2ModDirectory(const Configuration& theConfiguration)
 	auto filenames = Utils::GetAllFilesInFolder(CK2ModsPath);
 	for (const auto& filename: filenames)
 	{
+		if (!theConfiguration.getModFileNames().count(filename))
+			continue; // Mod was not enabled by configuration, so move on.
 		if (fs::path(filename).extension() != ".mod")
-			continue;
+			continue; // shouldn't be necessary but just in case.
 		try
 		{
 			std::ifstream modFile(fs::u8path(CK2ModsPath + "/" + filename));

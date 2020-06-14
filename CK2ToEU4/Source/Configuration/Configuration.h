@@ -3,6 +3,7 @@
 
 #include "Date.h"
 #include "Parser.h"
+#include <set>
 
 class Configuration: commonItems::parser
 {
@@ -63,6 +64,7 @@ class Configuration: commonItems::parser
 	[[nodiscard]] const auto& getSiberia() const { return siberia; }
 	[[nodiscard]] const auto& getSunset() const { return sunset; }
 	[[nodiscard]] const auto& getDevelopment() const { return development; }
+	[[nodiscard]] const auto& getModFileNames() const { return modFileNames; }
 
   private:
 	void registerKeys();
@@ -83,6 +85,8 @@ class Configuration: commonItems::parser
 	SIBERIA siberia = SIBERIA::CLEAR_SIBERIA;
 	SUNSET sunset = SUNSET::DEFAULT;
 	DEVELOPMENT development = DEVELOPMENT::IMPORT;
+
+	std::set<std::string> modFileNames;
 };
 
 #endif // CONFIGURATION_H
