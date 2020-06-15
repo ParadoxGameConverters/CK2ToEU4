@@ -20,7 +20,6 @@
 	link = { eu4 = 4167 eu4 = 4168 eu4 = 4569 }	# NOTHING -> High Atlas, High Atlas, High Atlas
 	link = { eu4 = 4322 eu4 = 4321 }	# NOTHING -> Egyptian Desert, Egyptian Desert
 	link = { eu4 = 4169 }	# NOTHING -> Aures
-	link = { eu4 = 4276 eu4 = 2336 }	# NOTHING -> Jabal Tubaiq, Aflaj
 	link = { eu4 = 4178 eu4 = 4179 eu4 = 4172 eu4 = 4170 eu4 = 4177 }	# NOTHING -> Pontic Mountains, Hakkari Mountains, Zagros, Zagros, Alborz
 	link = { eu4 = 4155 }	# NOTHING -> The Carpathians
 	link = { eu4 = 4146 eu4 = 4153 eu4 = 1804 }	# NOTHING -> Langfjella, The Scandes, Greenland
@@ -620,17 +619,17 @@
 	link = { ck2 = 720 eu4 = 2328 }	# Al 'Ula -> Al Ula
 	link = { ck2 = 718 eu4 = 384 }	# Medina -> Medina
 	link = { ck2 = 864 ck2 = 1530 eu4 = 393 }	# Hail, Dariya -> Jabal Shammar
-	link = { ck2 = 865 eu4 = 2338 }	# Rafha -> Hafar
+	link = { ck2 = 865 eu4 = 2338 eu4 = 4274 }	# Rafha -> Hafar, Sudayr
 	link = { ck2 = 650 eu4 = 2340 }	# Kuwait -> Grane
 	link = { ck2 = 651 eu4 = 394 }	# Qatif -> Al-Qatif
 	link = { ck2 = 652 eu4 = 2347 }	# Al Hasa -> Hofuf
-	link = { ck2 = 653 eu4 = 395 }	# Bahrein -> Qatar
+	link = { ck2 = 653 eu4 = 395 eu4 = 2333 }	# Bahrein -> Qatar, Zufra
 	link = { ck2 = 1531 eu4 = 396 }	# Uwal -> Bahrain
-	link = { ck2 = 863 eu4 = 392 eu4 = 4274 eu4 = 4275 eu4 = 2339 }	# Hajr -> Al-Arid, Sudayr, Al-Yamamah, Yabrin
+	link = { ck2 = 863 eu4 = 392 eu4 = 4275 eu4 = 2339 }	# Hajr -> Al-Arid, Al-Yamamah, Yabrin
 	link = { ck2 = 716 eu4 = 2331 eu4 = 2329 }	# Jeddah -> Jeddah, Yanbu
 	link = { ck2 = 719 eu4 = 385 eu4 = 2330 eu4 = 4277 }	# Mecca -> Mecca, Ma'din Sulaym, Taif
-	link = { ck2 = 862 eu4 = 4273 eu4 = 2337 }	# Halaban -> Al-Kariatan, Buraydah
-	link = { ck2 = 861 eu4 = 2332 eu4 = 386 eu4 = 2335 }	# Asir -> Turubah, Bishah, Dawasir
+	link = { ck2 = 862 eu4 = 4273 eu4 = 2337 eu4 = 4276 }	# Halaban -> Al-Kariatan, Buraydah, Jabal Tubaiq
+	link = { ck2 = 861 eu4 = 2332 eu4 = 386 eu4 = 2335 eu4 = 2336 }	# Asir -> Turubah, Bishah, Dawasir, Aflaj
 	link = { ck2 = 1535 eu4 = 4278 eu4 = 2346 }	# Tihama -> Qunfudhah, Jazan
 	link = { ck2 = 1533 eu4 = 391 eu4 = 4282 }	# Najran -> Najran, Sahda
 	link = { ck2 = 1532 eu4 = 4279 }	# Zabid -> Zabid
@@ -644,8 +643,8 @@
 	link = { ck2 = 866 ck2 = 855 eu4 = 401 eu4 = 2342 }	# MANY-TO-MANY: Dhofar, Mahra -> Dhofar, Wusta
 	link = { ck2 = 867 eu4 = 2341 eu4 = 4287 }	# Nizwa -> Masirah, Ibra
 	link = { ck2 = 868 eu4 = 400 eu4 = 4286 }	# Muscat -> Muscat, Ash Sharqiyah
-	link = { ck2 = 869 eu4 = 4285 eu4 = 403 eu4 = 399 eu4 = 398 }	# Suhár -> Baraimi, Nizwa, Batinah, Qawasim
-	link = { ck2 = 870 eu4 = 397 eu4 = 404 eu4 = 2333 }	# Julfar -> Bani Yas, Liwa, Zufra
+	link = { ck2 = 869 eu4 = 4285 eu4 = 403 eu4 = 399 }	# Suhár -> Baraimi, Nizwa, Batinah
+	link = { ck2 = 870 eu4 = 397 eu4 = 404 eu4 = 398 }	# Julfar -> Bani Yas, Liwa, Qawasim
 	# Abyssinia
 	link = { ck2 = 871 eu4 = 2786 eu4 = 2788 eu4 = 1206 eu4 = 2024 }	# Busaso -> Bosaso, Hafun, Qardho, Garoowe
 	link = { ck2 = 872 eu4 = 1209 eu4 = 2790 eu4 = 2789 eu4 = 2792 }	# Berbera -> Berbera, Sanaag, Las Khorey, Togdheer
