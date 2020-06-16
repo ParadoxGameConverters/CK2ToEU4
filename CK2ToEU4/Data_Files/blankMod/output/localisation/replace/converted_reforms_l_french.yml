@@ -10,10 +10,17 @@
  indian_sultanate_reform_desc:0 "Dirigés par une minorité musulmane, les sultans ont dû évoluer et étendre les idées musulmanes traditionnelles de la royauté. Bien qu'ils restent des États islamiques, le rôle des Dhimmi, qui englobe traditionnellement les juifs et les chrétiens, a été étendu aux religions dharmiques."
  prussian_monarchy:0 "Monarchie Stratocratique"
  prussian_monarchy_desc:0 "Une forme gouvernementale sous un monarque, qui peut plus être décrite comme une armée avec un État, qu'un État avec une armée."
+ prussian_republic_reform:0 "Administration Stratocratique"
+ prussian_republic_reform_desc:0 "Une République stratocratique n'est dirigée ni par des oligarques corrompus, ni par la volonté des masses ignorantes, mais par ses commandants militaires les plus qualifiés et éprouvés. L'expansion et la protection de nos frontières sont les principales directives de l'État.\n\nDésactive les élections."
+ prussian_republic:0 "Administration Stratocratique"
+ prussian_republic_descs:0 "Une République stratocratique n'est dirigée ni par des oligarques corrompus, ni par la volonté des masses ignorantes, mais par ses commandants militaires les plus qualifiés et éprouvés. L'expansion et la protection de nos frontières sont les principales directives de l'État.\n\nDésactive les élections."
  mughal_government:0 "Système Diwan"
  mughal_government_desc:0 "S'il y a une chose que notre dynastie a apprise au fil des siècles, c'est que nous devons être en mesure de nous adapter à la population locale dans les régions où nous nous étendons. Faisons en sorte que nous apprenions de ceux que nous conquérons afin que notre empire puisse continuer de croître."
  federal_republic:0 "République fédérale"
  federal_republic_desc:0 "Les États sont une fédération, chaque État étant indépendant et possédant son gouvernement propre. Toutefois un président, élu pour quatre ans, dirige l'ensemble de la fédération."
  
- 
+ austrian_archduchy_reform:0 "Archiduché Impérial"
+ austrian_archduchy_reform_desc:0 "Bien qu'organisé de manière similaire à un monarque féodal, l'archiduché impérial est un cran au dessus des autres duchés. Grâce à une longue expérience de la domination sur les autres - quels qu'ils soient - et de l'organisation des affaires dynastiques en leur faveur, les Archiducs ont pu développer un système efficace pour gouverner leurs terres et maintenir leur unité."
+ austrian_archduchy:0 "Archiduché Impérial"
+ austrian_archduchy_desc:0 "Bien qu'organisé de manière similaire à un monarque féodal, l'archiduché impérial est un cran au dessus des autres duchés. Grâce à une longue expérience de la domination sur les autres - quels qu'ils soient - et de l'organisation des affaires dynastiques en leur faveur, les Archiducs ont pu développer un système efficace pour gouverner leurs terres et maintenir leur unité."
  
