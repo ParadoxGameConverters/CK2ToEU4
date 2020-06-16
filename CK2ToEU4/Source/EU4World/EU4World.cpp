@@ -1490,7 +1490,7 @@ void EU4::World::assignAllCountryReforms(const CK2::World& sourceWorld)
 {
 	for (const auto& country: countries)
 	{
-		if (country.second->getTitle().first.empty())
+		if (country.second->getTitle().first.empty() || !country.second->getGovernmentReforms().empty())
 			continue;
 		country.second->assignReforms(regionMapper);
 	}
