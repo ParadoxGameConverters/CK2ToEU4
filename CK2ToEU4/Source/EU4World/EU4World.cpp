@@ -82,18 +82,18 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 	verifyReligionsAndCultures();
 	Log(LogLevel::Progress) << "63 %";
 
-	// With all religious/cultural matters taken care of, we can now set reforms
-	assignAllCountryReforms(sourceWorld);
-	Log(LogLevel::Progress) << "64 %";
-
 	// With all provinces and rulers religion/culture set, only now can we import advisers, which also need religion/culture set.
 	// Those advisers coming without such data use the monarch's religion/culture.
 	importAdvisers();
-	Log(LogLevel::Progress) << "65 %";
+	Log(LogLevel::Progress) << "64 %";
 
 	// We're onto the finesse part of conversion now. HRE was shattered in CK2 World and now we're assigning electorates, free
 	// cities, and such.
 	distributeHRESubtitles(theConfiguration);
+	Log(LogLevel::Progress) << "65 %";
+
+	// With all religious/cultural matters taken care of, we can now set reforms
+	assignAllCountryReforms(sourceWorld);
 	Log(LogLevel::Progress) << "66 %";
 
 	// Rulers with multiple crowns either get PU agreements, or just annex the other crowns.
@@ -1169,20 +1169,20 @@ void EU4::World::setFreeCities()
 	for (const auto& country: countries)
 	{
 		if (country.second->isinHRE() && country.second->getGovernment() == "republic" && country.second->getProvinces().size() == 1 &&
-			 country.second->getTitle().second->getGeneratedLiege().first.empty() && !country.second->getTitle().second->isElector() && freeCityNum < 8)
+			 country.second->getTitle().second->getGeneratedLiege().first.empty() && !country.second->getTitle().second->isElector() && freeCityNum < 12)
 		{
 			country.second->overrideReforms("free_city");
 			++freeCityNum;
 		}
 	}
 	// Can we turn some minors into free cities?
-	if (freeCityNum < 8)
+	if (freeCityNum < 12)
 	{
 		for (const auto& country: countries)
 		{
 			if (country.second->isinHRE() && country.second->getGovernment() != "republic" && !country.second->isHREEmperor() &&
 				 country.second->getGovernmentReforms().empty() && country.second->getProvinces().size() == 1 &&
-				 country.second->getTitle().second->getGeneratedLiege().first.empty() && !country.second->getTitle().second->isElector() && freeCityNum < 8)
+				 country.second->getTitle().second->getGeneratedLiege().first.empty() && !country.second->getTitle().second->isElector() && freeCityNum < 12)
 			{
 				if (country.first == "HAB")
 					continue; // For Iohannes who is sensitive about Austria.
@@ -1190,7 +1190,7 @@ void EU4::World::setFreeCities()
 				country.second->overrideReforms("free_city");
 				country.second->setGovernment("republic");
 				++freeCityNum;
-			}
+			}			
 		}
 	}
 	LOG(LogLevel::Info) << "<> There are " << freeCityNum << " free cities.";
