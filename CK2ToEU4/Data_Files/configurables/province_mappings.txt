@@ -473,14 +473,14 @@
 	# Romania
 	link = { ck2 = 539 ck2 = 537 eu4 = 1952 }	# Marmaros, Bereg -> Maramaros
 	link = { ck2 = 540 eu4 = 158 eu4 = 4127 }	# Szekelyföld -> Maros, Turda
-	link = { ck2 = 519 eu4 = 4128 }	# Feher -> Királyföld
-	link = { ck2 = 517 eu4 = 1951 }	# Temes -> Hunyad
+	link = { ck2 = 519 eu4 = 4128 eu4 = 1951 }	# Feher -> Királyföld, Hunyad
+	link = { ck2 = 517 eu4 = 156 eu4 = 1954 }	# Temes -> Temes, Torontál
 	link = { ck2 = 516 ck2 = 1645 eu4 = 4532 }	# Severin, Targu Jiu -> Severin
-	link = { ck2 = 515 ck2 = 1644 eu4 = 161 }	# Târgoviste, Câmpulung -> Tîrgoviste
+	link = { ck2 = 1644 eu4 = 161 }	# Câmpulung -> Tîrgoviste
 	link = { ck2 = 1643 eu4 = 160 }	# Craiova -> Oltenia
 	link = { ck2 = 514 eu4 = 4531 }	# Turnu -> Giurgiu
 	link = { ck2 = 510 eu4 = 4706 }	# Constantia -> Tolcu
-	link = { ck2 = 1642 eu4 = 2998 }	# Calarasi -> Buzau
+	link = { ck2 = 1642 ck2 = 515 eu4 = 2998 }	# Calarasi, Târgoviste -> Buzau
 	link = { ck2 = 513 ck2 = 511 eu4 = 4530 }	# Bârlad, Galati -> Birlad
 	link = { ck2 = 545 ck2 = 1639 eu4 = 268 }	# Suceava, Bacau -> Suceava
 	link = { ck2 = 1638 eu4 = 4529 }	# Iasi -> Iasi
@@ -500,17 +500,18 @@
 	link = { ck2 = 462 eu4 = 4756 }	# Krizevci -> Bjelovar
 	link = { ck2 = 1969 eu4 = 1767 }	# Vukovar -> Slavonia
 	link = { ck2 = 463 eu4 = 1828 }	# Donji Kraji -> Donji Kraji
-	link = { ck2 = 1970 eu4 = 140 eu4 = 4755 }	# Usora -> Bosnia, Podrinje
+	link = { ck2 = 1970 eu4 = 140 }	# Usora -> Bosnia
 	link = { ck2 = 1967 eu4 = 139 }	# Imotski -> Hum
+	link = { ck2 = 504 eu4 = 4755 }	# Soli -> Podrinje
 	link = { ck2 = 1971 eu4 = 3002 }	# Vrhbosna -> Visoki
 	link = { ck2 = 1973 eu4 = 1831 }	# Onogost -> Herzegovina
 	link = { ck2 = 469 eu4 = 138 eu4 = 4754 }	# Zeta -> Zeta, Kotor
 	link = { ck2 = 1968 eu4 = 4173 }	# Syrmia -> Syrmia
-	link = { ck2 = 505 ck2 = 504 eu4 = 4239 eu4 = 1954 eu4 = 156 }	# MANY-TO-MANY: Belgrade, Soli -> Belgrade, Torontál, Temes
-	link = { ck2 = 503 eu4 = 141 eu4 = 4176 eu4 = 4757 }	# Ras -> Smederevo, Branicevo, Kolubara
+	link = { ck2 = 505 eu4 = 4239 }	# Belgrade -> Belgrade
+	link = { ck2 = 503 eu4 = 141 eu4 = 4757 }	# Ras -> Smederevo, Kolubara
 	link = { ck2 = 502 eu4 = 1827 eu4 = 1766 }	# Rashka -> Raska, Kosovo
 	link = { ck2 = 501 eu4 = 3000 }	# Naissos -> Nis
-	link = { ck2 = 506 eu4 = 2746 }	# Vidin -> Vidin
+	link = { ck2 = 506 eu4 = 2746 eu4 = 4176 }	# Vidin -> Vidin, Branicevo
 	link = { ck2 = 492 eu4 = 4703 }	# Strymon -> Kostendil
 	link = { ck2 = 500 eu4 = 1765 }	# Serdica -> Sofia
 	link = { ck2 = 507 eu4 = 150 }	# Nikopolis -> Nikopol
