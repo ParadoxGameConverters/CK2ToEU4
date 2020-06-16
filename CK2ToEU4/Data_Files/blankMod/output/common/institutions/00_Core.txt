@@ -1670,6 +1670,10 @@ industrialization = {
 	historical_start_date = 1750.1.1
 	historical_start_province = 244 #Lancashire
 	
+	history = {
+		is_year = 1750
+	}
+	
 	can_start = {
 		is_year = 1750
 		is_in_capital_area = yes
