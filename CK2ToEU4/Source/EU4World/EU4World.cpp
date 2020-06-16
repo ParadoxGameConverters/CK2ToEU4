@@ -153,17 +153,21 @@ void EU4::World::indianQuestion()
 	LOG(LogLevel::Info) << "-> Resolving the Indian Question";
 	auto countryCounter = 0;
 	auto provinceCounter = 0;
-	
+
 	for (const auto& country: countries)
 	{
-		if (!country.second->getTitle().second) continue;
-		if (country.second->getProvinces().empty()) continue;
+		if (!country.second->getTitle().second)
+			continue;
+		if (country.second->getProvinces().empty())
+			continue;
 
 		const auto capitalID = country.second->getCapitalID();
-		if (!capitalID) continue;
+		if (!capitalID)
+			continue;
 
 		const auto& capitalSuperRegion = regionMapper->getParentSuperRegionName(capitalID);
-		if (!capitalSuperRegion) continue;
+		if (!capitalSuperRegion)
+			continue;
 
 		if (*capitalSuperRegion == "india_superregion" || *capitalSuperRegion == "persia_superregion")
 		{
@@ -1192,12 +1196,11 @@ void EU4::World::setFreeCities()
 				country.second->setGovernment("republic");
 				country.second->setMercantilism(25);
 				++freeCityNum;
-			}			
+			}
 		}
 	}
 	LOG(LogLevel::Info) << "<> There are " << freeCityNum << " free cities.";
 }
-
 
 void EU4::World::linkProvincesToCountries()
 {

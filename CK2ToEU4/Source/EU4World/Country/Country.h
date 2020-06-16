@@ -3,8 +3,8 @@
 
 #include "../../CK2World/Titles/Title.h"
 #include "../../Mappers/LocalizationMapper/LocalizationMapper.h"
-#include "CountryDetails.h"
 #include "../../Mappers/RegionMapper/RegionMapper.h"
+#include "CountryDetails.h"
 #include <memory>
 #include <string>
 
@@ -73,7 +73,7 @@ class Country
 
 	bool verifyCapital(const mappers::ProvinceMapper& provinceMapper);
 
-	void registerProvince(std::pair<int, std::shared_ptr<Province>> theProvince) { provinces.insert(std::move(theProvince)); }	
+	void registerProvince(std::pair<int, std::shared_ptr<Province>> theProvince) { provinces.insert(std::move(theProvince)); }
 	void setPrimaryCulture(const std::string& culture);
 	void setMajorityReligion(const std::string& religion);
 	void setReligion(const std::string& religion);
