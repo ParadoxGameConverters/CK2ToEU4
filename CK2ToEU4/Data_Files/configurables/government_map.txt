@@ -8,15 +8,6 @@ link = { gov = theocracy ck2gov = theocracy_government }
 link = { gov = republic ck2gov = republic_government } 
 link = { gov = tribal ck2gov = tribal_government }
 
-
-# More specific
-link = { gov = monarchy reform = iqta ck2gov = muslim_government }
-link = { gov = monarchy reform = autocracy_reform ck2gov = roman_imperial_government ck2gov = confucian_bureaucracy ck2gov = chinese_imperial_government }
-link = { gov = theocracy reform = monastic_order_reform ck2gov = order_government }
-link = { gov = republic reform = merchants_reform ck2gov = merchant_republic_government }
-link = { gov = monarchy reform = feudal_theocracy ck2gov = theocratic_feudal_government }
-link = { gov = tribal reform = steppe_horde ck2gov = nomadic_government }
-
 # Targeted
 link = { title = k_papal_state gov = theocracy reform = papacy_reform }
 link = { title = k_orthodox gov = theocracy reform = leading_clergy_reform }

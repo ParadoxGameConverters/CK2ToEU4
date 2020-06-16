@@ -831,34 +831,14 @@ void EU4::Country::assignReforms(std::shared_ptr<mappers::RegionMapper> regionMa
 	// Indians (Dharmic + Buddhists)
 	std::set<std::string> indianReligions = {"buddhism", "vajrayana", "mahayana", "hinduism", "jain"};
 	// Protestants
-	std::set<std::string> protestantReligions = {"protestant", "reformed", "cathar", "waldensian", "lollard"};
+	std::set<std::string> protestantReligions = {"protestant", "reformed", "hussite", "cathar", "waldensian", "lollard"};
 	// Orthodox
 	std::set<std::string> orthodoxReligions = {"orthodox", "monothelite", "iconoclast", "paulician", "bogomilist"};
 	// Pagan
-	std::set<std::string> paganReligions = {"pagan_religion",
-		 "norse_pagan",
-		 "norse_pagan_reformed",
-		 "tengri_pagan",
-		 "tengri_pagan_reformed",
-		 "baltic_pagan",
-		 "baltic_pagan_reformed",
-		 "finnish_pagan",
-		 "finnish_pagan_reformed",
-		 "slavic_pagan",
-		 "slavic_pagan_reformed",
-		 "shamanism",
-		 "west_african_pagan_reformed",
-		 "hellenic_pagan",
-		 "hellenic_pagan_reformed",
-		 "zun_pagan",
-		 "zun_pagan_reformed",
-		 "bon",
-		 "bon_reformed",
-		 "animism",
-		 "totemism",
-		 "inti",
-		 "nahuatl",
-		 "mesoamerican_religion"};
+	std::set<std::string> paganReligions = {"pagan_religion", "norse_pagan",  "norse_pagan_reformed",  "tengri_pagan", "tengri_pagan_reformed", "baltic_pagan", "baltic_pagan_reformed", 
+											"finnish_pagan",  "finnish_pagan_reformed", "slavic_pagan", "slavic_pagan_reformed", "shamanism", "west_african_pagan", "west_african_pagan_reformed",
+											"hellenic_pagan", "hellenic_pagan_reformed", "zun_pagan", "zun_pagan_reformed", "bon", "bon_reformed", "animism", "totemism", "inti", "nahuatl",
+											"mesoamerican_religion"};
 
 	// Russian Cultures (Not all East Slavic)
 	std::set<std::string> russianCultures = {"ilmenian", "volhynian", "severian", "russian", "russian_culture", "novgorodian", "ryazanian"};
@@ -868,10 +848,12 @@ void EU4::Country::assignReforms(std::shared_ptr<mappers::RegionMapper> regionMa
 	std::set<std::string> westAryanCultures = {"gujarati", "saurashtri", "marathi", "sindhi", "rajput", "malvi"};
 	// Baltic Culture Group
 	std::set<std::string> balticCultures = {"estonian", "lithuanian", "latvian", "old_prussian"};
-
+	//Roman Culture Group
+	std::set<std::string> latinCultures = {"lombard", "tuscan", "sardinian", "romagnan", "ligurian", "venetian", "dalmatian ", "neapolitan", "piedmontese", "umbrian", "sicilian", "maltese", 
+										   "italian"};
 	// GENERIC REFORMS
 	std::set<std::string> laws = title.second->getLaws();
-	std::string governmentType = "despotic"; // Despotic will be the default
+	std::string governmentType = "aristocratic"; // Aristocratic will be the default
 	short numberOfLaws = 0;
 	// These are the council laws that give power to the council. The ones that give power to the monarch would end in 0 instead of 1
 	if (title.second->getLaws().count("law_voting_power_1"))
@@ -923,26 +905,31 @@ void EU4::Country::assignReforms(std::shared_ptr<mappers::RegionMapper> regionMa
 			details.reforms = {"noble_elite_reform"};
 			isMerc = true;
 		}
-		else if (actualHolder->getGovernment() == "roman_imperial_government " || actualHolder->getGovernment() == "chinese_imperial_government")
+		else if (actualHolder->getGovernment() == "roman_imperial_government" || actualHolder->getGovernment() == "chinese_imperial_government")
 		{
 			details.reforms.clear();
 			details.reforms = {"autocracy_reform"};
 		}
+		else if (actualHolder->getGovernment() == "theocratic_feudal_government")
+		{
+			details.reforms.clear();
+			details.reforms = {"feudal_theocracy"};
+		}
 		// Iqta
 		else if (actualHolder->getGovernment() == "muslim_government" && muslimReligions.count(details.religion) &&
-					(governmentType == "aristocratic" || governmentType == "despotic"))
+				(governmentType == "aristocratic" || governmentType == "despotic"))
 		{
 			details.reforms.clear();
 			details.reforms = {"iqta"};
 		}
 		// Feudalism
-		else if (governmentType == "aristocratic")
+		else if (governmentType == "depotic")
 		{
 			details.reforms.clear();
 			details.reforms = {"feudalism_reform"};
 		}
-		// English Monarchy (Renamed in the converter, only thing between Feudalism and Autocracy)
-		else if (governmentType == "despotic")
+		// English Monarchy (Renamed in the converter)
+		else if (governmentType == "aristocratic")
 		{
 			details.reforms.clear();
 			details.reforms = {"english_monarchy"};
@@ -1041,6 +1028,12 @@ void EU4::Country::assignReforms(std::shared_ptr<mappers::RegionMapper> regionMa
 			details.reforms.clear();
 			details.reforms = {"monastic_order_reform"};
 		}
+		//Crusader States
+		else if ((details.religion == "Catholic" || details.religion == "Fraticelli") && (tag == "KOJ" || tag == "EGY"))
+		{
+			details.reforms.clear();
+			details.reforms = {"holy_state_reform"};
+		}
 		// All Other Theocracies
 		else
 		{
@@ -1059,16 +1052,22 @@ void EU4::Country::assignReforms(std::shared_ptr<mappers::RegionMapper> regionMa
 
 	// Mughal Diwan System is a LEVEL 2 REFORM
 
-	// Prussian Government
+
+	//Austrian Archduchy (Renamed in converter)
+	else if (details.government == "monarchy" && (tag == "HAB" || isHREEmperor()))
+	{
+		details.reforms.clear();
+		details.reforms = {"austrian_archduchy_reform"};
+	}
+	// Prussian Monarchy (Renamed in converter)
 	else if (details.government == "monarchy" && tag == "PRU" && protestantReligions.count(details.religion))
 	{
 		details.reforms.clear();
 		details.reforms = {"prussian_monarchy"};
 	}
 	// Tsardom
-	else if (details.government == "monarchy" &&
-				(tag == "UKR" || (tag == "RUS" && (orthodoxReligions.count(details.religion) || details.religion == "slavic_pagan" ||
-																  details.religion == "slavic_pagan_reformed"))))
+	else if (details.government == "monarchy" && (tag == "UKR" || (tag == "RUS" && (orthodoxReligions.count(details.religion) || details.religion == "slavic_pagan" ||
+			 details.religion == "slavic_pagan_reformed"))))
 	{
 		details.reforms.clear();
 		details.reforms = {"tsardom"};
@@ -1080,24 +1079,6 @@ void EU4::Country::assignReforms(std::shared_ptr<mappers::RegionMapper> regionMa
 	{
 		details.reforms.clear();
 		details.reforms = {"principality"};
-	}
-	// Veche Republic
-	else if (details.government == "republic" && details.governmentRank != 3 &&
-				(orthodoxReligions.count(details.religion) || details.religion == "slavic_pagan" || details.religion == "slavic_pagan_reformed") &&
-				russianCultures.count(details.primaryCulture) && tag != "POL" && tag != "PAP" && tag != "HLR")
-	{
-		details.reforms.clear();
-		details.reforms = {"veche_republic"};
-		details.mercantilism = 25;
-	}
-	// Peasant Republic
-	else if (details.government != "theocracy" && tag != "ROM" && tag != "HRE" && tag != "BYZ" && actualHolder->hasTrait("peasant_leader") &&
-				((title.first.find("c_") == 0) || details.government == "republic"))
-	{
-		details.government.clear();
-		details.government = "republic";
-		details.reforms.clear();
-		details.reforms = {"peasants_republic"};
 	}
 	// Mamluk (Renamed in converter)
 	else if (muslimReligions.count(details.religion) && isMerc &&
@@ -1154,31 +1135,54 @@ void EU4::Country::assignReforms(std::shared_ptr<mappers::RegionMapper> regionMa
 		details.reforms = {"gond_kingdom"};
 	}
 	// Plutocratic
-	else if ((details.reforms.count("feudalism_reform") || details.reforms.count("english_monarchy") ||
-					 ((details.reforms.count("autocracy_reform") || details.reforms.count("ottoman_government")) && details.governmentRank != 3)) &&
-				(details.technologyGroup == "indian" || details.technologyGroup == "muslim" || details.technologyGroup == "chinese" ||
-					 details.technologyGroup == "east_african") &&
-				hasTradeCenterLevelTwo)
+	else if ((details.reforms.count("feudalism_reform") || details.reforms.count("english_monarchy") || ((details.reforms.count("autocracy_reform") ||
+			 details.reforms.count("ottoman_government")) && details.governmentRank != 3)) && (details.technologyGroup == "indian" || details.technologyGroup == "muslim" ||
+			 details.technologyGroup == "chinese" || details.technologyGroup == "east_african") && hasTradeCenterLevelTwo)
 	{
 		details.reforms.clear();
 		details.reforms = {"plutocratic_reform"};
 		details.mercantilism = 15;
 	}
 	// Grand Duchy
-	else if ((details.reforms.count("feudalism_reform") || details.reforms.count("english_monarchy") || details.reforms.count("autocracy_reform")) &&
-				details.governmentRank == 1 &&
-				(tag == "LUX" || tag == "BAD" || tag == "TUS" || tag == "FIN" || tag == "LIT" || details.primaryCulture == "finnish" ||
-					 balticCultures.count(details.primaryCulture)))
+	else if ((details.reforms.count("feudalism_reform") || details.reforms.count("english_monarchy") || details.reforms.count("autocracy_reform")) && details.governmentRank == 1 &&
+			 (tag == "LUX" || tag == "BAD" || tag == "TUS" || tag == "FIN" || tag == "LIT" || details.primaryCulture == "finnish" || balticCultures.count(details.primaryCulture)))
 	{
 		details.reforms.clear();
 		details.reforms = {"grand_duchy_reform"};
 	}
-	// Free City (HRE)
-	else if (details.inHRE == true && details.government == "republic" && provinces.size() == 1)
+	// Peasant Republic
+	else if (details.government != "theocracy" && tag != "ROM" && tag != "HRE" && tag != "BYZ" && actualHolder->hasTrait("peasant_leader") &&
+			(provinces.size() == 1 || details.government == "republic"))
+	{
+		details.government.clear();
+		details.government = "republic";
+		details.reforms.clear();
+		details.reforms = {"peasants_republic"};
+	}
+	// Free City (HRE) - These have already been set in EU4World.cpp by the setFreeCities() method
+
+	// Veche Republic
+	else if (details.government == "republic" && details.governmentRank != 3 &&
+				(orthodoxReligions.count(details.religion) || details.religion == "slavic_pagan" || details.religion == "slavic_pagan_reformed") &&
+				russianCultures.count(details.primaryCulture) && tag != "POL" && tag != "PAP" && tag != "HLR")
 	{
 		details.reforms.clear();
-		details.reforms = {"free_city"};
+		details.reforms = {"veche_republic"};
 		details.mercantilism = 25;
+	}
+	// Prussian Republic (Renamed in converter)
+	else if (details.government == "republic" && tag == "PRU" && protestantReligions.count(details.religion))
+	{
+		details.reforms.clear();
+		details.reforms = {"prussian_republic_reform"};
+	}
+	// Signoria
+	else if (details.government == "republic" && !details.reforms.count("merchants_reform") && !details.reforms.count("venice_merchants_reform") &&
+			 !details.reforms.count("free_city") && latinCultures.count(details.primaryCulture))
+	{
+		details.reforms.clear();
+		details.reforms = {"signoria_reform"};
+		details.mercantilism = 15;
 	}
 	// Trading City
 	else if (details.reforms.count("merchants_reform") && provinces.size() == 1)
