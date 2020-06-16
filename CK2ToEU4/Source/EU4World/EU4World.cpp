@@ -1172,6 +1172,7 @@ void EU4::World::setFreeCities()
 			 country.second->getTitle().second->getGeneratedLiege().first.empty() && !country.second->getTitle().second->isElector() && freeCityNum < 12)
 		{
 			country.second->overrideReforms("free_city");
+			country.second->setMercantilism(25);
 			++freeCityNum;
 		}
 	}
@@ -1189,6 +1190,7 @@ void EU4::World::setFreeCities()
 				// GovernmentReforms being empty ensures we're not converting special governments and targeted tags into free cities.
 				country.second->overrideReforms("free_city");
 				country.second->setGovernment("republic");
+				country.second->setMercantilism(25);
 				++freeCityNum;
 			}			
 		}

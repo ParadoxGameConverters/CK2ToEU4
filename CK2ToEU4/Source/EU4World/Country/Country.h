@@ -91,6 +91,7 @@ class Country
 	void clearExcommunicated() { details.excommunicated = false; }
 	void setLocalizations(const mappers::LocBlock& newBlock);
 	void correctRoyaltyToBuddhism();
+	void setMercantilism(int mercantilism) { details.mercantilism = mercantilism; }
 
 	void assignReforms(std::shared_ptr<mappers::RegionMapper> regionMapper);
 
