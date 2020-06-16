@@ -853,7 +853,7 @@ void EU4::Country::assignReforms(std::shared_ptr<mappers::RegionMapper> regionMa
 										   "italian"};
 	// GENERIC REFORMS
 	std::set<std::string> laws = title.second->getLaws();
-	std::string governmentType = "aristocratic"; // Aristocratic will be the default
+	std::string governmentType = "despotic"; // Despotism will be the default
 	short numberOfLaws = 0;
 	// These are the council laws that give power to the council. The ones that give power to the monarch would end in 0 instead of 1
 	if (title.second->getLaws().count("law_voting_power_1"))
@@ -1029,7 +1029,7 @@ void EU4::Country::assignReforms(std::shared_ptr<mappers::RegionMapper> regionMa
 			details.reforms = {"monastic_order_reform"};
 		}
 		//Crusader States
-		else if ((details.religion == "Catholic" || details.religion == "Fraticelli") && (tag == "KOJ" || tag == "EGY"))
+		else if ((details.religion == "catholic" || details.religion == "fraticelli") && (tag == "KOJ" || tag == "EGY"))
 		{
 			details.reforms.clear();
 			details.reforms = {"holy_state_reform"};
