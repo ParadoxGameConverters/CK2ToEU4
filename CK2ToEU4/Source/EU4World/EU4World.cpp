@@ -1405,6 +1405,7 @@ void EU4::World::importCK2Countries(const CK2::World& sourceWorld)
 
 void EU4::World::importCK2Country(const std::pair<std::string, std::shared_ptr<CK2::Title>>& title, const CK2::World& sourceWorld)
 {
+
 	// Grabbing the capital, if possible
 	int eu4CapitalID = 0;
 	const auto& ck2CapitalID = title.second->getHolder().second->getCapitalProvince().first;
@@ -1416,9 +1417,30 @@ void EU4::World::importCK2Country(const std::pair<std::string, std::shared_ptr<C
 	}
 
 	// Mapping the title to a tag
-	const auto& tag = titleTagMapper.getTagForTitle(title.first, title.second->getBaseTitle().first, eu4CapitalID);
-	if (!tag)
-		throw std::runtime_error("Title " + title.first + " could not be mapped!");
+	// The Pope is Special!
+	std::optional<std::string> tag;
+	if (title.second->isThePope())
+	{
+		tag = titleTagMapper.getTagForTitle("The Pope", title.second->getBaseTitle().first, eu4CapitalID);
+		Log(LogLevel::Debug) << title.second->getBaseTitle().first  << " got assigned as Pope!";
+		if (!tag)
+			throw std::runtime_error("Title " + title.first + " could not be mapped!");
+	}
+	else if (title.second->isTheFraticelliPope())
+	{
+		tag = titleTagMapper.getTagForTitle("The Fraticelli Pope", title.second->getBaseTitle().first, eu4CapitalID);
+		Log(LogLevel::Debug) << title.second->getBaseTitle().first << " got assigned as the Fraticelli Pope!";
+		if (!tag)
+			throw std::runtime_error("Title " + title.first + " could not be mapped!");
+	}
+	else
+	{
+		tag = titleTagMapper.getTagForTitle(title.first, title.second->getBaseTitle().first, eu4CapitalID);
+		if (!tag)
+			throw std::runtime_error("Title " + title.first + " could not be mapped!");
+	}
+
+	
 
 	// Locating appropriate existing country
 	const auto& countryItr = countries.find(*tag);

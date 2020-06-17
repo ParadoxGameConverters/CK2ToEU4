@@ -42,3 +42,6 @@ SGD = "countries/SpiritGuardians.txt"
 SKL = "countries/SonsOfKaleva.txt"
 WOP = "countries/WarriorsOfPerun.txt"
 ZLT = "countries/Zealots.txt"
+
+#The Fraticelli Pope
+FAP = "countries/Fraticelli.txt"
