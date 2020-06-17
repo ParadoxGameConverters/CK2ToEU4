@@ -252,7 +252,7 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 		details.excommunicated = true;
 
 	// ------------------ Country Name Locs
-	
+
 	auto nameSet = false;
 
 	// Pope is special, as always.
@@ -267,7 +267,7 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 			nameSet = true;
 		}
 	}
-	
+
 	if (!nameSet && !title.second->getDisplayName().empty())
 	{
 		mappers::LocBlock newblock;
@@ -382,7 +382,7 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 		Log(LogLevel::Warning) << tag << " help with localization! " << title.first;
 
 	// --------------- Adjective Locs
-	
+
 	auto adjSet = false;
 
 	// Pope is special, as always.
@@ -398,8 +398,9 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 		}
 	}
 
-	if (!adjSet && dynastyTitleNames.count(details.primaryCulture) && actualHolder->getDynasty().first && !actualHolder->getDynasty().second->getName().empty() &&
-		 title.first != "k_rum" && title.first != "k_israel" && title.first != "e_india" && (title.first.find("e_") == 0 || title.first.find("k_") == 0))
+	if (!adjSet && dynastyTitleNames.count(details.primaryCulture) && actualHolder->getDynasty().first &&
+		 !actualHolder->getDynasty().second->getName().empty() && title.first != "k_rum" && title.first != "k_israel" && title.first != "e_india" &&
+		 (title.first.find("e_") == 0 || title.first.find("k_") == 0))
 	{
 		const auto& dynastyName = actualHolder->getDynasty().second->getName();
 		mappers::LocBlock newblock;

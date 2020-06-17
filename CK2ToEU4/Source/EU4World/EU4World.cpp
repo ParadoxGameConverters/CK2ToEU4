@@ -1450,8 +1450,6 @@ void EU4::World::importCK2Country(const std::pair<std::string, std::shared_ptr<C
 			throw std::runtime_error("Title " + title.first + " could not be mapped!");
 	}
 
-	
-
 	// Locating appropriate existing country
 	const auto& countryItr = countries.find(*tag);
 	if (countryItr != countries.end())

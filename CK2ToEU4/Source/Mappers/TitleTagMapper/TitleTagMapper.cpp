@@ -101,7 +101,7 @@ std::optional<std::string> mappers::TitleTagMapper::getTagForTitle(const std::st
 		}
 	}
 
-	// look up register	
+	// look up register
 	const auto& registerItr = registeredTitleTags.find(ck2Title);
 	if (registerItr != registeredTitleTags.end())
 		return registerItr->second;
