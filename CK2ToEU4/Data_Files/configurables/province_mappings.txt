@@ -629,7 +629,7 @@
 	link = { ck2 = 863 eu4 = 392 eu4 = 4275 eu4 = 2339 }	# Hajr -> Al-Arid, Al-Yamamah, Yabrin
 	link = { ck2 = 716 eu4 = 2331 eu4 = 2329 }	# Jeddah -> Jeddah, Yanbu
 	link = { ck2 = 719 eu4 = 385 eu4 = 2330 eu4 = 4277 }	# Mecca -> Mecca, Ma'din Sulaym, Taif
-	link = { ck2 = 862 eu4 = 4273 eu4 = 2337 }	# Halaban -> Al-Kariatan, Buraydah
+	link = { ck2 = 862 eu4 = 4273 eu4 = 2337 eu4 = 4276 }	# Halaban -> Al-Kariatan, Buraydah, Jabal Tubaiq
 	link = { ck2 = 861 eu4 = 2332 eu4 = 386 eu4 = 2335 eu4 = 2336 }	# Asir -> Turubah, Bishah, Dawasir, Aflaj
 	link = { ck2 = 1535 eu4 = 4278 eu4 = 2346 }	# Tihama -> Qunfudhah, Jazan
 	link = { ck2 = 1533 eu4 = 391 eu4 = 4282 }	# Najran -> Najran, Sahda
