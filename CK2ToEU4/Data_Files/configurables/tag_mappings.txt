@@ -314,7 +314,8 @@ link = { ck2 = d_lombardia eu4 = MLO } # Lombardy --> Milan
 link = { ck2 = d_modena eu4 = MOD }
 link = { ck2 = c_modena eu4 = MOD }
 link = { ck2 = k_naples eu4 = NAP }
-#link = { ck2 = k_papal_state eu4 = PAP } #The papacy is handled internally by the converter
+#link = { ck2 = k_papal_state eu4 = PAP } # The papacy is handled internally by the converter.
+#link = { ck2 = d_fraticelli eu4 = FAP } # Set manually within the converter.
 link = { ck2 = c_parma eu4 = PAR }
 link = { ck2 = k_pisa eu4 = PIS }
 link = { ck2 = d_pisa eu4 = PIS }
@@ -786,7 +787,6 @@ link = { ck2 = d_spirit_guardians eu4 = SGD }
 link = { ck2 = d_sons_kaleva eu4 = SKL }
 link = { ck2 = d_warriors_perun eu4 = WOP }
 link = { ck2 = d_zealots eu4 = ZLT }
-link = { ck2 = d_fraticelli eu4 = FAP }
 
 
 

@@ -767,12 +767,10 @@ void CK2::World::filterIndependentTitles()
 			//Set The Pope(s)
 			if (indep.first == "k_papal_state")
 			{
-				Log(LogLevel::Debug) << "The Pope is: " << indep.first;
 				indep.second->setThePope();
 			}
 			else if (indep.first == "d_fraticelli")
 			{
-				Log(LogLevel::Debug) << "The Fraticelli Pope is: " << indep.first;
 				indep.second->setTheFraticelliPope();
 			}
 			else
@@ -781,12 +779,10 @@ void CK2::World::filterIndependentTitles()
 				{
 					if (ownedTitle.first == "k_papal_state")
 					{
-						Log(LogLevel::Debug) << "The Pope is: " << indep.first;
 						indep.second->setThePope();
 					}
 					else if (ownedTitle.first == "d_fraticelli")
 					{
-						Log(LogLevel::Debug) << "The Fraticelli Pope is: " << indep.first;
 						indep.second->setTheFraticelliPope();
 					}
 				}
@@ -1070,8 +1066,6 @@ void CK2::World::filterProvincelessTitles()
 	{
 		if (title.second->getProvinces().empty())
 		{
-			if (title.first == "k_papal_state" || title.first == "k_papacy" || title.first == "k_italy" || title.first == "k_sicily")
-				Log(LogLevel::Debug) << "disposing of " << title.first;
 			titlesForDisposal.insert(title.first);
 		}
 	}

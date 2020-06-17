@@ -251,8 +251,24 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	if (actualHolder->hasTrait("excommunicated"))
 		details.excommunicated = true;
 
+	// ------------------ Country Name Locs
+	
 	auto nameSet = false;
-	if (!title.second->getDisplayName().empty())
+
+	// Pope is special, as always.
+	if (title.second->isThePope())
+		nameSet = true; // We'll use vanilla PAP locs.
+	else if (title.second->isTheFraticelliPope())
+	{
+		auto nameLocalizationMatch = localizationMapper.getLocBlockForKey("d_fraticelli");
+		if (nameLocalizationMatch)
+		{
+			localizations.insert(std::pair(tag, *nameLocalizationMatch));
+			nameSet = true;
+		}
+	}
+	
+	if (!nameSet && !title.second->getDisplayName().empty())
 	{
 		mappers::LocBlock newblock;
 		newblock.english = title.second->getDisplayName();
@@ -365,8 +381,24 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	if (!nameSet)
 		Log(LogLevel::Warning) << tag << " help with localization! " << title.first;
 
+	// --------------- Adjective Locs
+	
 	auto adjSet = false;
-	if (dynastyTitleNames.count(details.primaryCulture) && actualHolder->getDynasty().first && !actualHolder->getDynasty().second->getName().empty() &&
+
+	// Pope is special, as always.
+	if (title.second->isThePope())
+		adjSet = true; // We'll use vanilla PAP locs.
+	else if (title.second->isTheFraticelliPope())
+	{
+		auto adjLocalizationMatch = localizationMapper.getLocBlockForKey("d_fraticelli_adj");
+		if (adjLocalizationMatch)
+		{
+			localizations.insert(std::pair(tag + "_ADJ", *adjLocalizationMatch));
+			adjSet = true;
+		}
+	}
+
+	if (!adjSet && dynastyTitleNames.count(details.primaryCulture) && actualHolder->getDynasty().first && !actualHolder->getDynasty().second->getName().empty() &&
 		 title.first != "k_rum" && title.first != "k_israel" && title.first != "e_india" && (title.first.find("e_") == 0 || title.first.find("k_") == 0))
 	{
 		const auto& dynastyName = actualHolder->getDynasty().second->getName();

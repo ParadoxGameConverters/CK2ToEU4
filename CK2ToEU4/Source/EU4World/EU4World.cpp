@@ -978,15 +978,27 @@ void EU4::World::resolvePersonalUnions()
 		{
 			// We need to find another primary title.
 			auto foundPrimary = false;
+			// First check if we can find PAP or FAP
 			for (const auto& title: holderTitle.second)
 			{
-				if (!title.second->getProvinces().empty())
+				if (title.first == "PAP" || title.first == "FAP")
 				{
 					primaryTitle = std::pair(title.first, title.second);
 					foundPrimary = true;
 					break;
 				}
 			}
+			// If no popes pick first one.
+			if (!foundPrimary)
+				for (const auto& title: holderTitle.second)
+				{
+					if (!title.second->getProvinces().empty())
+					{
+						primaryTitle = std::pair(title.first, title.second);
+						foundPrimary = true;
+						break;
+					}
+				}
 			if (!foundPrimary)
 				continue; // no helping this fellow.
 		}
@@ -1282,7 +1294,7 @@ void EU4::World::verifyReligionsAndCultures()
 		if (country.second->getPrimaryCulture().empty())
 		{
 			auto max = get_max(culturalCensus);
-			Log(LogLevel::Debug) << country.first << " overriding blank culture with: " << max.first;
+			Log(LogLevel::Warning) << country.first << " overriding blank culture with: " << max.first;
 			country.second->setPrimaryCulture(max.first);
 		}
 		if (country.second->getMajorityReligion().empty())
@@ -1294,7 +1306,7 @@ void EU4::World::verifyReligionsAndCultures()
 		if (country.second->getReligion().empty())
 		{
 			auto max = get_max(religiousCensus);
-			Log(LogLevel::Debug) << country.first << " overriding blank religion with: " << max.first;
+			Log(LogLevel::Warning) << country.first << " overriding blank religion with: " << max.first;
 			country.second->setReligion(max.first);
 		}
 		if (country.second->getTechGroup().empty())
@@ -1302,7 +1314,7 @@ void EU4::World::verifyReligionsAndCultures()
 			const auto& techMatch = cultureMapper.getTechGroup(country.second->getPrimaryCulture());
 			if (techMatch)
 			{
-				Log(LogLevel::Debug) << country.first << " overriding blank tech group with: " << *techMatch;
+				Log(LogLevel::Warning) << country.first << " overriding blank tech group with: " << *techMatch;
 				country.second->setTechGroup(*techMatch);
 			}
 			else
@@ -1316,7 +1328,7 @@ void EU4::World::verifyReligionsAndCultures()
 			const auto& gfxMatch = cultureMapper.getGFX(country.second->getPrimaryCulture());
 			if (gfxMatch)
 			{
-				Log(LogLevel::Debug) << country.first << " overriding blank gfx with: " << *gfxMatch;
+				Log(LogLevel::Warning) << country.first << " overriding blank gfx with: " << *gfxMatch;
 				country.second->setTechGroup(*gfxMatch);
 			}
 			else
@@ -1422,14 +1434,12 @@ void EU4::World::importCK2Country(const std::pair<std::string, std::shared_ptr<C
 	if (title.second->isThePope())
 	{
 		tag = titleTagMapper.getTagForTitle("The Pope", title.second->getBaseTitle().first, eu4CapitalID);
-		Log(LogLevel::Debug) << title.second->getBaseTitle().first  << " got assigned as Pope!";
 		if (!tag)
 			throw std::runtime_error("Title " + title.first + " could not be mapped!");
 	}
 	else if (title.second->isTheFraticelliPope())
 	{
 		tag = titleTagMapper.getTagForTitle("The Fraticelli Pope", title.second->getBaseTitle().first, eu4CapitalID);
-		Log(LogLevel::Debug) << title.second->getBaseTitle().first << " got assigned as the Fraticelli Pope!";
 		if (!tag)
 			throw std::runtime_error("Title " + title.first + " could not be mapped!");
 	}

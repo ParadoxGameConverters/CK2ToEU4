@@ -7,7 +7,7 @@ country_decisions = {
 			NOT = { has_country_flag = pol_zebrzydowski_rebellion_flag }
 		}
 		allow = {
-			adm_tech = 15
+			adm_tech = 10
 			adm = 3
 			dip = 2
 			mil = 2
