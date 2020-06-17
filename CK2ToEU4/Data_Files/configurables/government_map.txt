@@ -9,14 +9,15 @@ link = { gov = republic ck2gov = republic_government ck2gov = merchant_republic_
 link = { gov = tribal ck2gov = tribal_government ck2gov = nomadic_government }
 
 # Targeted
-link = { title = k_papal_state gov = theocracy reform = papacy_reform }
+# link = { title = k_papal_state gov = theocracy reform = papacy_reform } # Special case handled by the converter internally.
+# link = { title = d_fraticelli gov = theocracy reform = papacy_reform } # Special case handled by the converter internally.
+
 link = { title = k_orthodox gov = theocracy reform = leading_clergy_reform }
 link = { title = d_miaphysite gov = theocracy reform = leading_clergy_reform }
 link = { title = d_monophysite gov = theocracy reform = leading_clergy_reform }
 link = { title = d_nestorian gov = theocracy reform = leading_clergy_reform }
 link = { title = d_paulician gov = theocracy reform = leading_clergy_reform }
 link = { title = d_monothelite gov = theocracy reform = leading_clergy_reform }
-link = { title = d_fraticelli gov = theocracy reform = papacy_reform }
 link = { title = d_iconoclast gov = theocracy reform = leading_clergy_reform }
 link = { title = d_norse_pagan_reformed gov = theocracy reform = leading_clergy_reform }
 link = { title = d_tengri_pagan_reformed gov = theocracy reform = leading_clergy_reform }

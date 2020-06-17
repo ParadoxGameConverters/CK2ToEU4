@@ -1,10 +1,11 @@
 #include "World.h"
-#include "CommonFunctions.h"
-#include "GameVersion.h"
 #include "../Configuration/Configuration.h"
 #include "Characters/Character.h"
+#include "CommonFunctions.h"
 #include "Date.h"
+#include "GameVersion.h"
 #include "Log.h"
+#include "Mods/Mods.h"
 #include "OSCompatibilityLayer.h"
 #include "Offmaps/Offmap.h"
 #include "ParserHelpers.h"
@@ -14,7 +15,6 @@
 #include <cmath>
 #include <filesystem>
 #include <fstream>
-#include "Mods/Mods.h"
 
 namespace fs = std::filesystem;
 
@@ -241,7 +241,7 @@ void CK2::World::loadDynasties(const Configuration& theConfiguration)
 			if (file.find(".txt") == std::string::npos)
 				continue;
 			Log(LogLevel::Info) << "\t>> Loading additional dynasties from mod source: " << mod.second + "/common/dynasties/" + file;
-			dynasties.loadDynasties(mod.second + "/common/dynasties/" + file);		
+			dynasties.loadDynasties(mod.second + "/common/dynasties/" + file);
 		}
 	}
 }
@@ -764,15 +764,13 @@ void CK2::World::filterIndependentTitles()
 			// this fellow holds a county, so his indep title is an actual title.
 			independentTitles.insert(std::pair(indep.first, indep.second));
 			counter++;
-			//Set The Pope(s)
+			// Set The Pope(s)
 			if (indep.first == "k_papal_state")
 			{
-				Log(LogLevel::Debug) << "The Pope is: " << indep.first;
 				indep.second->setThePope();
 			}
 			else if (indep.first == "d_fraticelli")
 			{
-				Log(LogLevel::Debug) << "The Fraticelli Pope is: " << indep.first;
 				indep.second->setTheFraticelliPope();
 			}
 			else
@@ -781,12 +779,10 @@ void CK2::World::filterIndependentTitles()
 				{
 					if (ownedTitle.first == "k_papal_state")
 					{
-						Log(LogLevel::Debug) << "The Pope is: " << indep.first;
 						indep.second->setThePope();
 					}
 					else if (ownedTitle.first == "d_fraticelli")
 					{
-						Log(LogLevel::Debug) << "The Fraticelli Pope is: " << indep.first;
 						indep.second->setTheFraticelliPope();
 					}
 				}
@@ -1070,8 +1066,6 @@ void CK2::World::filterProvincelessTitles()
 	{
 		if (title.second->getProvinces().empty())
 		{
-			if (title.first == "k_papal_state" || title.first == "k_papacy" || title.first == "k_italy" || title.first == "k_sicily")
-				Log(LogLevel::Debug) << "disposing of " << title.first;
 			titlesForDisposal.insert(title.first);
 		}
 	}

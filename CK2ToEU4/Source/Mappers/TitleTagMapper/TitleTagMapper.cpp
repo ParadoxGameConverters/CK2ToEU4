@@ -71,6 +71,36 @@ std::optional<std::string> mappers::TitleTagMapper::getTagForTitle(const std::st
 	if (ck2Title.empty())
 		return std::nullopt;
 
+	// The popes don't use proper titles and aren't registered.
+	if (ck2Title == "The Pope")
+	{
+		if (!usedTags.count("PAP"))
+		{
+			usedTags.insert("PAP");
+			return "PAP";
+		}
+		else
+		{
+			auto generatedTag = generateNewTag();
+			usedTags.insert(generatedTag);
+			return generatedTag;
+		}
+	}
+	else if (ck2Title == "The Fraticelli Pope")
+	{
+		if (!usedTags.count("FAP"))
+		{
+			usedTags.insert("FAP");
+			return "FAP";
+		}
+		else
+		{
+			auto generatedTag = generateNewTag();
+			usedTags.insert(generatedTag);
+			return generatedTag;
+		}
+	}
+
 	// look up register
 	const auto& registerItr = registeredTitleTags.find(ck2Title);
 	if (registerItr != registeredTitleTags.end())
