@@ -53,6 +53,11 @@ void Configuration::registerKeys()
 		iAmHre = I_AM_HRE(std::stoi(hreString.getString()));
 		Log(LogLevel::Info) << "HRE set to: " << hreString.getString();
 	});
+	registerKeyword("dejure", [this](const std::string& unused, std::istream& theStream) {
+		const commonItems::singleString dejureString(theStream);
+		dejure = DEJURE(std::stoi(dejureString.getString()));
+		Log(LogLevel::Info) << "DeJure set to: " << dejureString.getString();
+	});
 	registerKeyword("shatter_empires", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleString shatterEmpiresString(theStream);
 		shatterEmpires = SHATTER_EMPIRES(std::stoi(shatterEmpiresString.getString()));

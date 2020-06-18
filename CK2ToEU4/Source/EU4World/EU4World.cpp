@@ -105,7 +105,7 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 	Log(LogLevel::Progress) << "68 %";
 
 	// We're distributing permanent claims according to dejure distribution.
-	distributeClaims();
+	distributeClaims(theConfiguration);
 
 	// We're distributing dead cores according to cultures.
 	distributeDeadCores();
@@ -251,8 +251,14 @@ void EU4::World::distributeDeadCores()
 	Log(LogLevel::Info) << "<> " << counter << " dead cores have been distributed.";
 }
 
-void EU4::World::distributeClaims()
+void EU4::World::distributeClaims(const Configuration& theConfiguration)
 {
+	if (theConfiguration.getDejure() == Configuration::DEJURE::DISABLED)
+	{
+		Log(LogLevel::Info) << ">< Permaclaim distribution disabled by configuration.";
+		return;
+	}
+	
 	Log(LogLevel::Info) << "-- Distributing DeJure Claims";
 	auto counter = 0;
 	std::map<int, std::set<std::string>> claimsRegister; // ck2 province, eu4 tag claims
