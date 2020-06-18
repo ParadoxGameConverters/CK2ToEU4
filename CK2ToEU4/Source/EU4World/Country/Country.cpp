@@ -251,8 +251,24 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	if (actualHolder->hasTrait("excommunicated"))
 		details.excommunicated = true;
 
+	// ------------------ Country Name Locs
+
 	auto nameSet = false;
-	if (!title.second->getDisplayName().empty())
+
+	// Pope is special, as always.
+	if (title.second->isThePope())
+		nameSet = true; // We'll use vanilla PAP locs.
+	else if (title.second->isTheFraticelliPope())
+	{
+		auto nameLocalizationMatch = localizationMapper.getLocBlockForKey("d_fraticelli");
+		if (nameLocalizationMatch)
+		{
+			localizations.insert(std::pair(tag, *nameLocalizationMatch));
+			nameSet = true;
+		}
+	}
+
+	if (!nameSet && !title.second->getDisplayName().empty())
 	{
 		mappers::LocBlock newblock;
 		newblock.english = title.second->getDisplayName();
@@ -310,30 +326,31 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	}
 
 	// Override for kingdoms/empires that use Dynasty Names
-	std::set<std::string> dynastyTitleNames = {"turkish",
+	std::set<std::string> dynastyTitleNames = {"turkmeni", "khazak", "uzbehk", "turkish",
 		 "karluk",
 		 "khitan",
-		 "bedouin_arabic",
-		 "maghreb_arabic",
-		 "levantine_arabic",
-		 "egyptian_arabic",
+		 "tuareg", "frencharab", "andalucian", "hejazi_culture", "gulf_arabic", "mahri_culture", "al_iraqiya_arabic", "omani_culture", "yemeni_culture",
+		 "bedouin_arabic", "algerian", "moroccan", "tunisian"
+		 "berber", "maghreb_arabic",
+		 "al_suryah_arabic", "levantine_arabic",
+		 "al_misr_arabic", "egyptian_arabic",
 		 "andalusian_arabic",
-		 "persian",
+		 "azerbaijani", "khorasani", "mazandarani", "luri", "tajik", "persian",
 		 "kurdish",
-		 "afghan",
-		 "baloch",
-		 "bengali",
+		 "afghani", "afghan",
+		 "baluchi", "baloch",
+		 "bihari", "kochi", "bengali",
 		 "oriya",
 		 "assamese",
-		 "hindustani",
-		 "gujarati",
-		 "panjabi",
-		 "rajput",
+		 "pahari", "kanauji", "vindhyan", "avadhi", "hindustani",
+		 "saurashtri", "gujarati", "gujurati",
+		 "kashmiri", "panjabi",
+		 "malvi", "rajput",
 		 "sindhi",
 		 "marathi",
 		 "sinhala",
-		 "tamil",
-		 "telegu",
+		 "malayalam", "tamil",
+		 "telegu", "telugu",
 		 "kannada"};
 
 	std::set<std::string> hardcodedExclusions =
@@ -345,7 +362,10 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	{
 		const auto& dynastyName = actualHolder->getDynasty().second->getName();
 		mappers::LocBlock newblock;
-		newblock.english = dynastyName;
+		if (dynastyName.back() == 's')
+			newblock.english = dynastyName;
+		else
+			newblock.english = dynastyName + "s";
 		newblock.spanish = dynastyName;
 		newblock.french = dynastyName;
 		newblock.german = dynastyName;
@@ -365,9 +385,26 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	if (!nameSet)
 		Log(LogLevel::Warning) << tag << " help with localization! " << title.first;
 
+	// --------------- Adjective Locs
+
 	auto adjSet = false;
-	if (dynastyTitleNames.count(details.primaryCulture) && actualHolder->getDynasty().first && !actualHolder->getDynasty().second->getName().empty() &&
-		 title.first != "k_rum" && title.first != "k_israel" && title.first != "e_india" && (title.first.find("e_") == 0 || title.first.find("k_") == 0))
+
+	// Pope is special, as always.
+	if (title.second->isThePope())
+		adjSet = true; // We'll use vanilla PAP locs.
+	else if (title.second->isTheFraticelliPope())
+	{
+		auto adjLocalizationMatch = localizationMapper.getLocBlockForKey("d_fraticelli_adj");
+		if (adjLocalizationMatch)
+		{
+			localizations.insert(std::pair(tag + "_ADJ", *adjLocalizationMatch));
+			adjSet = true;
+		}
+	}
+
+	if (!adjSet && dynastyTitleNames.count(details.primaryCulture) && actualHolder->getDynasty().first &&
+		 !actualHolder->getDynasty().second->getName().empty() && title.first != "k_rum" && title.first != "k_israel" && title.first != "e_india" &&
+		 (title.first.find("e_") == 0 || title.first.find("k_") == 0))
 	{
 		const auto& dynastyName = actualHolder->getDynasty().second->getName();
 		mappers::LocBlock newblock;

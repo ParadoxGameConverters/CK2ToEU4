@@ -1,10 +1,11 @@
 #include "World.h"
-#include "CommonFunctions.h"
-#include "GameVersion.h"
 #include "../Configuration/Configuration.h"
 #include "Characters/Character.h"
+#include "CommonFunctions.h"
 #include "Date.h"
+#include "GameVersion.h"
 #include "Log.h"
+#include "Mods/Mods.h"
 #include "OSCompatibilityLayer.h"
 #include "Offmaps/Offmap.h"
 #include "ParserHelpers.h"
@@ -14,7 +15,6 @@
 #include <cmath>
 #include <filesystem>
 #include <fstream>
-#include "Mods/Mods.h"
 
 namespace fs = std::filesystem;
 
@@ -241,7 +241,7 @@ void CK2::World::loadDynasties(const Configuration& theConfiguration)
 			if (file.find(".txt") == std::string::npos)
 				continue;
 			Log(LogLevel::Info) << "\t>> Loading additional dynasties from mod source: " << mod.second + "/common/dynasties/" + file;
-			dynasties.loadDynasties(mod.second + "/common/dynasties/" + file);		
+			dynasties.loadDynasties(mod.second + "/common/dynasties/" + file);
 		}
 	}
 }
@@ -744,12 +744,14 @@ void CK2::World::filterIndependentTitles()
 
 	// First, split off all county_title holders into a container.
 	std::set<int> countyHolders;
+	std::map<int, std::map<std::string, std::shared_ptr<Title>>> allTitleHolders;
 	for (const auto& title: allTitles)
 	{
 		if (title.second->getHolder().first && (title.second->getName().find("c_") == 0 || title.second->getName().find("b_") == 0))
-		{
+		{	
 			countyHolders.insert(title.second->getHolder().first);
 		}
+		allTitleHolders[title.second->getHolder().first].insert(title);
 	}
 
 	// Then look at all potential indeps and see if their holders are up there.
@@ -762,6 +764,29 @@ void CK2::World::filterIndependentTitles()
 			// this fellow holds a county, so his indep title is an actual title.
 			independentTitles.insert(std::pair(indep.first, indep.second));
 			counter++;
+			// Set The Pope(s)
+			if (indep.first == "k_papal_state")
+			{
+				indep.second->setThePope();
+			}
+			else if (indep.first == "d_fraticelli")
+			{
+				indep.second->setTheFraticelliPope();
+			}
+			else
+			{
+				for (const auto& ownedTitle: allTitleHolders[holderID])
+				{
+					if (ownedTitle.first == "k_papal_state")
+					{
+						indep.second->setThePope();
+					}
+					else if (ownedTitle.first == "d_fraticelli")
+					{
+						indep.second->setTheFraticelliPope();
+					}
+				}
+			}
 		}
 	}
 	Log(LogLevel::Info) << "<> " << counter << " independent titles recognized.";
@@ -1040,7 +1065,9 @@ void CK2::World::filterProvincelessTitles()
 	for (const auto& title: independentTitles)
 	{
 		if (title.second->getProvinces().empty())
+		{
 			titlesForDisposal.insert(title.first);
+		}
 	}
 	for (const auto& drop: titlesForDisposal)
 	{

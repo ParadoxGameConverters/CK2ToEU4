@@ -41,6 +41,8 @@ class Title: commonItems::parser
 
 	[[nodiscard]] auto isInHRE() const { return inHRE; }
 	[[nodiscard]] auto isHREEmperor() const { return HREEmperor; }
+	[[nodiscard]] auto isThePope() const { return thePope; }
+	[[nodiscard]] auto isTheFraticelliPope() const { return theFraticelliPope; }
 	[[nodiscard]] auto isElector() const { return electorate; }
 	[[nodiscard]] auto isMajorRevolt() const { return majorRevolt; }
 
@@ -58,6 +60,8 @@ class Title: commonItems::parser
 	void setDJLiegeBaseTitle(std::shared_ptr<Title> theBaseTitle) const { deJureLiege.second->setBaseTitle(std::move(theBaseTitle)); }
 	void setInHRE() { inHRE = true; }
 	void setHREEmperor() { HREEmperor = true; }
+	void setThePope() { thePope = true; }
+	void setTheFraticelliPope() { theFraticelliPope = true; }
 	void setElectorate() { electorate = true; }
 	void setPreviousHolders(const std::map<int, std::shared_ptr<Character>>& thePreviousHolders) { previousHolders = thePreviousHolders; }
 	void overrideLiege() { liege = deJureLiege; }
@@ -87,6 +91,8 @@ class Title: commonItems::parser
 
 	bool inHRE = false;
 	bool HREEmperor = false;
+	bool thePope = false;
+	bool theFraticelliPope = false;
 	bool majorRevolt = false;
 	bool electorate = false;
 	std::string name;			 // nominal name, k_something

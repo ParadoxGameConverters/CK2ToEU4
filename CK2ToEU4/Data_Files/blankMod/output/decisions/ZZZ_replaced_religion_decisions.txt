@@ -65,12 +65,9 @@ country_decisions = {
 			}
 			if = {
 				limit = {
-					OR = {
-						religion = catholic
-						religion = fraticelli
-					}
+					religion = fraticelli
 				}
-				PAP = {
+				FAP = {
 					add_opinion = {
 						who = ROOT
 						modifier = opinion_displeased
@@ -104,11 +101,11 @@ country_decisions = {
 		potential = {
 			NOT = { has_country_modifier = the_statue_in_restraint_of_appeals }
 			religion = fraticelli
-			exists = PAP
-			NOT = { tag = PAP }
+			exists = FAP
+			NOT = { tag = FAP }
 		}
 		allow = {
-			NOT = { PAP = { has_opinion = { who = root value = -50 } } }
+			NOT = { FAP = { has_opinion = { who = root value = -50 } } }
 			adm = 2
 			mil = 2
 		}
@@ -116,18 +113,15 @@ country_decisions = {
 			add_prestige = 10
 			add_reform_desire  = 0.01
 			every_neighbor_country = {
-				limit = { 
-					OR = {
-						religion = catholic 
-						religion = fraticelli
-					}
+				limit = {  
+					religion = fraticelli
 					NOT = {
-						tag = PAP
+						tag = FAP
 					}
 				}
 				add_opinion = { who = ROOT modifier = opinion_demote_pope }
 			}
-			PAP = { add_opinion = { who = ROOT modifier = opinion_pope_realise_demotion } }
+			FAP = { add_opinion = { who = ROOT modifier = opinion_pope_realise_demotion } }
 			add_country_modifier = {
 				name = "the_statue_in_restraint_of_appeals"
 				duration = -1
@@ -144,7 +138,7 @@ country_decisions = {
 			factor = 1
 			modifier = {
 				factor = 0
-				PAP = { has_opinion = { who = root value = -100 } } 
+				FAP = { has_opinion = { who = root value = -100 } } 
 				NOT = { is_excommunicated = yes }
 				OR = {
 					culture_group = french
@@ -165,16 +159,16 @@ country_decisions = {
 			has_country_modifier = the_statue_in_restraint_of_appeals
 			NOT = { has_country_modifier = revocation_of_restraint_of_appeals }
 			religion = fraticelli
-			exists = PAP
+			exists = FAP
 		}
 		allow = {
 			dip = 4
 			advisor = theologian
-			has_opinion = { who = PAP value = 100 }
+			has_opinion = { who = FAP value = 100 }
 		}
 		effect = {
 			remove_country_modifier = the_statue_in_restraint_of_appeals
-			reverse_add_opinion = { who = PAP modifier = opinion_revoked_demotion }
+			reverse_add_opinion = { who = FAP modifier = opinion_revoked_demotion }
 			add_country_modifier = {
 				name = "revocation_of_restraint_of_appeals"
 				duration = -1
@@ -190,7 +184,7 @@ country_decisions = {
 				factor = 0.0
 				is_excommunicated = no
 				OR = {
-					NOT = { has_opinion = { who = PAP value = 150 } }
+					NOT = { has_opinion = { who = FAP value = 150 } }
 					num_of_cities = 5
 				}
 				AND = {
@@ -205,7 +199,7 @@ country_decisions = {
 		major = yes
 		potential = {
 			always = no # redundant due to fixed_capital mechanics
-			tag = PAP
+			tag = FAP
 			owns = 118 # Rome
 			NOT = { capital = 118 }
 		}
@@ -239,18 +233,18 @@ country_decisions = {
 		}
 		allow = {
 			OR = {
-				tag = PAP
+				tag = FAP
 				is_emperor = yes
-				has_opinion = { who = PAP value = -50 }
+				has_opinion = { who = FAP value = -50 }
 			}
 			NOT = { has_country_modifier = edict_de_nantes }
 		}
 		effect = {
 			if = {
 				limit = {
-					NOT = { tag = PAP }
+					NOT = { tag = FAP }
 				}
-				reverse_add_opinion = { who = PAP modifier = opinion_embraced_counter_reformation }
+				reverse_add_opinion = { who = FAP modifier = opinion_embraced_counter_reformation }
 			}
 			if = {
 				limit = {
@@ -294,7 +288,7 @@ country_decisions = {
 			}
 			modifier = {
 				factor = 0.0
-				NOT = { has_opinion = { who = PAP value = -10 } }
+				NOT = { has_opinion = { who = FAP value = -10 } }
 				NOT = { culture_group = latin }
 				NOT = { culture_group = iberian }
 				is_emperor = no
@@ -302,7 +296,7 @@ country_decisions = {
 			modifier = {
 				factor = 0.0
 				adm = 2
-				NOT = { has_opinion = { who = PAP value = 100 } }
+				NOT = { has_opinion = { who = FAP value = 100 } }
 				NOT = { culture_group = latin }
 				NOT = { culture_group = iberian }
 				is_emperor = no
@@ -452,7 +446,7 @@ country_decisions = {
 		}
 		allow = {
 			mil = 3
-			#NOT = { has_opinion = { who = PAP value = 0 } }
+			#NOT = { has_opinion = { who = FAP value = 0 } }
 		}
 		effect = {	
 			add_country_modifier = {
