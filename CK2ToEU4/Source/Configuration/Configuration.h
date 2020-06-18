@@ -11,6 +11,11 @@ class Configuration: commonItems::parser
 	Configuration();
 	explicit Configuration(std::istream& theStream);
 
+	enum class DEJURE
+	{
+		ENABLED = 1,
+		DISABLED = 2
+	};
 	enum class DEVELOPMENT
 	{
 		IMPORT = 1,
@@ -60,6 +65,7 @@ class Configuration: commonItems::parser
 	[[nodiscard]] const auto& getHRE() const { return iAmHre; }
 	[[nodiscard]] const auto& getShatterEmpires() const { return shatterEmpires; }
 	[[nodiscard]] const auto& getShatterLevel() const { return shatterLevel; }
+	[[nodiscard]] const auto& getDejure() const { return dejure; }
 	[[nodiscard]] const auto& getShatterHRELevel() const { return shatterHRELevel; }
 	[[nodiscard]] const auto& getSiberia() const { return siberia; }
 	[[nodiscard]] const auto& getSunset() const { return sunset; }
@@ -85,6 +91,7 @@ class Configuration: commonItems::parser
 	SIBERIA siberia = SIBERIA::CLEAR_SIBERIA;
 	SUNSET sunset = SUNSET::DEFAULT;
 	DEVELOPMENT development = DEVELOPMENT::IMPORT;
+	DEJURE dejure = DEJURE::ENABLED;
 
 	std::set<std::string> modFileNames;
 };

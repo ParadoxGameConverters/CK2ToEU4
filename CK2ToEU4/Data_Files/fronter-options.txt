@@ -1,4 +1,24 @@
 option = {
+	name = dejure
+	displayName = DEJURE
+	tooltip = DEJURETIP
+	radioSelector = {
+		radioOption = {
+			name = 1
+			displayName = DEJURE1
+			tooltip = DEJURE1TIP
+			default = true
+		}
+		radioOption = {
+			name = 2
+			displayName = DEJURE2
+			tooltip = DEJURE2TIP
+			default = false
+		}
+	}
+}
+
+option = {
 	name = i_am_hre
 	displayName = WHOHRE
 	tooltip = WHOHRETIP

@@ -66,7 +66,7 @@ class World
 	void adjustChina(const CK2::World& sourceWorld);
 	void fixTengri();
 	void siberianQuestion(const Configuration& theConfiguration);
-	void distributeClaims();
+	void distributeClaims(const Configuration& theConfiguration);
 	void distributeDeadCores();
 	void scrapeColors(const Configuration& theConfiguration, const CK2::World& sourceWorld);
 	void assignAllCountryReforms(const CK2::World& sourceWorld);
