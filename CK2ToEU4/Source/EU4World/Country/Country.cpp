@@ -326,30 +326,31 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	}
 
 	// Override for kingdoms/empires that use Dynasty Names
-	std::set<std::string> dynastyTitleNames = {"turkish",
+	std::set<std::string> dynastyTitleNames = {"turkmeni", "khazak", "uzbehk", "turkish",
 		 "karluk",
 		 "khitan",
-		 "bedouin_arabic",
-		 "maghreb_arabic",
-		 "levantine_arabic",
-		 "egyptian_arabic",
+		 "tuareg", "frencharab", "andalucian", "hejazi_culture", "gulf_arabic", "mahri_culture", "al_iraqiya_arabic", "omani_culture", "yemeni_culture",
+		 "bedouin_arabic", "algerian", "moroccan", "tunisian"
+		 "berber", "maghreb_arabic",
+		 "al_suryah_arabic", "levantine_arabic",
+		 "al_misr_arabic", "egyptian_arabic",
 		 "andalusian_arabic",
-		 "persian",
+		 "azerbaijani", "khorasani", "mazandarani", "luri", "tajik", "persian",
 		 "kurdish",
-		 "afghan",
-		 "baloch",
-		 "bengali",
+		 "afghani", "afghan",
+		 "baluchi", "baloch",
+		 "bihari", "kochi", "bengali",
 		 "oriya",
 		 "assamese",
-		 "hindustani",
-		 "gujarati",
-		 "panjabi",
-		 "rajput",
+		 "pahari", "kanauji", "vindhyan", "avadhi", "hindustani",
+		 "saurashtri", "gujarati", "gujurati",
+		 "kashmiri", "panjabi",
+		 "malvi", "rajput",
 		 "sindhi",
 		 "marathi",
 		 "sinhala",
-		 "tamil",
-		 "telegu",
+		 "malayalam", "tamil",
+		 "telegu", "telugu",
 		 "kannada"};
 
 	std::set<std::string> hardcodedExclusions =
@@ -361,7 +362,10 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	{
 		const auto& dynastyName = actualHolder->getDynasty().second->getName();
 		mappers::LocBlock newblock;
-		newblock.english = dynastyName;
+		if (dynastyName.back() == 's')
+			newblock.english = dynastyName;
+		else
+			newblock.english = dynastyName + "s";
 		newblock.spanish = dynastyName;
 		newblock.french = dynastyName;
 		newblock.german = dynastyName;
