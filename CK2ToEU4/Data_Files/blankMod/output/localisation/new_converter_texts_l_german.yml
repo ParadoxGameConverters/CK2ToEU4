@@ -274,6 +274,11 @@
  #Triggered Mods
  ZZZ_enhanced_unreformed_religion:0 "Nicht Reformierter Heide"
  desc_ZZZ_enhanced_unreformed_religion:0 "Dieses Land folgt einer nicht reformierten heidnischen Religion. Dies erschwert die Bekehrung, bis sie ihren Glauben reformieren können."
+ fraticelli_rome:0 "Die Besetzung Roms"
+ desc_fraticelli_rome:1 "Rom als Fraticelli zu besetzen, konnte nichts anderes tun, als allgemeine Empörung hervorzurufen."
+ fraticelli_subjugation:0 "Unterwerfung des Papsttums"
+ desc_fraticelli_subjugation:0 "Wir haben die Länder des Papsttums unterworfen. Dies verletzt unser Ansehen in den Augen anderer Fraticelli Faithful."
+ 
  
  #Country Mods
  west_african_pagan_reformed_migration_into_ZZZ:0 "Reformationsbemühungen"

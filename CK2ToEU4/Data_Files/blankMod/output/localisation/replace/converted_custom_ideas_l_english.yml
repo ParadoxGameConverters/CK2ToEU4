@@ -519,7 +519,25 @@
  ZZZ_zealot_purity_desc:0 "We cannot afford to allow our morals our traditions to be compromised. We shall alsways remain dedicated to fighting against foreign invaders regardless of what they throw at us! We cannot afford to allow weak leaders remain in positions of power, they shall either straighten up or find themselves unemployed."
  ZZZ_zealot_commerce:0 "Careful Commerce"
  ZZZ_zealot_commerce_desc:0 "As we trade with foreign countries and gather the riches of our own land, we must be careful to not let things get out of hand. Many families within our nation have handled banking in the past and as such we know the risks of inflation and poor economics. We will do our utmost to avoid any situation that requires us to inflate the currency, rather instead we will work torelessly to ensure that inflation is as low as possible."
- 
+
+#Fraticelli Pope
+ FAP_ideas:0 "Fraticelli Ideas"
+ FAP_ideas_start:0 "Fraticelli Traditions"
+ FAP_ideas_bonus:0 "Fraticelli Ambitions"
+ ZZZ_little_brethren:0 "Little Brethren"
+ ZZZ_little_brethren_desc:0 "We follow the teachings of St. Francis of Assisi, keeping strict vows of poverty and helping all those who need it. This adherence breeds trust and acceptance among other nations."
+ ZZZ_true_christians:0 "True Christians"
+ ZZZ_true_christians_desc:0 "Before the Church was cleansed, it had a long period of being held in sin, full of pointless opulence and greed. We returned the Church to its roots and focused on what matters."
+ ZZZ_defenders_of_the_faith:0 "Defence of the Faith"
+ ZZZ_defenders_of_the_faith_desc:0 "As a rule we askew violence, preferring diplomacy. However, our neighbors do not always share this belief and we have been forced into war even when we do not wish it. However, when we are forced into battle, we fight with the full knowledge that the Lord is at our side."
+ ZZZ_beauty_in_simplicity:0 "Simplicity"
+ ZZZ_beauty_in_simplicity_desc:0 "We do not waste time with massive structures dominating the sky, we do not pay extravagant sums for pottery, stained glass or tapestries. Places of worship are meant for worshipping the Greatness of the Lord, not the greatness of the Church. Our buildings are functional and inexpensive, we do not need to impress anyone."
+ ZZZ_love_thy_neighbor:0 "Love Thy Neighbor"
+ ZZZ_love_thy_neighbor:0 "The Lord commanded us to love one another. We should not waste time arguing over which way to live is best. So long as men love the lord with all their heart and all their soul, it matters not how they live their day-to-day lives."
+ ZZZ_a_loving_hand:0 "A Loving Hand"
+ ZZZ_a_loving_hand_desc:0 "We treat our subjects as well as we can, having them pay us only what they can afford. Other nations may look at us incredulously, but yet we never seem to have the revolts and problems of other nations. Perhaps these incredulous rulers could learn more from the King of Kings and less from their greedy treasurers."
+ ZZZ_spread_the_word:0 "Spread the Good News"
+ ZZZ_spread_the_word_desc:0 "It is our sacred duty to spread the word of the Lord to the world. We can never rest until the whole world knows of His glory and compassion. All who can be saved, must be saved!"
  
  
  

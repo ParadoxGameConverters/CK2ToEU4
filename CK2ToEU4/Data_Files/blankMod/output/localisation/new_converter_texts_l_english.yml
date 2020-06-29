@@ -264,6 +264,11 @@
  #Triggered Mods
  ZZZ_enhanced_unreformed_religion:0 "Unreformed Pagan"
  desc_ZZZ_enhanced_unreformed_religion:0 "This country follows an unreformed pagan religion. This makes conversions harder until they are able to reform their faith."
+ fraticelli_rome:0 "The Occupation of Rome"
+ desc_fraticelli_rome:1 "To occupy Rome as a Fraticelli, could do nothing other than elicit general outrage."
+ fraticelli_subjugation:0 "Subjugation of the Papacy"
+ desc_fraticelli_subjugation:0 "We have subjugated the lands of the Papacy. This injures our standing in the eyes of other Fraticelli Faithful."
+ 
  
  #Country Mods
  west_african_pagan_reformed_migration_into_ZZZ:0 "Reformation Efforts"
