@@ -240,6 +240,9 @@
     <ClCompile Include="Source\Mappers\PrimaryTagMapper\PrimaryTagCultureGroup.cpp">
       <Filter>Mappers\PrimaryTagMapper</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Mappers\DevWeightsMapper\DevWeightsMapper.cpp">
+      <Filter>Mappers\DevWeightsMapper</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CK2ToEU4Converter.h" />
@@ -474,6 +477,9 @@
     <ClInclude Include="Source\Mappers\PrimaryTagMapper\PrimaryTagCultureGroup.h">
       <Filter>Mappers\PrimaryTagMapper</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Mappers\DevWeightsMapper\DevWeightsMapper.h">
+      <Filter>Mappers\DevWeightsMapper</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4World">
@@ -574,6 +580,9 @@
     </Filter>
     <Filter Include="Mappers\PrimaryTagMapper">
       <UniqueIdentifier>{4e8d09de-0fe8-43bc-abf4-bb932d2d2854}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mappers\DevWeightsMapper">
+      <UniqueIdentifier>{c81260ae-6636-43b1-a97c-f3255efa9335}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

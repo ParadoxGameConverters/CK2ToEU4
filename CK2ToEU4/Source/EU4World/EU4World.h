@@ -12,6 +12,7 @@
 #include "../Mappers/RulerPersonalitiesMapper/RulerPersonalitiesMapper.h"
 #include "../Mappers/TitleTagMapper/TitleTagMapper.h"
 #include "../Mappers/VersionParser/VersionParser.h"
+#include "../Mappers/DevWeightsMapper/DevWeightsMapper.h"
 #include "Country/Country.h"
 #include "Diplomacy/Diplomacy.h"
 #include "Output/outModFile.h"
@@ -93,6 +94,7 @@ class World
 	mappers::LocalizationMapper localizationMapper;
 	mappers::RulerPersonalitiesMapper rulerPersonalitiesMapper;
 	mappers::PrimaryTagMapper primaryTagMapper;
+	mappers::DevWeightsMapper devWeightsMapper;
 	ModFile modFile;
 	Diplomacy diplomacy;
 };
