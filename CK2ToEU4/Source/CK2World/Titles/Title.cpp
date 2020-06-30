@@ -122,6 +122,23 @@ void CK2::Title::congregateDeJureProvinces()
 	}
 }
 
+int CK2::Title::flagDeJureHREProvinces()
+{
+	auto counter = 0;
+	// Flag our dejure provinces, as well as our dejure vassals' provinces, wherever those may be.
+	// Actual flagging will happen on county level as higher titles have no dejure provinces linked to them at this stage.
+	for (const auto& deJureVassal: deJureVassals)
+	{
+		counter += deJureVassal.second->flagDeJureHREProvinces();
+	}
+	for (const auto& province: deJureProvinces)
+	{
+		province.second->setDeJureHRE();
+		counter++;
+	}
+	return counter;
+}
+
 std::map<int, std::shared_ptr<CK2::Province>> CK2::Title::coalesceProvinces() const
 {
 	// We're gathering vassal provinces + our own, and passing them on, adding nothing to ourselves.

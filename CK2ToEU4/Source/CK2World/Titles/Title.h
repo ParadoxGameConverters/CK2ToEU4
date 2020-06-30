@@ -48,6 +48,7 @@ class Title: commonItems::parser
 
 	[[nodiscard]] std::map<int, std::shared_ptr<Province>> coalesceProvinces() const;
 	[[nodiscard]] std::map<int, std::shared_ptr<Province>> coalesceDeJureProvinces() const;
+	[[nodiscard]] int flagDeJureHREProvinces();
 
 	void congregateProvinces(const std::map<std::string, std::shared_ptr<Title>>& independentTitles);
 	void congregateDeJureProvinces();
