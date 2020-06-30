@@ -612,8 +612,9 @@ void EU4::Country::initializeRulers(const mappers::ReligionMapper& religionMappe
 {
 	const auto& holder = title.second->getHolder().second;
 	// Are we the ruler's primary title? (if he has any)
-	if (!holder->getPrimaryTitle().first.empty() && title.first != holder->getPrimaryTitle().first)
-		return; // PU's don't get monarchs.
+	// Potential PU's don't get monarchs. (and those apply for monarchies only)
+	if (!holder->getPrimaryTitle().first.empty() && title.first != holder->getPrimaryTitle().first && details.government == "monarchy")
+		return; 
 
 	// Determine regnalness.
 	if (details.government != "republic" && !details.monarchNames.empty())
