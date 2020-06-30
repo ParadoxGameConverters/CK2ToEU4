@@ -627,7 +627,7 @@ void CK2::World::splitVassals()
 	// We can now go through all titles and see what should be an independent vassal.
 	for (const auto& title: independentTitles)
 	{
-		if (title.first == "k_papal_state" || title.first == "e_outremer" || title.first == "e_china_west_governor")
+		if (title.second->isThePope() || title.second->isTheFraticelliPope() || title.first == "e_outremer" || title.first == "e_china_west_governor")
 			continue; // Not touching these.
 		// let's not split hordes or tribals.
 		if (title.second->getHolder().second->getGovernment() == "tribal_government" || title.second->getHolder().second->getGovernment() == "nomadic_government")
@@ -931,7 +931,7 @@ void CK2::World::shatterEmpires(const Configuration& theConfiguration) const
 			}
 			else if (vassal.first.find("k_") == 0)
 			{
-				if (shatterKingdoms && vassal.first != "k_papal_state" && vassal.first != "k_orthodox")
+				if (shatterKingdoms && !vassal.second->isThePope() && !vassal.second->isTheFraticelliPope() && vassal.first != "k_orthodox")
 				{ // hard override for special empire members
 					for (const auto& vassalvassal: vassal.second->getVassals())
 					{
@@ -1061,7 +1061,7 @@ void CK2::World::shatterHRE(const Configuration& theConfiguration) const
 		}
 		else if (vassal.first.find("k_") == 0)
 		{
-			if (vassal.first == "k_papal_state" || vassal.first == "k_orthodox" ||
+			if (vassal.second->isThePope() || vassal.second->isTheFraticelliPope() || vassal.first == "k_orthodox" ||
 				 theConfiguration.getShatterHRELevel() == Configuration::SHATTER_HRE_LEVEL::KINGDOM) // hard override for special HRE members
 			{
 				hreMembers.insert(std::pair(vassal.first, vassal.second));
