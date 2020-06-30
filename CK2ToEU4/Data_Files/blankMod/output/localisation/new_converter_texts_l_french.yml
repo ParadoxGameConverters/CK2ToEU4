@@ -274,6 +274,11 @@
  #Triggered Mods
  ZZZ_enhanced_unreformed_religion:0 "Païen Non Réformé"
  desc_ZZZ_enhanced_unreformed_religion:0 "Ce pays suit une religion païenne non réformée. Cela rend les conversions plus difficiles jusqu'à ce qu'ils soient en mesure de réformer leur foi."
+ fraticelli_rome:0 "L'occupation de Rome"
+ desc_fraticelli_rome:1 "Occuper Rome en tant que Fraticelli, ne pouvait rien faire d'autre que susciter l'indignation générale."
+ fraticelli_subjugation:0 "Assujettissement de la papauté"
+ desc_fraticelli_subjugation:0 "Nous avons soumis les terres de la papauté. Cela nuit à notre position aux yeux des autres fidèles de Fraticelli."
+ 
  
  #Country Mods
  west_african_pagan_reformed_migration_into_ZZZ:0 "Efforts de Réforme"

@@ -274,6 +274,11 @@ l_spanish:
  #Triggered Mods
  ZZZ_enhanced_unreformed_religion:0 "Pagano No Reformado"
  desc_ZZZ_enhanced_unreformed_religion:0 "Este país sigue una religión pagana no reformada. Esto dificulta las conversiones hasta que puedan reformar su fe."
+ fraticelli_rome:0 "La Ocupación de Roma"
+ desc_fraticelli_rome:1 "Ocupar Roma como un Fraticelli no podía hacer otra cosa que provocar la indignación general."
+ fraticelli_subjugation:0 "Subyugación del Papado"
+ desc_fraticelli_subjugation:0 "Hemos subyugado las tierras del papado. Esto hiere nuestra posición a los ojos de otros Fraticelli Fieles."
+ 
  
  #Country Mods
  west_african_pagan_reformed_migration_into_ZZZ:0 "Esfuerzos de Reforma"
