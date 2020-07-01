@@ -104,7 +104,7 @@ void EU4::Province::initializeFromCK2(std::shared_ptr<CK2::Province> origProvinc
 	}
 	// trade goods are retained.
 	details.fort = false; // dropping all forts, we'll redistribute later.
-	details.inHre = srcProvince->getTitle().second->isInHRE();
+	details.inHre = srcProvince->getTitle().second->isInHRE() || srcProvince->isDeJureHRE();
 	// base tax, production and manpower will be adjusted later.
 	// not touching extra_cost until we know what it does.
 	// not touching centers of trade

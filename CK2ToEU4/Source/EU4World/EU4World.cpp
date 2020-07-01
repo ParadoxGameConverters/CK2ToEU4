@@ -258,7 +258,7 @@ void EU4::World::distributeClaims(const Configuration& theConfiguration)
 		Log(LogLevel::Info) << ">< Permaclaim distribution disabled by configuration.";
 		return;
 	}
-	
+
 	Log(LogLevel::Info) << "-- Distributing DeJure Claims";
 	auto counter = 0;
 	std::map<int, std::set<std::string>> claimsRegister; // ck2 province, eu4 tag claims
@@ -889,22 +889,23 @@ void EU4::World::alterProvinceDevelopment()
 			if (barony.second->getType().empty())
 				continue;
 			const auto buildingNumber = static_cast<double>(barony.second->getBuildingCount());
+			const auto baronyDev = devWeightsMapper.getDevFromBarony() + devWeightsMapper.getDevFromBuilding() * buildingNumber;
 			if (barony.second->getType() == "tribal" || barony.second->getType() == "nomad")
 			{
-				mil += (3 + buildingNumber) / 10;
+				mil += baronyDev;
 			}
 			else if (barony.second->getType() == "city")
 			{
-				dip += (3 + buildingNumber) / 10;
+				dip += baronyDev;
 			}
 			else if (barony.second->getType() == "temple")
 			{
-				adm += (3 + buildingNumber) / 10;
+				adm += baronyDev;
 			}
 			else if (barony.second->getType() == "castle")
 			{
-				adm += (3 + buildingNumber) / 30; // third to adm
-				mil += (3 + buildingNumber) / 15; // two thirds to mil
+				adm += baronyDev * 1 / 3; // third to adm
+				mil += baronyDev * 2 / 3; // two thirds to mil
 			}
 		}
 		province.second->setAdm(std::max(static_cast<int>(std::lround(adm)), 1));
@@ -946,6 +947,7 @@ void EU4::World::resolvePersonalUnions()
 		 "messalian",
 		 "paulician",
 		 "monophysite"};
+
 	std::map<int, std::map<std::string, std::shared_ptr<Country>>> holderTitles;
 	std::map<int, std::pair<std::string, std::shared_ptr<Country>>> holderPrimaryTitle;
 	std::map<int, std::shared_ptr<CK2::Character>> relevantHolders;
@@ -1011,6 +1013,16 @@ void EU4::World::resolvePersonalUnions()
 		else
 		{
 			primaryTitle = primaryItr->second;
+
+			// That's lovely, but is this the special snowflake THE POPE? Does he hold PAP/FAP as secondary?
+			for (const auto& title: holderTitle.second)
+			{
+				if (title.first == "PAP" || title.first == "FAP")
+				{
+					primaryTitle = std::pair(title.first, title.second);
+					break;
+				}
+			}
 		}
 
 		// religion
@@ -1423,7 +1435,6 @@ void EU4::World::importCK2Countries(const CK2::World& sourceWorld)
 
 void EU4::World::importCK2Country(const std::pair<std::string, std::shared_ptr<CK2::Title>>& title, const CK2::World& sourceWorld)
 {
-
 	// Grabbing the capital, if possible
 	int eu4CapitalID = 0;
 	const auto& ck2CapitalID = title.second->getHolder().second->getCapitalProvince().first;
@@ -1435,7 +1446,8 @@ void EU4::World::importCK2Country(const std::pair<std::string, std::shared_ptr<C
 	}
 
 	// Mapping the title to a tag
-	// The Pope is Special!
+	// The Pope is Special! This is land /owned by/ a pope, but might be e_france or k_jerusalem.
+	// First title will map to PAP/FAP and others will merge into it.
 	std::optional<std::string> tag;
 	if (title.second->isThePope())
 	{
@@ -1455,8 +1467,6 @@ void EU4::World::importCK2Country(const std::pair<std::string, std::shared_ptr<C
 		if (!tag)
 			throw std::runtime_error("Title " + title.first + " could not be mapped!");
 	}
-
-	
 
 	// Locating appropriate existing country
 	const auto& countryItr = countries.find(*tag);

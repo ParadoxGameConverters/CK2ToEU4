@@ -48,6 +48,7 @@ class World: commonItems::parser
 	void congregateDeJureProvinces();
 	void sanityCheckifyProvinces();
 	void shatterHRE(const Configuration& theConfiguration) const;
+	void flagHREProvinces(const Configuration& theConfiguration) const;
 	void shatterEmpires(const Configuration& theConfiguration) const;
 	void filterProvincelessTitles();
 	void splitVassals();
