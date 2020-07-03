@@ -515,8 +515,8 @@
 	link = { ck2 = 492 eu4 = 4703 }	# Strymon -> Kostendil
 	link = { ck2 = 500 eu4 = 1765 }	# Serdica -> Sofia
 	link = { ck2 = 507 ck2 = 508 eu4 = 150 }	# Nikopolis, Dorostotum -> Nikopol
-	link = { ck2 = 493 ck2 = 1884 eu4 = 4705 }	# Philippopolis, Traianopolis -> Gumulcine
-	link = { ck2 = 499 eu4 = 2750 }	# Tyrnovo -> Plovdiv
+	link = { ck2 = 1884 ck2 = 1885 eu4 = 4705 }	# Traianopolis, Maroneia -> Gumulcine
+	link = { ck2 = 499 ck2 = 493 eu4 = 2750 }	# Tyrnovo, Philippopolis -> Plovdiv
 	link = { ck2 = 1642 ck2 = 515 eu4 = 2998 }	# Calarasi, Târgoviste -> Buzau
 	link = { ck2 = 510 eu4 = 4706 }	# Constantia -> Tolcu
 	link = { ck2 = 509 eu4 = 159 eu4 = 4704 }	# Karvuna -> Silistria, Tirnovo
@@ -527,7 +527,7 @@
 	# Greece and Anatolia
 	link = { ck2 = 474 eu4 = 4698 }	# Cephalonia -> Cephalonia
 	link = { ck2 = 1890 ck2 = 1889 eu4 = 142 }	# Korkyra, Zakynthos -> Corfu
-	link = { ck2 = 473 eu4 = 4699 }	# Árta -> Arta
+	link = { ck2 = 473 ck2 = 1881 eu4 = 4699 }	# Árta, Naupaktos -> Arta
 	link = { ck2 = 472 eu4 = 144 }	# Épieros -> Epirus
 	link = { ck2 = 1883 eu4 = 1853 }	# Kastoria -> Kastoria
 	link = { ck2 = 489 ck2 = 488 eu4 = 147 }	# Thessalia, Demetrias -> Thessaly
