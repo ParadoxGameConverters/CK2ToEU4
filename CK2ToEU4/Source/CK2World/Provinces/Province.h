@@ -21,6 +21,7 @@ class Province: commonItems::parser
 	[[nodiscard]] const auto& getTitle() const { return title; }
 	[[nodiscard]] const auto& getWonder() const { return wonder; }
 
+	[[nodiscard]] auto isDeJureHRE() const { return deJureHRE; }
 	[[nodiscard]] auto getID() const { return provinceID; }
 	[[nodiscard]] auto getMaxSettlements() const { return maxSettlements; }
 	[[nodiscard]] auto getBaronyCount() const { return static_cast<int>(baronies.size()); }
@@ -31,10 +32,12 @@ class Province: commonItems::parser
 	void setPrimarySettlement(std::shared_ptr<Barony> theBarony) { primarySettlement.second = std::move(theBarony); }
 	void loadHoldingTitle(const std::pair<std::string, std::shared_ptr<Title>>& theTitle) { title = theTitle; }
 	void loadWonder(const std::pair<int, std::shared_ptr<Wonder>>& theWonder) { wonder = theWonder; }
+	void setDeJureHRE() { deJureHRE = true; }
 
   private:
 	void registerKeys();
 
+	bool deJureHRE = false;
 	int provinceID = 0;
 	int maxSettlements = 0;
 	std::string culture;

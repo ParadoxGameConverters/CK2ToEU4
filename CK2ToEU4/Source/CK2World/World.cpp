@@ -187,6 +187,8 @@ CK2::World::World(const Configuration& theConfiguration)
 	LOG(LogLevel::Info) << "-- Merging Revolts Into Base";
 	titles.mergeRevolts();
 	Log(LogLevel::Progress) << "33 %";
+	LOG(LogLevel::Info) << "-- Flagging HRE Provinces";
+	flagHREProvinces(theConfiguration);
 	LOG(LogLevel::Info) << "-- Shattering HRE";
 	shatterHRE(theConfiguration);
 	Log(LogLevel::Progress) << "34 %";
@@ -625,7 +627,7 @@ void CK2::World::splitVassals()
 	// We can now go through all titles and see what should be an independent vassal.
 	for (const auto& title: independentTitles)
 	{
-		if (title.first == "k_papal_state" || title.first == "e_outremer" || title.first == "e_china_west_governor")
+		if (title.second->isThePope() || title.second->isTheFraticelliPope() || title.first == "e_outremer" || title.first == "e_china_west_governor")
 			continue; // Not touching these.
 		// let's not split hordes or tribals.
 		if (title.second->getHolder().second->getGovernment() == "tribal_government" || title.second->getHolder().second->getGovernment() == "nomadic_government")
@@ -929,7 +931,7 @@ void CK2::World::shatterEmpires(const Configuration& theConfiguration) const
 			}
 			else if (vassal.first.find("k_") == 0)
 			{
-				if (shatterKingdoms && vassal.first != "k_papal_state" && vassal.first != "k_orthodox")
+				if (shatterKingdoms && !vassal.second->isThePope() && !vassal.second->isTheFraticelliPope() && vassal.first != "k_orthodox")
 				{ // hard override for special empire members
 					for (const auto& vassalvassal: vassal.second->getVassals())
 					{
@@ -964,6 +966,49 @@ void CK2::World::shatterEmpires(const Configuration& theConfiguration) const
 	}
 }
 
+void CK2::World::flagHREProvinces(const Configuration& theConfiguration) const
+{
+	if (theConfiguration.getHRE() == Configuration::I_AM_HRE::NONE)
+	{
+		Log(LogLevel::Info) << ">< HRE Provinces not available due to configuration disabling HRE Mechanics.";
+		return;
+	}
+
+	std::string hreTitle;
+	switch (theConfiguration.getHRE())
+	{
+		case Configuration::I_AM_HRE::HRE:
+			hreTitle = "e_hre";
+			break;
+		case Configuration::I_AM_HRE::BYZANTIUM:
+			hreTitle = "e_byzantium";
+			break;
+		case Configuration::I_AM_HRE::ROME:
+			hreTitle = "e_roman_empire";
+			break;
+		case Configuration::I_AM_HRE::CUSTOM:
+			hreTitle = iAmHreMapper.getHRE();
+			break;
+		default:
+			hreTitle = "e_hre";
+	}
+	const auto& allTitles = titles.getTitles();
+	const auto& theHre = allTitles.find(hreTitle);
+	if (theHre == allTitles.end())
+	{
+		Log(LogLevel::Info) << ">< HRE Provinces not available, " << hreTitle << " not found!";
+		return;
+	}
+	if (theHre->second->getVassals().empty())
+	{
+		Log(LogLevel::Info) << ">< HRE Provinces not available, " << hreTitle << " has no vassals!";
+		return;
+	}
+	
+	const auto counter = theHre->second->flagDeJureHREProvinces();
+	Log(LogLevel::Info) << "<> " << counter << " HRE provinces flagged.";
+}
+
 void CK2::World::shatterHRE(const Configuration& theConfiguration) const
 {
 	if (theConfiguration.getHRE() == Configuration::I_AM_HRE::NONE)
@@ -994,12 +1039,12 @@ void CK2::World::shatterHRE(const Configuration& theConfiguration) const
 	const auto& theHre = allTitles.find(hreTitle);
 	if (theHre == allTitles.end())
 	{
-		Log(LogLevel::Info) << "><  HRE shattering cancelled, " << hreTitle << " not found!";
+		Log(LogLevel::Info) << ">< HRE shattering cancelled, " << hreTitle << " not found!";
 		return;
 	}
 	if (theHre->second->getVassals().empty())
 	{
-		Log(LogLevel::Info) << "><  HRE shattering cancelled, " << hreTitle << " has no vassals!";
+		Log(LogLevel::Info) << ">< HRE shattering cancelled, " << hreTitle << " has no vassals!";
 		return;
 	}
 	const auto& hreHolder = theHre->second->getHolder();
@@ -1016,7 +1061,7 @@ void CK2::World::shatterHRE(const Configuration& theConfiguration) const
 		}
 		else if (vassal.first.find("k_") == 0)
 		{
-			if (vassal.first == "k_papal_state" || vassal.first == "k_orthodox" ||
+			if (vassal.second->isThePope() || vassal.second->isTheFraticelliPope() || vassal.first == "k_orthodox" ||
 				 theConfiguration.getShatterHRELevel() == Configuration::SHATTER_HRE_LEVEL::KINGDOM) // hard override for special HRE members
 			{
 				hreMembers.insert(std::pair(vassal.first, vassal.second));
