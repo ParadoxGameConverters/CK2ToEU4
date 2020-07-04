@@ -509,6 +509,12 @@
     <ClCompile Include="MapperTests\PrimaryTagMapper\PrimaryTagMapperTests.cpp">
       <Filter>MapperTests\PrimaryTagMapper</Filter>
     </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\DevWeightsMapper\DevWeightsMapper.cpp">
+      <Filter>ConverterFiles\Mappers\DevWeightsMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="MapperTests\DevWeightsMapper\DevWeightsMapperTests.cpp">
+      <Filter>MapperTests\DevWeightsMapper</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4WorldTests">
@@ -684,6 +690,12 @@
     </Filter>
     <Filter Include="MapperTests\PrimaryTagMapper">
       <UniqueIdentifier>{9ca0ce05-0567-4eb9-89e5-9269c3a889d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ConverterFiles\Mappers\DevWeightsMapper">
+      <UniqueIdentifier>{96af05a3-9ace-4a8a-921d-0c68d82e1937}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MapperTests\DevWeightsMapper">
+      <UniqueIdentifier>{2750d4bb-3f35-4f1e-b213-6924e7f7d597}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
