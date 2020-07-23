@@ -101,7 +101,7 @@ void Configuration::verifyCK2Path() const
 {
 	if (!Utils::DoesFolderExist(CK2Path))
 		throw std::runtime_error(CK2Path + " does not exist!");
-	if (!Utils::DoesFileExist(CK2Path + "/CK2game.exe") && !Utils::DoesFileExist(CK2Path + "/CK2game"))
+	if (!Utils::DoesFileExist(CK2Path + "/CK2game.exe") && !Utils::DoesFileExist(CK2Path + "/CK2game") && !Utils::DoesFileExist(CK2Path + "/ck2"))
 		throw std::runtime_error(CK2Path + " does not contain Crusader Kings 2!");
 	if (!Utils::DoesFileExist(CK2Path + "/map/positions.txt"))
 		throw std::runtime_error(CK2Path + " does not appear to be a valid CK2 install!");
