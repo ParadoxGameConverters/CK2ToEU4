@@ -770,10 +770,12 @@ void CK2::World::filterIndependentTitles()
 			if (indep.first == "k_papal_state")
 			{
 				indep.second->setThePope();
+				Log(LogLevel::Debug) << indep.first << " is the Pope.";
 			}
 			else if (indep.first == "d_fraticelli")
 			{
 				indep.second->setTheFraticelliPope();
+				Log(LogLevel::Debug) << indep.first << " is the Fraticelli Pope.";
 			}
 			else
 			{
@@ -782,10 +784,12 @@ void CK2::World::filterIndependentTitles()
 					if (ownedTitle.first == "k_papal_state")
 					{
 						indep.second->setThePope();
+						Log(LogLevel::Debug) << indep.first << " belongs to the Pope.";
 					}
 					else if (ownedTitle.first == "d_fraticelli")
 					{
 						indep.second->setTheFraticelliPope();
+						Log(LogLevel::Debug) << indep.first << " belongs to the Fraticelli Pope.";
 					}
 				}
 			}
