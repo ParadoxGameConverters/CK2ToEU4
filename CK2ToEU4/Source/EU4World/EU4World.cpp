@@ -1065,6 +1065,8 @@ void EU4::World::resolvePersonalUnions()
 					continue;
 				// Yum.
 				primaryTitle.second->annexCountry(title);
+				if (primaryTitle.first == "PAP" || primaryTitle.first == "FAP")
+					Log(LogLevel::Debug) << primaryTitle.first << " is annexing " << title.first;
 			}
 		}
 	}
