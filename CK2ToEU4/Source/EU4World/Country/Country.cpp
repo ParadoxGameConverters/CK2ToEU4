@@ -993,7 +993,7 @@ void EU4::Country::assignReforms(std::shared_ptr<mappers::RegionMapper> regionMa
 			details.reforms = {"iqta"};
 		}
 		// Feudalism
-		else if (governmentType == "depotic")
+		else if (governmentType == "despotic")
 		{
 			details.reforms.clear();
 			details.reforms = {"feudalism_reform"};
