@@ -539,7 +539,7 @@ void EU4::World::africaQuestion()
 	if (provinces.find(1128) != provinces.end() && provinces.find(1128)->second && provinces.find(2466) != provinces.end() && provinces.find(2466)->second &&
 		 provinces.find(2460) != provinces.end() && provinces.find(2460)->second)
 	{
-		if (provinces.find(1128)->second->getOwner() != provinces.find(2466)->second->getOwner() &&
+		if (!(countries.find(provinces.find(1127)->second->getOwner())->second->isinHRE()) && provinces.find(1128)->second->getOwner() != provinces.find(2466)->second->getOwner() &&
 			 provinces.find(1128)->second->getOwner() != provinces.find(2460)->second->getOwner())
 		{
 			if (provinces.find(1127) != provinces.end() && provinces.find(1127)->second)
@@ -548,11 +548,12 @@ void EU4::World::africaQuestion()
 		}
 	}
 	// Djado-Tajhari Pass
-	if (provinces.find(2448) != provinces.end() && provinces.find(2448)->second && provinces.find(2275) != provinces.end() && provinces.find(2275)->second &&
+	if (provinces.find(2448) != provinces.end() && provinces.find(2448)->second &&
+		 provinces.find(2275) != provinces.end() && provinces.find(2275)->second &&
 		 provinces.find(2277) != provinces.end() && provinces.find(2277)->second)
 	{
-		if (provinces.find(2448)->second->getOwner() != provinces.find(2275)->second->getOwner() &&
-			 provinces.find(2448)->second->getOwner() != provinces.find(2277)->second->getOwner())
+		if (!(countries.find(provinces.find(2474)->second->getOwner())->second->isinHRE()) || !(countries.find(provinces.find(2475)->second->getOwner())->second->isinHRE()) && 
+			provinces.find(2448)->second->getOwner() != provinces.find(2275)->second->getOwner() && provinces.find(2448)->second->getOwner() != provinces.find(2277)->second->getOwner())
 		{
 			if (provinces.find(2474) != provinces.end() && provinces.find(2474)->second)
 				provinces.find(2474)->second->sterilize();
@@ -565,8 +566,8 @@ void EU4::World::africaQuestion()
 	if (provinces.find(1219) != provinces.end() && provinces.find(1219)->second && provinces.find(2288) != provinces.end() && provinces.find(2288)->second &&
 		 provinces.find(1159) != provinces.end() && provinces.find(1159)->second)
 	{
-		if (provinces.find(1219)->second->getOwner() != provinces.find(2288)->second->getOwner() &&
-			 provinces.find(1219)->second->getOwner() != provinces.find(1159)->second->getOwner())
+		if (!(countries.find(provinces.find(2932)->second->getOwner())->second->isinHRE()) || !(countries.find(provinces.find(774)->second->getOwner())->second->isinHRE()) &&
+			provinces.find(1219)->second->getOwner() != provinces.find(2288)->second->getOwner() && provinces.find(1219)->second->getOwner() != provinces.find(1159)->second->getOwner())
 		{
 			if (provinces.find(774) != provinces.end() && provinces.find(774)->second)
 				provinces.find(774)->second->sterilize();
@@ -580,6 +581,28 @@ void EU4::World::africaQuestion()
 
 void EU4::World::adjustChina(const CK2::World& sourceWorld)
 {
+	//Super Mongolia?
+	if (countries.find("MGE")->second->getProvinces().size() >= 1)
+	{
+		// Move all Mongolia provinces under Mongol Empire
+		for (const auto& mongolianProvince : provinces)
+		{
+			const auto provinceItr = provinces.find(mongolianProvince.first);
+			if (provinceItr == provinces.end())
+			{
+				Log(LogLevel::Warning) << "Province " << mongolianProvince.first << " is not in fact a valid province.";
+				continue;
+			}
+			if (provinceItr->second->getOwner() == "KHA")
+			{
+				provinceItr->second->setOwner("MGE");
+				provinceItr->second->setController("MGE");
+				provinceItr->second->addCore("MGE");
+			}			
+		}
+	}
+
+
 	Log(LogLevel::Info) << "-- Invading China";
 
 	std::string ourChinaTag;

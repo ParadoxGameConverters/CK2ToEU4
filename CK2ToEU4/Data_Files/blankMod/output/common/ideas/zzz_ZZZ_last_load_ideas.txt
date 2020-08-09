@@ -14,6 +14,33 @@ somali_ideas = {
 	}
 }
 
+greek_ideas = {
+	trigger = {
+		culture_group = byzantine
+	}
+}
+
+CAS_ideas = {
+    trigger = {
+		OR = {
+			tag = CAS
+			AND = {
+				NOT = { tag = ARA }
+				primary_culture = castillian
+			}
+		}
+	}
+}
+
+KHA_ideas = {
+	trigger = {
+		OR = {
+			tag = KHA
+			tag = MGE
+		}
+	}
+}
+
 TIB_ideas = {
 	start = {
 		global_unrest = -1
