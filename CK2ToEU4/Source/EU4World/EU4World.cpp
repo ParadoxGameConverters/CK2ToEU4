@@ -786,8 +786,13 @@ void EU4::World::verifyCapitals()
 
 	auto counter = 0;
 	for (const auto& country: countries)
+	{
+		// POPE is special. Of course. Skip this for pope because he may end up with a capital in new world or something.
+		if (country.first == "PAP" || country.first == "FAP")
+			continue;
 		if (country.second->verifyCapital(provinceMapper))
 			counter++;
+	}
 
 	Log(LogLevel::Info) << "<> " << counter << " capitals have been reassigned.";
 }
@@ -1454,21 +1459,17 @@ void EU4::World::importCK2Country(const std::pair<std::string, std::shared_ptr<C
 	if (title.second->isThePope())
 	{
 		tag = titleTagMapper.getTagForTitle("The Pope", title.second->getBaseTitle().first, eu4CapitalID);
-		if (!tag)
-			throw std::runtime_error("Title " + title.first + " could not be mapped!");
 	}
 	else if (title.second->isTheFraticelliPope())
 	{
 		tag = titleTagMapper.getTagForTitle("The Fraticelli Pope", title.second->getBaseTitle().first, eu4CapitalID);
-		if (!tag)
-			throw std::runtime_error("Title " + title.first + " could not be mapped!");
 	}
 	else
 	{
 		tag = titleTagMapper.getTagForTitle(title.first, title.second->getBaseTitle().first, eu4CapitalID);
-		if (!tag)
-			throw std::runtime_error("Title " + title.first + " could not be mapped!");
 	}
+	if (!tag)
+		throw std::runtime_error("Title " + title.first + " could not be mapped!");
 
 	// Locating appropriate existing country
 	const auto& countryItr = countries.find(*tag);

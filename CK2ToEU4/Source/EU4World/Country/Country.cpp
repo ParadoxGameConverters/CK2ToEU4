@@ -105,9 +105,11 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 		else
 			details.capital = 0; // We will see warning about this earlier, no need for more spam.
 	}
-	// do we have a culture?
+	// do we have a culture? Pope is special as always.
 	std::string baseCulture;
-	if (!actualHolder->getCulture().empty())
+	if (title.second->isThePope() || title.second->isTheFraticelliPope())
+		baseCulture = actualHolder->getCapitalProvince().second->getCulture();
+	else if (!actualHolder->getCulture().empty())
 		baseCulture = actualHolder->getCulture();
 	else
 		baseCulture = actualHolder->getCapitalProvince().second->getCulture();
