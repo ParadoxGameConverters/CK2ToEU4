@@ -1,14 +1,5 @@
 ### Nation specific idea groups
 
-PAP_ideas = {
-	trigger = {
-		OR = {
-			tag = PAP
-			tag = FAP
-		}
-	}
-}
-
 ENG_ideas = {
 	trigger = {
 		OR = {
@@ -199,11 +190,7 @@ HAB_ideas = {
 	}
 }
 
-BAV_ideas = {
-	trigger = {
-		tag = BAV
-	}
-}
+#BAV_ideas now done by culture rather than tag in vanilla
 
 PER_ideas = {
 	trigger = {
@@ -938,7 +925,27 @@ HAM_ideas = {
 
 TRA_ideas = {
 	trigger = {
-		tag = TRA
+		OR = {
+			tag = TRA
+			primary_culture = transylvanian
+		}
+	}
+}
+
+RMN_ideas = {
+	trigger = {
+		OR = {
+			tag = RMN
+			AND = {
+				num_of_cities = 15
+				is_subject = no
+				OR = {
+					government_rank = 2
+					government_rank = 3
+				}
+				primary_culture = romanian
+			}
+		}
 	}
 }
 
@@ -995,7 +1002,6 @@ BTI_ideas = {
 		tag = BTI
 	}
 }
-
 
 CAT_ideas = {
     trigger = {
@@ -1122,12 +1128,6 @@ LOR_ideas = {
 WUR_ideas = {
 	trigger = {
 		tag = WUR
-	}
-}
-
-SLO_ideas = {
-	trigger = {
-		tag = SLO
 	}
 }
 

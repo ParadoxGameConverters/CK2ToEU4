@@ -2338,7 +2338,7 @@ country_event = {
 			}
 			remove_country_modifier = nationwide_witch_hunts
 		}
-		PAP = {
+		FAP = {
 			add_opinion = {
 				who = ROOT
 				modifier = opinion_condemn_witchtrials_good
@@ -2352,7 +2352,7 @@ country_event = {
 	
 	option = {
 		name = papacy_events.23.b
-		PAP = {
+		FAP = {
 			add_opinion = {
 				who = ROOT
 				modifier = opinion_allows_witchtrials_bad
@@ -2516,7 +2516,7 @@ country_event = {
 			}
 			remove_country_modifier = nationwide_witch_hunts
 		}
-		PAP = {
+		FAP = {
 			add_opinion = {
 				who = ROOT
 				modifier = opinion_condemn_witchtrials_good
@@ -2531,7 +2531,7 @@ country_event = {
 	
 	option = {
 		name = papacy_events.27.b # Refuse
-		PAP = {
+		FAP = {
 			add_opinion = {
 				who = ROOT
 				modifier = opinion_allows_witchtrials_bad
@@ -2556,7 +2556,7 @@ country_event = {
 	
 	option = {
 		name = papacy_events.28.a #We understand, and we accept
-		PAP = {
+		FAP = {
 			add_opinion = {
 				who = ROOT
 				modifier = opinion_allows_witchtrials_good
@@ -2571,7 +2571,7 @@ country_event = {
 	option = {
 		name = papacy_events.28.b #No, we refuse
 		add_papal_influence = 5
-		PAP = {
+		FAP = {
 			add_opinion = {
 				who = ROOT
 				modifier = opinion_condemn_witchtrials_bad
@@ -2593,16 +2593,16 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "Common Sense"
-		tag = PAP
+		tag = FAP
 		NOT = { has_ruler_flag = bad_bad_pope }
 		any_known_country = {
 			NOT = {
-				tag = PAP
+				tag = FAP
 			}
 			is_papal_controller = yes
 			any_rival_country = {
 				NOT = {
-					tag = PAP
+					tag = FAP
 				}
 				is_previous_papal_controller = yes
 			}
@@ -2625,12 +2625,12 @@ country_event = {
 		random_known_country = {
 			limit = {
 				NOT = {
-					tag = PAP
+					tag = FAP
 				}
 				is_papal_controller = yes
 				any_rival_country = {
 					NOT = {
-						tag = PAP
+						tag = FAP
 					}
 					is_previous_papal_controller = yes
 				}
@@ -2647,7 +2647,7 @@ country_event = {
 			random_rival_country = {
 				limit = {
 					NOT = {
-						tag = PAP
+						tag = FAP
 					}
 					is_previous_papal_controller = yes
 				}
@@ -2670,12 +2670,12 @@ country_event = {
 		random_known_country = {
 			limit = {
 				NOT = {
-					tag = PAP
+					tag = FAP
 				}
 				is_papal_controller = yes
 				any_rival_country = {
 					NOT = {
-						tag = PAP
+						tag = FAP
 					}
 					is_previous_papal_controller = yes
 				}
@@ -2692,7 +2692,7 @@ country_event = {
 			random_rival_country = {
 				limit = {
 					NOT = {
-						tag = PAP
+						tag = FAP
 					}
 					is_previous_papal_controller = yes
 				}

@@ -539,5 +539,8 @@
  ZZZ_spread_the_word:0 "Spread the Good News"
  ZZZ_spread_the_word_desc:0 "It is our sacred duty to spread the word of the Lord to the world. We can never rest until the whole world knows of His glory and compassion. All who can be saved, must be saved!"
  
- 
+# In English, we use Anatolian as a Greek culture, but in the game, Anatolian Ideas are for generic Turkish culture countries.
+ anatolian_beyliks_ideas:0 "Turkish Ideas"
+ anatolian_beyliks_ideas_start:0 "Turkish Traditions"
+ anatolian_beyliks_ideas_bonus:0 "Turkish Ambitions"
  
