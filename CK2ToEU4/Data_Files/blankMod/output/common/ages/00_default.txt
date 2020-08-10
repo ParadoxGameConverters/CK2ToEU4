@@ -873,8 +873,8 @@ age_of_revolutions = {
 			allow = {
 				OR = {
 					tag = PRU
-					has_government_reform = prussian_monarchy 
-					has_government_reform = prussian_republic_reform
+					has_reform = prussian_monarchy 
+					has_reform = prussian_republic_reform
 				}
 			}
 			modifier = {

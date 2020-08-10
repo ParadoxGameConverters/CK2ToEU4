@@ -2586,7 +2586,7 @@ country_event = {
 
 # The bad, bad Pope
 country_event = {
-	id = papacy_events.29
+	id = flavor_fap.48
 	title = papacy_events.29.t
 	desc = papacy_events.29.d
 	picture = RELIGION_eventPicture
@@ -2712,7 +2712,7 @@ country_event = {
 
 # Papal controller: Pope's decision
 country_event = {
-	id = papacy_events.30
+	id = flavor_fap.49
 	title = papacy_events.30.t
 	desc = papacy_events.30.d
 	picture = RELIGION_eventPicture
@@ -2750,7 +2750,7 @@ country_event = {
 
 # Former Papal controller: Pope's decision
 country_event = {
-	id = papacy_events.31
+	id = flavor_fap.50
 	title = papacy_events.31.t
 	desc = papacy_events.31.d
 	picture = RELIGION_eventPicture
