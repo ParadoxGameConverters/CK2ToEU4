@@ -268,6 +268,8 @@ void EU4::World::distributeClaims(const Configuration& theConfiguration)
 	{
 		if (country.second->getTitle().first.empty())
 			continue;
+		if (country.second->getProvinces().empty())
+			continue; // No claims for dead nations.
 		for (const auto& DJprovince: country.second->getTitle().second->getDeJureProvinces())
 		{
 			claimsRegister[DJprovince.first].insert(country.first);
