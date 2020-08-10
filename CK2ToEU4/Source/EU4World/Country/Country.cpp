@@ -258,7 +258,7 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	auto nameSet = false;
 
 	// Pope is special, as always.
-	if (title.second->isThePope())
+	if (title.second->isThePope() && tag == "PAP")
 		nameSet = true; // We'll use vanilla PAP locs.
 	else if (title.second->isTheFraticelliPope())
 	{
@@ -807,7 +807,10 @@ void EU4::Country::annexCountry(const std::pair<std::string, std::shared_ptr<Cou
 	const auto& targetProvinces = theCountry.second->getProvinces();
 	for (const auto& province: targetProvinces)
 	{
-		province.second->addCore(tag); // Adding, not replacing.
+		// Adding, not replacing. Unless the special snowflake.
+		if (tag == "PAP" || tag == "FAP")
+			province.second->dropCores();
+		province.second->addCore(tag); 
 		province.second->setOwner(tag);
 		province.second->setController(tag);
 		provinces.insert(province);
