@@ -1131,12 +1131,6 @@ WUR_ideas = {
 	}
 }
 
-SLO_ideas = {
-	trigger = {
-		tag = SLO
-	}
-}
-
 BLO_ideas = {
 	trigger = {
 		tag = BLO

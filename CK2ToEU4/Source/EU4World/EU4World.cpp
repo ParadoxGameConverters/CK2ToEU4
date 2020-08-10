@@ -552,7 +552,7 @@ void EU4::World::africaQuestion()
 		 provinces.find(2275) != provinces.end() && provinces.find(2275)->second &&
 		 provinces.find(2277) != provinces.end() && provinces.find(2277)->second)
 	{
-		if (!(countries.find(provinces.find(2474)->second->getOwner())->second->isinHRE()) || !(countries.find(provinces.find(2475)->second->getOwner())->second->isinHRE()) && 
+		if (!(countries.find(provinces.find(2474)->second->getOwner())->second->isinHRE()) && !(countries.find(provinces.find(2475)->second->getOwner())->second->isinHRE()) && 
 			provinces.find(2448)->second->getOwner() != provinces.find(2275)->second->getOwner() && provinces.find(2448)->second->getOwner() != provinces.find(2277)->second->getOwner())
 		{
 			if (provinces.find(2474) != provinces.end() && provinces.find(2474)->second)
@@ -566,7 +566,7 @@ void EU4::World::africaQuestion()
 	if (provinces.find(1219) != provinces.end() && provinces.find(1219)->second && provinces.find(2288) != provinces.end() && provinces.find(2288)->second &&
 		 provinces.find(1159) != provinces.end() && provinces.find(1159)->second)
 	{
-		if (!(countries.find(provinces.find(2932)->second->getOwner())->second->isinHRE()) || !(countries.find(provinces.find(774)->second->getOwner())->second->isinHRE()) &&
+		if (!(countries.find(provinces.find(2932)->second->getOwner())->second->isinHRE()) && !(countries.find(provinces.find(774)->second->getOwner())->second->isinHRE()) &&
 			provinces.find(1219)->second->getOwner() != provinces.find(2288)->second->getOwner() && provinces.find(1219)->second->getOwner() != provinces.find(1159)->second->getOwner())
 		{
 			if (provinces.find(774) != provinces.end() && provinces.find(774)->second)
@@ -582,23 +582,17 @@ void EU4::World::africaQuestion()
 void EU4::World::adjustChina(const CK2::World& sourceWorld)
 {
 	//Super Mongolia?
-	if (countries.find("MGE")->second->getProvinces().size() >= 1)
+	if (countries.count("MGE") && !countries.find("MGE")->second->getProvinces().empty())
 	{
 		// Move all Mongolia provinces under Mongol Empire
-		for (const auto& mongolianProvince : provinces)
+		for (const auto& province : provinces)
 		{
-			const auto provinceItr = provinces.find(mongolianProvince.first);
-			if (provinceItr == provinces.end())
+			if (province.second->getOwner() == "KHA")
 			{
-				Log(LogLevel::Warning) << "Province " << mongolianProvince.first << " is not in fact a valid province.";
-				continue;
+				province.second->setOwner("MGE");
+				province.second->setController("MGE");
+				province.second->addCore("MGE");
 			}
-			if (provinceItr->second->getOwner() == "KHA")
-			{
-				provinceItr->second->setOwner("MGE");
-				provinceItr->second->setController("MGE");
-				provinceItr->second->addCore("MGE");
-			}			
 		}
 	}
 
