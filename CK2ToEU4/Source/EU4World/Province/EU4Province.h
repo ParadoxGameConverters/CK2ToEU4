@@ -46,6 +46,7 @@ class Province
 
 	void registerTagCountry(const std::pair<std::string, std::shared_ptr<Country>>& theCountry) { tagCountry = theCountry; }
 	void addCore(const std::string& tag) { details.cores.insert(tag); }
+	void dropCores() { details.cores.clear(); }
 	void addClaim(const std::string& tag) { details.claims.insert(tag); }
 	void addPermanentClaim(const std::string& tag) { details.permanentClaims.insert(tag); }
 	void setOwner(const std::string& tag) { details.owner = tag; }
