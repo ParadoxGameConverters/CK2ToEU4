@@ -217,6 +217,8 @@ link = { ck2 = c_altmark eu4 = LAU } # Lauenburg
 link = { ck2 = c_lorraine eu4 = LOR }
 link = { ck2 = d_upper_lorraine eu4 = LOR }
 link = { ck2 = c_luneburg eu4 = LUN }
+link = { ck2 = d_lausitz eu4 = SOR } # Lausitz => Lusatia
+link = { ck2 = c_lausitz eu4 = SOR } # Lausitz => Lusatia
 link = { ck2 = c_magdeburg eu4 = MAG } # Magdeburg
 link = { ck2 = d_mainz eu4 = MAI }
 link = { ck2 = c_mainz eu4 = MAI }
@@ -805,7 +807,6 @@ link = { ck2 = c_oberbayern eu4 = UBV } # Oberbayen => Münich
 link = { ck2 = c_passau eu4 = PSS } # Passau
 #link = { ck2 = ??? eu4 = MBZ } # Montfort-Bregenz
 #link = { ck2 = ??? eu4 = KNZ } # Konstanz
-link = { ck2 = c_lausitz eu4 = ROT } # Lausitz => Rothenburg
 #link = { ck2 = ??? eu4 = BYT } # Bayreuth
 link = { ck2 = c_regensburg eu4 = REG } # Regensburg
 link = { ck2 = c_geneve eu4 = GNV } # Geneva
