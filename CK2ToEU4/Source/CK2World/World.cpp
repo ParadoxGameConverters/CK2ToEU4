@@ -199,7 +199,7 @@ CK2::World::World(const Configuration& theConfiguration)
 	filterIndependentTitles();
 	Log(LogLevel::Progress) << "36 %";
 	LOG(LogLevel::Info) << "-- Splitting Off Vassals";
-	splitVassals();
+	splitVassals(theConfiguration);
 	Log(LogLevel::Progress) << "37 %";
 	LOG(LogLevel::Info) << "-- Rounding Up Some People";
 	gatherCourtierNames();
@@ -619,8 +619,14 @@ void CK2::World::gatherCourtierNames()
 	Log(LogLevel::Info) << "<> " << counter << " people gathered for interrogation. " << counterAdvisors << " were detained.";
 }
 
-void CK2::World::splitVassals()
+void CK2::World::splitVassals(const Configuration& theConfiguration)
 {
+	if (theConfiguration.getSplitVassals() == Configuration::SPLITVASSALS::NO)
+	{
+		Log(LogLevel::Info) << ">< Splitting vassals disabled by configuration.";
+		return;
+	}
+
 	std::map<std::string, std::shared_ptr<Title>> newIndeps;
 
 	// We have linked counties to provinces, and we know who's independent.

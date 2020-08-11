@@ -183,3 +183,7 @@ l_french:
  RADICALTIP: "Le radicalisme sera converti."
  YES: "Oui"
  NO: "Non"
+ SPLITVASSALS: "Diviser les grands vassaux en États vassaux de EU4?"
+ SPLITVASSALSTIP: "Seulement les vassaux extraordinairement grands se verront accorder l'autonomie."
+ YES1: "Oui [recommandé]"
+

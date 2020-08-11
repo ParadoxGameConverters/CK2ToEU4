@@ -11,6 +11,11 @@ class Configuration: commonItems::parser
 	Configuration();
 	explicit Configuration(std::istream& theStream);
 
+	enum class SPLITVASSALS
+	{
+		YES = 1,
+		NO = 2
+	};
 	enum class DEJURE
 	{
 		ENABLED = 1,
@@ -71,6 +76,7 @@ class Configuration: commonItems::parser
 	[[nodiscard]] const auto& getSunset() const { return sunset; }
 	[[nodiscard]] const auto& getDevelopment() const { return development; }
 	[[nodiscard]] const auto& getModFileNames() const { return modFileNames; }
+	[[nodiscard]] const auto& getSplitVassals() const { return splitVassals; }
 
   private:
 	void registerKeys();
@@ -92,6 +98,7 @@ class Configuration: commonItems::parser
 	SUNSET sunset = SUNSET::DEFAULT;
 	DEVELOPMENT development = DEVELOPMENT::IMPORT;
 	DEJURE dejure = DEJURE::ENABLED;
+	SPLITVASSALS splitVassals = SPLITVASSALS::YES;
 
 	std::set<std::string> modFileNames;
 };

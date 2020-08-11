@@ -118,6 +118,25 @@ option = {
 		}
 	}
 }
+
+option = {
+	name = split_vassals
+	displayName = SPLITVASSALS
+	tooltip = SPLITVASSALSTIP
+	radioSelector = {
+		radioOption = {
+			name = 1
+			displayName = YES1
+			default = true
+		}
+		radioOption = {
+			name = 2
+			displayName = NO
+			default = false
+		}
+	}
+}
+
 option = {
 	name = development
 	displayName = DEVELO
