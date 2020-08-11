@@ -183,3 +183,6 @@ l_german:
  RADICALTIP: "Radikal wird konvertiert."
  YES: "Ja"
  NO: "Nein"
+ SPLITVASSALS: "Große Vasallen in EU4-Vasallenstaaten aufteilen?"
+ SPLITVASSALSTIP: "Nur außerordentlich große Vasallen erhalten Autonomie."
+ YES1: "Ja [Empfohlen]"

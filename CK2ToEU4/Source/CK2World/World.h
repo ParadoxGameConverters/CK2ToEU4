@@ -51,7 +51,7 @@ class World: commonItems::parser
 	void flagHREProvinces(const Configuration& theConfiguration) const;
 	void shatterEmpires(const Configuration& theConfiguration) const;
 	void filterProvincelessTitles();
-	void splitVassals();
+	void splitVassals(const Configuration& theConfiguration);
 	void gatherCourtierNames();
 	void determineHeirs();
 	void resolvePrimogeniture(const std::string& genderLaw, const std::pair<int, std::shared_ptr<Character>>& holder) const;

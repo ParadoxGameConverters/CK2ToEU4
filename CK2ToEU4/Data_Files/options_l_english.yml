@@ -183,3 +183,6 @@ l_english:
  RADICALTIP: "Radical will be converted."
  YES: "Yes"
  NO: "No"
+ SPLITVASSALS: "Split large vassals into EU4 vassal states?"
+ SPLITVASSALSTIP: "Only extraordinarily large vassals will be granted autonomy."
+ YES1: "Yes [recommended]"

@@ -58,6 +58,11 @@ void Configuration::registerKeys()
 		dejure = DEJURE(std::stoi(dejureString.getString()));
 		Log(LogLevel::Info) << "DeJure set to: " << dejureString.getString();
 	});
+	registerKeyword("split_vassals", [this](const std::string& unused, std::istream& theStream) {
+		const commonItems::singleString splitVassalsString(theStream);
+		splitVassals = SPLITVASSALS(std::stoi(splitVassalsString.getString()));
+		Log(LogLevel::Info) << "Split Vassals set to: " << splitVassalsString.getString();
+	});
 	registerKeyword("shatter_empires", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleString shatterEmpiresString(theStream);
 		shatterEmpires = SHATTER_EMPIRES(std::stoi(shatterEmpiresString.getString()));

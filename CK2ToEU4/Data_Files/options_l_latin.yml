@@ -183,3 +183,6 @@ l_latin:
  RADICALTIP: "Radicalismus vertitur."
  YES: "Age"
  NO: "Noli agere"
+ SPLITVASSALS: "Dividantur magna tributaria regna in tributaria parviora EU4?"
+ SPLITVASSALSTIP: "Tantum permagnis tributariis regnis detur potestas."
+ YES1: "Age [optio melior]"
