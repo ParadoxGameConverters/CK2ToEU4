@@ -20,27 +20,6 @@ greek_ideas = {
 	}
 }
 
-CAS_ideas = {
-    trigger = {
-		OR = {
-			tag = CAS
-			AND = {
-				NOT = { tag = ARA }
-				primary_culture = castillian
-			}
-		}
-	}
-}
-
-KHA_ideas = {
-	trigger = {
-		OR = {
-			tag = KHA
-			tag = MGE
-		}
-	}
-}
-
 TIB_ideas = {
 	start = {
 		global_unrest = -1
