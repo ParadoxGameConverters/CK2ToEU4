@@ -87,17 +87,17 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 	importAdvisers();
 	Log(LogLevel::Progress) << "64 %";
 
+	// Rulers with multiple crowns either get PU agreements, or just annex the other crowns.
+	resolvePersonalUnions();
+	Log(LogLevel::Progress) << "65 %";
+
 	// We're onto the finesse part of conversion now. HRE was shattered in CK2 World and now we're assigning electorates, free
 	// cities, and such.
 	distributeHRESubtitles(theConfiguration);
-	Log(LogLevel::Progress) << "65 %";
+	Log(LogLevel::Progress) << "66 %";
 
 	// With all religious/cultural matters taken care of, we can now set reforms
 	assignAllCountryReforms(sourceWorld);
-	Log(LogLevel::Progress) << "66 %";
-
-	// Rulers with multiple crowns either get PU agreements, or just annex the other crowns.
-	resolvePersonalUnions();
 	Log(LogLevel::Progress) << "67 %";
 
 	// Vassalages and tributaries were also set in ck2 world but we have to transcribe those into EU4 agreements.
@@ -541,7 +541,8 @@ void EU4::World::africaQuestion()
 	if (provinces.find(1128) != provinces.end() && provinces.find(1128)->second && provinces.find(2466) != provinces.end() && provinces.find(2466)->second &&
 		 provinces.find(2460) != provinces.end() && provinces.find(2460)->second)
 	{
-		if (!(countries.find(provinces.find(1127)->second->getOwner())->second->isinHRE()) && provinces.find(1128)->second->getOwner() != provinces.find(2466)->second->getOwner() &&
+		if (!(countries.find(provinces.find(1127)->second->getOwner())->second->isinHRE()) &&
+			 provinces.find(1128)->second->getOwner() != provinces.find(2466)->second->getOwner() &&
 			 provinces.find(1128)->second->getOwner() != provinces.find(2460)->second->getOwner())
 		{
 			if (provinces.find(1127) != provinces.end() && provinces.find(1127)->second)
@@ -550,12 +551,13 @@ void EU4::World::africaQuestion()
 		}
 	}
 	// Djado-Tajhari Pass
-	if (provinces.find(2448) != provinces.end() && provinces.find(2448)->second &&
-		 provinces.find(2275) != provinces.end() && provinces.find(2275)->second &&
+	if (provinces.find(2448) != provinces.end() && provinces.find(2448)->second && provinces.find(2275) != provinces.end() && provinces.find(2275)->second &&
 		 provinces.find(2277) != provinces.end() && provinces.find(2277)->second)
 	{
-		if (!(countries.find(provinces.find(2474)->second->getOwner())->second->isinHRE()) && !(countries.find(provinces.find(2475)->second->getOwner())->second->isinHRE()) && 
-			provinces.find(2448)->second->getOwner() != provinces.find(2275)->second->getOwner() && provinces.find(2448)->second->getOwner() != provinces.find(2277)->second->getOwner())
+		if (!(countries.find(provinces.find(2474)->second->getOwner())->second->isinHRE()) &&
+			 !(countries.find(provinces.find(2475)->second->getOwner())->second->isinHRE()) &&
+			 provinces.find(2448)->second->getOwner() != provinces.find(2275)->second->getOwner() &&
+			 provinces.find(2448)->second->getOwner() != provinces.find(2277)->second->getOwner())
 		{
 			if (provinces.find(2474) != provinces.end() && provinces.find(2474)->second)
 				provinces.find(2474)->second->sterilize();
@@ -568,8 +570,10 @@ void EU4::World::africaQuestion()
 	if (provinces.find(1219) != provinces.end() && provinces.find(1219)->second && provinces.find(2288) != provinces.end() && provinces.find(2288)->second &&
 		 provinces.find(1159) != provinces.end() && provinces.find(1159)->second)
 	{
-		if (!(countries.find(provinces.find(2932)->second->getOwner())->second->isinHRE()) && !(countries.find(provinces.find(774)->second->getOwner())->second->isinHRE()) &&
-			provinces.find(1219)->second->getOwner() != provinces.find(2288)->second->getOwner() && provinces.find(1219)->second->getOwner() != provinces.find(1159)->second->getOwner())
+		if (!(countries.find(provinces.find(2932)->second->getOwner())->second->isinHRE()) &&
+			 !(countries.find(provinces.find(774)->second->getOwner())->second->isinHRE()) &&
+			 provinces.find(1219)->second->getOwner() != provinces.find(2288)->second->getOwner() &&
+			 provinces.find(1219)->second->getOwner() != provinces.find(1159)->second->getOwner())
 		{
 			if (provinces.find(774) != provinces.end() && provinces.find(774)->second)
 				provinces.find(774)->second->sterilize();
@@ -583,11 +587,11 @@ void EU4::World::africaQuestion()
 
 void EU4::World::adjustChina(const CK2::World& sourceWorld)
 {
-	//Super Mongolia?
+	// Super Mongolia?
 	if (countries.count("MGE") && !countries.find("MGE")->second->getProvinces().empty())
 	{
 		// Move all Mongolia provinces under Mongol Empire
-		for (const auto& province : provinces)
+		for (const auto& province: provinces)
 		{
 			if (province.second->getOwner() == "KHA")
 			{
@@ -1171,6 +1175,9 @@ void EU4::World::setElectors()
 				}
 				else
 				{
+					// skip juniors.
+					if (diplomacy.isCountryJunior(country.first))
+						continue;
 					duchies.emplace_back(std::pair(country.second->getDevelopment(), country.second));
 				}
 			}
@@ -1246,7 +1253,7 @@ void EU4::World::setFreeCities()
 		for (const auto& country: countries)
 		{
 			if (country.second->isinHRE() && country.second->getGovernment() != "republic" && !country.second->isHREEmperor() &&
-				 country.second->getGovernmentReforms().empty() && country.second->getProvinces().size() == 1 &&
+				 country.second->getGovernmentReforms().empty() && country.second->getProvinces().size() == 1 && !diplomacy.isCountryJunior(country.first) &&
 				 country.second->getTitle().second->getGeneratedLiege().first.empty() && !country.second->getTitle().second->isElector() && freeCityNum < 12)
 			{
 				if (country.first == "HAB")
