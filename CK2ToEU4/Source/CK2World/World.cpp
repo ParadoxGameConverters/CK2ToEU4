@@ -284,6 +284,11 @@ void CK2::World::linkElectors()
 		Log(LogLevel::Info) << ">< HRE does not have electors.";
 		return;
 	}
+	if (electors.size() > 8)
+	{
+		Log(LogLevel::Info) << ">< HRE has too many electors.";
+		return;
+	}
 	if (hre->second->getSuccessionLaw() != "feudal_elective")
 	{
 		Log(LogLevel::Info) << ">< HRE does not have feudal elective succession law.";
