@@ -1075,6 +1075,8 @@ void EU4::World::resolvePersonalUnions()
 				{
 					// too many unions.
 					primaryTitle.second->annexCountry(title);
+					if (primaryTitle.second->isHREEmperor() && emperorTag != primaryTitle.first)
+						emperorTag = primaryTitle.first;
 				}
 			}
 		}
@@ -1091,6 +1093,8 @@ void EU4::World::resolvePersonalUnions()
 				primaryTitle.second->annexCountry(title);
 				if (primaryTitle.first == "PAP" || primaryTitle.first == "FAP")
 					Log(LogLevel::Debug) << primaryTitle.first << " is annexing " << title.first;
+				if (primaryTitle.second->isHREEmperor() && emperorTag != primaryTitle.first)
+					emperorTag = primaryTitle.first;
 			}
 		}
 	}
