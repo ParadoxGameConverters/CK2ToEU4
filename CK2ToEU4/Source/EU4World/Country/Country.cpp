@@ -817,6 +817,12 @@ void EU4::Country::annexCountry(const std::pair<std::string, std::shared_ptr<Cou
 	}
 	theCountry.second->clearProvinces();
 
+	// relevant flags
+	if (theCountry.second->isHREEmperor())
+		details.holyRomanEmperor = true;
+	if (theCountry.second->isHREElector())
+		details.elector = true;
+
 	// Vassals
 	const auto& targetVassals = theCountry.second->getTitle().second->getGeneratedVassals();
 	for (const auto& vassal: targetVassals)

@@ -63,6 +63,7 @@ class Country
 	[[nodiscard]] auto getConversionDate() const { return conversionDate; }
 	[[nodiscard]] auto isExcommunicated() const { return details.excommunicated; }
 	[[nodiscard]] auto isHREEmperor() const { return details.holyRomanEmperor; }
+	[[nodiscard]] auto isHREElector() const { return details.elector; }
 	[[nodiscard]] auto isinHRE() const { return details.inHRE; }
 	[[nodiscard]] auto isSunsetCountry() const { return details.isSunsetCountry; }
 	[[nodiscard]] auto getCapitalID() const { return details.capital; }
