@@ -53,3 +53,23 @@ int CK2::Province::getBuildingWeight() const
 	}
 	return buildingWeight;
 }
+
+std::optional<std::pair<std::string, std::shared_ptr<CK2::Title>>> CK2::Province::belongsToDuchy() const
+{
+	if (deJureTitle.second && deJureTitle.second->getLiege().second && deJureTitle.second->getLiege().second->getTitle().second &&
+		 deJureTitle.second->getLiege().second->getTitle().first.find("d_") == 0)
+		return deJureTitle.second->getLiege().second->getTitle();
+	else
+		return std::nullopt;
+}
+
+std::optional<std::pair<std::string, std::shared_ptr<CK2::Title>>> CK2::Province::belongsToKingdom() const
+{
+	if (deJureTitle.second && deJureTitle.second->getLiege().second && deJureTitle.second->getLiege().second->getTitle().second &&
+		 deJureTitle.second->getLiege().second->getTitle().second->getLiege().second &&
+		 deJureTitle.second->getLiege().second->getTitle().second->getLiege().second->getTitle().second && 
+		 deJureTitle.second->getLiege().second->getTitle().second->getLiege().second->getTitle().first.find("k_") == 0)
+		return deJureTitle.second->getLiege().second->getTitle().second->getLiege().second->getTitle();
+	else
+		return std::nullopt;
+}

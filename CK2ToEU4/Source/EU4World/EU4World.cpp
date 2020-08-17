@@ -1014,17 +1014,17 @@ void EU4::World::resolvePersonalUnions()
 		{
 			// We need to find another primary title.
 			auto foundPrimary = false;
-			// First check if we can find PAP or FAP
+			// First check if we can find PAP or FAP or some special flag
 			for (const auto& title: holderTitle.second)
 			{
-				if (title.first == "PAP" || title.first == "FAP")
+				if (title.first == "PAP" || title.first == "FAP" || title.second->isHREEmperor() || title.second->isHREElector())
 				{
 					primaryTitle = std::pair(title.first, title.second);
 					foundPrimary = true;
 					break;
 				}
 			}
-			// If no popes pick first one.
+			// If no popes or specials pick first one.
 			if (!foundPrimary)
 				for (const auto& title: holderTitle.second)
 				{

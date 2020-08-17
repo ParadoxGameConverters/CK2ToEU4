@@ -1097,16 +1097,85 @@ void CK2::World::shatterHRE(const Configuration& theConfiguration) const
 		}
 	}
 
+	// Locating HRE emperor. Starting by kingdoms downwards, trying to see which of his titles holds the capital.
+	const auto& hreCapital = hreHolder.second->getCapitalProvince();
+	if (hreCapital.first)
+	{
+		Log(LogLevel::Debug) << "HRE Capital: " << hreCapital.first << " - " << hreCapital.second->getName();
+		const auto& nominalKingdom = hreCapital.second->belongsToKingdom();
+		if (nominalKingdom)
+		{
+			Log(LogLevel::Debug) << "Nominal kingdom: " << nominalKingdom->first;
+			for (const auto& member: hreMembers)
+			{
+				if (member.first.find("k_") != 0)
+					continue;
+				if (nominalKingdom->first == member.first && member.second->getHolder().first == hreHolder.first)
+				{
+					member.second->setHREEmperor();
+					emperorSet = true;
+					Log(LogLevel::Debug) << "HRE Emperor set via capital: " << member.first;
+					break;
+				}
+			}			
+		}
+		if (!emperorSet)
+		{
+			const auto& nominalDuchy = hreCapital.second->belongsToDuchy();
+			if (nominalDuchy)
+			{
+				Log(LogLevel::Debug) << "Nominal duchy: " << nominalDuchy->first;
+				for (const auto& member: hreMembers)
+				{
+					if (member.first.find("d_") != 0)
+						continue;
+					if (nominalDuchy->first == member.first && member.second->getHolder().first == hreHolder.first)
+					{
+						member.second->setHREEmperor();
+						emperorSet = true;
+						Log(LogLevel::Debug) << "HRE Emperor set via capital: " << member.first;
+						break;
+					}
+				}				
+			}
+		}
+		if (!emperorSet)
+		{
+			Log(LogLevel::Debug) << "HRE capital's county: " << hreCapital.second->getTitle().first;
+			for (const auto& member: hreMembers)
+			{
+				if (member.first.find("c_") != 0)
+					continue;
+				if (hreCapital.second->getTitle().first == member.first && member.second->getHolder().first == hreHolder.first)
+				{
+					member.second->setHREEmperor();
+					emperorSet = true;
+					Log(LogLevel::Debug) << "HRE Emperor set via capital: " << member.first;
+					break;
+				}
+			}
+
+		}
+	}
+	else
+	{
+		Log(LogLevel::Warning) << "HRE Emperor has no capital? Disturbing. Will pick something at random.";
+	}
+
+	if (!emperorSet)
+		Log(LogLevel::Debug) << "Couldn't find His HREship by capital province. Picking first owned non-barony.";
+
 	for (const auto& member: hreMembers)
 	{
 		// We're flagging hre members as such, as well as setting them free.
-		// We're also on the lookout on the current HRE emperor.
-		if (!emperorSet && member.second->getHolder().first == hreHolder.first)
+		// We're also on the lookout on the current HRE emperor if we're missing one.
+		if (!emperorSet && member.second->getHolder().first == hreHolder.first && member.first.find("b_") == std::string::npos)
 		{
 			// This is the emperor. He may hold several duchies, but the first one
 			// we find will be flagged emperor.
 			member.second->setHREEmperor();
 			emperorSet = true;
+			Log(LogLevel::Debug) << "Emperor is " << member.first;
 		}
 		member.second->setInHRE();
 		member.second->clearLiege();

@@ -27,10 +27,13 @@ class Province: commonItems::parser
 	[[nodiscard]] auto getBaronyCount() const { return static_cast<int>(baronies.size()); }
 
 	[[nodiscard]] int getBuildingWeight() const;
+	[[nodiscard]] std::optional<std::pair<std::string, std::shared_ptr<Title>>> belongsToDuchy() const; // defacto
+	[[nodiscard]] std::optional<std::pair<std::string, std::shared_ptr<Title>>> belongsToKingdom() const; // defacto
 
 	void discardPrimarySettlement() { primarySettlement.first.clear(); }
 	void setPrimarySettlement(std::shared_ptr<Barony> theBarony) { primarySettlement.second = std::move(theBarony); }
 	void loadHoldingTitle(const std::pair<std::string, std::shared_ptr<Title>>& theTitle) { title = theTitle; }
+	void loadDeJureTitle(const std::pair<std::string, std::shared_ptr<Title>>& theDeJureTitle) { deJureTitle = theDeJureTitle; }
 	void loadWonder(const std::pair<int, std::shared_ptr<Wonder>>& theWonder) { wonder = theWonder; }
 	void setDeJureHRE() { deJureHRE = true; }
 
@@ -44,7 +47,8 @@ class Province: commonItems::parser
 	std::string religion;
 	std::string name;
 	std::pair<std::string, std::shared_ptr<Barony>> primarySettlement;
-	std::pair<std::string, std::shared_ptr<Title>> title;
+	std::pair<std::string, std::shared_ptr<Title>> title; // owner title (e_francia or similar)
+	std::pair<std::string, std::shared_ptr<Title>> deJureTitle; // county (c_paris)
 	std::pair<int, std::shared_ptr<Wonder>> wonder;
 	std::map<std::string, std::shared_ptr<Barony>> baronies;
 };
