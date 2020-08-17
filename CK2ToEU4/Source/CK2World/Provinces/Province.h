@@ -19,6 +19,7 @@ class Province: commonItems::parser
 	[[nodiscard]] const auto& getPrimarySettlement() const { return primarySettlement; }
 	[[nodiscard]] const auto& getBaronies() const { return baronies; }
 	[[nodiscard]] const auto& getTitle() const { return title; }
+	[[nodiscard]] const auto& getDeJureTitle() const { return deJureTitle; }
 	[[nodiscard]] const auto& getWonder() const { return wonder; }
 
 	[[nodiscard]] auto isDeJureHRE() const { return deJureHRE; }
