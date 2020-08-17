@@ -1672,7 +1672,7 @@ std::optional<std::pair<int, std::shared_ptr<CK2::Province>>> EU4::World::determ
 	std::map<std::string, int> theShares;														// title, development
 	std::string winner;
 	auto maxDev = -1;
-	std::pair<int, std::shared_ptr<CK2::Province>> wonderProvince = std::pair(0, nullptr);
+	
 	for (auto ck2ProvinceID: ck2ProvinceNumbers)
 	{
 		const auto& ck2province = sourceWorld.getProvinces().find(ck2ProvinceID);
@@ -1701,7 +1701,6 @@ std::optional<std::pair<int, std::shared_ptr<CK2::Province>>> EU4::World::determ
 		{
 			// This is the someone's wonder province.
 			theShares[ownerTitle] += 500;
-			wonderProvince = std::pair(ck2province->first, ck2province->second); // We are storing only 1, making things murky. Last wonder to enter will win. to fix if ever a problem.
 		}
 		// Check for HRE emperor
 		if (ck2province->second->getTitle().second->isHREEmperor())
@@ -1731,20 +1730,22 @@ std::optional<std::pair<int, std::shared_ptr<CK2::Province>>> EU4::World::determ
 	// Now that we have a winning title, let's find its largest province to use as a source.
 	maxDev = -1; // We can have winning provinces with weight = 0;
 
-	// if we hold a wonder, skip this part.
-	if (wonderProvince.first && wonderProvince.second->getTitle().first == winner)
-	{
-		Log(LogLevel::Debug) << "Wonder Province " << wonderProvince.first << " goes to " << winner;
-		return wonderProvince;
-	}
-
 	std::pair<int, std::shared_ptr<CK2::Province>> toReturn;
 	for (const auto& province: theClaims[winner])
 	{
-		if (province->getBuildingWeight() > maxDev)
+		auto provinceWeight = province->getBuildingWeight();
+		if (province->getWonder().second)
+			provinceWeight += 500;
+		if (province->getTitle().second->getHolder().second->getCapitalProvince().first == province->getID())
+			provinceWeight += 200;
+		if (province->getTitle().second->isHREEmperor() && province->getTitle().second->getHolder().second->getCapitalProvince().first == province->getID())
+				provinceWeight += 999;
+		
+		if (provinceWeight > maxDev)
 		{
 			toReturn.first = province->getID();
 			toReturn.second = province;
+			maxDev = provinceWeight;
 		}
 	}
 	if (!toReturn.first || !toReturn.second)
