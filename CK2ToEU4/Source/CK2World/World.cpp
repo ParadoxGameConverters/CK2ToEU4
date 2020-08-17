@@ -1141,12 +1141,12 @@ void CK2::World::shatterHRE(const Configuration& theConfiguration) const
 		}
 		if (!emperorSet)
 		{
-			Log(LogLevel::Debug) << "HRE capital's county: " << hreCapital.second->getTitle().first;
+			Log(LogLevel::Debug) << "HRE capital's county: " << hreCapital.second->getDeJureTitle().first;
 			for (const auto& member: hreMembers)
 			{
 				if (member.first.find("c_") != 0)
 					continue;
-				if (hreCapital.second->getTitle().first == member.first && member.second->getHolder().first == hreHolder.first)
+				if (hreCapital.second->getDeJureTitle().first == member.first && member.second->getHolder().first == hreHolder.first)
 				{
 					member.second->setHREEmperor();
 					emperorSet = true;

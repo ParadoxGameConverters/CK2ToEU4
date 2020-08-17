@@ -1115,11 +1115,11 @@ void EU4::World::distributeHRESubtitles(const Configuration& theConfiguration)
 		if (country.second->isHREEmperor())
 		{
 			emperorTag = country.first;
+			Log(LogLevel::Info) << "<> Emperor is " << emperorTag << " (" << country.second->getTitle().first << ", " << country.second->getProvinces().size() << " provinces)";
 			break;
 		}
 	if (!emperorTag.empty())
 	{
-		Log(LogLevel::Info) << "<> Emperor is " << emperorTag;
 		setFreeCities();
 		setElectors();
 	}
@@ -1694,16 +1694,14 @@ std::optional<std::pair<int, std::shared_ptr<CK2::Province>>> EU4::World::determ
 		if (ck2province->second->getTitle().second->getHolder().second->getCapitalProvince().first == ck2province->first)
 		{
 			// This is the someone's capital, don't assign it away if unnecessary.
-			winner = ck2province->second->getTitle().first;
-			maxDev = 200; // Dev can go up to 300+, so yes, assign it away if someone has overbuilt a nearby province.
+			theShares[ownerTitle] += 200; // Dev can go up to 300+, so yes, assign it away if someone has overbuilt a nearby province.
 		}
 		// Check for a wonder. For multiple wonders, sorry, only last one will prevail.
 		if (ck2province->second->getWonder().second)
 		{
 			// This is the someone's wonder province.
-			winner = ck2province->second->getTitle().first;
-			maxDev = 500;
-			wonderProvince = std::pair(ck2province->first, ck2province->second);
+			theShares[ownerTitle] += 500;
+			wonderProvince = std::pair(ck2province->first, ck2province->second); // We are storing only 1, making things murky. Last wonder to enter will win. to fix if ever a problem.
 		}
 		// Check for HRE emperor
 		if (ck2province->second->getTitle().second->isHREEmperor())
@@ -1712,8 +1710,7 @@ std::optional<std::pair<int, std::shared_ptr<CK2::Province>>> EU4::World::determ
 			if (emperor->getCapitalProvince().first == ck2province->first)
 			{
 				// This is the empire capital, never assign it away.
-				winner = ck2province->second->getTitle().first;
-				maxDev = 999;
+				theShares[ownerTitle] += 999;
 			}
 		}
 	}
@@ -1737,6 +1734,7 @@ std::optional<std::pair<int, std::shared_ptr<CK2::Province>>> EU4::World::determ
 	// if we hold a wonder, skip this part.
 	if (wonderProvince.first && wonderProvince.second->getTitle().first == winner)
 	{
+		Log(LogLevel::Debug) << "Wonder Province " << wonderProvince.first << " goes to " << winner;
 		return wonderProvince;
 	}
 
