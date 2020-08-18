@@ -507,51 +507,20 @@ exploration_ideas = {
 		}
 		modifier = {
 			factor = 0
-			current_age = age_of_revolutions #too late
+			is_emperor_of_china = yes
+			NOT = { is_year = 1575 } # Let's give the Europeans a chance
+			NOT = {
+				any_owned_province = {
+					any_province = {
+						has_province_modifier = "birthplace_of_the_renaissance"
+						continent = PREV
+					}
+				}
+			}
 		}
 		modifier = {
 			factor = 0
 			NOT = { num_of_ports = 1 }
-			NOT = { 
-				any_owned_province = { 
-					is_in_capital_area = yes
-					has_empty_adjacent_province = yes
-				} 
-			}
-		}		
-		modifier = {
-			factor = 0
-			NOT = {
-				any_owned_province = {
-					has_port = yes
-					sea_zone = {
-						NOT = { area = eastern_mediterrenean_area }
-					}
-				}
-			}
-			NOT = { 
-				any_owned_province = { 
-					is_in_capital_area = yes
-					has_empty_adjacent_province = yes
-				} 
-			}
-		}
-		modifier = {
-			factor = 0.5
-			NOT = {
-				any_owned_province = {
-					has_port = yes
-					sea_zone = {
-						OR = {
-							NOT = { region = mediterrenean_region }
-							province_id = 1293 #Gibraltar
-							province_id = 1294 #Almeria
-						}
-						NOT = { area = red_sea_area }
-						NOT = { area = baltic_area }
-					}
-				}
-			}
 			NOT = { 
 				any_owned_province = { 
 					is_in_capital_area = yes
@@ -566,6 +535,27 @@ exploration_ideas = {
 				any_owned_province = { 
 					is_in_capital_area = yes
 					has_empty_adjacent_province = yes
+				}
+			}
+		}
+		modifier = {
+			factor = 0.1
+			is_emperor_of_china = no
+			capital_scope = {
+				OR = {
+					region = coromandel_region
+					region = bengal_region
+					region = malaya_region
+					region = south_china_region
+				}
+			}
+			NOT = { is_year = 1600 } # Let's give the Europeans a chance
+			NOT = {
+				any_owned_province = {
+					any_province = {
+						has_province_modifier = "birthplace_of_the_renaissance"
+						continent = PREV
+					}
 				}
 			}
 		}
