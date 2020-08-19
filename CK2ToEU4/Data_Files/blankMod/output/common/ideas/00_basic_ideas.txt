@@ -12,6 +12,7 @@ aristocracy_ideas = {
 
 	bonus = {
 		leader_siege = 1
+		nobles_loyalty_modifier = 0.1
 	}
 
 	trigger = {
@@ -31,7 +32,7 @@ aristocracy_ideas = {
 	}
 	local_nobility = {
 		global_autonomy = -0.025
-		yearly_absolutism = 0.1
+		yearly_absolutism = 0.5
 	}
 	serfdom = {
 		global_manpower_modifier = 0.33
@@ -45,7 +46,7 @@ aristocracy_ideas = {
 		free_leader_pool = 1
 	}
 	noble_resilience = {
-		possible_mercenaries = 0.20
+		mercenary_manpower = 0.20
 	}
 	
 
@@ -65,6 +66,8 @@ plutocracy_ideas = {
 
 	bonus = {
 		global_institution_spread = 0.10
+		burghers_loyalty_modifier = 0.1
+		vaisyas_loyalty_modifier = 0.1
 	}
 
 	trigger = {
@@ -72,7 +75,7 @@ plutocracy_ideas = {
 	}
 
 	tradition_of_payment = {
-		possible_mercenaries = 0.10
+		mercenary_manpower = 0.10
 		mercenary_discipline = 0.025
 	}
 	abolished_serfdom = {
@@ -153,6 +156,8 @@ religious_ideas = {
 
 	bonus = {
 		culture_conversion_cost = -0.25
+		brahmins_hindu_loyalty_modifier = 0.1
+		church_loyalty_modifier = 0.1
 	}
 
 	missionary_schools = {
@@ -203,26 +208,22 @@ spy_ideas = {
 		advisor_cost = -0.10
 	}	
 	
-	
 	agent_training = {
 		diplomats = 1		
 	}
 
 	vetting = {
 		global_spy_defence = 0.33
-		global_prov_trade_power_modifier = 0.10
-	}	
-	
-	additional_loyalist_recruitment = {
-		reduced_liberty_desire = 10
 	}
 
+	state_propaganda = {
+		ae_impact = -0.2
+	}
 	
 	claim_fabrication = {
 		fabricate_claims_cost = -0.25
+		can_fabricate_for_vassals = yes
 	}
-
-	
 	
 	privateers = {
 		embargo_efficiency = 0.25
@@ -231,7 +232,6 @@ spy_ideas = {
 	audit_checks = {
 		yearly_corruption = -0.1
 	}
-
 
 	ai_will_do = {
 		factor = 0.75
@@ -251,8 +251,8 @@ diplomatic_ideas = {
 	cabinet = {
 		diplomatic_upkeep = 1
 	}
-	war_cabinet = {
-		war_exhaustion_cost = -0.33
+	grand_banquets = {
+		diplomats = 1
 	}
 	benign_diplomats = {
 		improve_relation_modifier = 0.25
@@ -325,7 +325,7 @@ defensive_ideas = {
 	}
 
 	battlefield_commisions = {
-		army_tradition = 1
+		army_tradition_from_battle = 1.0
 	}
 	military_drill = {
 		land_morale = 0.15
@@ -481,7 +481,7 @@ exploration_ideas = {
  		envoy_travel_time = -0.20
  	}
 	free_colonies = {
-		expel_minorities_cost = -0.25
+		expel_minorities_cost = -1.0
 	}
 	global_empire = {
 		naval_forcelimit_modifier = 0.25
@@ -507,6 +507,19 @@ exploration_ideas = {
 		}
 		modifier = {
 			factor = 0
+			is_emperor_of_china = yes
+			NOT = { is_year = 1575 } # Let's give the Europeans a chance
+			NOT = {
+				any_owned_province = {
+					any_province = {
+						has_province_modifier = "birthplace_of_the_renaissance"
+						continent = PREV
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0
 			NOT = { num_of_ports = 1 }
 			NOT = { 
 				any_owned_province = { 
@@ -522,6 +535,27 @@ exploration_ideas = {
 				any_owned_province = { 
 					is_in_capital_area = yes
 					has_empty_adjacent_province = yes
+				}
+			}
+		}
+		modifier = {
+			factor = 0.1
+			is_emperor_of_china = no
+			capital_scope = {
+				OR = {
+					region = coromandel_region
+					region = bengal_region
+					region = malaya_region
+					region = south_china_region
+				}
+			}
+			NOT = { is_year = 1600 } # Let's give the Europeans a chance
+			NOT = {
+				any_owned_province = {
+					any_province = {
+						has_province_modifier = "birthplace_of_the_renaissance"
+						continent = PREV
+					}
 				}
 			}
 		}
@@ -743,6 +777,15 @@ maritime_ideas = {
 			factor = 0.41
 			num_of_cities = 50
 		}
+		modifier = {
+			factor = 10
+			OR = {
+				has_reform = pirate_republic_reform
+				has_reform = pirate_kingdom
+				has_reform = war_against_the_world_government
+				has_reform = black_market_consortium_government
+			}
+		}
 	}
 }
 
@@ -758,7 +801,7 @@ quality_ideas = {
 		infantry_power = 0.1
 	}
 	quality_education = {
-		army_tradition = 1
+		army_tradition = 0.5
 	}
 	finest_of_horses = {
 		cavalry_power = 0.1
@@ -821,8 +864,7 @@ expansion_ideas = {
 	important = yes
 
 	bonus = {
- 		cb_on_overseas = yes
- 		max_states = 5
+ 		min_autonomy_in_territories = -0.1
 	}
 
 	additional_colonists = {
@@ -862,9 +904,8 @@ expansion_ideas = {
 			factor = 10
 			num_of_cities = 20
 			any_owned_province = {
-				is_in_capital_area = yes
+				has_empty_adjacent_province = yes
 				any_neighbor_province = {
-					is_empty = yes
 					OR = {
 						region = russia_region
 						region = ural_region
@@ -917,11 +958,11 @@ administrative_ideas = {
 	category = ADM
 
 	bonus = {
-		max_states = 5
+		governing_capacity_modifier = 0.25
 	}
 
 	organised_mercenary_payment = {
-		mercenary_cost = -0.25
+		mercenary_cost = -0.10
 	}
 	adaptability = {
 		core_creation = -0.25
@@ -933,7 +974,7 @@ administrative_ideas = {
 		interest = -0.5
 	}
 	organised_mercenary_recruitment = {
-		possible_mercenaries = 0.25
+		mercenary_manpower = 0.25
 	}
 	administrative_efficiency_idea = {
 		advisor_pool = 1
@@ -957,6 +998,8 @@ humanist_ideas = {
 	bonus = {
 		idea_cost = -0.1
 		yearly_harmony = 0.25  # Used if religion uses harmony (confucianism)
+		brahmins_muslim_loyalty_modifier = 0.1
+		dhimmi_loyalty_modifier = 0.1
 	}
 
 	tolerance_idea = {
@@ -1047,6 +1090,7 @@ naval_ideas = {
 
 	bonus = {
 		ship_durability = 0.1
+		allowed_marine_fraction = 0.05
 	}
 
 	boarding_parties = {
@@ -1095,6 +1139,16 @@ naval_ideas = {
 		modifier = {
 			factor = 0.31
 			num_of_cities = 50
+		}
+
+		modifier = {
+			factor = 10
+			OR = {
+				has_reform = pirate_republic_reform
+				has_reform = pirate_kingdom
+				has_reform = war_against_the_world_government
+				has_reform = black_market_consortium_government
+			}
 		}
 	}
 }
