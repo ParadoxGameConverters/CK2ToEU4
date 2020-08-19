@@ -143,8 +143,10 @@ pagan = {
 		country_as_secondary = {
 			development_cost = -0.1
 		}
-		
-		heretic = { GOAT_SKULL }	
+
+		personal_deity = yes
+
+		heretic = { GOAT_SKULL }
 	}
 	hellenic_pagan_reformed = {
 		icon = 58
@@ -156,8 +158,10 @@ pagan = {
 		country_as_secondary = {
 			development_cost = -0.1
 		}
-		
-		heretic = { GOAT_SKULL }	
+
+		personal_deity = yes
+
+		heretic = { GOAT_SKULL }
 	}
 }
 
