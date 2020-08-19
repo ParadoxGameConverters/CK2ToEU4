@@ -989,6 +989,17 @@ void CK2::World::flagHREProvinces(const Configuration& theConfiguration) const
 		return;
 	}
 
+	if (theConfiguration.getHRE() == Configuration::I_AM_HRE::OFFICIAL_LIKE)
+	{
+		const auto& allTitles = titles.getTitles();
+		const auto& hre = allTitles.find("e_hre");
+		if (hre->second->getLaws().count("law_voting_power_0")) // official like convert logic
+		{
+			Log(LogLevel::Info) << ">< HRE Provinces not available due to council power abolished.";
+			return;
+		}
+	}
+
 	std::string hreTitle;
 	switch (theConfiguration.getHRE())
 	{
@@ -1030,6 +1041,17 @@ void CK2::World::shatterHRE(const Configuration& theConfiguration) const
 	{
 		Log(LogLevel::Info) << ">< HRE Mechanics and shattering overridden by configuration.";
 		return;
+	}
+
+	if (theConfiguration.getHRE() == Configuration::I_AM_HRE::OFFICIAL_LIKE)
+	{
+		const auto& allTitles = titles.getTitles();
+		const auto& hre = allTitles.find("e_hre");
+		if (hre->second->getLaws().count("law_voting_power_0")) // official like convert logic
+		{
+			Log(LogLevel::Info) << ">< HRE Shattering disabled due to council power abolished.";
+			return;
+		}
 	}
 
 	std::string hreTitle;

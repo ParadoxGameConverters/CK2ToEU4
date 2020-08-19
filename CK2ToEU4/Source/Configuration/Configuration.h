@@ -38,7 +38,8 @@ class Configuration: commonItems::parser
 		BYZANTIUM = 2,
 		ROME = 3,
 		CUSTOM = 4,
-		NONE = 5
+		NONE = 5,
+		OFFICIAL_LIKE = 6
 	};
 	enum class SHATTER_EMPIRES
 	{
