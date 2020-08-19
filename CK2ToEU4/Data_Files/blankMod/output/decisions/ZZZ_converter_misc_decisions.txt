@@ -1,6 +1,6 @@
 country_decisions = {
 
-	capital_in_belgrade = { #New Religions
+	capital_in_belgrade_EXTRA = { #New Religions
 		potential = {
 			tag = SER
 			NOT = { capital = 4239 }
@@ -38,7 +38,7 @@ country_decisions = {
 		ai_importance = 400
 	}
 	
-	steppe_horde_reform = { #New Secondary Religions
+	steppe_horde_reform_EXTRA = { #New Secondary Religions
 		major = yes
 		potential = {
 			has_reform = steppe_horde
@@ -48,6 +48,14 @@ country_decisions = {
 				full_idea_group = economic_ideas
 				full_idea_group = innovativeness_ideas
 				full_idea_group = administrative_ideas
+			}
+			OR = {
+				secondary_religion = zikri
+				secondary_religion = yazidi
+				secondary_religion = kharijite
+				secondary_religion = druze
+				secondary_religion = hurufi
+				secondary_religion = qarmatian
 			}
 		}
 		allow = {

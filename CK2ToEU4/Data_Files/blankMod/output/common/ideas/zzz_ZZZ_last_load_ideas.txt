@@ -1,6 +1,9 @@
 irish_ideas = {
 	trigger = {
-		tag = IRE
+		OR = {
+			tag = IRE
+			culture = irish
+		}
 	}
 }
 
@@ -31,11 +34,16 @@ TIB_ideas = {
 	}
 	
 	trigger = {
-		primary_culture = tibetan
 		OR = {
-			religion = vajrayana 
-			religion = bon
-			religion = bon_reformed
+			tag = TIB
+			AND = {
+				primary_culture = tibetan
+				OR = {
+					religion = vajrayana 
+					religion = bon
+					religion = bon_reformed
+				}
+			}
 		}
 	}
 	free = yes       #will be added at load.

@@ -1,6 +1,6 @@
 country_decisions = {
 
-	armenia_nation = { ##Monophysite Option
+	armenia_nation_EXTRA = { ##Monophysite Option
 		major = yes
 		potential = {
 			normal_or_historical_nations = yes
@@ -137,7 +137,7 @@ country_decisions = {
 		ai_importance = 400 #
 	}
 	
-	restore_byzantine_empire = { # New Religions/Cultures
+	restore_byzantine_empire_EXTRA = { # New Religions/Cultures
 		major = yes
 		potential = {
 			was_never_end_game_tag_trigger = yes
@@ -309,7 +309,7 @@ country_decisions = {
 		}
 	}
 	
-	institute_prussian_monarchy = { #New Religions
+	institute_prussian_monarchy_EXTRA = { #New Religions
 		major = yes
 		potential = {
 			NOT = { has_dlc = "Dharma" }
@@ -332,7 +332,7 @@ country_decisions = {
 		}
 	}
 
-	form_kingdom_of_prussia = { #New Religions/Cultures
+	form_kingdom_of_prussia_EXTRA = { #New Religions/Cultures
 		major = yes
 		potential = {
 			normal_or_historical_nations = yes
@@ -460,7 +460,7 @@ country_decisions = {
 		}
 	}
 	
-	prussian_nation = { #New Religions
+	prussian_nation_EXTRA = { #New Religions
 		major = yes
 		potential = {
 			normal_or_historical_nations = yes
@@ -564,7 +564,7 @@ country_decisions = {
 		}
 	}
 	
-	prussian_nation_general = { #New Religions
+	prussian_nation_general_EXTRA = { #New Religions
 		major = yes
 		potential = {
 			normal_or_historical_nations = yes
@@ -618,6 +618,13 @@ country_decisions = {
 				religion = cathar
 				religion = waldensian
 				religion = lollard
+				AND = {
+					culture = old_prussian
+					OR = {
+						religion = protestant
+						religion = reformed
+					}
+				}
 			}
 			owns_core_province = 41			# Königsberg
 			owns_core_province = 42			# Warmia
@@ -693,7 +700,7 @@ country_decisions = {
 		}
 	}
 	
-	ruthenian_nation = { #New Cultures
+	ruthenian_nation_EXTRA = { #New Cultures
 		major = yes
 		potential = {
 			normal_or_historical_nations = yes
@@ -820,7 +827,7 @@ country_decisions = {
 		ai_importance = 500		
 	}
 	
-	russian_nation = { #New Cultures
+	russian_nation_EXTRA = { #New Cultures
 		major = yes
 		potential = {
 			normal_or_historical_nations = yes

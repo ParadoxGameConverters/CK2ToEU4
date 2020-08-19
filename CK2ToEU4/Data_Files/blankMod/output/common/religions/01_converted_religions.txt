@@ -177,6 +177,8 @@ dharmic = {
 			religious_unity = 0.75
 		}
 		
+		uses_karma = yes
+		
 		heretic = { TERAPANTHA }
 	}
 }
