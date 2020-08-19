@@ -11,7 +11,7 @@ link = { eu4 = norse ck2 = norse tech = western gfx = westerngfx }
 link = { eu4 = swedish ck2 = swedish tech = western gfx = westerngfx }
 link = { eu4 = norwegian ck2 = norwegian tech = western gfx = westerngfx }
 link = { eu4 = danish ck2 = danish tech = western gfx = westerngfx }
-link = { eu4 = icelandic ck2 = norse ck2 = norwegian ck2 = danish ck2 = swedish region = subarctic_islands_area tech = western gfx = westerngfx }
+link = { eu4 = icelandic ck2 = norse ck2 = norwegian ck2 = danish ck2 = swedish province = 370 province = 371 tech = western gfx = westerngfx }
 link = { eu4 = hannoverian ck2 = old_saxon tech = western gfx = westerngfx }
 
 # German: the split

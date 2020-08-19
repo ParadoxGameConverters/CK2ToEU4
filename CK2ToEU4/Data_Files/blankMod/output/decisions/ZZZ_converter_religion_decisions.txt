@@ -1,7 +1,7 @@
 country_decisions = {
 	
 	# New Christian Religions
-	institute_the_societas_jesu = {
+	institute_the_societas_jesu_FAP = {
 		potential = {
 			OR = {
 				tag = POR
@@ -26,7 +26,7 @@ country_decisions = {
 		}	
 	}
 	
-	secularization_of_christian_theocracy = {
+	secularization_of_christian_theocracy_FAP = {
 		major = yes
 		potential = {
 			NOT = { has_dlc = "Dharma" }
@@ -97,7 +97,7 @@ country_decisions = {
 		}
 	}
 	
-	statue_in_restraint_of_appeals = {
+	statue_in_restraint_of_appeals_FAP = {
 		potential = {
 			NOT = { has_country_modifier = the_statue_in_restraint_of_appeals }
 			religion = fraticelli
@@ -154,7 +154,7 @@ country_decisions = {
 		}
 	}
 	
-	revoke_restraint_of_appeals = {
+	revoke_restraint_of_appeals_FAP = {
 		potential = {
 			has_country_modifier = the_statue_in_restraint_of_appeals
 			NOT = { has_country_modifier = revocation_of_restraint_of_appeals }
@@ -195,7 +195,7 @@ country_decisions = {
 		}
 	}
 	
-	move_capital_to_rome = {
+	move_capital_to_rome_FAP = {
 		major = yes
 		potential = {
 			always = no # redundant due to fixed_capital mechanics
@@ -221,7 +221,7 @@ country_decisions = {
 		do_not_core = 118 #Rome
 	}
 	
-	join_the_counter_reformation = {
+	join_the_counter_reformation_FAP = {
 		major = yes
 		potential = {
 			NOT = { has_country_modifier = counter_reformation } 
@@ -305,7 +305,7 @@ country_decisions = {
 	}
 	
 	#Protestants
-	secularization_of_protestant_theocracy = {
+	secularization_of_protestant_theocracy_EXTRA = {
 		major = yes
 		potential = {
 			NOT = { has_dlc = "Dharma" }
@@ -374,7 +374,7 @@ country_decisions = {
 		}
 	}
 	
-	test_act = {
+	test_act_EXTRA = {
 		potential = {
 			NOT = { has_country_modifier = the_test_act }
 			OR = {
@@ -398,7 +398,7 @@ country_decisions = {
 		}
 	}
 	
-	dissolution_of_the_monasteries = {
+	dissolution_of_the_monasteries_EXTRA = {
 		potential = {
 			NOT = { has_country_modifier = the_dissolution_of_the_monasteries }
 			OR = {
@@ -434,7 +434,7 @@ country_decisions = {
 		}
 	}
 	
-	popery_act = {
+	popery_act_EXTRA = {
 		potential = {
 			NOT = { has_country_modifier = the_popery_act }
 			OR = {
@@ -459,7 +459,7 @@ country_decisions = {
 		}
 	}
 	
-	trade_propagation_convert_to_islam = {
+	trade_propagation_convert_to_islam_EXTRA = {
 		potential = {
 			has_dlc = "Cradle of Civilization"
 			NOT = { religion_group = muslim }
@@ -503,7 +503,7 @@ country_decisions = {
 	}
 	
 	#Other
-	restrict_government_offices = {
+	restrict_government_offices_EXTRA = {
 		potential = {
 			NOT = { has_country_modifier = restricted_offices }
 			religion_group = jewish_group
@@ -527,7 +527,7 @@ country_decisions = {
 		}
 	}
 	
-	tengri_yellow_shamanism = {
+	tengri_yellow_shamanism_EXTRA = {
 		potential = {
 			NOT = { has_country_modifier = yellow_shamanism_modifier }
 			NOT = { has_country_modifier = black_shamanism_modifier }
@@ -547,7 +547,7 @@ country_decisions = {
 		}
 	}
 	
-	tengri_black_shamanism = {
+	tengri_black_shamanism_EXTRA = {
 		potential = {
 			NOT = { has_country_modifier = black_shamanism_modifier }
 			religion = tengri_pagan
@@ -572,7 +572,7 @@ country_decisions = {
 		}
 	}
 	
-	tengri_expel_the_khojas = {
+	tengri_expel_the_khojas_EXTRA = {
 		potential = {
 			religion = tengri_pagan
 			has_country_flag = khojas_established
@@ -633,7 +633,7 @@ country_decisions = {
 		}
 	}
 	
-	zoroastrian_rites_of_admission = {
+	zoroastrian_rites_of_admission_EXTRA = {
 		potential = {
 			NOT = { has_country_modifier = rites_of_admission_modifier }
 			religion_group = zoroastrian_group
@@ -660,7 +660,7 @@ country_decisions = {
 		}
 	}
 	
-	zoroastrian_royal_fires = {
+	zoroastrian_royal_fires_EXTRA = {
 		potential = {
 			NOT = { has_country_modifier = royal_fires_modifier }
 			religion_group = zoroastrian_group
@@ -699,7 +699,7 @@ country_decisions = {
 		}
 	}
 
-	zoroastrian_diaspora = {
+	zoroastrian_diaspora_EXTRA = {
 		potential = {
 			NOT = { has_country_modifier = reunification_with_parsees }
 			religion_group = zoroastrian_group
@@ -745,7 +745,7 @@ country_decisions = {
 		}
 	}
 	
-	animism_ritual_education = {
+	animism_ritual_education_EXTRA = {
 		potential = {
 			NOT = { has_country_modifier = ritual_education_modifier }
 			religion = pagan_religion
@@ -775,7 +775,7 @@ country_decisions = {
 		}
 	}
 	
-	shamanism_wondering_shamans = {
+	shamanism_wondering_shamans_EXTRA = {
 		potential = {
 			NOT = { has_country_modifier = wandering_shamans_modifier }
 			OR = {
@@ -828,790 +828,6 @@ country_decisions = {
 			factor = 1
 			modifier = {
 				has_idea_group = humanist_ideas
-				factor = 0
-			}
-		}
-	}
-	
-	spreading_of_reformed_pagan_rituals = {
-		potential = {
-			NOT = { has_country_modifier = ZZZ_spreading_of_reformed_pagan_rituals_title }
-			OR = {
-				religion = baltic_pagan_reformed
-				religion = slavic_pagan_reformed
-				religion = zun_pagan_reformed
-				religion = finnish_pagan_reformed
-				religion = bon_reformed
-			}
-		}
-		allow = {
-			ADM = 3
-			adm_tech = 8
-		}
-		effect = {	
-			add_country_modifier = {
-				name = "ZZZ_spreading_of_reformed_pagan_rituals_title"
-				duration = -1
-			}
-		}
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				has_idea_group = humanist_ideas
-				factor = 0
-			}
-		}
-	}
-	
-	### Reform Pagan Faiths
-	ZZZ_enhanced_reform_norse_pagan = {
-		major = yes
-		potential = {
-			NOT = { has_global_flag = ZZZ_enhanced_norse_pagan_reformed }
-			NOT = { has_global_flag = ZZZ_enhanced_random_world }
-			religion = norse_pagan
-		}
-		
-		provinces_to_highlight = {
-			OR = {
-				province_id = 2972 #Paderborn
-				province_id = 12   #Sjaelland
-				province_id = 1    #Stockholm
-				province_id = 20   #Trondelag
-				province_id = 96   #Zeeland
-			}
-			OR = {
-				NOT = { owned_by = ROOT }
-				NOT = { is_core = ROOT }
-			}
-		}
-		
-		allow = {
-			government_rank = 2
-			stability = 2
-			owns_core_province = 2972 #Paderborn
-			owns_core_province = 12   #Sjaelland
-			owns_core_province = 1    #Stockholm
-			owns_core_province = 20   #Trondelag
-			owns_core_province = 96   #Zeeland
-		}
-		
-		effect = {
-			hidden_effect = {
-				set_global_flag = ZZZ_enhanced_norse_pagan_reformed
-				every_country = {
-					country_event = { id = ZZZ_enhanced_religion.1 }
-				}
-			}
-			add_prestige = 100
-			change_religion = norse_pagan_reformed
-			add_country_modifier = {
-				name = "conversion_zeal"
-				duration = 3650
-			}
-			capital_scope = {
-				area = {
-					limit = { 
-						religion = norse_pagan
-						owned_by = ROOT
-					}
-					change_religion = norse_pagan_reformed
-					add_base_tax = 1
-					add_base_production = 1
-					add_base_manpower = 1
-				}
-			}
-			every_owned_province = {
-				limit = { religion = norse_pagan }
-				random_list = {
-					75 = {
-						change_religion = norse_pagan_reformed
-					}
-					25 = {
-						add_province_modifier = {
-							name = "heresy"
-							duration = 3650
-						}
-					}
-				}
-			}
-		}
-		
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				NOT = {
-					owns_core_province = 2972 #Paderborn
-					owns_core_province = 12   #Sjaelland
-					owns_core_province = 1    #Stockholm
-					owns_core_province = 20   #Trondelag
-					owns_core_province = 96   #Zeeland
-				}
-				factor = 0
-			}
-		}
-	}
-	
-	ZZZ_enhanced_reform_baltic_pagan = {
-		major = yes
-		potential = {
-			NOT = { has_global_flag = ZZZ_enhanced_baltic_pagan_reformed }
-			NOT = { has_global_flag = ZZZ_enhanced_random_world }
-			religion = baltic_pagan
-		}
-		
-		provinces_to_highlight = {
-			OR = {
-				province_id = 38   #Riga
-				province_id = 1859 #Kulm
-				province_id = 269  #Podlasie/Palenke
-				province_id = 297  #Bryansk/Brianskas
-				province_id = 47   #Stralsund
-			}
-			OR = {
-				NOT = { owned_by = ROOT }
-				NOT = { is_core = ROOT }
-			}
-		}
-		
-		allow = {
-			government_rank = 2
-			stability = 2
-			owns_core_province = 38   #Riga
-			owns_core_province = 1859 #Kulm
-			owns_core_province = 269  #Podlasie/Palenke
-			owns_core_province = 297  #Bryansk/Brianskas
-			owns_core_province = 47   #Stralsund
-		}
-		
-		effect = {
-			hidden_effect = {
-				set_global_flag = ZZZ_enhanced_baltic_pagan_reformed
-				every_country = {
-					country_event = { id = ZZZ_enhanced_religion.2 }
-				}
-			}
-			
-			add_prestige = 100
-			change_religion = baltic_pagan_reformed
-			add_country_modifier = {
-				name = "conversion_zeal"
-				duration = 3650
-			}
-			capital_scope = {
-				area = {
-					limit = { 
-						religion = baltic_pagan
-						owned_by = ROOT
-					}
-					change_religion = baltic_pagan_reformed
-					add_base_tax = 1
-					add_base_production = 1
-					add_base_manpower = 1
-				}
-			}
-			every_owned_province = {
-				limit = { religion = baltic_pagan }
-				random_list = {
-					75 = {
-						change_religion = baltic_pagan_reformed
-					}
-					25 = {
-						add_province_modifier = {
-							name = "heresy"
-							duration = 3650
-						}
-					}
-				}
-			}
-		}
-		
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				NOT = {
-					owns_core_province = 38   #Riga
-					owns_core_province = 1859 #Kulm
-					owns_core_province = 269  #Podlasie/Palenke
-					owns_core_province = 297  #Bryansk/Brianskas
-					owns_core_province = 47   #Stralsund
-				}
-				factor = 0
-			}
-		}
-	}
-	
-	ZZZ_enhanced_reform_finnish_pagan = {
-		major = yes
-		potential = {
-			NOT = { has_global_flag = ZZZ_enhanced_finnish_pagan_reformed }
-			NOT = { has_global_flag = ZZZ_enhanced_random_world }
-			religion = finnish_pagan
-		}
-		
-		provinces_to_highlight = {
-			OR = {
-				province_id = 32   #Kexholm/Priozersk
-				province_id = 310  #Novgorod
-				province_id = 35   #Osel
-				province_id = 305  #Perm
-				province_id = 301  #Ryazan
-			}
-			OR = {
-				NOT = { owned_by = ROOT }
-				NOT = { is_core = ROOT }
-			}
-		}
-		
-		allow = {
-			government_rank = 2
-			stability = 2
-			owns_core_province = 32   #Kexholm/Priozersk
-			owns_core_province = 310  #Novgorod
-			owns_core_province = 35   #Osel
-			owns_core_province = 305  #Perm
-			owns_core_province = 301  #Ryazan
-		}
-		
-		effect = {
-			hidden_effect = {
-				set_global_flag = ZZZ_enhanced_finnish_pagan_reformed
-				every_country = {
-					country_event = { id = ZZZ_enhanced_religion.3 }
-				}
-			}
-			add_prestige = 100
-			change_religion = finnish_pagan_reformed
-			add_country_modifier = {
-				name = "conversion_zeal"
-				duration = 3650
-			}
-			capital_scope = {
-				area = {
-					limit = { 
-						religion = finnish_pagan
-						owned_by = ROOT
-					}
-					change_religion = finnish_pagan_reformed
-					add_base_tax = 1
-					add_base_production = 1
-					add_base_manpower = 1
-				}
-			}
-			every_owned_province = {
-				limit = { religion = finnish_pagan }
-				random_list = {
-					75 = {
-						change_religion = finnish_pagan_reformed
-					}
-					25 = {
-						add_province_modifier = {
-							name = "heresy"
-							duration = 3650
-						}
-					}
-				}
-			}
-		}
-		
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				NOT = {
-					owns_core_province = 32   #Kexholm/Priozersk
-					owns_core_province = 310  #Novgorod
-					owns_core_province = 35   #Osel
-					owns_core_province = 305  #Perm
-					owns_core_province = 301  #Ryazan
-				}
-				factor = 0
-			}
-		}
-	}
-	
-	ZZZ_enhanced_reform_tengri_pagan = {
-		major = yes
-		potential = {
-			NOT = { has_global_flag = ZZZ_enhanced_tengri_pagan_reformed }
-			NOT = { has_global_flag = ZZZ_enhanced_random_world }
-			religion = tengri_pagan
-		}
-		
-		provinces_to_highlight = {
-			OR = {
-				province_id = 284  #Crimea
-				province_id = 464  #Astrakhan
-				province_id = 2358 #Altyn
-				province_id = 1076 #Kurgan
-				province_id = 1060 #Irkutsk
-			}
-			OR = {
-				NOT = { owned_by = ROOT }
-				NOT = { is_core = ROOT }
-			}
-		}
-		
-		allow = {
-			government_rank = 2
-			stability = 2
-			owns_core_province = 284  #Crimea
-			owns_core_province = 464  #Astrakhan
-			owns_core_province = 2358 #Altyn
-			owns_core_province = 1076 #Kurgan
-			owns_core_province = 1060 #Irkutsk
-		}
-		
-		effect = {
-			hidden_effect = {
-				set_global_flag = ZZZ_enhanced_tengri_pagan_reformed
-				every_country = {
-					country_event = { id = ZZZ_enhanced_religion.4 }
-				}
-			}
-			add_prestige = 100
-			change_religion = tengri_pagan_reformed
-			add_country_modifier = {
-				name = "conversion_zeal"
-				duration = 3650
-			}
-			capital_scope = {
-				area = {
-					limit = { 
-						religion = tengri_pagan
-						owned_by = ROOT
-					}
-					change_religion = tengri_pagan_reformed
-					add_base_tax = 1
-					add_base_production = 1
-					add_base_manpower = 1
-				}
-			}
-			every_owned_province = {
-				limit = { religion = tengri_pagan }
-				random_list = {
-					75 = {
-						change_religion = tengri_pagan_reformed
-					}
-					25 = {
-						add_province_modifier = {
-							name = "heresy"
-							duration = 3650
-						}
-					}
-				}
-			}
-		}
-		
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				NOT = {
-					owns_core_province = 284  #Crimea
-					owns_core_province = 464  #Astrakhan
-					owns_core_province = 2358 #Altyn
-					owns_core_province = 1076 #Kurgan
-					owns_core_province = 1060 #Irkutsk
-				}
-				factor = 0
-			}
-		}
-	}
-	
-	ZZZ_enhanced_reform_slavic_pagan = {
-		major = yes
-		potential = {
-			NOT = { has_global_flag = ZZZ_enhanced_slavic_pagan_reformed }
-			NOT = { has_global_flag = ZZZ_enhanced_random_world }
-			religion = slavic_pagan
-		}
-		
-		provinces_to_highlight = {
-			OR = {
-				province_id = 256  #Plock
-				province_id = 280  #Kijevas/Kiev
-				province_id = 4530 #Birlad
-				province_id = 310  #Novgorod
-				province_id = 47   #Stralsund
-			}
-			OR = {
-				NOT = { owned_by = ROOT }
-				NOT = { is_core = ROOT }
-			}
-		}
-		
-		allow = {
-			government_rank = 2
-			stability = 2
-			owns_core_province = 256  #Plock
-			owns_core_province = 280  #Kijevas/Kiev
-			owns_core_province = 4530 #Birlad
-			owns_core_province = 310  #Novgorod
-			owns_core_province = 47   #Stralsund
-		}
-		
-		effect = {
-			hidden_effect = {
-				set_global_flag = ZZZ_enhanced_slavic_pagan_reformed
-				every_country = {
-					country_event = { id = ZZZ_enhanced_religion.5 }
-				}
-			}
-			add_prestige = 100
-			change_religion = slavic_pagan_reformed
-			add_country_modifier = {
-				name = "conversion_zeal"
-				duration = 3650
-			}
-			capital_scope = {
-				area = {
-					limit = { 
-						religion = slavic_pagan
-						owned_by = ROOT
-					}
-					change_religion = slavic_pagan_reformed
-					add_base_tax = 1
-					add_base_production = 1
-					add_base_manpower = 1
-				}
-			}
-			every_owned_province = {
-				limit = { religion = slavic_pagan }
-				random_list = {
-					75 = {
-						change_religion = slavic_pagan_reformed
-					}
-					25 = {
-						add_province_modifier = {
-							name = "heresy"
-							duration = 3650
-						}
-					}
-				}
-			}
-		}
-		
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				NOT = {
-					owns_core_province = 256  #Plock
-					owns_core_province = 280  #Kijevas/Kiev
-					owns_core_province = 4530 #Birlad
-					owns_core_province = 310  #Novgorod
-					owns_core_province = 47   #Stralsund
-				}
-				factor = 0
-			}
-		}
-	}
-	
-	ZZZ_enhanced_reform_zun_pagan = {
-		major = yes
-		potential = {
-			NOT = { has_global_flag = ZZZ_enhanced_zun_pagan_reformed }
-			NOT = { has_global_flag = ZZZ_enhanced_random_world }
-			religion = zun_pagan
-		}
-		
-		provinces_to_highlight = {
-			OR = {
-				province_id = 2229 #Bust
-				province_id = 451  #Kabul
-				province_id = 506  #Multan
-				province_id = 4326 #Nishapur
-				province_id = 361  #Qahirah/Cairo
-			}
-			OR = {
-				NOT = { owned_by = ROOT }
-				NOT = { is_core = ROOT }
-			}
-		}
-		
-		allow = {
-			government_rank = 2
-			stability = 2
-			owns_core_province = 2229 #Bust
-			owns_core_province = 451  #Kabul
-			owns_core_province = 506  #Multan
-			owns_core_province = 4326 #Nishapur
-			owns_core_province = 361  #Qahirah/Cairo
-		}
-		
-		effect = {
-			hidden_effect = {
-				set_global_flag = ZZZ_enhanced_zun_pagan_reformed
-				every_country = {
-					country_event = { id = ZZZ_enhanced_religion.6 }
-				}
-			}
-			add_prestige = 100
-			change_religion = zun_pagan_reformed
-			add_country_modifier = {
-				name = "conversion_zeal"
-				duration = 3650
-			}
-			capital_scope = {
-				area = {
-					limit = { 
-						religion = zun_pagan
-						owned_by = ROOT
-					}
-					change_religion = zun_pagan_reformed
-					add_base_tax = 1
-					add_base_production = 1
-					add_base_manpower = 1
-				}
-			}
-			every_owned_province = {
-				limit = { religion = zun_pagan }
-				random_list = {
-					75 = {
-						change_religion = zun_pagan_reformed
-					}
-					25 = {
-						add_province_modifier = {
-							name = "heresy"
-							duration = 3650
-						}
-					}
-				}
-			}
-		}
-		
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				NOT = {
-					owns_core_province = 2229 #Bust
-					owns_core_province = 451  #Kabul
-					owns_core_province = 506  #Multan
-					owns_core_province = 4326 #Nishapur
-					owns_core_province = 361  #Qahirah/Cairo
-				}
-				factor = 0
-			}
-		}
-	}
-	
-	ZZZ_enhanced_reform_bon = {
-		major = yes
-		potential = {
-			NOT = { has_global_flag = ZZZ_enhanced_bon_reformed }
-			NOT = { has_global_flag = ZZZ_enhanced_random_world }
-			religion = bon
-		}
-		
-		provinces_to_highlight = {
-			OR = {
-				province_id = 710  #Hotan
-				province_id = 2073 #Baltistan
-				province_id = 450  #Balkh
-				province_id = 4516 #Purang
-				province_id = 677  #Lhasa
-			}
-			OR = {
-				NOT = { owned_by = ROOT }
-				NOT = { is_core = ROOT }
-			}
-		}
-		
-		allow = {
-			government_rank = 2
-			stability = 2
-			owns_core_province = 710  #Hotan
-			owns_core_province = 2073 #Baltistan
-			owns_core_province = 450  #Balkh
-			owns_core_province = 4516 #Purang
-			owns_core_province = 677  #Lhasa
-		}
-		
-		effect = {
-			hidden_effect = {
-				set_global_flag = ZZZ_enhanced_bon_reformed
-				every_country = {
-					country_event = { id = ZZZ_enhanced_religion.7 }
-				}
-			}			
-			add_prestige = 100
-			change_religion = bon_reformed
-			add_country_modifier = {
-				name = "conversion_zeal"
-				duration = 3650
-			}
-			capital_scope = {
-				area = {
-					limit = { 
-						religion = bon
-						owned_by = ROOT
-					}
-					change_religion = bon_reformed
-					add_base_tax = 1
-					add_base_production = 1
-					add_base_manpower = 1
-				}
-			}
-			every_owned_province = {
-				random_list = {
-					75 = {
-						change_religion = bon_reformed
-					}
-					25 = {
-						add_province_modifier = {
-							name = "heresy"
-							duration = 3650
-						}
-					}
-				}
-			}
-		}
-		
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				NOT = {
-					owns_core_province = 710  #Hotan
-					owns_core_province = 2073 #Baltistan
-					owns_core_province = 450  #Balkh
-					owns_core_province = 4516 #Purang
-					owns_core_province = 677  #Lhasa
-				}
-				factor = 0
-			}
-		}
-	}
-	
-	ZZZ_enhanced_reform_hellenic = {
-		major = yes
-		potential = {
-			NOT = { has_global_flag = ZZZ_enhanced_hellenic_reformed }
-			NOT = { has_global_flag = ZZZ_enhanced_random_world }
-			religion = hellenic_pagan
-		}
-		
-		provinces_to_highlight = {
-			OR = {
-				province_id = 118  #Rome
-				province_id = 1853 #Kozani
-				province_id = 146  #Athens
-				province_id = 2982 #Syracuse
-				province_id = 358  #Alexandria
-			}
-			OR = {
-				NOT = { owned_by = ROOT }
-				NOT = { is_core = ROOT }
-			}
-		}
-		
-		allow = {
-			government_rank = 2
-			stability = 2
-			owns_core_province = 118  #Rome
-			owns_core_province = 1853 #Kozani
-			owns_core_province = 146  #Athens
-			owns_core_province = 2982 #Syracuse
-			owns_core_province = 358  #Alexandria
-		}
-		
-		effect = {
-			hidden_effect = {
-				set_global_flag = ZZZ_enhanced_hellenic_reformed
-				every_country = {
-					country_event = { id = ZZZ_enhanced_religion.8 }
-				}
-			}			
-			add_prestige = 100
-			change_religion = hellenic_pagan_reformed
-			add_country_modifier = {
-				name = "conversion_zeal"
-				duration = 3650
-			}
-			capital_scope = {
-				area = {
-					limit = { 
-						religion = hellenic_pagan
-						owned_by = ROOT
-					}
-					change_religion = hellenic_pagan_reformed
-					add_base_tax = 1
-					add_base_production = 1
-					add_base_manpower = 1
-				}
-			}
-			every_owned_province = {
-				random_list = {
-					75 = {
-						change_religion = hellenic_pagan_reformed
-					}
-					25 = {
-						add_province_modifier = {
-							name = "heresy"
-							duration = 3650
-						}
-					}
-				}
-			}
-		}
-		
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				NOT = {
-					owns_core_province = 118  #Rome
-					owns_core_province = 1853 #Kozani
-					owns_core_province = 146  #Athens
-					owns_core_province = 2982 #Syracuse
-					owns_core_province = 358  #Alexandria
-				}
-				factor = 0
-			}
-		}
-	}
-	
-	ZZZ_enhanced_reform_african = {
-		major = yes
-		potential = {
-			NOT = { has_global_flag = ZZZ_enhanced_random_world }
-			OR = {
-				religion = shamanism
-				religion = west_african_pagan #Shouldn't be possible, but here as a failsafe
-			}
-			has_unlocked_cult = west_african_pagan_reformed_cult
-		}
-		
-		allow = {
-			stability = 3
-			legitimacy = 90
-			has_adopted_cult = west_african_pagan_reformed_cult
-		}
-		
-		effect = {		
-			add_stability = -2
-			add_prestige = -50
-			change_religion = west_african_pagan_reformed
-			add_country_modifier = {
-				name = "conversion_zeal"
-				duration = 3650
-			}
-			capital_scope = {				
-				area = {
-					limit = { 
-						OR = {
-							religion = shamanism
-							religion = west_african_pagan
-						}
-						owned_by = ROOT
-					}
-					change_religion = west_african_pagan_reformed
-					add_base_tax = 1
-					add_base_manpower = 1
-				}
-			}
-		}
-		
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				ruler_has_personality = sinner_personality
 				factor = 0
 			}
 		}
