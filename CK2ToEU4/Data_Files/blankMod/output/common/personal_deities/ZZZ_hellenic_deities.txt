@@ -6,7 +6,12 @@ jupiter =
 	religious_unity = 0.05
 	global_unrest = -1
 
-	allow = { religion = hellenic_pagan }
+	allow = {
+        OR = {
+            religion = hellenic_pagan
+            religion = hellenic_pagan_reformed
+        }
+    }
 
 	sprite = 19
 
@@ -32,7 +37,12 @@ luno =
 	defensiveness = 0.15
 	core_creation = -0.10
 
-	allow = { religion = hellenic_pagan }
+	allow = {
+        OR = {
+            religion = hellenic_pagan
+            religion = hellenic_pagan_reformed
+        }
+    }
 
 	sprite = 20
 
@@ -51,10 +61,14 @@ luno =
 
 neptunus =
 {
-	naval_morale = 0.10
-	global_trade_goods_size_modifier = 0.10
+	naval_morale = 0.15
 
-	allow = { religion = hellenic_pagan }
+	allow = {
+        OR = {
+            religion = hellenic_pagan
+            religion = hellenic_pagan_reformed
+        }
+    }
 
 	sprite = 21
 
@@ -88,7 +102,12 @@ venus =
 	heir_chance = 0.25
 	manpower_recovery_speed = 0.1
 
-	allow = { religion = hellenic_pagan }
+	allow = {
+	        OR = {
+	            religion = hellenic_pagan
+	            religion = hellenic_pagan_reformed
+	        }
+	    }
 
 	sprite = 22
 
@@ -110,7 +129,12 @@ mars =
 	land_morale = 0.1
 	discipline = 0.025
 
-	allow = { religion = hellenic_pagan }
+	allow = {
+        OR = {
+            religion = hellenic_pagan
+            religion = hellenic_pagan_reformed
+        }
+    }
 
 	sprite = 23
 
@@ -137,160 +161,12 @@ ceres =
 	technology_cost = -0.05
 	build_cost = -0.1
 
-	allow = { religion = hellenic_pagan }
-
-	sprite = 24
-
-	ai_will_do = {
-		factor = 1
-		modifier = {
-			factor = 2
-			personality = ai_diplomat
-		}
-		modifier = {
-			factor = 0.5
-			personality = ai_militarist
-		}
-	}
-}
-# reformed stuff
-jupiter_r =
-{
-	religious_unity = 0.05
-	global_unrest = -1
-
-	allow = { religion = hellenic_pagan_reformed }
-
-	sprite = 19
-
-	ai_will_do = {
-		factor = 1
-		modifier = {
-			factor = 0.5
-			personality = ai_militarist
-		}
-		modifier = {
-			factor = 0.5
-			personality = ai_diplomat
-		}
-		modifier = {
-			factor = 0.5
-			personality = ai_balanced
-		}
-	}
-}
-
-luno_r =
-{
-	defensiveness = 0.15
-	core_creation = -0.10
-
-	allow = { religion = hellenic_pagan_reformed }
-
-	sprite = 20
-
-	ai_will_do = {
-		factor = 1
-		modifier = {
-			factor = 2
-			personality = ai_balanced
-		}
-		modifier = {
-			factor = 0.5
-			personality = ai_colonialist
-		}
-	}
-}
-
-neptunus_r =
-{
-	naval_morale = 0.10
-	global_trade_goods_size_modifier = 0.10
-
-	allow = { religion = hellenic_pagan_reformed }
-
-	sprite = 21
-
-	ai_will_do = {
-		factor = 1
-		modifier = {
-			factor = 2
-			NOT = { num_of_cities = 5 }
-		}
-		modifier = {
-			factor = 2
-			NOT = { num_of_cities = 10 }
-		}
-		modifier = {
-			factor = 0.5
-			num_of_cities = 30
-		}
-		modifier = {
-			factor = 2
-			personality = ai_militarist
-		}
-		modifier = {
-			factor = 0.5
-			personality = ai_capitalist
-		}
-	}
-}
-
-venus_r =
-{
-	heir_chance = 0.25
-	manpower_recovery_speed = 0.1
-
-	allow = { religion = hellenic_pagan_reformed }
-
-	sprite = 22
-
-	ai_will_do = {
-		factor = 1
-		modifier = {
-			factor = 2
-			personality = ai_balanced
-		}
-		modifier = {
-			factor = 0.5
-			personality = ai_colonialist
-		}
-	}
-}
-
-mars_r =
-{
-	land_morale = 0.1
-	discipline = 0.025
-
-	allow = { religion = hellenic_pagan_reformed }
-
-	sprite = 23
-
-	ai_will_do = {
-		factor = 1
-		modifier = {
-			factor = 0.5
-			personality = ai_capitalist
-		}
-		modifier = {
-			factor = 0.5
-			personality = ai_colonialist
-		}
-		modifier = {
-			factor = 5
-			personality = ai_militarist
-		}
-	}
-}
-
-
-ceres_r =
-{
-	technology_cost = -0.05
-	build_cost = -0.1
-
-	allow = { religion = hellenic_pagan_reformed }
+	allow = {
+        OR = {
+            religion = hellenic_pagan
+            religion = hellenic_pagan_reformed
+        }
+    }
 
 	sprite = 24
 
