@@ -43,6 +43,6 @@ spriteType = {
 	spriteType = {
 		name = "GFX_hindu_deities_strip"
 		texturefile = "gfx//interface//hindu_deities_strip.dds"
-		noOfFrames = 18
+		noOfFrames = 30
 	}
 }
