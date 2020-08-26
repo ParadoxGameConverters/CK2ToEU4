@@ -78,7 +78,7 @@ void EU4::World::output(const mappers::VersionParser& versionParser, const Confi
 	Log(LogLevel::Progress) << "90 %";
 
 	LOG(LogLevel::Info) << "<- Writing Localization";
-	outputLocalization(theConfiguration, invasion);
+	outputLocalization(theConfiguration, invasion, sourceWorld.isGreekReformation());
 	Log(LogLevel::Progress) << "91 %";
 
 	LOG(LogLevel::Info) << "<- Writing Emperor";
@@ -221,7 +221,7 @@ void EU4::World::createModFile(const Configuration& theConfiguration) const
 }
 
 
-void EU4::World::outputLocalization(const Configuration& theConfiguration, bool invasion) const
+void EU4::World::outputLocalization(const Configuration& theConfiguration, bool invasion, bool greekReformation) const
 {
 	std::ofstream english("output/" + theConfiguration.getOutputName() + "/localisation/replace/converter_l_english.yml");
 	std::ofstream french("output/" + theConfiguration.getOutputName() + "/localisation/replace/converter_l_french.yml");
@@ -260,6 +260,19 @@ void EU4::World::outputLocalization(const Configuration& theConfiguration, bool 
 		auto fileNames = Utils::GetAllFilesInFolder("configurables/sunset/localisation/");
 		for (const auto& fileName: fileNames)
 			Utils::TryCopyFile("configurables/sunset/localisation/" + fileName, "output/" + theConfiguration.getOutputName() + "/localisation/" + fileName);
+	}
+
+	if (greekReformation)
+	{
+		auto fileNames = Utils::GetAllFilesInFolder("configurables/reformation/greek/");
+		for (const auto& fileName: fileNames)
+			Utils::TryCopyFile("configurables/reformation/greek/" + fileName, "output/" + theConfiguration.getOutputName() + "/localisation/" + fileName);
+	}
+	else
+	{
+		auto fileNames = Utils::GetAllFilesInFolder("configurables/reformation/roman/");
+		for (const auto& fileName: fileNames)
+			Utils::TryCopyFile("configurables/reformation/roman/" + fileName, "output/" + theConfiguration.getOutputName() + "/localisation/" + fileName);
 	}
 }
 
