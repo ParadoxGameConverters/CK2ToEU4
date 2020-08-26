@@ -3,9 +3,6 @@
   <ItemGroup>
     <ClCompile Include="..\googletest\googletest\src\gtest-all.cc" />
     <ClCompile Include="..\googletest\googletest\src\gtest_main.cc" />
-    <ClCompile Include="..\commonItems\Color.cpp">
-      <Filter>ConverterFiles\commonItems</Filter>
-    </ClCompile>
     <ClCompile Include="..\commonItems\Log.cpp">
       <Filter>ConverterFiles\commonItems</Filter>
     </ClCompile>
@@ -514,6 +511,9 @@
     </ClCompile>
     <ClCompile Include="MapperTests\DevWeightsMapper\DevWeightsMapperTests.cpp">
       <Filter>MapperTests\DevWeightsMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\commonItems\newColor.cpp">
+      <Filter>ConverterFiles\commonItems</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

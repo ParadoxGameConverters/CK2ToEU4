@@ -1,7 +1,7 @@
 #ifndef EU4_COUNTRY_DETAILS_H
 #define EU4_COUNTRY_DETAILS_H
 
-#include "Color.h"
+#include "newColor.h"
 #include "Date.h"
 #include "Parser.h"
 #include <set>
@@ -73,8 +73,8 @@ class CountryDetails: commonItems::parser
 	int addedMilTech = 0;
 	double armyProfessionalism = 0;
 	double piety = 0;
-	commonItems::Color color;
-	commonItems::Color revolutionaryColor;
+	std::optional<commonItems::newColor> color;
+	std::optional<commonItems::newColor> revolutionaryColor;
 
 	std::string primaryCulture = "noculture";
 	std::string majorityReligion = "noreligion";

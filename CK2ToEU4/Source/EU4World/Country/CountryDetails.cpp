@@ -41,10 +41,10 @@ void EU4::CountryDetails::registerKeys()
 		graphicalCulture = graphStr.getString();
 	});
 	registerKeyword("color", [this](const std::string& unused, std::istream& theStream) {
-		color = commonItems::Color(theStream);
+		color = commonItems::newColor::Factory::getColor(theStream);
 	});
 	registerKeyword("revolutionary_colors", [this](const std::string& unused, std::istream& theStream) {
-		revolutionaryColor = commonItems::Color(theStream);
+		revolutionaryColor = commonItems::newColor::Factory::getColor(theStream);
 	});
 	registerKeyword("historical_idea_groups", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::stringList ideaList(theStream);
