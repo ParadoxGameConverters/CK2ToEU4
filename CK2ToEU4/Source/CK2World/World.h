@@ -36,7 +36,8 @@ class World: commonItems::parser
 	[[nodiscard]] const auto& getDiplomacy() const { return diplomacy; }
 	[[nodiscard]] const auto& getVars() const { return vars; }
 	[[nodiscard]] const auto& getMods() const { return mods; }
-	[[nodiscard]] auto isInvasion() const { return (invasion); }
+	[[nodiscard]] auto isInvasion() const { return invasion; }
+	[[nodiscard]] auto isGreekReformation() const { return greekReformation; }
 
   private:
 	bool uncompressSave(const std::string& saveGamePath);
@@ -64,6 +65,7 @@ class World: commonItems::parser
 	void loadProvinces(const Configuration& theConfiguration);
 
 	bool invasion = false;
+	bool greekReformation = false;
 	date endDate = date("1444.11.11");
 	date startDate = date("1.1.1");
 	GameVersion CK2Version;

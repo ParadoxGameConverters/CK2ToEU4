@@ -48,7 +48,7 @@ class World
 	void outputHistoryProvinces(const Configuration& theConfiguration) const;
 	void outputInvasionExtras(const Configuration& theConfiguration, bool invasion) const;
 	void outputCommonCountries(const Configuration& theConfiguration) const;
-	void outputLocalization(const Configuration& theConfiguration, bool invasion) const;
+	void outputLocalization(const Configuration& theConfiguration, bool invasion, bool greekReformation) const;
 	void verifyReligionsAndCultures();
 	void linkProvincesToCountries();
 	void outputFlags(const Configuration& theConfiguration, const CK2::World& sourceWorld) const;

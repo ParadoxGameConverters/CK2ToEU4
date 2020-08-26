@@ -32,7 +32,7 @@ CK2::World::World(const Configuration& theConfiguration)
 		startDate = date(startDateString.getString());
 	});
 	registerKeyword("flags", [this](const std::string& unused, std::istream& theStream) {
-		// We're not interested in flags. We're here for one thing only.
+		// We're not interested in flags. We're here for a couple of specific things only.
 		const auto flagsItem = commonItems::singleItem(unused, theStream);
 		if (flagsItem.find("aztec_explorers") != std::string::npos)
 		{
@@ -40,6 +40,8 @@ CK2::World::World(const Configuration& theConfiguration)
 			invasion = true;
 			LOG(LogLevel::Info) << "oO Invasion detected. We're in for a ride!";
 		}
+		if (flagsItem.find("flag_hellenic_greek_reformation") != std::string::npos)
+			greekReformation = true;
 	});
 	registerKeyword("version", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleString versionString(theStream);
