@@ -130,9 +130,7 @@ pagan = {
 		
 		uses_karma = yes
 	}
-}
-
-pagan = {
+	
 	hellenic_pagan = {
 		icon = 58
 		color = { 0.6 0.1 0.1 }
@@ -143,6 +141,8 @@ pagan = {
 		country_as_secondary = {
 			development_cost = -0.1
 		}
+		
+		personal_deity = yes
 		
 		heretic = { GOAT_SKULL }	
 	}
@@ -156,6 +156,8 @@ pagan = {
 		country_as_secondary = {
 			development_cost = -0.1
 		}
+		
+		personal_deity = yes
 		
 		heretic = { GOAT_SKULL }	
 	}
