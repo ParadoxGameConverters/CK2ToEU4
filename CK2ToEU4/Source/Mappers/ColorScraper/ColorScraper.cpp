@@ -15,7 +15,7 @@ void mappers::ColorScraper::scrapeColors(std::istream& theStream, std::string th
 	registerKeys();
 	parseStream(theStream);
 	clearRegisteredKeywords();
-	titleColors.insert(std::pair(name, *color));
+	titleColors.insert(std::pair(name, color));
 }
 
 void mappers::ColorScraper::registerKeys()
