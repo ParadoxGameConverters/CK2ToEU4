@@ -1,6 +1,6 @@
 #ifndef CK2_TITLE_H
 #define CK2_TITLE_H
-#include "Color.h"
+#include "newColor.h"
 #include "Liege.h"
 #include "Parser.h"
 #include <set>
@@ -100,7 +100,7 @@ class Title: commonItems::parser
 	std::string displayName; // visual name, "Cumania"
 	std::string genderLaw;	 // for succession
 	std::string successionLaw;
-	commonItems::Color color;
+	std::optional<commonItems::newColor> color;
 
 	std::set<std::string> laws;
 	std::set<int> electors;

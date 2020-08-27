@@ -3,9 +3,6 @@
   <ItemGroup>
     <ClCompile Include="Source\CK2ToEU4Converter.cpp" />
     <ClCompile Include="Source\main.cpp" />
-    <ClCompile Include="..\commonItems\Color.cpp">
-      <Filter>CommonItems</Filter>
-    </ClCompile>
     <ClCompile Include="..\commonItems\Date.cpp">
       <Filter>CommonItems</Filter>
     </ClCompile>
@@ -243,12 +240,12 @@
     <ClCompile Include="Source\Mappers\DevWeightsMapper\DevWeightsMapper.cpp">
       <Filter>Mappers\DevWeightsMapper</Filter>
     </ClCompile>
+    <ClCompile Include="..\commonItems\newColor.cpp">
+      <Filter>CommonItems</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CK2ToEU4Converter.h" />
-    <ClInclude Include="..\commonItems\Color.h">
-      <Filter>CommonItems</Filter>
-    </ClInclude>
     <ClInclude Include="..\commonItems\Date.h">
       <Filter>CommonItems</Filter>
     </ClInclude>
@@ -479,6 +476,9 @@
     </ClInclude>
     <ClInclude Include="Source\Mappers\DevWeightsMapper\DevWeightsMapper.h">
       <Filter>Mappers\DevWeightsMapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\commonItems\newColor.h">
+      <Filter>CommonItems</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

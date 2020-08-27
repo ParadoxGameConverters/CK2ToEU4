@@ -445,9 +445,9 @@ TEST(CK2World_TitleTests, ColorCanBeLoaded)
 	const CK2::Title theTitle(input, "c_test");
 
 	ASSERT_TRUE(theTitle.getColor());
-	ASSERT_EQ(theTitle.getColor().r(), 3);
-	ASSERT_EQ(theTitle.getColor().g(), 5);
-	ASSERT_EQ(theTitle.getColor().b(), 6);
+	ASSERT_EQ(theTitle.getColor()->r(), 3);
+	ASSERT_EQ(theTitle.getColor()->g(), 5);
+	ASSERT_EQ(theTitle.getColor()->b(), 6);
 }
 
 TEST(CK2World_TitleTests, electorsDefaultToEmpty)

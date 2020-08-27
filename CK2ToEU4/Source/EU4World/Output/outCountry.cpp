@@ -148,9 +148,10 @@ void EU4::Country::outputCommons(std::ostream& output) const
 {
 	if (!details.graphicalCulture.empty())
 		output << "graphical_culture = " << details.graphicalCulture << "\n";
-	output << "color = { " << details.color << " }\n";
+	if (details.color)
+		output << "color " << *details.color << "\n";
 	if (details.revolutionaryColor)
-		output << "revolutionary_colors = { " << details.revolutionaryColor << " }\n";
+		output << "revolutionary_colors " << *details.revolutionaryColor << "\n";
 	if (!details.historicalIdeaGroups.empty())
 	{
 		output << "historical_idea_groups = {\n";

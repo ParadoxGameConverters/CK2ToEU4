@@ -1,7 +1,7 @@
 #ifndef COLOR_SCRAPER
 #define COLOR_SCRAPER
 
-#include "Color.h"
+#include "newColor.h"
 #include "Parser.h"
 
 namespace mappers
@@ -14,14 +14,14 @@ class ColorScraper: commonItems::parser
 	void scrapeColors(const std::string& filePath);
 
 	[[nodiscard]] const auto& getColors() const { return titleColors; }
-	[[nodiscard]] std::optional<commonItems::Color> getColorForTitle(const std::string& titleName) const;
+	[[nodiscard]] std::optional<commonItems::newColor> getColorForTitle(const std::string& titleName) const;
 
   private:
 	void registerKeys();
 
-	std::map<std::string, commonItems::Color> titleColors;
+	std::map<std::string, std::optional<commonItems::newColor>> titleColors;
 	std::string name;
-	commonItems::Color color;
+	std::optional<commonItems::newColor> color;
 };
 } // namespace mappers
 

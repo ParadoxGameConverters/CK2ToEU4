@@ -1,7 +1,6 @@
 #ifndef EU4_PROVINCE_DETAILS_H
 #define EU4_PROVINCE_DETAILS_H
 
-#include "Color.h"
 #include "ProvinceModifier.h"
 #include "Parser.h"
 #include <set>

@@ -32,13 +32,13 @@ void mappers::ColorScraper::registerKeys()
 	});
 
 	registerRegex("color", [this](const std::string& unused, std::istream& theStream) {
-		color = commonItems::Color(theStream);
+		color = commonItems::newColor::Factory::getColor(theStream);
 	});
 
 	registerRegex("[A-Za-z0-9\\_.:-]+", commonItems::ignoreItem);
 }
 
-std::optional<commonItems::Color> mappers::ColorScraper::getColorForTitle(const std::string& titleName) const
+std::optional<commonItems::newColor> mappers::ColorScraper::getColorForTitle(const std::string& titleName) const
 {
 	const auto& titleItr = titleColors.find(titleName);
 	if (titleItr != titleColors.end())
