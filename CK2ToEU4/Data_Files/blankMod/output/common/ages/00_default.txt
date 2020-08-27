@@ -261,7 +261,10 @@ age_of_reformation = {
 	start = 1530
 	
 	can_start = {
-		is_religion_enabled = protestant
+		OR = {
+			is_religion_enabled = protestant
+			is_year = 1594 #6 years before 1600, when Global Trade Can Spawn
+		}
 	}
 	
 	
@@ -477,7 +480,6 @@ age_of_reformation = {
 				OR = {
 					tag = PLC
 					tag = POL
-					tag = LIT
 					AND = {
 						government_rank = 3
 						OR = {
@@ -916,6 +918,7 @@ age_of_revolutions = {
 			allow = {
 				OR = {
 					tag = HAB
+					tag = HRE
 					is_emperor = yes
 				}
 			}
