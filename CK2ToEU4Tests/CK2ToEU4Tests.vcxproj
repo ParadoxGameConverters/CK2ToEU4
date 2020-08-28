@@ -227,12 +227,12 @@
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\TitleTagMapper\TitleTagMapper.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\TitleTagMapper\TitleTagMapping.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\VersionParser\VersionParser.cpp" />
+    <ClCompile Include="..\commonItems\Color.cpp" />
     <ClCompile Include="..\commonItems\CommonFunctions.cpp" />
     <ClCompile Include="..\commonItems\Date.cpp" />
     <ClCompile Include="..\commonItems\GameVersion.cpp" />
     <ClCompile Include="..\commonItems\iconvlite.cpp" />
     <ClCompile Include="..\commonItems\Log.cpp" />
-    <ClCompile Include="..\commonItems\newColor.cpp" />
     <ClCompile Include="..\commonItems\OSCommonLayer.cpp" />
     <ClCompile Include="..\commonItems\Parser.cpp" />
     <ClCompile Include="..\commonItems\ParserHelpers.cpp" />

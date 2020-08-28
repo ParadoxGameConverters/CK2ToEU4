@@ -18,7 +18,7 @@ void CK2::Title::registerKeys()
 		holder = std::pair(holderInt.getInt(), nullptr);
 	});
 	registerKeyword("color", [this](const std::string& unused, std::istream& theStream) {
-		color = commonItems::newColor::Factory::getColor(theStream);
+		color = commonItems::Color::Factory::getColor(theStream);
 	});
 	registerKeyword("law", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleString lawStr(theStream);
@@ -96,7 +96,7 @@ void CK2::Title::registerKeys()
 			deJureLiege = std::pair(newdjLiege->getTitle().first, newdjLiege);
 		}
 	});
-	registerRegex("[A-Za-z0-9\\:_.-]+", commonItems::ignoreItem);
+	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }
 
 void CK2::Title::congregateProvinces(const std::map<std::string, std::shared_ptr<Title>>& independentTitles)
