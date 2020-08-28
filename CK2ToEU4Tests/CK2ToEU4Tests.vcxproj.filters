@@ -512,7 +512,7 @@
     <ClCompile Include="MapperTests\DevWeightsMapper\DevWeightsMapperTests.cpp">
       <Filter>MapperTests\DevWeightsMapper</Filter>
     </ClCompile>
-    <ClCompile Include="..\commonItems\newColor.cpp">
+    <ClCompile Include="..\commonItems\Color.cpp">
       <Filter>ConverterFiles\commonItems</Filter>
     </ClCompile>
   </ItemGroup>

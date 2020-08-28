@@ -41,10 +41,10 @@ void EU4::CountryDetails::registerKeys()
 		graphicalCulture = graphStr.getString();
 	});
 	registerKeyword("color", [this](const std::string& unused, std::istream& theStream) {
-		color = commonItems::newColor::Factory::getColor(theStream);
+		color = commonItems::Color::Factory::getColor(theStream);
 	});
 	registerKeyword("revolutionary_colors", [this](const std::string& unused, std::istream& theStream) {
-		revolutionaryColor = commonItems::newColor::Factory::getColor(theStream);
+		revolutionaryColor = commonItems::Color::Factory::getColor(theStream);
 	});
 	registerKeyword("historical_idea_groups", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::stringList ideaList(theStream);
@@ -107,7 +107,7 @@ void EU4::CountryDetails::registerKeys()
 		const commonItems::singleString mayenStr(theStream);
 		rightToBEARArms = mayenStr.getString() == "yes";
 	});
-	registerRegex("[a-zA-Z0-9\\_.:-]+", commonItems::ignoreItem);
+	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }
 
 void EU4::CountryDetails::registerHistoryKeys()
@@ -213,5 +213,5 @@ void EU4::CountryDetails::registerHistoryKeys()
 		auto historyItem = commonItems::singleItem(theDate, theStream);
 		historyLessons.emplace_back(std::pair(date(theDate), historyItem));
 	});
-	registerRegex("[a-zA-Z0-9\\_.:-]+", commonItems::ignoreItem);
+	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }
