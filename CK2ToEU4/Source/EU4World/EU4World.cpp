@@ -840,8 +840,9 @@ void EU4::World::distributeForts()
 			continue; // Not dealing with broken countries, thank you.
 		if (!country.second->getProvinces().count(country.second->getCapitalID()))
 		{
-			Log(LogLevel::Warning) << country.first << " has capital province set to " << country.second->getCapitalID() << "but doesn't own it?";
-			continue; // this should have been fixed earlier by verifyCapitals!
+			if (country.first != "PAP") 
+				Log(LogLevel::Warning) << country.first << " has capital province set to " << country.second->getCapitalID() << " but doesn't own it?";
+			continue; // this should have been fixed earlier by verifyCapitals! Well... Except for pope.
 		}
 
 		const auto& capitalAreaName = regionMapper->getParentAreaName(country.second->getCapitalID());

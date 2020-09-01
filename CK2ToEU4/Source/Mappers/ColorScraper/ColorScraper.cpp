@@ -20,7 +20,7 @@ void mappers::ColorScraper::scrapeColors(std::istream& theStream, std::string th
 
 void mappers::ColorScraper::registerKeys()
 {
-	registerRegex("(e|k|d|c)_[A-Za-z0-9_-]+", [this](const std::string& titleName, std::istream& theStream) {
+	registerRegex(R"((e|k|d|c)_[A-Za-z0-9_\-]+)", [this](const std::string& titleName, std::istream& theStream) {
 		ColorScraper newScraper;
 		newScraper.scrapeColors(theStream, titleName);
 		auto foundColors = newScraper.getColors();
@@ -31,7 +31,7 @@ void mappers::ColorScraper::registerKeys()
 		}
 	});
 
-	registerRegex("color", [this](const std::string& unused, std::istream& theStream) {
+	registerKeyword("color", [this](const std::string& unused, std::istream& theStream) {
 		color = commonItems::Color::Factory::getColor(theStream);
 	});
 
