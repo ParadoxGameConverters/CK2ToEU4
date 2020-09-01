@@ -13,6 +13,7 @@
 #include "Provinces/Province.h"
 #include "Provinces/Provinces.h"
 #include "Relations/AllRelations.h"
+#include "Religions/Religions.h"
 #include "Titles/Liege.h"
 #include "Titles/Titles.h"
 #include "Vars/Vars.h"
@@ -55,6 +56,7 @@ class World: commonItems::parser
 	void splitVassals(const Configuration& theConfiguration);
 	void gatherCourtierNames();
 	void determineHeirs();
+	void reformedFeatures();
 	void resolvePrimogeniture(const std::string& genderLaw, const std::pair<int, std::shared_ptr<Character>>& holder) const;
 	void resolveUltimogeniture(const std::string& genderLaw, const std::pair<int, std::shared_ptr<Character>>& holder) const;
 	void resolveTanistry(const std::string& genderLaw, const std::pair<int, std::shared_ptr<Character>>& holder) const;
@@ -87,6 +89,7 @@ class World: commonItems::parser
 	Mods mods;
 	Diplomacy diplomacy;
 	Vars vars;
+	Religions religions;
 	mappers::ShatterEmpiresMapper shatterEmpiresMapper;
 	mappers::IAmHreMapper iAmHreMapper;
 	mappers::PersonalityScraper personalityScraper;

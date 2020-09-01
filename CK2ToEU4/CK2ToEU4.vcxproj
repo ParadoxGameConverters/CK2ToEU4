@@ -355,6 +355,8 @@
     <ClCompile Include="Source\CK2World\Relations\Relation.cpp" />
     <ClCompile Include="Source\CK2World\Relations\Relations.cpp" />
     <ClCompile Include="Source\CK2World\Relations\Tributary.cpp" />
+    <ClCompile Include="Source\CK2World\Religions\Religion.cpp" />
+    <ClCompile Include="Source\CK2World\Religions\Religions.cpp" />
     <ClCompile Include="Source\CK2World\Titles\Liege.cpp" />
     <ClCompile Include="Source\CK2World\Titles\Title.cpp" />
     <ClCompile Include="Source\CK2World\Titles\Titles.cpp" />
@@ -438,6 +440,8 @@
     <ClInclude Include="Source\CK2World\Relations\Relation.h" />
     <ClInclude Include="Source\CK2World\Relations\Relations.h" />
     <ClInclude Include="Source\CK2World\Relations\Tributary.h" />
+    <ClInclude Include="Source\CK2World\Religions\Religion.h" />
+    <ClInclude Include="Source\CK2World\Religions\Religions.h" />
     <ClInclude Include="Source\CK2World\Titles\Liege.h" />
     <ClInclude Include="Source\CK2World\Titles\Title.h" />
     <ClInclude Include="Source\CK2World\Titles\Titles.h" />

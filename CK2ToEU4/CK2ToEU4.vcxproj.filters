@@ -243,6 +243,12 @@
     <ClCompile Include="..\commonItems\Color.cpp">
       <Filter>CommonItems</Filter>
     </ClCompile>
+    <ClCompile Include="Source\CK2World\Religions\Religions.cpp">
+      <Filter>CK2World\Religions</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CK2World\Religions\Religion.cpp">
+      <Filter>CK2World\Religions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CK2ToEU4Converter.h" />
@@ -480,6 +486,12 @@
     <ClInclude Include="..\commonItems\Color.h">
       <Filter>CommonItems</Filter>
     </ClInclude>
+    <ClInclude Include="Source\CK2World\Religions\Religions.h">
+      <Filter>CK2World\Religions</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CK2World\Religions\Religion.h">
+      <Filter>CK2World\Religions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4World">
@@ -583,6 +595,9 @@
     </Filter>
     <Filter Include="Mappers\DevWeightsMapper">
       <UniqueIdentifier>{c81260ae-6636-43b1-a97c-f3255efa9335}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CK2World\Religions">
+      <UniqueIdentifier>{af720e2c-6373-408f-9b98-574183dc1b71}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

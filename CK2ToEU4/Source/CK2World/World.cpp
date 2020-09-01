@@ -11,10 +11,12 @@
 #include "ParserHelpers.h"
 #include "Titles/Liege.h"
 #include "Titles/Title.h"
+#include "Religions/Religions.h"
 #include <ZipFile.h>
 #include <cmath>
 #include <filesystem>
 #include <fstream>
+
 
 namespace fs = std::filesystem;
 
@@ -62,6 +64,20 @@ CK2::World::World(const Configuration& theConfiguration)
 		LOG(LogLevel::Info) << "-> Loading Titles";
 		titles = Titles(theStream);
 		LOG(LogLevel::Info) << ">> Loaded " << titles.getTitles().size() << " titles.";
+	});
+	registerKeyword("religion", [this](const std::string& unused, std::istream& theStream) {
+		LOG(LogLevel::Info) << "-> Loading Religions";
+		religions = Religions(theStream);
+		LOG(LogLevel::Info) << ">> Loaded " << religions.getReformedReligion().size() << " Reformed Religions.";
+
+		std::map<std::string, std::string>::key_compare mycomp = religions.getReformedReligion().key_comp();
+		std::string highest = religions.getReformedReligion().rbegin()->first;
+		std::map<std::string, std::string>::iterator it = religions.getReformedReligion().begin();
+		do 
+		{
+			LOG(LogLevel::Debug) << it->first << " => " << "\n";
+		} while (religions.getReformedReligion()((*it++).first, highest));
+		
 	});
 	registerKeyword("dynasties", [this](const std::string& unused, std::istream& theStream) {
 		LOG(LogLevel::Info) << "-> Loading Dynasties";
@@ -1206,4 +1222,10 @@ void CK2::World::filterProvincelessTitles()
 		counter++;
 	}
 	Log(LogLevel::Info) << "<> " << counter << " empty titles dropped, " << independentTitles.size() << " remain.";
+}
+
+void CK2::World::reformedFeatures()
+{
+	
+
 }

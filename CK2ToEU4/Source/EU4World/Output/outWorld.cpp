@@ -443,3 +443,13 @@ void EU4::World::outputDiplomacy(const Configuration& theConfiguration, const st
 			 "output/" + theConfiguration.getOutputName() + "/history/diplomacy/SunsetInvasion.txt");
 	}
 }
+
+void EU4::World::outputReformedReligions(const Configuration& theConfiguration) const
+{
+	std::ofstream reformedReligions("output/" + theConfiguration.getOutputName() + "/common/religions/05_custom_reformed_religions.txt");
+	if (!reformedReligions.is_open())
+		throw std::runtime_error("Could not create custom reformed religions file!");
+
+	
+
+}
