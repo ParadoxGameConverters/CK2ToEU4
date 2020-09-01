@@ -1,3 +1,7 @@
+# Maintain parity with vanilla culture groups at all costs or lose vanilla culture group colors!
+# New culture groups must be added to other files, alphabetically after this one. 
+# Update this file for every EU4 vanilla update.
+
 germanic = {
 	german = {
 		primary = GER
