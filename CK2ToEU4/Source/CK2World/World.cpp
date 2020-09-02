@@ -1259,19 +1259,25 @@ void CK2::World::reformedFeatures()
 
 	reformedReligionMapper.getReligionEntries();
 
+	mappers::ReformedReligionMapping tempReligion;
+
 	if (aztecReformation)
 	{
 		noReformation = false;
-		auto tempRel = religions.getReformedReligion().find("aztec_reformed")->first;
-		setReformedFeatures(religions.getReformedReligion().find("aztec_reformed")->second);	
+		tempReligion = setReformedFeatures(religions.getReformedReligion().find("aztec_reformed")->second, tempReligion);
+		
 	}
 }
-std::vector<std::string> CK2::World::setReformedFeatures(std::vector<std::string> religionFeatures)
+mappers::ReformedReligionMapping CK2::World::setReformedFeatures(std::vector<std::string> religionFeatures, mappers::ReformedReligionMapping tempReligion )
 {
-	for (auto features: religionFeatures)
-	{
-		reformedReligionMapper.getReligionEntries().find(features);
-	}
 
+	for (auto feature: religionFeatures)
+	{
+		tempReligion.setCountryModifiers(tempReligion.getCountryModifiers() + "\n" + reformedReligionMapper.getReligionEntries().find(feature)->second.getCountryModifiers());
+		tempReligion.setProvinceModifiers(tempReligion.getProvinceModifiers() + "\n" + reformedReligionMapper.getReligionEntries().find(feature)->second.getProvinceModifiers());
+		tempReligion.setUniqueMechanics(reformedReligionMapper.getReligionEntries().find(feature)->second.getUniqueMechanics());
+		tempReligion.setNonUniqueMechanics(tempReligion.getNonUniqueMechanics() + "\n" + reformedReligionMapper.getReligionEntries().find(feature)->second.getNonUniqueMechanics());
+	}
+	return tempReligion;
 	
 }

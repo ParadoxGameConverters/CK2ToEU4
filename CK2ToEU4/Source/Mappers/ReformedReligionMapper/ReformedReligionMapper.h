@@ -11,7 +11,7 @@ class ReformedReligionMapper: commonItems::parser
 	ReformedReligionMapper();
 	explicit ReformedReligionMapper(std::istream& theStream);							 // testing
 
-	std::optional<std::map<std::string, ReformedReligionMapping>> getReligionEntries() { return religionEntries; };
+	std::map<std::string, ReformedReligionMapping> getReligionEntries() { return religionEntries; };
 
   private:
 	void registerKeys();

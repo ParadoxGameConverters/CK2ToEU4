@@ -44,7 +44,7 @@ class World: commonItems::parser
 
   private:
 	bool uncompressSave(const std::string& saveGamePath);
-	std::vector<std::string> setReformedFeatures(std::vector<std::string>);
+	mappers::ReformedReligionMapping setReformedFeatures(std::vector<std::string>, mappers::ReformedReligionMapping);
 	void alterSunset(const Configuration& theConfiguration);
 	void verifySave(const std::string& saveGamePath);
 	void filterIndependentTitles();
