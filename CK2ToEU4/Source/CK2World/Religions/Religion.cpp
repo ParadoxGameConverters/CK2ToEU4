@@ -2,7 +2,7 @@
 #include "ParserHelpers.h"
 
 
-CK2::Religion::Religion(std::istream& theStream, std::string theFeatures): features(std::move(theFeatures))
+CK2::Religion::Religion(std::istream& theStream, std::string theFeatures)
 {
 	registerKeys();
 	parseStream(theStream);
@@ -12,8 +12,9 @@ CK2::Religion::Religion(std::istream& theStream, std::string theFeatures): featu
 void CK2::Religion::registerKeys()
 {
 	registerKeyword("features", [this](const std::string& unused, std::istream& theStream) {
-		const commonItems::singleString typeStr(theStream);
-		features = typeStr.getString();
+		commonItems::stringList featureList(theStream);
+		auto featureVector = featureList.getStrings();
+		features = std::vector(featureVector.begin(), featureVector.end());
 	});
-	registerRegex("[A-Za-z0-9\\:_.-]+", commonItems::ignoreItem);
+	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }

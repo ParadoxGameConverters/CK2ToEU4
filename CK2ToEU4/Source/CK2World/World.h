@@ -38,10 +38,12 @@ class World: commonItems::parser
 	[[nodiscard]] const auto& getVars() const { return vars; }
 	[[nodiscard]] const auto& getMods() const { return mods; }
 	[[nodiscard]] auto isInvasion() const { return invasion; }
+	[[nodiscard]] auto wasNoReformation() const { return noReformation; }
 	[[nodiscard]] auto isGreekReformation() const { return greekReformation; }
 
   private:
 	bool uncompressSave(const std::string& saveGamePath);
+	std::vector<std::string> setReformedFeatures(std::vector<std::string>);
 	void alterSunset(const Configuration& theConfiguration);
 	void verifySave(const std::string& saveGamePath);
 	void filterIndependentTitles();
@@ -66,8 +68,19 @@ class World: commonItems::parser
 	void loadDynasties(const Configuration& theConfiguration);
 	void loadProvinces(const Configuration& theConfiguration);
 
-	bool invasion = false;
-	bool greekReformation = false;
+	bool invasion = false;	
+	bool noReformation = true;
+	bool aztecReformation = false;
+	bool balticReformation = false;
+	bool bonReformation = false;
+	bool finnishReformation = false;
+	bool hellenicReformation = false;
+		bool greekReformation = false;
+	bool norseReformation = false;
+	bool slavicReformation = false;
+	bool tengriReformation = false;
+	bool africanReformation = false;
+	bool zunReformation = false;
 	date endDate = date("1444.11.11");
 	date startDate = date("1.1.1");
 	GameVersion CK2Version;

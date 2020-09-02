@@ -16,7 +16,7 @@ namespace CK2
 	  private:
 		void registerKeys();
 
-		std::string features;
+		std::vector<std::string> features;
 	};
 } // namespace CK2
 

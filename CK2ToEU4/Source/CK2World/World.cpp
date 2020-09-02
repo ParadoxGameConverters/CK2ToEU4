@@ -42,8 +42,33 @@ CK2::World::World(const Configuration& theConfiguration)
 			invasion = true;
 			LOG(LogLevel::Info) << "oO Invasion detected. We're in for a ride!";
 		}
-		if (flagsItem.find("flag_hellenic_greek_reformation") != std::string::npos)
-			greekReformation = true;
+
+		// Pagan Reformation?
+		if (flagsItem.find("aztec_reformation") != std::string::npos)
+			aztecReformation = true;
+		if (flagsItem.find("baltic_reformation") != std::string::npos)
+			balticReformation = true;
+		if (flagsItem.find("bon_reformation") != std::string::npos)
+			bonReformation = true;
+		if (flagsItem.find("finnish_reformation") != std::string::npos)
+			finnishReformation = true;
+		if (flagsItem.find("hellenic_reformation") != std::string::npos)
+		{
+			hellenicReformation = true;
+			if (flagsItem.find("flag_hellenic_greek_reformation") != std::string::npos)
+				greekReformation = true;
+		}
+		if (flagsItem.find("norse_reformation") != std::string::npos)
+			norseReformation = true;
+		if (flagsItem.find("slavic_reformation") != std::string::npos)
+			slavicReformation = true;
+		if (flagsItem.find("tengri_reformation") != std::string::npos)
+			tengriReformation = true;
+		if (flagsItem.find("west_african_reformation") != std::string::npos)
+			africanReformation = true;
+		if (flagsItem.find("zun_reformation") != std::string::npos)
+			zunReformation = true;
+
 	});
 	registerKeyword("version", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleString versionString(theStream);
@@ -70,13 +95,13 @@ CK2::World::World(const Configuration& theConfiguration)
 		religions = Religions(theStream);
 		LOG(LogLevel::Info) << ">> Loaded " << religions.getReformedReligion().size() << " Reformed Religions.";
 
-		std::map<std::string, std::string>::key_compare mycomp = religions.getReformedReligion().key_comp();
-		std::string highest = religions.getReformedReligion().rbegin()->first;
-		std::map<std::string, std::string>::iterator it = religions.getReformedReligion().begin();
-		do 
+		const auto& returnedReligions = religions.getReformedReligion();
+		for (const auto& something: returnedReligions)
 		{
-			LOG(LogLevel::Debug) << it->first << " => " << "\n";
-		} while (religions.getReformedReligion()((*it++).first, highest));
+			LOG(LogLevel::Debug) << something.first << " => ";
+			for ( auto secondly:something.second )
+				LOG(LogLevel::Debug) << "\t" << secondly << "\n";
+		}
 		
 	});
 	registerKeyword("dynasties", [this](const std::string& unused, std::istream& theStream) {
@@ -1226,6 +1251,221 @@ void CK2::World::filterProvincelessTitles()
 
 void CK2::World::reformedFeatures()
 {
-	
+	if (aztecReformation)
+	{
+		noReformation = false;
+		setReformedFeatures(religions.getReformedReligion().find("aztec_reformed")->second);		
+	}
+}
+std::vector<std::string> CK2::World::setReformedFeatures(std::vector<std::string> religionFeatures)
+{
+	std::vector<std::string> eu4Features;
+	/* 0 = Unique Mechanic (If any)
+	   1-5 = Country Modifiers
+	   6-10 = Province Modifiers (If any)
+	   11+ = Other Religion Mechanics (If any)
+	*/
 
+	std::vector<std::string> provincialModifiers;
+	std::vector<std::string> otherModifiers;
+
+	bool hasUnique = false; // For Special Bonuses
+
+	for (auto features: religionFeatures)
+	{
+		// Natures
+		if (features == "religion_peaceful")
+			eu4Features.emplace_back("uses_karma = yes");
+		else if (features == "religion_warlike")
+		{
+			eu4Features.emplace_back("");
+			eu4Features.emplace_back("shock_damage = 0.1");
+		}
+		else if (features == "religion_defensive")
+		{
+			eu4Features.emplace_back("");
+			eu4Features.emplace_back("fort_maintenance_modifier = -0.1");
+			provincialModifiers.emplace_back("local_defensiveness = 0.1");
+		}
+		else if (features == "religion_proselytizing")
+		{
+			eu4Features.emplace_back("uses_piety = yes");
+			eu4Features.emplace_back("tolerance_heathen = -1");
+		}
+		else if (features == "religion_dogmatic")
+		{
+			eu4Features.emplace_back("fervor = yes");
+			eu4Features.emplace_back("tolerance_heretic = -1");
+			eu4Features.emplace_back("tolerance_heathen = -2");
+		}
+		else if (features == "religion_cosmopolitan")
+			eu4Features.emplace_back("uses_harmony = yes");
+
+		// Doctrines
+		// Generic
+		else if (features == "religion_holy_family")
+		{
+			byte rando = rand() % 1 + 3;
+			switch (rando)
+			{
+				case 1:
+					eu4Features.emplace_back("monarch_admin_power = 1");
+					break;
+				case 2:
+					eu4Features.emplace_back("monarch_diplomatic_power = 1");
+					break;
+				case 3:
+					eu4Features.emplace_back("monarch_military_power = 1");
+					break;
+				default:
+					eu4Features.emplace_back("monarch_admin_power = 1");
+					break;
+			}
+		}
+		else if (features == "religion_harems")
+			eu4Features.emplace_back("heir_chance = 1");
+		else if (features == "religion_meritocratic")
+			eu4Features.emplace_back("advisor_cost = -0.1");
+		else if (features == "religion_stable")
+		{
+			eu4Features.emplace_back("stability_cost_modifier = -0.1");
+			eu4Features.emplace_back("global_unrest = -1");
+		}
+		else if (features == "religion_jizya")
+			eu4Features.emplace_back("global_tax_modifier = 0.1");
+		else if (features == "religion_monastic")
+		{
+			eu4Features.emplace_back("tolerance_own = 2");
+		}
+		else if (features == "religion_syncretic" && !hasUnique)
+		{
+			if (eu4Features.size() > 0)
+				eu4Features.erase(eu4Features.begin()); // Syncretic Overtakes all others
+			eu4Features.emplace(eu4Features.begin(), "can_have_secondary_religion = yes");
+		}
+		else if (features == "religion_haruspicy")
+			eu4Features.emplace_back("land_morale = 0.1");
+		else if (features == "religion_astrology")
+			eu4Features.emplace_back("leader_naval_manuever = 1");
+		else if (features == "religion_patriarchal")
+			eu4Features.emplace_back("female_advisor_chance = -0.9");
+		else if (features == "religion_equal")
+		{
+			eu4Features.emplace_back("may_recruit_female_generals = yes");
+			eu4Features.emplace_back("female_advisor_chance = 0.5");
+		}
+		else if (features == "religion_matriarchal")
+		{
+			eu4Features.emplace_back("may_recruit_female_generals = yes");
+			eu4Features.emplace_back("female_advisor_chance = 0.9");
+		}
+		else if (features == "religion_ritual_sacrifice")
+			otherModifiers.emplace_back("declare_war_in_regency = yes");
+		else if (features == "religion_adventuring")
+			eu4Features.emplace_back("ae_impact = -0.1");
+		else if (features == "religion_seafaring")
+			eu4Features.emplace_back("naval_morale = 0.1");
+		else if (features == "religion_relentless")
+			provincialModifiers.emplace_back("local_manpower_modifier = 0.1");
+		else if (features == "religion_animistic")
+			eu4Features.emplace_back("global_autonomy = -0.05");
+		else if (features == "religion_beatification")
+			eu4Features.emplace_back("legitimacy = 1\nhorde_unity = 1\nmeritocracy = 0.5\ndevotion = 0.5\nrepublican_tradition = 0.5");
+		else if (features == "religion_feature_pyramids")
+			eu4Features.emplace_back("build_cost = -0.1");
+		//Unique
+		else if (features == "religion_feature_norse")
+		{
+			if (eu4Features.size() > 0)
+				eu4Features.erase(eu4Features.begin()); 
+			eu4Features.emplace(eu4Features.begin(), "personal_deity = yes");
+			hasUnique = true;
+		}
+		else if (features == "religion_feature_tengri")
+		{
+			if (eu4Features.size() > 0)
+				eu4Features.erase(eu4Features.begin());
+			eu4Features.emplace(eu4Features.begin(), "can_have_secondary_religion = yes");
+			hasUnique = true;
+		}
+		else if (features == "religion_feature_baltic")
+			provincialModifiers.emplace_back("local_missionary_strength = -0.02");
+		else if (features == "religion_feature_slavic")
+			eu4Features.emplace_back("culture_conversion_cost = -0.15");
+		else if (features == "religion_feature_finnish")
+		{
+			eu4Features.emplace_back("num_accepted_cultures = 1");
+			provincialModifiers.emplace_back("local_missionary_strength = -0.02");
+		}
+		else if (features == "religion_feature_west_african")
+		{
+			if (eu4Features.size() > 0)
+				eu4Features.erase(eu4Features.begin());
+			eu4Features.emplace(eu4Features.begin(), "fetishist_cult = yes");
+			hasUnique = true;
+		}
+		else if (features == "religion_feature_zun")
+		{
+			eu4Features.emplace_back("heir_chance = 1");
+			eu4Features.emplace_back("hostile_attrition = 1");
+		}
+		else if (features == "religion_feature_bon")
+		{
+			if (eu4Features.size() > 0)
+				eu4Features.erase(eu4Features.begin());
+			eu4Features.emplace(eu4Features.begin(), "uses_karma = yes");
+			hasUnique = true;
+		}
+		else if (features == "religion_feature_aztec")
+		{
+			eu4Features.emplace_back("naval_morale = 0.1");
+			provincialModifiers.emplace_back("local_manpower_modifier = 0.1");
+			otherModifiers.emplace_back("declare_war_in_regency = yes");
+		}
+		else if (features == "religion_feature_hellenic")
+		{
+			if (eu4Features.size() > 0)
+				eu4Features.erase(eu4Features.begin());
+			eu4Features.emplace(eu4Features.begin(), "personal_deity = yes");
+			hasUnique = true;
+		}
+
+		// Leadership
+		else if (features == "religion_temporal_head")
+			eu4Features.emplace_back("");
+		else if (features == "religion_theocratic_head")
+			eu4Features.emplace_back("");
+		else if (features == "religion_autocephaly")
+		{
+			if (eu4Features[0] == "")
+				eu4Features.emplace(eu4Features.begin(), "has_patriarchs = yes");
+		}
+		else if (features == "religion_no_leader")
+			eu4Features.emplace_back("");
+		else if (features == "religion_leader_unchanged")
+			eu4Features.emplace_back("");
+
+
+		//Time to make a singular vector
+		if (eu4Features.size() <= 6)
+		{
+			do
+			{
+				eu4Features.emplace_back("");
+			} while (eu4Features.size() <= 6);
+		}
+		for (auto tempProvincialModifiers: provincialModifiers)
+			eu4Features.emplace_back(tempProvincialModifiers);
+		if (eu4Features.size() <= 12)
+		{
+			do
+			{
+				eu4Features.emplace_back("");
+			} while (eu4Features.size() <= 12);
+		}
+		for (auto tempOtherModifiers: otherModifiers)
+			eu4Features.emplace_back(tempOtherModifiers);
+
+		return eu4Features;
+	}
 }

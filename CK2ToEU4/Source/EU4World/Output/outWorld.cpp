@@ -11,6 +11,7 @@ namespace fs = std::filesystem;
 void EU4::World::output(const mappers::VersionParser& versionParser, const Configuration& theConfiguration, const CK2::World& sourceWorld) const
 {
 	const auto invasion = sourceWorld.isInvasion();
+	const auto wasNoReformation = sourceWorld.wasNoReformation();
 	const date conversionDate = sourceWorld.getConversionDate();
 	LOG(LogLevel::Info) << "<- Creating Output Folder";
 
@@ -96,6 +97,10 @@ void EU4::World::output(const mappers::VersionParser& versionParser, const Confi
 	LOG(LogLevel::Info) << "<- Replacing Bookmark";
 	outputBookmark(theConfiguration, conversionDate);
 	Log(LogLevel::Progress) << "95 %";
+
+	LOG(LogLevel::Info) << "<- Writing Any Pagan Reformations";
+	outputReformedReligions(theConfiguration, wasNoReformation);
+	Log(LogLevel::Progress) << "96 %";
 }
 
 void EU4::World::outputAdvisers(const Configuration& theConfiguration) const
@@ -444,12 +449,20 @@ void EU4::World::outputDiplomacy(const Configuration& theConfiguration, const st
 	}
 }
 
-void EU4::World::outputReformedReligions(const Configuration& theConfiguration) const
+void EU4::World::outputReformedReligions(const Configuration& theConfiguration, bool noReformation) const
 {
-	std::ofstream reformedReligions("output/" + theConfiguration.getOutputName() + "/common/religions/05_custom_reformed_religions.txt");
-	if (!reformedReligions.is_open())
-		throw std::runtime_error("Could not create custom reformed religions file!");
+	if (noReformation)
+	{
+		auto files = Utils::GetAllFilesInFolder("configurables/reformation/oldPagans/");
+		for (const auto& file: files)
+			Utils::TryCopyFile("configurables/reformation/oldPagans/" + file, "output/" + theConfiguration.getOutputName() + "/common/religions/" + file);
+	}
+	else
+	{
+		std::ofstream reformedReligions("../configurables/reformation/old pagans/06_custom_reformed_religions.txt");
+		if (!reformedReligions.is_open())
+			throw std::runtime_error("Could not create custom reformed religions file!");
 
-	
-
+		reformedReligions << "pagan = {\n"; //Reminder to come back to this
+	}
 }

@@ -19,7 +19,7 @@ namespace CK2
 	  private:
 		void registerKeys();
 
-		std::map<std::string, std::string> reformedReligions;
+		std::map<std::string, std::vector<std::string>> reformedReligions; 
 	};
 
 } // namespace CK2
