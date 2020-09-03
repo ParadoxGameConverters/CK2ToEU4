@@ -471,6 +471,6 @@ void EU4::World::outputReformedReligions(const Configuration& theConfiguration, 
 							  << religion.getNonUniqueMechanics() << religion.getHereticStrings();
 		}
 		reformedReligions << "\n}";
-		reformedReligions.close();		
+		reformedReligions.close();
 	}
 }
