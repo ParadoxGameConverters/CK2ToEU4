@@ -38,6 +38,7 @@ class World: commonItems::parser
 	[[nodiscard]] const auto& getDiplomacy() const { return diplomacy; }
 	[[nodiscard]] const auto& getVars() const { return vars; }
 	[[nodiscard]] const auto& getMods() const { return mods; }
+	[[nodiscard]] const auto& getReligionReforms() const { return religionReforms; }
 	[[nodiscard]] auto isInvasion() const { return invasion; }
 	[[nodiscard]] auto wasNoReformation() const { return noReformation; }
 	[[nodiscard]] auto isGreekReformation() const { return greekReformation; }
@@ -71,17 +72,7 @@ class World: commonItems::parser
 
 	bool invasion = false;	
 	bool noReformation = true;
-	bool aztecReformation = false;
-	bool balticReformation = false;
-	bool bonReformation = false;
-	bool finnishReformation = false;
-	bool hellenicReformation = false;
-		bool greekReformation = false;
-	bool norseReformation = false;
-	bool slavicReformation = false;
-	bool tengriReformation = false;
-	bool africanReformation = false;
-	bool zunReformation = false;
+	bool greekReformation = false;
 	date endDate = date("1444.11.11");
 	date startDate = date("1.1.1");
 	GameVersion CK2Version;
@@ -111,6 +102,8 @@ class World: commonItems::parser
 	mappers::ReformedReligionMapper reformedReligionMapper;
 	std::map<std::string, std::shared_ptr<Title>> independentTitles;
 	std::map<std::string, Liege> dynamicTitles; // Reusing Liege as it has identical structure
+	std::set<mappers::ReformedReligionMapping> religionReforms;
+	std::map<std::string, bool> reformationList;
 };
 } // namespace CK2
 

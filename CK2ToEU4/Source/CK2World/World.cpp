@@ -45,29 +45,29 @@ CK2::World::World(const Configuration& theConfiguration)
 
 		// Pagan Reformation?
 		if (flagsItem.find("aztec_reformation") != std::string::npos)
-			aztecReformation = true;
+			reformationList.insert(std::pair("aztec_reformation", true));
 		if (flagsItem.find("baltic_reformation") != std::string::npos)
-			balticReformation = true;
+			reformationList.insert(std::pair("baltic_reformation", true));
 		if (flagsItem.find("bon_reformation") != std::string::npos)
-			bonReformation = true;
+			reformationList.insert(std::pair("bon_reformation", true));
 		if (flagsItem.find("finnish_reformation") != std::string::npos)
-			finnishReformation = true;
+			reformationList.insert(std::pair("finnish_reformation", true));
 		if (flagsItem.find("hellenic_reformation") != std::string::npos)
 		{
-			hellenicReformation = true;
+			reformationList.insert(std::pair("hellenic_reformation", true));
 			if (flagsItem.find("flag_hellenic_greek_reformation") != std::string::npos)
 				greekReformation = true;
 		}
 		if (flagsItem.find("norse_reformation") != std::string::npos)
-			norseReformation = true;
+			reformationList.insert(std::pair("norse_reformation", true));
 		if (flagsItem.find("slavic_reformation") != std::string::npos)
-			slavicReformation = true;
+			reformationList.insert(std::pair("slavic_reformation", true));
 		if (flagsItem.find("tengri_reformation") != std::string::npos)
-			tengriReformation = true;
+			reformationList.insert(std::pair("tengri_reformation", true));
 		if (flagsItem.find("west_african_reformation") != std::string::npos)
-			africanReformation = true;
+			reformationList.insert(std::pair("west_african_reformation", true));
 		if (flagsItem.find("zun_reformation") != std::string::npos)
-			zunReformation = true;
+			reformationList.insert(std::pair("zun_reformation", true));
 
 	});
 	registerKeyword("version", [this](const std::string& unused, std::istream& theStream) {
@@ -1257,16 +1257,18 @@ void CK2::World::reformedFeatures()
 	// reformedReligionMapper.getReligionEntries();
 	// Gets Map < CK2 Feature Configurable, ReformedReligionMapping Class > 
 
-	reformedReligionMapper.getReligionEntries();
-
 	mappers::ReformedReligionMapping tempReligion;
 
-	if (aztecReformation)
+	for ( auto reformation: reformationList)
 	{
-		noReformation = false;
-		tempReligion = setReformedFeatures(religions.getReformedReligion().find("aztec_reformed")->second, tempReligion);
-		
+		if (reformation.second)
+		{
+			noReformation = false;
+			tempReligion = setReformedFeatures(religions.getReformedReligion().find(reformation.first)->second, tempReligion);
+			religionReforms.insert(tempReligion);			
+		}
 	}
+
 }
 mappers::ReformedReligionMapping CK2::World::setReformedFeatures(std::vector<std::string> religionFeatures, mappers::ReformedReligionMapping tempReligion )
 {
@@ -1279,5 +1281,4 @@ mappers::ReformedReligionMapping CK2::World::setReformedFeatures(std::vector<std
 		tempReligion.setNonUniqueMechanics(tempReligion.getNonUniqueMechanics() + "\n" + reformedReligionMapper.getReligionEntries().find(feature)->second.getNonUniqueMechanics());
 	}
 	return tempReligion;
-	
 }
