@@ -1268,7 +1268,6 @@ void CK2::World::reformedFeatures()
 			religionReforms.insert(tempReligion);			
 		}
 	}
-
 }
 mappers::ReformedReligionMapping CK2::World::setReformedFeatures(std::vector<std::string> religionFeatures, mappers::ReformedReligionMapping tempReligion )
 {

@@ -12,6 +12,7 @@ void EU4::World::output(const mappers::VersionParser& versionParser, const Confi
 {
 	const auto invasion = sourceWorld.isInvasion();
 	const auto wasNoReformation = sourceWorld.wasNoReformation();
+	const auto religionReforms = sourceWorld.getReligionReforms();
 	const date conversionDate = sourceWorld.getConversionDate();
 	LOG(LogLevel::Info) << "<- Creating Output Folder";
 
@@ -99,7 +100,7 @@ void EU4::World::output(const mappers::VersionParser& versionParser, const Confi
 	Log(LogLevel::Progress) << "95 %";
 
 	LOG(LogLevel::Info) << "<- Writing Any Pagan Reformations";
-	outputReformedReligions(theConfiguration, wasNoReformation);
+	outputReformedReligions(theConfiguration, wasNoReformation, religionReforms);
 	Log(LogLevel::Progress) << "96 %";
 }
 
@@ -449,7 +450,7 @@ void EU4::World::outputDiplomacy(const Configuration& theConfiguration, const st
 	}
 }
 
-void EU4::World::outputReformedReligions(const Configuration& theConfiguration, bool noReformation) const
+void EU4::World::outputReformedReligions(const Configuration& theConfiguration, bool noReformation, std::set<mappers::ReformedReligionMapping> religionReforms) const
 {
 	if (noReformation)
 	{
@@ -463,6 +464,13 @@ void EU4::World::outputReformedReligions(const Configuration& theConfiguration, 
 		if (!reformedReligions.is_open())
 			throw std::runtime_error("Could not create custom reformed religions file!");
 
-		reformedReligions << "pagan = {\n"; //Reminder to come back to this
+		reformedReligions << "pagan = {\n"; // Reminder to come back to this
+		for ( auto religion: religionReforms )
+		{
+			reformedReligions << religion.getBeforeCountry() << religion.getCountryModifiers() << religion.getProvinceModifiers() << religion.getUniqueMechanics()
+							  << religion.getNonUniqueMechanics() << religion.getHereticStrings();
+		}
+		reformedReligions << "\n}";
+		reformedReligions.close();		
 	}
 }
