@@ -400,6 +400,7 @@
     <ClCompile Include="Source\Mappers\ProvinceTitleMapper\ProvinceTitleGrabber.cpp" />
     <ClCompile Include="Source\Mappers\ProvinceTitleMapper\ProvinceTitleMapper.cpp" />
     <ClCompile Include="Source\Mappers\ReformedReligionMapper\ReformedReligionMapper.cpp" />
+    <ClCompile Include="Source\Mappers\ReformedReligionMapper\ReformedReligionMapping.cpp" />
     <ClCompile Include="Source\Mappers\RegionMapper\Area.cpp" />
     <ClCompile Include="Source\Mappers\RegionMapper\Region.cpp" />
     <ClCompile Include="Source\Mappers\RegionMapper\RegionMapper.cpp" />
@@ -484,6 +485,7 @@
     <ClInclude Include="Source\Mappers\ProvinceTitleMapper\ProvinceTitleGrabber.h" />
     <ClInclude Include="Source\Mappers\ProvinceTitleMapper\ProvinceTitleMapper.h" />
     <ClInclude Include="Source\Mappers\ReformedReligionMapper\ReformedReligionMapper.h" />
+    <ClInclude Include="Source\Mappers\ReformedReligionMapper\ReformedReligionMapping.h" />
     <ClInclude Include="Source\Mappers\RegionMapper\Area.h" />
     <ClInclude Include="Source\Mappers\RegionMapper\Region.h" />
     <ClInclude Include="Source\Mappers\RegionMapper\RegionMapper.h" />

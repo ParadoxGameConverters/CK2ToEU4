@@ -6,6 +6,7 @@
 #include "../Mappers/PersonalityScraper/PersonalityScraper.h"
 #include "../Mappers/ProvinceTitleMapper/ProvinceTitleMapper.h"
 #include "../Mappers/ReformedReligionMapper/ReformedReligionMapper.h"
+#include "../Mappers/ReligionMapper/ReligionMapper.h"
 #include "Characters/Characters.h"
 #include "Date.h"
 #include "Dynasties/Dynasties.h"
@@ -45,7 +46,7 @@ class World: commonItems::parser
 
   private:
 	bool uncompressSave(const std::string& saveGamePath);
-	mappers::ReformedReligionMapping setReformedFeatures(std::vector<std::string>, mappers::ReformedReligionMapping);
+	mappers::ReformedReligionMapping setReformedFeatures(std::string, std::vector<std::string>, mappers::ReformedReligionMapping);
 	void alterSunset(const Configuration& theConfiguration);
 	void verifySave(const std::string& saveGamePath);
 	void filterIndependentTitles();
@@ -103,7 +104,7 @@ class World: commonItems::parser
 	std::map<std::string, std::shared_ptr<Title>> independentTitles;
 	std::map<std::string, Liege> dynamicTitles; // Reusing Liege as it has identical structure
 	std::set<mappers::ReformedReligionMapping> religionReforms;
-	std::map<std::string, bool> reformationList;
+	std::set<std::string> reformationList;
 };
 } // namespace CK2
 

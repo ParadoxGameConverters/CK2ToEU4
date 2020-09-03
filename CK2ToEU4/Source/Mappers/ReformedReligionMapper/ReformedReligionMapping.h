@@ -11,26 +11,36 @@ class ReformedReligionMapping: commonItems::parser
 {
   public:
 	ReformedReligionMapping();
-	ReformedReligionMapping(std::istream& theStream, std::string theFeatures);
+	ReformedReligionMapping(std::istream& theStream);
 
-	std::string getBeforeCountry() { return beforeCountry; }
-	void setBeforeCountry(std::string mod) { beforeCountry = mod; }
+	std::string getName() { return name; }
+	void setName(std::string mod) { name = mod; }
+	short getIconNumber() { return iconNumber; }
+	void setIconNumber(short mod) { iconNumber = mod; }
+	std::string getColor() { return color; }
+	void setColor(std::string mod) { color = mod; }
 
 	std::string getCountryModifiers() { return countryModifiers; }
 	void setCountryModifiers(std::string mod) { countryModifiers = mod; }
+	void addCountryModifiers(std::string mod) { countryModifiers = countryModifiers + "\n" + mod; }
 	std::string getProvinceModifiers() { return provinceModifiers; }
 	void setProvinceModifiers(std::string mod) { provinceModifiers = mod; }
+	void addProvinceModifiers(std::string mod) { provinceModifiers + "\n" + mod; }
 	std::string getUniqueMechanics() { return uniqueMechanics; }
 	void setUniqueMechanics(std::string mod) { uniqueMechanics = mod; }
 	std::string getNonUniqueMechanics() { return nonUniqueMechanics; }
 	void setNonUniqueMechanics(std::string mod) { nonUniqueMechanics = mod; }
+	void addNonUniqueMechanics(std::string mod) { nonUniqueMechanics + "\n" + mod; }
 
 	std::string getHereticStrings() { return hereticStrings; }
 	void setHereticStrings(std::string mod) { hereticStrings = mod; }
 
   private:
+	void registerKeys();
 
-	std::string beforeCountry;
+	std::string name;
+	short iconNumber;
+	std::string color;
 
 	std::string countryModifiers;
 	std::string provinceModifiers;

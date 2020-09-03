@@ -41,33 +41,16 @@ CK2::World::World(const Configuration& theConfiguration)
 			// Ho boy.
 			invasion = true;
 			LOG(LogLevel::Info) << "oO Invasion detected. We're in for a ride!";
-		}
+		}		
 
 		// Pagan Reformation?
-		if (flagsItem.find("aztec_reformation") != std::string::npos)
-			reformationList.insert(std::pair("aztec_reformation", true));
-		if (flagsItem.find("baltic_reformation") != std::string::npos)
-			reformationList.insert(std::pair("baltic_reformation", true));
-		if (flagsItem.find("bon_reformation") != std::string::npos)
-			reformationList.insert(std::pair("bon_reformation", true));
-		if (flagsItem.find("finnish_reformation") != std::string::npos)
-			reformationList.insert(std::pair("finnish_reformation", true));
-		if (flagsItem.find("hellenic_reformation") != std::string::npos)
-		{
-			reformationList.insert(std::pair("hellenic_reformation", true));
-			if (flagsItem.find("flag_hellenic_greek_reformation") != std::string::npos)
-				greekReformation = true;
-		}
-		if (flagsItem.find("norse_reformation") != std::string::npos)
-			reformationList.insert(std::pair("norse_reformation", true));
-		if (flagsItem.find("slavic_reformation") != std::string::npos)
-			reformationList.insert(std::pair("slavic_reformation", true));
-		if (flagsItem.find("tengri_reformation") != std::string::npos)
-			reformationList.insert(std::pair("tengri_reformation", true));
-		if (flagsItem.find("west_african_reformation") != std::string::npos)
-			reformationList.insert(std::pair("west_african_reformation", true));
-		if (flagsItem.find("zun_reformation") != std::string::npos)
-			reformationList.insert(std::pair("zun_reformation", true));
+		for ( auto entry:reformedReligionMapper.getReligionEntries() )
+			if (flagsItem.find(entry.first) != std::string::npos)
+				reformationList.insert(entry.first);
+
+		//Greek/Roman Gods?
+		if (flagsItem.find("flag_hellenic_greek_reformation") != std::string::npos)
+			greekReformation = true;
 
 	});
 	registerKeyword("version", [this](const std::string& unused, std::istream& theStream) {
@@ -1255,29 +1238,28 @@ void CK2::World::reformedFeatures()
 	// Gets Map < CK2 RELIGION, CK2 FEATURES LIST >
 
 	// reformedReligionMapper.getReligionEntries();
-	// Gets Map < CK2 Feature Configurable, ReformedReligionMapping Class > 
+	// Gets Map < CK2 Feature Configurable, ReformedReligionMapping Class >
 
 	mappers::ReformedReligionMapping tempReligion;
 
+	if (!reformationList.empty())
+	{
+		noReformation = false;
+	}
+
 	for ( auto reformation: reformationList)
 	{
-		if (reformation.second)
+		tempReligion.setName(reformation);
+		tempReligion.setIconNumber(reformedReligionMapper.getReligionEntries().find(reformation)->second.getIconNumber());
+		tempReligion.setColor(reformedReligionMapper.getReligionEntries().find(reformation)->second.getColor());
+		for (auto tempReform : religions.getReformedReligion().find(reformation)->second)
 		{
-			noReformation = false;
-			tempReligion = setReformedFeatures(religions.getReformedReligion().find(reformation.first)->second, tempReligion);
-			religionReforms.insert(tempReligion);			
+			tempReligion.addCountryModifiers(reformedReligionMapper.getReligionEntries().find(tempReform)->second.getCountryModifiers());
+			tempReligion.addProvinceModifiers(reformedReligionMapper.getReligionEntries().find(tempReform)->second.getProvinceModifiers());
+			tempReligion.setUniqueMechanics(reformedReligionMapper.getReligionEntries().find(tempReform)->second.getUniqueMechanics());
+			tempReligion.addNonUniqueMechanics(reformedReligionMapper.getReligionEntries().find(tempReform)->second.getNonUniqueMechanics());
 		}
+		tempReligion.setHereticStrings(reformedReligionMapper.getReligionEntries().find(reformation)->second.getHereticStrings());
+		
 	}
-}
-mappers::ReformedReligionMapping CK2::World::setReformedFeatures(std::vector<std::string> religionFeatures, mappers::ReformedReligionMapping tempReligion )
-{
-
-	for (auto feature: religionFeatures)
-	{
-		tempReligion.setCountryModifiers(tempReligion.getCountryModifiers() + "\n" + reformedReligionMapper.getReligionEntries().find(feature)->second.getCountryModifiers());
-		tempReligion.setProvinceModifiers(tempReligion.getProvinceModifiers() + "\n" + reformedReligionMapper.getReligionEntries().find(feature)->second.getProvinceModifiers());
-		tempReligion.setUniqueMechanics(reformedReligionMapper.getReligionEntries().find(feature)->second.getUniqueMechanics());
-		tempReligion.setNonUniqueMechanics(tempReligion.getNonUniqueMechanics() + "\n" + reformedReligionMapper.getReligionEntries().find(feature)->second.getNonUniqueMechanics());
-	}
-	return tempReligion;
 }

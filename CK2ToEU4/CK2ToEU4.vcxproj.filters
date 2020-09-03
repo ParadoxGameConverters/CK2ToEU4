@@ -252,6 +252,9 @@
     <ClCompile Include="Source\Mappers\ReformedReligionMapper\ReformedReligionMapper.cpp">
       <Filter>Mappers\ReformedReligionMapper</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Mappers\ReformedReligionMapper\ReformedReligionMapping.cpp">
+      <Filter>Mappers\ReformedReligionMapper</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CK2ToEU4Converter.h" />
@@ -496,6 +499,9 @@
       <Filter>CK2World\Religions</Filter>
     </ClInclude>
     <ClInclude Include="Source\Mappers\ReformedReligionMapper\ReformedReligionMapper.h">
+      <Filter>Mappers\ReformedReligionMapper</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Mappers\ReformedReligionMapper\ReformedReligionMapping.h">
       <Filter>Mappers\ReformedReligionMapper</Filter>
     </ClInclude>
   </ItemGroup>

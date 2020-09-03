@@ -458,6 +458,7 @@ void EU4::World::outputReformedReligions(const Configuration& theConfiguration, 
 		for (const auto& file: files)
 			Utils::TryCopyFile("configurables/reformation/oldPagans/" + file, "output/" + theConfiguration.getOutputName() + "/common/religions/" + file);
 	}
+
 	else
 	{
 		std::ofstream reformedReligions("../configurables/reformation/old pagans/06_custom_reformed_religions.txt");
@@ -467,8 +468,14 @@ void EU4::World::outputReformedReligions(const Configuration& theConfiguration, 
 		reformedReligions << "pagan = {\n"; // Reminder to come back to this
 		for ( auto religion: religionReforms )
 		{
-			reformedReligions << religion.getBeforeCountry() << religion.getCountryModifiers() << religion.getProvinceModifiers() << religion.getUniqueMechanics()
-							  << religion.getNonUniqueMechanics() << religion.getHereticStrings();
+			reformedReligions << religion.getName() << " = {\n" <<
+									"icon = " << religion.getIconNumber() << "\n" << 
+									"color = { " << religion.getColor() << " }\n" <<
+									"country = {\n" << religion.getCountryModifiers() << "\n}\n" <<
+									"province = {\n" << religion.getProvinceModifiers() << "\n}\n" <<
+									religion.getUniqueMechanics() <<  "\n" <<
+									religion.getNonUniqueMechanics() << "\n" <<
+									religion.getHereticStrings();
 		}
 		reformedReligions << "\n}";
 		reformedReligions.close();
