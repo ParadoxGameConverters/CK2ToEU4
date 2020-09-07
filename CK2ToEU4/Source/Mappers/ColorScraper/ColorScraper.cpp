@@ -32,7 +32,7 @@ void mappers::ColorScraper::registerKeys()
 	});
 
 	registerKeyword("color", [this](const std::string& unused, std::istream& theStream) {
-		color = commonItems::Color::Factory::getColor(theStream);
+		color = commonItems::Color::Factory{}.getColor(theStream);
 	});
 
 	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
