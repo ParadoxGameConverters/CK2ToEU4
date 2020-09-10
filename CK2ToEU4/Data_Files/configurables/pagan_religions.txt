@@ -1,4 +1,4 @@
-pagan = {
+
 	baltic_pagan_reformed = {
 		icon = 53
 		color = { 0.75 0.5 0.35 }
@@ -325,4 +325,3 @@ pagan = {
 		heretic = { GOAT_SKULL }
 	}
 	
-}
