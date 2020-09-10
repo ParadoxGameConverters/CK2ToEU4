@@ -3,15 +3,11 @@
 #include "ReformedReligionMapping.h"
 #include <iomanip>
 
-mappers::ReformedReligionMapping::ReformedReligionMapping()
-{
-	clearRegisteredKeywords();
-}
-
 mappers::ReformedReligionMapping::ReformedReligionMapping(std::istream& theStream)
 {
-	parseStream(theStream);
-	registerKeys();
+	LOG(LogLevel::Debug) << "This is theStream: " << theStream.rdbuf();
+	//registerKeys();
+	//parseStream(theStream);	
 	clearRegisteredKeywords();
 }
 

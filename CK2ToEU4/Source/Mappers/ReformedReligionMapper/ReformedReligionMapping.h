@@ -10,7 +10,7 @@ namespace mappers
 class ReformedReligionMapping: commonItems::parser
 {
   public:
-	ReformedReligionMapping();
+	ReformedReligionMapping() = default;
 	ReformedReligionMapping(std::istream& theStream);
 
 	std::string getName() { return name; }
