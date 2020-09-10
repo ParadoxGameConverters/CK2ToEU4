@@ -1291,12 +1291,15 @@ void CK2::World::reformedFeatures()
 		}
 		tempReligion.setHereticStrings(reformedReligionMapper.getReligionEntries().find(reformation)->second.getHereticStrings());
 
-		LOG(LogLevel::Debug) << "Name: " << tempReligion.getName();
+		religionReforms.insert(tempReligion);
+
+		/*LOG(LogLevel::Debug) << "Name: " << tempReligion.getName();
 		LOG(LogLevel::Debug) << "Icon: " << tempReligion.getIconNumber();
 		LOG(LogLevel::Debug) << "Color: " << tempReligion.getColor();
 		LOG(LogLevel::Debug) << "Country Mods: " << tempReligion.getCountryModifiers();
 		LOG(LogLevel::Debug) << "Province Mods: " << tempReligion.getProvinceModifiers();
 		LOG(LogLevel::Debug) << "Unique: " << tempReligion.getUniqueMechanics();
-		LOG(LogLevel::Debug) << "Not-Unique: " << tempReligion.getNonUniqueMechanics();
+		LOG(LogLevel::Debug) << "Not-Unique: " << tempReligion.getNonUniqueMechanics();*/
 	}
+	LOG(LogLevel::Debug) << "Religion Reform Size: " << religionReforms.size();
 }
