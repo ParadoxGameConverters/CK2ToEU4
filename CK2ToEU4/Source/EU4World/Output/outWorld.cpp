@@ -13,6 +13,7 @@ void EU4::World::output(const mappers::VersionParser& versionParser, const Confi
 	const auto invasion = sourceWorld.isInvasion();
 	const auto wasNoReformation = sourceWorld.wasNoReformation();
 	const auto religionReforms = sourceWorld.getReligionReforms();
+	const auto unreligionReforms = sourceWorld.getUnreligionReforms();
 	const date conversionDate = sourceWorld.getConversionDate();
 	LOG(LogLevel::Info) << "<- Creating Output Folder";
 
@@ -100,7 +101,7 @@ void EU4::World::output(const mappers::VersionParser& versionParser, const Confi
 	Log(LogLevel::Progress) << "95 %";
 
 	LOG(LogLevel::Info) << "<- Writing Any Pagan Reformations";
-	outputReformedReligions(theConfiguration, wasNoReformation, religionReforms);
+	outputReformedReligions(theConfiguration, wasNoReformation, unreligionReforms, religionReforms);
 	Log(LogLevel::Progress) << "96 %";
 }
 
@@ -450,7 +451,8 @@ void EU4::World::outputDiplomacy(const Configuration& theConfiguration, const st
 	}
 }
 
-void EU4::World::outputReformedReligions(const Configuration& theConfiguration, bool noReformation, std::set<mappers::ReformedReligionMapping> religionReforms) const
+void EU4::World::outputReformedReligions(const Configuration& theConfiguration,  bool noReformation,
+										 std::vector<mappers::ReformedReligionMapping> unreligionReforms,  std::vector<mappers::ReformedReligionMapping> religionReforms) const
 {
 	if (noReformation)
 	{
@@ -461,24 +463,45 @@ void EU4::World::outputReformedReligions(const Configuration& theConfiguration, 
 
 	else
 	{
-		std::ofstream reformedReligions("configurables/reformation/dynamicPagans/06_custom_reformed_religions.txt");
+		std::ofstream unReformedReligions("configurables/reformation/dynamicPagans/03_converter_unreformed_religions.txt");
+		if (!unReformedReligions.is_open())
+			throw std::runtime_error("Could not create custom unreformed religions file!");
+
+		unReformedReligions << "pagan = {\n\t";
+		for (auto unreligion: unreligionReforms)
+		{
+			unReformedReligions << unreligion.getName() << " = {\n"
+									  << "\t\ticon = " << unreligion.getIconNumber() << "\n"
+									  << "\t\tcolor = { " << unreligion.getColor() << " }\n"
+									  << "\t\tcountry = {\n\t\t\t" << unreligion.getCountryModifiers() << "\n}\n"
+									  << "\t\tprovince = {\n\t\t\t" << unreligion.getProvinceModifiers() << "\n}\n\t\t" << unreligion.getUniqueMechanics() << "\n\t\t"
+									  << unreligion.getNonUniqueMechanics() << "\n"
+									  << "\t\theretic = { " << unreligion.getHereticStrings() << " }\n\t";
+		}
+		unReformedReligions << "\n}";
+		unReformedReligions.close();
+		
+		std::ofstream reformedReligions("configurables/reformation/dynamicPagans/04_custom_reformed_religions.txt");
 		if (!reformedReligions.is_open())
 			throw std::runtime_error("Could not create custom reformed religions file!");
 
-		reformedReligions << "pagan = {\n"; // Reminder to come back to this
+		reformedReligions << "pagan = {\n\t";
 		for ( auto religion: religionReforms )
 		{
 			reformedReligions << religion.getName() << " = {\n" <<
-									"icon = " << religion.getIconNumber() << "\n" << 
-									"color = { " << religion.getColor() << " }\n" <<
-									"country = {\n" << religion.getCountryModifiers() << "\n}\n" <<
-									"province = {\n" << religion.getProvinceModifiers() << "\n}\n" <<
-									religion.getUniqueMechanics() <<  "\n" <<
+									"\t\ticon = " << religion.getIconNumber() << "\n" << 
+									"\t\tcolor = { " << religion.getColor() << " }\n" <<
+									"\t\tcountry = {\n\t\t\t" << religion.getCountryModifiers() << "\n}\n" <<
+									"\t\tprovince = {\n\t\t\t" << religion.getProvinceModifiers() << "\n}\n\t\t" <<
+									religion.getUniqueMechanics() <<  "\n\t\t" <<
 									religion.getNonUniqueMechanics() << "\n" <<
-									religion.getHereticStrings();
+									"\t\theretic = { " << religion.getHereticStrings() << " }\n\t";
 		}
 		reformedReligions << "\n}";
 		reformedReligions.close();
 
+		auto files = Utils::GetAllFilesInFolder("configurables/reformation/dynamicPagans/");
+		for (const auto& file: files)
+			Utils::TryCopyFile("configurables/reformation/dynamicPagans/" + file, "output/" + theConfiguration.getOutputName() + "/common/religions/" + file);
 	}
 }

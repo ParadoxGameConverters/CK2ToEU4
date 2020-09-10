@@ -1,3 +1,4 @@
+#Purposefully edited to include unique/not unique modifiers for the converter to read
 
 	baltic_pagan_reformed = {
 		icon = 53
@@ -74,10 +75,11 @@
 		province = {
 			local_defensiveness = 0.1
 		}
+		unique_modifiers = { 
+			uses_karma = yes
+		}
 		
 		heretic = { ZEN }
-		
-		uses_karma = yes
 	}
 	bon_reformed = {
 		color = { 8 140 131 }
@@ -94,9 +96,11 @@
 			local_defensiveness = 0.1
 		}
 		
-		heretic = { ZEN }
+		unique_modifiers = { 
+			uses_karma = yes
+		}
 		
-		uses_karma = yes
+		heretic = { ZEN }
 	}
 	
 	hellenic_pagan = {
@@ -110,7 +114,9 @@
 			development_cost = -0.1
 		}
 		
-		personal_deity = yes
+		unique_modifiers = { 
+			personal_deity = yes
+		}
 		
 		heretic = { GOAT_SKULL }	
 	}
@@ -125,7 +131,9 @@
 			development_cost = -0.1
 		}
 		
-		personal_deity = yes
+		unique_modifiers = { 
+			personal_deity = yes
+		}
 		
 		heretic = { GOAT_SKULL }	
 	}
@@ -160,9 +168,10 @@
 		country_as_secondary = {
 			merc_maintenance_modifier = -0.1
 			galley_power = 0.2
+		}		
+		unique_modifiers = { 
+			personal_deity = yes
 		}
-		
-		personal_deity = yes
 		
 		heretic = { OLD_GERMANIC }	
 	}
@@ -180,8 +189,9 @@
 		province = {
 			local_missionary_strength = 0.02
 		}
-		
-		personal_deity = yes
+		unique_modifiers = { 
+			personal_deity = yes
+		}
 		
 		heretic = { OLD_NORSE }	
 	}
@@ -249,10 +259,13 @@
 			army_tradition_decay = -0.1
 			raze_power_gain = 0.15
 		}
-		can_have_secondary_religion = yes
+		unique_modifiers = { 
+			can_have_secondary_religion = yes
+		}
+		
 		heretic = { GOAT_SKULL }
 	}
-	tengri_pagan_reformed = { #Done to add secondary characteristics
+	tengri_pagan_reformed = {
 		icon = 27
 		color = { 25 76 217 }
 		country = {
@@ -263,7 +276,10 @@
 			army_tradition_decay = -0.1
 			raze_power_gain = 0.15
 		}
-		can_have_secondary_religion = yes
+		unique_modifiers = { 
+			can_have_secondary_religion = yes
+		}
+		
 		heretic = { GOAT_SKULL }
 	}
 	zun_pagan = {
@@ -298,13 +314,35 @@
 			land_morale = 0.05
 			raze_power_gain = 0.2
 		}		
-		
-		doom = yes
-		declare_war_in_regency = yes
-		religious_reforms = yes
-		reform_tooltip = NAHUATL_REFORM_TOOLTIP
+		not_unique_modifiers = {
+			doom = yes
+			declare_war_in_regency = yes
+			religious_reforms = yes
+			reform_tooltip = NAHUATL_REFORM_TOOLTIP
+		}
 		
 		heretic = { NAHUATL_HERETIC }
+	}
+	aztec_pagan_reformed = {
+		color = { 64 115 64 }
+		icon = 17
+		country = {
+			land_morale = 0.1
+			global_unrest = -2
+		}
+		country_as_secondary = {
+			land_morale = 0.05
+			raze_power_gain = 0.2
+		}
+		province = {
+			local_missionary_strength = 0
+		}
+		
+		doom = no
+		declare_war_in_regency = yes		
+		religious_reforms = no
+		
+		heretic = { NAHUATL_HERETIC }	
 	}
 	west_african_pagan = {
 		color = { 104 60 0 }
@@ -320,8 +358,10 @@
 			tolerance_own = 2
 			diplomatic_reputation = 1
 		}
-
-		fetishist_cult = yes
+		unique_modifiers = { 
+			fetishist_cult = yes
+		}
+		
 		heretic = { GOAT_SKULL }
 	}
 	west_african_pagan_reformed = {
@@ -339,8 +379,10 @@
 			tolerance_heathen = 3
 			diplomatic_reputation = 1
 		}
-
-		fetishist_cult = yes
+		unique_modifiers = { 
+			fetishist_cult = yes
+		}
+		
 		heretic = { GOAT_SKULL }
 	}
 	

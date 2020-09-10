@@ -68,6 +68,7 @@ CK2::World::World(const Configuration& theConfiguration)
 			reformationList.insert("west_african_pagan_reformed");
 		if (flagsItem.find("zun_reformation") != std::string::npos)
 			reformationList.insert("zun_pagan_reformed");
+		
 
 	});
 	registerKeyword("version", [this](const std::string& unused, std::istream& theStream) {
@@ -93,16 +94,7 @@ CK2::World::World(const Configuration& theConfiguration)
 	registerKeyword("religion", [this](const std::string& unused, std::istream& theStream) {
 		LOG(LogLevel::Info) << "-> Loading Religions";
 		religions = Religions(theStream);
-		LOG(LogLevel::Info) << ">> Loaded " << religions.getReformedReligion().size() << " Reformed Religions.";
-
-		const auto& returnedReligions = religions.getReformedReligion();
-		for (const auto& something: returnedReligions)
-		{
-			LOG(LogLevel::Debug) << something.first << " => ";
-			for ( auto secondly:something.second )
-				LOG(LogLevel::Debug) << "\t" << secondly << "\n";
-		}
-		
+		LOG(LogLevel::Info) << ">> Loaded " << religions.getReformedReligion().size() << " Reformed Religions.";		
 	});
 	registerKeyword("dynasties", [this](const std::string& unused, std::istream& theStream) {
 		LOG(LogLevel::Info) << "-> Loading Dynasties";
@@ -1274,6 +1266,7 @@ void CK2::World::reformedFeatures()
 		noReformation = false;
 	}
 
+	// All Reformed Religions
 	for (auto reformation: reformationList)
 	{
 		mappers::ReformedReligionMapping tempReligion;
@@ -1285,21 +1278,46 @@ void CK2::World::reformedFeatures()
 		{
 			tempReligion.addCountryModifiers(reformedReligionMapper.getReligionEntries().find(tempReform)->second.getCountryModifiers());
 			tempReligion.addProvinceModifiers(reformedReligionMapper.getReligionEntries().find(tempReform)->second.getProvinceModifiers());
+			tempReligion.addSecondary(reformedReligionMapper.getReligionEntries().find(tempReform)->second.getSecondary());
 			if (unique.count(tempReform) || tempReligion.getUniqueMechanics().length() == 0) // Ensures that unique Mechanics get in
 				tempReligion.setUniqueMechanics(reformedReligionMapper.getReligionEntries().find(tempReform)->second.getUniqueMechanics());
 			tempReligion.addNonUniqueMechanics(reformedReligionMapper.getReligionEntries().find(tempReform)->second.getNonUniqueMechanics());
 		}
 		tempReligion.setHereticStrings(reformedReligionMapper.getReligionEntries().find(reformation)->second.getHereticStrings());
 
-		religionReforms.insert(tempReligion);
-
-		/*LOG(LogLevel::Debug) << "Name: " << tempReligion.getName();
-		LOG(LogLevel::Debug) << "Icon: " << tempReligion.getIconNumber();
-		LOG(LogLevel::Debug) << "Color: " << tempReligion.getColor();
-		LOG(LogLevel::Debug) << "Country Mods: " << tempReligion.getCountryModifiers();
-		LOG(LogLevel::Debug) << "Province Mods: " << tempReligion.getProvinceModifiers();
-		LOG(LogLevel::Debug) << "Unique: " << tempReligion.getUniqueMechanics();
-		LOG(LogLevel::Debug) << "Not-Unique: " << tempReligion.getNonUniqueMechanics();*/
+		religionReforms.push_back(tempReligion);
 	}
-	LOG(LogLevel::Debug) << "Religion Reform Size: " << religionReforms.size();
+
+	// And now for all the unreformed religions
+	for (auto religion: reformedReligionMapper.getReligionEntries())
+	{
+		bool tester = false;
+		for (auto reform: religionReforms)
+		{
+			if (religion.first == reform.getName() || !reform.getName().find("religion_") || !religion.first.find("religion_")) 
+			{
+				tester = true;
+				break;
+			}
+		}
+		if (!tester)
+			unreformationList.insert(religion.first);
+	}
+
+	for (auto unreformed: unreformationList)
+	{
+		mappers::ReformedReligionMapping tempUnreligion;
+
+		tempUnreligion.setName(unreformed);
+		tempUnreligion.setIconNumber(reformedReligionMapper.getReligionEntries().find(unreformed)->second.getIconNumber());
+		tempUnreligion.setColor(reformedReligionMapper.getReligionEntries().find(unreformed)->second.getColor());
+		tempUnreligion.setCountryModifiers(reformedReligionMapper.getReligionEntries().find(unreformed)->second.getCountryModifiers());
+		tempUnreligion.setProvinceModifiers(reformedReligionMapper.getReligionEntries().find(unreformed)->second.getProvinceModifiers());
+		tempUnreligion.setSecondary(reformedReligionMapper.getReligionEntries().find(unreformed)->second.getSecondary());
+		tempUnreligion.setUniqueMechanics(reformedReligionMapper.getReligionEntries().find(unreformed)->second.getUniqueMechanics());
+		tempUnreligion.setNonUniqueMechanics(reformedReligionMapper.getReligionEntries().find(unreformed)->second.getNonUniqueMechanics());
+		tempUnreligion.setHereticStrings(reformedReligionMapper.getReligionEntries().find(unreformed)->second.getHereticStrings());
+
+		unreligionReforms.push_back(tempUnreligion);
+	}
 }

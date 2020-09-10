@@ -16,7 +16,7 @@ class ReformedReligionMapping: commonItems::parser
 	std::string getName() { return name; }
 	void setName(std::string mod) { name = mod; }
 	short getIconNumber() { return iconNumber; }
-	void setIconNumber(short mod) { iconNumber = mod; }
+	void setIconNumber(int mod) { iconNumber = mod; }
 	std::string getColor() { return color; }
 	void setColor(std::string mod) { color = mod; }
 
@@ -26,6 +26,9 @@ class ReformedReligionMapping: commonItems::parser
 	std::string getProvinceModifiers() { return provinceModifiers; }
 	void setProvinceModifiers(std::string mod) { provinceModifiers = mod; }
 	void addProvinceModifiers(std::string mod);
+	std::string getSecondary() { return secondary; }
+	void setSecondary(std::string mod) { secondary = mod; }
+	void addSecondary(std::string mod);
 	std::string getUniqueMechanics() { return uniqueMechanics; }
 	void setUniqueMechanics(std::string mod) { uniqueMechanics = mod; }
 	std::string getNonUniqueMechanics() { return nonUniqueMechanics; }
@@ -39,11 +42,12 @@ class ReformedReligionMapping: commonItems::parser
 	void registerKeys();
 
 	std::string name;
-	short iconNumber;
+	int iconNumber = 0;
 	std::string color;
 
 	std::string countryModifiers;
 	std::string provinceModifiers;
+	std::string secondary;
 	std::string uniqueMechanics;
 	std::string nonUniqueMechanics;
 

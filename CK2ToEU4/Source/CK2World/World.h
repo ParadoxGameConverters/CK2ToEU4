@@ -40,13 +40,13 @@ class World: commonItems::parser
 	[[nodiscard]] const auto& getVars() const { return vars; }
 	[[nodiscard]] const auto& getMods() const { return mods; }
 	[[nodiscard]] const auto& getReligionReforms() const { return religionReforms; }
+	[[nodiscard]] const auto& getUnreligionReforms() const { return unreligionReforms; }
 	[[nodiscard]] auto isInvasion() const { return invasion; }
 	[[nodiscard]] auto wasNoReformation() const { return noReformation; }
 	[[nodiscard]] auto isGreekReformation() const { return greekReformation; }
 
   private:
 	bool uncompressSave(const std::string& saveGamePath);
-	mappers::ReformedReligionMapping setReformedFeatures(std::string, std::vector<std::string>, mappers::ReformedReligionMapping);
 	void alterSunset(const Configuration& theConfiguration);
 	void verifySave(const std::string& saveGamePath);
 	void filterIndependentTitles();
@@ -103,8 +103,10 @@ class World: commonItems::parser
 	mappers::ReformedReligionMapper reformedReligionMapper;
 	std::map<std::string, std::shared_ptr<Title>> independentTitles;
 	std::map<std::string, Liege> dynamicTitles; // Reusing Liege as it has identical structure
-	std::set<mappers::ReformedReligionMapping> religionReforms;
+	std::vector<mappers::ReformedReligionMapping> religionReforms;
+	std::vector<mappers::ReformedReligionMapping> unreligionReforms;
 	std::set<std::string> reformationList;
+	std::set<std::string> unreformationList;
 };
 } // namespace CK2
 

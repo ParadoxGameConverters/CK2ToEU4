@@ -10,8 +10,6 @@ mappers::ReformedReligionMapper::ReformedReligionMapper()
 	registerKeys();
 	parseFile("configurables/reformed_religions_mappings.txt");
 	parseFile("configurables/pagan_religions.txt");
-	//parseFile("configurables/reformation/oldPagans/03_pagan_religions.txt");
-	//parseFile("configurables/reformation/oldPagans/04_replaced_religions.txt");
 	clearRegisteredKeywords();
 	LOG(LogLevel::Info) << "<> " << " Religions mapped.";
 }
