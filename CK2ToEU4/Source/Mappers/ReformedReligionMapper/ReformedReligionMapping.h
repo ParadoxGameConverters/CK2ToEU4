@@ -22,15 +22,15 @@ class ReformedReligionMapping: commonItems::parser
 
 	std::string getCountryModifiers() { return countryModifiers; }
 	void setCountryModifiers(std::string mod) { countryModifiers = mod; }
-	void addCountryModifiers(std::string mod) { countryModifiers = countryModifiers + "\n" + mod; }
+	void addCountryModifiers(std::string mod);
 	std::string getProvinceModifiers() { return provinceModifiers; }
 	void setProvinceModifiers(std::string mod) { provinceModifiers = mod; }
-	void addProvinceModifiers(std::string mod) { provinceModifiers + "\n" + mod; }
+	void addProvinceModifiers(std::string mod);
 	std::string getUniqueMechanics() { return uniqueMechanics; }
 	void setUniqueMechanics(std::string mod) { uniqueMechanics = mod; }
 	std::string getNonUniqueMechanics() { return nonUniqueMechanics; }
 	void setNonUniqueMechanics(std::string mod) { nonUniqueMechanics = mod; }
-	void addNonUniqueMechanics(std::string mod) { nonUniqueMechanics + "\n" + mod; }
+	void addNonUniqueMechanics(std::string mod);
 
 	std::string getHereticStrings() { return hereticStrings; }
 	void setHereticStrings(std::string mod) { hereticStrings = mod; }

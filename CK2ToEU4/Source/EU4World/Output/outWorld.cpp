@@ -461,7 +461,7 @@ void EU4::World::outputReformedReligions(const Configuration& theConfiguration, 
 
 	else
 	{
-		std::ofstream reformedReligions("../configurables/reformation/old pagans/06_custom_reformed_religions.txt");
+		std::ofstream reformedReligions("../configurables/reformation/dynamicPagans/06_custom_reformed_religions.txt");
 		if (!reformedReligions.is_open())
 			throw std::runtime_error("Could not create custom reformed religions file!");
 

@@ -15,10 +15,17 @@
 #		 #For not unique mechanics such as "declare_war_in_regency = yes"
 #	}
 
+#Try to keep bonuses the same number, the converter checks to see if a bonus is repeated, but it checks the number
+#as well. So having two "tolerance_own = 1" is fine since only one will stay. However, if you have "tolerance_own = 1"
+#AND "tolerance_own  = 2", the religion will end up with both.
+
 ### NATURES
 
 religion_peaceful = {
-	country = { }
+	country = {
+		tolerance_heathen = 2
+		tolerance_heretic = 1
+	}
 	province = { }
 	unique_modifiers = 
 	{
@@ -47,12 +54,23 @@ religion_defensive = {
 	not_unique_modifiers =  { }
 }
 
+religion_proselytizing = {
+	country = {
+		global_missionary_strength = 0.02
+		tolerance_heathen = -1
+	}
+	province = { }
+	not_unique_modifiers =  { }
+}
+
 religion_dogmatic = {
 	country = {
 		tolerance_heretic = -1
 		tolerance_heathen = -2
 	}
-	province = { }
+	province = { 
+		local_missionary_strength = -0.02
+	}
 	unique_modifiers =  { 
 		fervor = yes
 	}
@@ -60,8 +78,13 @@ religion_dogmatic = {
 }
 
 religion_cosmopolitan = {
-	country = { }
-	province = { }
+	country = {
+		tolerance_heathen = 1
+		tolerance_heretic = 2
+	}
+	province = {
+		local_missionary_strength = 0.02
+	}
 	unique_modifiers = {
 		uses_harmony = yes
 	}
@@ -190,13 +213,12 @@ religion_astrology = {
 }
 	
 religion_ritual_sacrifice = {
-	country = { }
+	country = { 
+		land_morale = 0.1
+	}
 	province = { }
 	unique_modifiers = { }
-	not_unique_modifiers = 
-	{	
-		may_recruit_female_generals = yes
-	}
+	not_unique_modifiers = 	{ }
 }
 	
 religion_adventuring = {
@@ -213,6 +235,8 @@ religion_seafaring = {
 		naval_morale = 0.1
 	}
 	province = { }
+	unique_modifiers = { }
+	not_unique_modifiers =  { }
 }
 	
 religion_relentless = {
@@ -255,7 +279,9 @@ religion_feature_pyramids = {
 
 ## Unique
 religion_feature_norse = {
-	country = {	}
+	country = {
+		naval_morale = 0.1
+	}
 	province = { }
 	unique_modifiers = {
 		personal_deity = yes
@@ -264,7 +290,7 @@ religion_feature_norse = {
 }
 
 religion_feature_tengri = {
-	country = {	}
+	country = { }
 	province = { }
 	unique_modifiers = {
 		can_have_secondary_religion = yes
@@ -277,9 +303,7 @@ religion_feature_baltic = {
 	province = {
 		local_missionary_strength = -0.02
 	}
-	unique_modifiers = { 
-		personal_deity = yes
-	}
+	unique_modifiers = { }
 	not_unique_modifiers =  { }
 }
 

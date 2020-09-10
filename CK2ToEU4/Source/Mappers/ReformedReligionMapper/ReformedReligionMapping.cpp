@@ -5,9 +5,8 @@
 
 mappers::ReformedReligionMapping::ReformedReligionMapping(std::istream& theStream)
 {
-	LOG(LogLevel::Debug) << "This is theStream: " << theStream.rdbuf();
-	//registerKeys();
-	//parseStream(theStream);	
+	registerKeys();
+	parseStream(theStream);	
 	clearRegisteredKeywords();
 }
 
@@ -17,9 +16,8 @@ void mappers::ReformedReligionMapping::registerKeys()
 		commonItems::singleInt icon(theStream);
 		iconNumber = icon.getInt();
 	});
-	registerKeyword("color", [this](const std::string& unused, std::istream& theStream) {
-		commonItems::singleString colors(theStream);
-		color = colors.getString();
+	registerKeyword("color", [this](const std::string& mods, std::istream& theStream) {
+		color = commonItems::singleItem(mods, theStream);
 	});
 	registerKeyword("country", [this](const std::string& mods, std::istream& theStream) {
 		countryModifiers = commonItems::singleItem(mods, theStream);
@@ -37,4 +35,20 @@ void mappers::ReformedReligionMapping::registerKeys()
 		hereticStrings = commonItems::singleItem(mods, theStream);
 	});
 	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
+}
+
+void mappers::ReformedReligionMapping::addCountryModifiers(std::string mod)
+{
+	if (countryModifiers.find(mod) == std::string::npos && mod.length() > 0) // Prevents duplicates/extra spaces
+		countryModifiers = countryModifiers + "\n" + mod;
+}
+void mappers::ReformedReligionMapping::addProvinceModifiers(std::string mod)
+{
+	if (provinceModifiers.find(mod) == std::string::npos && mod.length() > 0) // Prevents duplicates/extra spaces
+		provinceModifiers = provinceModifiers + "\n" + mod;
+}
+void mappers::ReformedReligionMapping::addNonUniqueMechanics(std::string mod)
+{
+	if (nonUniqueMechanics.find(mod) == std::string::npos && mod.length() > 0) // Prevents duplicates/extra spaces
+		nonUniqueMechanics = nonUniqueMechanics + "\n" + mod;
 }
