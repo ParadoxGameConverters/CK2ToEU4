@@ -1254,11 +1254,7 @@ void CK2::World::reformedFeatures()
 	// reformedReligionMapper.getReligionEntries();
 	// Gets Map < CK2 Feature Configurable, ReformedReligionMapping Class >
 
-	
-
-	LOG(LogLevel::Debug) << "ReformedList Size: " << reformationList.size();
-
-	// Unique Reforms
+	// Unique Reforms (Only the unique reforms that have unique modifiers such as "uses_karma")
 	std::set<std::string> unique = {"religion_feature_norse", "religion_feature_tengri", "religion_feature_west_african", "religion_feature_bon", "religion_feature_hellenic"};
 
 	if (!reformationList.empty())
@@ -1320,4 +1316,6 @@ void CK2::World::reformedFeatures()
 
 		unreligionReforms.push_back(tempUnreligion);
 	}
+
+	LOG(LogLevel::Info) << "<> " << reformationList.size() << " religion(s) reformed in CK2.";
 }

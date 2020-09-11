@@ -470,13 +470,15 @@ void EU4::World::outputReformedReligions(const Configuration& theConfiguration, 
 		unReformedReligions << "pagan = {\n\t";
 		for (auto unreligion: unreligionReforms)
 		{
-			unReformedReligions << unreligion.getName() << " = {\n"
-									  << "\t\ticon = " << unreligion.getIconNumber() << "\n"
-									  << "\t\tcolor = { " << unreligion.getColor() << " }\n"
-									  << "\t\tcountry = {\n\t\t\t" << unreligion.getCountryModifiers() << "\n}\n"
-									  << "\t\tprovince = {\n\t\t\t" << unreligion.getProvinceModifiers() << "\n}\n\t\t" << unreligion.getUniqueMechanics() << "\n\t\t"
-									  << unreligion.getNonUniqueMechanics() << "\n"
-									  << "\t\theretic = { " << unreligion.getHereticStrings() << " }\n\t";
+			unReformedReligions << unreligion.getName() << " = {\n" <<
+									  "\t\ticon = " << unreligion.getIconNumber() << "\n" <<
+									  "\t\tcolor = { " << unreligion.getColor() << " }\n" <<
+									  "\t\tcountry = {\n\t\t\t" << unreligion.getCountryModifiers() << "\n\t\t}\n" <<
+									  "\t\tprovince = {\n\t\t\t" << unreligion.getProvinceModifiers() << "\n\t\t}\n\t\t" <<
+									  "\t\tcountry_as_secondary = {\n\t\t\t" << unreligion.getSecondary() << "\n\t\t}\n\t\t" <<
+									  unreligion.getUniqueMechanics() << "\n\t\t" <<
+									  unreligion.getNonUniqueMechanics() << "\n" <<
+									  "\t\theretic = { " << unreligion.getHereticStrings() << " }\n\t}\n\t";
 		}
 		unReformedReligions << "\n}";
 		unReformedReligions.close();
@@ -491,11 +493,12 @@ void EU4::World::outputReformedReligions(const Configuration& theConfiguration, 
 			reformedReligions << religion.getName() << " = {\n" <<
 									"\t\ticon = " << religion.getIconNumber() << "\n" << 
 									"\t\tcolor = { " << religion.getColor() << " }\n" <<
-									"\t\tcountry = {\n\t\t\t" << religion.getCountryModifiers() << "\n}\n" <<
-									"\t\tprovince = {\n\t\t\t" << religion.getProvinceModifiers() << "\n}\n\t\t" <<
+									"\t\tcountry = {\n\t\t\t" << religion.getCountryModifiers() << "\n\t\t}\n" <<
+									"\t\tprovince = {\n\t\t\t" << religion.getProvinceModifiers() << "\n\t\t}\n\t\t" <<
+									"\t\tcountry_as_secondary = {\n\t\t\t" << religion.getSecondary() << "\n\t\t}\n\t\t" <<
 									religion.getUniqueMechanics() <<  "\n\t\t" <<
 									religion.getNonUniqueMechanics() << "\n" <<
-									"\t\theretic = { " << religion.getHereticStrings() << " }\n\t";
+									"\t\theretic = { " << religion.getHereticStrings() << " }\n\t}\n\t";
 		}
 		reformedReligions << "\n}";
 		reformedReligions.close();

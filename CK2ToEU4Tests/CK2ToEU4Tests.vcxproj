@@ -350,6 +350,8 @@
     <ClCompile Include="MapperTests\TitleTagMapper\TitleTagMapperTests.cpp" />
     <ClCompile Include="MapperTests\TitleTagMapper\TitleTagMappingTests.cpp" />
     <ClCompile Include="MapperTests\VersionParser\VersionParserTests.cpp" />
+    <ClCompile Include="MapperTests\ReformedReligionMapper\ReformedReligionMapperTests.cpp" />
+    <ClCompile Include="MapperTests\ReformedReligionMapper\ReformedReligionMappingTests.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

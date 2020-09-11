@@ -515,6 +515,12 @@
     <ClCompile Include="..\commonItems\Color.cpp">
       <Filter>ConverterFiles\commonItems</Filter>
     </ClCompile>
+    <ClCompile Include="MapperTests\ReformedReligionMapper\ReformedReligionMapperTests.cpp">
+      <Filter>MapperTests\ReformedReligionMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="MapperTests\ReformedReligionMapper\ReformedReligionMappingTests.cpp">
+      <Filter>MapperTests\ReformedReligionMapper</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4WorldTests">
@@ -696,6 +702,9 @@
     </Filter>
     <Filter Include="MapperTests\DevWeightsMapper">
       <UniqueIdentifier>{2750d4bb-3f35-4f1e-b213-6924e7f7d597}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MapperTests\ReformedReligionMapper">
+      <UniqueIdentifier>{b7c3c639-2894-4bcc-99c2-37a08023c266}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

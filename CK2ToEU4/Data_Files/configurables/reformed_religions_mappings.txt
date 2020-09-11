@@ -283,6 +283,9 @@ religion_feature_norse = {
 }
 
 religion_feature_tengri = {
+	country = {
+		cav_to_inf_ratio = 0.25
+	}
 	country_as_secondary = {
 		loot_amount = 0.2
 	}
