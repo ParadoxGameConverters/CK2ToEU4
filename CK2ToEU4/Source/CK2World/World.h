@@ -10,6 +10,7 @@
 #include "Characters/Characters.h"
 #include "Date.h"
 #include "Dynasties/Dynasties.h"
+#include "Flags/Flags.h"
 #include "Mods/Mods.h"
 #include "Offmaps/Offmaps.h"
 #include "Provinces/Province.h"
@@ -94,6 +95,7 @@ class World: commonItems::parser
 	Offmaps offmaps;
 	Mods mods;
 	Diplomacy diplomacy;
+	Flags flags;
 	Vars vars;
 	Religions religions;
 	mappers::ShatterEmpiresMapper shatterEmpiresMapper;

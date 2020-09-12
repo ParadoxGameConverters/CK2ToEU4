@@ -34,42 +34,11 @@ CK2::World::World(const Configuration& theConfiguration)
 		startDate = date(startDateString.getString());
 	});
 	registerKeyword("flags", [this](const std::string& unused, std::istream& theStream) {
-		// We're not interested in flags. We're here for a couple of specific things only.
-		const auto flagsItem = commonItems::singleItem(unused, theStream);
-		if (flagsItem.find("aztec_explorers") != std::string::npos)
-		{
-			// Ho boy.
-			invasion = true;
-			LOG(LogLevel::Info) << "oO Invasion detected. We're in for a ride!";
-		}		
-
-		// Pagan Reformation?
-		if (flagsItem.find("aztec_reformation") != std::string::npos)
-			reformationList.insert("aztec_reformed");
-		if (flagsItem.find("baltic_reformation") != std::string::npos)
-			reformationList.insert("baltic_pagan_reformed");
-		if (flagsItem.find("bon_reformation") != std::string::npos)
-			reformationList.insert("bon_reformed");
-		if (flagsItem.find("finnish_reformation") != std::string::npos)
-			reformationList.insert("finnish_pagan_reformed");
-		if (flagsItem.find("hellenic_reformation") != std::string::npos)
-		{
-			reformationList.insert("hellenic_pagan_reformed");
-			if (flagsItem.find("flag_hellenic_greek_reformation") != std::string::npos)
-				greekReformation = true;
-		}
-		if (flagsItem.find("norse_reformation") != std::string::npos)
-			reformationList.insert("norse_pagan_reformed");
-		if (flagsItem.find("slavic_reformation") != std::string::npos)
-			reformationList.insert("slavic_pagan_reformed");
-		if (flagsItem.find("tengri_reformation") != std::string::npos)
-			reformationList.insert("tengri_pagan_reformed");
-		if (flagsItem.find("west_african_reformation") != std::string::npos)
-			reformationList.insert("west_african_pagan_reformed");
-		if (flagsItem.find("zun_reformation") != std::string::npos)
-			reformationList.insert("zun_pagan_reformed");
-		
-
+		LOG(LogLevel::Info) << "-> Loading Flags";
+		flags = Flags(unused, theStream);
+		LOG(LogLevel::Info) << ">> Loaded Global Flags.";
+		invasion = flags.getInvasion();				 // Sunset Invasion
+		reformationList = flags.checkReformation(); // Reformed Pagans
 	});
 	registerKeyword("version", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleString versionString(theStream);

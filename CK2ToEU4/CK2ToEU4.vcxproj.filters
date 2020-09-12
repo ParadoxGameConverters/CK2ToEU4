@@ -255,6 +255,9 @@
     <ClCompile Include="Source\Mappers\ReformedReligionMapper\ReformedReligionMapping.cpp">
       <Filter>Mappers\ReformedReligionMapper</Filter>
     </ClCompile>
+    <ClCompile Include="Source\CK2World\Flags\Flags.cpp">
+      <Filter>CK2World\Flags</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CK2ToEU4Converter.h" />
@@ -504,6 +507,9 @@
     <ClInclude Include="Source\Mappers\ReformedReligionMapper\ReformedReligionMapping.h">
       <Filter>Mappers\ReformedReligionMapper</Filter>
     </ClInclude>
+    <ClInclude Include="Source\CK2World\Flags\Flags.h">
+      <Filter>CK2World\Flags</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4World">
@@ -613,6 +619,9 @@
     </Filter>
     <Filter Include="Mappers\ReformedReligionMapper">
       <UniqueIdentifier>{5a9695ef-9ce8-4ed0-82e4-bbae625ed87e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CK2World\Flags">
+      <UniqueIdentifier>{e8be8f25-f2f2-4765-a672-a5f652424e90}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
