@@ -2,7 +2,7 @@
 #include "ParserHelpers.h"
 
 
-CK2::Religion::Religion(std::istream& theStream, std::string theFeatures)
+CK2::Religion::Religion(std::istream& theStream, const std::string theFeatures)
 {
 	registerKeys();
 	parseStream(theStream);
