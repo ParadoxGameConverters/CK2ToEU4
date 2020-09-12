@@ -193,6 +193,8 @@
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Relations\Relation.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Relations\Relations.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Relations\Tributary.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Religions\Religion.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Religions\Religions.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Titles\Liege.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Titles\Title.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Titles\Titles.cpp" />
@@ -320,6 +322,8 @@
     <ClCompile Include="CK2WorldTests\Relations\RelationsTests.cpp" />
     <ClCompile Include="CK2WorldTests\Relations\RelationTests.cpp" />
     <ClCompile Include="CK2WorldTests\Relations\TributaryTests.cpp" />
+    <ClCompile Include="CK2WorldTests\Religions\ReligionsTests.cpp" />
+    <ClCompile Include="CK2WorldTests\Religions\ReligionTests.cpp" />
     <ClCompile Include="CK2WorldTests\Titles\LiegeTests.cpp" />
     <ClCompile Include="CK2WorldTests\Titles\TitlesTests.cpp" />
     <ClCompile Include="CK2WorldTests\Titles\TitleTests.cpp" />

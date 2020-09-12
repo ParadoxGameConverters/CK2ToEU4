@@ -10,7 +10,7 @@ namespace CK2
 	class Religion: commonItems::parser
 	{
 	  public:
-		Religion(std::istream& theStream, const std::string& theFeatures);
+		Religion(std::istream& theStream);
 		[[nodiscard]] const auto& getFeatures() const { return features; }
 
 	  private:
