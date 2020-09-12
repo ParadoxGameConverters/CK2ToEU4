@@ -215,6 +215,8 @@
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\ProvinceMapper\ProvinceMappingsVersion.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\ProvinceTitleMapper\ProvinceTitleGrabber.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\ProvinceTitleMapper\ProvinceTitleMapper.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\ReformedReligionMapper\ReformedReligionMapper.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\ReformedReligionMapper\ReformedReligionMapping.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\RegionMapper\Area.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\RegionMapper\Region.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\RegionMapper\RegionMapper.cpp" />

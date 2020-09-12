@@ -35,3 +35,13 @@ TEST(Mappers_ReformedReligionMapperTests, doesItIgnoreComments)
 	ASSERT_EQ(0, test);
 }
 
+TEST(Mappers_ReformedReligionMapperTests, doesItGetTheRightName)
+{
+	std::stringstream input;
+	input << "a_religion_reformed = {\n}";
+
+	mappers::ReformedReligionMapper theMapper(input);
+
+	const auto& test = theMapper.getReligionEntries().find("a_religion_reformed")->second.getName();
+	ASSERT_EQ("a_religion_reformed", test);
+}

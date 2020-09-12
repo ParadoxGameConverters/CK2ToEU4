@@ -521,6 +521,12 @@
     <ClCompile Include="MapperTests\ReformedReligionMapper\ReformedReligionMappingTests.cpp">
       <Filter>MapperTests\ReformedReligionMapper</Filter>
     </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\ReformedReligionMapper\ReformedReligionMapper.cpp">
+      <Filter>ConverterFiles\Mappers\ReformedReligionMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\ReformedReligionMapper\ReformedReligionMapping.cpp">
+      <Filter>ConverterFiles\Mappers\ReformedReligionMapper</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4WorldTests">
@@ -705,6 +711,9 @@
     </Filter>
     <Filter Include="MapperTests\ReformedReligionMapper">
       <UniqueIdentifier>{b7c3c639-2894-4bcc-99c2-37a08023c266}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ConverterFiles\Mappers\ReformedReligionMapper">
+      <UniqueIdentifier>{bc618096-9e02-47b4-899d-57ba95c3d03f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
