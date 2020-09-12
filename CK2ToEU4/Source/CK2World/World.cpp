@@ -35,8 +35,8 @@ CK2::World::World(const Configuration& theConfiguration)
 	});
 	registerKeyword("flags", [this](const std::string& unused, std::istream& theStream) {
 		LOG(LogLevel::Info) << "-> Loading Flags";
-		flags = Flags(unused, theStream);
-		LOG(LogLevel::Info) << ">> Loaded Global Flags.";
+		flags = Flags(theStream);
+		LOG(LogLevel::Info) << ">> Loaded " << flags.getFlags().size() << " Global Flags.";
 		invasion = flags.getInvasion();				 // Sunset Invasion
 		reformationList = flags.checkReformation(); // Reformed Pagans
 	});

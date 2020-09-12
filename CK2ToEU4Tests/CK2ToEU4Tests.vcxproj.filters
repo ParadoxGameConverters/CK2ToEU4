@@ -539,6 +539,12 @@
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Religions\Religions.cpp">
       <Filter>ConverterFiles\CK2World\Religions</Filter>
     </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Flags\Flags.cpp">
+      <Filter>ConverterFiles\CK2World\Flags</Filter>
+    </ClCompile>
+    <ClCompile Include="CK2WorldTests\Flags\FlagsTests.cpp">
+      <Filter>CK2WorldTests\Flags</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4WorldTests">
@@ -732,6 +738,12 @@
     </Filter>
     <Filter Include="ConverterFiles\CK2World\Religions">
       <UniqueIdentifier>{431d1a8a-58c4-4b5f-9b2d-a11dacfe178b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CK2WorldTests\Flags">
+      <UniqueIdentifier>{aa58ab20-dba7-4fb7-aa01-ea150eb1786a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ConverterFiles\CK2World\Flags">
+      <UniqueIdentifier>{f5da847b-a34b-4c1d-a211-65aa708821b7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

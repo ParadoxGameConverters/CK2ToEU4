@@ -182,6 +182,7 @@
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Dynasties\CoatOfArms.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Dynasties\Dynasties.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Dynasties\Dynasty.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Flags\Flags.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Mods\Mod.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Mods\Mods.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Offmaps\Offmap.cpp" />
@@ -313,6 +314,7 @@
     <ClCompile Include="CK2WorldTests\Dynasties\CoatOfArmsTests.cpp" />
     <ClCompile Include="CK2WorldTests\Dynasties\DynastiesTests.cpp" />
     <ClCompile Include="CK2WorldTests\Dynasties\DynastyTests.cpp" />
+    <ClCompile Include="CK2WorldTests\Flags\FlagsTests.cpp" />
     <ClCompile Include="CK2WorldTests\Offmaps\OffmapsTests.cpp" />
     <ClCompile Include="CK2WorldTests\Offmaps\OffmapTests.cpp" />
     <ClCompile Include="CK2WorldTests\Provinces\BaronyTests.cpp" />

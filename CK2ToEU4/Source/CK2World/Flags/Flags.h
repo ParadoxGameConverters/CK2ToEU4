@@ -10,19 +10,32 @@ namespace CK2
 	{
 	  public:
 		Flags() = default;
-		explicit Flags(std::string unused, std::istream& theStream);
+		explicit Flags(std::istream& theStream);
 
 		[[nodiscard]] const auto& getFlags() const { return flags; }
 		std::set<std::string> checkReformation();
 		bool getInvasion();
 		bool isGreek() { return greekReformation; }
 
+		bool aztecReformation() { return flags.count("aztec_reformation"); }
+		bool balticReformation() { return flags.count("baltic_reformation"); }
+		bool bonReformation() { return flags.count("bon_reformation"); }
+		bool finnishReformation() { return flags.count("finnish_reformation"); }
+		bool hellenicReformation() { return flags.count("hellenic_reformation"); }
+		bool norseReformation() { return flags.count("norse_reformation"); }
+		bool slavicReformation() { return flags.count("slavic_reformation"); }
+		bool tengriReformation() { return flags.count("tengri_reformation"); }
+		bool africanReformation() { return flags.count("west_african_reformation"); }
+		bool zunReformation() { return flags.count("zun_reformation"); }
+
 	  private:
-		void registerKeys(std::string unused, std::istream& theStream);
+		void registerKeys();
+
+		bool wasGreek() { return flags.count("flag_hellenic_greek_reformation"); }
 
 		bool greekReformation = false;
 		bool sunsetInvasion = false;
-		std::string flags;
+		std::set<std::string> flags;
 	};
 
 } // namespace CK2

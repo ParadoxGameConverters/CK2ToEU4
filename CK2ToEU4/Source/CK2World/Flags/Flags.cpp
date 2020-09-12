@@ -3,46 +3,48 @@
 #include "Log.h"
 
 
-CK2::Flags::Flags(std::string unused, std::istream& theStream)
+CK2::Flags::Flags(std::istream& theStream)
 {
-	registerKeys(unused, theStream);
+	registerKeys();
 	parseStream(theStream);
 	clearRegisteredKeywords();
 }
 
-void CK2::Flags::registerKeys(std::string unused, std::istream& theStream)
+void CK2::Flags::registerKeys()
 {
-	flags = commonItems::singleItem(unused, theStream);
-	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
+	registerRegex(commonItems::catchallRegex, [this](const std::string& flagname, std::istream& theStream) {
+		flags.insert(flagname);
+		commonItems::ignoreItem(flagname, theStream);
+	});
 }
 
 std::set<std::string> CK2::Flags::checkReformation()
 {
 	std::set<std::string> reformationList;
 	// Pagan Reformation?
-	if (flags.find("aztec_reformation") != std::string::npos)
+	if (aztecReformation())
 		reformationList.insert("aztec_reformed");
-	if (flags.find("baltic_reformation") != std::string::npos)
+	if (balticReformation())
 		reformationList.insert("baltic_pagan_reformed");
-	if (flags.find("bon_reformation") != std::string::npos)
+	if (bonReformation())
 		reformationList.insert("bon_reformed");
-	if (flags.find("finnish_reformation") != std::string::npos)
+	if (finnishReformation())
 		reformationList.insert("finnish_pagan_reformed");
-	if (flags.find("hellenic_reformation") != std::string::npos)
+	if (hellenicReformation())
 	{
 		reformationList.insert("hellenic_pagan_reformed");
-		if (flags.find("flag_hellenic_greek_reformation") != std::string::npos)
+		if (wasGreek())
 			greekReformation = true;
 	}
-	if (flags.find("norse_reformation") != std::string::npos)
+	if (norseReformation())
 		reformationList.insert("norse_pagan_reformed");
-	if (flags.find("slavic_reformation") != std::string::npos)
+	if (slavicReformation())
 		reformationList.insert("slavic_pagan_reformed");
-	if (flags.find("tengri_reformation") != std::string::npos)
+	if (tengriReformation())
 		reformationList.insert("tengri_pagan_reformed");
-	if (flags.find("west_african_reformation") != std::string::npos)
+	if (africanReformation())
 		reformationList.insert("west_african_pagan_reformed");
-	if (flags.find("zun_reformation") != std::string::npos)
+	if (zunReformation())
 		reformationList.insert("zun_pagan_reformed");
 
 	return reformationList;
@@ -50,7 +52,7 @@ std::set<std::string> CK2::Flags::checkReformation()
 
 bool CK2::Flags::getInvasion()
 {
-	if (flags.find("aztec_explorers") != std::string::npos)
+	if (flags.count("aztec_explorers"))
 	{
 		sunsetInvasion = true;
 		LOG(LogLevel::Info) << "oO Invasion detected. We're in for a ride!";
