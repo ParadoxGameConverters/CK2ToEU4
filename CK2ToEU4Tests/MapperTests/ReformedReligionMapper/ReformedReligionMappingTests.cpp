@@ -13,21 +13,11 @@ TEST(Mappers_ReformedReligionMappingTests, doesItGetTheRightIconNumber)
 	ASSERT_EQ(1, test);
 }
 
-TEST(Mappers_ReformedReligionMappingTests, doesItGetTheRightColors)
-{
-	std::stringstream input;
-	input << "color = { 3 33 333 }\n}";
-
-	mappers::ReformedReligionMapping theMapper(input);
-
-	const auto& test = theMapper.getColor();
-	ASSERT_EQ("3 33 333 ", test);
-}
-
 TEST(Mappers_ReformedReligionMappingTests, doesItGetTheRightCountryModifiers)
 {
 	std::stringstream input;
-	input << "country = {\ncountry_power = 9001\ncountry_weakness = 0}\n}";
+	input << "country = {\ncountry_power = 9001\n";
+	input << "country_weakness = 0}\n}";
 
 	mappers::ReformedReligionMapping theMapper(input);
 
@@ -38,7 +28,8 @@ TEST(Mappers_ReformedReligionMappingTests, doesItGetTheRightCountryModifiers)
 TEST(Mappers_ReformedReligionMappingTests, doesItGetTheRightProvinceModifiers)
 {
 	std::stringstream input;
-	input << "province = {\nprovince_size = big\nprovince_strength = weak}\n}";
+	input << "province = {\nprovince_size = big\n";
+	input << "province_strength = weak}\n}";
 
 	mappers::ReformedReligionMapping theMapper(input);
 
@@ -49,7 +40,8 @@ TEST(Mappers_ReformedReligionMappingTests, doesItGetTheRightProvinceModifiers)
 TEST(Mappers_ReformedReligionMappingTests, doesItGetSecondary)
 {
 	std::stringstream input;
-	input << "country_as_secondary = {\nmingplosion_power = 100\n}\n}";
+	input << "country_as_secondary = {\n";
+	input << "mingplosion_power = 100\n}\n}";
 
 	mappers::ReformedReligionMapping theMapper(input);
 
@@ -60,7 +52,8 @@ TEST(Mappers_ReformedReligionMappingTests, doesItGetSecondary)
 TEST(Mappers_ReformedReligionMappingTests, doesItGetUnique)
 {
 	std::stringstream input;
-	input << "unique_modifiers = {\nisUlm = yes\n}\n}";
+	input << "unique_modifiers = {\n";
+	input << "isUlm = yes\n}\n}";
 
 	mappers::ReformedReligionMapping theMapper(input);
 
@@ -71,7 +64,9 @@ TEST(Mappers_ReformedReligionMappingTests, doesItGetUnique)
 TEST(Mappers_ReformedReligionMappingTests, doesItGetNonUnique)
 {
 	std::stringstream input;
-	input << "not_unique_modifiers = {\ncan_raid_self = yes\ncan_ignore_treaties = yes\n}\n}";
+	input << "not_unique_modifiers = {\n";
+	input << "can_raid_self = yes\n";
+	input << "can_ignore_treaties = yes\n}\n}";
 
 	mappers::ReformedReligionMapping theMapper(input);
 

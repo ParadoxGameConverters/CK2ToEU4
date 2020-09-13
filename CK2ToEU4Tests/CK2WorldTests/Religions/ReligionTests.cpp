@@ -14,3 +14,15 @@ TEST(CK2World_ReligionTests, doesItCatchFeatures)
 
 	ASSERT_EQ(tester, test);
 }
+
+TEST(CK2World_ReligionTests, doesItCatchNoFeatures)
+{
+	std::stringstream input;
+
+	CK2::Religion theMapper(input);
+	const auto& test = theMapper.getFeatures();
+
+	std::vector<std::string> tester;
+
+	ASSERT_EQ(tester, test);
+}

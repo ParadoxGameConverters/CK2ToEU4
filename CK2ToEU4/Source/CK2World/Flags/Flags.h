@@ -5,7 +5,6 @@
 
 namespace CK2
 {
-	class Flags;
 	class Flags: commonItems::parser
 	{
 	  public:
@@ -13,8 +12,8 @@ namespace CK2
 		explicit Flags(std::istream& theStream);
 
 		[[nodiscard]] const auto& getFlags() const { return flags; }
-		std::set<std::string> checkReformation();
-		bool getInvasion();
+		[[nodiscard]] std::set<std::string> fillReformationList();
+		bool getInvasion() { return flags.count("aztec_explorers"); }
 		bool isGreek() { return greekReformation; }
 
 		bool aztecReformation() { return flags.count("aztec_reformation"); }
@@ -34,7 +33,6 @@ namespace CK2
 		bool wasGreek() { return flags.count("flag_hellenic_greek_reformation"); }
 
 		bool greekReformation = false;
-		bool sunsetInvasion = false;
 		std::set<std::string> flags;
 	};
 

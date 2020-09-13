@@ -1,6 +1,7 @@
 #ifndef REFORMED_RELIGION_MAPPING
 #define REFORMED_RELIGION_MAPPING
 #include "Parser.h"
+#include "Color.h"
 #include <set>
 
 
@@ -17,8 +18,8 @@ class ReformedReligionMapping: commonItems::parser
 	void setName(std::string mod) { name = mod; }
 	short getIconNumber() { return iconNumber; }
 	void setIconNumber(int mod) { iconNumber = mod; }
-	std::string getColor() { return color; }
-	void setColor(std::string mod) { color = mod; }
+	std::optional<commonItems::Color> getColor() { return color; }
+	void setColor(std::optional<commonItems::Color> mod) { color = mod; }
 
 	std::string getCountryModifiers() { return countryModifiers; }
 	void setCountryModifiers(std::string mod) { countryModifiers = mod; }
@@ -43,7 +44,7 @@ class ReformedReligionMapping: commonItems::parser
 
 	std::string name;
 	int iconNumber = 0;
-	std::string color;
+	std::optional<commonItems::Color> color;
 
 	std::string countryModifiers;
 	std::string provinceModifiers;

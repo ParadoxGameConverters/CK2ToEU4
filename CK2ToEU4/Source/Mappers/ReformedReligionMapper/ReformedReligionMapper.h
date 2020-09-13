@@ -9,7 +9,7 @@ class ReformedReligionMapper: commonItems::parser
 {
   public:
 	ReformedReligionMapper();
-	explicit ReformedReligionMapper(std::istream& theStream);							 // testing
+	explicit ReformedReligionMapper(std::istream& theStream);
 
 	std::map<std::string, ReformedReligionMapping> getReligionEntries() { return religionEntries; };
 

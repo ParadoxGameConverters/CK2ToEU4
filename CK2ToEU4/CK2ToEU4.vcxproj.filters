@@ -258,6 +258,9 @@
     <ClCompile Include="Source\CK2World\Flags\Flags.cpp">
       <Filter>CK2World\Flags</Filter>
     </ClCompile>
+    <ClCompile Include="Source\EU4World\Output\outReligion.cpp">
+      <Filter>EU4World\Output</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CK2ToEU4Converter.h" />
@@ -509,6 +512,9 @@
     </ClInclude>
     <ClInclude Include="Source\CK2World\Flags\Flags.h">
       <Filter>CK2World\Flags</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\EU4World\Output\outReligion.h">
+      <Filter>EU4World\Output</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

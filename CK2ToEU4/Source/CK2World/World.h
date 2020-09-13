@@ -43,7 +43,7 @@ class World: commonItems::parser
 	[[nodiscard]] const auto& getReligionReforms() const { return religionReforms; }
 	[[nodiscard]] const auto& getUnreligionReforms() const { return unreligionReforms; }
 	[[nodiscard]] auto isInvasion() const { return invasion; }
-	[[nodiscard]] auto wasNoReformation() const { return noReformation; }
+	[[nodiscard]] auto wasNoReformation() const { return wereNoReformations; }
 	[[nodiscard]] auto isGreekReformation() const { return greekReformation; }
 
   private:
@@ -62,7 +62,7 @@ class World: commonItems::parser
 	void splitVassals(const Configuration& theConfiguration);
 	void gatherCourtierNames();
 	void determineHeirs();
-	void reformedFeatures();
+	void createReformedFeatures();
 	void resolvePrimogeniture(const std::string& genderLaw, const std::pair<int, std::shared_ptr<Character>>& holder) const;
 	void resolveUltimogeniture(const std::string& genderLaw, const std::pair<int, std::shared_ptr<Character>>& holder) const;
 	void resolveTanistry(const std::string& genderLaw, const std::pair<int, std::shared_ptr<Character>>& holder) const;
@@ -73,7 +73,7 @@ class World: commonItems::parser
 	void loadProvinces(const Configuration& theConfiguration);
 
 	bool invasion = false;	
-	bool noReformation = true;
+	bool wereNoReformations = true;
 	bool greekReformation = false;
 	date endDate = date("1444.11.11");
 	date startDate = date("1.1.1");

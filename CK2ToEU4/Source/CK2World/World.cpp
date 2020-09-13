@@ -37,8 +37,10 @@ CK2::World::World(const Configuration& theConfiguration)
 		LOG(LogLevel::Info) << "-> Loading Flags";
 		flags = Flags(theStream);
 		LOG(LogLevel::Info) << ">> Loaded " << flags.getFlags().size() << " Global Flags.";
-		invasion = flags.getInvasion();				 // Sunset Invasion
-		reformationList = flags.checkReformation(); // Reformed Pagans
+		invasion = flags.getInvasion();					// Sunset Invasion
+		reformationList = flags.fillReformationList(); // Reformed Pagans
+		if (flags.hellenicReformation())
+			greekReformation = flags.isGreek();		// Were Hellenes Greek or Roman?
 	});
 	registerKeyword("version", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleString versionString(theStream);
@@ -185,7 +187,7 @@ CK2::World::World(const Configuration& theConfiguration)
 	Log(LogLevel::Progress) << "30 %";
 
 	LOG(LogLevel::Info) << "-- Creating Reformed Religions";
-	reformedFeatures();
+	createReformedFeatures();
 	Log(LogLevel::Progress) << "31 %";
 
 	// Filter top-tier active titles and assign them provinces.
@@ -1215,24 +1217,19 @@ void CK2::World::filterProvincelessTitles()
 	Log(LogLevel::Info) << "<> " << counter << " empty titles dropped, " << independentTitles.size() << " remain.";
 }
 
-void CK2::World::reformedFeatures()
+void CK2::World::createReformedFeatures()
 {
-	// religions.getReformedReligion();
-	// Gets Map < CK2 RELIGION, CK2 FEATURES LIST >
-
-	// reformedReligionMapper.getReligionEntries();
-	// Gets Map < CK2 Feature Configurable, ReformedReligionMapping Class >
 
 	// Unique Reforms (Only the unique reforms that have unique modifiers such as "uses_karma")
 	std::set<std::string> unique = {"religion_feature_norse", "religion_feature_tengri", "religion_feature_west_african", "religion_feature_bon", "religion_feature_hellenic"};
 
 	if (!reformationList.empty())
 	{
-		noReformation = false;
+		wereNoReformations = false;
 	}
 
 	// All Reformed Religions
-	for (auto reformation: reformationList)
+	for (const auto& reformation: reformationList)
 	{
 		mappers::ReformedReligionMapping tempReligion;
 
@@ -1254,7 +1251,7 @@ void CK2::World::reformedFeatures()
 	}
 
 	// And now for all the unreformed religions
-	for (auto religion: reformedReligionMapper.getReligionEntries())
+	for (const auto& religion: reformedReligionMapper.getReligionEntries())
 	{
 		bool tester = false;
 		for (auto reform: religionReforms)

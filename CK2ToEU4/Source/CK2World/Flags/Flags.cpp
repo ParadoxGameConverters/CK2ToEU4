@@ -18,7 +18,7 @@ void CK2::Flags::registerKeys()
 	});
 }
 
-std::set<std::string> CK2::Flags::checkReformation()
+std::set<std::string> CK2::Flags::fillReformationList()
 {
 	std::set<std::string> reformationList;
 	// Pagan Reformation?
@@ -48,14 +48,4 @@ std::set<std::string> CK2::Flags::checkReformation()
 		reformationList.insert("zun_pagan_reformed");
 
 	return reformationList;
-}
-
-bool CK2::Flags::getInvasion()
-{
-	if (flags.count("aztec_explorers"))
-	{
-		sunsetInvasion = true;
-		LOG(LogLevel::Info) << "oO Invasion detected. We're in for a ride!";
-	}		
-	return sunsetInvasion;
 }

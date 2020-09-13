@@ -16,5 +16,4 @@ void CK2::Religions::registerKeys()
 		auto newReligion = Religion(theStream);
 		reformedReligions.emplace(std::pair(religionName, newReligion.getFeatures()));
 	});
-	registerRegex("[A-Za-z0-9\\_:.-]+", commonItems::ignoreItem);
 }

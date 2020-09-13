@@ -58,7 +58,7 @@ class World
 	void setElectors();
 	void setFreeCities();
 	void outputDiplomacy(const Configuration& theConfiguration, const std::vector<std::shared_ptr<Agreement>>& agreements, bool invasion) const;
-	void outputReformedReligions(const Configuration& theConfiguration, bool noReformation, std::vector<mappers::ReformedReligionMapping>, std::vector<mappers::ReformedReligionMapping>) const;
+	void outputReformedReligions(const Configuration& theConfiguration, bool noReformation, const std::vector<mappers::ReformedReligionMapping>&, const std::vector<mappers::ReformedReligionMapping>&) const;
 	void resolvePersonalUnions();
 	void importAdvisers();
 	void outputAdvisers(const Configuration& theConfiguration) const;
