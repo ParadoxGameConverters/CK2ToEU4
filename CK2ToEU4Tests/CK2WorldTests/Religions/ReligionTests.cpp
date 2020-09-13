@@ -5,7 +5,9 @@
 TEST(CK2World_ReligionTests, doesItCatchFeatures)
 {
 	std::stringstream input;
-	input << "features = {\nfeature_1 feature_2 feature_3\n}";
+	input << "features = {\n";
+	input << "feature_1 feature_2 feature_3\n";
+	input << "}";
 
 	CK2::Religion theMapper(input);
 

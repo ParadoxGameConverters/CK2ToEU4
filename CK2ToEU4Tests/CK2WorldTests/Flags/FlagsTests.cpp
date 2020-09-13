@@ -29,3 +29,32 @@ TEST(CK2World_FlagsTests, doesItCatchNothing)
 
 	ASSERT_EQ(tester, test);
 }
+
+TEST(CK2World_FlagsTests, doesItFillNothing)
+{
+	std::stringstream input;
+
+	CK2::Flags theMapper(input);
+
+	const auto& test = theMapper.fillReformationList();
+
+	std::set<std::string> tester;
+
+	ASSERT_EQ(tester, test);
+}
+
+TEST(CK2World_FlagsTests, doesItFillThings)
+{
+	std::stringstream input;
+	input << "zun_reformation=769.1.12\n";
+	input << "bon_reformation = 769.1.19\n";
+	input << "west_african_reformation = 769.1.23";
+
+	CK2::Flags theMapper(input);
+
+	const auto& test = theMapper.fillReformationList();
+
+	std::set<std::string> tester = { "zun_pagan_reformed", "bon_reformed", "west_african_pagan_reformed" };
+
+	ASSERT_EQ(tester, test);
+}

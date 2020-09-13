@@ -2,6 +2,19 @@
 #include "gtest/gtest.h"
 #include <sstream>
 
+TEST(CK2World_ReligionsTests, doesItCatchNoReligions)
+{
+	std::stringstream input;
+
+	CK2::Religions theMapper(input);
+
+	auto test = theMapper.getReformedReligion();
+
+	std::map<std::string, std::vector<std::string>> tester;
+
+	ASSERT_EQ(tester, test);
+}
+
 TEST(CK2World_ReligionsTests, doesItCatchReligionName)
 {
 	std::stringstream input;
@@ -16,33 +29,13 @@ TEST(CK2World_ReligionsTests, doesItCatchReligionName)
 TEST(CK2World_ReligionsTests, doesItCatchReligionsName)
 {
 	std::stringstream input;
-	input << "test_reformed={\nlife is meaningless\n}";
-	input << "test_atheism={\nwait_what\n}";
-	input << "test_illuminati={\nwinner_is_us\n}";
+	input << "test_reformed={}\n";
+	input << "test_atheism={}\n";
+	input << "test_illuminati={}";
 
 	CK2::Religions theMapper(input);
 
-	const auto& tester = theMapper.getReformedReligion();
+	const auto test = theMapper.getReformedReligion();
 
-	std::string test;
-
-	for (auto tempTester: tester)
-	{
-		test += tempTester.first;
-	}
-
-	ASSERT_EQ("test_reformed test_atheism test_illuminati", test);
-}
-
-TEST(CK2World_ReligionsTests, doesItCatchNoReligions)
-{
-	std::stringstream input;
-
-	CK2::Religions theMapper(input);
-
-	auto test = theMapper.getReformedReligion();
-
-	std::map<std::string, std::vector<std::string>> tester;
-
-	ASSERT_EQ(tester, test);
+	ASSERT_EQ(3, test.size());
 }

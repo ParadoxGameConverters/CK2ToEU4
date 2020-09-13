@@ -10,8 +10,9 @@ namespace EU4
 {
 	class outReligion
 	{
-	  public:
-		outReligion(const Configuration& theConfiguration, std::vector<mappers::ReformedReligionMapping> unreligionReforms, std::vector<mappers::ReformedReligionMapping> religionReforms);
+		public:
+			outReligion(const Configuration& theConfiguration, std::vector<mappers::ReformedReligionMapping> unreligionReforms, std::vector<mappers::ReformedReligionMapping> religionReforms);
+
 	};
 } // namespace EU4
 

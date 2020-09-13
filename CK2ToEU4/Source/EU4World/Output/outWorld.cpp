@@ -12,9 +12,6 @@ namespace fs = std::filesystem;
 void EU4::World::output(const mappers::VersionParser& versionParser, const Configuration& theConfiguration, const CK2::World& sourceWorld) const
 {
 	const auto invasion = sourceWorld.isInvasion();
-	const auto wasNoReformation = sourceWorld.wasNoReformation();
-	const auto religionReforms = sourceWorld.getReligionReforms();
-	const auto unreligionReforms = sourceWorld.getUnreligionReforms();
 	const date conversionDate = sourceWorld.getConversionDate();
 	LOG(LogLevel::Info) << "<- Creating Output Folder";
 
@@ -102,7 +99,7 @@ void EU4::World::output(const mappers::VersionParser& versionParser, const Confi
 	Log(LogLevel::Progress) << "95 %";
 
 	LOG(LogLevel::Info) << "<- Writing Any Pagan Reformations";
-	outputReformedReligions(theConfiguration, wasNoReformation, unreligionReforms, religionReforms);
+	outputReformedReligions(theConfiguration, sourceWorld.wasNoReformation(), sourceWorld.getUnreligionReforms(), sourceWorld.getReligionReforms());
 	Log(LogLevel::Progress) << "96 %";
 }
 

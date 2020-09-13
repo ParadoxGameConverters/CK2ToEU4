@@ -37,10 +37,6 @@ CK2::World::World(const Configuration& theConfiguration)
 		LOG(LogLevel::Info) << "-> Loading Flags";
 		flags = Flags(theStream);
 		LOG(LogLevel::Info) << ">> Loaded " << flags.getFlags().size() << " Global Flags.";
-		invasion = flags.getInvasion();					// Sunset Invasion
-		reformationList = flags.fillReformationList(); // Reformed Pagans
-		if (flags.hellenicReformation())
-			greekReformation = flags.isGreek();		// Were Hellenes Greek or Roman?
 	});
 	registerKeyword("version", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleString versionString(theStream);
@@ -135,6 +131,12 @@ CK2::World::World(const Configuration& theConfiguration)
 	LOG(LogLevel::Info) << ">> Loaded " << dynamicTitles.size() << " dynamic titles.";
 	LOG(LogLevel::Info) << "-> Importing Province Titles";
 	loadProvinces(theConfiguration);
+	Log(LogLevel::Progress) << "11 %";
+	LOG(LogLevel::Info) << "-> Setting Flags";
+	invasion = flags.getInvasion();					  // Sunset Invasion
+	reformationList = flags.fillReformationList(); // Reformed Pagans
+	if (flags.hellenicReformation())
+		greekReformation = flags.isGreek(); // Were Hellenes Greek or Roman?	
 	Log(LogLevel::Progress) << "12 %";
 
 	LOG(LogLevel::Info) << "*** Building World ***";
@@ -185,7 +187,6 @@ CK2::World::World(const Configuration& theConfiguration)
 	LOG(LogLevel::Info) << "-- Linking The Celestial Emperor";
 	linkCelestialEmperor();
 	Log(LogLevel::Progress) << "30 %";
-
 	LOG(LogLevel::Info) << "-- Creating Reformed Religions";
 	createReformedFeatures();
 	Log(LogLevel::Progress) << "31 %";

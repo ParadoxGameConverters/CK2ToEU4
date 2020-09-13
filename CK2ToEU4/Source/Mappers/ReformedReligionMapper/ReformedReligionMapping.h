@@ -14,29 +14,29 @@ class ReformedReligionMapping: commonItems::parser
 	ReformedReligionMapping() = default;
 	ReformedReligionMapping(std::istream& theStream);
 
-	std::string getName() { return name; }
+	[[nodiscard]] const auto& getName() { return name; }
 	void setName(std::string mod) { name = mod; }
-	short getIconNumber() { return iconNumber; }
+	[[nodiscard]] short getIconNumber() { return iconNumber; }
 	void setIconNumber(int mod) { iconNumber = mod; }
-	std::optional<commonItems::Color> getColor() { return color; }
+	[[nodiscard]] std::optional<commonItems::Color> getColor() { return color; }
 	void setColor(std::optional<commonItems::Color> mod) { color = mod; }
 
-	std::string getCountryModifiers() { return countryModifiers; }
+	[[nodiscard]] const auto& getCountryModifiers() { return countryModifiers; }
 	void setCountryModifiers(std::string mod) { countryModifiers = mod; }
 	void addCountryModifiers(std::string mod);
-	std::string getProvinceModifiers() { return provinceModifiers; }
+	[[nodiscard]] const auto& getProvinceModifiers() { return provinceModifiers; }
 	void setProvinceModifiers(std::string mod) { provinceModifiers = mod; }
 	void addProvinceModifiers(std::string mod);
-	std::string getSecondary() { return secondary; }
+	[[nodiscard]] const auto& getSecondary() { return secondary; }
 	void setSecondary(std::string mod) { secondary = mod; }
 	void addSecondary(std::string mod);
-	std::string getUniqueMechanics() { return uniqueMechanics; }
+	[[nodiscard]] const auto& getUniqueMechanics() { return uniqueMechanics; }
 	void setUniqueMechanics(std::string mod) { uniqueMechanics = mod; }
-	std::string getNonUniqueMechanics() { return nonUniqueMechanics; }
+	[[nodiscard]] const auto& getNonUniqueMechanics() { return nonUniqueMechanics; }
 	void setNonUniqueMechanics(std::string mod) { nonUniqueMechanics = mod; }
 	void addNonUniqueMechanics(std::string mod);
 
-	std::string getHereticStrings() { return hereticStrings; }
+	[[nodiscard]] const auto& getHereticStrings() { return hereticStrings; }
 	void setHereticStrings(std::string mod) { hereticStrings = mod; }
 
   private:
