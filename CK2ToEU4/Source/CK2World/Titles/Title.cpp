@@ -18,7 +18,7 @@ void CK2::Title::registerKeys()
 		holder = std::pair(holderInt.getInt(), nullptr);
 	});
 	registerKeyword("color", [this](const std::string& unused, std::istream& theStream) {
-		color = commonItems::Color::Factory::getColor(theStream);
+		color = commonItems::Color::Factory{}.getColor(theStream);
 	});
 	registerKeyword("law", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleString lawStr(theStream);

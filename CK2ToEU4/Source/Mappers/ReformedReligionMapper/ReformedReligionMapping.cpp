@@ -16,7 +16,8 @@ void mappers::ReformedReligionMapping::registerKeys()
 		commonItems::singleInt icon(theStream);
 		iconNumber = icon.getInt();
 	});
-	registerKeyword("color", [this](const std::string& mods, std::istream& theStream) {
+	registerKeyword("color", [this](const std::string& unused, std::istream& theStream) {
+		
 		color = commonItems::Color::Factory().getColor(theStream);
 	});
 	registerKeyword("country", [this](const std::string& mods, std::istream& theStream) {

@@ -13,7 +13,7 @@ EU4::outReligion::outReligion(const Configuration& theConfiguration, std::vector
 	{
 		unReformedReligions << unreligion.getName() << " = {\n"
 								  << "\t\ticon = " << unreligion.getIconNumber() << "\n"
-								  << "\t\tcolor " << *unreligion.getColor() << " }\n"
+								  << "\t\tcolor " << *unreligion.getColor() << "\n"
 								  << "\t\tcountry = {\n\t\t\t" << unreligion.getCountryModifiers() << "\n\t\t}\n"
 								  << "\t\tprovince = {\n\t\t\t" << unreligion.getProvinceModifiers() << "\n\t\t}\n\t\t"
 								  << "\t\tcountry_as_secondary = {\n\t\t\t" << unreligion.getSecondary() << "\n\t\t}\n\t\t" << unreligion.getUniqueMechanics()
@@ -32,7 +32,7 @@ EU4::outReligion::outReligion(const Configuration& theConfiguration, std::vector
 	{
 		reformedReligions << religion.getName() << " = {\n"
 								<< "\t\ticon = " << religion.getIconNumber() << "\n"
-								<< "\t\tcolor " << *religion.getColor() << " }\n"
+								<< "\t\tcolor " << *religion.getColor() << "\n"
 								<< "\t\tcountry = {\n\t\t\t" << religion.getCountryModifiers() << "\n\t\t}\n"
 								<< "\t\tprovince = {\n\t\t\t" << religion.getProvinceModifiers() << "\n\t\t}\n\t\t"
 								<< "\t\tcountry_as_secondary = {\n\t\t\t" << religion.getSecondary() << "\n\t\t}\n\t\t" << religion.getUniqueMechanics() << "\n\t\t"
