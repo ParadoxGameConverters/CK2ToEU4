@@ -24,7 +24,6 @@ mappers::ReformedReligionMapper::ReformedReligionMapper(std::istream& theStream)
 void mappers::ReformedReligionMapper::registerKeys()
 {
 	registerRegex(commonItems::catchallRegex, [this](const std::string& doctrine, std::istream& theStream) {
-		LOG(LogLevel::Debug) << "doctrine/religion: " << doctrine;
 		ReformedReligionMapping newMapping(theStream);
 		newMapping.setName(doctrine);
 		religionEntries.insert(std::pair(doctrine, newMapping));
