@@ -44,7 +44,7 @@ void EU4::CountryDetails::registerKeys()
 		color = commonItems::Color::Factory{}.getColor(theStream);
 	});
 	registerKeyword("revolutionary_colors", [this](const std::string& unused, std::istream& theStream) {
-		revolutionaryColor = color = commonItems::Color::Factory{}.getColor(theStream);
+		revolutionaryColor = commonItems::Color::Factory{}.getColor(theStream);
 	});
 	registerKeyword("historical_idea_groups", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::stringList ideaList(theStream);
