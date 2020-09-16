@@ -182,6 +182,7 @@
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Dynasties\CoatOfArms.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Dynasties\Dynasties.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Dynasties\Dynasty.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Flags\Flags.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Mods\Mod.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Mods\Mods.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Offmaps\Offmap.cpp" />
@@ -193,6 +194,8 @@
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Relations\Relation.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Relations\Relations.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Relations\Tributary.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Religions\Religion.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Religions\Religions.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Titles\Liege.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Titles\Title.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Titles\Titles.cpp" />
@@ -215,6 +218,8 @@
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\ProvinceMapper\ProvinceMappingsVersion.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\ProvinceTitleMapper\ProvinceTitleGrabber.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\ProvinceTitleMapper\ProvinceTitleMapper.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\ReformedReligionMapper\ReformedReligionMapper.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\ReformedReligionMapper\ReformedReligionMapping.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\RegionMapper\Area.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\RegionMapper\Region.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\RegionMapper\RegionMapper.cpp" />
@@ -309,6 +314,7 @@
     <ClCompile Include="CK2WorldTests\Dynasties\CoatOfArmsTests.cpp" />
     <ClCompile Include="CK2WorldTests\Dynasties\DynastiesTests.cpp" />
     <ClCompile Include="CK2WorldTests\Dynasties\DynastyTests.cpp" />
+    <ClCompile Include="CK2WorldTests\Flags\FlagsTests.cpp" />
     <ClCompile Include="CK2WorldTests\Offmaps\OffmapsTests.cpp" />
     <ClCompile Include="CK2WorldTests\Offmaps\OffmapTests.cpp" />
     <ClCompile Include="CK2WorldTests\Provinces\BaronyTests.cpp" />
@@ -318,6 +324,8 @@
     <ClCompile Include="CK2WorldTests\Relations\RelationsTests.cpp" />
     <ClCompile Include="CK2WorldTests\Relations\RelationTests.cpp" />
     <ClCompile Include="CK2WorldTests\Relations\TributaryTests.cpp" />
+    <ClCompile Include="CK2WorldTests\Religions\ReligionsTests.cpp" />
+    <ClCompile Include="CK2WorldTests\Religions\ReligionTests.cpp" />
     <ClCompile Include="CK2WorldTests\Titles\LiegeTests.cpp" />
     <ClCompile Include="CK2WorldTests\Titles\TitlesTests.cpp" />
     <ClCompile Include="CK2WorldTests\Titles\TitleTests.cpp" />
@@ -350,6 +358,8 @@
     <ClCompile Include="MapperTests\TitleTagMapper\TitleTagMapperTests.cpp" />
     <ClCompile Include="MapperTests\TitleTagMapper\TitleTagMappingTests.cpp" />
     <ClCompile Include="MapperTests\VersionParser\VersionParserTests.cpp" />
+    <ClCompile Include="MapperTests\ReformedReligionMapper\ReformedReligionMapperTests.cpp" />
+    <ClCompile Include="MapperTests\ReformedReligionMapper\ReformedReligionMappingTests.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
