@@ -344,6 +344,7 @@
     <ClCompile Include="Source\CK2World\Dynasties\CoatOfArms.cpp" />
     <ClCompile Include="Source\CK2World\Dynasties\Dynasties.cpp" />
     <ClCompile Include="Source\CK2World\Dynasties\Dynasty.cpp" />
+    <ClCompile Include="Source\CK2World\Flags\Flags.cpp" />
     <ClCompile Include="Source\CK2World\Mods\Mod.cpp" />
     <ClCompile Include="Source\CK2World\Mods\Mods.cpp" />
     <ClCompile Include="Source\CK2World\Offmaps\Offmap.cpp" />
@@ -355,6 +356,8 @@
     <ClCompile Include="Source\CK2World\Relations\Relation.cpp" />
     <ClCompile Include="Source\CK2World\Relations\Relations.cpp" />
     <ClCompile Include="Source\CK2World\Relations\Tributary.cpp" />
+    <ClCompile Include="Source\CK2World\Religions\Religion.cpp" />
+    <ClCompile Include="Source\CK2World\Religions\Religions.cpp" />
     <ClCompile Include="Source\CK2World\Titles\Liege.cpp" />
     <ClCompile Include="Source\CK2World\Titles\Title.cpp" />
     <ClCompile Include="Source\CK2World\Titles\Titles.cpp" />
@@ -374,6 +377,7 @@
     <ClCompile Include="Source\EU4World\Output\outCountry.cpp" />
     <ClCompile Include="Source\EU4World\Output\outModFile.cpp" />
     <ClCompile Include="Source\EU4World\Output\outProvince.cpp" />
+    <ClCompile Include="Source\EU4World\Output\outReligion.cpp" />
     <ClCompile Include="Source\EU4World\Output\outVersion.cpp" />
     <ClCompile Include="Source\EU4World\Output\outWorld.cpp" />
     <ClCompile Include="Source\EU4World\Province\EU4Province.cpp" />
@@ -397,6 +401,8 @@
     <ClCompile Include="Source\Mappers\ProvinceMapper\ProvinceMappingsVersion.cpp" />
     <ClCompile Include="Source\Mappers\ProvinceTitleMapper\ProvinceTitleGrabber.cpp" />
     <ClCompile Include="Source\Mappers\ProvinceTitleMapper\ProvinceTitleMapper.cpp" />
+    <ClCompile Include="Source\Mappers\ReformedReligionMapper\ReformedReligionMapper.cpp" />
+    <ClCompile Include="Source\Mappers\ReformedReligionMapper\ReformedReligionMapping.cpp" />
     <ClCompile Include="Source\Mappers\RegionMapper\Area.cpp" />
     <ClCompile Include="Source\Mappers\RegionMapper\Region.cpp" />
     <ClCompile Include="Source\Mappers\RegionMapper\RegionMapper.cpp" />
@@ -427,6 +433,7 @@
     <ClInclude Include="Source\CK2World\Dynasties\CoatOfArms.h" />
     <ClInclude Include="Source\CK2World\Dynasties\Dynasties.h" />
     <ClInclude Include="Source\CK2World\Dynasties\Dynasty.h" />
+    <ClInclude Include="Source\CK2World\Flags\Flags.h" />
     <ClInclude Include="Source\CK2World\Mods\Mod.h" />
     <ClInclude Include="Source\CK2World\Mods\Mods.h" />
     <ClInclude Include="Source\CK2World\Offmaps\Offmap.h" />
@@ -438,6 +445,8 @@
     <ClInclude Include="Source\CK2World\Relations\Relation.h" />
     <ClInclude Include="Source\CK2World\Relations\Relations.h" />
     <ClInclude Include="Source\CK2World\Relations\Tributary.h" />
+    <ClInclude Include="Source\CK2World\Religions\Religion.h" />
+    <ClInclude Include="Source\CK2World\Religions\Religions.h" />
     <ClInclude Include="Source\CK2World\Titles\Liege.h" />
     <ClInclude Include="Source\CK2World\Titles\Title.h" />
     <ClInclude Include="Source\CK2World\Titles\Titles.h" />
@@ -457,6 +466,7 @@
     <ClInclude Include="Source\EU4World\Output\outProvince.h" />
     <ClInclude Include="Source\EU4World\Output\outCountry.h" />
     <ClInclude Include="Source\EU4World\Output\outModFile.h" />
+    <ClInclude Include="Source\EU4World\Output\outReligion.h" />
     <ClInclude Include="Source\EU4World\Output\outVersion.h" />
     <ClInclude Include="Source\EU4World\Province\EU4Province.h" />
     <ClInclude Include="Source\EU4World\Province\ProvinceDetails.h" />
@@ -478,6 +488,8 @@
     <ClInclude Include="Source\Mappers\ProvinceMapper\ProvinceMappingsVersion.h" />
     <ClInclude Include="Source\Mappers\ProvinceTitleMapper\ProvinceTitleGrabber.h" />
     <ClInclude Include="Source\Mappers\ProvinceTitleMapper\ProvinceTitleMapper.h" />
+    <ClInclude Include="Source\Mappers\ReformedReligionMapper\ReformedReligionMapper.h" />
+    <ClInclude Include="Source\Mappers\ReformedReligionMapper\ReformedReligionMapping.h" />
     <ClInclude Include="Source\Mappers\RegionMapper\Area.h" />
     <ClInclude Include="Source\Mappers\RegionMapper\Region.h" />
     <ClInclude Include="Source\Mappers\RegionMapper\RegionMapper.h" />

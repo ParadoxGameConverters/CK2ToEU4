@@ -11,10 +11,12 @@
 #include "ParserHelpers.h"
 #include "Titles/Liege.h"
 #include "Titles/Title.h"
+#include "Religions/Religions.h"
 #include <ZipFile.h>
 #include <cmath>
 #include <filesystem>
 #include <fstream>
+
 
 namespace fs = std::filesystem;
 
@@ -32,16 +34,9 @@ CK2::World::World(const Configuration& theConfiguration)
 		startDate = date(startDateString.getString());
 	});
 	registerKeyword("flags", [this](const std::string& unused, std::istream& theStream) {
-		// We're not interested in flags. We're here for a couple of specific things only.
-		const auto flagsItem = commonItems::singleItem(unused, theStream);
-		if (flagsItem.find("aztec_explorers") != std::string::npos)
-		{
-			// Ho boy.
-			invasion = true;
-			LOG(LogLevel::Info) << "oO Invasion detected. We're in for a ride!";
-		}
-		if (flagsItem.find("flag_hellenic_greek_reformation") != std::string::npos)
-			greekReformation = true;
+		LOG(LogLevel::Info) << "-> Loading Flags";
+		flags = Flags(theStream);
+		LOG(LogLevel::Info) << ">> Loaded " << flags.getFlags().size() << " Global Flags.";
 	});
 	registerKeyword("version", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleString versionString(theStream);
@@ -62,6 +57,11 @@ CK2::World::World(const Configuration& theConfiguration)
 		LOG(LogLevel::Info) << "-> Loading Titles";
 		titles = Titles(theStream);
 		LOG(LogLevel::Info) << ">> Loaded " << titles.getTitles().size() << " titles.";
+	});
+	registerKeyword("religion", [this](const std::string& unused, std::istream& theStream) {
+		LOG(LogLevel::Info) << "-> Loading Religions";
+		religions = Religions(theStream);
+		LOG(LogLevel::Info) << ">> Loaded " << religions.getReformedReligion().size() << " Reformed Religions.";		
 	});
 	registerKeyword("dynasties", [this](const std::string& unused, std::istream& theStream) {
 		LOG(LogLevel::Info) << "-> Loading Dynasties";
@@ -131,6 +131,12 @@ CK2::World::World(const Configuration& theConfiguration)
 	LOG(LogLevel::Info) << ">> Loaded " << dynamicTitles.size() << " dynamic titles.";
 	LOG(LogLevel::Info) << "-> Importing Province Titles";
 	loadProvinces(theConfiguration);
+	Log(LogLevel::Progress) << "11 %";
+	LOG(LogLevel::Info) << "-> Setting Flags";
+	invasion = flags.getInvasion();					  // Sunset Invasion
+	reformationList = flags.fillReformationList(); // Reformed Pagans
+	if (flags.hellenicReformation())
+		greekReformation = flags.isGreek(); // Were Hellenes Greek or Roman?	
 	Log(LogLevel::Progress) << "12 %";
 
 	LOG(LogLevel::Info) << "*** Building World ***";
@@ -181,8 +187,12 @@ CK2::World::World(const Configuration& theConfiguration)
 	LOG(LogLevel::Info) << "-- Linking The Celestial Emperor";
 	linkCelestialEmperor();
 	Log(LogLevel::Progress) << "30 %";
+	LOG(LogLevel::Info) << "-- Creating Reformed Religions";
+	createReformedFeatures();
+	Log(LogLevel::Progress) << "31 %";
 
 	// Filter top-tier active titles and assign them provinces.
+
 	LOG(LogLevel::Info) << "-- Merging Independent Baronies";
 	mergeIndependentBaronies();
 	Log(LogLevel::Progress) << "32 %";
@@ -1206,4 +1216,73 @@ void CK2::World::filterProvincelessTitles()
 		counter++;
 	}
 	Log(LogLevel::Info) << "<> " << counter << " empty titles dropped, " << independentTitles.size() << " remain.";
+}
+
+void CK2::World::createReformedFeatures()
+{
+
+	// Unique Reforms (Only the unique reforms that have unique modifiers such as "uses_karma")
+	std::set<std::string> unique = {"religion_feature_norse", "religion_feature_tengri", "religion_feature_west_african", "religion_feature_bon", "religion_feature_hellenic"};
+
+	if (!reformationList.empty())
+	{
+		wereNoReformations = false;
+	}
+
+	// All Reformed Religions
+	for (const auto& reformation: reformationList)
+	{
+		mappers::ReformedReligionMapping tempReligion;
+
+		tempReligion.setName(reformation);
+		tempReligion.setIconNumber(reformedReligionMapper.getReligionEntries().find(reformation)->second.getIconNumber());
+		tempReligion.setColor(reformedReligionMapper.getReligionEntries().find(reformation)->second.getColor());
+		for (auto tempReform: religions.getReformedReligion().find(reformation)->second)
+		{
+			tempReligion.addCountryModifiers(reformedReligionMapper.getReligionEntries().find(tempReform)->second.getCountryModifiers());
+			tempReligion.addProvinceModifiers(reformedReligionMapper.getReligionEntries().find(tempReform)->second.getProvinceModifiers());
+			tempReligion.addSecondary(reformedReligionMapper.getReligionEntries().find(tempReform)->second.getSecondary());
+			if (unique.count(tempReform) || tempReligion.getUniqueMechanics().length() == 0) // Ensures that unique Mechanics get in
+				tempReligion.setUniqueMechanics(reformedReligionMapper.getReligionEntries().find(tempReform)->second.getUniqueMechanics());
+			tempReligion.addNonUniqueMechanics(reformedReligionMapper.getReligionEntries().find(tempReform)->second.getNonUniqueMechanics());
+		}
+		tempReligion.setHereticStrings(reformedReligionMapper.getReligionEntries().find(reformation)->second.getHereticStrings());
+
+		religionReforms.push_back(tempReligion);
+	}
+
+	// And now for all the unreformed religions
+	for (const auto& religion: reformedReligionMapper.getReligionEntries())
+	{
+		bool tester = false;
+		for (auto reform: religionReforms)
+		{
+			if (religion.first == reform.getName() || !reform.getName().find("religion_") || !religion.first.find("religion_")) 
+			{
+				tester = true;
+				break;
+			}
+		}
+		if (!tester)
+			unreformationList.insert(religion.first);
+	}
+
+	for (auto unreformed: unreformationList)
+	{
+		mappers::ReformedReligionMapping tempUnreligion;
+
+		tempUnreligion.setName(unreformed);
+		tempUnreligion.setIconNumber(reformedReligionMapper.getReligionEntries().find(unreformed)->second.getIconNumber());
+		tempUnreligion.setColor(reformedReligionMapper.getReligionEntries().find(unreformed)->second.getColor());
+		tempUnreligion.setCountryModifiers(reformedReligionMapper.getReligionEntries().find(unreformed)->second.getCountryModifiers());
+		tempUnreligion.setProvinceModifiers(reformedReligionMapper.getReligionEntries().find(unreformed)->second.getProvinceModifiers());
+		tempUnreligion.setSecondary(reformedReligionMapper.getReligionEntries().find(unreformed)->second.getSecondary());
+		tempUnreligion.setUniqueMechanics(reformedReligionMapper.getReligionEntries().find(unreformed)->second.getUniqueMechanics());
+		tempUnreligion.setNonUniqueMechanics(reformedReligionMapper.getReligionEntries().find(unreformed)->second.getNonUniqueMechanics());
+		tempUnreligion.setHereticStrings(reformedReligionMapper.getReligionEntries().find(unreformed)->second.getHereticStrings());
+
+		unreligionReforms.push_back(tempUnreligion);
+	}
+
+	LOG(LogLevel::Info) << "<> " << reformationList.size() << " religion(s) reformed in CK2.";
 }

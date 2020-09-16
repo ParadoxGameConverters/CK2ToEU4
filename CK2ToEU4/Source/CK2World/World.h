@@ -5,14 +5,18 @@
 #include "../Mappers/ShatterEmpiresMapper/ShatterEmpiresMapper.h"
 #include "../Mappers/PersonalityScraper/PersonalityScraper.h"
 #include "../Mappers/ProvinceTitleMapper/ProvinceTitleMapper.h"
+#include "../Mappers/ReformedReligionMapper/ReformedReligionMapper.h"
+#include "../Mappers/ReligionMapper/ReligionMapper.h"
 #include "Characters/Characters.h"
 #include "Date.h"
 #include "Dynasties/Dynasties.h"
+#include "Flags/Flags.h"
 #include "Mods/Mods.h"
 #include "Offmaps/Offmaps.h"
 #include "Provinces/Province.h"
 #include "Provinces/Provinces.h"
 #include "Relations/AllRelations.h"
+#include "Religions/Religions.h"
 #include "Titles/Liege.h"
 #include "Titles/Titles.h"
 #include "Vars/Vars.h"
@@ -36,7 +40,10 @@ class World: commonItems::parser
 	[[nodiscard]] const auto& getDiplomacy() const { return diplomacy; }
 	[[nodiscard]] const auto& getVars() const { return vars; }
 	[[nodiscard]] const auto& getMods() const { return mods; }
+	[[nodiscard]] const auto& getReligionReforms() const { return religionReforms; }
+	[[nodiscard]] const auto& getUnreligionReforms() const { return unreligionReforms; }
 	[[nodiscard]] auto isInvasion() const { return invasion; }
+	[[nodiscard]] auto wasNoReformation() const { return wereNoReformations; }
 	[[nodiscard]] auto isGreekReformation() const { return greekReformation; }
 
   private:
@@ -55,6 +62,7 @@ class World: commonItems::parser
 	void splitVassals(const Configuration& theConfiguration);
 	void gatherCourtierNames();
 	void determineHeirs();
+	void createReformedFeatures();
 	void resolvePrimogeniture(const std::string& genderLaw, const std::pair<int, std::shared_ptr<Character>>& holder) const;
 	void resolveUltimogeniture(const std::string& genderLaw, const std::pair<int, std::shared_ptr<Character>>& holder) const;
 	void resolveTanistry(const std::string& genderLaw, const std::pair<int, std::shared_ptr<Character>>& holder) const;
@@ -64,7 +72,8 @@ class World: commonItems::parser
 	void loadDynasties(const Configuration& theConfiguration);
 	void loadProvinces(const Configuration& theConfiguration);
 
-	bool invasion = false;
+	bool invasion = false;	
+	bool wereNoReformations = true;
 	bool greekReformation = false;
 	date endDate = date("1444.11.11");
 	date startDate = date("1.1.1");
@@ -86,13 +95,20 @@ class World: commonItems::parser
 	Offmaps offmaps;
 	Mods mods;
 	Diplomacy diplomacy;
+	Flags flags;
 	Vars vars;
+	Religions religions;
 	mappers::ShatterEmpiresMapper shatterEmpiresMapper;
 	mappers::IAmHreMapper iAmHreMapper;
 	mappers::PersonalityScraper personalityScraper;
 	mappers::ProvinceTitleMapper provinceTitleMapper;
+	mappers::ReformedReligionMapper reformedReligionMapper;
 	std::map<std::string, std::shared_ptr<Title>> independentTitles;
 	std::map<std::string, Liege> dynamicTitles; // Reusing Liege as it has identical structure
+	std::vector<mappers::ReformedReligionMapping> religionReforms;
+	std::vector<mappers::ReformedReligionMapping> unreligionReforms;
+	std::set<std::string> reformationList;
+	std::set<std::string> unreformationList;
 };
 } // namespace CK2
 

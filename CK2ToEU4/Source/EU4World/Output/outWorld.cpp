@@ -7,6 +7,7 @@ namespace fs = std::filesystem;
 #include "../../Configuration/Configuration.h"
 #include "OSCompatibilityLayer.h"
 #include "outCountry.h"
+#include "outReligion.h"
 
 void EU4::World::output(const mappers::VersionParser& versionParser, const Configuration& theConfiguration, const CK2::World& sourceWorld) const
 {
@@ -96,6 +97,10 @@ void EU4::World::output(const mappers::VersionParser& versionParser, const Confi
 	LOG(LogLevel::Info) << "<- Replacing Bookmark";
 	outputBookmark(theConfiguration, conversionDate);
 	Log(LogLevel::Progress) << "95 %";
+
+	LOG(LogLevel::Info) << "<- Writing Any Pagan Reformations";
+	outputReformedReligions(theConfiguration, sourceWorld.wasNoReformation(), sourceWorld.getUnreligionReforms(), sourceWorld.getReligionReforms());
+	Log(LogLevel::Progress) << "96 %";
 }
 
 void EU4::World::outputAdvisers(const Configuration& theConfiguration) const
@@ -441,5 +446,19 @@ void EU4::World::outputDiplomacy(const Configuration& theConfiguration, const st
 		// and move over our alliances.
 		Utils::TryCopyFile("configurables/sunset/history/diplomacy/SunsetInvasion.txt",
 			 "output/" + theConfiguration.getOutputName() + "/history/diplomacy/SunsetInvasion.txt");
+	}
+}
+
+void EU4::World::outputReformedReligions(const Configuration& theConfiguration,  bool noReformation, const std::vector<mappers::ReformedReligionMapping>& unreligionReforms, const std::vector<mappers::ReformedReligionMapping>& religionReforms) const
+{
+	if (noReformation)
+	{
+		auto files = Utils::GetAllFilesInFolder("configurables/reformation/oldPagans/");
+		for (const auto& file: files)
+			Utils::TryCopyFile("configurables/reformation/oldPagans/" + file, "output/" + theConfiguration.getOutputName() + "/common/religions/" + file);
+	}
+	else
+	{
+		EU4::outReligion religions(theConfiguration, unreligionReforms, religionReforms);
 	}
 }
