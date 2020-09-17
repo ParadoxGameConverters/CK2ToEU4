@@ -97,7 +97,7 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 	Log(LogLevel::Progress) << "66 %";
 
 	// With all religious/cultural matters taken care of, we can now set reforms
-	assignAllCountryReforms(sourceWorld);
+	assignAllCountryReforms();
 	Log(LogLevel::Progress) << "67 %";
 
 	// Vassalages and tributaries were also set in ck2 world but we have to transcribe those into EU4 agreements.
