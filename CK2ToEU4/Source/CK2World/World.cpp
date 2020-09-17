@@ -93,7 +93,7 @@ CK2::World::World(const Configuration& theConfiguration)
 		LOG(LogLevel::Info) << ">> Loaded " << vars.getVars().size() << " global variables.";
 	});
 
-	registerRegex("[A-Za-z0-9\\_]+", commonItems::ignoreItem);
+	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 	Log(LogLevel::Progress) << "4 %";
 
 	LOG(LogLevel::Info) << "-> Verifying CK2 save.";
@@ -928,23 +928,26 @@ void CK2::World::shatterEmpires(const Configuration& theConfiguration) const
 		return;
 	}
 
-	bool shatterKingdoms;
+	bool shatterKingdoms = true; // default
 	switch (theConfiguration.getShatterLevel())
 	{
 		case Configuration::SHATTER_LEVEL::KINGDOM:
 			shatterKingdoms = false;
 			break;
-		default:
+		case Configuration::SHATTER_LEVEL::DUTCHY:
 			shatterKingdoms = true;
+			break;
 	}
 	const auto& allTitles = titles.getTitles();
 
 	for (const auto& empire: allTitles)
 	{
+		if (hreTitle && empire.first == hreTitle->first)
+			continue; // This is HRE, wrong function for that one.
 		if (theConfiguration.getShatterEmpires() == Configuration::SHATTER_EMPIRES::CUSTOM && !shatterEmpiresMapper.isEmpireShatterable(empire.first))
 			continue; // Only considering those listed.
-		if (empire.first.find("e_") != 0 && !(empire.first.find("k_") == 0 && shatterKingdoms))
-			continue; // Not an empire and not a kingdom with kingdom shattering enabled.
+		if (empire.first.find("e_") != 0 && theConfiguration.getShatterEmpires() != Configuration::SHATTER_EMPIRES::CUSTOM)
+			continue; // Otherwise only empires.
 		if (empire.second->getVassals().empty())
 			continue; // Not relevant.
 
@@ -993,94 +996,64 @@ void CK2::World::shatterEmpires(const Configuration& theConfiguration) const
 	}
 }
 
-void CK2::World::flagHREProvinces(const Configuration& theConfiguration) const
+void CK2::World::flagHREProvinces(const Configuration& theConfiguration)
 {
-	if (theConfiguration.getHRE() == Configuration::I_AM_HRE::NONE)
-	{
-		Log(LogLevel::Info) << ">< HRE Provinces not available due to configuration disabling HRE Mechanics.";
-		return;
-	}
+	std::string hreTitleStr;
 
-	std::string hreTitle;
 	switch (theConfiguration.getHRE())
 	{
 		case Configuration::I_AM_HRE::HRE:
-			hreTitle = "e_hre";
+			hreTitleStr = "e_hre";
 			break;
 		case Configuration::I_AM_HRE::BYZANTIUM:
-			hreTitle = "e_byzantium";
+			hreTitleStr = "e_byzantium";
 			break;
 		case Configuration::I_AM_HRE::ROME:
-			hreTitle = "e_roman_empire";
+			hreTitleStr = "e_roman_empire";
 			break;
 		case Configuration::I_AM_HRE::CUSTOM:
-			hreTitle = iAmHreMapper.getHRE();
+			hreTitleStr = iAmHreMapper.getHRE();
 			break;
-		default:
-			hreTitle = "e_hre";
+		case Configuration::I_AM_HRE::NONE:
+			Log(LogLevel::Info) << ">< HRE Provinces not available due to configuration disabling HRE Mechanics.";
+			return;
 	}
 	const auto& allTitles = titles.getTitles();
-	const auto& theHre = allTitles.find(hreTitle);
+	const auto& theHre = allTitles.find(hreTitleStr);
 	if (theHre == allTitles.end())
 	{
-		Log(LogLevel::Info) << ">< HRE Provinces not available, " << hreTitle << " not found!";
+		Log(LogLevel::Info) << ">< HRE Provinces not available, " << hreTitleStr << " not found!";
 		return;
 	}
 	if (theHre->second->getVassals().empty())
 	{
-		Log(LogLevel::Info) << ">< HRE Provinces not available, " << hreTitle << " has no vassals!";
+		Log(LogLevel::Info) << ">< HRE Provinces not available, " << hreTitleStr << " has no vassals!";
 		return;
 	}
-	
+	if (!theHre->second->getHolder().first)
+	{
+		Log(LogLevel::Info) << ">< HRE Provinces not available, " << hreTitleStr << " has no holder!";
+		return;
+	}
+	// store for later.
+	hreTitle = std::make_pair(hreTitleStr, theHre->second);
+
 	const auto counter = theHre->second->flagDeJureHREProvinces();
 	Log(LogLevel::Info) << "<> " << counter << " HRE provinces flagged.";
 }
 
 void CK2::World::shatterHRE(const Configuration& theConfiguration) const
 {
-	if (theConfiguration.getHRE() == Configuration::I_AM_HRE::NONE)
-	{
-		Log(LogLevel::Info) << ">< HRE Mechanics and shattering overridden by configuration.";
+	if (!hreTitle)
 		return;
-	}
 
-	std::string hreTitle;
-	switch (theConfiguration.getHRE())
-	{
-		case Configuration::I_AM_HRE::HRE:
-			hreTitle = "e_hre";
-			break;
-		case Configuration::I_AM_HRE::BYZANTIUM:
-			hreTitle = "e_byzantium";
-			break;
-		case Configuration::I_AM_HRE::ROME:
-			hreTitle = "e_roman_empire";
-			break;
-		case Configuration::I_AM_HRE::CUSTOM:
-			hreTitle = iAmHreMapper.getHRE();
-			break;
-		default:
-			hreTitle = "e_hre";
-	}
-	const auto& allTitles = titles.getTitles();
-	const auto& theHre = allTitles.find(hreTitle);
-	if (theHre == allTitles.end())
-	{
-		Log(LogLevel::Info) << ">< HRE shattering cancelled, " << hreTitle << " not found!";
-		return;
-	}
-	if (theHre->second->getVassals().empty())
-	{
-		Log(LogLevel::Info) << ">< HRE shattering cancelled, " << hreTitle << " has no vassals!";
-		return;
-	}
-	const auto& hreHolder = theHre->second->getHolder();
+	const auto& hreHolder = hreTitle->second->getHolder();
 	bool emperorSet = false;
 
 	// First we are composing a list of all HRE members. These are duchies,
 	// so we're also ripping them from under any potential kingdoms.
 	std::map<std::string, std::shared_ptr<Title>> hreMembers;
-	for (const auto& vassal: theHre->second->getVassals())
+	for (const auto& vassal: hreTitle->second->getVassals())
 	{
 		if (vassal.first.find("d_") == 0 || vassal.first.find("c_") == 0)
 		{
@@ -1088,7 +1061,7 @@ void CK2::World::shatterHRE(const Configuration& theConfiguration) const
 		}
 		else if (vassal.first.find("k_") == 0)
 		{
-			if (vassal.second->isThePope() || vassal.second->isTheFraticelliPope() || vassal.first == "k_orthodox" ||
+			if (vassal.first == "k_papacy" || vassal.first == "k_papl_state" || vassal.first == "k_orthodox" ||
 				 theConfiguration.getShatterHRELevel() == Configuration::SHATTER_HRE_LEVEL::KINGDOM) // hard override for special HRE members
 			{
 				hreMembers.insert(std::pair(vassal.first, vassal.second));
@@ -1194,8 +1167,8 @@ void CK2::World::shatterHRE(const Configuration& theConfiguration) const
 	}
 
 	// Finally we are clearing hreTitle's vassal links, leaving it standalone.
-	theHre->second->clearVassals();
-	theHre->second->clearHolder();
+	hreTitle->second->clearVassals();
+	hreTitle->second->clearHolder();
 	Log(LogLevel::Info) << "<> " << hreMembers.size() << " HRE members released.";
 }
 

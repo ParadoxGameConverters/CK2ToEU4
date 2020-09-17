@@ -56,7 +56,7 @@ class World: commonItems::parser
 	void congregateDeJureProvinces();
 	void sanityCheckifyProvinces();
 	void shatterHRE(const Configuration& theConfiguration) const;
-	void flagHREProvinces(const Configuration& theConfiguration) const;
+	void flagHREProvinces(const Configuration& theConfiguration);
 	void shatterEmpires(const Configuration& theConfiguration) const;
 	void filterProvincelessTitles();
 	void splitVassals(const Configuration& theConfiguration);
@@ -78,6 +78,7 @@ class World: commonItems::parser
 	date endDate = date("1444.11.11");
 	date startDate = date("1.1.1");
 	GameVersion CK2Version;
+	std::optional<std::pair<std::string, std::shared_ptr<Title>>> hreTitle; // loaded by configuration option.
 
 	struct saveData
 	{

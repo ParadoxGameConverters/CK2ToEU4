@@ -106,24 +106,6 @@ std::optional<std::string> mappers::TitleTagMapper::getTagForTitle(const std::st
 	if (registerItr != registeredTitleTags.end())
 		return registerItr->second;
 
-	// Map The Pope(s)
-	if (ck2Title == "The Pope")
-	{
-		if (!usedTags.count("PAP"))
-		{
-			registerTitle(ck2Title, "PAP");
-			return "PAP";
-		}
-	}
-	else if (ck2Title == "The Fraticelli Pope")
-	{
-		if (!usedTags.count("FAP"))
-		{
-			registerTitle(ck2Title, "FAP");
-			return "FAP";
-		}
-	}
-
 	// Attempt a capital match.
 	if (eu4Capital)
 	{
