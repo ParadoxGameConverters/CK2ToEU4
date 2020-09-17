@@ -94,7 +94,7 @@ class Country
 	void correctRoyaltyToBuddhism();
 	void setMercantilism(int mercantilism) { details.mercantilism = mercantilism; }
 
-	void assignReforms(std::shared_ptr<mappers::RegionMapper> regionMapper);
+	void assignReforms(const std::shared_ptr<mappers::RegionMapper>& regionMapper);
 
 	friend std::ostream& operator<<(std::ostream& output, const Country& versionParser);
 

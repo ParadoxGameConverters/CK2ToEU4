@@ -97,7 +97,7 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 	Log(LogLevel::Progress) << "66 %";
 
 	// With all religious/cultural matters taken care of, we can now set reforms
-	assignAllCountryReforms(sourceWorld);
+	assignAllCountryReforms();
 	Log(LogLevel::Progress) << "67 %";
 
 	// Vassalages and tributaries were also set in ck2 world but we have to transcribe those into EU4 agreements.
@@ -1371,11 +1371,11 @@ void EU4::World::verifyReligionsAndCultures()
 			if (techMatch)
 			{
 				Log(LogLevel::Warning) << country.first << " overriding blank tech group with: " << *techMatch;
-				country.second->setTechGroup(*techMatch);
+				country.second->setGFX(*techMatch);
 			}
 			else
 			{
-				country.second->setTechGroup("western");
+				country.second->setGFX("western");
 				Log(LogLevel::Warning) << country.first << " could not determine technological group, substituting western!";
 			}
 		}
@@ -1568,7 +1568,7 @@ void EU4::World::importCK2Provinces(const CK2::World& sourceWorld)
 	LOG(LogLevel::Info) << ">> " << sourceWorld.getProvinces().size() << " CK2 provinces imported into " << counter << " EU4 provinces.";
 }
 
-void EU4::World::assignAllCountryReforms(const CK2::World& sourceWorld)
+void EU4::World::assignAllCountryReforms()
 {
 	for (const auto& country: countries)
 	{
@@ -1587,14 +1587,19 @@ void EU4::World::importVanillaCountries(const std::string& eu4Path, bool invasio
 		throw std::runtime_error("Could not open " + eu4Path + "/common/country_tags/00_countries.txt!");
 	loadCountriesFromSource(eu4CountriesFile, eu4Path, true);
 	eu4CountriesFile.close();
-	if (Utils::DoesFileExist("blankMod/output/common/country_tags/01_special_tags.txt"))
+	if (Utils::DoesFolderExist("blankMod/output/common/country_tags/"))
 	{
-		std::ifstream blankCountriesFile(fs::u8path("blankMod/output/common/country_tags/01_special_tags.txt"));
-		if (!blankCountriesFile.is_open())
-			throw std::runtime_error("Could not open blankMod/output/common/country_tags/01_special_tags.txt!");
-		loadCountriesFromSource(blankCountriesFile, "blankMod/output/", false);
-		blankCountriesFile.close();
+		auto fileNames = Utils::GetAllFilesInFolder("blankMod/output/common/country_tags/");
+		for (const auto& file: fileNames)
+		{
+			std::ifstream blankCountriesFile(fs::u8path("blankMod/output/common/country_tags/" + file));
+			if (!blankCountriesFile.is_open())
+				throw std::runtime_error("Could not open blankMod/output/common/country_tags/" + file + "!");
+			loadCountriesFromSource(blankCountriesFile, "blankMod/output/", false);
+			blankCountriesFile.close();
+		}
 	}
+
 	if (invasion)
 	{
 		std::ifstream sunset(fs::u8path("configurables/sunset/common/country_tags/zz_countries.txt"));

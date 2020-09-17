@@ -71,7 +71,7 @@ class World
 	void distributeClaims(const Configuration& theConfiguration);
 	void distributeDeadCores();
 	void scrapeColors(const Configuration& theConfiguration, const CK2::World& sourceWorld);
-	void assignAllCountryReforms(const CK2::World& sourceWorld);
+	void assignAllCountryReforms();
 	void africaQuestion();
 	void indianQuestion();
 	void fixDuplicateNames();
