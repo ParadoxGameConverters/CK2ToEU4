@@ -562,7 +562,7 @@ void EU4::Country::initializeAdvisers(const mappers::ReligionMapper& religionMap
 		else if (adviser.second->getJob() == "job_treasurer")
 		{
 			newAdviser.type = "treasurer";
-			newAdviser.skill = std::min(3, std::max(1, adviser.second->getSkills().intrigue / 4));
+			newAdviser.skill = std::min(3, std::max(1, adviser.second->getSkills().stewardship / 4));
 		}
 		else if (adviser.second->getJob() == "job_chancellor")
 		{
@@ -835,7 +835,7 @@ void EU4::Country::annexCountry(const std::pair<std::string, std::shared_ptr<Cou
 	// Bricking the title -> eu4tag is not necessary and not desirable. As soon as the country has 0 provinces, it's effectively dead.
 }
 
-void EU4::Country::assignReforms(std::shared_ptr<mappers::RegionMapper> regionMapper)
+void EU4::Country::assignReforms(const std::shared_ptr<mappers::RegionMapper>& regionMapper)
 {
 	// Setting the Primary Religion (The religion most common in the country, not the religion of the country, needed for some reforms)
 	if (details.majorityReligion.empty() || details.majorityReligion == "noreligion")
