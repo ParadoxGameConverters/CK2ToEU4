@@ -1568,7 +1568,7 @@ void EU4::World::importCK2Provinces(const CK2::World& sourceWorld)
 	LOG(LogLevel::Info) << ">> " << sourceWorld.getProvinces().size() << " CK2 provinces imported into " << counter << " EU4 provinces.";
 }
 
-void EU4::World::assignAllCountryReforms(const CK2::World& sourceWorld)
+void EU4::World::assignAllCountryReforms()
 {
 	for (const auto& country: countries)
 	{
