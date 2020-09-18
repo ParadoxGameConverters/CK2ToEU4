@@ -518,6 +518,9 @@ void EU4::World::siberianQuestion(const Configuration& theConfiguration)
 			continue;
 		if (country.second->getProvinces().size() > 5)
 			continue;
+		if (country.second->getTag() == "CHU" || country.second->getTag() == "HOD" || country.second->getTag() == "CHV" || country.second->getTag() == "KMC")
+			continue;
+
 
 		// All checks done. Let's get deleting.
 		for (const auto& province: country.second->getProvinces())
