@@ -165,7 +165,7 @@ pagan_religion_rebels = {
 	
 	# Country scope
 	can_negotiate_trigger = {
-		religion_group = muslim
+		religion_group = pagan
 	}
 	
 	# Country scope
@@ -180,7 +180,7 @@ pagan_religion_rebels = {
 	demands_enforced_effect = {
 		if = {
 			limit = {
-				NOT = { religion_group = muslim }
+				NOT = { religion_group = pagan }
 			}
 			add_prestige = -50
 			every_owned_province = {
@@ -207,7 +207,7 @@ pagan_religion_rebels = {
 		}
 		if = {
 			limit = {
-				religion_group = muslim
+				religion_group = pagan
 				NOT = { religion = pagan_religion }
 			}
 			change_religion = pagan_religion
@@ -362,7 +362,7 @@ baltic_pagan_rebels = {
 	
 	# Country scope
 	can_negotiate_trigger = {
-		religion_group = muslim
+		religion_group = pagan
 	}
 	
 	# Country scope
@@ -377,7 +377,7 @@ baltic_pagan_rebels = {
 	demands_enforced_effect = {
 		if = {
 			limit = {
-				NOT = { religion_group = muslim }
+				NOT = { religion_group = pagan }
 			}
 			add_prestige = -50
 			every_owned_province = {
@@ -404,7 +404,7 @@ baltic_pagan_rebels = {
 		}
 		if = {
 			limit = {
-				religion_group = muslim
+				religion_group = pagan
 				NOT = { religion = baltic_pagan }
 			}
 			change_religion = baltic_pagan
@@ -560,7 +560,7 @@ norse_pagan_rebels = {
 	
 	# Country scope
 	can_negotiate_trigger = {
-		religion_group = muslim
+		religion_group = pagan
 	}
 	
 	# Country scope
@@ -575,7 +575,7 @@ norse_pagan_rebels = {
 	demands_enforced_effect = {
 		if = {
 			limit = {
-				NOT = { religion_group = muslim }
+				NOT = { religion_group = pagan }
 			}
 			add_prestige = -50
 			every_owned_province = {
@@ -602,7 +602,7 @@ norse_pagan_rebels = {
 		}
 		if = {
 			limit = {
-				religion_group = muslim
+				religion_group = pagan
 				NOT = { religion = norse_pagan }
 			}
 			change_religion = norse_pagan
@@ -758,7 +758,7 @@ tengri_pagan_rebels = {
 	
 	# Country scope
 	can_negotiate_trigger = {
-		religion_group = muslim
+		religion_group = pagan
 	}
 	
 	# Country scope
@@ -773,7 +773,7 @@ tengri_pagan_rebels = {
 	demands_enforced_effect = {
 		if = {
 			limit = {
-				NOT = { religion_group = muslim }
+				NOT = { religion_group = pagan }
 			}
 			add_prestige = -50
 			every_owned_province = {
@@ -800,7 +800,7 @@ tengri_pagan_rebels = {
 		}
 		if = {
 			limit = {
-				religion_group = muslim
+				religion_group = pagan
 				NOT = { religion = tengri_pagan }
 			}
 			change_religion = tengri_pagan
@@ -956,7 +956,7 @@ zun_pagan_rebels = {
 	
 	# Country scope
 	can_negotiate_trigger = {
-		religion_group = muslim
+		religion_group = pagan
 	}
 	
 	# Country scope
@@ -971,7 +971,7 @@ zun_pagan_rebels = {
 	demands_enforced_effect = {
 		if = {
 			limit = {
-				NOT = { religion_group = muslim }
+				NOT = { religion_group = pagan }
 			}
 			add_prestige = -50
 			every_owned_province = {
@@ -998,7 +998,7 @@ zun_pagan_rebels = {
 		}
 		if = {
 			limit = {
-				religion_group = muslim
+				religion_group = pagan
 				NOT = { religion = zun_pagan }
 			}
 			change_religion = zun_pagan
@@ -1154,7 +1154,7 @@ slavic_pagan_rebels = {
 	
 	# Country scope
 	can_negotiate_trigger = {
-		religion_group = muslim
+		religion_group = pagan
 	}
 	
 	# Country scope
@@ -1169,7 +1169,7 @@ slavic_pagan_rebels = {
 	demands_enforced_effect = {
 		if = {
 			limit = {
-				NOT = { religion_group = muslim }
+				NOT = { religion_group = pagan }
 			}
 			add_prestige = -50
 			every_owned_province = {
@@ -1196,7 +1196,7 @@ slavic_pagan_rebels = {
 		}
 		if = {
 			limit = {
-				religion_group = muslim
+				religion_group = pagan
 				NOT = { religion = slavic_pagan }
 			}
 			change_religion = slavic_pagan
@@ -1352,7 +1352,7 @@ bon_reformed_rebels = {
 	
 	# Country scope
 	can_negotiate_trigger = {
-		religion_group = muslim
+		religion_group = pagan
 	}
 	
 	# Country scope
@@ -1367,7 +1367,7 @@ bon_reformed_rebels = {
 	demands_enforced_effect = {
 		if = {
 			limit = {
-				NOT = { religion_group = muslim }
+				NOT = { religion_group = pagan }
 			}
 			add_prestige = -50
 			every_owned_province = {
@@ -1394,7 +1394,7 @@ bon_reformed_rebels = {
 		}
 		if = {
 			limit = {
-				religion_group = muslim
+				religion_group = pagan
 				NOT = { religion = bon_reformed }
 			}
 			change_religion = bon_reformed
@@ -1550,7 +1550,7 @@ hellenic_pagan_reformed_rebels = {
 	
 	# Country scope
 	can_negotiate_trigger = {
-		religion_group = muslim
+		religion_group = pagan
 	}
 	
 	# Country scope
@@ -1565,7 +1565,7 @@ hellenic_pagan_reformed_rebels = {
 	demands_enforced_effect = {
 		if = {
 			limit = {
-				NOT = { religion_group = muslim }
+				NOT = { religion_group = pagan }
 			}
 			add_prestige = -50
 			every_owned_province = {
@@ -1592,7 +1592,7 @@ hellenic_pagan_reformed_rebels = {
 		}
 		if = {
 			limit = {
-				religion_group = muslim
+				religion_group = pagan
 				NOT = { religion = hellenic_pagan_reformed }
 			}
 			change_religion = hellenic_pagan_reformed
