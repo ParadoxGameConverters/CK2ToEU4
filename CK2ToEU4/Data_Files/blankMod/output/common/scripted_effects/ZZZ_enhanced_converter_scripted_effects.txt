@@ -1018,7 +1018,7 @@ ZZZ_enhanced_converter_battle_cult_spreading_effect = {
 					religion = west_african_pagan
 					religion = west_african_pagan_reformed
 				}
-				NOT = { has_unlocked_cult = hellenic_cult }
+				NOT = { has_unlocked_cult = pagan_cult }
 			}
 			ROOT = {
 				OR = {
