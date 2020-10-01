@@ -34,7 +34,7 @@ TEST(Mappers_ReformedReligionMappingTests, doesItGetTheRightCountryModifiers)
 	mappers::ReformedReligionMapping theMapper(input);
 
 	const auto& test = theMapper.getCountryModifiers();
-	ASSERT_EQ("country_power =9001\ncountry_weakness =0", test);
+	ASSERT_EQ("\ncountry_power = 9001\ncountry_weakness = 0", test);
 }
 
 TEST(Mappers_ReformedReligionMappingTests, doesItGetTheRightProvinceModifiers)
@@ -46,7 +46,7 @@ TEST(Mappers_ReformedReligionMappingTests, doesItGetTheRightProvinceModifiers)
 	mappers::ReformedReligionMapping theMapper(input);
 
 	const auto& test = theMapper.getProvinceModifiers();
-	ASSERT_EQ("province_size =big\nprovince_strength =weak", test);
+	ASSERT_EQ("\nprovince_size = big\nprovince_strength = weak", test);
 }
 
 TEST(Mappers_ReformedReligionMappingTests, doesItGetSecondary)
@@ -58,7 +58,7 @@ TEST(Mappers_ReformedReligionMappingTests, doesItGetSecondary)
 	mappers::ReformedReligionMapping theMapper(input);
 
 	const auto& test = theMapper.getSecondary();
-	ASSERT_EQ("mingplosion_power =100\n", test);
+	ASSERT_EQ("\nmingplosion_power = 100\n", test);
 }
 
 TEST(Mappers_ReformedReligionMappingTests, doesItGetUnique)
@@ -70,7 +70,7 @@ TEST(Mappers_ReformedReligionMappingTests, doesItGetUnique)
 	mappers::ReformedReligionMapping theMapper(input);
 
 	const auto& test = theMapper.getUniqueMechanics();
-	ASSERT_EQ("isUlm =yes\n", test);
+	ASSERT_EQ("\nisUlm = yes\n", test);
 }
 
 TEST(Mappers_ReformedReligionMappingTests, doesItGetNonUnique)
@@ -83,7 +83,7 @@ TEST(Mappers_ReformedReligionMappingTests, doesItGetNonUnique)
 	mappers::ReformedReligionMapping theMapper(input);
 
 	const auto& test = theMapper.getNonUniqueMechanics();
-	ASSERT_EQ("can_raid_self =yes\ncan_ignore_treaties =yes\n", test);
+	ASSERT_EQ("\ncan_raid_self = yes\ncan_ignore_treaties = yes\n", test);
 }
 
 TEST(Mappers_ReformedReligionMappingTests, doesItGetHeretics)
@@ -94,7 +94,7 @@ TEST(Mappers_ReformedReligionMappingTests, doesItGetHeretics)
 	mappers::ReformedReligionMapping theMapper(input);
 
 	const auto& test = theMapper.getHereticStrings();
-	ASSERT_EQ("WOOD DUCK ", test);
+	ASSERT_EQ(" WOOD DUCK ", test);
 }
 
 //Setters

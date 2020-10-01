@@ -29,7 +29,7 @@ void CK2::Mods::loadModDirectory(const Configuration& theConfiguration)
 		auto possibleModPath = getModPath(usedMod.first);
 		if (possibleModPath)
 		{
-			if (!Utils::DoesFolderExist(*possibleModPath) && !Utils::DoesFileExist(*possibleModPath))
+			if (!commonItems::DoesFolderExist(*possibleModPath) && !commonItems::DoesFileExist(*possibleModPath))
 			{
 				Log(LogLevel::Warning) << usedMod.first + " could not be found in the specified mod directory " +
 														"- a valid mod directory must be specified. Tried " + *possibleModPath;
@@ -50,12 +50,12 @@ void CK2::Mods::loadModDirectory(const Configuration& theConfiguration)
 void CK2::Mods::loadCK2ModDirectory(const Configuration& theConfiguration)
 {
 	const auto& CK2ModsPath = theConfiguration.getCK2ModsPath();
-	if (!Utils::DoesFolderExist(CK2ModsPath))
+	if (!commonItems::DoesFolderExist(CK2ModsPath))
 		throw std::invalid_argument("No Crusader Kings 2 mods directory was specified in configuration.txt, or the path was invalid!");
 
 	LOG(LogLevel::Info) << "\tCK2 mods directory is " << CK2ModsPath;
 
-	auto filenames = Utils::GetAllFilesInFolder(CK2ModsPath);
+	auto filenames = commonItems::GetAllFilesInFolder(CK2ModsPath);
 	for (const auto& filename: filenames)
 	{
 		if (!theConfiguration.getModFileNames().count(filename))
@@ -73,7 +73,7 @@ void CK2::Mods::loadCK2ModDirectory(const Configuration& theConfiguration)
 				if (!theMod.isCompressed())
 				{
 					std::string recordDirectory;
-					if (Utils::DoesFolderExist(CK2ModsPath + "/" + theMod.getPath()))
+					if (commonItems::DoesFolderExist(CK2ModsPath + "/" + theMod.getPath()))
 					{
 						recordDirectory = CK2ModsPath + "/" + theMod.getPath();
 					}
@@ -89,7 +89,7 @@ void CK2::Mods::loadCK2ModDirectory(const Configuration& theConfiguration)
 				else
 				{
 					std::string recordDirectory;
-					if (Utils::DoesFileExist(CK2ModsPath + "/" + theMod.getPath()))
+					if (commonItems::DoesFileExist(CK2ModsPath + "/" + theMod.getPath()))
 					{
 						recordDirectory = CK2ModsPath + "/" + theMod.getPath();
 					}
@@ -141,9 +141,9 @@ std::optional<std::string> CK2::Mods::getModPath(const std::string& modName) con
 			uncompressedName = uncompressedName.substr(pos + 1, uncompressedName.size());
 		}
 
-		Utils::TryCreateFolder("mods/");
+		commonItems::TryCreateFolder("mods/");
 
-		if (!Utils::DoesFolderExist("mods/" + uncompressedName))
+		if (!commonItems::DoesFolderExist("mods/" + uncompressedName))
 		{
 			LOG(LogLevel::Info) << "\t\tUncompressing: " << archivePath;
 			if (!extractZip(archivePath, "mods/" + uncompressedName))
@@ -156,7 +156,7 @@ std::optional<std::string> CK2::Mods::getModPath(const std::string& modName) con
 			}
 		}
 
-		if (Utils::DoesFolderExist("mods/" + uncompressedName))
+		if (commonItems::DoesFolderExist("mods/" + uncompressedName))
 		{
 			return "mods/" + uncompressedName;
 		}
@@ -167,7 +167,7 @@ std::optional<std::string> CK2::Mods::getModPath(const std::string& modName) con
 
 bool CK2::Mods::extractZip(const std::string& archive, const std::string& path) const
 {
-	Utils::TryCreateFolder(path);
+	commonItems::TryCreateFolder(path);
 	auto modfile = ZipFile::Open(archive);
 	if (!modfile)
 		return false;
@@ -182,7 +182,7 @@ bool CK2::Mods::extractZip(const std::string& archive, const std::string& path) 
 		// Does target directory exist?
 		const auto dirnamepos = inpath.find(name);
 		const auto dirname = path + "/" + inpath.substr(0, dirnamepos);
-		if (!Utils::DoesFolderExist(dirname))
+		if (!commonItems::DoesFolderExist(dirname))
 		{
 			// we need to craft our way through to target directory.
 			auto remainder = inpath;
@@ -194,7 +194,7 @@ bool CK2::Mods::extractZip(const std::string& archive, const std::string& path) 
 				{
 					auto makedirname = remainder.substr(0, pos);
 					currentpath += "/" + makedirname;
-					Utils::TryCreateFolder(currentpath);
+					commonItems::TryCreateFolder(currentpath);
 					remainder = remainder.substr(pos + 1, remainder.length());
 				}
 				else

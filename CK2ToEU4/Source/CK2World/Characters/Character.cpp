@@ -38,7 +38,7 @@ void CK2::Character::registerKeys()
 		job = jobStr.getString();
 	});
 	registerKeyword("md", [this](const std::string& unused, std::istream& theStream) {
-		const auto modifierString = commonItems::singleItem(unused, theStream);
+		const auto modifierString = commonItems::stringOfItem(theStream).getString();
 		// We have no interest in parsing modifiers. We're looking for one explicit modifier.
 		loan = modifierString.find("borrowed_from_jews") != std::string::npos;
 	});

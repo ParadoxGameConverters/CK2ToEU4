@@ -244,12 +244,12 @@ CK2::World::World(const Configuration& theConfiguration)
 
 void CK2::World::loadDynasties(const Configuration& theConfiguration)
 {
-	auto fileNames = Utils::GetAllFilesInFolder(theConfiguration.getCK2Path() + "/common/dynasties/");
+	auto fileNames = commonItems::GetAllFilesInFolder(theConfiguration.getCK2Path() + "/common/dynasties/");
 	for (const auto& file: fileNames)
 		dynasties.loadDynasties(theConfiguration.getCK2Path() + "/common/dynasties/" + file);
 	for (const auto& mod: mods.getMods())
 	{
-		fileNames = Utils::GetAllFilesInFolder(mod.second + "/common/dynasties/");
+		fileNames = commonItems::GetAllFilesInFolder(mod.second + "/common/dynasties/");
 		for (const auto& file: fileNames)
 		{
 			if (file.find(".txt") == std::string::npos)
@@ -266,7 +266,7 @@ void CK2::World::loadProvinces(const Configuration& theConfiguration)
 
 	for (const auto& mod: mods.getMods())
 	{
-		if (Utils::DoesFolderExist(mod.second + "/history/provinces/"))
+		if (commonItems::DoesFolderExist(mod.second + "/history/provinces/"))
 		{
 			Log(LogLevel::Info) << "\t>> Loading additional provinces from mod source: " << mod.second + "/history/provinces/";
 			provinceTitleMapper.loadProvinces(mod.second);
@@ -683,8 +683,8 @@ void CK2::World::splitVassals(const Configuration& theConfiguration)
 			const auto& vassalProvincesClaimed = vassal.second->coalesceProvinces();
 
 			// a vassal goes indep if they control 1/relevantvassals + 10% land.
-			const double threshold = static_cast<double>(provincesClaimed.size()) / relevantVassals + 0.1 * provincesClaimed.size();
-			if (vassalProvincesClaimed.size() > threshold)
+			const double threshold = static_cast<double>(provincesClaimed.size()) / relevantVassals + 0.1 * static_cast<double>(provincesClaimed.size());
+			if (static_cast<double>(vassalProvincesClaimed.size()) > threshold)
 				newIndeps.insert(vassal);
 		}
 	}

@@ -42,7 +42,7 @@ EU4::outReligion::outReligion(const Configuration& theConfiguration, std::vector
 	reformedReligions << "\n}";
 	reformedReligions.close();
 
-	auto files = Utils::GetAllFilesInFolder("configurables/reformation/dynamicPagans/");
+	auto files = commonItems::GetAllFilesInFolder("configurables/reformation/dynamicPagans/");
 	for (const auto& file: files)
-		Utils::TryCopyFile("configurables/reformation/dynamicPagans/" + file, "output/" + theConfiguration.getOutputName() + "/common/religions/" + file);
+		commonItems::TryCopyFile("configurables/reformation/dynamicPagans/" + file, "output/" + theConfiguration.getOutputName() + "/common/religions/" + file);
 }

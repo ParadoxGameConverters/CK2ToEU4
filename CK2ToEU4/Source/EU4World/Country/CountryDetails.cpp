@@ -6,7 +6,7 @@
 EU4::CountryDetails::CountryDetails(const std::string& filePath)
 {
 	registerKeys();
-	if (Utils::DoesFileExist(filePath))
+	if (commonItems::DoesFileExist(filePath))
 	{
 		parseFile(filePath);
 	}
@@ -210,7 +210,7 @@ void EU4::CountryDetails::registerHistoryKeys()
 		harmonizedReligions.insert(rel3Str.getString());
 	});
 	registerRegex(R"(\d+.\d+.\d+)", [this](const std::string& theDate, std::istream& theStream) {
-		auto historyItem = commonItems::singleItem(theDate, theStream);
+		auto historyItem = commonItems::stringOfItem(theStream).getString();
 		historyLessons.emplace_back(std::pair(date(theDate), historyItem));
 	});
 	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);

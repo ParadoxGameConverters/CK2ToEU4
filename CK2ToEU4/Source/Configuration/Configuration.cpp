@@ -104,22 +104,23 @@ void Configuration::registerKeys()
 
 void Configuration::verifyCK2Path() const
 {
-	if (!Utils::DoesFolderExist(CK2Path))
+	if (!commonItems::DoesFolderExist(CK2Path))
 		throw std::runtime_error(CK2Path + " does not exist!");
-	if (!Utils::DoesFileExist(CK2Path + "/CK2game.exe") && !Utils::DoesFileExist(CK2Path + "/CK2game") && !Utils::DoesFileExist(CK2Path + "/ck2"))
+	if (!commonItems::DoesFileExist(CK2Path + "/CK2game.exe") && !commonItems::DoesFileExist(CK2Path + "/CK2game") &&
+		 !commonItems::DoesFileExist(CK2Path + "/ck2"))
 		throw std::runtime_error(CK2Path + " does not contain Crusader Kings 2!");
-	if (!Utils::DoesFileExist(CK2Path + "/map/positions.txt"))
+	if (!commonItems::DoesFileExist(CK2Path + "/map/positions.txt"))
 		throw std::runtime_error(CK2Path + " does not appear to be a valid CK2 install!");
 	LOG(LogLevel::Info) << "\tCK2 install path is " << CK2Path;
 }
 
 void Configuration::verifyEU4Path() const
 {
-	if (!Utils::DoesFolderExist(EU4Path))
+	if (!commonItems::DoesFolderExist(EU4Path))
 		throw std::runtime_error(EU4Path + " does not exist!");
-	if (!Utils::DoesFileExist(EU4Path + "/eu4.exe") && !Utils::DoesFileExist(EU4Path + "/eu4"))
+	if (!commonItems::DoesFileExist(EU4Path + "/eu4.exe") && !commonItems::DoesFileExist(EU4Path + "/eu4"))
 		throw std::runtime_error(EU4Path + " does not contain Europa Universalis 4!");
-	if (!Utils::DoesFileExist(EU4Path + "/map/positions.txt"))
+	if (!commonItems::DoesFileExist(EU4Path + "/map/positions.txt"))
 		throw std::runtime_error(EU4Path + " does not appear to be a valid EU4 install!");
 	LOG(LogLevel::Info) << "\tEU4 install path is " << EU4Path;
 }
@@ -134,6 +135,6 @@ void Configuration::setOutputName()
 	outputName = replaceCharacter(outputName, '-');
 	outputName = replaceCharacter(outputName, ' ');
 
-	outputName = Utils::normalizeUTF8Path(outputName);
+	outputName = commonItems::normalizeUTF8Path(outputName);
 	LOG(LogLevel::Info) << "Using output name " << outputName;
 }

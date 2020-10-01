@@ -53,46 +53,46 @@ void CK2::Title::registerKeys()
 	});
 	registerKeyword("base_title", [this](const std::string& unused, std::istream& theStream) {
 		// This can either be a single string or a Liege object.
-		const auto baseStr = commonItems::singleItem(unused, theStream);
+		const auto baseStr = commonItems::stringOfItem(theStream).getString();
+		std::stringstream tempStream(baseStr);
 		if (baseStr.find("{") != std::string::npos)
 		{
-			std::stringstream tempStream(baseStr);
 			auto newBaseTitle = std::make_shared<Liege>(tempStream);
 			baseTitle = std::pair(newBaseTitle->getTitle().first, newBaseTitle);
 		}
 		else
 		{
-			auto newBaseTitle = std::make_shared<Liege>(baseStr);
+			auto newBaseTitle = std::make_shared<Liege>(commonItems::singleString(tempStream).getString());
 			baseTitle = std::pair(newBaseTitle->getTitle().first, newBaseTitle);
 		}
 	});
 	registerKeyword("liege", [this](const std::string& unused, std::istream& theStream) {
 		// This can either be a single string or a Liege object.
-		const auto liegeStr = commonItems::singleItem(unused, theStream);
+		const auto liegeStr = commonItems::stringOfItem(theStream).getString();
+		std::stringstream tempStream(liegeStr);
 		if (liegeStr.find("{") != std::string::npos)
 		{
-			std::stringstream tempStream(liegeStr);
 			auto newLiege = std::make_shared<Liege>(tempStream);
 			liege = std::pair(newLiege->getTitle().first, newLiege);
 		}
 		else
 		{
-			auto newLiege = std::make_shared<Liege>(liegeStr);
+			auto newLiege = std::make_shared<Liege>(commonItems::singleString(tempStream).getString());
 			liege = std::pair(newLiege->getTitle().first, newLiege);
 		}
 	});
 	registerKeyword("de_jure_liege", [this](const std::string& unused, std::istream& theStream) {
 		// This can again either be a single string or a Liege object.
-		const auto djLiegeStr = commonItems::singleItem(unused, theStream);
+		const auto djLiegeStr = commonItems::stringOfItem(theStream).getString();
+		std::stringstream tempStream(djLiegeStr);
 		if (djLiegeStr.find("{") != std::string::npos)
 		{
-			std::stringstream tempStream(djLiegeStr);
 			auto newdjLiege = std::make_shared<Liege>(tempStream);
 			deJureLiege = std::pair(newdjLiege->getTitle().first, newdjLiege);
 		}
 		else
 		{
-			auto newdjLiege = std::make_shared<Liege>(djLiegeStr);
+			auto newdjLiege = std::make_shared<Liege>(commonItems::singleString(tempStream).getString());
 			deJureLiege = std::pair(newdjLiege->getTitle().first, newdjLiege);
 		}
 	});

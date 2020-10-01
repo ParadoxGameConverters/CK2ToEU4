@@ -9,7 +9,7 @@ void mappers::PersonalityScraper::scrapePersonalities(const Configuration& theCo
 {
 	LOG(LogLevel::Info) << "-> Examiming Personalities";
 	registerKeys();
-	auto fileNames = Utils::GetAllFilesInFolder(theConfiguration.getCK2Path() + "/common/traits/");
+	auto fileNames = commonItems::GetAllFilesInFolder(theConfiguration.getCK2Path() + "/common/traits/");
 	for (const auto& fileName: fileNames)
 	{
 		if (fileName.find("txt") == std::string::npos)
@@ -34,7 +34,7 @@ void mappers::PersonalityScraper::registerKeys()
 		personalities.insert(std::pair(counter, personalityName));
 		++counter;
 	});
-	registerRegex("[A-Za-z0-9\\_.:-]+", commonItems::ignoreItem);
+	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }
 
 

@@ -46,7 +46,7 @@ std::ostream& EU4::operator<<(std::ostream& output, const Country& country)
 			output << "add_accepted_culture = " << culture << "\n";
 		}
 	}
-	if (country.details.armyProfessionalism != 0)
+	if (country.details.armyProfessionalism != 0.0)
 		output << "add_army_professionalism = " << country.details.armyProfessionalism << "\n";
 	if (country.details.addedAdminTech != 0)
 		output << "add_adm_tech = " << country.details.addedAdminTech << "\n";
@@ -71,7 +71,7 @@ std::ostream& EU4::operator<<(std::ostream& output, const Country& country)
 	if (!country.details.nationalFocus.empty())
 		output << "national_focus = " << country.details.nationalFocus << "\n";
 
-	if (country.details.piety != 0)
+	if (country.details.piety != 0.0)
 		output << "add_piety = " << country.details.piety << "\n";
 	if (country.details.elector)
 		output << "elector = yes\n";
@@ -135,9 +135,7 @@ std::ostream& EU4::operator<<(std::ostream& output, const Country& country)
 	{
 		for (const auto& historyLesson: country.details.historyLessons)
 		{
-			output << historyLesson.first << " =\n";
-			output << historyLesson.second;
-			output << "\n";
+			output << historyLesson.first << historyLesson.second << "\n";
 		}
 	}
 

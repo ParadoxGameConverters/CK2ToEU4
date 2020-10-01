@@ -8,7 +8,7 @@
 void mappers::LocalizationMapper::scrapeLocalizations(const Configuration& theConfiguration, const std::map<std::string, std::string>& mods)
 {
 	LOG(LogLevel::Info) << "-> Reading Words";
-	auto filenames = Utils::GetAllFilesInFolder(theConfiguration.getCK2Path() + "/localisation/");
+	auto filenames = commonItems::GetAllFilesInFolder(theConfiguration.getCK2Path() + "/localisation/");
 	for (const auto& file: filenames)
 	{
 		std::ifstream theFile(theConfiguration.getCK2Path() + "/localisation/" + file);
@@ -17,10 +17,10 @@ void mappers::LocalizationMapper::scrapeLocalizations(const Configuration& theCo
 	}
 	for (const auto& mod: mods)
 	{
-		if (Utils::DoesFolderExist(mod.second + "/localisation/"))
+		if (commonItems::DoesFolderExist(mod.second + "/localisation/"))
 		{
 			Log(LogLevel::Info) << "\t>> Found some words in: " << mod.second + "/localization/";
-			filenames = Utils::GetAllFilesInFolder(mod.second + "/localisation/");
+			filenames = commonItems::GetAllFilesInFolder(mod.second + "/localisation/");
 			for (const auto& file: filenames)
 			{
 				if (file.find(".csv") == std::string::npos) continue;
@@ -32,7 +32,7 @@ void mappers::LocalizationMapper::scrapeLocalizations(const Configuration& theCo
 	}
 	
 	// Override with our keys
-	if (Utils::DoesFileExist("configurables/ck2_localization_override.csv"))
+	if (commonItems::DoesFileExist("configurables/ck2_localization_override.csv"))
 	{
 		std::ifstream theFile("configurables/ck2_localization_override.csv");
 		scrapeStream(theFile);
@@ -96,7 +96,7 @@ std::optional<mappers::LocBlock> mappers::LocalizationMapper::getLocBlockForKey(
 			newBlock.german = newBlock.english;
 		if (newBlock.french.empty())
 			newBlock.french = newBlock.english;
-		return newBlock;
+		return std::move(newBlock);
 	}
 	// either all is well, or we're missing english. Can't do anything about the latter.
 	return keyItr->second;

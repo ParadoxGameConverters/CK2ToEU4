@@ -193,7 +193,7 @@ void EU4::World::indianQuestion()
 void EU4::World::scrapeColors(const Configuration& theConfiguration, const CK2::World& sourceWorld)
 {
 	LOG(LogLevel::Info) << "-> Soaking Up Colors";
-	auto fileNames = Utils::GetAllFilesInFolder(theConfiguration.getCK2Path() + "/common/landed_titles/");
+	auto fileNames = commonItems::GetAllFilesInFolder(theConfiguration.getCK2Path() + "/common/landed_titles/");
 	for (const auto& file: fileNames)
 	{
 		if (file.find(".txt") == std::string::npos)
@@ -202,7 +202,7 @@ void EU4::World::scrapeColors(const Configuration& theConfiguration, const CK2::
 	}
 	for (const auto& mod: sourceWorld.getMods().getMods())
 	{
-		fileNames = Utils::GetAllFilesInFolder(mod.second + "/common/landed_titles/");
+		fileNames = commonItems::GetAllFilesInFolder(mod.second + "/common/landed_titles/");
 		if (!fileNames.empty())
 			Log(LogLevel::Info) << "\t>> Found some colors in: " << mod.first;
 		for (const auto& file: fileNames)
@@ -754,7 +754,7 @@ void EU4::World::adjustChina(const CK2::World& sourceWorld)
 			{
 				if (religiousInfluence.second > provinceWeight)
 				{
-					if (!religiousInfluence.second)
+					if (religiousInfluence.second == 0.0)
 						continue;
 					// is this a valid religion?
 					const auto& targetReligion = religionMapper.getEu4ReligionForCk2Religion(religiousInfluence.first);
@@ -843,7 +843,7 @@ void EU4::World::distributeForts()
 			continue; // Not dealing with broken countries, thank you.
 		if (!country.second->getProvinces().count(country.second->getCapitalID()))
 		{
-			if (country.first != "PAP") 
+			if (country.first != "PAP")
 				Log(LogLevel::Warning) << country.first << " has capital province set to " << country.second->getCapitalID() << " but doesn't own it?";
 			continue; // this should have been fixed earlier by verifyCapitals! Well... Except for pope.
 		}
@@ -1119,7 +1119,8 @@ void EU4::World::distributeHRESubtitles(const Configuration& theConfiguration)
 		if (country.second->isHREEmperor())
 		{
 			emperorTag = country.first;
-			Log(LogLevel::Info) << "<> Emperor is " << emperorTag << " (" << country.second->getTitle().first << ", " << country.second->getProvinces().size() << " provinces)";
+			Log(LogLevel::Info) << "<> Emperor is " << emperorTag << " (" << country.second->getTitle().first << ", " << country.second->getProvinces().size()
+									  << " provinces)";
 			break;
 		}
 	if (!emperorTag.empty())
@@ -1403,7 +1404,7 @@ void EU4::World::importVanillaProvinces(const std::string& eu4Path, bool invasio
 {
 	LOG(LogLevel::Info) << "-> Importing Vanilla Provinces";
 	// ---- Loading history/provinces
-	auto fileNames = Utils::GetAllFilesInFolder(eu4Path + "/history/provinces/");
+	auto fileNames = commonItems::GetAllFilesInFolder(eu4Path + "/history/provinces/");
 	for (const auto& fileName: fileNames)
 	{
 		if (fileName.find(".txt") == std::string::npos)
@@ -1428,7 +1429,7 @@ void EU4::World::importVanillaProvinces(const std::string& eu4Path, bool invasio
 	LOG(LogLevel::Info) << ">> Loaded " << provinces.size() << " province definitions.";
 	if (invasion)
 	{
-		fileNames = Utils::GetAllFilesInFolder("configurables/sunset/history/provinces/");
+		fileNames = commonItems::GetAllFilesInFolder("configurables/sunset/history/provinces/");
 		for (const auto& fileName: fileNames)
 		{
 			if (fileName.find(".txt") == std::string::npos)
@@ -1590,9 +1591,9 @@ void EU4::World::importVanillaCountries(const std::string& eu4Path, bool invasio
 		throw std::runtime_error("Could not open " + eu4Path + "/common/country_tags/00_countries.txt!");
 	loadCountriesFromSource(eu4CountriesFile, eu4Path, true);
 	eu4CountriesFile.close();
-	if (Utils::DoesFolderExist("blankMod/output/common/country_tags/"))
+	if (commonItems::DoesFolderExist("blankMod/output/common/country_tags/"))
 	{
-		auto fileNames = Utils::GetAllFilesInFolder("blankMod/output/common/country_tags/");
+		auto fileNames = commonItems::GetAllFilesInFolder("blankMod/output/common/country_tags/");
 		for (const auto& file: fileNames)
 		{
 			std::ifstream blankCountriesFile(fs::u8path("blankMod/output/common/country_tags/" + file));
@@ -1616,14 +1617,14 @@ void EU4::World::importVanillaCountries(const std::string& eu4Path, bool invasio
 
 	LOG(LogLevel::Info) << "-> Importing Vanilla Country History";
 	// ---- Loading history/countries/
-	auto fileNames = Utils::GetAllFilesInFolder(eu4Path + "/history/countries/");
+	auto fileNames = commonItems::GetAllFilesInFolder(eu4Path + "/history/countries/");
 	for (const auto& fileName: fileNames)
 	{
 		auto tag = fileName.substr(0, 3);
 		countries[tag]->loadHistory(eu4Path + "/history/countries/" + fileName);
 	}
 	// Now our special tags.
-	fileNames = Utils::GetAllFilesInFolder("blankMod/output/history/countries/");
+	fileNames = commonItems::GetAllFilesInFolder("blankMod/output/history/countries/");
 	for (const auto& fileName: fileNames)
 	{
 		auto tag = fileName.substr(0, 3);
@@ -1631,7 +1632,7 @@ void EU4::World::importVanillaCountries(const std::string& eu4Path, bool invasio
 	}
 	if (invasion)
 	{
-		fileNames = Utils::GetAllFilesInFolder("configurables/sunset/history/countries/");
+		fileNames = commonItems::GetAllFilesInFolder("configurables/sunset/history/countries/");
 		for (const auto& fileName: fileNames)
 		{
 			auto tag = fileName.substr(0, 3);
@@ -1681,7 +1682,7 @@ std::optional<std::pair<int, std::shared_ptr<CK2::Province>>> EU4::World::determ
 	std::map<std::string, int> theShares;														// title, development
 	std::string winner;
 	auto maxDev = -1;
-	
+
 	for (auto ck2ProvinceID: ck2ProvinceNumbers)
 	{
 		const auto& ck2province = sourceWorld.getProvinces().find(ck2ProvinceID);
@@ -1748,8 +1749,8 @@ std::optional<std::pair<int, std::shared_ptr<CK2::Province>>> EU4::World::determ
 		if (province->getTitle().second->getHolder().second->getCapitalProvince().first == province->getID())
 			provinceWeight += 200;
 		if (province->getTitle().second->isHREEmperor() && province->getTitle().second->getHolder().second->getCapitalProvince().first == province->getID())
-				provinceWeight += 999;
-		
+			provinceWeight += 999;
+
 		if (provinceWeight > maxDev)
 		{
 			toReturn.first = province->getID();
@@ -1761,5 +1762,5 @@ std::optional<std::pair<int, std::shared_ptr<CK2::Province>>> EU4::World::determ
 	{
 		return std::nullopt;
 	}
-	return toReturn;
+	return std::move(toReturn);
 }
