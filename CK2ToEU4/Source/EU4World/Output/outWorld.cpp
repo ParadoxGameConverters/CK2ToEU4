@@ -15,31 +15,31 @@ void EU4::World::output(const mappers::VersionParser& versionParser, const Confi
 	const date conversionDate = sourceWorld.getConversionDate();
 	LOG(LogLevel::Info) << "<- Creating Output Folder";
 
-	Utils::TryCreateFolder("output");
-	if (Utils::DoesFolderExist("output/" + theConfiguration.getOutputName()))
+	commonItems::TryCreateFolder("output");
+	if (commonItems::DoesFolderExist("output/" + theConfiguration.getOutputName()))
 	{
 		Log(LogLevel::Info) << "<< Deleting existing mod folder.";
-		Utils::DeleteFolder("output/" + theConfiguration.getOutputName());
+		commonItems::DeleteFolder("output/" + theConfiguration.getOutputName());
 	}
 	Log(LogLevel::Progress) << "80 %";
 
 	LOG(LogLevel::Info) << "<- Copying Mod Template";
-	Utils::CopyFolder("blankMod/output", "output/output");
+	commonItems::CopyFolder("blankMod/output", "output/output");
 	Log(LogLevel::Progress) << "81 %";
 
 	LOG(LogLevel::Info) << "<- Moving Mod Template >> " << theConfiguration.getOutputName();
-	Utils::RenameFolder("output/output", "output/" + theConfiguration.getOutputName());
+	commonItems::RenameFolder("output/output", "output/" + theConfiguration.getOutputName());
 	Log(LogLevel::Progress) << "82 %";
 
-	Utils::TryCreateFolder("output/" + theConfiguration.getOutputName() + "/history/");
-	Utils::TryCreateFolder("output/" + theConfiguration.getOutputName() + "/history/countries/");
-	Utils::TryCreateFolder("output/" + theConfiguration.getOutputName() + "/history/advisors/");
-	Utils::TryCreateFolder("output/" + theConfiguration.getOutputName() + "/history/provinces/");
-	Utils::TryCreateFolder("output/" + theConfiguration.getOutputName() + "/history/diplomacy/");
-	Utils::TryCreateFolder("output/" + theConfiguration.getOutputName() + "/common/");
-	Utils::TryCreateFolder("output/" + theConfiguration.getOutputName() + "/common/countries/");
-	Utils::TryCreateFolder("output/" + theConfiguration.getOutputName() + "/common/country_tags/");
-	Utils::TryCreateFolder("output/" + theConfiguration.getOutputName() + "/localisation/");
+	commonItems::TryCreateFolder("output/" + theConfiguration.getOutputName() + "/history/");
+	commonItems::TryCreateFolder("output/" + theConfiguration.getOutputName() + "/history/countries/");
+	commonItems::TryCreateFolder("output/" + theConfiguration.getOutputName() + "/history/advisors/");
+	commonItems::TryCreateFolder("output/" + theConfiguration.getOutputName() + "/history/provinces/");
+	commonItems::TryCreateFolder("output/" + theConfiguration.getOutputName() + "/history/diplomacy/");
+	commonItems::TryCreateFolder("output/" + theConfiguration.getOutputName() + "/common/");
+	commonItems::TryCreateFolder("output/" + theConfiguration.getOutputName() + "/common/countries/");
+	commonItems::TryCreateFolder("output/" + theConfiguration.getOutputName() + "/common/country_tags/");
+	commonItems::TryCreateFolder("output/" + theConfiguration.getOutputName() + "/localisation/");
 	Log(LogLevel::Progress) << "83 %";
 
 	LOG(LogLevel::Info) << "<- Crafting .mod File";
@@ -118,13 +118,13 @@ void EU4::World::outputAdvisers(const Configuration& theConfiguration) const
 
 void EU4::World::outputBookmark(const Configuration& theConfiguration, date conversionDate) const
 {
-	if (!Utils::DoesFileExist("output/" + theConfiguration.getOutputName() + "/common/defines/00_converter_defines.lua"))
+	if (!commonItems::DoesFileExist("output/" + theConfiguration.getOutputName() + "/common/defines/00_converter_defines.lua"))
 		throw std::runtime_error("Can not find output/" + theConfiguration.getOutputName() + "/common/defines/00_converter_defines.lua!");
 	std::ofstream defines("output/" + theConfiguration.getOutputName() + "/common/defines/00_converter_defines.lua");
 	defines << "-- Defines modified by the converter\n\n";
 	defines << "\nNDefines.NGame.START_DATE = \"" << conversionDate << "\"\n";
 	defines.close();
-	if (!Utils::DoesFileExist("output/" + theConfiguration.getOutputName() + "/common/bookmarks/converter_bookmark.txt"))
+	if (!commonItems::DoesFileExist("output/" + theConfiguration.getOutputName() + "/common/bookmarks/converter_bookmark.txt"))
 		throw std::runtime_error("Can not find output/" + theConfiguration.getOutputName() + "/common/bookmarks/converter_bookmark.txt!");
 
 	std::string startDate = "<CONVERSIONDATE>";
@@ -147,16 +147,16 @@ void EU4::World::outputFlags(const Configuration& theConfiguration, const CK2::W
 	// Make a flag source registry
 	std::map<std::string, std::set<std::string>> sourceFlagSources; // filename/fullpath
 
-	auto fileNames = Utils::GetAllFilesInFolder(theConfiguration.getCK2Path() + "/gfx/flags/");
+	auto fileNames = commonItems::GetAllFilesInFolder(theConfiguration.getCK2Path() + "/gfx/flags/");
 	for (const auto& file: fileNames)
 		sourceFlagSources[file].insert(theConfiguration.getCK2Path() + "/gfx/flags/" + file);
 
 	for (const auto& mod: sourceWorld.getMods().getMods())
 	{
-		if (Utils::DoesFolderExist(mod.second + "/gfx/flags/"))
+		if (commonItems::DoesFolderExist(mod.second + "/gfx/flags/"))
 		{
 			Log(LogLevel::Info) << "\t>> Found some flags over in: " << mod.second << "/gfx/flags/";
-			fileNames = Utils::GetAllFilesInFolder(mod.second + "/gfx/flags/");
+			fileNames = commonItems::GetAllFilesInFolder(mod.second + "/gfx/flags/");
 			for (const auto& file: fileNames)
 				sourceFlagSources[file].insert(mod.second + "/gfx/flags/" + file);
 		}
@@ -166,17 +166,17 @@ void EU4::World::outputFlags(const Configuration& theConfiguration, const CK2::W
 	{
 		// first check is for dynasty and override flags.
 		if (country.second->getHasDynastyName() && country.second->getDynastyID() &&
-			 Utils::DoesFileExist("configurables/dynastyflags/" + std::to_string(country.second->getDynastyID()) + ".tga"))
+			 commonItems::DoesFileExist("configurables/dynastyflags/" + std::to_string(country.second->getDynastyID()) + ".tga"))
 		{
-			Utils::TryCopyFile("configurables/dynastyflags/" + std::to_string(country.second->getDynastyID()) + ".tga",
+			commonItems::TryCopyFile("configurables/dynastyflags/" + std::to_string(country.second->getDynastyID()) + ".tga",
 				 "output/" + theConfiguration.getOutputName() + "/gfx/flags/" + country.first + ".tga");
 			continue;
 		}
 
 		// Otherwise, do we need a flag at all?
-		if (Utils::DoesFileExist(theConfiguration.getEU4Path() + "/gfx/flags/" + country.first + ".tga"))
+		if (commonItems::DoesFileExist(theConfiguration.getEU4Path() + "/gfx/flags/" + country.first + ".tga"))
 			continue;
-		if (Utils::DoesFileExist("output/" + theConfiguration.getOutputName() + "/gfx/flags/" + country.first + ".tga"))
+		if (commonItems::DoesFileExist("output/" + theConfiguration.getOutputName() + "/gfx/flags/" + country.first + ".tga"))
 			continue;
 		// We do.
 		if (country.second->getTitle().first.empty())
@@ -200,10 +200,10 @@ void EU4::World::outputFlags(const Configuration& theConfiguration, const CK2::W
 		if (fileName.empty())
 			Log(LogLevel::Warning) << "failed to locate flag for " << country.first << ": " << country.second->getTitle().first;
 		else
-			Utils::TryCopyFile(fileName, "output/" + theConfiguration.getOutputName() + "/gfx/flags/" + country.first + ".tga");
+			commonItems::TryCopyFile(fileName, "output/" + theConfiguration.getOutputName() + "/gfx/flags/" + country.first + ".tga");
 	}
 	if (invasion)
-		Utils::TryCopyFile("configurables/sunset/gfx/flags/SDM.tga", "output/" + theConfiguration.getOutputName() + "/gfx/flags/SDM.tga");
+		commonItems::TryCopyFile("configurables/sunset/gfx/flags/SDM.tga", "output/" + theConfiguration.getOutputName() + "/gfx/flags/SDM.tga");
 }
 
 void EU4::World::createModFile(const Configuration& theConfiguration) const
@@ -249,10 +249,10 @@ void EU4::World::outputLocalization(const Configuration& theConfiguration, bool 
 	{
 		for (const auto& locblock: country.second->getLocalizations())
 		{
-			english << " " << locblock.first << ": \"" << Utils::convertWin1252ToUTF8(locblock.second.english) << "\"\n";
-			french << " " << locblock.first << ": \"" << Utils::convertWin1252ToUTF8(locblock.second.french) << "\"\n";
-			spanish << " " << locblock.first << ": \"" << Utils::convertWin1252ToUTF8(locblock.second.spanish) << "\"\n";
-			german << " " << locblock.first << ": \"" << Utils::convertWin1252ToUTF8(locblock.second.german) << "\"\n";
+			english << " " << locblock.first << ": \"" << commonItems::convertWin1252ToUTF8(locblock.second.english) << "\"\n";
+			french << " " << locblock.first << ": \"" << commonItems::convertWin1252ToUTF8(locblock.second.french) << "\"\n";
+			spanish << " " << locblock.first << ": \"" << commonItems::convertWin1252ToUTF8(locblock.second.spanish) << "\"\n";
+			german << " " << locblock.first << ": \"" << commonItems::convertWin1252ToUTF8(locblock.second.german) << "\"\n";
 		}
 	}
 	english.close();
@@ -262,22 +262,22 @@ void EU4::World::outputLocalization(const Configuration& theConfiguration, bool 
 
 	if (invasion)
 	{
-		auto fileNames = Utils::GetAllFilesInFolder("configurables/sunset/localisation/");
+		auto fileNames = commonItems::GetAllFilesInFolder("configurables/sunset/localisation/");
 		for (const auto& fileName: fileNames)
-			Utils::TryCopyFile("configurables/sunset/localisation/" + fileName, "output/" + theConfiguration.getOutputName() + "/localisation/" + fileName);
+			commonItems::TryCopyFile("configurables/sunset/localisation/" + fileName, "output/" + theConfiguration.getOutputName() + "/localisation/" + fileName);
 	}
 
 	if (greekReformation)
 	{
-		auto fileNames = Utils::GetAllFilesInFolder("configurables/reformation/greek/");
+		auto fileNames = commonItems::GetAllFilesInFolder("configurables/reformation/greek/");
 		for (const auto& fileName: fileNames)
-			Utils::TryCopyFile("configurables/reformation/greek/" + fileName, "output/" + theConfiguration.getOutputName() + "/localisation/" + fileName);
+			commonItems::TryCopyFile("configurables/reformation/greek/" + fileName, "output/" + theConfiguration.getOutputName() + "/localisation/" + fileName);
 	}
 	else
 	{
-		auto fileNames = Utils::GetAllFilesInFolder("configurables/reformation/roman/");
+		auto fileNames = commonItems::GetAllFilesInFolder("configurables/reformation/roman/");
 		for (const auto& fileName: fileNames)
-			Utils::TryCopyFile("configurables/reformation/roman/" + fileName, "output/" + theConfiguration.getOutputName() + "/localisation/" + fileName);
+			commonItems::TryCopyFile("configurables/reformation/roman/" + fileName, "output/" + theConfiguration.getOutputName() + "/localisation/" + fileName);
 	}
 }
 
@@ -350,21 +350,21 @@ void EU4::World::outputCommonCountries(const Configuration& theConfiguration) co
 void EU4::World::outputInvasionExtras(const Configuration& theConfiguration, bool invasion) const
 {
 	//Sunset Religions
-	auto files = Utils::GetAllFilesInFolder("configurables/sunset/common/religions/");
+	auto files = commonItems::GetAllFilesInFolder("configurables/sunset/common/religions/");
 	for (const auto& file: files)
-		Utils::TryCopyFile("configurables/sunset/common/religions/" + file, "output/" + theConfiguration.getOutputName() + "/common/religions/" + file);
+		commonItems::TryCopyFile("configurables/sunset/common/religions/" + file, "output/" + theConfiguration.getOutputName() + "/common/religions/" + file);
 	//Sunset Ideas
-	files = Utils::GetAllFilesInFolder("configurables/sunset/common/ideas/");
+	files = commonItems::GetAllFilesInFolder("configurables/sunset/common/ideas/");
 	for (const auto& file: files)
-		Utils::TryCopyFile("configurables/sunset/common/ideas/" + file, "output/" + theConfiguration.getOutputName() + "/common/ideas/" + file);
+		commonItems::TryCopyFile("configurables/sunset/common/ideas/" + file, "output/" + theConfiguration.getOutputName() + "/common/ideas/" + file);
 	// Sunset Cultures
-	files = Utils::GetAllFilesInFolder("configurables/sunset/common/cultures/");
+	files = commonItems::GetAllFilesInFolder("configurables/sunset/common/cultures/");
 	for (const auto& file: files)
-		Utils::TryCopyFile("configurables/sunset/common/cultures/" + file, "output/" + theConfiguration.getOutputName() + "/common/cultures/" + file);
+		commonItems::TryCopyFile("configurables/sunset/common/cultures/" + file, "output/" + theConfiguration.getOutputName() + "/common/cultures/" + file);
 	// Sunset Decisions
-	files = Utils::GetAllFilesInFolder("configurables/sunset/decisions/");
+	files = commonItems::GetAllFilesInFolder("configurables/sunset/decisions/");
 	for (const auto& file: files)
-		Utils::TryCopyFile("configurables/sunset/decisions/" + file, "output/" + theConfiguration.getOutputName() + "/decisions/" + file);
+		commonItems::TryCopyFile("configurables/sunset/decisions/" + file, "output/" + theConfiguration.getOutputName() + "/decisions/" + file);
 
 }
 
@@ -444,7 +444,7 @@ void EU4::World::outputDiplomacy(const Configuration& theConfiguration, const st
 		diplo << "\n";
 		diplo.close();
 		// and move over our alliances.
-		Utils::TryCopyFile("configurables/sunset/history/diplomacy/SunsetInvasion.txt",
+		commonItems::TryCopyFile("configurables/sunset/history/diplomacy/SunsetInvasion.txt",
 			 "output/" + theConfiguration.getOutputName() + "/history/diplomacy/SunsetInvasion.txt");
 	}
 }
@@ -453,12 +453,12 @@ void EU4::World::outputReformedReligions(const Configuration& theConfiguration, 
 {
 	if (noReformation)
 	{
-		auto files = Utils::GetAllFilesInFolder("configurables/reformation/oldPagans/");
+		auto files = commonItems::GetAllFilesInFolder("configurables/reformation/oldPagans/");
 		for (const auto& file: files)
-			Utils::TryCopyFile("configurables/reformation/oldPagans/" + file, "output/" + theConfiguration.getOutputName() + "/common/religions/" + file);
+			commonItems::TryCopyFile("configurables/reformation/oldPagans/" + file, "output/" + theConfiguration.getOutputName() + "/common/religions/" + file);
 	}
 	else
 	{
-		EU4::outReligion religions(theConfiguration, unreligionReforms, religionReforms);
+		outReligion(theConfiguration, unreligionReforms, religionReforms);
 	}
 }

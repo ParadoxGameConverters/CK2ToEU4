@@ -17,16 +17,16 @@ void CK2::Domain::registerKeys()
 		capital = std::pair(capitalStr.getString(), nullptr);
 	});
 	registerKeyword("primary", [this](const std::string& unused, std::istream& theStream) {
-		const auto primTitleStr = commonItems::singleItem(unused, theStream);
+		const auto primTitleStr = commonItems::stringOfItem(theStream).getString();
+		std::stringstream tempStream(primTitleStr);
 		if (primTitleStr.find('{') != std::string::npos)
 		{
-			std::stringstream tempStream(primTitleStr);
 			auto newPrimTitle = std::make_shared<Liege>(tempStream);
 			primaryTitle = std::pair(newPrimTitle->getTitle().first, newPrimTitle);
 		}
 		else
 		{
-			auto newPrimTitle = std::make_shared<Liege>(primTitleStr);
+			auto newPrimTitle = std::make_shared<Liege>(commonItems::singleString(tempStream).getString());
 			primaryTitle = std::pair(newPrimTitle->getTitle().first, newPrimTitle);
 		}
 	});

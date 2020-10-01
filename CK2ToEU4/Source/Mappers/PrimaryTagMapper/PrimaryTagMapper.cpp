@@ -9,9 +9,9 @@ void mappers::PrimaryTagMapper::loadPrimaryTags(const Configuration& theConfigur
 	LOG(LogLevel::Info) << "-> Sifting Through EU4 Cultures";
 	registerKeys();
 
-	for (const auto& filename: Utils::GetAllFilesInFolder("blankMod/output/common/cultures/"))
+	for (const auto& filename: commonItems::GetAllFilesInFolder("blankMod/output/common/cultures/"))
 		parseFile("blankMod/output/common/cultures/" + filename);
-	for (const auto& filename: Utils::GetAllFilesInFolder(theConfiguration.getEU4Path() + "/common/cultures/"))
+	for (const auto& filename: commonItems::GetAllFilesInFolder(theConfiguration.getEU4Path() + "/common/cultures/"))
 		parseFile(theConfiguration.getEU4Path() + "/common/cultures/" + filename);
 	
 	clearRegisteredKeywords();

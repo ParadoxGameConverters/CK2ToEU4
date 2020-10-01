@@ -1,12 +1,11 @@
-#include "Log.h"
-#include "ParserHelpers.h"
 #include "ReformedReligionMapping.h"
+#include "ParserHelpers.h"
 #include <iomanip>
 
 mappers::ReformedReligionMapping::ReformedReligionMapping(std::istream& theStream)
 {
 	registerKeys();
-	parseStream(theStream);	
+	parseStream(theStream);
 	clearRegisteredKeywords();
 }
 
@@ -17,32 +16,31 @@ void mappers::ReformedReligionMapping::registerKeys()
 		iconNumber = icon.getInt();
 	});
 	registerKeyword("color", [this](const std::string& unused, std::istream& theStream) {
-		
 		color = commonItems::Color::Factory().getColor(theStream);
 	});
 	registerKeyword("country", [this](const std::string& mods, std::istream& theStream) {
-		countryModifiers = commonItems::singleItem(mods, theStream);
-		countryModifiers = countryModifiers.substr(1, countryModifiers.length()-2);
+		countryModifiers = commonItems::stringOfItem(theStream).getString();
+		countryModifiers = countryModifiers.substr(3, countryModifiers.length() - 4);
 	});
 	registerKeyword("province", [this](const std::string& mods, std::istream& theStream) {
-		provinceModifiers = commonItems::singleItem(mods, theStream);
-		provinceModifiers = provinceModifiers.substr(1, provinceModifiers.length()-2);
+		provinceModifiers = commonItems::stringOfItem(theStream).getString();
+		provinceModifiers = provinceModifiers.substr(3, provinceModifiers.length() - 4);
 	});
 	registerKeyword("country_as_secondary", [this](const std::string& mods, std::istream& theStream) {
-		secondary = commonItems::singleItem(mods, theStream);
-		secondary = secondary.substr(1, secondary.length()-2);
+		secondary = commonItems::stringOfItem(theStream).getString();
+		secondary = secondary.substr(3, secondary.length() - 4);
 	});
 	registerKeyword("unique_modifiers", [this](const std::string& mods, std::istream& theStream) {
-		uniqueMechanics = commonItems::singleItem(mods, theStream);
-		uniqueMechanics = uniqueMechanics.substr(1, uniqueMechanics.length()-2);
+		uniqueMechanics = commonItems::stringOfItem(theStream).getString();
+		uniqueMechanics = uniqueMechanics.substr(3, uniqueMechanics.length() - 4);
 	});
 	registerKeyword("not_unique_modifiers", [this](const std::string& mods, std::istream& theStream) {
-		nonUniqueMechanics = commonItems::singleItem(mods, theStream);
-		nonUniqueMechanics = nonUniqueMechanics.substr(1, nonUniqueMechanics.length()-2);
+		nonUniqueMechanics = commonItems::stringOfItem(theStream).getString();
+		nonUniqueMechanics = nonUniqueMechanics.substr(3, nonUniqueMechanics.length() - 4);
 	});
 	registerKeyword("heretic", [this](const std::string& mods, std::istream& theStream) {
-		hereticStrings = commonItems::singleItem(mods, theStream);
-		hereticStrings = hereticStrings.substr(1, hereticStrings.length()-2);
+		hereticStrings = commonItems::stringOfItem(theStream).getString();
+		hereticStrings = hereticStrings.substr(3, hereticStrings.length() - 4);
 	});
 	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }
