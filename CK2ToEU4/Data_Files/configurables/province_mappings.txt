@@ -865,7 +865,7 @@
 	link = { ck2 = 552 eu4 = 1941 }	# Turov -> Turov
 	link = { ck2 = 558 eu4 = 1974 }	# Oleshye -> Yedishkul
 	link = { ck2 = 557 ck2 = 563 eu4 = 2412 }	# Lukomorie, Lower Don -> Kyzyl-Yar
-	link = { ck2 = 596 eu4 = 2413 }	# Tana -> Tyn
+	link = { ck2 = 596 eu4 = 2413 eu4 = 286 }	# Tana -> Tyn, Azov
 	link = { ck2 = 1665 eu4 = 2408 }	# Yelets -> Yelets
 	link = { ck2 = 1681 eu4 = 298 }	# Kursk -> Kursk
 	link = { ck2 = 567 eu4 = 1945 }	# Novgorod Seversky -> Severia
@@ -886,8 +886,7 @@
 	link = { ck2 = 561 ck2 = 562 eu4 = 285 }	# Theodosia, Korchev -> Caffa
 	# Don't trust these comments - I am tired
 	link = { ck2 = 598 eu4 = 2447 eu4 = 2195 }	# Tmutarakan -> Matrega, Adyghe
-	link = { ck2 = 597 eu4 = 286 }	# Azov -> Azov
-	link = { ck2 = 599 eu4 = 287 }	# Kuban -> Kuban
+	link = { ck2 = 599 ck2 = 597 eu4 = 287 }	# Kuban, Azov -> Kuban
 	link = { ck2 = 607 eu4 = 2414 }	# Sarpa -> Azaraba
 	link = { ck2 = 602 eu4 = 463 }	# Kasogia -> Circassia
 	link = { ck2 = 606 eu4 = 2416 }	# Yegorlyk -> Majar
