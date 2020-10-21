@@ -18,5 +18,5 @@ void mappers::ProvinceMapping::registerKeys()
 		const commonItems::singleInt provinceInt(theStream);
 		ck2Provinces.push_back(provinceInt.getInt());
 	});
-	registerRegex("[a-zA-Z0-9\\_.:-]+", commonItems::ignoreItem);
+	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }

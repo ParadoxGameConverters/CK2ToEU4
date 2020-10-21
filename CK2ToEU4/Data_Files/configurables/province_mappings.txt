@@ -1,5 +1,5 @@
 3.3.2 = {
-	# CK2 Wastelands
+	link = { comment = "# CK2 Wastelands" }
 	link = { ck2 = 924 ck2 = 923 eu4 = 1793 eu4 = 1111 eu4 = 1469 eu4 = 1579 eu4 = 1096 }	# MANY-TO-MANY: Western Sahara, Adrar Plateau -> El Djouf, Arguin, Bay of Arguin, Cape Verde Approach, Cape Verde
 	link = { ck2 = 909 eu4 = 1794 }	# Sahara Desert -> Central Sahara
 	link = { ck2 = 1767 eu4 = 1795 }	# Eastern Sahara -> East Sahara
@@ -9,7 +9,6 @@
 	link = { eu4 = 4156 }	# NOTHING -> The Caucasus
 	link = { eu4 = 4138 }	# NOTHING -> Issyk-Kul
 	link = { ck2 = 901 }	# Kyzul-Kum Desert -> DROPPED
-	# link = { ck2 = 1790 eu4 = 438 }	# Kara-Kum Desert -> Karakum
 	link = { ck2 = 1347 eu4 = 1786 eu4 = 1784 }	# Taklamakan Desert -> Takla Makan, Tian Shan
 	link = { ck2 = 1348 eu4 = 4401 eu4 = 4400 }	# Arakanese Mountains -> Arakan Mountains, Naga Hills
 	link = { ck2 = 910 eu4 = 2425 eu4 = 1780 eu4 = 1073 eu4 = 2445 eu4 = 2430 eu4 = 1781 eu4 = 1072 eu4 = 2426 eu4 = 1055 eu4 = 2432 eu4 = 1069 eu4 = 1070 eu4 = 1067 eu4 = 2431 eu4 = 2442 eu4 = 1054 eu4 = 2435 eu4 = 1045 eu4 = 2437 eu4 = 1782 eu4 = 2436 eu4 = 1059 eu4 = 1062 eu4 = 1061 eu4 = 1888 eu4 = 1056 eu4 = 1963 }	# Siberian Wastes -> Nenets, Komi, Berezov, Mangazea, Baykha, Western Siberia, Obdorsk, Yamal, Kirenga, Chulym, Surgut, Narim, Turukhan, Uchamin, Ust-Kut, Mukhtuya, Nukhtui, Yakut, Seganka, Central Siberia, Chuna, East Tunguska, Angara, West Tunguska, Kara Sea, Barguzin, Cherdyn
@@ -26,11 +25,11 @@
 	link = { eu4 = 4146 eu4 = 4153 eu4 = 1804 }	# NOTHING -> Langfjella, The Scandes, Greenland
 	link = { eu4 = 2129 eu4 = 4522 eu4 = 1787 eu4 = 1785 eu4 = 4328 eu4 = 2200 }	# NOTHING -> Changtang, Aqenganggyai, Himalaya, Pamir, Chagai, Suleiman Range
 	link = { eu4 = 1788 eu4 = 4402 eu4 = 1950 eu4 = 4403 eu4 = 2194 }	# NOTHING -> Arunachal, Gaoligong Mountains, Meghalaya, Hengduan Mountains, Qilian
-	# Actual lands starts here
-	# Iceland
+	link = { comment = "# Actual lands starts here" }
+	link = { comment = "# Iceland" }
 	link = { ck2 = 1 ck2 = 1617 eu4 = 370 }	# Vestisland, Suğurland -> Reykjavik
 	link = { ck2 = 2 ck2 = 1616 eu4 = 371 }	# Austisland, Norğland -> Akureyri
-	# Scotland
+	link = { comment = "# Scotland" }
 	link = { ck2 = 33 eu4 = 1979 }	# Færeyar -> Färöarna
 	link = { ck2 = 34 eu4 = 1978 }	# Shetland -> Shetland
 	link = { ck2 = 36 eu4 = 369 }	# Orkney -> Orkney
@@ -46,7 +45,7 @@
 	link = { ck2 = 38 eu4 = 4362 }	# Teviotdale -> Dumfries
 	link = { ck2 = 51 eu4 = 4361 }	# Dunbar -> Roxburghshire
 	link = { ck2 = 54 eu4 = 4365 }	# Isle of Man -> Mann
-	# England
+	link = { comment = "# England" }
 	link = { ck2 = 52 ck2 = 1940 ck2 = 56 eu4 = 246 }	# Northumberland, Lindisfarne, Durham -> Northumberland
 	link = { ck2 = 53 eu4 = 247 }	# Cumberland -> Cumbria
 	link = { ck2 = 58 ck2 = 55 eu4 = 244 }	# Lancaster, Westmorland -> Lancashire
@@ -73,12 +72,12 @@
 	link = { ck2 = 28 ck2 = 1944 eu4 = 4130 }	# Somerset, Bath -> Somerset
 	link = { ck2 = 29 eu4 = 4373 }	# Devon -> Devon
 	link = { ck2 = 31 eu4 = 233 }	# Cornwall -> Cornwall
-	# Wales
+	link = { comment = "# Wales" }
 	link = { ck2 = 64 ck2 = 60 ck2 = 1949 eu4 = 242 }	# Gwynedd, Perfeddwlad, Anglesey -> Gwynedd
 	link = { ck2 = 18 ck2 = 1948 ck2 = 1946 eu4 = 4369 }	# Dyfed, Ceredigion, Gower -> Carmarthen
 	link = { ck2 = 65 ck2 = 1947 eu4 = 4366 }	# Powys, Builth -> Montgomery
 	link = { ck2 = 19 ck2 = 1945 ck2 = 20 eu4 = 241 }	# Glamorgan, Brycheiniog, Gwent -> Glamorgan
-	# Ireland
+	link = { comment = "# Ireland" }
 	link = { ck2 = 5 eu4 = 4121 }	# Ulster -> Ulster
 	link = { ck2 = 4 ck2 = 7 eu4 = 372 }	# Tyrone, Oriel -> Tyrone
 	link = { ck2 = 3 eu4 = 4380 }	# Tyrconnell -> Donegal
@@ -92,7 +91,7 @@
 	link = { ck2 = 16 eu4 = 374 }	# Leinster -> Leinster
 	link = { ck2 = 11 ck2 = 1951 eu4 = 373 }	# Dublin, Meath -> Pale
 	link = { ck2 = 1990 ck2 = 1991 }	# Lough Neagh, Lough Erne -> DROPPED
-	# Portugal
+	link = { comment = "# Portugal" }
 	link = { ck2 = 163 ck2 = 162 eu4 = 230 }	# Faro, Silves -> Algarve
 	link = { ck2 = 185 ck2 = 161 eu4 = 229 }	# Mértola, Alcácer do Sal -> Beja
 	link = { ck2 = 186 eu4 = 4150 }	# Évora -> Évora
@@ -102,7 +101,7 @@
 	link = { ck2 = 159 eu4 = 1851 eu4 = 4556 }	# Coimbra -> Coimbra, Aveiro
 	link = { ck2 = 158 eu4 = 231 }	# Porto -> Porto
 	link = { ck2 = 188 eu4 = 232 }	# Bragança -> Bragança
-	# Castile-Leon
+	link = { comment = "# Castile-Leon" }
 	link = { ck2 = 157 eu4 = 4555 }	# Santiago -> Pontevedra
 	link = { ck2 = 1976 eu4 = 4554 eu4 = 4558 }	# Lugo -> Lugo, Orense
 	link = { ck2 = 156 eu4 = 206 }	# Coruña -> Corunna
@@ -136,7 +135,7 @@
 	link = { ck2 = 180 eu4 = 223 }	# Granada -> Granada
 	link = { ck2 = 168 eu4 = 222 }	# Almeria -> Almería
 	link = { ck2 = 849 eu4 = 366 }	# Canarias -> Gran Canaria
-	# Aragon
+	link = { comment = "# Aragon" }
 	link = { ck2 = 169 eu4 = 221 }	# Murcia -> Murcia
 	link = { ck2 = 170 eu4 = 1750 }	# Denia -> Alicante
 	link = { ck2 = 171 eu4 = 220 eu4 = 4549 }	# Valencia -> València, Xàtiva
@@ -151,7 +150,7 @@
 	link = { ck2 = 211 eu4 = 197 }	# Rosello -> Roussillon
 	link = { ck2 = 827 eu4 = 333 eu4 = 4560 }	# Mallorca -> Majorca, Ibiza
 	link = { ck2 = 826 eu4 = 4559 }	# Menorca -> Minorca
-	# France
+	link = { comment = "# France" }
 	link = { ck2 = 1039 ck2 = 1040 }	# Loire, Loire -> DROPPED
 	link = { ck2 = 104 ck2 = 1937 ck2 = 103 eu4 = 170 }	# Cornouaille, Poher, Léon -> Finistère
 	link = { ck2 = 102 ck2 = 1936 eu4 = 169 }	# Penthievre, Tregor -> Armor
@@ -218,7 +217,7 @@
 	link = { ck2 = 134 eu4 = 1880 }	# Sundgau -> Sundgau
 	link = { ck2 = 324 ck2 = 1577 eu4 = 1247 }	# Corsica, Cinarca -> Corsica
 	link = { ck2 = 230 eu4 = 102 }	# Nice -> Nice
-	# Switzerland
+	link = { comment = "# Switzerland" }
 	link = { ck2 = 241 eu4 = 4721 }	# Neuchatel -> Fribourg
 	link = { ck2 = 239 eu4 = 4719 eu4 = 4720 }	# Genevois -> Annecy, Geneva
 	link = { ck2 = 1611 eu4 = 1867 }	# Vaud -> Vaud
@@ -228,7 +227,7 @@
 	link = { ck2 = 248 eu4 = 1870 }	# Thurgau -> St Gallen
 	link = { ck2 = 247 eu4 = 1873 eu4 = 4722 }	# Chur -> Chur, Illanz
 	link = { ck2 = 246 eu4 = 166 }	# Schwyz -> Waldstätte
-	# Austria
+	link = { comment = "# Austria" }
 	link = { ck2 = 316 eu4 = 73 }	# Landeck -> Inntal
 	link = { ck2 = 1693 eu4 = 1863 }	# Graz -> Graz
 	link = { ck2 = 1689 eu4 = 4759 }	# Pongau -> Upper Carinthia
@@ -241,7 +240,7 @@
 	link = { ck2 = 1699 eu4 = 4762 }	# Medelike -> Wienerwald
 	link = { ck2 = 448 eu4 = 76 }	# Salzburg -> Salzburg
 	link = { ck2 = 359 eu4 = 1768 }	# Innsbruck -> Lienz
-	# Italy
+	link = { comment = "# Italy" }
 	link = { ck2 = 231 eu4 = 1875 eu4 = 4727 }	# Saluzzo -> Cuneo, Saluzzo
 	link = { ck2 = 236 ck2 = 1710 ck2 = 1610 eu4 = 103 }	# Piemonte, Ivrea, Aosta -> Turin
 	link = { ck2 = 232 eu4 = 2981 eu4 = 2979 }	# Monferrato -> Montferrat, Novara
@@ -297,7 +296,7 @@
 	link = { ck2 = 325 eu4 = 4735 }	# Arborea -> Arborea
 	link = { ck2 = 1574 ck2 = 1576 eu4 = 127 }	# Gallura, Torres -> Sassari
 	link = { ck2 = 326 ck2 = 1560 eu4 = 2986 }	# Cagliari, Ogliastra -> Cagliari
-	# Benelux
+	link = { comment = "# Benelux" }
 	link = { ck2 = 115 eu4 = 94 }	# Luxembourg -> Luxemburg
 	link = { ck2 = 116 eu4 = 93 }	# Liege -> Liège
 	link = { ck2 = 91 eu4 = 1742 }	# Loon -> Upper Guelders
@@ -312,7 +311,7 @@
 	link = { ck2 = 82 eu4 = 98 }	# Sticht -> Utrecht
 	link = { ck2 = 83 eu4 = 99 eu4 = 4381 eu4 = 2973 }	# Gelre -> Gelre, Oversticht, Meppen
 	link = { ck2 = 84 ck2 = 1989 eu4 = 100 eu4 = 4382 }	# MANY-TO-MANY: Friesland, Overijssel -> Friesland, Groningen
-	# Germany
+	link = { comment = "# Germany" }
 	link = { ck2 = 250 eu4 = 72 }	# Breisgau -> Breisgau
 	link = { ck2 = 125 eu4 = 74 eu4 = 4714 }	# Baden -> Baden, Durlach
 	link = { ck2 = 251 eu4 = 4712 }	# Fürstenberg -> Konstanz
@@ -373,7 +372,7 @@
 	link = { ck2 = 307 eu4 = 47 eu4 = 4749 }	# Werle -> Stralsund, Stargardland
 	link = { ck2 = 304 eu4 = 4745 }	# Rügen -> Rügen
 	link = { ck2 = 308 eu4 = 2994 eu4 = 1858 }	# Wolgast -> Wolgast, Stettin
-	# Scandinavia
+	link = { comment = "# Scandinavia" }
 	link = { ck2 = 264 eu4 = 13 }	# Slesvig -> Slesvig
 	link = { ck2 = 1684 eu4 = 4142 eu4 = 4149 }	# Aarhus -> Østjylland, Kolding
 	link = { ck2 = 1685 ck2 = 267 eu4 = 1984 }	# Aalborg, Skagen -> Nordjylland
@@ -426,7 +425,7 @@
 	link = { ck2 = 383 ck2 = 1607 eu4 = 29 }	# Tavastia, Keitele -> Tavastland
 	link = { ck2 = 390 ck2 = 1605 eu4 = 31 }	# Savo, Kallavesi -> Savolax
 	link = { ck2 = 291 eu4 = 1930 }	# Åland -> Åland
-	# Baltic Countries
+	link = { comment = "# Baltic Countries" }
 	link = { ck2 = 378 ck2 = 1598 ck2 = 377 eu4 = 36 }	# Kalevan, Järva, Läänemaa -> Reval
 	link = { ck2 = 376 eu4 = 35 }	# Saaremaa -> Ösel
 	link = { ck2 = 380 eu4 = 1842 }	# Narva -> Narva
@@ -442,14 +441,14 @@
 	link = { ck2 = 423 eu4 = 1936 }	# Sudovia -> Kovno
 	link = { ck2 = 372 eu4 = 40 }	# Memel -> Memel
 	link = { ck2 = 422 ck2 = 371 eu4 = 41 }	# Scalovia, Sambia -> Königsberg
-	# Duchy of Courland
-	# All counties are contested
-	# Duchy of Livonia
+	link = { comment = "# Duchy of Courland" }
+	link = { comment = "# All counties are contested" }
+	link = { comment = "# Duchy of Livonia" }
 	link = { ck2 = 1596 eu4 = 38 }	# Riga -> Riga
-	# Contested Counties (Betwen Duchies)
+	link = { comment = "# Contested Counties (Betwen Duchies)" }
 	link = { ck2 = 374 ck2 = 1591 eu4 = 1935 }	# Zemgale, Selija -> Mitau
 	link = { ck2 = 1592 ck2 = 1593 ck2 = 373 eu4 = 39 }	# Tukums, Vanema, Kurzeme -> Goldingen
-	# Czechoslovakia
+	link = { comment = "# Czechoslovakia" }
 	link = { ck2 = 437 eu4 = 266 }	# Prague -> Prague
 	link = { ck2 = 363 eu4 = 1771 }	# Litomerice -> Erz
 	link = { ck2 = 1926 eu4 = 2967 }	# Zatec -> Eger
@@ -463,7 +462,7 @@
 	link = { ck2 = 443 eu4 = 154 }	# Nitra -> Hont
 	link = { ck2 = 525 ck2 = 524 eu4 = 1318 }	# Zvolen, Gemer -> Spiš
 	link = { ck2 = 533 ck2 = 538 eu4 = 162 }	# Spis, Abauj -> Zemplén
-	# Hungary
+	link = { comment = "# Hungary" }
 	link = { ck2 = 450 ck2 = 454 eu4 = 135 }	# Sopron, Vas -> Sopron
 	link = { ck2 = 451 eu4 = 4240 }	# Fejer -> Fejér
 	link = { ck2 = 518 eu4 = 4126 eu4 = 1954 }	# Bacs -> Bacs, Torontál
@@ -473,7 +472,7 @@
 	link = { ck2 = 522 ck2 = 444 eu4 = 153 }	# Pest, Esztergom -> Pest
 	link = { ck2 = 523 eu4 = 4125 eu4 = 1953 }	# Heves -> Szolnok, Szabolcs
 	link = { ck2 = 520 eu4 = 157 }	# Bihar -> Bihar
-	# Romania
+	link = { comment = "# Romania" }
 	link = { ck2 = 539 ck2 = 537 eu4 = 1952 }	# Marmaros, Bereg -> Maramaros
 	link = { ck2 = 540 eu4 = 158 eu4 = 4127 }	# Szekelyföld -> Maros, Turda
 	link = { ck2 = 519 eu4 = 4128 }	# Feher -> Királyföld
@@ -486,7 +485,7 @@
 	link = { ck2 = 1638 eu4 = 4529 }	# Iasi -> Iasi
 	link = { ck2 = 536 eu4 = 261 }	# Galich -> Halicz
 	link = { ck2 = 541 ck2 = 512 eu4 = 2405 }	# Peresechen, Belgorod -> Bender
-	# Yugoslavia
+	link = { comment = "# Yugoslavia" }
 	link = { ck2 = 458 eu4 = 130 }	# Istria -> Istria
 	link = { ck2 = 1691 eu4 = 4751 }	# Pettau -> Cilli
 	link = { ck2 = 457 eu4 = 129 }	# Chreina -> Krain
@@ -524,7 +523,7 @@
 	link = { ck2 = 471 eu4 = 4780 eu4 = 4750 }	# Ohrid -> Ohrid, Kruje
 	link = { ck2 = 1888 ck2 = 1887 eu4 = 3001 }	# Astibus, Bitola -> Skopje
 	link = { ck2 = 1886 eu4 = 143 }	# Avlonas -> Vlorë
-	# Greece and Anatolia
+	link = { comment = "# Greece and Anatolia" }
 	link = { ck2 = 474 eu4 = 4698 }	# Cephalonia -> Cephalonia
 	link = { ck2 = 1890 ck2 = 1889 eu4 = 142 }	# Korkyra, Zakynthos -> Corfu
 	link = { ck2 = 473 ck2 = 1881 eu4 = 4699 }	# Árta, Naupaktos -> Arta
@@ -577,7 +576,7 @@
 	link = { ck2 = 735 eu4 = 4298 }	# Teluch -> Ayntab
 	link = { eu4 = 1892 eu4 = 1891 }	# NOTHING -> Lake Van, Lake Tuz
 	link = { ck2 = 757 ck2 = 756 eu4 = 321 }	# Famagusta, Limisol -> Cyprus
-	# Near East
+	link = { comment = "# Near East" }
 	link = { ck2 = 764 ck2 = 763 eu4 = 2313 }	# Antioch, Alexandretta -> Antioch
 	link = { ck2 = 767 ck2 = 766 ck2 = 770 eu4 = 378 }	# Tripoli, Tortosa, Beirut -> Tarabulus
 	link = { ck2 = 771 eu4 = 1855 }	# Tyrus -> Sidon
@@ -613,7 +612,7 @@
 	link = { ck2 = 697 eu4 = 411 }	# Mosul -> Mosul
 	link = { ck2 = 701 ck2 = 683 eu4 = 4295 }	# Taron, Amida -> Hisn Kayfa
 	link = { ck2 = 700 eu4 = 4296 }	# Bira -> Bitlis
-	# Arabia
+	link = { comment = "# Arabia" }
 	link = { ck2 = 717 eu4 = 4272 }	# Al Jawf -> Al Jawf
 	link = { ck2 = 1536 eu4 = 4269 }	# Khaybar -> Al Wajh
 	link = { ck2 = 721 eu4 = 383 }	# Tabuk -> Tabuk
@@ -646,7 +645,7 @@
 	link = { ck2 = 868 eu4 = 400 eu4 = 4286 }	# Muscat -> Muscat, Ash Sharqiyah
 	link = { ck2 = 869 eu4 = 4285 eu4 = 403 eu4 = 399 eu4 = 398 }	# Suhár -> Baraimi, Nizwa, Batinah, Qawasim
 	link = { ck2 = 870 eu4 = 397 eu4 = 404 eu4 = 2333 }	# Julfar -> Bani Yas, Liwa, Zufra
-	# Abyssinia
+	link = { comment = "# Abyssinia" }
 	link = { eu4 = 1899 }	# NOTHING -> Tana Lake
 	link = { ck2 = 794 eu4 = 1231 }	# Aswan -> Aswan
 	link = { ck2 = 1782 eu4 = 1233 }	# Kharga -> Kharga
@@ -720,44 +719,44 @@
 	link = { ck2 = 1778 eu4 = 4568 }	# Tinmallal -> Demnate
 	link = { ck2 = 1777 eu4 = 2468 }	# Tadla -> Tadla
 	link = { ck2 = 842 eu4 = 342 eu4 = 4563 }	# Infa -> Gharb, Salé
-	# Duchy of Nobatia
+	link = { comment = "# Duchy of Nobatia" }
 	link = { ck2 = 1320 eu4 = 2324 }	# Aydhab -> Halaib
 	link = { ck2 = 1282 eu4 = 1234 eu4 = 2323 }	# Dotawo -> Qasr Ibrim, Sahra an Nübyah
 	link = { ck2 = 1322 eu4 = 2322 eu4 = 1228 }	# Nobatia -> Wadi Halfa, Dongola
 	link = { ck2 = 792 eu4 = 1229 }	# Nubia -> Berber
-	# Duchy of Makuria
+	link = { comment = "# Duchy of Makuria" }
 	link = { ck2 = 793 eu4 = 1220 }	# Makuria -> Bayuda
 	link = { ck2 = 1326 eu4 = 2797 eu4 = 2798 }	# Napata -> Shendy, Soba
 	link = { ck2 = 879 eu4 = 1225 }	# Atbara -> Butana
-	# Duchy of Alodia
+	link = { comment = "# Duchy of Alodia" }
 	link = { ck2 = 1772 eu4 = 1219 eu4 = 2801 eu4 = 2802 }	# Darfur -> Darfur, Medwa, Kobbe
 	link = { ck2 = 1994 eu4 = 1221 eu4 = 2800 }	# Bayuda -> El Obeid, Kosti
 	link = { ck2 = 1335 eu4 = 1216 }	# Kosti -> Tegali
 	link = { ck2 = 1334 eu4 = 1222 }	# Alodia -> Gezira
 	link = { ck2 = 880 eu4 = 1217 eu4 = 2799 }	# Sennar -> Fazughli, Sennar
-	# Duchy of Blemmiya
+	link = { comment = "# Duchy of Blemmiya" }
 	link = { ck2 = 1330 eu4 = 1232 }	# Suakin -> Suakin
 	link = { ck2 = 876 eu4 = 2766 }	# Akordat -> Mendefera
 	link = { ck2 = 878 eu4 = 1226 eu4 = 2787 }	# Hayya -> Beja, Hamasien
 	link = { ck2 = 877 eu4 = 4033 eu4 = 2772 }	# Kassala -> Al Qadarif, Dembiya
 	link = { ck2 = 1993 eu4 = 2770 }	# Gezira -> Agew
-	# Duchy of Axum
+	link = { comment = "# Duchy of Axum" }
 	link = { ck2 = 875 eu4 = 1227 eu4 = 2767 }	# Aksum -> Aksum, Enderta
-	# Duchy of Wag
-	# Duchy of Semien
+	link = { comment = "# Duchy of Wag" }
+	link = { comment = "# Duchy of Semien" }
 	link = { ck2 = 1380 ck2 = 1437 eu4 = 2771 }	# Semien, Tigrinya -> Semien
-	# Duchy of Gondar
+	link = { comment = "# Duchy of Gondar" }
 	link = { ck2 = 883 eu4 = 1224 }	# Gondar -> Gonder
 	link = { ck2 = 1429 eu4 = 1214 }	# Begemder -> Wollo
-	# Duchy of Gojjam
+	link = { comment = "# Duchy of Gojjam" }
 	link = { ck2 = 1280 ck2 = 885 eu4 = 1223 }	# Gojjam, Matamma -> Gojjam
-	# Duchy of Damot
+	link = { comment = "# Duchy of Damot" }
 	link = { ck2 = 881 eu4 = 2763 }	# Asosa -> Asosa
 	link = { ck2 = 1428 eu4 = 2762 }	# Damot -> Damot
-	# Duchy of Shewa
+	link = { comment = "# Duchy of Shewa" }
 	link = { ck2 = 884 eu4 = 1213 }	# Antalo -> Shewa
 	link = { ck2 = 882 eu4 = 2791 }	# Ankober -> Ankober
-	# Duchy of Afar
+	link = { comment = "# Duchy of Afar" }
 	link = { ck2 = 1343 ck2 = 1332 eu4 = 1230 }	# Massawa, Trinkitat -> Massawa
 	link = { ck2 = 1373 eu4 = 2765 }	# Assab -> Assab
 	link = { ck2 = 1417 eu4 = 2769 }	# Wag -> Lasta
@@ -765,12 +764,12 @@
 	link = { ck2 = 1379 eu4 = 2764 }	# Asayita -> Ausa
 	link = { ck2 = 874 eu4 = 1215 }	# Tadjoura -> Tajura
 	link = { ck2 = 873 eu4 = 1211 }	# Harer -> Harer
-	# Duchy of Berbera
+	link = { comment = "# Duchy of Berbera" }
 	link = { ck2 = 1344 eu4 = 1212 eu4 = 2793 eu4 = 2773 }	# Zeila -> Zeila, Hargeisa, Mora
 	link = { ck2 = 872 eu4 = 1209 eu4 = 2790 eu4 = 2789 eu4 = 2792 }	# Berbera -> Berbera, Sanaag, Las Khorey, Togdheer
 	link = { ck2 = 871 eu4 = 2786 eu4 = 2788 eu4 = 1206 }	# Busaso -> Bosaso, Hafun, Qardho
-	# Contested Counties (Between Duchies)
-	# Africa
+	link = { comment = "# Contested Counties (Between Duchies)" }
+	link = { comment = "# Africa" }
 	link = { ck2 = 916 ck2 = 921 eu4 = 1127 }	# Taghaza, Bir Um Grein -> Tuat
 	link = { ck2 = 912 eu4 = 1129 }	# Aoudaghost -> Azawad
 	link = { ck2 = 917 ck2 = 920 ck2 = 1762 eu4 = 1128 }	# Araouane, Ouadane, Tagant -> Taudeni
@@ -820,7 +819,7 @@
 	link = { ck2 = 1769 eu4 = 2288 }	# Fitri -> Yao
 	link = { ck2 = 1770 eu4 = 2932 }	# Wadai -> Waddai
 	link = { ck2 = 1771 eu4 = 774 }	# Ennedi -> Al-Junaynah
-	# Poland
+	link = { comment = "# Poland" }
 	link = { ck2 = 366 eu4 = 48 eu4 = 4746 }	# Stettin -> Kolberg, Wolgast
 	link = { ck2 = 1588 eu4 = 49 eu4 = 4747 }	# Neumark -> Neumark, Dramburg
 	link = { ck2 = 1587 ck2 = 367 eu4 = 2995 }	# Bytow, Slupsk -> Stolp
@@ -884,7 +883,7 @@
 	link = { ck2 = 559 eu4 = 284 }	# Crimea -> Crimea
 	link = { ck2 = 560 eu4 = 2410 }	# Cherson -> Theodoro
 	link = { ck2 = 561 ck2 = 562 eu4 = 285 }	# Theodosia, Korchev -> Caffa
-	# Don't trust these comments - I am tired
+	link = { comment = "# Don't trust these comments - I am tired" }
 	link = { ck2 = 598 eu4 = 2447 eu4 = 2195 }	# Tmutarakan -> Matrega, Adyghe
 	link = { ck2 = 599 ck2 = 597 eu4 = 287 }	# Kuban, Azov -> Kuban
 	link = { ck2 = 607 eu4 = 2414 }	# Sarpa -> Azaraba
@@ -913,23 +912,23 @@
 	link = { ck2 = 669 eu4 = 4299 }	# Shemakha -> Shamakhi
 	link = { ck2 = 668 eu4 = 421 }	# Shirvan -> Shirvan
 	link = { ck2 = 682 eu4 = 2307 }	# Vaspurakan -> Van
-	# Duchy of Red Ruthenia
+	link = { comment = "# Duchy of Red Ruthenia" }
 	link = { ck2 = 1635 eu4 = 4538 }	# Cherven -> Chelm
 	link = { ck2 = 1632 eu4 = 1940 }	# Belz -> Belz
-	# Duchy of Smolensk
+	link = { comment = "# Duchy of Smolensk" }
 	link = { ck2 = 410 eu4 = 4243 }	# Toropets -> Toropets
 	link = { ck2 = 568 ck2 = 569 eu4 = 293 }	# Smolensk, Vyazma -> Smolensk
 	link = { ck2 = 933 eu4 = 4246 }	# Roslavl -> Mstislav
 	link = { ck2 = 551 eu4 = 292 }	# Mstislavl -> Mogilev
-	# Duchy of Chernigov
+	link = { comment = "# Duchy of Chernigov" }
 	link = { ck2 = 553 eu4 = 4115 }	# Lyubech -> Mazyr
 	link = { ck2 = 554 eu4 = 289 }	# Chernigov -> Chernigov
 	link = { ck2 = 1656 eu4 = 4244 }	# Starodub -> Trubchevsk
-	# Duchy of Pereyaslavl
+	link = { comment = "# Duchy of Pereyaslavl" }
 	link = { ck2 = 555 ck2 = 1657 eu4 = 2407 }	# Pereyaslavl, Voin -> Pereyaslav
 	link = { ck2 = 1658 ck2 = 1675 eu4 = 4542 }	# Hradyzk, Priluk -> Lubnie
-	# Contested Counties (Between Duchies)
-	# Persia
+	link = { comment = "# Contested Counties (Between Duchies)" }
+	link = { comment = "# Persia" }
 	link = { ck2 = 666 eu4 = 4339 eu4 = 417 eu4 = 4340 }	# Gilan -> Rasht, Lahijan, Astara
 	link = { ck2 = 662 eu4 = 426 }	# Alamut -> Amol
 	link = { ck2 = 661 ck2 = 660 eu4 = 4341 }	# Tabaristan, Qwivir -> Sari
@@ -960,22 +959,22 @@
 	link = { ck2 = 637 eu4 = 4327 }	# Jabal Qufs -> Jask
 	link = { ck2 = 854 eu4 = 447 }	# Zamindawar -> Kandahar
 	link = { ck2 = 1184 eu4 = 577 }	# Kalat -> Quetta
-	# Duchy of Sistan
+	link = { comment = "# Duchy of Sistan" }
 	link = { ck2 = 1183 eu4 = 2229 }	# Bost -> Bust
 	link = { ck2 = 1275 eu4 = 2230 }	# Zaranj -> Chakhansur
 	link = { ck2 = 852 eu4 = 435 }	# Zahedan -> Zaranj
 	link = { ck2 = 299 eu4 = 2224 }	# Farrah -> Ferah
-	# Duchy of Kerman
+	link = { comment = "# Duchy of Kerman" }
 	link = { ck2 = 853 eu4 = 2220 }	# Bam -> Bam
 	link = { ck2 = 639 eu4 = 432 }	# Kerman -> Kerman
 	link = { ck2 = 641 eu4 = 2999 eu4 = 431 }	# Hormuz -> Hormuz, Mogostan
-	# Duchy of Fars
+	link = { comment = "# Duchy of Fars" }
 	link = { ck2 = 642 eu4 = 2223 eu4 = 2219 }	# Darabjerd -> Larestan, Bandar Langeh
 	link = { ck2 = 643 eu4 = 4332 eu4 = 430 }	# Dashtestan -> Siraf, Dashtistan
 	link = { ck2 = 645 eu4 = 2217 }	# Arrajan -> Yasuj
 	link = { ck2 = 644 eu4 = 4331 eu4 = 2218 eu4 = 4329 }	# Shiraz -> Kazerun, Shiraz, Fasa
 	link = { ck2 = 691 eu4 = 4330 eu4 = 2234 eu4 = 4345 }	# Istakhr -> Darab, Rafsanjan, Saidabad
-	# Central Asia
+	link = { comment = "# Central Asia" }
 	link = { ck2 = 1789 ck2 = 631 eu4 = 2349 }	# Kyzyl-Su, Dihistan -> Kizil-Su
 	link = { ck2 = 627 eu4 = 437 eu4 = 438 }	# Farava -> Kopet Dag, Karakum
 	link = { ck2 = 626 eu4 = 441 }	# Khiva -> Khiva
@@ -1036,198 +1035,198 @@
 	link = { ck2 = 1826 eu4 = 4262 }	# Velsk -> Totma
 	link = { ck2 = 588 ck2 = 585 ck2 = 589 eu4 = 1083 }	# Mari, Gorodets, Kerzhenets -> Vetluga
 	link = { ck2 = 1820 ck2 = 397 ck2 = 1830 ck2 = 1831 ck2 = 1832 ck2 = 1828 ck2 = 1829 ck2 = 1833 }	# Kanin, Snopa, Indiga, Koshma, Tobysh, Zavarot, Kolguyev, Tsilma -> DROPPED
-	# Duchy of Om
+	link = { comment = "# Duchy of Om" }
 	link = { ck2 = 1864 eu4 = 2369 eu4 = 2357 }	# Osha -> Upper Ishim, Aksary
 	link = { ck2 = 1862 eu4 = 4690 }	# Tara -> Ishim
 	link = { ck2 = 1861 eu4 = 4689 eu4 = 1071 }	# Om -> Om, Irtesh
 	link = { ck2 = 1205 eu4 = 2428 eu4 = 2429 }	# Narim -> Yugan, Agan
-	# Duchy of Vasyugan
+	link = { comment = "# Duchy of Vasyugan" }
 	link = { ck2 = 1860 eu4 = 1074 }	# Vasyugan -> Sibir
 	link = { ck2 = 1865 ck2 = 1866 eu4 = 1075 }	# Tui, Shish -> Tyumen
 	link = { ck2 = 1859 eu4 = 4691 }	# Bolshoy Yugan -> As
-	# Duchy of Yugra
+	link = { comment = "# Duchy of Yugra" }
 	link = { ck2 = 887 eu4 = 2427 }	# Yamalia -> Ostyaki
 	link = { ck2 = 890 ck2 = 892 eu4 = 1080 }	# Khantia, Mansia -> Pelym
-	# Duchy of Tobol
+	link = { comment = "# Duchy of Tobol" }
 	link = { ck2 = 1858 ck2 = 891 eu4 = 1078 }	# Tavda, Chimgi-Tura -> Tura
 	link = { ck2 = 1854 ck2 = 1856 eu4 = 4692 }	# Kartaly-Ayat, Ubagan -> Turgay
 	link = { ck2 = 1857 ck2 = 898 eu4 = 2441 }	# Miass, Tobol -> Iglino
-	# Duchy of Yaik
+	link = { comment = "# Duchy of Yaik" }
 	link = { ck2 = 1853 eu4 = 2444 }	# Magnitaya -> Bashgird
 	link = { ck2 = 895 ck2 = 1850 ck2 = 1870 eu4 = 1966 }	# Yaik, Or, Boqtybay -> Chelyaba
-	# Duchy of Sibir
+	link = { comment = "# Duchy of Sibir" }
 	link = { ck2 = 1869 ck2 = 1273 eu4 = 2353 }	# Irgiz, Turgay -> Tortkara
 	link = { ck2 = 893 ck2 = 1863 eu4 = 1076 }	# Sibir, Vagay -> Kurgan
-	# Duchy of Ishim
+	link = { comment = "# Duchy of Ishim" }
 	link = { ck2 = 1878 eu4 = 476 }	# Seletyteniz -> Kypshak
 	link = { ck2 = 1430 ck2 = 1223 eu4 = 2359 }	# Tengiz, Ishim -> Baganaly
 	link = { ck2 = 1306 eu4 = 479 }	# Tura -> Kerey
-	# Duchy of Ubagan
-	# Duchy of Ural
+	link = { comment = "# Duchy of Ubagan" }
+	link = { comment = "# Duchy of Ural" }
 	link = { ck2 = 1844 ck2 = 889 eu4 = 1077 }	# Vishera, Ural -> Solikamsk
 	link = { ck2 = 1843 eu4 = 305 }	# Thisageta -> Perm
-	# Duchy of Bashkira
+	link = { comment = "# Duchy of Bashkira" }
 	link = { ck2 = 615 ck2 = 1816 eu4 = 475 }	# Bashkiria, Belaya -> Bashkortostan
-	# Duchy of Sakmara
+	link = { comment = "# Duchy of Sakmara" }
 	link = { ck2 = 1848 eu4 = 2420 }	# Sakmara -> Agyidel
-	# Duchy of Oghuz
+	link = { comment = "# Duchy of Oghuz" }
 	link = { ck2 = 623 eu4 = 471 }	# Kutan Bulak -> Alimuly
 	link = { ck2 = 622 eu4 = 2351 }	# Aral -> Shekty
-	# Duchy of Emba
+	link = { comment = "# Duchy of Emba" }
 	link = { ck2 = 621 ck2 = 1793 eu4 = 465 }	# Kangly, Emba Steppe -> Nogay
-	# Duchy of Atyrau
+	link = { comment = "# Duchy of Atyrau" }
 	link = { ck2 = 1813 eu4 = 2367 eu4 = 474 }	# Ryn -> Lower Yik, Yaik
 	link = { ck2 = 618 eu4 = 469 }	# Atyrau -> Ryn
-	# Duchy of Syr Darya
+	link = { comment = "# Duchy of Syr Darya" }
 	link = { ck2 = 1794 eu4 = 2352 eu4 = 1970 }	# Yangikent -> Alty-Kuduk, Syghnak
 	link = { ck2 = 900 ck2 = 1431 eu4 = 456 }	# Syganak, Otrar -> Turkestan
 	link = { ck2 = 1186 eu4 = 2356 eu4 = 1969 }	# Chach -> Shymkent, Sozak
-	# Duchy of Kazakh
+	link = { comment = "# Duchy of Kazakh" }
 	link = { ck2 = 1433 eu4 = 2358 }	# Kazakh -> Altyn
 	link = { ck2 = 1868 eu4 = 2361 }	# Sarysu -> Dzhaman-Kuduk
 	link = { ck2 = 1867 eu4 = 477 }	# Betpaqdala -> Nadym
 	link = { ck2 = 1879 ck2 = 1434 eu4 = 2360 eu4 = 4685 }	# MANY-TO-MANY: Qarazhyrya, Balkhash -> Tobykty, Karagandy
-	# Duchy of Zhetysu
+	link = { comment = "# Duchy of Zhetysu" }
 	link = { ck2 = 1432 eu4 = 459 eu4 = 2126 }	# Karluk -> Taraz, Chuy
 	link = { ck2 = 1426 eu4 = 2368 }	# Karatal -> Karamegdan
-	# Duchy of Irtysh
+	link = { comment = "# Duchy of Irtysh" }
 	link = { ck2 = 1435 eu4 = 2354 eu4 = 4686 }	# Karasor -> Shegendyk, Ekibastuz
 	link = { ck2 = 1132 eu4 = 478 eu4 = 2355 }	# Irtysh -> Argyn, Narym
-	# Duchy of Ob
+	link = { comment = "# Duchy of Ob" }
 	link = { ck2 = 1872 eu4 = 2434 }	# Zaysan -> Barnaul
 	link = { ck2 = 1871 eu4 = 480 }	# Katun -> Pegaya Orda
 	link = { ck2 = 1873 eu4 = 2433 }	# Ob -> Vah
 	link = { ck2 = 1329 eu4 = 4688 }	# Anuy -> Baraba
 	link = { ck2 = 1877 eu4 = 4687 }	# Buqtirma -> Imakia
-	# Duchy of Abakan
+	link = { comment = "# Duchy of Abakan" }
 	link = { ck2 = 1463 eu4 = 1068 }	# Ket -> Ket
 	link = { ck2 = 1900 eu4 = 1064 }	# Tom -> Tomsk
 	link = { ck2 = 1899 eu4 = 1065 }	# Abakan -> Kuznetsk
 	link = { ck2 = 1901 eu4 = 2443 }	# Kuznetsk -> Kan
-	# Duchy of Otuken
+	link = { comment = "# Duchy of Otuken" }
 	link = { ck2 = 1902 ck2 = 1903 ck2 = 1904 eu4 = 716 }	# Eastern Sayan, Khövsgöl, Egiin -> Tannu Uriankhai
 	link = { ck2 = 1462 eu4 = 1063 }	# Yenisei -> Sayan
 	link = { ck2 = 1461 eu4 = 1060 }	# Ötüken -> Irkutsk
-	# Duchy of Uvs
+	link = { comment = "# Duchy of Uvs" }
 	link = { ck2 = 1906 eu4 = 4222 }	# Uvs -> Ulaangom
 	link = { ck2 = 1905 ck2 = 1907 eu4 = 4681 }	# Tannu Ola, Kharkiraa -> North Kobdo
 	link = { ck2 = 1908 ck2 = 1459 eu4 = 718 }	# Tsambagarav, Khyargas -> Kobdo
-	# Duchy of Gobi Altay
+	link = { comment = "# Duchy of Gobi Altay" }
 	link = { ck2 = 1911 ck2 = 1455 eu4 = 4680 }	# Khasagt Khairkhan, Zavkhan -> East Zagast
 	link = { ck2 = 1909 ck2 = 1910 ck2 = 1517 eu4 = 4682 }	# Khökh Serkh, Sutai, Dünkheger -> South Kobdo
-	# Duchy of Ikh Bogd
+	link = { comment = "# Duchy of Ikh Bogd" }
 	link = { ck2 = 1918 eu4 = 4678 }	# Delgerkhangai -> East Qaraqorum
 	link = { ck2 = 1916 ck2 = 1456 eu4 = 2190 }	# Burkhan Buudai, Ikh Bogd -> Qaraqorum
 	link = { ck2 = 1917 eu4 = 4677 }	# Gurvan Saikhan -> East Govi
-	# Duchy of Barkul
+	link = { comment = "# Duchy of Barkul" }
 	link = { ck2 = 1516 eu4 = 2117 }	# Barkul -> Zasagt
 	link = { ck2 = 1453 eu4 = 2193 }	# Aj Bogd -> Govi
-	# Duchy of Kara Khorum
+	link = { comment = "# Duchy of Kara Khorum" }
 	link = { ck2 = 1920 ck2 = 1457 eu4 = 4668 }	# Orkhon, Kara Khorum -> West Ih Huree
 	link = { ck2 = 1925 eu4 = 2116 }	# Tuul -> Ih Huree
-	# Duchy of Baygal
+	link = { comment = "# Duchy of Baygal" }
 	link = { ck2 = 1460 ck2 = 1922 ck2 = 1923 eu4 = 1057 }	# Baygal, Uda, Khilok -> Ude
 	link = { ck2 = 1921 ck2 = 1924 eu4 = 4220 }	# Selenge, Chikoi -> Khiagt
-	# Duchy of Altay
+	link = { comment = "# Duchy of Altay" }
 	link = { ck2 = 1895 ck2 = 1454 eu4 = 1066 }	# Belukha, Western Sayan -> Altai Uriankhai
 	link = { ck2 = 1898 ck2 = 1896 eu4 = 714 }	# Markakol, Khüiten -> Hoboksar
 	link = { ck2 = 1897 eu4 = 4683 }	# Mönkh Khairkhan -> East Hoboskar
-	# Duchy of Tarbagatai
+	link = { comment = "# Duchy of Tarbagatai" }
 	link = { ck2 = 1875 eu4 = 2119 }	# Aylik -> Chuguchak
 	link = { ck2 = 1874 eu4 = 4684 }	# Saur -> Dzhemenika
 	link = { ck2 = 1427 ck2 = 1876 eu4 = 2118 }	# Ayakoz, Tarbagatai -> Urzhar
-	# Duchy of Ili
+	link = { comment = "# Duchy of Ili" }
 	link = { ck2 = 1798 eu4 = 2120 eu4 = 4208 }	# Almaliq -> Ili, Qurqara-usu
 	link = { ck2 = 1425 ck2 = 1799 eu4 = 461 }	# Ili, Qayaliq -> Almaty
-	# Duchy of Chuy
+	link = { comment = "# Duchy of Chuy" }
 	link = { ck2 = 1424 ck2 = 1796 eu4 = 2125 }	# Balasagun, Barskhan -> Kochkor
 	link = { ck2 = 1795 eu4 = 2364 }	# Talas -> Talas
-	# Duchy of Kashgar
+	link = { comment = "# Duchy of Kashgar" }
 	link = { ck2 = 1439 eu4 = 739 eu4 = 4210 eu4 = 2127 }	# Kashgar -> Kashgar, Yangi Hissar, Yashilkul
 	link = { ck2 = 1527 eu4 = 4209 }	# Uchturpan -> Maralbexi
-	# Duchy of Fergana
+	link = { comment = "# Duchy of Fergana" }
 	link = { ck2 = 1548 eu4 = 460 }	# Khaylam -> Uzkend
 	link = { ck2 = 1546 eu4 = 1967 }	# Khojand -> Khujand
 	link = { ck2 = 1423 eu4 = 458 }	# Fergana -> Kokand
-	# Duchy of Khuttal
+	link = { comment = "# Duchy of Khuttal" }
 	link = { ck2 = 1547 ck2 = 1543 eu4 = 452 }	# Badakhshan, Vakhan -> Badakhshan
 	link = { ck2 = 1187 eu4 = 2227 }	# Kunduz -> Kunduz
 	link = { ck2 = 1188 eu4 = 1968 }	# Khuttal -> Kulob
 	link = { ck2 = 1544 eu4 = 4344 }	# Chaghaniyan -> Kish
-	# Duchy of Samarkand
+	link = { comment = "# Duchy of Samarkand" }
 	link = { ck2 = 1545 eu4 = 453 }	# Nakhshab -> Qarshi
 	link = { ck2 = 903 eu4 = 454 }	# Samarkand -> Samarkand
 	link = { ck2 = 628 eu4 = 442 }	# Bukhara -> Bukhara
 	link = { ck2 = 1181 eu4 = 2363 eu4 = 457 }	# Oshrusana -> Atakent, Tashkent
-	# Duchy of Balkh
+	link = { comment = "# Duchy of Balkh" }
 	link = { ck2 = 1540 ck2 = 1377 eu4 = 2228 }	# Guzgan, Maymana -> Maymana
 	link = { ck2 = 904 eu4 = 4343 eu4 = 450 }	# Balkh -> Termez, Balkh
-	# Duchy of Merv
+	link = { comment = "# Duchy of Merv" }
 	link = { ck2 = 1541 eu4 = 444 }	# Amol -> Charjuy
 	link = { ck2 = 630 eu4 = 445 }	# Merv -> Merv
 	link = { ck2 = 629 eu4 = 2350 }	# Konjikala -> Konjikala
 	link = { ck2 = 1542 eu4 = 4325 }	# Sarakhs -> Sarakhs
-	# Duchy of Kabulistan
+	link = { comment = "# Duchy of Kabulistan" }
 	link = { ck2 = 1189 eu4 = 2225 }	# Bamian -> Bamyan
 	link = { ck2 = 1185 eu4 = 2226 eu4 = 451 }	# Kabul -> Jalalabad, Kabul
-	# Duchy of Juyan
+	link = { comment = "# Duchy of Juyan" }
 	link = { ck2 = 1919 ck2 = 1514 eu4 = 2191 eu4 = 4676 }	# MANY-TO-MANY: Juyan, Ejin -> Ejin, West Alxa
-	# Duchy of Jiuquan
+	link = { comment = "# Duchy of Jiuquan" }
 	link = { ck2 = 1448 ck2 = 1515 ck2 = 1408 ck2 = 1568 eu4 = 708 }	# Dunhuang, Yangguan, Anxi, Yumen -> Zhangye
 	link = { ck2 = 1513 eu4 = 2182 eu4 = 709 }	# Jiuquan -> Liangzhou, Alxa
-	# Duchy of Perm
+	link = { comment = "# Duchy of Perm" }
 	link = { ck2 = 1841 ck2 = 888 eu4 = 1962 }	# Kolva, Pil'va -> Kudymkar
 	link = { ck2 = 1720 ck2 = 886 eu4 = 4266 }	# Kudymkar, Perm -> Izhkar
 	link = { ck2 = 1719 eu4 = 1972 }	# Udmurts -> Udmurtia
 	link = { ck2 = 1845 eu4 = 4265 }	# Tynea -> Ar-Chally
-	# Duchy of Zyriane
+	link = { comment = "# Duchy of Zyriane" }
 	link = { ck2 = 1839 ck2 = 1840 ck2 = 1838 ck2 = 1817 eu4 = 4129 }	# Vym, Sedyu, Vychegda, Syktyvkar -> Ust-Vym
-	# Duchy of Komi
+	link = { comment = "# Duchy of Komi" }
 	link = { ck2 = 1837 ck2 = 1836 ck2 = 1835 ck2 = 1834 ck2 = 1827 eu4 = 1964 }	# Severnaya, Vel, Izhma, Kozhva, Lyzha -> Ust-Sysolsk
-	# Duchy of Votyaki
+	link = { comment = "# Duchy of Votyaki" }
 	link = { ck2 = 612 ck2 = 1842 eu4 = 1079 }	# Votyaki, Keltma -> Viatka
-	# Duchy of Qazan
+	link = { comment = "# Duchy of Qazan" }
 	link = { ck2 = 611 ck2 = 1715 ck2 = 1716 ck2 = 1718 ck2 = 1717 eu4 = 1082 }	# Qazan, Vetluga, Kremenchuk, Khlynov, Alabuga -> Kazan
-	# Duchy of Bolgar
+	link = { comment = "# Duchy of Bolgar" }
 	link = { ck2 = 614 eu4 = 4264 }	# Ashli -> Tetyushi
 	link = { ck2 = 609 eu4 = 2419 eu4 = 1081 }	# Syrt -> Kanadey, Simbirsk
 	link = { ck2 = 613 eu4 = 2421 }	# Bilyar -> Juketau
 	link = { ck2 = 610 eu4 = 4267 }	# Bolghar -> Bolgar
-	# Duchy of Samara
+	link = { comment = "# Duchy of Samara" }
 	link = { ck2 = 616 eu4 = 473 }	# Bandja -> Samara
 	link = { ck2 = 1814 ck2 = 608 eu4 = 2418 }	# Uvek, Lower Volga -> Ukek
-	# Duchy of Kargopol
+	link = { comment = "# Duchy of Kargopol" }
 	link = { ck2 = 394 eu4 = 313 }	# Onega -> Soroka
 	link = { ck2 = 1819 ck2 = 403 eu4 = 1958 }	# Kargopol, Romny -> Kargopol
-	# Duchy of Bjarmia
+	link = { comment = "# Duchy of Bjarmia" }
 	link = { ck2 = 1821 ck2 = 395 eu4 = 4258 }	# Onega Peninsula, Dvina -> Onega
 	link = { ck2 = 396 ck2 = 1822 eu4 = 1955 }	# Bjarmia, Kuloy -> Kholmogory
-	# Duchy of Itil
+	link = { comment = "# Duchy of Itil" }
 	link = { ck2 = 619 ck2 = 1812 eu4 = 466 }	# Saray, Saqsin -> Sarai
 	link = { ck2 = 1815 ck2 = 617 eu4 = 2365 }	# Yeruslan, Uzen -> Orda
 	link = { ck2 = 620 eu4 = 464 }	# Itil -> Astrakhan
 	link = { ck2 = 595 eu4 = 1971 }	# Don-Portage -> Beljamen
-	# Duchy of the Caspian Steppe
+	link = { comment = "# Duchy of the Caspian Steppe" }
 	link = { ck2 = 605 ck2 = 1811 eu4 = 468 }	# Manych, Kalaus -> Manych
 	link = { ck2 = 1810 eu4 = 2208 }	# Terek -> Terek
 	link = { ck2 = 604 eu4 = 2417 }	# Kuma -> Kuma
-	# Duchy of Mordva
+	link = { comment = "# Duchy of Mordva" }
 	link = { ck2 = 592 eu4 = 303 eu4 = 304 eu4 = 2415 }	# Burtasy -> Saratov, Penza, Etkara
 	link = { ck2 = 579 ck2 = 593 eu4 = 302 }	# Mordva, Khopyor -> Tambov
-	# Duchy of Sarkel
+	link = { comment = "# Duchy of Sarkel" }
 	link = { ck2 = 594 eu4 = 467 }	# Sarkel -> Borisoglebsk
 	link = { ck2 = 566 eu4 = 299 }	# Sugrov -> Voronezh
 	link = { ck2 = 564 eu4 = 2409 eu4 = 288 }	# Desht-i-Kipchak -> Bahmut, Lower Don
 	link = { ck2 = 556 eu4 = 2411 }	# Chortitza -> Mansur
 	link = { ck2 = 565 eu4 = 290 eu4 = 291 }	# Sharukan -> Poltava, Kharkov
-	# Duchy of Herat
+	link = { comment = "# Duchy of Herat" }
 	link = { ck2 = 1539 ck2 = 905 eu4 = 446 }	# Kanj Rustaq, Herat -> Herat
 	link = { ck2 = 1538 eu4 = 4324 }	# Badghis -> Ghuriyan
-	# Contested Counties (Between Duchies)
+	link = { comment = "# Contested Counties (Between Duchies)" }
 	link = { ck2 = 1438 ck2 = 1526 ck2 = 1525 ck2 = 1524 eu4 = 2124 }	# Yarkand, Artux, Yopurga, Karghalik -> Yarkand
 	link = { ck2 = 1564 ck2 = 1495 ck2 = 1501 ck2 = 1573 ck2 = 1503 ck2 = 1575 eu4 = 2134 }	# Qangtang, Samtho, Nagormo, Tanggula, Nangqen, Zadoi -> Rebgong
 	link = { ck2 = 1849 ck2 = 436 eu4 = 1965 }	# Irtek, Naberezhnye -> Buzuluk
-	# Hindustan
+	link = { comment = "# Hindustan" }
 	link = { ck2 = 1113 eu4 = 2232 }	# Chagai -> Kharan
 	link = { ck2 = 894 eu4 = 434 }	# Saravan -> Quhistan
 	link = { ck2 = 899 eu4 = 2233 }	# Tis -> Chabahar
@@ -1242,248 +1241,248 @@
 	link = { ck2 = 1191 eu4 = 2078 }	# Bannu -> Bannu
 	link = { ck2 = 1180 eu4 = 2077 }	# Udabhanda -> Margalla
 	link = { ck2 = 1342 eu4 = 578 }	# Purushapura -> Roh
-	# ## india_superregion
-	# # bengal_region
-	# assam_area
+	link = { comment = "# ## india_superregion" }
+	link = { comment = "# # bengal_region" }
+	link = { comment = "# assam_area" }
 	link = { ck2 = 1418 eu4 = 566 }	# Haruppeswara -> Assam
 	link = { ck2 = 1246 ck2 = 1321 eu4 = 571 eu4 = 2042 }	# MANY-TO-MANY: Goalpara, Kamarupanagara -> Darrang, Koch Hajo
 	link = { ck2 = 1177 ck2 = 1484 eu4 = 2040 }	# Kundina, Lhoyu -> Sadiya
 	link = { ck2 = 1483 eu4 = 4440 }	# Monyul -> Narayanpur
-	# east_bengal_area
+	link = { comment = "# east_bengal_area" }
 	link = { ck2 = 1324 eu4 = 4478 eu4 = 567 }	# Suvarnagram -> Haibatnagar, Silhet
 	link = { ck2 = 1236 eu4 = 2039 }	# Candradvipa -> Sunderbans
 	link = { ck2 = 1319 eu4 = 4474 eu4 = 564 }	# Bikrampur -> Sonargaon, Dhaka
 	link = { ck2 = 1240 eu4 = 4475 }	# Kumara Mandala -> Fathabad
-	# tripura_area
+	link = { comment = "# tripura_area" }
 	link = { ck2 = 1131 eu4 = 4473 eu4 = 2091 }	# Karmanta -> Chakla, Tripura
-	# garjat_area
+	link = { comment = "# garjat_area" }
 	link = { ck2 = 1269 eu4 = 2050 }	# Canda -> Chanda
 	link = { ck2 = 1252 ck2 = 1227 eu4 = 547 eu4 = 4446 eu4 = 4445 }	# MANY-TO-MANY: Barasuru, Cakrakuta -> Bastar, Kalahandi, Kanker
 	link = { ck2 = 1228 eu4 = 4448 }	# Swetaka Mandala -> Parlakhimedi
 	link = { ck2 = 1230 eu4 = 4451 }	# Suvarnapura -> Sonpur
-	# gaur_area
+	link = { comment = "# gaur_area" }
 	link = { ck2 = 1243 eu4 = 563 eu4 = 4479 }	# Gauda -> Gauda, Goraghat
 	link = { ck2 = 1153 ck2 = 1151 eu4 = 4486 }	# Kotivarsa, Laksmanavati -> Purnia
-	# jharkhand_area
+	link = { comment = "# jharkhand_area" }
 	link = { ck2 = 1234 eu4 = 2096 }	# Damin-i-koh -> Damin
 	link = { ck2 = 1248 eu4 = 560 eu4 = 4470 }	# Munda -> Jharkhand, Soumelpur
 	link = { ck2 = 1247 eu4 = 4450 }	# Khijjingakota -> Mayurbhanj
-	# naga_hills_area
+	link = { comment = "# naga_hills_area" }
 	link = { ck2 = 1296 eu4 = 570 }	# Dimapur -> Naga
-	# north_bengal_area
+	link = { comment = "# north_bengal_area" }
 	link = { ck2 = 1244 eu4 = 562 }	# Kamatapur -> Koch
 	link = { ck2 = 1325 eu4 = 2045 }	# Madhupur -> Rangpur
 	link = { ck2 = 1381 eu4 = 2046 }	# Pundravardhana -> Nasirabad
-	# orissa_area
+	link = { comment = "# orissa_area" }
 	link = { ck2 = 1129 ck2 = 1231 eu4 = 552 eu4 = 2043 }	# MANY-TO-MANY: Kataka, Viraja -> Cuttack, Balasore
 	link = { ck2 = 1232 eu4 = 2038 }	# Midnapore -> Midnapore
 	link = { ck2 = 1229 ck2 = 1156 eu4 = 2049 }	# Khinjali Mandala, Kodalaka Mandala -> Khurda
 	link = { ck2 = 1225 eu4 = 4441 }	# Puri -> Ganjam
-	# tripura_area
+	link = { comment = "# tripura_area" }
 	link = { ck2 = 1245 eu4 = 573 }	# Srihatta -> Cachar
-	# upper_mahanadi_area
+	link = { comment = "# upper_mahanadi_area" }
 	link = { ck2 = 1249 eu4 = 553 }	# Sambalpur -> Sambalpur
 	link = { ck2 = 1155 eu4 = 4447 }	# Sripuri -> Patna
 	link = { ck2 = 1272 eu4 = 4452 }	# Ratanpur -> Ratanpur
 	link = { ck2 = 1160 eu4 = 2082 }	# Rayapura -> Raipur
-	# west_bengal_area
+	link = { comment = "# west_bengal_area" }
 	link = { ck2 = 1242 eu4 = 2081 }	# Radha -> Lakhnor
 	link = { ck2 = 1238 eu4 = 4471 }	# Mallabhum -> Bishnupur
 	link = { ck2 = 1323 eu4 = 4476 }	# Nabadwipa -> Nadia
 	link = { ck2 = 1239 ck2 = 1233 eu4 = 4477 }	# Vijayapura, Saptagrama -> Satgaon
 	link = { ck2 = 1235 eu4 = 561 }	# Tamralipti -> Bengal Delta
-	# # hindusthan_region
-	# baghelkhand_area
+	link = { comment = "# # hindusthan_region" }
+	link = { comment = "# baghelkhand_area" }
 	link = { ck2 = 1278 eu4 = 2097 }	# Gurgi -> Baghelkhand
 	link = { ck2 = 1165 eu4 = 4468 }	# Bandhugadha -> Bandogarh
 	link = { ck2 = 1241 eu4 = 2098 }	# Jharkand -> Surguja
-	# baisi_rajya_area
+	link = { comment = "# baisi_rajya_area" }
 	link = { ck2 = 1474 eu4 = 554 eu4 = 2094 eu4 = 4491 }	# Lumbini -> Baisi Rajya, Bahreich, Dang
 	link = { ck2 = 1473 ck2 = 1472 eu4 = 4492 }	# Doti, Jumla -> Doti
-	# bihar_area
+	link = { comment = "# bihar_area" }
 	link = { ck2 = 1276 ck2 = 1154 eu4 = 558 eu4 = 4489 }	# MANY-TO-MANY: Gaya, Magadha -> Pataliputra, Hajipur
 	link = { ck2 = 1237 ck2 = 1327 eu4 = 4469 }	# Rajrappa, Rothas -> Rohtasgarh
 	link = { ck2 = 1152 eu4 = 4472 eu4 = 2044 }	# Mudgagiri -> Monghyr, Bhagalpur
-	# bundelkhand_area
+	link = { comment = "# bundelkhand_area" }
 	link = { ck2 = 1301 eu4 = 4466 eu4 = 559 }	# Mahoba -> Mahoba, Jhansi
 	link = { ck2 = 1171 eu4 = 4467 }	# Kalanjara -> Kalinjar
 	link = { ck2 = 1169 eu4 = 2059 }	# Kalpi -> Kalpi
 	link = { ck2 = 1274 eu4 = 4459 }	# Damoh -> Saugor
-	# gird_area
+	link = { comment = "# gird_area" }
 	link = { ck2 = 1172 eu4 = 525 }	# Gwalior -> Gird
 	link = { ck2 = 1299 eu4 = 528 }	# Candhoba -> Hadoti
 	link = { ck2 = 1298 ck2 = 1170 eu4 = 740 }	# Chanderi, Vidisa -> Chanderi
 	link = { ck2 = 1300 eu4 = 4464 }	# Kota -> Bundi
 	link = { ck2 = 1355 eu4 = 4465 }	# Ranthambore -> Ranthambore
-	# himalayan_hills_area
+	link = { comment = "# himalayan_hills_area" }
 	link = { ck2 = 1469 eu4 = 509 eu4 = 4493 }	# Kangra -> Kangra, Sirmur
 	link = { ck2 = 1470 eu4 = 511 }	# Garhwal -> Garhwal
 	link = { ck2 = 1471 eu4 = 2069 }	# Kurmanchal -> Kumaon
-	# kashmir_area
+	link = { comment = "# kashmir_area" }
 	link = { ck2 = 1161 eu4 = 508 eu4 = 4449 }	# Kasmira -> Kashmir, Jammu
 	link = { ck2 = 1464 ck2 = 1511 ck2 = 1465 eu4 = 2073 }	# Gilgit, Pamir, Tashkurgan -> Baltistan
 	link = { ck2 = 1467 ck2 = 1468 ck2 = 1488 eu4 = 2074 }	# Diskit, Leh, Pangong -> Ladakh
 	link = { ck2 = 1466 eu4 = 4521 }	# Skardu -> Skardu
-	# katehar_area
+	link = { comment = "# katehar_area" }
 	link = { ck2 = 1168 ck2 = 1358 eu4 = 2061 }	# Katehar, Vodamayutja -> Katehar
 	link = { ck2 = 1173 eu4 = 4498 }	# Sambhal -> Sambhal
-	# lahore_area
+	link = { comment = "# lahore_area" }
 	link = { ck2 = 1362 eu4 = 507 eu4 = 2076 }	# Lahur -> Lahore, Sialkot
 	link = { ck2 = 1179 eu4 = 2075 }	# Sakala -> Doaba
 	link = { ck2 = 1361 eu4 = 4510 }	# Shorkot -> Shorkot
 	link = { ck2 = 1363 eu4 = 4513 }	# Dipalpur -> Dipalpur
-	# lower_doab_area
+	link = { comment = "# lower_doab_area" }
 	link = { ck2 = 1141 ck2 = 1359 eu4 = 524 }	# Kol, Mathura -> Central Doab
 	link = { ck2 = 1328 eu4 = 556 }	# Prayaga -> Lower Doab
 	link = { ck2 = 1356 eu4 = 2063 }	# Kanyakubja -> Etawah
 	link = { ck2 = 1283 eu4 = 4496 }	# Asni -> Kora
-	# mithila_area
+	link = { comment = "# mithila_area" }
 	link = { ck2 = 1477 eu4 = 4484 }	# Janakpur -> Makwanpur
 	link = { ck2 = 1419 ck2 = 1420 eu4 = 4488 eu4 = 2047 }	# MANY-TO-MANY: Mithila, Simaramapura -> Champaran, Tirhut
-	# multan_area
+	link = { comment = "# multan_area" }
 	link = { ck2 = 1338 eu4 = 506 }	# Multan -> Multan
 	link = { ck2 = 1375 ck2 = 1376 eu4 = 2079 }	# Kafirkot, Bori -> Derajat
 	link = { ck2 = 1337 ck2 = 1336 eu4 = 2086 }	# Uch, Vijnot -> Cholistan
 	link = { ck2 = 1178 eu4 = 4508 }	# Karur -> Bahawalpur
-	# nepal_area
+	link = { comment = "# nepal_area" }
 	link = { ck2 = 1478 eu4 = 557 }	# Kathmandu -> Katmandu
 	link = { ck2 = 1475 eu4 = 4485 }	# Pokhara -> Palpa
 	link = { ck2 = 1479 eu4 = 2071 eu4 = 4483 }	# Limbuwan -> Limbuwan, Morang
-	# oudh_area
+	link = { comment = "# oudh_area" }
 	link = { ck2 = 1167 eu4 = 4497 eu4 = 4499 }	# Lakhnau -> Kannauj, Bareily
 	link = { ck2 = 1284 eu4 = 523 }	# Bharauli -> Lucknow
 	link = { ck2 = 1422 eu4 = 4494 }	# Naimisa -> Khairabad
 	link = { ck2 = 1250 ck2 = 1421 eu4 = 4495 }	# Ayodhya, Sravasti -> Feyzabad
-	# purvanchal_area
+	link = { comment = "# purvanchal_area" }
 	link = { ck2 = 1281 ck2 = 1166 eu4 = 555 }	# Chunar, Jaunpur -> Jaunpur
 	link = { ck2 = 1251 ck2 = 1163 eu4 = 2095 }	# Sasaram, Varanasi -> Varanasi
 	link = { ck2 = 1162 eu4 = 4490 eu4 = 2055 eu4 = 4487 }	# Kusinagara -> Ghazipur, Gorakhpur, Saran
-	# sind_sagar_area
+	link = { comment = "# sind_sagar_area" }
 	link = { ck2 = 1192 ck2 = 1190 ck2 = 1341 eu4 = 4511 }	# Bhera, Gurjaratra, Nandana -> Bhera
-	# sirhind_area
+	link = { comment = "# sirhind_area" }
 	link = { ck2 = 1367 ck2 = 1193 eu4 = 510 eu4 = 2062 }	# MANY-TO-MANY: Sthanisvara, Trigarta -> Sirhind, Panipat
 	link = { ck2 = 1364 eu4 = 4411 }	# Tribandapura -> Samana
 	link = { ck2 = 1366 eu4 = 2065 eu4 = 520 }	# Hisar -> Bhattiana, Mewat
 	link = { ck2 = 1352 eu4 = 4463 }	# Sarasvati -> Bhatnair
-	# upper_doab_area
+	link = { comment = "# upper_doab_area" }
 	link = { ck2 = 1365 eu4 = 522 }	# Delhi -> Delhi
 	link = { ck2 = 1368 eu4 = 2060 }	# Hastinapura -> Upper Doab
-	# # west_india_region
-	# ahmedabad_area
+	link = { comment = "# # west_india_region" }
+	link = { comment = "# ahmedabad_area" }
 	link = { ck2 = 1127 ck2 = 1133 eu4 = 516 eu4 = 4512 eu4 = 517 }	# MANY-TO-MANY: Navasarika, Vadodara -> Baroda, Bharuch, Surat
 	link = { ck2 = 1135 eu4 = 2051 }	# Valabhi -> Gohilvad
 	link = { ck2 = 1290 eu4 = 2054 eu4 = 4457 }	# Khetaka -> Ahmadabad, Khambhat
-	# jaipur_area
+	link = { comment = "# jaipur_area" }
 	link = { ck2 = 1357 eu4 = 4500 }	# Sripatha -> Bharatpur
 	link = { ck2 = 1346 eu4 = 2087 }	# Ajayameru -> Ajmer
 	link = { ck2 = 1353 eu4 = 2064 eu4 = 519 }	# Vairata -> Shekhawati, Dhundar
-	# jangladesh_area
+	link = { comment = "# jangladesh_area" }
 	link = { ck2 = 1349 eu4 = 512 }	# Vikramapura -> Jangladesh
 	link = { ck2 = 1354 eu4 = 2066 }	# Nagauda -> Nagaur
 	link = { ck2 = 1176 eu4 = 4502 }	# Medantaka -> Merta
 	link = { ck2 = 1350 eu4 = 4507 }	# Reni -> Churu
-	# khandesh_area
+	link = { comment = "# khandesh_area" }
 	link = { ck2 = 1262 eu4 = 4453 }	# Thalner -> Thalner
 	link = { ck2 = 1263 eu4 = 527 }	# Burhanpur -> Burhanpur
 	link = { ck2 = 1145 eu4 = 4434 }	# Devagiri -> Dharangaon
-	# malwa_area
+	link = { comment = "# malwa_area" }
 	link = { ck2 = 1164 eu4 = 2057 }	# Chauragarh -> Bhilsa
 	link = { ck2 = 1150 eu4 = 4461 }	# Sarangpur -> Ujjain
 	link = { ck2 = 1147 ck2 = 1287 eu4 = 526 }	# Mandapika, Asirgarh -> Mandu
 	link = { ck2 = 1288 ck2 = 1149 eu4 = 2093 }	# Ujjayini, Dhara -> Mandsaur
 	link = { ck2 = 1289 eu4 = 2056 }	# Dadhipadra -> Rewakantha
-	# marwar_area
+	link = { comment = "# marwar_area" }
 	link = { ck2 = 1304 eu4 = 513 eu4 = 2088 }	# Ludrava -> Jaisalmer, Umarkot
 	link = { ck2 = 1130 eu4 = 514 eu4 = 4506 }	# Mandavyapura -> Marwar, Barmer
 	link = { ck2 = 1174 eu4 = 2067 }	# Godwad -> Gorwar
-	# mewar_area
+	link = { comment = "# mewar_area" }
 	link = { ck2 = 1302 eu4 = 518 eu4 = 4501 }	# Chitrakut -> Chittor, Bhilwara
 	link = { ck2 = 1345 eu4 = 2058 }	# Medapata -> Mewar
 	link = { ck2 = 1148 eu4 = 4462 }	# Dasapura -> Vagad
-	# northern_sindh_area
+	link = { comment = "# northern_sindh_area" }
 	link = { ck2 = 1138 ck2 = 1175 eu4 = 2072 }	# Bhakkar, Aror -> Bhakkar
 	link = { ck2 = 1333 eu4 = 4505 }	# Siwistan -> Khairpur
-	# patan_area
+	link = { comment = "# patan_area" }
 	link = { ck2 = 1295 ck2 = 1294 eu4 = 503 }	# Kutch, Satyapura -> Kutch
 	link = { ck2 = 1292 eu4 = 2053 }	# Sarasvata Mandala -> Patan
-	# saurashtra_area
+	link = { comment = "# saurashtra_area" }
 	link = { ck2 = 1266 eu4 = 4455 }	# Somnath -> Diu
 	link = { ck2 = 1268 eu4 = 521 eu4 = 4456 }	# Dhamalpur -> Rajkot, Jhalavad
 	link = { ck2 = 1134 eu4 = 4454 }	# Bhumilka -> Porbandar
-	# sindh_area
+	link = { comment = "# sindh_area" }
 	link = { ck2 = 1331 eu4 = 504 }	# Sonda -> Thatta
 	link = { ck2 = 1137 eu4 = 4503 eu4 = 4504 }	# Mansura -> Mansura, Nasirpur
-	# tapti_area
+	link = { comment = "# tapti_area" }
 	link = { ck2 = 1125 eu4 = 529 eu4 = 2089 eu4 = 530 eu4 = 4429 }	# Thana -> Thana, Chaul, Dabhol, Rajapur
 	link = { ck2 = 1264 eu4 = 2036 }	# Nandurbar -> Baglana
 	link = { ck2 = 1126 eu4 = 4430 }	# Daman -> Daman
-	# # deccan_region
-	# ahmednagar_area
+	link = { comment = "# # deccan_region" }
+	link = { comment = "# ahmednagar_area" }
 	link = { ck2 = 1212 eu4 = 544 }	# Lattalura -> Ahmadnagar
 	link = { ck2 = 1258 ck2 = 1261 ck2 = 1142 ck2 = 1259 eu4 = 545 eu4 = 4437 eu4 = 4442 eu4 = 4443 }	# MANY-TO-MANY: Nanded, Parnakheta, Pratishthana, Vatsagulma -> Daulatabad, Paithre, Washim, Karanja
 	link = { ck2 = 1146 eu4 = 4435 }	# Naldurg -> Sholhapur
 	link = { ck2 = 1213 ck2 = 1260 eu4 = 4433 eu4 = 4432 }	# MANY-TO-MANY: Kondana, Nasikya -> Nasik, Junir
-	# berar_area
+	link = { comment = "# berar_area" }
 	link = { ck2 = 1159 ck2 = 1270 eu4 = 4458 }	# Ramagiri, Kiranapura -> Narbada
 	link = { ck2 = 1254 eu4 = 546 }	# Vairagara -> East Berar
 	link = { ck2 = 1285 eu4 = 548 eu4 = 2092 }	# Acalapura -> Illichpur, Mahadeo
-	# golconda_area
+	link = { comment = "# golconda_area" }
 	link = { ck2 = 1144 ck2 = 1257 ck2 = 1253 ck2 = 1211 ck2 = 1209 eu4 = 542 }	# Kollipake, Medak, Nilagiri, Pannagallu, Racakonda -> Golconda
 	link = { ck2 = 1256 eu4 = 2037 }	# Orangallu -> Warangal
 	link = { ck2 = 1208 ck2 = 1222 eu4 = 4439 }	# Kambampet, Rajamahendravaram -> Khamammet
-	# gondwana_area
+	link = { comment = "# gondwana_area" }
 	link = { ck2 = 1271 eu4 = 550 }	# Tripuri -> Mahakoshal
 	link = { ck2 = 1286 eu4 = 4460 }	# Kherla -> Handia
 	link = { ck2 = 1277 eu4 = 551 }	# Tummana -> Mandla
-	# kanara_area
+	link = { comment = "# kanara_area" }
 	link = { ck2 = 1124 ck2 = 1200 eu4 = 531 eu4 = 4427 }	# MANY-TO-MANY: Honnore, Kanara -> North Kanara, Honnavara
 	link = { ck2 = 1220 eu4 = 2030 }	# Goa -> Goa
-	# maidan_area
+	link = { comment = "# maidan_area" }
 	link = { ck2 = 1206 eu4 = 569 }	# Taradavadi -> Bijapur
 	link = { ck2 = 1158 ck2 = 1143 ck2 = 1265 eu4 = 1948 }	# Bidar, Kalyani, Sagar -> Bidar
 	link = { ck2 = 1210 eu4 = 2035 }	# Manyakheta -> Gulbarga
-	# malabar_area
+	link = { comment = "# malabar_area" }
 	link = { ck2 = 1114 ck2 = 1117 eu4 = 534 eu4 = 2029 eu4 = 4413 }	# MANY-TO-MANY: Mahoyadapuram, Qalqut -> Calicut, South Kanara, Cannanore
 	link = { ck2 = 1413 eu4 = 537 eu4 = 535 }	# Venadu -> Venad, Kochin
-	# mysore_area
+	link = { comment = "# mysore_area" }
 	link = { ck2 = 1118 ck2 = 1217 ck2 = 1196 ck2 = 1216 eu4 = 533 eu4 = 4421 eu4 = 4422 eu4 = 2031 }	# MANY-TO-MANY: Manyapura, Nandagiri, Srirangapatna, Talakad -> Mysore, Seringapatam, Sira, Morasanadu
 	link = { ck2 = 1197 eu4 = 2032 eu4 = 4426 }	# Dwarasamudra -> Malenadu, Chitradurg
-	# raichur_doab_area
+	link = { comment = "# raichur_doab_area" }
 	link = { ck2 = 1203 eu4 = 532 eu4 = 4436 }	# Idatarainadu -> Raichur, Devarakonda
 	link = { ck2 = 1140 eu4 = 2033 }	# Banavasi -> Savanur
 	link = { ck2 = 1198 eu4 = 4431 }	# Vatapi -> Kolhapur
 	link = { ck2 = 1202 eu4 = 4428 }	# Kudalasangama -> Mudgal
-	# rayalaseema_area
+	link = { comment = "# rayalaseema_area" }
 	link = { ck2 = 1121 eu4 = 541 }	# Uchangidurga -> Vijayanagar
 	link = { ck2 = 1199 ck2 = 1122 eu4 = 4423 eu4 = 2090 eu4 = 2083 eu4 = 1949 }	# MANY-TO-MANY: Penugonda, Udayagiri -> Gutti, Kurnool, Udayagiri, Penukonda
 	link = { ck2 = 1218 eu4 = 4424 }	# Alampur -> Adavani
-	# telingana_area
+	link = { comment = "# telingana_area" }
 	link = { ck2 = 1157 eu4 = 2028 eu4 = 4444 }	# Balkonda -> Mahur, Manidurg
 	link = { ck2 = 1255 eu4 = 4438 }	# Vemulavada -> Nander
-	# # coromandel_region
-	# andhra_area
+	link = { comment = "# # coromandel_region" }
+	link = { comment = "# andhra_area" }
 	link = { ck2 = 1221 eu4 = 543 }	# Vijayawada -> Velanadu
 	link = { ck2 = 1224 ck2 = 1128 eu4 = 549 eu4 = 2080 }	# MANY-TO-MANY: Kalinganagar, Vizagipatam -> Kalingandhra, Srikakulam
 	link = { ck2 = 1415 ck2 = 1123 eu4 = 2084 }	# Pithapuram, Vengipura -> Konaseema
 	link = { ck2 = 1207 eu4 = 4425 }	# Amaravati -> Kondavidu
-	# kongu_area
+	link = { comment = "# kongu_area" }
 	link = { ck2 = 1201 eu4 = 538 }	# Kongu -> Kongu
-	# lanka_area
+	link = { comment = "# lanka_area" }
 	link = { ck2 = 1194 eu4 = 2100 }	# Nagadipa -> Vanni
 	link = { ck2 = 1414 eu4 = 4409 eu4 = 2099 }	# Kotthasara -> Trincomale, Kandy
-	# madura_area
+	link = { comment = "# madura_area" }
 	link = { ck2 = 1112 eu4 = 536 }	# Madurai -> Madurai
 	link = { ck2 = 1214 eu4 = 2101 eu4 = 4410 }	# Tirunelveli -> Tirunelveli, Kumari
 	link = { ck2 = 1116 eu4 = 4412 }	# Tenkasi -> Dindigul
-	# north_carnatic_area
+	link = { comment = "# north_carnatic_area" }
 	link = { ck2 = 1204 eu4 = 4418 eu4 = 4419 }	# Nellore -> Nellore, Adanki
-	# south_carnatic_area
+	link = { comment = "# south_carnatic_area" }
 	link = { ck2 = 1119 eu4 = 539 eu4 = 4417 }	# Kanchipuram -> Tondainadu, Kanchipuram
 	link = { ck2 = 1219 eu4 = 4420 eu4 = 2027 }	# Potapi -> Chandragiri, Arcot
-	# tanjore_area
+	link = { comment = "# tanjore_area" }
 	link = { ck2 = 1115 eu4 = 540 eu4 = 4416 eu4 = 4415 eu4 = 2026 }	# Cholamandalam -> Cuddalore, Tranqebar, Negapatam, Tanjore
 	link = { ck2 = 1120 eu4 = 1947 eu4 = 4414 eu4 = 2085 }	# Tagadur -> Gingee, Salem, Tiruchirappalli
-	# south_lanka_area
+	link = { comment = "# south_lanka_area" }
 	link = { ck2 = 1215 ck2 = 1195 eu4 = 572 eu4 = 4408 }	# MANY-TO-MANY: Dakhina Desa, Pihiti -> Kotte, Salavata
 	link = { ck2 = 1279 eu4 = 4407 }	# Rohana -> Ruhunu
 	link = { ck2 = 1136 eu4 = 2052 }	# Dvaraka -> Halar
@@ -1497,7 +1496,7 @@
 	link = { ck2 = 1226 eu4 = 2048 }	# Nandapur -> Jeypore
 	link = { ck2 = 1416 eu4 = 2034 eu4 = 1946 }	# Kolhapur -> Pune, Satara
 	link = { ck2 = 1360 eu4 = 1248 }	# Maldives -> Maldives
-	# China
+	link = { comment = "# China" }
 	link = { ck2 = 1445 eu4 = 712 }	# Aksu -> Aksu
 	link = { ck2 = 1528 ck2 = 1444 eu4 = 2121 }	# Kubera, Kucha -> Kuqa
 	link = { ck2 = 1521 ck2 = 1443 eu4 = 2192 }	# Mingoi, Karashar -> Korla
@@ -1538,7 +1537,7 @@
 	link = { ck2 = 1914 ck2 = 1915 ck2 = 1912 eu4 = 719 }	# Tarvagatai, Terkhiin Tsagaan, Otgontenger -> Uliastai
 	link = { ck2 = 1458 eu4 = 4679 }	# Khangai -> North Tsetserleg
 	link = { ck2 = 1913 eu4 = 2189 }	# Suvraga Khairkhan -> Tsetserleg
-	# ---- SUPPORTED MODS ----- Sons of Vinland - North America / Canada
+	link = { comment = "# ---- SUPPORTED MODS ----- Sons of Vinland - North America / Canada" }
 	link = { ck2 = 2331 eu4 = 1104 }	#  -> Eiriksfjord
 	link = { ck2 = 3510 eu4 = 1105 }	#  -> Vestbygden
 	link = { ck2 = 3333 ck2 = 3535 eu4 = 2574 }	# ,  -> Sikumiut
