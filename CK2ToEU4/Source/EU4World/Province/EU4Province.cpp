@@ -147,7 +147,7 @@ void EU4::Province::sterilize()
 	details.inHre = false;
 	details.fort = false;
 	details.estate.clear();
-	details.discoveredBy.clear();
+	// details.discoveredBy.clear(); We will NOT be clearing discovered by! This will affect seas and other wastelands that still can carry this information.
 	details.shipyard = false;
 	details.seatInParliament = false;
 	details.jainsBurghers = false;
