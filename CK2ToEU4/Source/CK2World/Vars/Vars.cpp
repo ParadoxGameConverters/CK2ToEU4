@@ -14,7 +14,7 @@ void CK2::Vars::registerKeys()
 		const commonItems::singleDouble valueDbl(theStream);
 		vars.insert(std::pair(varName, valueDbl.getDouble()));
 	});
-	registerRegex("[A-Za-z0-9\\:_.-]+", commonItems::ignoreItem);
+	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }
 
 std::optional<std::map<std::string, double>> CK2::Vars::getChineseReligions() const

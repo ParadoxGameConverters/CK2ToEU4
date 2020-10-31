@@ -18,5 +18,5 @@ void CK2::Tributary::registerKeys()
 		const commonItems::singleInt tributaryInt(theStream);
 		tributaryID = tributaryInt.getInt();
 	});
-	registerRegex("[A-Za-z0-9\\:_.-]+", commonItems::ignoreItem);
+	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }

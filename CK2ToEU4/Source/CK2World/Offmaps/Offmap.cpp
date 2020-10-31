@@ -24,5 +24,5 @@ void CK2::Offmap::registerKeys()
 		const commonItems::singleInt holderInt(theStream);
 		holder = std::pair(holderInt.getInt(), nullptr);
 	});
-	registerRegex("[A-Za-z0-9\\:_.-]+", commonItems::ignoreItem);
+	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }

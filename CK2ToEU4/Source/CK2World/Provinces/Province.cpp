@@ -37,7 +37,7 @@ void CK2::Province::registerKeys()
 		auto barony = std::make_shared<Barony>(theStream, baronyName);
 		baronies.insert(std::pair(baronyName, barony));
 	});
-	registerRegex("[A-Za-z0-9\\:_.-]+", commonItems::ignoreItem);
+	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }
 
 int CK2::Province::getBuildingWeight() const

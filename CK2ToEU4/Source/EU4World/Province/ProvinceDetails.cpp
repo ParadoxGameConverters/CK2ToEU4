@@ -175,5 +175,5 @@ void EU4::ProvinceDetails::registerKeys()
 		vaisyasBurghers = effectStr.getString() == "yes";
 	});
 	registerRegex(R"(\d+.\d+.\d+)", commonItems::ignoreItem);
-	registerRegex("[a-zA-Z0-9\\_.:-]+", commonItems::ignoreItem);
+	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }

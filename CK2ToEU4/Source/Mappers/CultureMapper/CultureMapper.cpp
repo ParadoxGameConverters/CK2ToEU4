@@ -30,7 +30,7 @@ void mappers::CultureMapper::registerKeys()
 		const CultureMappingRule rule(theStream);
 		cultureMapRules.push_back(rule);
 	});
-	registerRegex("[a-zA-Z0-9\\_.:]+", commonItems::ignoreItem);
+	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }
 
 std::optional<std::string> mappers::CultureMapper::cultureMatch(const std::string& ck2culture,

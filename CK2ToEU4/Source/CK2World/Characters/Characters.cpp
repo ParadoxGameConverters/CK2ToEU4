@@ -22,7 +22,7 @@ void CK2::Characters::registerKeys()
 		auto newCharacter = std::make_shared<Character>(theStream, std::stoi(charID));
 		characters.insert(std::pair(newCharacter->getID(), newCharacter));
 	});
-	registerRegex("[A-Za-z0-9\\_:.-]+", commonItems::ignoreItem);
+	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }
 
 void CK2::Characters::linkDynasties(const Dynasties& theDynasties)

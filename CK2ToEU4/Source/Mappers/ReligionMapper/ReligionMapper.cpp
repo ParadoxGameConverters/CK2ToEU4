@@ -28,7 +28,7 @@ void mappers::ReligionMapper::registerKeys()
 			ck2ToEu4ReligionMap.insert(std::make_pair(ck2Religion, theMapping.getEU4Religion()));
 		}
 	});
-	registerRegex("[a-zA-Z0-9\\_.:]+", commonItems::ignoreItem);
+	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }
 
 std::optional<std::string> mappers::ReligionMapper::getEu4ReligionForCk2Religion(const std::string& ck2Religion) const

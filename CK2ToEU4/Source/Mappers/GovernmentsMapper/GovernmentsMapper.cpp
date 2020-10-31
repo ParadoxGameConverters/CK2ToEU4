@@ -24,7 +24,7 @@ void mappers::GovernmentsMapper::registerKeys()
 		const GovernmentsMapping newMapping(theStream);
 		govMappings.emplace_back(newMapping);
 	});
-	registerRegex("[A-Za-z0-9\\_.:-]+", commonItems::ignoreItem);
+	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }
 
 std::optional<std::pair<std::string, std::string>> mappers::GovernmentsMapper::matchGovernment(const std::string& ck2Government,

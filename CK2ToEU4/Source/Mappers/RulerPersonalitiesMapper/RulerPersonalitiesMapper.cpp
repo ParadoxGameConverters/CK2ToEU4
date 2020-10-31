@@ -25,7 +25,7 @@ void mappers::RulerPersonalitiesMapper::registerKeys()
 		const auto newMapping = RulerPersonalitiesMapping(theStream);
 		theMappings.insert(std::pair(personality, newMapping));
 	});
-	registerRegex("[a-zA-Z0-9\\_.:-]+", commonItems::ignoreItem);
+	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }
 
 std::set<std::string> mappers::RulerPersonalitiesMapper::evaluatePersonalities(const std::pair<int, std::shared_ptr<CK2::Character>>& theCharacter) const

@@ -16,7 +16,7 @@ void mappers::Region::registerKeys()
 		for (const auto& name: names.getStrings())
 			areas.insert(std::pair(name, nullptr));
 	});
-	registerRegex("[a-zA-Z0-9_\\.:]+", commonItems::ignoreItem);
+	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }
 
 bool mappers::Region::regionContainsProvince(int province) const

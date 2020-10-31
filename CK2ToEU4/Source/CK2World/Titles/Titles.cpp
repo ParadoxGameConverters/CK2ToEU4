@@ -21,7 +21,7 @@ void CK2::Titles::registerKeys()
 		auto newTitle = std::make_shared<Title>(theStream, titleName);
 		titles.insert(std::pair(newTitle->getName(), newTitle));
 	});
-	registerRegex("[A-Za-z0-9\\_:.-]+", commonItems::ignoreItem);
+	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }
 
 void CK2::Titles::linkHolders(const Characters& theCharacters)

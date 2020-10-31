@@ -19,7 +19,7 @@ void EU4::Diplomacy::registerKeys()
 		auto newAgreement = std::make_shared<Agreement>(theStream, type);
 		agreements.emplace_back(newAgreement);
 	});
-	registerRegex("[a-zA-Z0-9\\_.:-]+", commonItems::ignoreItem);
+	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }
 
 void EU4::Diplomacy::importAgreements(const std::map<std::string, std::shared_ptr<Country>>& countries, const CK2::Diplomacy& diplomacy, date conversionDate)

@@ -22,5 +22,5 @@ void mappers::ShatterEmpiresMapper::registerKeys()
 		auto emps = empList.getStrings();
 		empires.insert(emps.begin(), emps.end());
 	});
-	registerRegex("[A-Za-z0-9\\_.:-]+", commonItems::ignoreItem);
+	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }
