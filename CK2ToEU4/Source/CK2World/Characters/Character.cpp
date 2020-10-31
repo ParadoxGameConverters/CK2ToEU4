@@ -105,7 +105,7 @@ void CK2::Character::registerKeys()
 		primaryTitle = newDomain.getPrimaryTitle();
 		capital = newDomain.getCapital();
 	});
-	registerRegex("[A-Za-z0-9\\:_.-]+", commonItems::ignoreItem);
+	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }
 
 bool CK2::Character::hasTrait(const std::string& wantedTrait) const

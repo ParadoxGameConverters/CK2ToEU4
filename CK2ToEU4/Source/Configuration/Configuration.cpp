@@ -99,7 +99,7 @@ void Configuration::registerKeys()
 		modFileNames.insert(theList.begin(), theList.end());
 		Log(LogLevel::Info) << modFileNames.size() << " mods selected by configuration. Deselected mods will be ignored.";
 	});
-	registerRegex("[a-zA-Z0-9\\_.:]+", commonItems::ignoreItem);
+	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }
 
 void Configuration::verifyCK2Path() const

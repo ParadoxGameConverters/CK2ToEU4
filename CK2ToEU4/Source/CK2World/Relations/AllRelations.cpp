@@ -16,5 +16,5 @@ void CK2::Diplomacy::registerKeys()
 		const auto firstID = std::stoi(first.substr(pos + 1, first.length()));
 		diplomacy.insert(std::pair(firstID, newRelations));
 	});
-	registerRegex("[A-Za-z0-9\\_:.-]+", commonItems::ignoreItem);
+	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }

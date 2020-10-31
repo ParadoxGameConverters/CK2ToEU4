@@ -27,7 +27,7 @@ void mappers::TitleTagMapping::registerKeys()
 		const auto& theList = capList.getInts();
 		capitals.insert(theList.begin(), theList.end());
 	});
-	registerRegex("[a-zA-Z0-9\\_.:-]+", commonItems::ignoreItem);
+	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }
 
 std::optional<std::string> mappers::TitleTagMapping::titleMatch(const std::string& ck2title) const

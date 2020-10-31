@@ -31,5 +31,5 @@ void CK2::Wonder::registerKeys()
 		const commonItems::singleString activeStr(theStream);
 		active = activeStr.getString() == "yes";
 	});
-	registerRegex("[A-Za-z0-9\\:_.-]+", commonItems::ignoreItem);
+	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }

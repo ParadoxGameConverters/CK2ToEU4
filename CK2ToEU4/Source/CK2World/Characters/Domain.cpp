@@ -30,5 +30,5 @@ void CK2::Domain::registerKeys()
 			primaryTitle = std::pair(newPrimTitle->getTitle().first, newPrimTitle);
 		}
 	});
-	registerRegex("[A-Za-z0-9\\:_.-]+", commonItems::ignoreItem);
+	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }

@@ -18,5 +18,5 @@ void EU4::ProvinceModifier::registerKeys()
 		const commonItems::singleInt durInt(theStream);
 		duration = durInt.getInt();
 	});
-	registerRegex("[a-zA-Z0-9\\_.:-]+", commonItems::ignoreItem);
+	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }

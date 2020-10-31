@@ -37,7 +37,7 @@ void mappers::TitleTagMapper::registerKeys()
 	registerKeyword("link", [this](const std::string& unused, std::istream& theStream) {
 		theMappings.emplace_back(TitleTagMapping(theStream));
 	});
-	registerRegex("[a-zA-Z0-9\\_.:-]+", commonItems::ignoreItem);
+	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }
 
 void mappers::TitleTagMapper::registerChineseKeys()
@@ -45,7 +45,7 @@ void mappers::TitleTagMapper::registerChineseKeys()
 	registerKeyword("link", [this](const std::string& unused, std::istream& theStream) {
 		chineseMappings.emplace_back(TitleTagMapping(theStream));
 	});
-	registerRegex("[a-zA-Z0-9\\_.:-]+", commonItems::ignoreItem);
+	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }
 
 void mappers::TitleTagMapper::registerTitle(const std::string& ck2title, const std::string& eu4tag)

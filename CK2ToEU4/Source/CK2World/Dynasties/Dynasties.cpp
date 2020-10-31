@@ -44,7 +44,7 @@ void CK2::Dynasties::registerKeys()
 			dynasties.insert(std::pair(newDynasty->getID(), newDynasty));
 		}
 	});
-	registerRegex("[A-Za-z0-9\\_:.-]+", commonItems::ignoreItem);
+	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }
 
 void CK2::Dynasties::registerUnderKeys()
@@ -60,5 +60,5 @@ void CK2::Dynasties::registerUnderKeys()
 			dynasties.insert(std::pair(newDynasty->getID(), newDynasty));
 		}
 	});
-	registerRegex("[A-Za-z0-9\\_:.-]+", commonItems::ignoreItem);
+	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }

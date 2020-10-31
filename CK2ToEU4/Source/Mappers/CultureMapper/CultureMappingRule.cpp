@@ -44,7 +44,7 @@ mappers::CultureMappingRule::CultureMappingRule(std::istream& theStream)
 		const commonItems::singleString ck2Str(theStream);
 		cultures.insert(ck2Str.getString());
 	});
-	registerRegex("[a-zA-Z0-9\\_.:]+", commonItems::ignoreItem);
+	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 
 	parseStream(theStream);
 	clearRegisteredKeywords();

@@ -11,7 +11,7 @@ mappers::ReligionMapping::ReligionMapping(std::istream& theStream)
 		const commonItems::singleString religionString(theStream);
 		ck2Religions.insert(religionString.getString());
 	});
-	registerRegex("[a-zA-Z0-9\\_.:]+", commonItems::ignoreItem);
+	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 
 	parseStream(theStream);
 	clearRegisteredKeywords();

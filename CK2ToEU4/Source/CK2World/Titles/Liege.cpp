@@ -26,5 +26,5 @@ void CK2::Liege::registerKeys()
 		const commonItems::singleString dynamicStr(theStream);
 		dynamic = dynamicStr.getString() == "yes";
 	});
-	registerRegex("[A-Za-z0-9\\:_.-]+", commonItems::ignoreItem);
+	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }

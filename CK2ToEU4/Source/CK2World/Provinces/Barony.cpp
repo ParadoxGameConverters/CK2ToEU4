@@ -20,5 +20,5 @@ void CK2::Barony::registerKeys()
 		if (buildingStr.getString() == "yes")
 			buildings.insert(building);
 	});
-	registerRegex("[A-Za-z0-9\\:_.-]+", commonItems::ignoreItem);
+	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }

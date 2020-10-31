@@ -16,5 +16,5 @@ void CK2::Wonders::registerKeys()
 		auto newWonder = std::make_shared<Wonder>(theStream);
 		wonders.insert(std::pair(std::stoi(wonderID), newWonder));
 	});
-	registerRegex("[A-Za-z0-9\\_:.-]+", commonItems::ignoreItem);
+	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }
