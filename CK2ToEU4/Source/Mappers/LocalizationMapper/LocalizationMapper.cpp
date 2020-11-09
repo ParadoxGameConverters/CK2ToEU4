@@ -48,7 +48,7 @@ void mappers::LocalizationMapper::scrapeStream(std::istream& theStream)
 		std::string line;
 		getline(theStream, line);
 
-		if (line.length() < 4 || line [0] == '#')
+		if (line.length() < 4 || line [0] == '#' || line[1] == '#' )
 			continue;
 
 		auto sepLoc = line.find_first_of(';');
