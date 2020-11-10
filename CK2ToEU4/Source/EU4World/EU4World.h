@@ -87,7 +87,7 @@ class World
 	std::set<std::string> specialCountryTags; // tags we loaded from own sources and must not output into 00_country_tags.txt
 
 	mappers::ColorScraper colorScraper;
-	mappers::ProvinceMapper provinceMapper;
+	std::unique_ptr<mappers::ProvinceMapper> provinceMapper;
 	mappers::TitleTagMapper titleTagMapper;
 	mappers::ReligionMapper religionMapper;
 	mappers::CultureMapper cultureMapper;

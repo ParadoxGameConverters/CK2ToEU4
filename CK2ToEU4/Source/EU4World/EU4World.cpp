@@ -38,7 +38,8 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 
 	// This is a valid province scraper. It looks at eu4 map data and notes which eu4 provinces are in fact valid.
 	// ... It's not used at all.
-	provinceMapper.determineValidProvinces(theConfiguration);
+	provinceMapper = std::make_unique<mappers::ProvinceMapper>(sourceWorld.getMods());
+	provinceMapper->determineValidProvinces(theConfiguration);
 	Log(LogLevel::Progress) << "54 %";
 
 	// We start conversion by importing vanilla eu4 countries, history and common sections included.
@@ -647,7 +648,7 @@ void EU4::World::adjustChina(const CK2::World& sourceWorld)
 	}
 
 	// Move all china provinces under new tag
-	for (const auto& chineseProvince: provinceMapper.getOffmapChineseProvinces())
+	for (const auto& chineseProvince: provinceMapper->getOffmapChineseProvinces())
 	{
 		const auto provinceItr = provinces.find(chineseProvince);
 		if (provinceItr == provinces.end())
@@ -739,10 +740,10 @@ void EU4::World::adjustChina(const CK2::World& sourceWorld)
 	auto chineseReligions = sourceWorld.getVars().getChineseReligions();
 	if (chineseReligions)
 	{
-		const auto provinceNum = static_cast<int>(provinceMapper.getOffmapChineseProvinces().size());
+		const auto provinceNum = static_cast<int>(provinceMapper->getOffmapChineseProvinces().size());
 		const auto provinceWeight = 400.0 / provinceNum; // religious weight of an individual province.
 
-		for (const auto& chineseProvince: provinceMapper.getOffmapChineseProvinces())
+		for (const auto& chineseProvince: provinceMapper->getOffmapChineseProvinces())
 		{
 			const auto provinceItr = provinces.find(chineseProvince);
 			if (provinceItr == provinces.end())
@@ -816,7 +817,7 @@ void EU4::World::verifyCapitals()
 		// POPE is special. Of course. Skip this for pope because he may end up with a capital in new world or something.
 		if (country.first == "PAP" || country.first == "FAP")
 			continue;
-		if (country.second->verifyCapital(provinceMapper))
+		if (country.second->verifyCapital(*provinceMapper))
 			counter++;
 	}
 
@@ -1482,7 +1483,7 @@ void EU4::World::importCK2Country(const std::pair<std::string, std::shared_ptr<C
 	const auto& ck2CapitalID = title.second->getHolder().second->getCapitalProvince().first;
 	if (ck2CapitalID)
 	{
-		const auto& capitalMatch = provinceMapper.getEU4ProvinceNumbers(ck2CapitalID);
+		const auto& capitalMatch = provinceMapper->getEU4ProvinceNumbers(ck2CapitalID);
 		if (!capitalMatch.empty())
 			eu4CapitalID = *capitalMatch.begin();
 	}
@@ -1515,7 +1516,7 @@ void EU4::World::importCK2Country(const std::pair<std::string, std::shared_ptr<C
 			 governmentsMapper,
 			 religionMapper,
 			 cultureMapper,
-			 provinceMapper,
+			 *provinceMapper,
 			 colorScraper,
 			 localizationMapper,
 			 rulerPersonalitiesMapper,
@@ -1531,7 +1532,7 @@ void EU4::World::importCK2Country(const std::pair<std::string, std::shared_ptr<C
 			 governmentsMapper,
 			 religionMapper,
 			 cultureMapper,
-			 provinceMapper,
+			 *provinceMapper,
 			 colorScraper,
 			 localizationMapper,
 			 rulerPersonalitiesMapper,
@@ -1548,7 +1549,7 @@ void EU4::World::importCK2Provinces(const CK2::World& sourceWorld)
 	// CK2 provinces map to a subset of eu4 provinces. We'll only rewrite those we are responsible for.
 	for (const auto& province: provinces)
 	{
-		const auto& ck2Provinces = provinceMapper.getCK2ProvinceNumbers(province.first);
+		const auto& ck2Provinces = provinceMapper->getCK2ProvinceNumbers(province.first);
 		// Provinces we're not affecting will not be in this list.
 		if (ck2Provinces.empty())
 			continue;

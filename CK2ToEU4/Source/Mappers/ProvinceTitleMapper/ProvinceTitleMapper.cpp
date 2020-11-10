@@ -1,6 +1,7 @@
 #include "ProvinceTitleMapper.h"
 #include "../../CK2World/Provinces/Provinces.h"
 #include "../../CK2World/Titles/Titles.h"
+#include "CommonFunctions.h"
 #include "OSCompatibilityLayer.h"
 #include "ParserHelpers.h"
 #include "ProvinceTitleGrabber.h"
@@ -20,27 +21,43 @@ void mappers::ProvinceTitleMapper::loadProvinces(const std::string& CK2Path)
 		auto newProvince = ProvinceTitleGrabber(CK2Path + "/history/provinces/" + provinceFilename);
 		if (!newProvince.getID())
 			continue;
-		
+
 		// At this stage, single provinceID can point to multiple c_titles, as well as a single
 		// c_title can point to multiple provinceIDs. We must filter this before we can use it!
-		origProvinceTitles.insert(std::make_pair(newProvince.getTitle(), newProvince.getID()));
+		origProvinceTitles.insert(std::make_pair(newProvince.getID(), newProvince.getTitle()));
+	}
+	Log(LogLevel::Info) << ">> Loaded: " << origProvinceTitles.size() << " provinces from history.";
+}
+
+void mappers::ProvinceTitleMapper::updateProvinces(const std::string& path)
+{
+	for (const auto& provinceFilename: commonItems::GetAllFilesInFolder(path + "/history/provinces"))
+	{
+		if (getExtension(provinceFilename) != "txt")
+			continue;
+		auto newProvince = ProvinceTitleGrabber(path + "/history/provinces/" + provinceFilename);
+		if (!newProvince.getID() || newProvince.getTitle().empty())
+			continue;
+
+		origProvinceTitles.erase(newProvince.getID());
+		origProvinceTitles.insert(std::make_pair(newProvince.getID(), newProvince.getTitle()));
 	}
 	Log(LogLevel::Info) << ">> Loaded: " << origProvinceTitles.size() << " provinces from history.";
 }
 
 std::optional<int> mappers::ProvinceTitleMapper::getIDForTitle(const std::string& title) const
 {
-	const auto& provItr = provinceTitles.find(title);
-	if (provItr != provinceTitles.end())
-		return provItr->second;
+	for (const auto& province: provinceTitles)
+		if (province.second == title)
+			return province.first;
 	return std::nullopt;
 }
 
 std::optional<std::string> mappers::ProvinceTitleMapper::getTitleForID(int provID) const
 {
-	for (const auto& province: provinceTitles)
-		if (province.second == provID)
-			return province.first;
+	const auto& provItr = provinceTitles.find(provID);
+	if (provItr != provinceTitles.end())
+		return provItr->second;
 	return std::nullopt;
 }
 
@@ -60,11 +77,11 @@ void mappers::ProvinceTitleMapper::filterSelf(const CK2::Provinces& theProvinces
 		knownTitles.insert(title.first);
 	}
 
-	std::map<std::string, int> newProvinceTitles;
+	std::map<int, std::string> newProvinceTitles;
 
 	for (const auto& provinceTitle: origProvinceTitles)
 	{
-		if (knownTitles.count(provinceTitle.first) && knownProvinceIDs.count(provinceTitle.second))
+		if (knownTitles.count(provinceTitle.second) && knownProvinceIDs.count(provinceTitle.first))
 		{
 			newProvinceTitles.insert(std::pair(provinceTitle.first, provinceTitle.second));
 		}

@@ -1,7 +1,9 @@
 #include "ProvinceMapper.h"
-#include "GameVersion.h"
+#include "../../CK2World/Mods/Mods.h"
 #include "../../Configuration/Configuration.h"
+#include "GameVersion.h"
 #include "Log.h"
+#include "OSCompatibilityLayer.h"
 #include "ParserHelpers.h"
 #include "ProvinceMapping.h"
 #include <filesystem>
@@ -9,11 +11,23 @@
 #include <stdexcept>
 namespace fs = std::filesystem;
 
-mappers::ProvinceMapper::ProvinceMapper()
+mappers::ProvinceMapper::ProvinceMapper(const CK2::Mods& mods)
 {
 	LOG(LogLevel::Info) << "-> Parsing province mappings";
 	registerKeys();
-	parseFile("configurables/province_mappings.txt");
+
+	auto loadedProvinces = false;
+	for (const auto& [name, path]: mods.getMods())
+		if (commonItems::DoesFileExist("configurables/" + name + "_province_mappings.txt"))
+		{
+			Log(LogLevel::Info) << ">> Loading Province Mappings for " << name;
+			parseFile("configurables/" + name + "_province_mappings.txt");
+			loadedProvinces = true;
+			break;
+		}
+	if (!loadedProvinces)
+		parseFile("configurables/province_mappings.txt");
+
 	clearRegisteredKeywords();
 	createMappings();
 	LOG(LogLevel::Info) << "<> " << theMappings.getMappings().size() << " mappings loaded.";
@@ -30,7 +44,7 @@ mappers::ProvinceMapper::ProvinceMapper(std::istream& theStream)
 
 void mappers::ProvinceMapper::registerKeys()
 {
-	registerRegex("[0-9\\.]+", [this](const std::string& unused, std::istream& theStream) {
+	registerRegex(R"([0-9\.]+)", [this](const std::string& unused, std::istream& theStream) {
 		// We support only a single, current version, so eu4-vic2 style multiple versions
 		// have been cut. There should only be a single, 0.0.0.0={} block inside province_mappings.txt
 		theMappings = ProvinceMappingsVersion(theStream);
