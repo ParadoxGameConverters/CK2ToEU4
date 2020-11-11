@@ -9,9 +9,9 @@
 #include "OSCompatibilityLayer.h"
 #include "Offmaps/Offmap.h"
 #include "ParserHelpers.h"
+#include "Religions/Religions.h"
 #include "Titles/Liege.h"
 #include "Titles/Title.h"
-#include "Religions/Religions.h"
 #include <ZipFile.h>
 #include <cmath>
 #include <filesystem>
@@ -61,7 +61,7 @@ CK2::World::World(const Configuration& theConfiguration)
 	registerKeyword("religion", [this](const std::string& unused, std::istream& theStream) {
 		LOG(LogLevel::Info) << "-> Loading Religions";
 		religions = Religions(theStream);
-		LOG(LogLevel::Info) << ">> Loaded " << religions.getReformedReligion().size() << " Reformed Religions.";		
+		LOG(LogLevel::Info) << ">> Loaded " << religions.getReformedReligion().size() << " Reformed Religions.";
 	});
 	registerKeyword("dynasties", [this](const std::string& unused, std::istream& theStream) {
 		LOG(LogLevel::Info) << "-> Loading Dynasties";
@@ -136,7 +136,7 @@ CK2::World::World(const Configuration& theConfiguration)
 	invasion = flags.getInvasion();					  // Sunset Invasion
 	reformationList = flags.fillReformationList(); // Reformed Pagans
 	if (flags.hellenicReformation())
-		greekReformation = flags.isGreek(); // Were Hellenes Greek or Roman?	
+		greekReformation = flags.isGreek(); // Were Hellenes Greek or Roman?
 	Log(LogLevel::Progress) << "12 %";
 
 	LOG(LogLevel::Info) << "*** Building World ***";
@@ -262,6 +262,8 @@ void CK2::World::loadDynasties(const Configuration& theConfiguration)
 
 void CK2::World::loadProvinces(const Configuration& theConfiguration)
 {
+	// Vanilla has errors and mismatches. Mods have targeted expansions and replacements. This means for vanilla we have to load a multimap,
+	// but for mods we're overwriting all multimap matches.
 	provinceTitleMapper.loadProvinces(theConfiguration.getCK2Path());
 
 	for (const auto& mod: mods.getMods())
@@ -269,7 +271,7 @@ void CK2::World::loadProvinces(const Configuration& theConfiguration)
 		if (commonItems::DoesFolderExist(mod.second + "/history/provinces/"))
 		{
 			Log(LogLevel::Info) << "\t>> Loading additional provinces from mod source: " << mod.second + "/history/provinces/";
-			provinceTitleMapper.loadProvinces(mod.second);
+			provinceTitleMapper.updateProvinces(mod.second);
 		}
 	}
 }
@@ -773,7 +775,7 @@ void CK2::World::filterIndependentTitles()
 	for (const auto& title: allTitles)
 	{
 		if (title.second->getHolder().first && (title.second->getName().find("c_") == 0 || title.second->getName().find("b_") == 0))
-		{	
+		{
 			countyHolders.insert(title.second->getHolder().first);
 		}
 		allTitleHolders[title.second->getHolder().first].insert(title);
@@ -1102,7 +1104,7 @@ void CK2::World::shatterHRE(const Configuration& theConfiguration) const
 					Log(LogLevel::Debug) << "HRE Emperor set via capital: " << member.first;
 					break;
 				}
-			}			
+			}
 		}
 		if (!emperorSet)
 		{
@@ -1121,7 +1123,7 @@ void CK2::World::shatterHRE(const Configuration& theConfiguration) const
 						Log(LogLevel::Debug) << "HRE Emperor set via capital: " << member.first;
 						break;
 					}
-				}				
+				}
 			}
 		}
 		if (!emperorSet)
@@ -1139,7 +1141,6 @@ void CK2::World::shatterHRE(const Configuration& theConfiguration) const
 					break;
 				}
 			}
-
 		}
 	}
 	else
@@ -1195,7 +1196,11 @@ void CK2::World::createReformedFeatures()
 {
 
 	// Unique Reforms (Only the unique reforms that have unique modifiers such as "uses_karma")
-	std::set<std::string> unique = {"religion_feature_norse", "religion_feature_tengri", "religion_feature_west_african", "religion_feature_bon", "religion_feature_hellenic"};
+	std::set<std::string> unique = {"religion_feature_norse",
+		 "religion_feature_tengri",
+		 "religion_feature_west_african",
+		 "religion_feature_bon",
+		 "religion_feature_hellenic"};
 
 	if (!reformationList.empty())
 	{
@@ -1230,7 +1235,7 @@ void CK2::World::createReformedFeatures()
 		bool tester = false;
 		for (auto reform: religionReforms)
 		{
-			if (religion.first == reform.getName() || !reform.getName().find("religion_") || !religion.first.find("religion_")) 
+			if (religion.first == reform.getName() || !reform.getName().find("religion_") || !religion.first.find("religion_"))
 			{
 				tester = true;
 				break;

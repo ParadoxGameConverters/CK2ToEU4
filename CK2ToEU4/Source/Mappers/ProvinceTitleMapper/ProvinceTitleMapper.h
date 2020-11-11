@@ -16,6 +16,7 @@ class ProvinceTitleMapper
   public:
 	ProvinceTitleMapper() = default;
 	void loadProvinces(const std::string& CK2Path);
+	void updateProvinces(const std::string& path);
 
 	[[nodiscard]] const auto& getProvinceTitles() const { return provinceTitles; }
 	[[nodiscard]] const auto& getOrigProvinceTitles() const { return origProvinceTitles; }
@@ -25,8 +26,8 @@ class ProvinceTitleMapper
 	[[nodiscard]] std::optional<std::string> getTitleForID(int provID) const;
 
   private:
-	std::multimap<std::string, int> origProvinceTitles; // c_title can have multiple IDs, and IDs can have multiple c_titles, thanx paradox.
-	std::map<std::string, int> provinceTitles;			 // filtered list.
+	std::multimap<int, std::string> origProvinceTitles; // c_title can have multiple IDs, and IDs can have multiple c_titles, thanx paradox.
+	std::map<int, std::string> provinceTitles;			 // filtered list.
 };
 } // namespace mappers
 

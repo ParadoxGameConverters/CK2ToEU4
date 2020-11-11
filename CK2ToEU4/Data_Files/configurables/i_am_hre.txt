@@ -6,3 +6,4 @@
 hre_mechanics = e_hre
 
 # Other common suggestions: e_byzantium, e_roman_empire, e_hispania, etc.
+# Historical Immersion Project (SWMH) suggestions: e_hre_french

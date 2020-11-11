@@ -73,3 +73,6 @@ link = { title = d_mamluks gov = monarchy reform = mamluk_government }
 
 # ---- SUPPORTED MODS ----- Sons of Vinland
 link = { gov = tribal ck2gov = amerindian_tribal_government }
+
+# ---- SUPPORTED MODS ----- Historical Immersion Project (EMF)
+link = { title = e_byzantium ck2gov = imperial_government gov = monarchy reform = autocracy_reform } 
