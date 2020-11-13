@@ -39,8 +39,12 @@ void mappers::ProvinceTitleMapper::updateProvinces(const std::string& path)
 		if (!newProvince.getID() || newProvince.getTitle().empty())
 			continue;
 
-		origProvinceTitles.erase(newProvince.getID());
-		origProvinceTitles.insert(std::make_pair(newProvince.getID(), newProvince.getTitle()));
+		std::multimap<int, std::string> replacementTitles;
+		for (const auto& [id, title]: origProvinceTitles)
+			if (id != newProvince.getID() && title != newProvince.getTitle())
+				replacementTitles.insert(std::pair(id, title));
+		replacementTitles.insert(std::make_pair(newProvince.getID(), newProvince.getTitle()));
+		origProvinceTitles = std::move(replacementTitles);
 	}
 	Log(LogLevel::Info) << ">> Loaded: " << origProvinceTitles.size() << " provinces from history.";
 }
