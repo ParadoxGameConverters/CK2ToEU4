@@ -28,9 +28,9 @@ link = { ck2 = bon_reformed eu4 = bon_reformed }
 
 # Zoroastrianism
 
-link = { ck2 = zoroastrian eu4 = zoroastrian }
+link = { ck2 = zoroastrian ck2 = zurvanist eu4 = zoroastrian }
 link = { ck2 = mazdaki eu4 = mazdaki }
-link = { ck2 = manichean eu4 = manichean }
+link = { ck2 = manichean ck2 = mandaean eu4 = manichean }
 link = { ck2 = khurmazta eu4 = khurmazta }
 
 # Christianity
@@ -77,13 +77,13 @@ link = { ck2 = taoist eu4 = confucianism }
 
 # ---- SUPPORTED MODS -----
 
-#Sons of Vinland
+# Sons of Vinland
 link = { ck2 = inuit_pagan eu4 = totemism}
 link = { ck2 = inuit_pagan_reformed eu4 = totemismm}
 link = { ck2 = algic_pagan eu4 = totemism}
 link = { ck2 = algic_pagan_reformed eu4 = totemism}
 
-#When The World Stopped Making Sense
+# When The World Stopped Making Sense
 link = { ck2 = adoptionism eu4 = arianism }
 link = { ck2 = sabellianism eu4 = monophysite }
 link = { ck2 = psilanthropism eu4 = jewish } #for lack of a better equivalent
@@ -185,7 +185,6 @@ link = { ck2 = confucianism eu4 = confucianism } #Don't know if it needs to exis
 
 #Rise of Islam
 link = { ck2 = donatist eu4 = reformed }
-#Arianism already in WTWSMS
 
 #HIP
 link = { ck2 = adoptionist eu4 = arianism }
