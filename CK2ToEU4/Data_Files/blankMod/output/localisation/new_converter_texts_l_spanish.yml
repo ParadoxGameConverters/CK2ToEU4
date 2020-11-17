@@ -115,6 +115,7 @@ l_spanish:
  pagan_religion_religion_desc: "Desde los albores de la historia, tanto Europa como el Medio Oriente han sido el hogar de innumerables religiones y cultos paganos no relacionados con las religiones abrahámicas."
  aztec_pagan_religion_desc: "La religión azteca presenta un mito de la creación centrado en el sacrificio, incluso los dioses fueron sacrificados para mantener el sol en movimiento. Esto se refleja en los numerosos festivales y rituales de la religión, que presentan sacrificios humanos a gran escala. Los principales dioses son Huitzilopochtli, dios de la guerra y el sacrificio humano, Tlaloc, dios del trueno y la lluvia, Xiuhtecuhtli, dios del fuego, Xipe Totec, 'nuestro Señor el Desollado' y Quetzalcóatl, dios de la sabiduría."
  west_african_pagan_reformed_religion_desc: "La religión africana reformada es una fusión de muchas creencias populares, con un solo Libro Sagrado que incluye un mito de la creación, capítulos sobre los espíritus, fábulas de tótems animales y dioses."
+ arianism_religion_desc: "El arrianismo es una rama del cristianismo Nontrinitario que afirma que Jesucristo es el Hijo de Dios, creado por Dios el Padre, distinto del Padre y por lo tanto subordinado al Padre. enseñanzas arrianas fueron atribuidas primero a Arrio y declaradas heréticas por el Primer Concilio de Nicea en el año 325."
  
  pagan_religion_rebels_title: "Religioso"
  pagan_religion_rebels_name: "Fanáticos de $RELIGION$"
@@ -235,6 +236,12 @@ l_spanish:
  generic_rebels_name: "Fanáticos de $RELIGION$"
  generic_rebels_desc: "Los fanáticos religiosos suelen aparecer en provincias controladas por naciones que practican una creencia diferente. Buscan propagar su fe y sofocar a todos los infieles."
  generic_rebels_army: "Ejército $RELIGION$"
+ arianism_rebels_demand: "Convertir $COUNTRYNAME$"
+ arianism_rebels_demand_desc: "Los rebeldes religiosos luchan por el  $RELIGION$ religión. Exigen que reconocemos su supremacía o por lo menos, dejamos nuestros esfuerzos para convertir a ellos y que adoren en paz."
+ arianism_rebels_title: "Religiosos"
+ arianism_rebels_name: "$RELIGION$ Extremistas"
+ arianism_rebels_desc: "Los fanáticos religiosos tienden a levantarse en las provincias controladas por las naciones de una fe diferente. Tratan de difundir su fe y ataca a todos los no creyentes."
+ arianism_rebels_army: "Ejército $RELIGION$"
  
   ##Fetishist Cults
  west_african_pagan_reformed_cult:0 "Anciano"

@@ -49,6 +49,7 @@
  khurmazta_religion_desc: "Khurmazta (Zarvana) is syncretic form of Zoroastrianism which was practiced among the Sogdians. It mixes Zoroastrianism with Hinduism, Buddhism and various pagan religions. Aside from Khurmazta, lesser deities such as Weshparkar, God of Wind, are worshipped and made offerings, usually in form of small statues."
  mazdaki_religion_desc: "Mazdak was a Zoroastrian priest who claimed to be a prophet of Ahura Mazda. He attempted to reform the religion with Gnostic elements, and advocated communal possessions and welfare programs."
  manichean_religion_desc: "Manichaeism is a Gnostic religion which incorporates elements of Christianity, Zoroastrianism, Buddhism and Gnosticism."
+ arianism_religion_desc:0 "Arianism is a nontrinitarian branch of Christianity that asserts that Jesus Christ is the Son of God, created by God the Father, distinct from the Father and therefore subordinate to the Father. Arian teachings were first attributed to Arius and declared heretical by the First Council of Nicaea in 325."
   
  ##Religious Rebels
  jain_demand_desc: "The religious rebels fight for the $RELIGION$ religion. They demand that we recognize its supremacy or at the very least cease our efforts to convert them and let them worship in peace."
@@ -225,6 +226,12 @@
  generic_rebels_name: "$RELIGION$ Zealots"
  generic_rebels_desc: "Religious fanatics tend to rise up in provinces controlled by nations of a different faith. They seek to spread their faith and smite all unbelievers."
  generic_rebels_army: "$RELIGION$ Army"norse_pagan_rebels_title: "Religious"
+ arianism_rebels_demand:0 "Convert $COUNTRYNAME$"
+ arianism_rebels_demand_desc:0 "The religious rebels fight for the $RELIGION$ religion. They demand that we recognize its supremacy or at the very least cease our efforts to convert them and let them worship in peace."
+ arianism_rebels_title:0 "Religious"
+ arianism_rebels_name:0 "$RELIGION$ Zealots"
+ arianism_rebels_desc:0 "Religious fanatics tend to rise up in provinces controlled by nations of a different faith. They seek to spread their faith and smite all unbelievers."
+ arianism_rebels_army:0 "$RELIGION$ Army"
  
  ##Fetishist Cults
  west_african_pagan_reformed_cult:0 "Eldership"
