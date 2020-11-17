@@ -28,38 +28,38 @@ link = { ck2 = bon_reformed eu4 = bon_reformed }
 
 # Zoroastrianism
 
-link = { ck2 = zoroastrian eu4 = zoroastrian }
+link = { ck2 = zoroastrian ck2 = zurvanist eu4 = zoroastrian }
 link = { ck2 = mazdaki eu4 = mazdaki }
-link = { ck2 = manichean eu4 = manichean }
+link = { ck2 = manichean ck2 = mandaean eu4 = manichean }
 link = { ck2 = khurmazta eu4 = khurmazta }
 
 # Christianity
 
-link = { ck2 = catholic eu4 = catholic }
+link = { ck2 = catholic ck2 = adoptionist ck2 = arian eu4 = catholic }
 link = { ck2 = cathar eu4 = cathar }
 link = { ck2 = fraticelli eu4 = fraticelli }
 link = { ck2 = waldensian eu4 = waldensian }
 link = { ck2 = lollard eu4 = lollard }
 
-link = { ck2 = orthodox eu4 = orthodox }
+link = { ck2 = orthodox ck2 = syriac ck2 = maronite eu4 = orthodox }
 link = { ck2 = bogomilist eu4 = bogomilist }
 link = { ck2 = monothelite eu4 = monothelite }
 link = { ck2 = iconoclast eu4 = iconoclast }
 link = { ck2 = nestorian eu4 = nestorian }
 link = { ck2 = messalian eu4 = messalian }
-link = { ck2 = paulician eu4 = paulician }
+link = { ck2 = paulician ck2 = apostolic ck2 = tondrakian eu4 = paulician }
 
 link = { ck2 = miaphysite eu4 = coptic }
 link = { ck2 = monophysite eu4 = monophysite }
 
 # Islam
 
-link = { ck2 = sunni eu4 = sunni }
+link = { ck2 = sunni ck2 = mahdiyya ck2 = nabawiyya eu4 = sunni }
 link = { ck2 = zikri eu4 = zikri }
 link = { ck2 = yazidi eu4 = yazidi }
-link = { ck2 = ibadi eu4 = ibadi }
+link = { ck2 = ibadi ck2 = haruri eu4 = ibadi }
 link = { ck2 = kharijite eu4 = kharijite }
-link = { ck2 = shiite eu4 = shiite }
+link = { ck2 = shiite ck2 = waqifi ck2 = zaydi ck2 = ismaili eu4 = shiite }
 link = { ck2 = druze eu4 = druze }
 link = { ck2 = hurufi eu4 = hurufi }
 link = { ck2 = qarmatian eu4 = qarmatian }
