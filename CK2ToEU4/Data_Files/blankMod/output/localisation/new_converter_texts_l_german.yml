@@ -114,6 +114,7 @@
  pagan_religion_religion_desc: "Seit Beginn der Geschichte haben sowohl Europa als auch der Nahe Osten unzählige heidnische Religionen und Kulte beheimatet, die nichts mit dem abrahamitischen Glauben zu tun haben."
  aztec_pagan_religion_desc: "Die aztekische Religion enthält einen Schöpfungsmythos, der sich auf Opfer konzentriert - sogar Götter wurden geopfert, um die Sonne in Bewegung zu halten. Dies spiegelt sich in den vielen Festen und Ritualen der Religion wider, bei denen Menschenopfer in großem Umfang eingesetzt werden. Die Hauptgötter sind Huitzilopochtli, Gott des Krieges und des Menschenopfers, Tlaloc, Gott des Donners und des Regens, Xiuhtecuhtli, Gott des Feuers, Xipe Totec, "unser Herr der Enthäutete" und Quetzalcoatl, Gott der Weisheit."
  west_african_pagan_reformed_religion_desc: "Die reformierte afrikanische Religion ist eine Verschmelzung vieler populärer Überzeugungen mit einem einzigen heiligen Buch, das einen Schöpfungsmythos, Kapitel über die Geister, Totemtierfabeln und Götter enthält."
+ arianism_religion_desc:0 "Arianism is a nontrinitarian branch of Christianity that asserts that Jesus Christ is the Son of God, created by God the Father, distinct from the Father and therefore subordinate to the Father. Arian teachings were first attributed to Arius and declared heretical by the First Council of Nicaea in 325."
  
  pagan_religion_rebels_title: "Religiöse"
  pagan_religion_rebels_name: "$RELIGION$-Fanatiker"
@@ -234,6 +235,12 @@
  generic_rebels_name: "$RELIGION$-Fanatiker"
  generic_rebels_desc: "Religiöse Fanatiker neigen dazu, sich in Provinzen zu erheben, die von Nationen eines anderen Glaubens kontrolliert werden. Sie versuchen, ihren Glauben zu verbreiten und alle Ungläubigen zu quälen."
  generic_rebels_army: "$RELIGION$-Armee"
+ arianism_rebels_demand:0 "Konvertiert $COUNTRYNAME$"
+ arianism_rebels_demand_desc:0 "Die religiösen Rebellen kämpfen für die $RELIGION$e Religion. Sie verlangen, dass wir deren Vormachtstellung anerkennen oder wenigstens unsere Konvertierungsversuche einstellen, so dass sie ihren Glauben in Frieden ausüben können."
+ arianism_rebels_title:0 "Religiös"
+ arianism_rebels_name:0 "$RELIGION$e Fanatiker"
+ arianism_rebels_desc:0 "Religiöse Fanatiker erheben sich vor allem in Provinzen, deren Religion von der Staatsreligion abweicht. Sie wollen ihre Religion verbreiten und alle Ungläubigen bekehren."
+ arianism_rebels_army:0 "$RELIGION$e Armee"
  
  
  ##Fetishist Cults
