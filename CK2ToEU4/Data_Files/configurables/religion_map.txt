@@ -28,28 +28,28 @@ link = { ck2 = bon_reformed eu4 = bon_reformed }
 
 # Zoroastrianism
 
-link = { ck2 = zoroastrian ck2 = zurvanist eu4 = zoroastrian }
+link = { ck2 = zoroastrian eu4 = zoroastrian }
 link = { ck2 = mazdaki eu4 = mazdaki }
-link = { ck2 = manichean ck2 = mandaean eu4 = manichean }
+link = { ck2 = manichean eu4 = manichean }
 link = { ck2 = khurmazta eu4 = khurmazta }
 
 # Christianity
 
-link = { ck2 = catholic ck2 = adoptionist ck2 = arian eu4 = catholic }
+link = { ck2 = catholic ck2 = maronite eu4 = catholic }
 link = { ck2 = cathar eu4 = cathar }
 link = { ck2 = fraticelli eu4 = fraticelli }
 link = { ck2 = waldensian eu4 = waldensian }
 link = { ck2 = lollard eu4 = lollard }
 
-link = { ck2 = orthodox ck2 = syriac ck2 = maronite eu4 = orthodox }
+link = { ck2 = orthodox eu4 = orthodox }
 link = { ck2 = bogomilist eu4 = bogomilist }
 link = { ck2 = monothelite eu4 = monothelite }
 link = { ck2 = iconoclast eu4 = iconoclast }
 link = { ck2 = nestorian eu4 = nestorian }
 link = { ck2 = messalian eu4 = messalian }
-link = { ck2 = paulician ck2 = apostolic ck2 = tondrakian eu4 = paulician }
+link = { ck2 = paulician ck2 = tondrakian eu4 = paulician }
 
-link = { ck2 = miaphysite eu4 = coptic }
+link = { ck2 = miaphysite ck2 = syriac ck2 = apostolic eu4 = coptic }
 link = { ck2 = monophysite eu4 = monophysite }
 
 # Islam
@@ -84,7 +84,7 @@ link = { ck2 = algic_pagan eu4 = totemism}
 link = { ck2 = algic_pagan_reformed eu4 = totemism}
 
 #When The World Stopped Making Sense
-link = { ck2 = adoptionism eu4 = reformed }
+link = { ck2 = adoptionism eu4 = arianism }
 link = { ck2 = sabellianism eu4 = monophysite }
 link = { ck2 = psilanthropism eu4 = jewish } #for lack of a better equivalent
 link = { ck2 = aquileian eu4 = monothelite }
@@ -111,17 +111,18 @@ link = { ck2 = pelagianism eu4 = waldensian } #for lack of a better equivalent
 link = { ck2 = kartvelian eu4 = orthodox }
 link = { ck2 = audianistic eu4 = coptic } #for lack of a better equivalent
 link = { ck2 = monarchianism eu4 = coptic } #for lack of a better equivalent
+
 link = { ck2 = islamic eu4 = shiite } #for lack of a better equivalent
 link = { ck2 = abadites eu4 = kharijite }
-link = { ck2 = quranism eu4 = shiite } #for lack of a better equivalent
+link = { ck2 = quranism eu4 = ibadi } #for lack of a better equivalent
 link = { ck2 = qadariyya eu4 = qarmatian } #for lack of a better equivalent
 link = { ck2 = khawariji eu4 = kharijite }
 link = { ck2 = haruriyyah eu4 = shiite }
 link = { ck2 = mahdi eu4 = sunni }
 link = { ck2 = twelver eu4 = shiite }
 link = { ck2 = zayid eu4 = shiite }
-link = { ck2 = ismaili eu4 = shiite }
 link = { ck2 = uwaisi eu4 = shiite } #for lack of a better equivalent
+
 link = { ck2 = root_west_pagan_reformed eu4 = bon_reformed } #for lack of a better equivalent (applies to basically all pagans below)
 link = { ck2 = root_west_pagan eu4 = bon }
 link = { ck2 = sanamahi_reformed eu4 = animism }
@@ -166,19 +167,25 @@ link = { ck2 = neoplatonist eu4 = hellenic_pagan_reformed }
 link = { ck2 = mithraic_pagan eu4 = zun_pagan_reformed }
 link = { ck2 = egyptian_pagan eu4 = pagan_religion }
 link = { ck2 = aten_pagan eu4 = zun_pagan_reformed }
-link = { ck2 = zurvanist eu4 = zoroastrian }
+
 link = { ck2 = khurramite eu4 = mazdaki }
 link = { ck2 = hephtal_religion eu4 = khurmazta }
+
 link = { ck2 = tzadikite eu4 = judaism }
 link = { ck2 = bosporan_faith eu4 = samaritan } #Nothing alike, but it helps split mainstream Judaism
+
 link = { ck2 = ajivika eu4 = jain }
 link = { ck2 = carvaka eu4 = hindu } #Actually atheist within a Hindu philosophical framework
 link = { ck2 = mimamsa eu4 = hindu }
 link = { ck2 = tantric eu4 = hindu }
 link = { ck2 = bhakti eu4 = hindu }
 link = { ck2 = sramanic eu4 = hindu }
+
 link = { ck2 = confucianism eu4 = confucianism } #Don't know if it needs to exist, but there it is
 
 #Rise of Islam
 link = { ck2 = donatist eu4 = reformed }
 #Arianism already in WTWSMS
+
+#HIP
+link = { ck2 = adoptionist eu4 = arianism }
