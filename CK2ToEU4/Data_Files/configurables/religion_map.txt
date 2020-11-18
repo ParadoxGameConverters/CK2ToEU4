@@ -104,7 +104,7 @@ link = { ck2 = pneumatomachians eu4 = arianism }
 link = { ck2 = melchisedechianism eu4 = jewish } #for lack of a better equivalent
 link = { ck2 = patripassianism eu4 = monothelite }
 link = { ck2 = arian eu4 = arianism }
-link = { ck2 = donatism eu4 = reformed }
+link = { ck2 = donatism eu4 = orthodox }
 link = { ck2 = priscillianism eu4 = manichean }
 link = { ck2 = insular eu4 = catholic }
 link = { ck2 = pelagianism eu4 = waldensian } #for lack of a better equivalent
