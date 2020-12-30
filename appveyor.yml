@@ -32,6 +32,6 @@ deploy:
   tag: 1.0E
   release: 1.0 Este - for CK2[3.3] and EU4[1.30]
   auth_token:
-    secure: x+rt6bMRW6SU5WAf7gkW6+TUtjtIP8eGKh/hlaoqm90PJSBdao9YLfOSkxGyHPTXRpt+ZuSZJCqhd4wQOrmLzejgoHHQHqg24KbE269Y/uY=
+    secure: LBJzs4y9j0N5y0ajp7gmVk3Pvnec1UU5pTCdIMbQYUddEXQnWTJ79FXsd9SCs7YQ
   repository: paradoxGameConverters/CK2ToEU4
   artifact: CK2ToEU4-1.0Este
