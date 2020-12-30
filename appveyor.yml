@@ -21,7 +21,7 @@ artifacts:
 deploy:
 - provider: GitHub
   release: windows_development_build
-  description: Development version. Rebuilt automatically after every pull request.
+  description: Development version. Rebuilt automatically after every pull request. But does the description get updated? Let's find out!
   auth_token:
     secure: LBJzs4y9j0N5y0ajp7gmVk3Pvnec1UU5pTCdIMbQYUddEXQnWTJ79FXsd9SCs7YQ
   repository: paradoxGameConverters/CK2ToEU4
