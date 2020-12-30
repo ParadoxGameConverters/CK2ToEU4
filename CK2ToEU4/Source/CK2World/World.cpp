@@ -1063,7 +1063,7 @@ void CK2::World::shatterHRE(const Configuration& theConfiguration) const
 		}
 		else if (vassal.first.find("k_") == 0)
 		{
-			if (vassal.first == "k_papacy" || vassal.first == "k_papl_state" || vassal.first == "k_orthodox" ||
+			if (vassal.first == "k_papacy" || vassal.first == "k_papal_state" || vassal.first == "k_orthodox" ||
 				 theConfiguration.getShatterHRELevel() == Configuration::SHATTER_HRE_LEVEL::KINGDOM) // hard override for special HRE members
 			{
 				hreMembers.insert(std::pair(vassal.first, vassal.second));
