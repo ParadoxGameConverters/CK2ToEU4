@@ -1,190 +1,94 @@
 # Usage:
-# link = { ck2 = ck2religion eu4 = eu4religion }
+# link = { eu4 = eu4religion ck2 = ck2religion }
 # multiple ck2 entires are allowed (and encouraged), multiple eu4 are not.
 
 # Pagan
 
-link = { ck2 = pagan eu4 = pagan_religion }
-link = { ck2 = norse_pagan eu4 = norse_pagan }
-link = { ck2 = norse_pagan_reformed eu4 = norse_pagan_reformed }
-link = { ck2 = tengri_pagan eu4 = tengri_pagan }
-link = { ck2 = tengri_pagan_reformed eu4 = tengri_pagan_reformed }
-link = { ck2 = baltic_pagan eu4 = baltic_pagan }
-link = { ck2 = baltic_pagan_reformed eu4 = baltic_pagan_reformed }
-link = { ck2 = finnish_pagan eu4 = finnish_pagan }
-link = { ck2 = finnish_pagan_reformed eu4 = finnish_pagan_reformed }
-link = { ck2 = aztec eu4 = nahuatl }
-link = { ck2 = aztec_reformed eu4 = nahuatl }
-link = { ck2 = slavic_pagan eu4 = slavic_pagan }
-link = { ck2 = slavic_pagan_reformed eu4 = slavic_pagan_reformed }
-link = { ck2 = west_african_pagan eu4 = shamanism }
-link = { ck2 = west_african_pagan_reformed eu4 = west_african_pagan_reformed }
-link = { ck2 = hellenic_pagan eu4 = hellenic_pagan }
-link = { ck2 = hellenic_pagan_reformed eu4 = hellenic_pagan_reformed }
-link = { ck2 = zun_pagan eu4 = zun_pagan }
-link = { ck2 = zun_pagan_reformed eu4 = zun_pagan_reformed }
-link = { ck2 = bon eu4 = bon }
-link = { ck2 = bon_reformed eu4 = bon_reformed }
+link = { eu4 = pagan_religion ck2 = pagan ck2 = georgian_pagan_reformed ck2 = georgian_pagan ck2 = celtic_pagan_reformed ck2 = celtic_pagan ck2 = semitic_pagan_reformed ck2 = semitic_pagan ck2 = semitic_pagan_heresy ck2 = assyrian_pagan ck2 = vasconic_pagan_reformed ck2 = vasconic_pagan ck2 = egyptian_pagan }
+link = { eu4 = norse_pagan ck2 = norse_pagan ck2 = germanic_pagan ck2 = west_pagan }
+link = { eu4 = norse_pagan_reformed ck2 = norse_pagan_reformed ck2 = germanic_pagan_reformed }
+link = { eu4 = tengri_pagan ck2 = tengri_pagan ck2 = scythian_pagan }
+link = { eu4 = tengri_pagan_reformed ck2 = tengri_pagan_reformed ck2 = scythian_pagan_reformed }
+link = { eu4 = baltic_pagan ck2 = baltic_pagan }
+link = { eu4 = baltic_pagan_reformed ck2 = baltic_pagan_reformed }
+link = { eu4 = finnish_pagan ck2 = finnish_pagan }
+link = { eu4 = finnish_pagan_reformed ck2 = finnish_pagan_reformed }
+link = { eu4 = slavic_pagan ck2 = slavic_pagan }
+link = { eu4 = slavic_pagan_reformed ck2 = slavic_pagan_reformed }
+link = { eu4 = shamanism ck2 = west_african_pagan ck2 = dravidian_pagan_reformed ck2 = dravidian_pagan ck2 = central_african_pagan_reformed ck2 = central_african_pagan ck2 = gurzil ck2 = msoura_pagan ck2 = east_african_pagan_reformed ck2 = east_african_pagan }
+link = { eu4 = west_african_pagan_reformed ck2 = west_african_pagan_reformed }
+link = { eu4 = hellenic_pagan ck2 = hellenic_pagan illyran_pagan ck2 = cybelian_pagan ck2 = mastimani }
+link = { eu4 = hellenic_pagan_reformed ck2 = hellenic_pagan_reformed ck2 = illyran_pagan_reformed ck2 = neoplatonist }
+link = { eu4 = zun_pagan ck2 = zun_pagan ck2 = african_solar_pagan ck2 = latin_solar_pagan ck2 = mandulis_pagan ck2 = dacian_pagan }
+link = { eu4 = zun_pagan_reformed ck2 = zun_pagan_reformed ck2 = african_solar_pagan_reformed ck2 = latin_solar_pagan_reformed ck2 = dacian_pagan_reformed ck2 = mithraic_pagan ck2 = aten_pagan }
+link = { eu4 = bon ck2 = bon ck2 = root_west_pagan }
+link = { eu4 = bon_reformed ck2 = bon_reformed ck2 = root_west_pagan_reformed }
+
+link = { eu4 = nahuatl ck2 = aztec ck2 = aztec_reformed }
+
+link = { eu4 = animism ck2 = sanamahi_reformed ck2 = sanamahi }
 
 # Zoroastrianism
 
-link = { ck2 = zoroastrian ck2 = zurvanist eu4 = zoroastrian }
-link = { ck2 = mazdaki eu4 = mazdaki }
-link = { ck2 = manichean ck2 = mandaean eu4 = manichean }
-link = { ck2 = khurmazta eu4 = khurmazta }
+link = { eu4 = zoroastrian ck2 = zoroastrian ck2 = zurvanist }
+link = { eu4 = mazdaki ck2 = mazdaki ck2 = khurramite }
+link = { eu4 = manichean ck2 = manichean ck2 = mandaean ck2 = priscillianism }
+link = { eu4 = khurmazta ck2 = khurmazta ck2 = hephtal_religion }
 
 # Christianity
 
-link = { ck2 = catholic ck2 = maronite eu4 = catholic }
-link = { ck2 = cathar eu4 = cathar }
-link = { ck2 = fraticelli eu4 = fraticelli }
-link = { ck2 = waldensian eu4 = waldensian }
-link = { ck2 = lollard eu4 = lollard }
+link = { eu4 = catholic ck2 = catholic ck2 = insular }
+link = { eu4 = cathar ck2 = cathar ck2 = marcionism }
+link = { eu4 = fraticelli ck2 = fraticelli }
+link = { eu4 = waldensian ck2 = waldensian ck2 = pelagianism }
+link = { eu4 = lollard ck2 = lollard }
 
-link = { ck2 = orthodox eu4 = orthodox }
-link = { ck2 = bogomilist eu4 = bogomilist }
-link = { ck2 = monothelite eu4 = monothelite }
-link = { ck2 = iconoclast eu4 = iconoclast }
-link = { ck2 = nestorian eu4 = nestorian }
-link = { ck2 = messalian eu4 = messalian }
-link = { ck2 = paulician ck2 = tondrakian eu4 = paulician }
+link = { eu4 = orthodox ck2 = orthodox ck2 = maronite ck2 = nicene ck2 = donatism ck2 = kartvelian }
+link = { eu4 = bogomilist ck2 = bogomilist ck2 = sethian ck2 = valentinianism }
+link = { eu4 = monothelite ck2 = monothelite ck2 = aquileian ck2 = patripassianism }
+link = { eu4 = iconoclast ck2 = iconoclast }
+link = { eu4 = nestorian ck2 = nestorian }
+link = { eu4 = messalian ck2 = messalian ck2 = antinomianism }
+link = { eu4 = paulician ck2 = paulician ck2 = tondrakian }
 
-link = { ck2 = miaphysite ck2 = syriac ck2 = apostolic eu4 = coptic }
-link = { ck2 = monophysite eu4 = monophysite }
+link = { eu4 = coptic ck2 = miaphysite ck2 = syriac ck2 = apostolic ck2 = audianistic ck2 = monarchianism }
+link = { eu4 = monophysite ck2 = monophysite ck2 = sabellianism ck2 = eutychian ck2 = apollinarian ck2 = docetic }
+
+link = { eu4 = reformed k2 = total_depravity ck2 = donatist }
+link = { eu4 = protestant ck2 = montanist }
 
 # Islam
 
-link = { ck2 = sunni ck2 = mahdiyya ck2 = nabawiyya eu4 = sunni }
-link = { ck2 = zikri eu4 = zikri }
-link = { ck2 = yazidi eu4 = yazidi }
-link = { ck2 = ibadi ck2 = haruri eu4 = ibadi }
-link = { ck2 = kharijite eu4 = kharijite }
-link = { ck2 = shiite ck2 = waqifi ck2 = zaydi ck2 = ismaili eu4 = shiite }
-link = { ck2 = druze eu4 = druze }
-link = { ck2 = hurufi eu4 = hurufi }
-link = { ck2 = qarmatian eu4 = qarmatian }
+link = { eu4 = sunni ck2 = sunni ck2 = mahdiyya ck2 = nabawiyya ck2 = mahdi }
+link = { eu4 = zikri ck2 = zikri }
+link = { eu4 = yazidi ck2 = yazidi }
+link = { eu4 = ibadi ck2 = ibadi ck2 = haruri ck2 = quranism }
+link = { eu4 = kharijite ck2 = kharijite ck2 = abadites ck2 = khawariji }
+link = { eu4 = shiite ck2 = shiite ck2 = waqifi ck2 = zaydi ck2 = ismaili ck2 = islamic ck2 = haruriyyah ck2 = twelver ck2 = zayid ck2 = uwaisi }
+link = { eu4 = druze ck2 = druze }
+link = { eu4 = hurufi ck2 = hurufi }
+link = { eu4 = qarmatian ck2 = qarmatian ck2 = qadariyya }
 
 # Judaism
-link = { ck2 = jewish eu4 = jewish }
-link = { ck2 = samaritan eu4 = samaritan_faith }
-link = { ck2 = karaite eu4 = karaite_faith }
+link = { eu4 = jewish ck2 = jewish ck2 = psilanthropism ck2 = ebionites ck2 = melchisedechianism }
+link = { eu4 = samaritan_faith ck2 = samaritan }
+link = { eu4 = karaite_faith ck2 = karaite }
 
 # Indian
-link = { ck2 = buddhist eu4 = vajrayana }
-link = { ck2 = hindu eu4 = hinduism }
-link = { ck2 = jain eu4 = jain }
-link = { ck2 = taoist eu4 = confucianism }
+link = { eu4 = vajrayana ck2 = buddhist }
+link = { eu4 = hinduism ck2 = hindu }
+link = { eu4 = jain ck2 = jain ck2 = ajivika }
+link = { eu4 = confucianism ck2 = taoist ck2 = confucianism }
 
 # ---- SUPPORTED MODS -----
 
 # Sons of Vinland
-link = { ck2 = inuit_pagan eu4 = totemism}
-link = { ck2 = inuit_pagan_reformed eu4 = totemismm}
-link = { ck2 = algic_pagan eu4 = totemism}
-link = { ck2 = algic_pagan_reformed eu4 = totemism}
+link = { eu4 = totemism ck2 = inuit_pagan ck2 = inuit_pagan_reformed ck2 = algic_pagan ck2 = algic_pagan_reformed }
 
-# When The World Stopped Making Sense
-link = { ck2 = adoptionism eu4 = arianism }
-link = { ck2 = sabellianism eu4 = monophysite }
-link = { ck2 = psilanthropism eu4 = jewish } #for lack of a better equivalent
-link = { ck2 = aquileian eu4 = monothelite }
-link = { ck2 = nicene eu4 = orthodox }
-link = { ck2 = total_depravity eu4 = reformed }
-link = { ck2 = eutychian eu4 = monophysite }
-link = { ck2 = binitarian eu4 = arianism }
-link = { ck2 = antinomianism eu4 = messalian }
-link = { ck2 = ebionites eu4 = jewish } #for lack of a better equivalent
-link = { ck2 = marcionism eu4 = cathar } #for lack of a better equivalent
-link = { ck2 = montanist eu4 = protestant } #for lack of a better equivalent
-link = { ck2 = sethian eu4 = bogomilist }
-link = { ck2 = valentinianism eu4 = bogomilist } #for lack of a better equivalent
-link = { ck2 = apollinarian eu4 = monophysite }
-link = { ck2 = docetic eu4 = monophysite }
-link = { ck2 = pneumatomachians eu4 = arianism }
-link = { ck2 = melchisedechianism eu4 = jewish } #for lack of a better equivalent
-link = { ck2 = patripassianism eu4 = monothelite }
-link = { ck2 = arian eu4 = arianism }
-link = { ck2 = donatism eu4 = orthodox }
-link = { ck2 = priscillianism eu4 = manichean }
-link = { ck2 = insular eu4 = catholic }
-link = { ck2 = pelagianism eu4 = waldensian } #for lack of a better equivalent
-link = { ck2 = kartvelian eu4 = orthodox }
-link = { ck2 = audianistic eu4 = coptic } #for lack of a better equivalent
-link = { ck2 = monarchianism eu4 = coptic } #for lack of a better equivalent
+# When The World Stopped Making Sense / Historical Immersion Project / Rise of Islam
+# (These are CK2 religions that do not fit with any of the vanilla EU4 religions)
 
-link = { ck2 = islamic eu4 = shiite } #for lack of a better equivalent
-link = { ck2 = abadites eu4 = kharijite }
-link = { ck2 = quranism eu4 = ibadi } #for lack of a better equivalent
-link = { ck2 = qadariyya eu4 = qarmatian } #for lack of a better equivalent
-link = { ck2 = khawariji eu4 = kharijite }
-link = { ck2 = haruriyyah eu4 = shiite }
-link = { ck2 = mahdi eu4 = sunni }
-link = { ck2 = twelver eu4 = shiite }
-link = { ck2 = zayid eu4 = shiite }
-link = { ck2 = uwaisi eu4 = shiite } #for lack of a better equivalent
-
-link = { ck2 = root_west_pagan_reformed eu4 = bon_reformed } #for lack of a better equivalent (applies to basically all pagans below)
-link = { ck2 = root_west_pagan eu4 = bon }
-link = { ck2 = sanamahi_reformed eu4 = animism }
-link = { ck2 = sanamahi eu4 = animism }
-link = { ck2 = georgian_pagan_reformed eu4 = pagan_religion }
-link = { ck2 = georgian_pagan eu4 = pagan_religion }
-link = { ck2 = illyran_pagan_reformed eu4 = hellenic_pagan_reformed }
-link = { ck2 = illyran_pagan eu4 = hellenic_pagan }
-link = { ck2 = germanic_pagan_reformed eu4 = norse_pagan_reformed }
-link = { ck2 = germanic_pagan eu4 = norse_pagan }
-link = { ck2 = west_pagan eu4 = norse_pagan }
-link = { ck2 = celtic_pagan_reformed eu4 = pagan_religion }
-link = { ck2 = celtic_pagan eu4 = pagan_religion }
-link = { ck2 = scythian_pagan_reformed eu4 = tengri_pagan_reformed }
-link = { ck2 = scythian_pagan eu4 = tengri_pagan }
-link = { ck2 = semitic_pagan_reformed eu4 = pagan_religion }
-link = { ck2 = semitic_pagan eu4 = pagan_religion }
-link = { ck2 = semitic_pagan_heresy eu4 = pagan_religion }
-link = { ck2 = dravidian_pagan_reformed eu4 = shamanism }
-link = { ck2 = dravidian_pagan_reformed eu4 = shamanism }
-link = { ck2 = aztec_reformed eu4 = nahuatl }
-link = { ck2 = aztec eu4 = nahuatl }
-link = { ck2 = central_african_pagan_reformed eu4 = shamanism }
-link = { ck2 = central_african_pagan eu4 = shamanism }
-link = { ck2 = gurzil eu4 = shamanism }
-link = { ck2 = msoura_pagan eu4 = shamanism }
-link = { ck2 = african_solar_pagan_reformed eu4 = zun_pagan_reformed }
-link = { ck2 = african_solar_pagan eu4 = zun_pagan }
-link = { ck2 = latin_solar_pagan_reformed eu4 = zun_pagan_reformed }
-link = { ck2 = latin_solar_pagan eu4 = zun_pagan }
-link = { ck2 = mandulis_pagan eu4 = zun_pagan }
-link = { ck2 = east_african_pagan_reformed eu4 = shamanism }
-link = { ck2 = east_african_pagan eu4 = shamanism }
-link = { ck2 = assyrian_pagan eu4 = pagan_religion }
-link = { ck2 = dacian_pagan_reformed eu4 = zun_pagan_reformed }
-link = { ck2 = dacian_pagan eu4 = zun_pagan }
-link = { ck2 = vasconic_pagan_reformed eu4 = pagan_religion }
-link = { ck2 = vasconic_pagan eu4 = pagan_religion }
-link = { ck2 = cybelian_pagan eu4 = hellenic_pagan }
-link = { ck2 = mastimani eu4 = hellenic_pagan }
-link = { ck2 = neoplatonist eu4 = hellenic_pagan_reformed }
-link = { ck2 = mithraic_pagan eu4 = zun_pagan_reformed }
-link = { ck2 = egyptian_pagan eu4 = pagan_religion }
-link = { ck2 = aten_pagan eu4 = zun_pagan_reformed }
-
-link = { ck2 = khurramite eu4 = mazdaki }
-link = { ck2 = hephtal_religion eu4 = khurmazta }
-
-link = { ck2 = tzadikite eu4 = judaism }
-link = { ck2 = bosporan_faith eu4 = samaritan } #Nothing alike, but it helps split mainstream Judaism
-
-link = { ck2 = ajivika eu4 = jain }
-link = { ck2 = carvaka eu4 = hindu } #Actually atheist within a Hindu philosophical framework
-link = { ck2 = mimamsa eu4 = hindu }
-link = { ck2 = tantric eu4 = hindu }
-link = { ck2 = bhakti eu4 = hindu }
-link = { ck2 = sramanic eu4 = hindu }
-
-link = { ck2 = confucianism eu4 = confucianism } #Don't know if it needs to exist, but there it is
-
-#Rise of Islam
-link = { ck2 = donatist eu4 = reformed }
-
-#HIP
-link = { ck2 = adoptionist eu4 = arianism }
+link = { eu4 = arianism ck2 = adoptionism ck2 = binitarian ck2 = pneumatomachians ck2 = arian ck2 = adoptionist }
+link = { eu4 = judaism ck2 = tzadikite } #eu4 = jewish ???
+link = { eu4 = samaritan ck2 = bosporan_faith } #eu4 = samaritan_faith ???
+link = { eu4 = hindu ck2 = carvaka ck2 = mimamsa ck2 = tantric ck2 = bhakti ck2 = sramanic } #eu4 = hinduism ???
