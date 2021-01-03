@@ -15,8 +15,8 @@ link = { eu4 = finnish_pagan ck2 = finnish_pagan }
 link = { eu4 = finnish_pagan_reformed ck2 = finnish_pagan_reformed }
 link = { eu4 = slavic_pagan ck2 = slavic_pagan }
 link = { eu4 = slavic_pagan_reformed ck2 = slavic_pagan_reformed }
-link = { eu4 = shamanism ck2 = west_african_pagan ck2 = dravidian_pagan_reformed ck2 = dravidian_pagan ck2 = central_african_pagan_reformed ck2 = central_african_pagan ck2 = gurzil ck2 = msoura_pagan ck2 = east_african_pagan_reformed ck2 = east_african_pagan }
-link = { eu4 = west_african_pagan_reformed ck2 = west_african_pagan_reformed }
+link = { eu4 = shamanism ck2 = west_african_pagan ck2 = dravidian_pagan_reformed ck2 = dravidian_pagan ck2 = central_african_pagan_reformed ck2 = central_african_pagan ck2 = gurzil ck2 = msoura_pagan ck2 = east_african_pagan }
+link = { eu4 = west_african_pagan_reformed ck2 = west_african_pagan_reformed ck2 = east_african_pagan_reformed  }
 link = { eu4 = hellenic_pagan ck2 = hellenic_pagan ck2 = illyran_pagan ck2 = cybelian_pagan ck2 = mastimani }
 link = { eu4 = hellenic_pagan_reformed ck2 = hellenic_pagan_reformed ck2 = illyran_pagan_reformed ck2 = neoplatonist }
 link = { eu4 = zun_pagan ck2 = zun_pagan ck2 = african_solar_pagan ck2 = latin_solar_pagan ck2 = mandulis_pagan ck2 = dacian_pagan }
@@ -54,8 +54,8 @@ link = { eu4 = paulician ck2 = paulician ck2 = tondrakian }
 link = { eu4 = coptic ck2 = miaphysite ck2 = syriac ck2 = apostolic ck2 = audianistic ck2 = monarchianism }
 link = { eu4 = monophysite ck2 = monophysite ck2 = sabellianism ck2 = eutychian ck2 = apollinarian ck2 = docetic }
 
-link = { eu4 = reformed k2 = total_depravity ck2 = donatist }
-link = { eu4 = protestant ck2 = montanist }
+link = { eu4 = reformed ck2 = total_depravity ck2 = donatist } # This can cause strange things to happen - you may want to consider remapping to a different EU4 religion
+link = { eu4 = protestant ck2 = montanist } # This can cause strange things to happen - you may want to consider remapping to a different EU4 religion
 
 # Islam
 
