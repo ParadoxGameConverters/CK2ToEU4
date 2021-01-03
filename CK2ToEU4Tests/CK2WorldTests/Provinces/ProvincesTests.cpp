@@ -132,8 +132,9 @@ TEST(CK2World_ProvincesTests, wonderCanBeLinked)
 	const auto& provinceItr = provinces.getProvinces().find(42);
 	const auto& wonder = provinceItr->second->getWonder();
 
-	ASSERT_TRUE(wonder.second);
-	ASSERT_EQ(wonder.second->getName(), "theWonder");
+	ASSERT_TRUE(wonder);
+	ASSERT_TRUE(wonder->second);
+	ASSERT_EQ(wonder->second->getName(), "theWonder");
 }
 
 TEST(CK2World_ProvincesTests, multipleWondersCanBeLinked)
@@ -163,12 +164,12 @@ TEST(CK2World_ProvincesTests, multipleWondersCanBeLinked)
 	const auto& provinceItr3 = provinces.getProvinces().find(44);
 	const auto& wonder3 = provinceItr3->second->getWonder();
 
-	ASSERT_TRUE(wonder.second);
-	ASSERT_EQ(wonder.second->getName(), "theWonder");
-	ASSERT_TRUE(wonder2.second);
-	ASSERT_EQ(wonder2.second->getName(), "theWonder3");
-	ASSERT_TRUE(wonder3.second);
-	ASSERT_EQ(wonder3.second->getName(), "theWonder2");
+	ASSERT_TRUE(wonder);
+	ASSERT_EQ(wonder->second->getName(), "theWonder");
+	ASSERT_TRUE(wonder2);
+	ASSERT_EQ(wonder2->second->getName(), "theWonder3");
+	ASSERT_TRUE(wonder3);
+	ASSERT_EQ(wonder3->second->getName(), "theWonder2");
 }
 
 TEST(CK2World_ProvincesTests, inactiveWondersWillNotBeLinked)
@@ -198,10 +199,10 @@ TEST(CK2World_ProvincesTests, inactiveWondersWillNotBeLinked)
 	const auto& provinceItr3 = provinces.getProvinces().find(44);
 	const auto& wonder3 = provinceItr3->second->getWonder();
 
-	ASSERT_FALSE(wonder.second);
-	ASSERT_FALSE(wonder2.second);
-	ASSERT_TRUE(wonder3.second);
-	ASSERT_EQ(wonder3.second->getName(), "theWonder3");
+	ASSERT_FALSE(wonder);
+	ASSERT_FALSE(wonder2);
+	ASSERT_TRUE(wonder3);
+	ASSERT_EQ(wonder3->second->getName(), "theWonder3");
 }
 
 TEST(CK2World_ProvincesTests, unfinishedWondersWillNotBeLinked)
@@ -231,10 +232,10 @@ TEST(CK2World_ProvincesTests, unfinishedWondersWillNotBeLinked)
 	const auto& provinceItr3 = provinces.getProvinces().find(44);
 	const auto& wonder3 = provinceItr3->second->getWonder();
 
-	ASSERT_FALSE(wonder.second);
-	ASSERT_FALSE(wonder2.second);
-	ASSERT_TRUE(wonder3.second);
-	ASSERT_EQ(wonder3.second->getName(), "theWonder3");
+	ASSERT_FALSE(wonder);
+	ASSERT_FALSE(wonder2);
+	ASSERT_TRUE(wonder3);
+	ASSERT_EQ(wonder3->second->getName(), "theWonder3");
 }
 
 TEST(CK2World_ProvincesTests, BrokenLinkAttemptThrowsWarning)

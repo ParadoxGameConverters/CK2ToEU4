@@ -1708,7 +1708,7 @@ std::optional<std::pair<int, std::shared_ptr<CK2::Province>>> EU4::World::determ
 			theShares[ownerTitle] += 200; // Dev can go up to 300+, so yes, assign it away if someone has overbuilt a nearby province.
 		}
 		// Check for a wonder. For multiple wonders, sorry, only last one will prevail.
-		if (ck2province->second->getWonder().second)
+		if (ck2province->second->getWonder())
 		{
 			// This is the someone's wonder province.
 			theShares[ownerTitle] += 500;
@@ -1745,7 +1745,7 @@ std::optional<std::pair<int, std::shared_ptr<CK2::Province>>> EU4::World::determ
 	for (const auto& province: theClaims[winner])
 	{
 		auto provinceWeight = province->getBuildingWeight();
-		if (province->getWonder().second)
+		if (province->getWonder())
 			provinceWeight += 500;
 		if (province->getTitle().second->getHolder().second->getCapitalProvince().first == province->getID())
 			provinceWeight += 200;

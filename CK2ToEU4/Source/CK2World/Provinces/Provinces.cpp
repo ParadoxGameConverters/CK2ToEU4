@@ -26,8 +26,7 @@ void CK2::Provinces::linkPrimarySettlements()
 	auto counter = 0;
 	for (const auto& province: provinces)
 	{
-		if (province.second->getPrimarySettlement().first == "---" ||
-			 province.second->getPrimarySettlement().first.empty())
+		if (province.second->getPrimarySettlement().first == "---" || province.second->getPrimarySettlement().first.empty())
 		{
 			province.second->discardPrimarySettlement();
 		}
@@ -42,8 +41,8 @@ void CK2::Provinces::linkPrimarySettlements()
 			}
 			else
 			{
-				Log(LogLevel::Warning) << "Primary barony ID: " << province.second->getPrimarySettlement().first
-											  << " is not in the province: " << province.first << " !";
+				Log(LogLevel::Warning) << "Primary barony ID: " << province.second->getPrimarySettlement().first << " is not in the province: " << province.first
+											  << " !";
 			}
 		}
 	}
@@ -60,8 +59,7 @@ void CK2::Provinces::linkWonders(const Wonders& wonders)
 		const auto& provinceItr = provinces.find(wonder.second->getProvinceID());
 		if (provinceItr == provinces.end())
 		{
-			Log(LogLevel::Warning) << "Wonder " << wonder.first << " is in province " << wonder.second->getProvinceID()
-										  << " which doesn't exist?";
+			Log(LogLevel::Warning) << "Wonder " << wonder.first << " is in province " << wonder.second->getProvinceID() << " which doesn't exist?";
 			continue;
 		}
 		provinceItr->second->loadWonder(wonder);

@@ -82,12 +82,17 @@ void mappers::ProvinceTitleMapper::filterSelf(const CK2::Provinces& theProvinces
 	}
 
 	std::map<int, std::string> newProvinceTitles;
+	std::set<int> newProvinceIDs;
+	std::set<std::string> newTitles;
 
 	for (const auto& provinceTitle: origProvinceTitles)
 	{
-		if (knownTitles.count(provinceTitle.second) && knownProvinceIDs.count(provinceTitle.first))
+		if (knownTitles.contains(provinceTitle.second) && knownProvinceIDs.contains(provinceTitle.first) && !newProvinceIDs.contains(provinceTitle.first) &&
+			 !newTitles.contains(provinceTitle.second))
 		{
 			newProvinceTitles.insert(std::pair(provinceTitle.first, provinceTitle.second));
+			newProvinceIDs.insert(provinceTitle.first);
+			newTitles.insert(provinceTitle.second);
 		}
 	}
 	Log(LogLevel::Info) << "<> Dropped " << origProvinceTitles.size() - newProvinceTitles.size() << " invalid mappings.";
