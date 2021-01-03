@@ -28,7 +28,7 @@ class Province: commonItems::parser
 	[[nodiscard]] auto getBaronyCount() const { return static_cast<int>(baronies.size()); }
 
 	[[nodiscard]] int getBuildingWeight() const;
-	[[nodiscard]] std::optional<std::pair<std::string, std::shared_ptr<Title>>> belongsToDuchy() const; // defacto
+	[[nodiscard]] std::optional<std::pair<std::string, std::shared_ptr<Title>>> belongsToDuchy() const;	// defacto
 	[[nodiscard]] std::optional<std::pair<std::string, std::shared_ptr<Title>>> belongsToKingdom() const; // defacto
 
 	void discardPrimarySettlement() { primarySettlement.first.clear(); }
@@ -48,9 +48,9 @@ class Province: commonItems::parser
 	std::string religion;
 	std::string name;
 	std::pair<std::string, std::shared_ptr<Barony>> primarySettlement;
-	std::pair<std::string, std::shared_ptr<Title>> title; // owner title (e_francia or similar)
+	std::pair<std::string, std::shared_ptr<Title>> title;			// owner title (e_francia or similar)
 	std::pair<std::string, std::shared_ptr<Title>> deJureTitle; // county (c_paris)
-	std::pair<int, std::shared_ptr<Wonder>> wonder;
+	std::optional<std::pair<int, std::shared_ptr<Wonder>>> wonder;
 	std::map<std::string, std::shared_ptr<Barony>> baronies;
 };
 } // namespace CK2

@@ -1,11 +1,11 @@
 #include "EU4Province.h"
+#include "../../CK2World/Characters/Character.h"
 #include "../../CK2World/Provinces/Province.h"
 #include "../../CK2World/Titles/Title.h"
 #include "../../CK2World/Wonders/Wonder.h"
 #include "../../Mappers/CultureMapper/CultureMapper.h"
 #include "../../Mappers/ReligionMapper/ReligionMapper.h"
 #include "../Country/Country.h"
-#include "../../CK2World/Characters/Character.h"
 
 EU4::Province::Province(int id, const std::string& filePath): provID(id)
 {
@@ -85,7 +85,8 @@ void EU4::Province::initializeFromCK2(std::shared_ptr<CK2::Province> origProvinc
 	// Attempt to use primary culture of ruler in THAT province.
 	if (!cultureSet && srcProvince->getTitle().second->getHolder().first && !srcProvince->getTitle().second->getHolder().second->getCulture().empty())
 	{
-		auto cultureMatch = cultureMapper.cultureMatch(srcProvince->getTitle().second->getHolder().second->getCulture(), details.religion, provID, tagCountry.first);
+		auto cultureMatch =
+			 cultureMapper.cultureMatch(srcProvince->getTitle().second->getHolder().second->getCulture(), details.religion, provID, tagCountry.first);
 		if (cultureMatch)
 		{
 			details.culture = *cultureMatch;
@@ -118,12 +119,12 @@ void EU4::Province::initializeFromCK2(std::shared_ptr<CK2::Province> origProvinc
 	details.localAutonomy = 0; // let the game handle this.
 	// not touching native_size/ferocity/hostileness.
 	// not touching existing permanent modifiers. These mostly relate to new world anyway. Wonders do need to be added.
-	if (srcProvince->getWonder().first && !srcProvince->getWonder().second->isSpent())
+	if (srcProvince->getWonder() && !srcProvince->getWonder()->second->isSpent())
 	{
 		ProvinceModifier newModifier;
-		newModifier.name = srcProvince->getWonder().second->getType();
+		newModifier.name = srcProvince->getWonder()->second->getType();
 		details.provinceModifiers.emplace_back(newModifier);
-		srcProvince->getWonder().second->setSpent(); // We must spend it to avoid mapping it into multiple eu4 provinces.
+		srcProvince->getWonder()->second->setSpent(); // We must spend it to avoid mapping it into multiple eu4 provinces.
 	}
 	details.shipyard = false; // we'll distribute these later.
 	// not touching province_triggered_modifiers. Rome is rome.

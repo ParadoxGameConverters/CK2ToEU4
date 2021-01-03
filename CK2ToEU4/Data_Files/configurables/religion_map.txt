@@ -17,7 +17,7 @@ link = { eu4 = slavic_pagan ck2 = slavic_pagan }
 link = { eu4 = slavic_pagan_reformed ck2 = slavic_pagan_reformed }
 link = { eu4 = shamanism ck2 = west_african_pagan ck2 = dravidian_pagan_reformed ck2 = dravidian_pagan ck2 = central_african_pagan_reformed ck2 = central_african_pagan ck2 = gurzil ck2 = msoura_pagan ck2 = east_african_pagan_reformed ck2 = east_african_pagan }
 link = { eu4 = west_african_pagan_reformed ck2 = west_african_pagan_reformed }
-link = { eu4 = hellenic_pagan ck2 = hellenic_pagan illyran_pagan ck2 = cybelian_pagan ck2 = mastimani }
+link = { eu4 = hellenic_pagan ck2 = hellenic_pagan ck2 = illyran_pagan ck2 = cybelian_pagan ck2 = mastimani }
 link = { eu4 = hellenic_pagan_reformed ck2 = hellenic_pagan_reformed ck2 = illyran_pagan_reformed ck2 = neoplatonist }
 link = { eu4 = zun_pagan ck2 = zun_pagan ck2 = african_solar_pagan ck2 = latin_solar_pagan ck2 = mandulis_pagan ck2 = dacian_pagan }
 link = { eu4 = zun_pagan_reformed ck2 = zun_pagan_reformed ck2 = african_solar_pagan_reformed ck2 = latin_solar_pagan_reformed ck2 = dacian_pagan_reformed ck2 = mithraic_pagan ck2 = aten_pagan }
