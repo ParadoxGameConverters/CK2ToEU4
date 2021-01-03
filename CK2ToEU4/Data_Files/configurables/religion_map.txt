@@ -38,7 +38,7 @@ link = { eu4 = khurmazta ck2 = khurmazta ck2 = hephtal_religion }
 # Christianity
 
 link = { eu4 = catholic ck2 = catholic ck2 = insular }
-link = { eu4 = cathar ck2 = cathar ck2 = marcionism }
+link = { eu4 = cathar ck2 = cathar ck2 = marcionism ck2 = donatist ck2 = total_depravity }
 link = { eu4 = fraticelli ck2 = fraticelli }
 link = { eu4 = waldensian ck2 = waldensian ck2 = pelagianism }
 link = { eu4 = lollard ck2 = lollard }
@@ -53,9 +53,6 @@ link = { eu4 = paulician ck2 = paulician ck2 = tondrakian }
 
 link = { eu4 = coptic ck2 = miaphysite ck2 = syriac ck2 = apostolic ck2 = audianistic ck2 = monarchianism }
 link = { eu4 = monophysite ck2 = monophysite ck2 = sabellianism ck2 = eutychian ck2 = apollinarian ck2 = docetic }
-
-link = { eu4 = reformed ck2 = total_depravity ck2 = donatist } # This can cause strange things to happen - you may want to consider remapping to a different EU4 religion
-link = { eu4 = protestant ck2 = montanist } # This can cause strange things to happen - you may want to consider remapping to a different EU4 religion
 
 # Islam
 
@@ -88,7 +85,7 @@ link = { eu4 = totemism ck2 = inuit_pagan ck2 = inuit_pagan_reformed ck2 = algic
 # When The World Stopped Making Sense / Historical Immersion Project / Rise of Islam
 # (These are CK2 religions that do not fit with any of the vanilla EU4 religions)
 
-link = { eu4 = arianism ck2 = adoptionism ck2 = binitarian ck2 = pneumatomachians ck2 = arian ck2 = adoptionist }
+link = { eu4 = arianism ck2 = adoptionism ck2 = binitarian ck2 = pneumatomachians ck2 = arian ck2 = adoptionist ck2 = montanist }
 link = { eu4 = judaism ck2 = tzadikite } #eu4 = jewish ???
 link = { eu4 = samaritan ck2 = bosporan_faith } #eu4 = samaritan_faith ???
 link = { eu4 = hindu ck2 = carvaka ck2 = mimamsa ck2 = tantric ck2 = bhakti ck2 = sramanic } #eu4 = hinduism ???
