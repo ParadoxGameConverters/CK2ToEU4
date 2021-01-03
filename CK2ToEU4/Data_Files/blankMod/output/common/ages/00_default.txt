@@ -42,6 +42,10 @@ age_of_discovery = {
 			total_development = 100
 
 		}	
+		
+		
+		
+	
 		obj_5_centers_of_trade = {
 			calc_true_if = {
 				all_owned_province = {
@@ -198,6 +202,7 @@ age_of_discovery = {
 				OR = {
 					tag = POR
 					AND = {
+						primary_culture = portugese
 						has_idea_group = exploration_ideas 
 						num_of_total_ports = 15
 					}
@@ -215,7 +220,10 @@ age_of_discovery = {
 			allow = {
 				OR = {
 					tag = DAN
-					personal_union = 2
+					AND = {
+						primary_culture = danish
+						personal_union = 2
+					}
 				}
 			}
 			modifier = {
@@ -239,11 +247,12 @@ age_of_discovery = {
 				OR = {
 					tag = VEN
 					AND = {
+						primary_culture = venetian
+						government_rank = 2
 						OR = {
 							has_reform = merchants_reform
 							has_reform = venice_merchants_reform
 						}
-						government_rank = 2
 					}
 				}
 			}
@@ -417,8 +426,12 @@ age_of_reformation = {
 				OR = { 
 					tag = SPA
 					AND = {
+						primary_culture = castillian
 						government_rank = 2
+					}
+					AND = {
 						culture_group = iberian
+						government_rank = 2
 						num_of_colonies = 2
 					}
 				}
@@ -483,8 +496,9 @@ age_of_reformation = {
 					AND = {
 						government_rank = 3
 						OR = {
-							culture_group = west_slavic
 							tag = LIT
+							primary_culture = polish
+							primary_culture = lithuanian
 						}
 					}
 				}
@@ -502,8 +516,8 @@ age_of_reformation = {
 				OR = {
 					tag = PER
 					AND = {
+						primary_culture = persian
 						government_rank = 3
-						culture_group = iranian
 					}
 				}
 			}
@@ -516,7 +530,13 @@ age_of_reformation = {
 		}
 	
 	}
+	
+	
+	
+
+	
 }
+
 
 
 
@@ -657,8 +677,8 @@ age_of_absolutism = {
 				OR = {
 					tag = FRA
 					AND = {
-						government_rank = 2
 						culture_group = french
+						government_rank = 2
 					}
 				}
 			}
@@ -676,9 +696,9 @@ age_of_absolutism = {
 					AND = {
 						government_rank = 2
 						OR = {
-							culture = dutch
-							culture = flemish
-							culture = frisian
+							primary_culture = dutch
+							primary_culture = flemish
+							primary_culture = frisian
 						}
 					}
 				}
@@ -692,18 +712,18 @@ age_of_absolutism = {
 		}	
 		ab_sweden_manpower = {
 			allow = {
-				OR = {
+				OR = { 
 					tag = SWE
-					tag = SCA
 					AND = {
+						primary_culture = swedish
 						government_rank = 2
-						culture = swedish
 					}
 					AND = {
-						government_rank = 3
+						tag = SCA
 						culture_group = scandinavian
+						government_rank = 3
 					}
-				}						
+				}
 			}
 			modifier = {
 				manpower_recovery_speed = 0.35
@@ -875,8 +895,14 @@ age_of_revolutions = {
 			allow = {
 				OR = {
 					tag = PRU
-					has_reform = prussian_monarchy 
-					has_reform = prussian_republic_reform
+					AND = {
+						primary_culture = prussian
+						government_rank = 2
+						OR = {
+							has_reform = prussian_monarchy
+							has_reform = prussian_republic_reform
+						}
+					}
 				}
 			}
 			modifier = {
@@ -890,7 +916,17 @@ age_of_revolutions = {
 			allow = {
 				OR = {
 					tag = GBR
-					navy_size = 200
+					AND = {
+						navy_size = 200
+						government_rank = 3
+						OR = {
+							AND = {
+								culture_group = british
+								NOT = { primary_culture = american }
+							}
+							primary_culture = highland_scottish
+						}
+					}
 				}
 			}
 			modifier = {
@@ -904,7 +940,10 @@ age_of_revolutions = {
 			allow = {
 				OR = {
 					tag = RUS
-					has_reform = tsardom
+					AND = { 
+						culture_group = east_slavic
+						has_reform = tsardom
+					}
 				}
 			}
 			modifier = {
@@ -918,8 +957,10 @@ age_of_revolutions = {
 			allow = {
 				OR = {
 					tag = HAB
-					tag = HRE
-					is_emperor = yes
+					AND = {
+						primary_culture = austrian
+						government_rank = 2
+					}
 				}
 			}
 			modifier = {
