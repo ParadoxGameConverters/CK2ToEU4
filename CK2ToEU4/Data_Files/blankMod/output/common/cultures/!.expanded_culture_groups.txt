@@ -166,7 +166,7 @@ caucasian = {
 		dynasty_names = { Andiyev Ashuraliyev Basiev Bazayev Bestayev Chibirov Din Dudarova Dzhanayev Fadzayev Farniev Gabulov Gassiev Gazyumov Guriev Khapov Khetagurov Kokoity Kusov Nyxas Pagayev Pliyeva Sanakoyev Tibilov Tokaty Torchinov Toshinori Valiyev Zangiev Zazirov }
 	}
 	assyrian = {
-		primary = GEO
+		primary = ASY
 		dynasty_names = { Ahmadi Algafari Assadi Homsi Nasser }
 	}
 	coptic = {

@@ -45,3 +45,4 @@ ZLT = "countries/Zealots.txt"
 
 #The Fraticelli Pope
 FAP = "countries/Fraticelli.txt"
+ASY = "countries/Assyria.txt"

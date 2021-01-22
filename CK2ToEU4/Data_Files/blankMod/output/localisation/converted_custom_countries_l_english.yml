@@ -9,6 +9,9 @@
  AOL:0 "Army of Light"
  AOL_ADJ:0 "Light"
  AOL_ADJ2:0 "Light"
+ ASY:0 "Assyria"
+ ASY_ADJ:0 "Assyrian"
+ ASY_ADJ2:0 "Assyrian"
  BEK:0 "Bektashi Order"
  BEK_ADJ:0 "Bektashi"
  BEK_ADJ2:0 "Bektashi"
@@ -69,4 +72,3 @@
  ZLT:0 "Zealots"
  ZLT_ADJ:0 "Zealot"
  ZLT_ADJ2:0 "Zealot"
- 
