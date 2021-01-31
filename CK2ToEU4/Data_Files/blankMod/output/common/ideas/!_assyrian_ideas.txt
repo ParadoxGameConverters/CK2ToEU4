@@ -14,7 +14,7 @@ ASY_ideas = {
 	free = yes
 	
  	ZZZ_assyrian_bowmen = {
-		infantry_power = 0.15
+		infantry_power = 0.1
 	}
 	ZZZ_forced_resttlement = {
 		culture_conversion_cost = -0.15
@@ -25,13 +25,12 @@ ASY_ideas = {
 	ZZZ_learn_from_babylon = {
 		diplomatic_annexation_cost = -0.10
 		diplomatic_upkeep = 1
-		reduced_liberty_desire = 10
 	}
 	ZZZ_rebuild_the_cities = {
-		development_cost = -0.15
+		development_cost = -0.1
 	}
 	ZZZ_restore_the_library_of_nineveh = {
-		technology_cost = -0.075
+		technology_cost = -0.05
 	}
 	ZZZ_nineveh_falls_no_more = {
 		discipline = 0.05

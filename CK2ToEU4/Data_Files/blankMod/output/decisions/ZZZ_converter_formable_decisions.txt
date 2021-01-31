@@ -1003,16 +1003,9 @@ country_decisions = {
 			NOT = { exists = ASY }
 			primary_culture = assyrian
 		}
-		provinces_to_highlight = {
-			area = iraqi_arabi_area
-			NOT = { owned_by = ROOT }
-		}
 		
 		allow = {
-			iraqi_arabi_area = {
-				type = all
-				owned_by = ROOT
-			}
+			owns = 410 
 			owns = 411
 			owns = 2313
 			is_at_war = no
@@ -1041,5 +1034,6 @@ country_decisions = {
 			factor = 1
 		}
 	}
+
 	
 }
