@@ -48,7 +48,7 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 	Log(LogLevel::Progress) << "55 %";
 
 	// Which happens now. Translating incoming titles into EU4 tags, with new tags being added to our countries.
-	importCK2Countries(sourceWorld);
+	importCK2Countries(theConfiguration.getStartDateOption(), sourceWorld);
 	Log(LogLevel::Progress) << "56 %";
 
 	// Now we can deal with provinces since we know to whom to assign them. We first import vanilla province data.
@@ -85,7 +85,7 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 
 	// With all provinces and rulers religion/culture set, only now can we import advisers, which also need religion/culture set.
 	// Those advisers coming without such data use the monarch's religion/culture.
-	importAdvisers();
+	importAdvisers(theConfiguration.getStartDateOption(), sourceWorld.getConversionDate());
 	Log(LogLevel::Progress) << "64 %";
 
 	// Rulers with multiple crowns either get PU agreements, or just annex the other crowns.
@@ -951,13 +951,13 @@ void EU4::World::alterProvinceDevelopment()
 	Log(LogLevel::Info) << "<> " << counter << " provinces scaled: " << totalCK2Dev << " development imported (vanilla had " << totalVanillaDev << ").";
 }
 
-void EU4::World::importAdvisers()
+void EU4::World::importAdvisers(Configuration::STARTDATE startDateOption, date theConversionDate)
 {
 	LOG(LogLevel::Info) << "-> Importing Advisers";
 	auto counter = 0;
 	for (const auto& country: countries)
 	{
-		country.second->initializeAdvisers(religionMapper, cultureMapper);
+		country.second->initializeAdvisers(religionMapper, cultureMapper, startDateOption, theConversionDate);
 		counter += static_cast<int>(country.second->getAdvisers().size());
 	}
 	LOG(LogLevel::Info) << "<> Imported " << counter << " advisers.";
@@ -1443,7 +1443,7 @@ void EU4::World::importVanillaProvinces(const std::string& eu4Path, bool invasio
 	}
 }
 
-void EU4::World::importCK2Countries(const CK2::World& sourceWorld)
+void EU4::World::importCK2Countries(Configuration::STARTDATE startDateOption, const CK2::World& sourceWorld)
 {
 	LOG(LogLevel::Info) << "-> Importing CK2 Countries";
 
@@ -1453,30 +1453,32 @@ void EU4::World::importCK2Countries(const CK2::World& sourceWorld)
 	{
 		if (title.first.find("e_") != 0)
 			continue;
-		importCK2Country(title, sourceWorld);
+		importCK2Country(title, startDateOption, sourceWorld);
 	}
 	for (const auto& title: sourceWorld.getIndepTitles())
 	{
 		if (title.first.find("k_") != 0)
 			continue;
-		importCK2Country(title, sourceWorld);
+		importCK2Country(title, startDateOption, sourceWorld);
 	}
 	for (const auto& title: sourceWorld.getIndepTitles())
 	{
 		if (title.first.find("d_") != 0)
 			continue;
-		importCK2Country(title, sourceWorld);
+		importCK2Country(title, startDateOption, sourceWorld);
 	}
 	for (const auto& title: sourceWorld.getIndepTitles())
 	{
 		if (title.first.find("c_") != 0)
 			continue;
-		importCK2Country(title, sourceWorld);
+		importCK2Country(title, startDateOption, sourceWorld);
 	}
 	LOG(LogLevel::Info) << ">> " << countries.size() << " total countries recognized.";
 }
 
-void EU4::World::importCK2Country(const std::pair<std::string, std::shared_ptr<CK2::Title>>& title, const CK2::World& sourceWorld)
+void EU4::World::importCK2Country(const std::pair<std::string, std::shared_ptr<CK2::Title>>& title,
+	 Configuration::STARTDATE startDateOption,
+	 const CK2::World& sourceWorld)
 {
 	// Grabbing the capital, if possible
 	int eu4CapitalID = 0;
@@ -1520,6 +1522,7 @@ void EU4::World::importCK2Country(const std::pair<std::string, std::shared_ptr<C
 			 colorScraper,
 			 localizationMapper,
 			 rulerPersonalitiesMapper,
+			 startDateOption,
 			 sourceWorld.getConversionDate());
 		title.second->registerEU4Tag(std::pair(*tag, countryItr->second));
 	}
@@ -1536,6 +1539,7 @@ void EU4::World::importCK2Country(const std::pair<std::string, std::shared_ptr<C
 			 colorScraper,
 			 localizationMapper,
 			 rulerPersonalitiesMapper,
+			 startDateOption,
 			 sourceWorld.getConversionDate());
 		title.second->registerEU4Tag(std::pair(*tag, newCountry));
 		countries.insert(std::pair(*tag, newCountry));

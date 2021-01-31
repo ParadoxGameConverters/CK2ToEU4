@@ -3,6 +3,7 @@
 #include "../CK2World/World.h"
 #include "../Mappers/ColorScraper/ColorScraper.h"
 #include "../Mappers/CultureMapper/CultureMapper.h"
+#include "../Mappers/DevWeightsMapper/DevWeightsMapper.h"
 #include "../Mappers/GovernmentsMapper/GovernmentsMapper.h"
 #include "../Mappers/LocalizationMapper/LocalizationMapper.h"
 #include "../Mappers/PrimaryTagMapper/PrimaryTagMapper.h"
@@ -12,7 +13,6 @@
 #include "../Mappers/RulerPersonalitiesMapper/RulerPersonalitiesMapper.h"
 #include "../Mappers/TitleTagMapper/TitleTagMapper.h"
 #include "../Mappers/VersionParser/VersionParser.h"
-#include "../Mappers/DevWeightsMapper/DevWeightsMapper.h"
 #include "Country/Country.h"
 #include "Diplomacy/Diplomacy.h"
 #include "Output/outModFile.h"
@@ -37,8 +37,10 @@ class World
 	void importVanillaCountries(const std::string& eu4Path, bool invasion);
 	void loadCountriesFromSource(std::istream& theStream, const std::string& sourcePath, bool isVanillaSource);
 	void importVanillaProvinces(const std::string& eu4Path, bool invasion);
-	void importCK2Countries(const CK2::World& sourceWorld);
-	void importCK2Country(const std::pair<std::string, std::shared_ptr<CK2::Title>>& title, const CK2::World& sourceWorld);
+	void importCK2Countries(Configuration::STARTDATE startDateOption, const CK2::World& sourceWorld);
+	void importCK2Country(const std::pair<std::string, std::shared_ptr<CK2::Title>>& title,
+		 Configuration::STARTDATE startDateOption,
+		 const CK2::World& sourceWorld);
 	void importCK2Provinces(const CK2::World& sourceWorld);
 	void output(const mappers::VersionParser& versionParser, const Configuration& theConfiguration, const CK2::World& sourceWorld) const;
 	void createModFile(const Configuration& theConfiguration) const;
@@ -58,9 +60,12 @@ class World
 	void setElectors();
 	void setFreeCities();
 	void outputDiplomacy(const Configuration& theConfiguration, const std::vector<std::shared_ptr<Agreement>>& agreements, bool invasion) const;
-	void outputReformedReligions(const Configuration& theConfiguration, bool noReformation, const std::vector<mappers::ReformedReligionMapping>&, const std::vector<mappers::ReformedReligionMapping>&) const;
+	void outputReformedReligions(const Configuration& theConfiguration,
+		 bool noReformation,
+		 const std::vector<mappers::ReformedReligionMapping>&,
+		 const std::vector<mappers::ReformedReligionMapping>&) const;
 	void resolvePersonalUnions();
-	void importAdvisers();
+	void importAdvisers(Configuration::STARTDATE startDateOption, date theConversionDate);
 	void outputAdvisers(const Configuration& theConfiguration) const;
 	void alterProvinceDevelopment();
 	void distributeForts();
