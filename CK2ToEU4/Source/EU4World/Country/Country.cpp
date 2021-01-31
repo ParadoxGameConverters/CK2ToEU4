@@ -45,10 +45,14 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	 const mappers::ColorScraper& colorScraper,
 	 const mappers::LocalizationMapper& localizationMapper,
 	 const mappers::RulerPersonalitiesMapper& rulerPersonalitiesMapper,
+	 Configuration::STARTDATE startDateOption,
 	 date theConversionDate)
 {
 	tag = std::move(theTag);
-	conversionDate = theConversionDate;
+	if (startDateOption == Configuration::STARTDATE::CK)
+		conversionDate = theConversionDate;
+	else
+		conversionDate = date(1444, 11, 11);
 	title.first = theTitle->getName();
 	title.second = std::move(theTitle);
 	if (commonCountryFile.empty())
@@ -244,9 +248,9 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 
 	// --------------  Misc
 
-	if (actualHolder->getWealth())
+	if (actualHolder->getWealth() > 0)
 		details.addTreasury = lround(7 * log2(actualHolder->getWealth()));
-	if (actualHolder->getPrestige())
+	if (actualHolder->getPrestige() > 0)
 		details.addPrestige = -50 + std::max(-50, static_cast<int>(lround(15 * log2(actualHolder->getPrestige() - 100) - 50)));
 	if (actualHolder->hasLoan())
 		details.loan = true;
@@ -328,31 +332,67 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	}
 
 	// Override for kingdoms/empires that use Dynasty Names
-	std::set<std::string> dynastyTitleNames = {"turkmeni", "khazak", "uzbehk", "turkish",
+	std::set<std::string> dynastyTitleNames = {"turkmeni",
+		 "khazak",
+		 "uzbehk",
+		 "turkish",
 		 "karluk",
 		 "khitan",
-		 "tuareg", "frencharab", "andalucian", "hejazi_culture", "gulf_arabic", "mahri_culture", "al_iraqiya_arabic", "omani_culture", "yemeni_culture",
-		 "bedouin_arabic", "algerian", "moroccan", "tunisian"
-		 "berber", "maghreb_arabic",
-		 "al_suryah_arabic", "levantine_arabic",
-		 "al_misr_arabic", "egyptian_arabic",
+		 "tuareg",
+		 "frencharab",
+		 "andalucian",
+		 "hejazi_culture",
+		 "gulf_arabic",
+		 "mahri_culture",
+		 "al_iraqiya_arabic",
+		 "omani_culture",
+		 "yemeni_culture",
+		 "bedouin_arabic",
+		 "algerian",
+		 "moroccan",
+		 "tunisian",
+		 "berber",
+		 "maghreb_arabic",
+		 "al_suryah_arabic",
+		 "levantine_arabic",
+		 "al_misr_arabic",
+		 "egyptian_arabic",
 		 "andalusian_arabic",
-		 "azerbaijani", "khorasani", "mazandarani", "luri", "tajik", "persian",
+		 "azerbaijani",
+		 "khorasani",
+		 "mazandarani",
+		 "luri",
+		 "tajik",
+		 "persian",
 		 "kurdish",
-		 "afghani", "afghan",
-		 "baluchi", "baloch",
-		 "bihari", "kochi", "bengali",
+		 "afghani",
+		 "afghan",
+		 "baluchi",
+		 "baloch",
+		 "bihari",
+		 "kochi",
+		 "bengali",
 		 "oriya",
 		 "assamese",
-		 "pahari", "kanauji", "vindhyan", "avadhi", "hindustani",
-		 "saurashtri", "gujarati", "gujurati",
-		 "kashmiri", "panjabi",
-		 "malvi", "rajput",
+		 "pahari",
+		 "kanauji",
+		 "vindhyan",
+		 "avadhi",
+		 "hindustani",
+		 "saurashtri",
+		 "gujarati",
+		 "gujurati",
+		 "kashmiri",
+		 "panjabi",
+		 "malvi",
+		 "rajput",
 		 "sindhi",
 		 "marathi",
 		 "sinhala",
-		 "malayalam", "tamil",
-		 "telegu", "telugu",
+		 "malayalam",
+		 "tamil",
+		 "telegu",
+		 "telugu",
 		 "kannada"};
 
 	std::set<std::string> hardcodedExclusions =
@@ -486,7 +526,7 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 		Log(LogLevel::Warning) << tag << " help with localization for adjective! " << title.first << "_adj?";
 
 	// Rulers
-	initializeRulers(religionMapper, cultureMapper, rulerPersonalitiesMapper);
+	initializeRulers(religionMapper, cultureMapper, rulerPersonalitiesMapper, startDateOption, theConversionDate);
 }
 
 void EU4::Country::setLocalizations(const mappers::LocBlock& newBlock)
@@ -524,7 +564,10 @@ bool EU4::Country::verifyCapital(const mappers::ProvinceMapper& provinceMapper)
 }
 
 
-void EU4::Country::initializeAdvisers(const mappers::ReligionMapper& religionMapper, const mappers::CultureMapper& cultureMapper)
+void EU4::Country::initializeAdvisers(const mappers::ReligionMapper& religionMapper,
+	 const mappers::CultureMapper& cultureMapper,
+	 Configuration::STARTDATE startDateOption,
+	 const date& theConversionDate)
 {
 	// We're doing this one separate from initial country generation so that country's primary culture and religion may have had time to get
 	// initialized.
@@ -575,10 +618,10 @@ void EU4::Country::initializeAdvisers(const mappers::ReligionMapper& religionMap
 			continue;
 		}
 		newAdviser.id = adviser.first;
-		newAdviser.appearDate = adviser.second->getBirthDate();
-		newAdviser.appearDate.subtractYears(-16);
-		newAdviser.deathDate = adviser.second->getBirthDate();
-		newAdviser.deathDate.subtractYears(-65);
+		newAdviser.appearDate = normalizeDate(adviser.second->getBirthDate(), startDateOption, theConversionDate);
+		newAdviser.appearDate.subtractYears(-30); // They are 30 years old at minimum.
+		newAdviser.deathDate = newAdviser.appearDate;
+		newAdviser.deathDate.subtractYears(-30); // And they retire at 60, more or less.
 		newAdviser.female = adviser.second->isFemale();
 		if (adviser.second->getReligion().empty())
 			newAdviser.religion = details.monarch.religion; // taking a shortcut.
@@ -607,16 +650,17 @@ void EU4::Country::initializeAdvisers(const mappers::ReligionMapper& religionMap
 	}
 }
 
-
 void EU4::Country::initializeRulers(const mappers::ReligionMapper& religionMapper,
 	 const mappers::CultureMapper& cultureMapper,
-	 const mappers::RulerPersonalitiesMapper& rulerPersonalitiesMapper)
+	 const mappers::RulerPersonalitiesMapper& rulerPersonalitiesMapper,
+	 Configuration::STARTDATE startDateOption,
+	 const date& theConversionDate)
 {
 	const auto& holder = title.second->getHolder().second;
 	// Are we the ruler's primary title? (if he has any)
 	// Potential PU's don't get monarchs. (and those apply for monarchies only)
 	if (!holder->getPrimaryTitle().first.empty() && title.first != holder->getPrimaryTitle().first && details.government == "monarchy")
-		return; 
+		return;
 
 	// Determine regnalness.
 	if (details.government != "republic" && !details.monarchNames.empty())
@@ -644,7 +688,7 @@ void EU4::Country::initializeRulers(const mappers::ReligionMapper& religionMappe
 	details.monarch.adm = std::min((holder->getSkills().stewardship + holder->getSkills().learning) / 3, 6);
 	details.monarch.dip = std::min((holder->getSkills().diplomacy + holder->getSkills().intrigue) / 3, 6);
 	details.monarch.mil = std::min((holder->getSkills().martial + holder->getSkills().learning) / 3, 6);
-	details.monarch.birthDate = holder->getBirthDate();
+	details.monarch.birthDate = normalizeDate(holder->getBirthDate(), startDateOption, theConversionDate);
 	details.monarch.female = holder->isFemale();
 	// religion and culture were already determining our country's primary culture and religion. If we set there, we'll copy here.
 	if (!details.primaryCulture.empty())
@@ -667,7 +711,7 @@ void EU4::Country::initializeRulers(const mappers::ReligionMapper& religionMappe
 			details.queen.adm = std::min((spouse.second->getSkills().stewardship + spouse.second->getSkills().learning) / 3, 6);
 			details.queen.dip = std::min((spouse.second->getSkills().diplomacy + spouse.second->getSkills().intrigue) / 3, 6);
 			details.queen.mil = std::min((spouse.second->getSkills().martial + spouse.second->getSkills().learning) / 3, 6);
-			details.queen.birthDate = spouse.second->getBirthDate();
+			details.queen.birthDate = normalizeDate(spouse.second->getBirthDate(), startDateOption, theConversionDate);
 			details.queen.female = spouse.second->isFemale();
 			if (spouse.second->getReligion().empty())
 				details.queen.religion = details.monarch.religion; // taking a shortcut.
@@ -720,7 +764,7 @@ void EU4::Country::initializeRulers(const mappers::ReligionMapper& religionMappe
 		details.heir.adm = std::min((heir.second->getSkills().stewardship + heir.second->getSkills().learning) / 2, 6);
 		details.heir.dip = std::min((heir.second->getSkills().diplomacy + heir.second->getSkills().intrigue) / 2, 6);
 		details.heir.mil = std::min((heir.second->getSkills().martial + heir.second->getSkills().learning) / 2, 6);
-		details.heir.birthDate = heir.second->getBirthDate();
+		details.heir.birthDate = normalizeDate(heir.second->getBirthDate(), startDateOption, theConversionDate);
 		details.heir.female = heir.second->isFemale();
 		if (heir.second->getReligion().empty())
 			details.heir.religion = details.monarch.religion; // taking a shortcut.
@@ -810,7 +854,7 @@ void EU4::Country::annexCountry(const std::pair<std::string, std::shared_ptr<Cou
 		// Adding, not replacing. Unless the special snowflake.
 		if (tag == "PAP" || tag == "FAP")
 			province.second->dropCores();
-		province.second->addCore(tag); 
+		province.second->addCore(tag);
 		province.second->setOwner(tag);
 		province.second->setController(tag);
 		provinces.insert(province);
@@ -1297,4 +1341,16 @@ void EU4::Country::correctRoyaltyToBuddhism()
 	for (auto& adviser: details.advisers)
 		if (adviser.religion == "vajrayana")
 			adviser.religion = "buddhism";
+}
+
+date EU4::Country::normalizeDate(const date& incomingDate, Configuration::STARTDATE startDateOption, const date& theConversionDate) const
+{
+	if (startDateOption == Configuration::STARTDATE::CK)
+		return incomingDate;
+
+	// for 1444 bookmark we need to adjust dates. Instead of being anal about days and months, we'll just fix the year so ages match approximately.
+	const auto incomingYear = incomingDate.getYear();
+	const auto yearDelta = 1444 - theConversionDate.getYear();
+
+	return date(incomingYear + yearDelta, incomingDate.getMonth(), incomingDate.getDay());
 }

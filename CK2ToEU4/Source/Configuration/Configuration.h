@@ -11,6 +11,11 @@ class Configuration: commonItems::parser
 	Configuration();
 	explicit Configuration(std::istream& theStream);
 
+	enum class STARTDATE
+	{
+		EU = 1,
+		CK = 2
+	};
 	enum class SPLITVASSALS
 	{
 		YES = 1,
@@ -77,6 +82,7 @@ class Configuration: commonItems::parser
 	[[nodiscard]] const auto& getDevelopment() const { return development; }
 	[[nodiscard]] const auto& getModFileNames() const { return modFileNames; }
 	[[nodiscard]] const auto& getSplitVassals() const { return splitVassals; }
+	[[nodiscard]] const auto& getStartDateOption() const { return startDate; }
 
   private:
 	void registerKeys();
@@ -90,6 +96,7 @@ class Configuration: commonItems::parser
 	std::string EU4Path;
 	std::string outputName;
 
+	STARTDATE startDate = STARTDATE::EU;
 	I_AM_HRE iAmHre = I_AM_HRE::HRE;
 	SHATTER_EMPIRES shatterEmpires = SHATTER_EMPIRES::NONE;
 	SHATTER_HRE_LEVEL shatterHRELevel = SHATTER_HRE_LEVEL::DUTCHY;

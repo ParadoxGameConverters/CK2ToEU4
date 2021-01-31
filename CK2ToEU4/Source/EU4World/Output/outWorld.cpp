@@ -115,30 +115,45 @@ void EU4::World::outputAdvisers(const Configuration& theConfiguration) const
 	output.close();
 }
 
-
 void EU4::World::outputBookmark(const Configuration& theConfiguration, date conversionDate) const
 {
-	if (!commonItems::DoesFileExist("output/" + theConfiguration.getOutputName() + "/common/defines/00_converter_defines.lua"))
-		throw std::runtime_error("Can not find output/" + theConfiguration.getOutputName() + "/common/defines/00_converter_defines.lua!");
-	std::ofstream defines("output/" + theConfiguration.getOutputName() + "/common/defines/00_converter_defines.lua");
-	defines << "-- Defines modified by the converter\n\n";
-	defines << "\nNDefines.NGame.START_DATE = \"" << conversionDate << "\"\n";
-	defines.close();
-	if (!commonItems::DoesFileExist("output/" + theConfiguration.getOutputName() + "/common/bookmarks/converter_bookmark.txt"))
-		throw std::runtime_error("Can not find output/" + theConfiguration.getOutputName() + "/common/bookmarks/converter_bookmark.txt!");
+	if (theConfiguration.getStartDateOption() == Configuration::STARTDATE::CK)
+	{
+		// fix the dynamic bookmark in defines
+		if (!commonItems::DoesFileExist("output/" + theConfiguration.getOutputName() + "/common/defines/00_converter_defines.lua"))
+			throw std::runtime_error("Can not find output/" + theConfiguration.getOutputName() + "/common/defines/00_converter_defines.lua!");
+		std::ofstream defines("output/" + theConfiguration.getOutputName() + "/common/defines/00_converter_defines.lua");
+		defines << "-- Defines modified by the converter\n\n";
+		defines << "\nNDefines.NGame.START_DATE = \"" << conversionDate << "\"\n";
+		defines.close();
+		if (!commonItems::DoesFileExist("output/" + theConfiguration.getOutputName() + "/common/bookmarks/converter_bookmark.txt"))
+			throw std::runtime_error("Can not find output/" + theConfiguration.getOutputName() + "/common/bookmarks/converter_bookmark.txt!");
 
-	std::string startDate = "<CONVERSIONDATE>";
-	std::ostringstream incomingBookmarks;
+		std::string startDate = "<CONVERSIONDATE>";
+		std::ostringstream incomingBookmarks;
 
-	std::ifstream bookmarks_txt("output/" + theConfiguration.getOutputName() + "/common/bookmarks/converter_bookmark.txt");
-	incomingBookmarks << bookmarks_txt.rdbuf();
-	bookmarks_txt.close();
-	auto strBookmarks = incomingBookmarks.str();
-	auto pos2 = strBookmarks.find(startDate);
-	strBookmarks.replace(pos2, startDate.length(), conversionDate.toString());
-	std::ofstream out_bookmarks_txt("output/" + theConfiguration.getOutputName() + "/common/bookmarks/converter_bookmark.txt");
-	out_bookmarks_txt << strBookmarks;
-	out_bookmarks_txt.close();
+		std::ifstream bookmarks_txt("output/" + theConfiguration.getOutputName() + "/common/bookmarks/converter_bookmark.txt");
+		incomingBookmarks << bookmarks_txt.rdbuf();
+		bookmarks_txt.close();
+		auto strBookmarks = incomingBookmarks.str();
+		auto pos2 = strBookmarks.find(startDate);
+		strBookmarks.replace(pos2, startDate.length(), conversionDate.toString());
+		std::ofstream out_bookmarks_txt("output/" + theConfiguration.getOutputName() + "/common/bookmarks/converter_bookmark.txt");
+		out_bookmarks_txt << strBookmarks;
+		out_bookmarks_txt.close();
+
+		// And wipe regular one
+		std::ifstream bookmarks1444_txt("output/" + theConfiguration.getOutputName() + "/common/bookmarks/converter_bookmark_1444.txt",
+			 std::ofstream::out | std::ofstream::trunc);
+		bookmarks1444_txt.close();
+	}
+	else
+	{
+		// Vanilla defines are fine, just wipe dynamic bookmark
+		std::ifstream bookmarks_txt("output/" + theConfiguration.getOutputName() + "/common/bookmarks/converter_bookmark.txt",
+			 std::ofstream::out | std::ofstream::trunc);
+		bookmarks_txt.close();
+	}
 }
 
 void EU4::World::outputFlags(const Configuration& theConfiguration, const CK2::World& sourceWorld) const
@@ -349,11 +364,11 @@ void EU4::World::outputCommonCountries(const Configuration& theConfiguration) co
 
 void EU4::World::outputInvasionExtras(const Configuration& theConfiguration, bool invasion) const
 {
-	//Sunset Religions
+	// Sunset Religions
 	auto files = commonItems::GetAllFilesInFolder("configurables/sunset/common/religions/");
 	for (const auto& file: files)
 		commonItems::TryCopyFile("configurables/sunset/common/religions/" + file, "output/" + theConfiguration.getOutputName() + "/common/religions/" + file);
-	//Sunset Ideas
+	// Sunset Ideas
 	files = commonItems::GetAllFilesInFolder("configurables/sunset/common/ideas/");
 	for (const auto& file: files)
 		commonItems::TryCopyFile("configurables/sunset/common/ideas/" + file, "output/" + theConfiguration.getOutputName() + "/common/ideas/" + file);
@@ -365,18 +380,21 @@ void EU4::World::outputInvasionExtras(const Configuration& theConfiguration, boo
 	files = commonItems::GetAllFilesInFolder("configurables/sunset/decisions/");
 	for (const auto& file: files)
 		commonItems::TryCopyFile("configurables/sunset/decisions/" + file, "output/" + theConfiguration.getOutputName() + "/decisions/" + file);
-
 }
 
 void EU4::World::outputEmperor(const Configuration& theConfiguration, date conversionDate) const
 {
+	auto actualConversionDate = conversionDate;
+	if (theConfiguration.getStartDateOption() == Configuration::STARTDATE::EU)
+		actualConversionDate = date(1444, 11, 11);
+
 	std::ofstream output("output/" + theConfiguration.getOutputName() + "/history/diplomacy/hre.txt");
 	if (!output.is_open())
 		throw std::runtime_error("Could not create hre diplomacy file: output/" + theConfiguration.getOutputName() + "/history/diplomacy/hre.txt!");
 	if (emperorTag.empty())
-		output << conversionDate << " = { emperor = --- }\n";
+		output << actualConversionDate << " = { emperor = --- }\n";
 	else
-		output << conversionDate << " = { emperor = " << emperorTag << " }\n";
+		output << actualConversionDate << " = { emperor = " << emperorTag << " }\n";
 	output.close();
 
 	std::ofstream output2("output/" + theConfiguration.getOutputName() + "/history/diplomacy/celestial_empire.txt");
@@ -384,9 +402,9 @@ void EU4::World::outputEmperor(const Configuration& theConfiguration, date conve
 		throw std::runtime_error(
 			 "Could not create celestial empire diplomacy file: output/" + theConfiguration.getOutputName() + "/history/diplomacy/celestial_empire.txt!");
 	if (celestialEmperorTag.empty())
-		output2 << conversionDate << " = { celestial_emperor = --- }\n";
+		output2 << actualConversionDate << " = { celestial_emperor = --- }\n";
 	else
-		output2 << conversionDate << " = { celestial_emperor = " << celestialEmperorTag << " }\n";
+		output2 << actualConversionDate << " = { celestial_emperor = " << celestialEmperorTag << " }\n";
 	output2.close();
 }
 
@@ -449,7 +467,10 @@ void EU4::World::outputDiplomacy(const Configuration& theConfiguration, const st
 	}
 }
 
-void EU4::World::outputReformedReligions(const Configuration& theConfiguration,  bool noReformation, const std::vector<mappers::ReformedReligionMapping>& unreligionReforms, const std::vector<mappers::ReformedReligionMapping>& religionReforms) const
+void EU4::World::outputReformedReligions(const Configuration& theConfiguration,
+	 bool noReformation,
+	 const std::vector<mappers::ReformedReligionMapping>& unreligionReforms,
+	 const std::vector<mappers::ReformedReligionMapping>& religionReforms) const
 {
 	if (noReformation)
 	{

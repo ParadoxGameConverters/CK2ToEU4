@@ -2,6 +2,7 @@
 #define EU4_COUNTRY_H
 
 #include "../../CK2World/Titles/Title.h"
+#include "../../Configuration/Configuration.h"
 #include "../../Mappers/LocalizationMapper/LocalizationMapper.h"
 #include "../../Mappers/RegionMapper/RegionMapper.h"
 #include "CountryDetails.h"
@@ -37,11 +38,17 @@ class Country
 		 const mappers::ColorScraper& colorScraper,
 		 const mappers::LocalizationMapper& localizationMapper,
 		 const mappers::RulerPersonalitiesMapper& rulerPersonalitiesMapper,
+		 Configuration::STARTDATE startDateOption,
 		 date theConversionDate);
 	void initializeRulers(const mappers::ReligionMapper& religionMapper,
 		 const mappers::CultureMapper& cultureMapper,
-		 const mappers::RulerPersonalitiesMapper& rulerPersonalitiesMapper);
-	void initializeAdvisers(const mappers::ReligionMapper& religionMapper, const mappers::CultureMapper& cultureMapper);
+		 const mappers::RulerPersonalitiesMapper& rulerPersonalitiesMapper,
+		 Configuration::STARTDATE startDateOption,
+		 const date& theConversionDate);
+	void initializeAdvisers(const mappers::ReligionMapper& religionMapper,
+		 const mappers::CultureMapper& cultureMapper,
+		 Configuration::STARTDATE startDateOption,
+		 const date& theConversionDate);
 
 	void outputCommons(std::ostream& output) const;
 	void outputAdvisers(std::ostream& output) const;
@@ -99,6 +106,10 @@ class Country
 	friend std::ostream& operator<<(std::ostream& output, const Country& versionParser);
 
   private:
+	[[nodiscard]] date normalizeDate(const date& incomingDate,
+		 Configuration::STARTDATE startDateOption,
+		 const date& theConversionDate) const; // Uses bookmark date to shift dates if required.
+
 	std::string tag;
 	std::string commonCountryFile;
 	std::string historyCountryFile;
