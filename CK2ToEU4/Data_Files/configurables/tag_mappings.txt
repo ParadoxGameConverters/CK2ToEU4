@@ -1106,6 +1106,7 @@ link = { ck2 = d_tabarestan eu4 = TAB } # Mazandaran
 link = { ck2 = c_sistan eu4 = SIS } # Sistan
 link = { ck2 = k_sistan eu4 = SIS } # Sistan
 link = { ck2 = k_mavarannahr eu4 = TRS } # Transoxiana
+link = { ck2 = k_mesopotamia eu4 = ASY } # Asyria
 
 # Russia
 link = { ck2 = k_vladimir eu4 = MOS } # Muscovy
