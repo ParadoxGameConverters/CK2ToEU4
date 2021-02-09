@@ -118,7 +118,7 @@ link = { eu4 = maltese ck2 = sicilian_arabic tech = western gfx = westerngfx } #
 # Iberian
 
 link = { eu4 = basque ck2 = basque tech = western gfx = westerngfx }
-link = { eu4 = galician ck2 = castillan tech = western gfx = westerngfx region = asturias_area }
+link = { eu4 = galician ck2 = castillan tech = western gfx = westerngfx region = galicia_area }
 link = { eu4 = leonese ck2 = castillan tech = western gfx = westerngfx region = leon_area }
 link = { eu4 = castillian ck2 = castillan tech = western gfx = westerngfx }
 link = { eu4 = aragonese ck2 = catalan tech = western gfx = westerngfx region = aragon_area }
