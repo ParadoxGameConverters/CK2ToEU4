@@ -2,6 +2,7 @@
 
 ENG_ideas = {
 	trigger = {
+		NOT = { tag = GBR } #Forces GB to have British ideas
 		OR = {
 			tag = ENG
 			AND = {
