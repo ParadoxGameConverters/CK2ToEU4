@@ -153,8 +153,8 @@ link = { eu4 = coptic ck2 = coptic tech = eastern gfx = easterngfx }
 # Celtic
 
 link = { eu4 = irish ck2 = irish tech = western gfx = westerngfx }
+link = { eu4 = highland_scottish ck2 = pictish tech = western gfx = westerngfx }
 link = { eu4 = scottish ck2 = scottish tech = western gfx = westerngfx }
-link = { eu4 = pictish ck2 = pictish tech = western gfx = westerngfx }
 link = { eu4 = welsh ck2 = welsh tech = western gfx = westerngfx }
 link = { eu4 = breton ck2 = breton ck2 = cumbric tech = western gfx = westerngfx }
 
@@ -162,7 +162,7 @@ link = { eu4 = breton ck2 = breton ck2 = cumbric tech = western gfx = westerngfx
 
 link = { eu4 = irish ck2 = norsegaelic tech = western gfx = westerngfx region = munster_area region = connacht_area region = leinster_area region = leinster_area region = ulster_area }
 link = { eu4 = scottish ck2 = norsegaelic ck2 = norsegaelic tech = western gfx = westerngfx region = highlands_area region = lowlands_area region = scottish_marches_area }
-link = { eu4 = pictish ck2 = norsegaelic tech = western gfx = westerngfx } #Fallback
+link = { eu4 = highland_scottish ck2 = norsegaelic tech = western gfx = westerngfx } #Fallback
 link = { eu4 = welsh ck2 = norsegaelic tech = western gfx = westerngfx region = wales_area }
 link = { eu4 = breton ck2 = norsegaelic ck2 = cumbric tech = western gfx = westerngfx region = east_midlands_area region = west_midlands_area region = yorkshire_area region = wessex_area region = home_counties_area region = east_anglia_area region = kingdom_of_the_isles_area }
 
@@ -174,7 +174,7 @@ link = { eu4 = estonian ck2 = ugricbaltic ck2 = livonian tech = eastern gfx = in
 link = { eu4 = komi ck2 = komi tech = eastern gfx = inuitgfx }
 link = { eu4 = samoyed ck2 = samoyed tech = eastern gfx = inuitgfx }
 link = { eu4 = mordvin ck2 = mordvin tech = eastern gfx = inuitgfx }
-link = { eu4 = khanty ck2 = khanty tech = eastern gfx = inuitgfx }
+link = { eu4 = ostyaki ck2 = khanty tech = eastern gfx = inuitgfx }
 link = { eu4 = meshchera ck2 = meshchera tech = eastern gfx = inuitgfx }
 
 # Baltic
