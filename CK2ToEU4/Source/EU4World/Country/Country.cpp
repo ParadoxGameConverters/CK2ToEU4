@@ -821,6 +821,24 @@ void EU4::Country::setPrimaryCulture(const std::string& culture)
 		details.heir.culture = culture;
 }
 
+// All cultures that make up more than 33% of a countries dev will start the game as accepted
+void EU4::Country::setAcceptedCultures()
+{
+	std::map<std::string, int> cultureDevelopment; // culture, development
+	int substantialDev = 0;
+	for (const auto& province: provinces)
+	{
+		substantialDev += province.second->getDev();
+		cultureDevelopment[province.second->getCulture()] += province.second->getDev();
+	}
+	substantialDev /= 3;
+	for (const auto& culture: cultureDevelopment)
+	{
+		if (culture.second >= substantialDev)
+			details.acceptedCultures.insert(culture.first);
+	}
+}
+
 void EU4::Country::setMajorityReligion(const std::string& religion)
 {
 	details.majorityReligion = religion;
@@ -898,6 +916,9 @@ void EU4::Country::assignReforms(const std::shared_ptr<mappers::RegionMapper>& r
 		}
 		setMajorityReligion(primeReligion);
 	}
+
+	//Set Accepted Cultures
+	setAcceptedCultures();
 
 	const auto& actualHolder = title.second->getHolder().second;
 	bool isMerc = false;
