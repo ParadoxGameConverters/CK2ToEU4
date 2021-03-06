@@ -56,7 +56,7 @@ class Country
 	[[nodiscard]] const auto& getCommonCountryFile() const { return commonCountryFile; }
 	[[nodiscard]] const auto& getHistoryCountryFile() const { return historyCountryFile; }
 	[[nodiscard]] const auto& getLocalizations() const { return localizations; }
-	[[nodiscard]] const auto& getPrimaryCulture() const { return details.primaryCulture; }
+	[[nodiscard]] const auto& getPrimaryCulture() const { return details.primaryCulture; }	
 	[[nodiscard]] const auto& getMajorityReligion() const { return details.majorityReligion; }
 	[[nodiscard]] const auto& getReligion() const { return details.religion; }
 	[[nodiscard]] const auto& getTechGroup() const { return details.technologyGroup; }
@@ -83,6 +83,7 @@ class Country
 
 	void registerProvince(std::pair<int, std::shared_ptr<Province>> theProvince) { provinces.insert(std::move(theProvince)); }
 	void setPrimaryCulture(const std::string& culture);
+	void setAcceptedCultures();
 	void setMajorityReligion(const std::string& religion);
 	void setReligion(const std::string& religion);
 	void overrideReforms(const std::string& reform) { details.reforms = {reform}; }

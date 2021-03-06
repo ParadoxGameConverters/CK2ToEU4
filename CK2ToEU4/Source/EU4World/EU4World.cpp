@@ -592,17 +592,38 @@ void EU4::World::africaQuestion()
 void EU4::World::adjustChina(const CK2::World& sourceWorld)
 {
 	// Super Mongolia?
-	if (countries.count("MGE") && !countries.find("MGE")->second->getProvinces().empty())
+	if (countries.count("MGE") && !countries.find("MGE")->second->getProvinces().empty() && countries.count("KHA"))
 	{
-		// Move all Mongolia provinces under Mongol Empire
-		for (const auto& province: provinces)
+		bool isSource = false;
+		for (auto province: countries.find("KHA")->second->getProvinces())
 		{
-			if (province.second->getOwner() == "KHA")
+			if (province.second->getSourceProvince())
 			{
-				province.second->setOwner("MGE");
-				province.second->setController("MGE");
-				province.second->addCore("MGE");
+				isSource = true;
+				break;
 			}
+		}
+		if (!isSource)
+		{
+			// Move all Mongolia provinces under Mongol Empire, only happens if Mongolia is seperate from the Mongol Empire
+			for (const auto& province: provinces)
+			{
+				if (province.second->getOwner() == "KHA")
+				{
+					province.second->setOwner("MGE");
+					province.second->setController("MGE");
+					province.second->addCore("MGE");
+				}
+			}
+
+			// Add cores for provinces in China/Manchuria
+			provinces.find(4674)->second->addCore("MGE");
+			provinces.find(722)->second->addCore("MGE");
+			provinces.find(4675)->second->addCore("MGE");
+			provinces.find(4672)->second->addCore("MGE");
+			provinces.find(702)->second->addCore("MGE");
+			provinces.find(701)->second->addCore("MGE");
+			provinces.find(4223)->second->addCore("MGE");
 		}
 	}
 
