@@ -829,7 +829,8 @@ void EU4::Country::setAcceptedCultures()
 	for (const auto& province: provinces)
 	{
 		substantialDev += province.second->getDev();
-		cultureDevelopment[province.second->getCulture()] += province.second->getDev();
+		if (!province.second->getCulture().empty())
+			cultureDevelopment[province.second->getCulture()] += province.second->getDev();
 	}
 	substantialDev /= 3;
 	for (const auto& culture: cultureDevelopment)
