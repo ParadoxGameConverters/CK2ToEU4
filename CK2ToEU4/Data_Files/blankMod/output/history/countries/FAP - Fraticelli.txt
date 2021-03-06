@@ -30,3 +30,34 @@ change_estate_land_share = {
 		regent = yes
 	}
 }
+1270.11.11 = {
+	monarch = {
+		name = "Angelo"
+		dynasty = "da Clareno"
+		birth_date = 1247.1.1
+		death_date = 1337.1.1
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+1337.11.11 = {
+	monarch = {
+		name = "(Interregnum)"
+		adm = 3
+		dip = 3
+		mil = 3
+		regent = yes
+	}
+}
+1433.11.11 = {
+	monarch = {
+		name = "Philip"
+		dynasty = "Berbegni"
+		birth_date = 1400.1.1
+		death_date = 1450.11.11
+		adm = 6
+		dip = 1
+		mil = 3
+	}
+}
