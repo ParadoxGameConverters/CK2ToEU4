@@ -506,7 +506,7 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 		auto adjLocalizationMatch = localizationMapper.getLocBlockForKey(alternateAdj);
 		if (adjLocalizationMatch)
 		{
-			localizations.insert(std::pair(tag, *adjLocalizationMatch));
+			localizations.insert(std::pair(tag + "_ADJ", *adjLocalizationMatch));
 			adjSet = true;
 		}
 	}
@@ -518,12 +518,35 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 		auto adjLocalizationMatch = localizationMapper.getLocBlockForKey(alternateAdj);
 		if (adjLocalizationMatch)
 		{
-			localizations.insert(std::pair(tag, *adjLocalizationMatch));
+			localizations.insert(std::pair(tag + "_ADJ", *adjLocalizationMatch));
 			adjSet = true;
 		}
 	}
 	if (!adjSet)
 		Log(LogLevel::Warning) << tag << " help with localization for adjective! " << title.first << "_adj?";
+
+	// Setting Up Idea Names
+	if (adjSet && !localizations.find(tag + "_ADJ")->second.english.empty())
+	{
+		mappers::LocBlock newblock;
+		newblock.english = localizations.find(tag + "_ADJ")->second.english + " Ideas"; // Roman Ideas
+		newblock.spanish = "Ideas de " + localizations.find(tag + "_ADJ")->second.spanish;
+		newblock.french = "Doctrines " + localizations.find(tag + "_ADJ")->second.french;
+		newblock.german = localizations.find(tag + "_ADJ")->second.german + " Ideen";
+		localizations.insert(std::pair(tag + "_ideas", newblock));
+
+		newblock.english = localizations.find(tag + "_ADJ")->second.english + " Traditions"; // Roman Traditions
+		newblock.spanish = "Tradiciones de " + localizations.find(tag + "_ADJ")->second.spanish;
+		newblock.french = "traditions " + localizations.find(tag + "_ADJ")->second.french;
+		newblock.german = localizations.find(tag + "_ADJ")->second.german + " Traditionen";
+		localizations.insert(std::pair(tag + "_ideas_start", newblock));
+
+		newblock.english = localizations.find(tag + "_ADJ")->second.english + " Ambition"; // Roman Ambition
+		newblock.spanish = "Ambición de " + localizations.find(tag + "_ADJ")->second.spanish;
+		newblock.french = "ambitions " + localizations.find(tag + "_ADJ")->second.french;
+		newblock.german = localizations.find(tag + "_ADJ")->second.german + " Ambitionen";
+		localizations.insert(std::pair(tag + "_ideas_bonus", newblock));
+	}
 
 	// Rulers
 	initializeRulers(religionMapper, cultureMapper, rulerPersonalitiesMapper, startDateOption, theConversionDate);
@@ -1310,6 +1333,12 @@ void EU4::Country::assignReforms(const std::shared_ptr<mappers::RegionMapper>& r
 		details.government = "republic";
 		details.reforms.clear();
 		details.reforms = {"peasants_republic"};
+	}
+	// Swiss Cantons
+	else if (details.reforms.count("peasants_republic") && details.primaryCulture == "swiss")
+	{
+		details.reforms.clear();
+		details.reforms = {"united_cantons_reform"};
 	}
 	// Free City (HRE) - These have already been set in EU4World.cpp by the setFreeCities() method
 
