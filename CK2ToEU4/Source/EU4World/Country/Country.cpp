@@ -526,7 +526,7 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 		Log(LogLevel::Warning) << tag << " help with localization for adjective! " << title.first << "_adj?";
 
 	// Setting Up Idea Names
-	if (adjSet && !title.second->isThePope() && !localizations.find(tag + "_ADJ")->second.english.empty())
+	if (adjSet && localizations.count(tag + "_ADJ") && !localizations.find(tag + "_ADJ")->second.english.empty())
 	{
 		mappers::LocBlock newblock;
 		newblock.english = localizations.find(tag + "_ADJ")->second.english + " Ideas"; // Roman Ideas
@@ -542,7 +542,7 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 		localizations.insert(std::pair(tag + "_ideas_start", newblock));
 
 		newblock.english = localizations.find(tag + "_ADJ")->second.english + " Ambition"; // Roman Ambition
-		newblock.spanish = "Ambición de " + localizations.find(tag + "_ADJ")->second.spanish;
+		newblock.spanish = "AmbiciÃ³n de " + localizations.find(tag + "_ADJ")->second.spanish;
 		newblock.french = "ambitions " + localizations.find(tag + "_ADJ")->second.french;
 		newblock.german = localizations.find(tag + "_ADJ")->second.german + " Ambitionen";
 		localizations.insert(std::pair(tag + "_ideas_bonus", newblock));
