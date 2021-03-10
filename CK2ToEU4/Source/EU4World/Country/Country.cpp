@@ -526,7 +526,7 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 		Log(LogLevel::Warning) << tag << " help with localization for adjective! " << title.first << "_adj?";
 
 	// Setting Up Idea Names
-	if (adjSet && !localizations.find(tag + "_ADJ")->second.english.empty())
+	if (adjSet && !title.second->isThePope() && !localizations.find(tag + "_ADJ")->second.english.empty())
 	{
 		mappers::LocBlock newblock;
 		newblock.english = localizations.find(tag + "_ADJ")->second.english + " Ideas"; // Roman Ideas
