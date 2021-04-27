@@ -7,7 +7,7 @@
 
 # North Germanic
 
-link = { eu4 = norse ck2 = norse ck2 = gothic tech = western gfx = westerngfx }
+link = { eu4 = norse ck2 = norse tech = western gfx = westerngfx }
 link = { eu4 = swedish ck2 = swedish tech = western gfx = westerngfx }
 link = { eu4 = norwegian ck2 = norwegian tech = western gfx = westerngfx }
 link = { eu4 = danish ck2 = danish tech = western gfx = westerngfx }
@@ -62,6 +62,11 @@ link = { eu4 = dutch ck2 = dutch tech = western gfx = westerngfx }
 
 link = { eu4 = cornish ck2 = cornish tech = western gfx = westerngfx } #Fallback
 
+# East Germanic
+
+link = { eu4 = gothic ck2 = gothic tech = western gfx = westerngfx }
+link = { eu4 = vandal ck2 = vandal tech = western gfx = westerngfx }
+
 # Latin
 link = { eu4 = burgundian ck2 = frankish tech = western gfx = westerngfx region = bourgogne_area region = romandie_area region = switzerland_area }
 link = { eu4 = gascon ck2 = frankish tech = western gfx = westerngfx region = pyrenees_area region = guyenne_area region = basque_country }
@@ -115,6 +120,13 @@ link = { eu4 = tuscan ck2 = tuscan tech = western gfx = westerngfx } #Fallback
 link = { eu4 = venetian ck2 = venetian tech = western gfx = westerngfx } #Fallback
 link = { eu4 = maltese ck2 = sicilian_arabic tech = western gfx = westerngfx } #Fallback
 
+# Old Italic
+
+link = { eu4 = sabellian ck2 = sabellian tech = western gfx = westerngfx }
+link = { eu4 = old_ligurian ck2 = old_ligurian tech = western gfx = westerngfx }
+link = { eu4 = venetic ck2 = venetic tech = western gfx = westerngfx }
+link = { eu4 = siculian ck2 = siculian tech = western gfx = westerngfx }
+
 # Iberian
 
 link = { eu4 = basque ck2 = basque tech = western gfx = westerngfx }
@@ -130,6 +142,14 @@ link = { eu4 = visigothic ck2 = visigothic tech = western gfx = westerngfx }
 link = { eu4 = galician ck2 = galician tech = western gfx = westerngfx } #Fallback
 link = { eu4 = leonese ck2 = leonese tech = western gfx = westerngfx } #Fallback
 link = { eu4 = aragonese ck2 = aragonese tech = western gfx = westerngfx } #Fallback
+
+# Pre-Indo European
+
+link = { eu4 = etrurian ck2 = etruscan tech = western gfx = westerngfx }
+link = { eu4 = nuragic ck2 = nuragic tech = western gfx = westerngfx }
+link = { eu4 = rhaetian ck2 = rhaetian tech = western gfx = westerngfx }
+link = { eu4 = iberic ck2 = iberic tech = western gfx = westerngfx }
+link = { eu4 = turdetanian ck2 = turdetanian tech = western gfx = westerngfx }
 
 # Byzantine
 
@@ -149,6 +169,17 @@ link = { eu4 = georgian ck2 = georgian ck2 = udi tech = eastern gfx = easterngfx
 link = { eu4 = assyrian ck2 = assyrian tech = eastern gfx = easterngfx }
 link = { eu4 = goths ck2 = crimean_gothic tech = eastern gfx = easterngfx }
 link = { eu4 = coptic ck2 = coptic tech = eastern gfx = easterngfx }
+link = { eu4 = lycian ck2 = lycian tech = eastern gfx = easterngfx }
+link = { eu4 = phrygian ck2 = phrygian tech = eastern gfx = easterngfx }
+link = { eu4 = isaurian ck2 = isaurian tech = eastern gfx = easterngfx }
+link = { eu4 = paphlagonian ck2 = paphlagonian tech = eastern gfx = easterngfx }
+link = { eu4 = cilician ck2 = cilician tech = eastern gfx = easterngfx }
+link = { eu4 = babylonian ck2 = babylonian tech = eastern gfx = easterngfx }
+
+# Punic
+
+link = { eu4 = punic ck2 = carthaginian tech = muslim gfx = muslimgfx }
+link = { eu4 = phoenician ck2 = phoenician tech = muslim gfx = muslimgfx }
 
 # Celtic
 link = { eu4 = highland_scottish ck2 = irish tech = western gfx = westerngfx region = kingdom_of_the_isles_area region = highlands_area region = lowlands_area region = scottish_marches_area }
@@ -165,6 +196,15 @@ link = { eu4 = scottish ck2 = norsegaelic ck2 = norsegaelic tech = western gfx =
 link = { eu4 = highland_scottish ck2 = norsegaelic tech = western gfx = westerngfx } #Fallback
 link = { eu4 = welsh ck2 = norsegaelic tech = western gfx = westerngfx region = wales_area }
 link = { eu4 = breton ck2 = norsegaelic ck2 = cumbric tech = western gfx = westerngfx region = east_midlands_area region = west_midlands_area region = yorkshire_area region = wessex_area region = home_counties_area region = east_anglia_area region = kingdom_of_the_isles_area }
+
+# Gallic
+
+link = { eu4 = gallic ck2 = gallic tech = western gfx = westerngfx }
+link = { eu4 = lepontic ck2 = lepontic tech = western gfx = westerngfx }
+link = { eu4 = belgae ck2 = belgae tech = western gfx = westerngfx }
+link = { eu4 = celtic_pannonian ck2 = celtic_pannonian tech = western gfx = westerngfx }
+link = { eu4 = celtiberian ck2 = celtiberian tech = western gfx = westerngfx }
+link = { eu4 = lusitanian ck2 = lusitanian tech = western gfx = westerngfx }
 
 # Finno-Ugric
 
@@ -242,6 +282,7 @@ link = { eu4 = berber ck2 = maghreb_arabic ck2 = berber ck2 = sanhaja ck2 = cana
 link = { eu4 = al_suryah_arabic ck2 = levantine_arabic tech = muslim gfx = muslimgfx }
 link = { eu4 = al_misr_arabic ck2 = egyptian_arabic tech = muslim gfx = muslimgfx }
 link = { eu4 = andalucian ck2 = andalusian_arabic tech = muslim gfx = muslimgfx }
+link = { eu4 = nabatean ck2 = nabatean tech = muslim gfx = muslimgfx }
 
 # Arabic (Historical Immersion Project - SWMH)
 link = { eu4 = yemeni_culture ck2 = yemeni tech = muslim gfx = muslimgfx } #Fallback
@@ -290,6 +331,11 @@ link = { eu4 = slovene ck2 = carantanian tech = eastern gfx = easterngfx }
 link = { eu4 = bosnian ck2 = bosnian tech = eastern gfx = easterngfx }
 link = { eu4 = albanian ck2 = arberian tech = eastern gfx = easterngfx }
 
+# Dacian
+
+link = { eu4 = dacian ck2 = dacian tech = eastern gfx = easterngfx }
+link = { eu4 = thracian ck2 = thracian tech = eastern gfx = easterngfx }
+
 # Magyar
 
 link = { eu4 = transylvanian ck2 = hungarian ck2 = old_hungarian tech = eastern gfx = easterngfx region = transylvania_area region = southern_transylvania_area }
@@ -327,6 +373,7 @@ link = { eu4 = tigray ck2 = ethiopian tech = east_african gfx = africangfx regio
 link = { eu4 = amhara ck2 = ethiopian ck2 = falashim tech = east_african gfx = africangfx }
 link = { eu4 = somali ck2 = somali tech = east_african gfx = africangfx }
 link = { eu4 = daju ck2 = daju tech = east_african gfx = africangfx }
+link = { eu4 = old_egyptian ck2 = ancient_egyptian tech = eastern gfx = easterngfx }
 
 # East African (Historical Immersion Project - SWMH)
 link = { eu4 = afar ck2 = afar tech = east_african gfx = africangfx } #Fallback
@@ -409,6 +456,7 @@ link = { eu4 = laaz ck2 = ashkenazi ck2 = sephardi tech = eastern gfx = easterng
 link = { eu4 = kaifeng ck2 = ashkenazi ck2 = sephardi tech = chinese gfx = asiangfx region = mongolia_region region = tibet_region region = china_superregion }
 link = { eu4 = ashkenazi ck2 = ashkenazi ck2 = sephardi tech = western gfx = westerngfx region = low_countries_region region = scandinavia_region region = north_german_region region = south_german_region region = british_isles_region }
 link = { eu4 = sephardi ck2 = ashkenazi ck2 = sephardi tech = eastern gfx = easterngfx region = iberia_region }
+link = { eu4 = hebrew ck2 = hebrew tech = eastern gfx = easterngfx }
 link = { eu4 = ashkenazi ck2 = ashkenazi tech = eastern gfx = westerngfx } #Fallback
 link = { eu4 = sephardi ck2 = sephardi tech = eastern gfx = easterngfx } #Fallback
 
