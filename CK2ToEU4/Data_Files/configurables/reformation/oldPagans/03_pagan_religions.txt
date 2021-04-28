@@ -146,6 +146,23 @@ pagan = {
 		}
 		
 		heretic = { SNAKE_CLAN }
+	}
+	pagan_religion_reformed = { #Should be impossible, but just in case
+		color = { 0 0 0 }
+		icon = 121
+		country = {
+			tolerance_own = 2
+			tolerance_heretic = 2
+		}
+		province = {
+			local_missionary_strength = 0.02
+		}
+		country_as_secondary = {
+			tolerance_own = 2
+			tolerance_heretic = 2
+		}
+		
+		heretic = { SNAKE_CLAN }
 	}	
 	norse_pagan = {
 		icon = 122
@@ -165,6 +182,25 @@ pagan = {
 		personal_deity = yes
 		
 		heretic = { OLD_GERMANIC }	
+	}
+	norse_pagan_reformed = {
+		icon = 21
+		color = { 191 191 191 }
+		country = {
+			land_forcelimit_modifier = 0.10
+			naval_forcelimit_modifier = 0.10
+		}
+		country_as_secondary = {
+			merc_maintenance_modifier = -0.1
+			galley_power = 0.2
+		}
+		province = {
+			local_missionary_strength = 0.02
+		}
+		
+		personal_deity = yes
+		
+		heretic = { OLD_NORSE }	
 	}
 	baltic_pagan = {
 		icon = 126
