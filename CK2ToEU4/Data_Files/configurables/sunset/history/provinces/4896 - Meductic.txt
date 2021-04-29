@@ -1,3 +1,6 @@
+owner = MLS
+controller = MLS
+add_core = MLS
 capital = "Meductic"
 culture = maliseet
 religion = totemism

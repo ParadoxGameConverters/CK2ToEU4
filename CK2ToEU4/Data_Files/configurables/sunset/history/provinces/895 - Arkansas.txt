@@ -1,6 +1,6 @@
-owner = OSA
-controller = OSA
-add_core = OSA
+owner = WIC
+controller = WIC
+add_core = WIC
 add_core = CAQ
 add_core = ANL
 culture = yoron

@@ -1,11 +1,10 @@
 owner = PUE
 controller = PUE
-add_core = NAH
 add_core = PUE
 add_core = KER
 
 culture = pueblo
-
+capital = "Zia"
 religion = totemism
 
 base_tax = 4

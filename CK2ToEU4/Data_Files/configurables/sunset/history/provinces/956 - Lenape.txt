@@ -1,9 +1,8 @@
 owner = LEN
 controller = LEN
 add_core = LEN
-add_core = IRO
 
-culture = iroquois
+culture = delaware
 religion = totemism
 
 base_tax = 4

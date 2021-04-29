@@ -127,7 +127,13 @@ historical_rival = INC
 		mil = 3
 	}
 }
-
+1444.10.29 = { #stop them rebelling early
+	add_truce_with = TLA
+	add_truce_with = TLX
+	add_truce_with = TAR
+	add_truce_with = MCA
+	add_truce_with = KIC
+}
 1468.11.22 = {
 	monarch = {
 		name = "Axayacatl"

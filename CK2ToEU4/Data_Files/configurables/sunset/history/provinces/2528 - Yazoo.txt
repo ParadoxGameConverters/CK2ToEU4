@@ -2,6 +2,7 @@ owner = CHO
 controller = CHO
 add_core = CHO
 add_core = NTZ
+add_core = QUI
 culture = natchez
 religion = totemism
 capital = "Yazoo"

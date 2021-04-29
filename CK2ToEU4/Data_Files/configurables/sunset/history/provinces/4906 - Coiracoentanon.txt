@@ -1,8 +1,8 @@
 # No previous file for Coiracoentanon
 
-owner = OSA
-controller = OSA
-add_core = OSA
+owner = WIC
+controller = WIC
+add_core = WIC
 add_core = ILL
 add_core = CAO
 culture = illini

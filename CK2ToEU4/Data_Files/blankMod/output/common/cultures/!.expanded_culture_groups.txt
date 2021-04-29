@@ -601,11 +601,15 @@ tibetan_group = {
 }
 malay = {
 }
+thai_group = {
+}
 southeastasian_group = {
 }
 burman = {
 }
 pacific = {
+}
+aboriginal_australian = {
 }
 eastern_aryan = {
 }
