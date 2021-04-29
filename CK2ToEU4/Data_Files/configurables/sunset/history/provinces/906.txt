@@ -1,12 +1,11 @@
-owner = SIO
-
-controller = SIO
-
+owner = ASI
+controller = ASI
+add_core = ASI
 add_core = SIO
-
+add_core = LAK
 culture = dakota
 religion = totemism
-
+capital = "Lakota"
 base_tax = 12
 base_production = 2
 base_manpower = 8

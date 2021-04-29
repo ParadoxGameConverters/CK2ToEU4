@@ -1,15 +1,14 @@
-owner = OTT
+owner = OJI
+controller = OJI
+add_core = OJI
+add_core = AGQ
 
-controller = OTT
-
-add_core = OTT
-
-culture = anishinabe
+culture = algonquin
 religion = totemism
-
-base_tax = 5
+capital = "Nipissing"
+base_tax = 3
 base_production = 6
-base_manpower = 6
+base_manpower = 1
 
 trade_goods = fur
 

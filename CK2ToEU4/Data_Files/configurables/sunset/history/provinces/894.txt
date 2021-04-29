@@ -1,18 +1,12 @@
-owner = AZT
-
-controller = AZT
-
-add_core = AZT
+owner = OSA
+controller = OSA
+add_core = OSA
 add_core = CAD
-
 culture = caddo
-
 religion = totemism
-
 base_tax = 10
 base_production = 3
 base_manpower = 9
-
 trade_goods = cotton
 
 discovered_by = high_american

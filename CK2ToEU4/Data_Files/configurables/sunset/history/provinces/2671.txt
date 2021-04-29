@@ -1,9 +1,7 @@
-owner = OTT
-
-controller = OTT
-
-add_core = OTT
-add_core = HUR
+owner = OJI
+controller = OJI
+add_core = OJI
+add_core = MSG
 
 culture = anishinabe
 religion = totemism

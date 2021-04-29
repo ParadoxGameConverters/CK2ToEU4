@@ -1,8 +1,5 @@
-owner = OSA
-
-controller = OSA
-
-add_core = OSA
+owner = CHI
+controller = CHI
 add_core = CHI
 
 culture = chickasaw

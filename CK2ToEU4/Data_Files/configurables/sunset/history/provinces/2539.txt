@@ -1,10 +1,8 @@
-owner = CRE
-
-controller = CRE
-
-add_core = CRE
-
-culture = creek
+owner = AZT
+controller = AZT
+add_core = AZT
+add_core = ALT
+culture = yamasee
 
 religion = totemism
 
