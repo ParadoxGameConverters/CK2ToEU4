@@ -1,11 +1,11 @@
-owner = CHE
 
-controller = CHE
-
-add_core = CHE
+owner = AZT
+controller = AZT
+add_core = AZT
+add_core = COO
 add_core = CRE
 
-culture = cherokee
+culture = creek
 religion = totemism
 
 base_tax = 5

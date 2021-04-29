@@ -7,12 +7,12 @@
 
 # North Germanic
 
-link = { eu4 = norse ck2 = norse tech = western gfx = westerngfx }
 link = { eu4 = swedish ck2 = swedish tech = western gfx = westerngfx }
 link = { eu4 = norwegian ck2 = norwegian tech = western gfx = westerngfx }
 link = { eu4 = danish ck2 = danish tech = western gfx = westerngfx }
 link = { eu4 = icelandic ck2 = norse ck2 = norwegian ck2 = danish ck2 = swedish province = 370 province = 371 tech = western gfx = westerngfx }
 link = { eu4 = hannoverian ck2 = old_saxon tech = western gfx = westerngfx }
+link = { eu4 = norse ck2 = norse tech = western gfx = westerngfx } #PLEASE KEEP THIS LINE HERE!
 
 # North Germanic (Historical Immersion Project - SWMH)
 link = { eu4 = icelandic ck2 = icelandic tech = western gfx = westerngfx } #Fallback
@@ -50,7 +50,7 @@ link = { eu4 = bavarian ck2 = bavarian tech = western gfx = westerngfx }
 # West Germanic
 
 link = { eu4 = frankish ck2 = old_frankish ck2 = low_frankish tech = western gfx = westerngfx }
-link = { eu4 = cornish ck2 = english ck2 = breton tech = western gfx = westerngfx province = 233 province = 4373 }
+link = { eu4 = cornish ck2 = english ck2 = anglo_saxon ck2 = breton tech = western gfx = westerngfx province = 233 province = 4373 }
 link = { eu4 = english ck2 = english tech = western gfx = westerngfx }
 link = { eu4 = anglo_saxon ck2 = saxon ck2 = anglonorse tech = western gfx = westerngfx }
 link = { eu4 = frisian ck2 = dutch tech = western gfx = westerngfx region = weser_area region = frisia_area }
@@ -329,6 +329,7 @@ link = { eu4 = romanian ck2 = romanian tech = eastern gfx = easterngfx }
 link = { eu4 = bulgarian ck2 = bulgarian tech = eastern gfx = easterngfx }
 link = { eu4 = slovene ck2 = carantanian tech = eastern gfx = easterngfx }
 link = { eu4 = bosnian ck2 = bosnian tech = eastern gfx = easterngfx }
+link = { eu4 = arbereshe ck2 = arberian region = italy_region tech = eastern gfx = easterngfx }
 link = { eu4 = albanian ck2 = arberian tech = eastern gfx = easterngfx }
 
 # Dacian

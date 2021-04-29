@@ -99,7 +99,7 @@ historical_rival = INC
 		adm = 4
 		dip = 3
 		mil = 5
-		leader = {	name = "Moctezuma I"           	type = general	rank = 0	fire = 3	shock = 4	manuever = 4	siege = 0}
+		leader = {	name = "Moctezuma I"           	type = general	fire = 3	shock = 4	manuever = 4	siege = 0}
 	}
 }
 
@@ -110,7 +110,7 @@ historical_rival = INC
 		adm = 4
 		dip = 3
 		mil = 5
-		leader = {	name = "Moctezuma I"           	type = general	rank = 0	fire = 3	shock = 4	manuever = 4	siege = 0}
+		leader = {	name = "Moctezuma I"           	type = general	fire = 3	shock = 4	manuever = 4	siege = 0}
 	}
 }
 

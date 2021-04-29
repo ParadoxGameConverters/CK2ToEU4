@@ -3,7 +3,7 @@ add_government_reform = autocracy_reform
 mercantilism = 0.1
 primary_culture = mikmaq
 religion = totemism
-technology_group = north_american
+technology_group = high_american
 capital = 985 # Micmac
 
 

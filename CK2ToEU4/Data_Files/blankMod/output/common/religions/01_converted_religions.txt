@@ -32,9 +32,9 @@ christian = {
 		color = { 120 120 0 }
 		icon = 107
 		allowed_conversion = {
-			monophysite
 			reformed
 			hussite
+			monophysite
 		}
 		country = {
 			global_tax_modifier = 0.1

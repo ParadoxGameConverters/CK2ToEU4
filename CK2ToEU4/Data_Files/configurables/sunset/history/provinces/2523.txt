@@ -1,11 +1,8 @@
-owner = SHA
+owner = MMI
+controller = MMI
+add_core = MMI
 
-controller = SHA
-
-add_core = SHA
-add_core = ILL
-
-culture = shawnee
+culture = miami
 religion = totemism
 
 base_tax = 2

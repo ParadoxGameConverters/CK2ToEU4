@@ -1550,6 +1550,22 @@ pagan = {
 	#	heretic = { OLD_TENGRI }
 	#}
 	
+	dreamtime = {
+		icon = 29
+		color = { 197 133 43 }
+		country = {
+			shock_damage_received = -0.05
+			diplomatic_reputation = 1
+		}
+		country_as_secondary = {
+			shock_damage = 0.1
+			hostile_attrition = 2
+		}
+		
+		fetishist_cult = yes
+		heretic = { WAGYLKOOP MOORAMOORA GINGARRURNDE }
+	}
+	
 	crusade_name = CRUSADE
 	harmonized_modifier = harmonized_pagan
 }

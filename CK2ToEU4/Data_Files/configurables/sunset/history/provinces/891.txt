@@ -1,15 +1,13 @@
-owner = AZT
+owner = OSA
 
-controller = AZT
+controller = OSA
 
-add_core = AZT
+add_core = OSA
 add_core = PAW
 
 culture = pawnee
 
 religion = totemism
-
-discovered_by = mesoamerican
 
 base_tax = 5
 base_production = 3

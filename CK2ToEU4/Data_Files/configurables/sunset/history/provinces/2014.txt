@@ -1,10 +1,8 @@
-owner = CHO
-
-controller = CHO
-
-add_core = CHO
+owner = AZT
+controller = AZT
+add_core = AZT
 add_core = CAD
-
+add_core = CHO
 culture = choctaw
 religion = totemism
 

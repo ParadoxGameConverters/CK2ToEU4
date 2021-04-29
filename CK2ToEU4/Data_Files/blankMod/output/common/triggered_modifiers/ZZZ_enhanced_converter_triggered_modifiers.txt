@@ -36,7 +36,7 @@ fraticelli_rome = {
 		owns_or_vassal_of = 118 # Roma		
 		NOT = { tag = ITA }
 		NOT = { tag = ROM }
-		NOT = { tag = HRE }
+		NOT = { tag = HLR }
 	}
 
 	papal_influence = -10
@@ -56,7 +56,7 @@ fraticelli_subjugation = {
 		overlord_of = FAP
 		NOT = { tag = ITA }
 		NOT = { tag = ROM }
-		NOT = { tag = HRE }
+		NOT = { tag = HLR }
 	}
 
 	diplomatic_reputation = -2

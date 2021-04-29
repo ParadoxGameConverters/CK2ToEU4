@@ -1,12 +1,11 @@
-owner = CHE
+owner = AZT
+controller = AZT
+add_core = AZT
+add_core = COF
 
-controller = CHE
-
-add_core = CHE
-
-culture = cherokee
+culture = catawba
 religion = totemism
-
+capital = "Waccamaw"
 base_tax = 4
 base_production = 4
 base_manpower = 2

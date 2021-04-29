@@ -1,13 +1,9 @@
-owner = FOX
-
-controller = FOX
-
-add_core = FOX
+owner = HUR
+controller = HUR
+add_core = HUR
 add_core = OJI
-add_core = POT
-add_core = OTT
 
-culture = mesquakie
+culture = anishinabe
 religion = totemism
 
 base_tax = 2
