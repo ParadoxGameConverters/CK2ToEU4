@@ -287,19 +287,19 @@ barbaro_germanic = {
 roman_group = {
 	graphical_culture = westerngfx
 	# For the sake of simplicity, all the names are shared throughout the whole group
-	roman = { primary = ROM country = { force_march_free = yes } }
-	hispanic = { primary = ROM country = { force_march_free = yes } }
-	aegyptian = { primary = ROM country = { force_march_free = yes } }
-	arabus = { primary = ROM country = { force_march_free = yes } }
-	carthaginian = { primary = ROM country = { force_march_free = yes } }
-	graecus = { primary = ROM country = { force_march_free = yes } }
-	gaulic = { primary = ROM country = { force_march_free = yes } }
-	hispanic = { primary = ROM country = { force_march_free = yes } }
-	theodisc = { primary = ROM country = { force_march_free = yes } }
-	pannonian = { primary = ROM country = { force_march_free = yes } }
-	wenedyk = { primary = ROM country = { force_march_free = yes } }
-	britannian = { primary = ROM country = { force_march_free = yes } }
-	hyperborean = { primary = ROM country = { force_march_free = yes } }
+	roman = { primary = ROM }
+	hispanic = { primary = ROM }
+	aegyptian = { primary = ROM }
+	arabus = { primary = ROM }
+	carthaginian = { primary = ROM }
+	graecus = { primary = ROM }
+	gaulic = { primary = ROM }
+	hispanic = { primary = ROM }
+	theodisc = { primary = ROM }
+	pannonian = { primary = ROM }
+	wenedyk = { primary = ROM }
+	britannian = { primary = ROM }
+	hyperborean = { primary = ROM }
 	# IR-CK2 Old Italic cultures
 	sabellian = {
 		dynasty_names = {
