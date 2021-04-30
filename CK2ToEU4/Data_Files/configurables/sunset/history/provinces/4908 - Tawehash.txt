@@ -1,8 +1,7 @@
 # No previous file for Tawehash
 
-owner = OSA
-controller = OSA
-add_core = OSA
+owner = WIC
+controller = WIC
 add_core = WIC
 culture = wichita
 religion = totemism

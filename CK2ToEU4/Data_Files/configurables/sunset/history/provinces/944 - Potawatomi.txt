@@ -3,7 +3,7 @@ controller = FOX
 add_core = FOX
 add_core = POT
 
-culture = chiwere
+culture = mesquakie
 religion = totemism
 capital = "Potawatomi"
 

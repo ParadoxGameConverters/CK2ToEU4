@@ -3,6 +3,7 @@
 owner = CHE
 controller = CHE
 add_core = CHE
+add_core = COF
 add_core = COO
 add_core = JOA
 culture = catawba

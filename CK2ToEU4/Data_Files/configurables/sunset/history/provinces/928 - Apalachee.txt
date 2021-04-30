@@ -4,8 +4,7 @@ add_core = ALT
 add_core = CRE
 culture = yamasee
 
-religion = creek
-
+religion = totemism
 base_tax = 3
 base_production = 1
 base_manpower = 6

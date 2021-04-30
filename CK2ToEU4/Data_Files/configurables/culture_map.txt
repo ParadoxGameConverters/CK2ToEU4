@@ -50,7 +50,7 @@ link = { eu4 = bavarian ck2 = bavarian tech = western gfx = westerngfx }
 # West Germanic
 
 link = { eu4 = frankish ck2 = old_frankish ck2 = low_frankish tech = western gfx = westerngfx }
-link = { eu4 = cornish ck2 = english ck2 = anglo_saxon ck2 = breton tech = western gfx = westerngfx province = 233 province = 4373 }
+link = { eu4 = cornish ck2 = english ck2 = anglo_saxon ck2 = breton ck2 = saxon ck2 = anglonorse tech = western gfx = westerngfx province = 233 province = 4373 }
 link = { eu4 = english ck2 = english tech = western gfx = westerngfx }
 link = { eu4 = anglo_saxon ck2 = saxon ck2 = anglonorse tech = western gfx = westerngfx }
 link = { eu4 = frisian ck2 = dutch tech = western gfx = westerngfx region = weser_area region = frisia_area }

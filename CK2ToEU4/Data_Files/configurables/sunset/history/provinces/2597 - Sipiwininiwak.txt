@@ -1,6 +1,7 @@
 owner = BLA
 controller = BLA
 add_core = BLA
+add_core = NEH
 
 culture = chipewyan
 religion = totemism

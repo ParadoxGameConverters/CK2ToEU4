@@ -1,9 +1,9 @@
-owner = OSA
-controller = OSA
-add_core = OSA
+owner = WIC
+controller = WIC
+add_core = WIC
 add_core = CAQ
 
-culture = osage
+culture = wichita
 religion = totemism
 
 base_tax = 10
