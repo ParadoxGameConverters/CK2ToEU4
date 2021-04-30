@@ -484,6 +484,7 @@ age_of_reformation = {
 				OR = {
 					tag = PLC
 					tag = POL
+					tag = LIT
 					AND = {
 						government_rank = 3
 						OR = {
