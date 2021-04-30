@@ -2,7 +2,7 @@
 
 owner = SHA
 controller = SHA
-add_core = SUS
+add_core = SHA
 add_core = OSA
 add_core = CLG
 culture = osage

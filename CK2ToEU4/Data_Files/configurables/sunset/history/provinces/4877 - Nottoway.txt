@@ -3,7 +3,7 @@
 owner = CHE
 controller = CHE
 add_core = CHE
-add_core = IRO
+add_permanent_claim = IRO # This is Iroquois culture in the basegame, but is simply too far away to reasonably make a core
 add_core = TSC
 culture = iroquois
 religion = totemism

@@ -411,7 +411,7 @@ country_event = {
 	immediate = {
 		random_owned_province = {
 			limit = {
-				NOT = { uses_cults = yes }
+				NOT = { OWNER = { uses_cults = yes } }
 				OR = {
 					AND = {
 						religion_group = eastern

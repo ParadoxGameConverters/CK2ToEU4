@@ -1,10 +1,10 @@
 # No previous file for Nasoni
 
-owner = OSA
-controller = OSA
-add_core = OSA
+owner = WIC
+controller = WIC
+add_core = WIC
 add_core = CAD
-culture = osage
+culture = wichita
 religion = totemism
 capital = "Nasoni"
 trade_goods = grain

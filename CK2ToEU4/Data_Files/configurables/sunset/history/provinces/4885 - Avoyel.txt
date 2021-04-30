@@ -1,8 +1,7 @@
 # No previous file for Avoyel
 
-owner = OSA
-controller = OSA
-add_core = OSA
+owner = WIC
+controller = WIC
 add_core = NTZ
 culture = natchez
 religion = totemism

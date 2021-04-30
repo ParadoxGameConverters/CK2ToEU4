@@ -1,3 +1,6 @@
+owner = PEN
+controller = PEN
+add_core = PEN
 capital = "Pegwaki"
 culture = abenaki
 religion = totemism

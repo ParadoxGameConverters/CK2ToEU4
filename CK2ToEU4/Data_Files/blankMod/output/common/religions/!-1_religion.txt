@@ -674,7 +674,7 @@ christian = {
 					factor = 1
 					modifier = {
 						factor = 0
-						is_at_war = no
+						NOT = { is_at_war = yes }
 					}
 					modifier = {
 						factor = 3
@@ -1443,6 +1443,8 @@ pagan = {
 		province = {
 			local_missionary_strength = 0.02
 		}
+
+		ancestors = yes
 		
 		heretic = { BEAR_SPIRIT }	
 	}
