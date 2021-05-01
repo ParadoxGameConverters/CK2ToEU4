@@ -10,13 +10,5 @@ andean_group = {
 maranon = {
 	jivaro = {
 		primary = CYA
-		male_names = {
-			Anquimarca Atoc Sopa Cayo Topa Coyllas Cusichaca Guaritopa Huachuri Huaypalcon Luyes Marcavilca 
-			Cuyuchi Orco Varanca Pascac Pomaguala Pumi Sopa Quispe Titu Ruminavi Sahuaraura Surandaman Taraque 
-			Tucuycuyche Usca Curiatao Villac Umu Yamqui Mayta Yupanqui Zambiza Zopahua Ninan
-		}
-		female_names = {
-			Axomamma Cavillaca Chia China Kantuta Nina Ana Maiara
-		}
 	}
 }
