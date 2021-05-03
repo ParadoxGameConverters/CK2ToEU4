@@ -57,6 +57,7 @@ class World
 	void outputBookmark(const Configuration& theConfiguration, date conversionDate) const;
 	void distributeHRESubtitles(const Configuration& theConfiguration);
 	void outputEmperor(const Configuration& theConfiguration, date conversionDate) const;
+	void outputDynamicInstitutions(const Configuration& theConfiguration) const;
 	void setElectors();
 	void setFreeCities();
 	void outputDiplomacy(const Configuration& theConfiguration, const std::vector<std::shared_ptr<Agreement>>& agreements, bool invasion) const;
