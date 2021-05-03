@@ -709,7 +709,6 @@ printing_press = {
 							religion = cathar
 							religion = waldensian
 							religion = lollard
-							religion = adamites
 						}
 					}
 				}
@@ -727,7 +726,6 @@ printing_press = {
 							religion = cathar
 							religion = waldensian
 							religion = lollard
-							religion = adamites
 						}
 					}
 				}
@@ -749,7 +747,6 @@ printing_press = {
 						religion = cathar
 						religion = waldensian
 						religion = lollard
-						religion = adamites
 					}
 				}
 			}
@@ -764,7 +761,6 @@ printing_press = {
 						religion = cathar
 						religion = waldensian
 						religion = lollard
-						religion = adamites
 					}
 				}
 			}
