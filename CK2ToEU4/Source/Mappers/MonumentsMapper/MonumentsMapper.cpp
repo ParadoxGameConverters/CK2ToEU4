@@ -22,8 +22,8 @@ mappers::MonumentsMapper::MonumentsMapper(std::istream& theStream)
 
 void mappers::MonumentsMapper::registerKeys()
 {
-	registerRegex(commonItems::catchallRegex, [this](const std::string& id, std::istream& theStream) {
+	registerRegex(commonItems::catchallRegex, [this](const std::string& type, std::istream& theStream) {
 		MonumentsMapping newMapping(theStream);
-		wonders.insert(std::pair(std::stoi(id), newMapping));
+		wonders.emplace(std::pair(type, newMapping));
 	});
 }

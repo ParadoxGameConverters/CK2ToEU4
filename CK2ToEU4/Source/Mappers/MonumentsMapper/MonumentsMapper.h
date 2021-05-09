@@ -8,15 +8,15 @@ namespace mappers
 class MonumentsMapper: commonItems::parser
 {
   public:
-	MonumentsMapper() = default;
+	MonumentsMapper();
 	MonumentsMapper(std::istream& theStream);
 
-	std::map<int, std::string> getWonders() { return wonders; }
+	std::map<std::string, MonumentsMapping> getWonders() { return wonders; }
 
   private:
 	void registerKeys();
 
-	std::map<int, MonumentsMapping> wonders;
+	std::map<std::string, MonumentsMapping> wonders;
 };
 } // namespace mappers
 

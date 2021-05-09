@@ -116,7 +116,7 @@ wonder_temple_buddhist = {
 		prestige = { 0.1 0.5 1 1 }
 	}
 }
-wonder_temple_buddhist = {
+wonder_temple_hindu = {
 	properties = {
 		can_be_moved = no
 	}
@@ -917,7 +917,7 @@ upgrade_dueling_room = {
 
 #Great Walls
 upgrade_walls_sea = {
-	country_modifiers = {
+	province_modifiers = {
 		hostile_fleet_attrition = { 0 0 5 10 }
 	}
 }
@@ -1166,7 +1166,130 @@ upgrade_inner_court = {
 #IGNORE NEGATIVE UPGRADES
 
 
+##GENERIC TIER UPGRADES FOR MONUMENTS NOT AT TIER 3
+#These will be classed as CK2 itself classifies them (except harbour/lighthouse)
+#Religious
+generic_religious_upgrade_1 = {
+	country_modifiers = {
+		church_loyalty_modifier = { 0 0.05 0.1 0.15 }
+	}
+}
+generic_religious_upgrade_2 = {
+	country_modifiers = {
+		global_unrest = { 0 0.5 1 1 }
+	}
+}
+generic_religious_upgrade_3 = {
+	country_modifiers = {
+		missionaries = { 0 1 1 1 }
+	}
+}
 
+#Statues
+generic_statue_upgrade_1 = {
+	country_modifiers = {
+		prestige = { 0 0.5 1 1 }
+	}
+}
+generic_statue_upgrade_2 = {
+	country_modifiers = {
+		legitimacy = { 0 0.5 1 1 }
+		devotion = { 0 0.5 1 1 }
+		horde_unity = { 0 0.5 1 1 }
+		republican_tradition = { 0 0.25 0.5 0.5 }
+		meritocracy = { 0 0.25 0.5 0.5 }
+	}
+}
+generic_statue_upgrade_3 = {
+	country_modifiers = {
+		land_morale = { 0 0.05 0.1 0.1 }
+	}
+}
 
+#Fortifications
+generic_fortification_upgrade_1 = {
+	area_modifiers = {
+		local_defensiveness = { 0 0.1 0.15 0.2 }
+	}
+}
+generic_fortification_upgrade_2 = {
+	area_modifiers = {	
+		local_hostile_attrition = { 0 1 1 2 }
+	}
+}
+generic_fortification_upgrade_3 = {
+	country_modifiers = {
+		caravan_power = { 0 0.1 0.2 0.3 }
+	}
+}
+
+#Coastal Fortifications
+generic_coastal_upgrade_1 = {
+	province_modifiers = {
+		blockade_force_required = { 0 0.25 0.5 1 }
+		hostile_disembark_speed = { 0 0.25 0.5 0.5 }
+	}
+}
+generic_coastal_upgrade_2 = {
+	country_modifiers = {	
+		global_ship_trade_power = { 0 0.1 0.2 0.25 }
+	}
+}
+generic_coastal_upgrade_3 = {
+	province_modifiers = {
+		hostile_fleet_attrition = { 0 0 5 10 }
+	}
+}
+
+#Culture/Recreation
+generic_culture_upgrade_1 = {
+	province_modifiers = {
+		local_state_maintenance_modifier = { 0 -0.5 -0.75 -1 }
+	}
+}
+generic_culture_upgrade_2 = {
+	country_modifiers = {
+		num_accepted_cultures = { 0 1 1 1 }
+	}
+}
+generic_culture_upgrade_3 = {
+	country_modifiers = {
+		advisor_cost = { 0 -0.1 -0.2 -0.25 }
+	}
+}
+
+#Learning
+generic_learning_upgrade_1 = {
+	country_modifiers = {
+		innovativeness_gain = { 0 0.25 0.5 1 }
+	}
+}
+generic_learning_upgrade_2 = {
+	country_modifiers = {
+		idea_cost = { 0 -0.1 -0.15 -0.2 }
+	}
+}
+generic_culture_upgrade_3 = {
+	country_modifiers = {
+		technology_cost = { 0 -0.05 -0.1 -0.1 }
+	}
+}
+
+#Misc
+generic_misc_upgrade_1 = {
+	country_modifiers = {
+		church_loyalty_modifier = { 0 0.05 0.1 0.15 }
+	}
+}
+generic_misc_upgrade_2 = {
+	country_modifiers = {
+		infantry_cost = { 0 -0.05 -0.1 -0.2 }
+	}
+}
+generic_misc_upgrade_3 = {
+	country_modifiers = {
+		governing_capacity_modifier = { 0 0.05 0.1 0.15 }
+	}
+}
 
 

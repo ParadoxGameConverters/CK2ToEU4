@@ -18,17 +18,18 @@ void mappers::MonumentsMapping::registerKeys()
 	});
 	registerKeyword("build_trigger", [this](const std::string& mods, std::istream& theStream) {
 		CreateBuildTrigger(theStream);
-		numOfModifiers++;
 	});
 	registerKeyword("province_modifiers", [this](const std::string& mods, std::istream& theStream) {
-		AddModifiers(theStream);
+		AddProvinceSet(theStream);
 	});
 	registerKeyword("area_modifiers", [this](const std::string& mods, std::istream& theStream) {
-		desc = commonItems::singleString(theStream).getString();
+		AddAreaSet(theStream);
 	});
 	registerKeyword("country_modifiers", [this](const std::string& mods, std::istream& theStream) {
-		if (commonItems::singleString(theStream).getString() == "yes")
-			active = true;
+		AddCountrySet(theStream);
+	});
+	registerKeyword("on_upgraded", [this](const std::string& mods, std::istream& theStream) {
+		onUpgraded = commonItems::singleString(theStream).getString();
 	});
 	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }
@@ -38,14 +39,14 @@ void mappers::MonumentsMapping::CreateBuildTrigger(std::istream& theStream)
 		const auto groups = commonItems::stringList(theStream).getStrings();
 		for (auto& group: groups)
 		{
-			buildTrigger += ("religion_group = " + group + "\n\t\t");
+			buildTrigger += ("AND = {\n\t\t\t\treligion_group = " + group + "\n\t\t\t\thas_owner_religion = yes\n\t\t\t}\n\t\t");
 		}
 	});
 	registerKeyword("cultural_groups", [this](const std::string& mods, std::istream& theStream) {
 		const auto groups = commonItems::stringList(theStream).getStrings();
 		for (auto& group: groups)
 		{
-			buildTrigger += ("cultural_groups = " + group + "\n\t\t");
+			buildTrigger += ("AND = {\n\t\t\t\tcultural_groups = " + group + "\n\t\t\t\thas_owner_culture = yes\n\t\t\t}\n\t\t");
 		}
 	});
 	registerKeyword("cultural", [this](const std::string& mods, std::istream& theStream) {
@@ -59,33 +60,33 @@ void mappers::MonumentsMapping::CreateBuildTrigger(std::istream& theStream)
 	});
 	buildTrigger += "\n\t}";
 }
-void mappers::MonumentsMapping::AddModifiers(std::istream& theStream)
-{
-	registerKeyword("province_modifiers", [this](const std::string& mods, std::istream& theStream) {
-		AddProvinceSet(theStream);
-	});
-	registerKeyword("area_modifiers", [this](const std::string& mods, std::istream& theStream) {
-		AddAreaSet(theStream);
-	});
-	registerKeyword("country_modifiers", [this](const std::string& mods, std::istream& theStream) {
-		AddCountrySet(theStream);
-	});
-}
 void mappers::MonumentsMapping::AddProvinceSet(std::istream& theStream)
 {
 	registerRegex(commonItems::catchallRegex, [this](const std::string& mods, std::istream& theStream) {
-		provinceModifiers.emplace(mods, commonItems::doubleList(theStream).getDoubles());
+		if (numOfModifiers < 5 && !provinceModifiers.count(mods))
+		{
+			provinceModifiers.emplace(mods, commonItems::doubleList(theStream).getDoubles());
+			numOfModifiers++;
+		}
 	});
 }
 void mappers::MonumentsMapping::AddAreaSet(std::istream& theStream)
 {
 	registerRegex(commonItems::catchallRegex, [this](const std::string& mods, std::istream& theStream) {
-		areaModifiers.emplace(mods, commonItems::doubleList(theStream).getDoubles());
+		if (numOfModifiers < 5 && !provinceModifiers.count(mods))
+		{
+			areaModifiers.emplace(mods, commonItems::doubleList(theStream).getDoubles());
+			numOfModifiers++;
+		}
 	});
 }
 void mappers::MonumentsMapping::AddCountrySet(std::istream& theStream)
 {
 	registerRegex(commonItems::catchallRegex, [this](const std::string& mods, std::istream& theStream) {
-		countryModifiers.emplace(mods, commonItems::doubleList(theStream).getDoubles());
+		if (numOfModifiers < 5 && !provinceModifiers.count(mods))
+		{
+			countryModifiers.emplace(mods, commonItems::doubleList(theStream).getDoubles());
+			numOfModifiers++;
+		}
 	});
 }

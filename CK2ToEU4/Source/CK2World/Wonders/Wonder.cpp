@@ -27,7 +27,12 @@ void CK2::Wonder::registerKeys()
 		desc = commonItems::singleString(theStream).getString();
 	});
 	registerKeyword("construction_history", [this](const std::string& mods, std::istream& theStream) {
-		fillConstructionHistory(theStream);
+		const auto& constructionBlobs = commonItems::blobList(theStream);
+		for (auto blob: constructionBlobs.getBlobs())
+		{
+			std::stringstream tempStream(blob);
+			fillConstructionHistory(tempStream);
+		}
 	});
 	registerKeyword("stage", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleInt stageInt(theStream);
@@ -41,8 +46,12 @@ void CK2::Wonder::registerKeys()
 }
 void CK2::Wonder::fillConstructionHistory(std::istream& theStream)
 {
+	registerKeyword("wonder_historical_event_character", [this](const std::string& mods, std::istream& theStream) {
+		if (builder == 0)
+			builder = commonItems::singleLlong(theStream).getLlong(); //This should get the first builder
+	});
 	registerKeyword("wonder_historical_event_date", [this](const std::string& mods, std::istream& theStream) {
-		if (date < 1 || commonItems::singleInt(theStream).getInt() < date)
+		if (date < 1 || commonItems::singleInt(theStream).getInt() < date) //Gets the earliest date
 			date = commonItems::singleInt(theStream).getInt();
 	});
 	registerKeyword("wonder_upgrade", [this](const std::string& mods, std::istream& theStream) {

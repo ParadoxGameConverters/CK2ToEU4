@@ -41,13 +41,13 @@ class World
 	void importCK2Country(const std::pair<std::string, std::shared_ptr<CK2::Title>>& title,
 		 Configuration::STARTDATE startDateOption,
 		 const CK2::World& sourceWorld);
-	void importCK2Provinces(const CK2::World& sourceWorld);
+	void importCK2Provinces(const CK2::World& sourceWorld, bool hasLeviathan);
 	void output(const mappers::VersionParser& versionParser, const Configuration& theConfiguration, const CK2::World& sourceWorld) const;
 	void createModFile(const Configuration& theConfiguration) const;
 	void outputVersion(const mappers::VersionParser& versionParser, const Configuration& theConfiguration) const;
 	void outputCommonCountriesFile(const Configuration& theConfiguration) const;
 	void outputHistoryCountries(const Configuration& theConfiguration) const;
-	void outputHistoryProvinces(const Configuration& theConfiguration) const;
+	void outputHistoryProvinces(const Configuration& theConfiguration, std::set<std::string> premades) const;
 	void outputInvasionExtras(const Configuration& theConfiguration, bool invasion) const;
 	void outputCommonCountries(const Configuration& theConfiguration) const;
 	void outputLocalization(const Configuration& theConfiguration, bool invasion, bool greekReformation) const;

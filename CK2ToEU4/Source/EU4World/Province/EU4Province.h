@@ -42,6 +42,7 @@ class Province
 	[[nodiscard]] auto getMil() const { return details.baseManpower; }
 	[[nodiscard]] auto getDip() const { return details.baseProduction; }
 	[[nodiscard]] auto getProvinceID() const { return provID; }
+	[[nodiscard]] auto getHasMonument() const { return hasMonument; }
 	
 
 	void registerTagCountry(const std::pair<std::string, std::shared_ptr<Country>>& theCountry) { tagCountry = theCountry; }
@@ -57,12 +58,15 @@ class Province
 	void setMil(int mil) { details.baseManpower = mil; }
 	void buildFort() { details.fort = true; }
 	void addDiscoveredBy(const std::string& bywhom) { details.discoveredBy.insert(bywhom); }
+	void buildMonument();
+	void setHasMonument() { hasMonument = true; }
 	void sterilize();
 
 	friend std::ostream& operator<<(std::ostream& output, const Province& versionParser);
 
   private:
 	int provID = 0;
+	bool hasMonument = false; //For Leviathan DLC owners only
 	std::string historyProvincesFile;
 	std::shared_ptr<CK2::Province> srcProvince;
 	ProvinceDetails details;

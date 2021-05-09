@@ -21,6 +21,7 @@ class Province: commonItems::parser
 	[[nodiscard]] const auto& getTitle() const { return title; }
 	[[nodiscard]] const auto& getDeJureTitle() const { return deJureTitle; }
 	[[nodiscard]] const auto& getWonder() const { return wonder; }
+	[[nodiscard]] const auto& getMonument() const { return monument; }
 
 	[[nodiscard]] auto isDeJureHRE() const { return deJureHRE; }
 	[[nodiscard]] auto getID() const { return provinceID; }
@@ -36,6 +37,7 @@ class Province: commonItems::parser
 	void loadHoldingTitle(const std::pair<std::string, std::shared_ptr<Title>>& theTitle) { title = theTitle; }
 	void loadDeJureTitle(const std::pair<std::string, std::shared_ptr<Title>>& theDeJureTitle) { deJureTitle = theDeJureTitle; }
 	void loadWonder(const std::pair<int, std::shared_ptr<Wonder>>& theWonder) { wonder = theWonder; }
+	void loadMonument(const std::pair<int, std::shared_ptr<Wonder>>& theWonder) { monument = theWonder; }
 	void setDeJureHRE() { deJureHRE = true; }
 
   private:
@@ -50,7 +52,8 @@ class Province: commonItems::parser
 	std::pair<std::string, std::shared_ptr<Barony>> primarySettlement;
 	std::pair<std::string, std::shared_ptr<Title>> title;			// owner title (e_francia or similar)
 	std::pair<std::string, std::shared_ptr<Title>> deJureTitle; // county (c_paris)
-	std::optional<std::pair<int, std::shared_ptr<Wonder>>> wonder;
+	std::optional<std::pair<int, std::shared_ptr<Wonder>>> wonder;   // For those who do not own the Leviathan DLC
+	std::optional<std::pair<int, std::shared_ptr<Wonder>>> monument; // For Leviathan DLC owners
 	std::map<std::string, std::shared_ptr<Barony>> baronies;
 };
 } // namespace CK2
