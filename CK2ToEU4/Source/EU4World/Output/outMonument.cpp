@@ -38,19 +38,19 @@ EU4::outMonument::outMonument(const Configuration& theConfiguration, std::option
 		for (auto mod: monumentsMapping.getProvinceModifiers())
 			if (!provinceModifiers.count(mod.first))
 			{
-				provinceModifiers.emplace(monumentsMapping.getProvinceModifiers());
+				provinceModifiers.emplace(mod);
 				addedMod = true;
 			}
 		for (auto mod: monumentsMapping.getAreaModifiers())
 			if (!provinceModifiers.count(mod.first))
 			{
-				areaModifiers.emplace(monumentsMapping.getAreaModifiers());
+				areaModifiers.emplace(mod);
 				addedMod = true;
 			}
 		for (auto mod: monumentsMapping.getCountryModifiers())
 			if (!provinceModifiers.count(mod.first))
 			{
-				countryModifiers.emplace(monumentsMapping.getCountryModifiers());
+				countryModifiers.emplace(mod);
 				addedMod = true;
 			}
 		if (addedMod)
