@@ -68,7 +68,7 @@ void CK2::Provinces::linkWonders(const Wonders& wonders) //No Leviathan DLC
 	}
 	Log(LogLevel::Info) << "<> " << counter << " active and finished wonders have been linked.";
 }
-std::set<std::string> CK2::Provinces::linkMonuments(const Wonders& wonders, Characters characters) // Leviathan DLC
+const std::set<std::string>& CK2::Provinces::linkMonuments(const Wonders& wonders, const Characters& characters) // Leviathan DLC
 {
 	auto counter = 0;
 	std::set<std::string> premadeMonuments = { "wonder_pyramid_giza", "wonder_pagan_stones_stonehenge" "wonder_mausoleum_halicarnassus", "wonder_lighthouse_alexandria",
@@ -78,12 +78,13 @@ std::set<std::string> CK2::Provinces::linkMonuments(const Wonders& wonders, Char
 	std::set<std::string> existentMonuments;
 	for (const auto& wonder: wonders.getWonders())
 	{
-		if (premadeMonuments.count(wonder.second->getType()))
-			existentMonuments.emplace(premadeMonuments.count(wonder.second->getType()));		
+		const auto& monumentName = wonder.second->getType();
+		if (premadeMonuments.contains(monumentName))
+			existentMonuments.emplace(monumentName);
 		else if (wonder.second->getStage() < 3)
 		{
-			if (wonder.second->getType() == "wonder_cathedral" || wonder.second->getType() == "wonder_mosque" || wonder.second->getType() == "wonder_synagogue" ||
-				wonder.second->getType() == "wonder_temple_pagan" || wonder.second->getType() == "wonder_temple_buddhist" || wonder.second->getType() == "wonder_temple_hindu")
+			if (monumentName == "wonder_cathedral" || monumentName == "wonder_mosque" || monumentName == "wonder_synagogue" ||
+				monumentName == "wonder_temple_pagan" || monumentName == "wonder_temple_buddhist" || monumentName == "wonder_temple_hindu")
 			{
 				if (wonder.second->getStage() < 1)
 					wonder.second->addUpgrade("generic_religious_upgrade_1");
@@ -91,7 +92,7 @@ std::set<std::string> CK2::Provinces::linkMonuments(const Wonders& wonders, Char
 					wonder.second->addUpgrade("generic_religious_upgrade_2");
 				wonder.second->addUpgrade("generic_religious_upgrade_3");
 			}
-			else if (wonder.second->getType() == "wonder_statue_ruler" || wonder.second->getType() == "wonder_statue_horse")
+			else if (monumentName == "wonder_statue_ruler" || monumentName == "wonder_statue_horse")
 			{
 				if (wonder.second->getStage() < 1)
 					wonder.second->addUpgrade("generic_statue_upgrade_1");
@@ -99,7 +100,7 @@ std::set<std::string> CK2::Provinces::linkMonuments(const Wonders& wonders, Char
 					wonder.second->addUpgrade("generic_statue_upgrade_2");
 				wonder.second->addUpgrade("generic_statue_upgrade_3");
 			}
-			else if (wonder.second->getType() == "wonder_fortress" || wonder.second->getType() == "wonder_underground_city" || wonder.second->getType() == "wonder_wall")
+			else if (monumentName == "wonder_fortress" || monumentName == "wonder_underground_city" || monumentName == "wonder_wall")
 			{
 				if (wonder.second->getStage() < 1)
 					wonder.second->addUpgrade("generic_fortification_upgrade_1");
@@ -107,7 +108,7 @@ std::set<std::string> CK2::Provinces::linkMonuments(const Wonders& wonders, Char
 					wonder.second->addUpgrade("generic_fortification_upgrade_2");
 				wonder.second->addUpgrade("generic_fortification_upgrade_3");
 			}
-			else if (wonder.second->getType() == "wonder_harbor" || wonder.second->getType() == "wonder_lighthouse")
+			else if (monumentName == "wonder_harbor" || monumentName == "wonder_lighthouse")
 			{
 				if (wonder.second->getStage() < 1)
 					wonder.second->addUpgrade("generic_coastal_upgrade_1");
@@ -115,7 +116,7 @@ std::set<std::string> CK2::Provinces::linkMonuments(const Wonders& wonders, Char
 					wonder.second->addUpgrade("generic_coastal_upgrade_2");
 				wonder.second->addUpgrade("generic_coastal_upgrade_3");
 			}
-			else if (wonder.second->getType() == "wonder_amphitheater" || wonder.second->getType() == "wonder_palace" || wonder.second->getType() == "wonder_garden")
+			else if (monumentName == "wonder_amphitheater" || monumentName == "wonder_palace" || monumentName == "wonder_garden")
 			{
 				if (wonder.second->getStage() < 1)
 					wonder.second->addUpgrade("generic_coastal_upgrade_1");
@@ -123,7 +124,7 @@ std::set<std::string> CK2::Provinces::linkMonuments(const Wonders& wonders, Char
 					wonder.second->addUpgrade("generic_coastal_upgrade_2");
 				wonder.second->addUpgrade("generic_coastal_upgrade_3");
 			}
-			else if (wonder.second->getType() == "wonder_university" || wonder.second->getType() == "wonder_library")
+			else if (monumentName == "wonder_university" || monumentName == "wonder_library")
 			{
 				if (wonder.second->getStage() < 1)
 					wonder.second->addUpgrade("generic_learning_upgrade_1");
@@ -131,8 +132,8 @@ std::set<std::string> CK2::Provinces::linkMonuments(const Wonders& wonders, Char
 					wonder.second->addUpgrade("generic_learning_upgrade_2");
 				wonder.second->addUpgrade("generic_learning_upgrade_3");
 			}
-			else if (wonder.second->getType() == "wonder_mausoleum" || wonder.second->getType() == "wonder_pyramid" ||
-					 wonder.second->getType() == "wonder_pagan_stones" || wonder.second->getType() == "wonder_aztec_pyramid")
+			else if (monumentName == "wonder_mausoleum" || monumentName == "wonder_pyramid" ||
+					 monumentName == "wonder_pagan_stones" || monumentName == "wonder_aztec_pyramid")
 			{
 				if (wonder.second->getStage() < 1)
 					wonder.second->addUpgrade("generic_misc_upgrade_1");
@@ -154,6 +155,6 @@ std::set<std::string> CK2::Provinces::linkMonuments(const Wonders& wonders, Char
 		provinceItr->second->loadMonument(wonder);
 		counter++;
 	}
-	Log(LogLevel::Info) << "<> " << counter << " active and finished wonders have been linked.";
+	Log(LogLevel::Info) << "<> " << counter << " wonders have been linked.";
 	return existentMonuments;
 }

@@ -61,7 +61,7 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 	Log(LogLevel::Progress) << "58 %";
 
 	// Next we import ck2 provinces and translate them ontop a significant part of all imported provinces.
-	importCK2Provinces(sourceWorld, commonItems::DoesFileExist(theConfiguration.getEU4Path() + "/dlc/dlc106_leviathan/dlc106.dlc"));
+	importCK2Provinces(sourceWorld, sourceWorld.isLeviathanDLCPresent());
 	Log(LogLevel::Progress) << "59 %";
 
 	// With Ck2 provinces linked to those eu4 provinces they affect, we can adjust eu4 province dev values.
@@ -1595,8 +1595,6 @@ void EU4::World::importCK2Provinces(const CK2::World& sourceWorld, bool hasLevia
 		{
 			province.second->initializeFromCK2(sourceProvince->second, cultureMapper, religionMapper);
 		}
-		if (hasLeviathan)
-			province.second->buildMonument();
 		// And finally, initialize it.
 		counter++;
 	}

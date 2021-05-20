@@ -8,8 +8,8 @@ TEST(Mappers_MonumentsMapperTests, doesItCatchNothing)
 
 	mappers::MonumentsMapper theMapper(input);
 
-	const auto& test = theMapper.getWonders().size();
-	ASSERT_EQ(0, test);
+	const auto& test = theMapper.getWonders();
+	ASSERT_TRUE(test.empty());
 }
 
 TEST(Mappers_MonumentsMapperTests, doesItCatchAnything)

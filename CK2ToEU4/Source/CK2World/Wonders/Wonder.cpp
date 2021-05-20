@@ -12,47 +12,44 @@ CK2::Wonder::Wonder(std::istream& theStream)
 void CK2::Wonder::registerKeys()
 {
 	registerKeyword("type", [this](const std::string& unused, std::istream& theStream) {
-		const commonItems::singleString typeStr(theStream);
-		type = typeStr.getString();
+		type = commonItems::singleString(theStream).getString();
 	});
 	registerKeyword("province", [this](const std::string& unused, std::istream& theStream) {
-		const commonItems::singleInt provinceInt(theStream);
-		provinceID = provinceInt.getInt();
+		provinceID = commonItems::singleInt(theStream).getInt();
 	});	
 	registerKeyword("name", [this](const std::string& unused, std::istream& theStream) {
-		const commonItems::singleString nameStr(theStream);
-		name = nameStr.getString();
+		name = commonItems::singleString(theStream).getString();
 	});
 	registerKeyword("desc", [this](const std::string& mods, std::istream& theStream) {
 		desc = commonItems::singleString(theStream).getString();
 	});
 	registerKeyword("construction_history", [this](const std::string& mods, std::istream& theStream) {
-		const auto& constructionBlobs = commonItems::blobList(theStream);
-		for (auto blob: constructionBlobs.getBlobs())
+		for (const auto& blob: commonItems::blobList(theStream).getBlobs())
 		{
 			std::stringstream tempStream(blob);
 			fillConstructionHistory(tempStream);
 		}
 	});
 	registerKeyword("stage", [this](const std::string& unused, std::istream& theStream) {
-		const commonItems::singleInt stageInt(theStream);
-		stage = stageInt.getInt();
+		stage = commonItems::singleInt(theStream).getInt();
 	});
 	registerKeyword("active", [this](const std::string& unused, std::istream& theStream) {
-		const commonItems::singleString activeStr(theStream);
-		active = activeStr.getString() == "yes";
+		active = (commonItems::singleString(theStream).getString() == "yes");
 	});
 	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }
 void CK2::Wonder::fillConstructionHistory(std::istream& theStream)
 {
 	registerKeyword("wonder_historical_event_character", [this](const std::string& mods, std::istream& theStream) {
+		const auto& tempBuilder = commonItems::singleLlong(theStream).getLlong();
 		if (builder == 0)
-			builder = commonItems::singleLlong(theStream).getLlong(); //This should get the first builder
+			builder = tempBuilder;
+			
 	});
 	registerKeyword("wonder_historical_event_date", [this](const std::string& mods, std::istream& theStream) {
-		if (date < 1 || commonItems::singleInt(theStream).getInt() < date) //Gets the earliest date
-			date = commonItems::singleInt(theStream).getInt();
+		const auto& tempDate = commonItems::singleInt(theStream).getInt();
+		if (binaryDate < 1 || tempDate < binaryDate) // Gets the earliest date
+			binaryDate = tempDate;
 	});
 	registerKeyword("wonder_upgrade", [this](const std::string& mods, std::istream& theStream) {
 		upgrades.insert(commonItems::singleString(theStream).getString());
@@ -60,13 +57,13 @@ void CK2::Wonder::fillConstructionHistory(std::istream& theStream)
 	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }
 
-void CK2::Wonder::setTrueDate(int mod)
+void CK2::Wonder::setTrueDate(int binaryDate)
 {
-	short hours = mod % 24;
-	mod /= 24;
-	short month_day_from_julian = mod % 365;
-	mod /= 365;
-	mod -= 5000;
+	short hours = binaryDate % 24;
+	binaryDate /= 24;
+	short month_day_from_julian = binaryDate % 365;
+	binaryDate /= 365;
+	binaryDate -= 5000;
 
 	short month = 12;
 	short days = 1;
@@ -128,5 +125,5 @@ void CK2::Wonder::setTrueDate(int mod)
 	else
 		days = month_day_from_julian - 333;
 
-	setTrueDate(mod + "." + std::to_string(month) + "." + std::to_string(days));
+	trueDate = (binaryDate + "." + std::to_string(month) + "." + std::to_string(days));
 }

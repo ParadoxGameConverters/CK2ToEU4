@@ -36,14 +36,14 @@ void mappers::MonumentsMapping::registerKeys()
 void mappers::MonumentsMapping::CreateBuildTrigger(std::istream& theStream)
 {	
 	registerKeyword("religious_groups", [this](const std::string& mods, std::istream& theStream) {
-		const auto groups = commonItems::stringList(theStream).getStrings();
+		const auto& groups = commonItems::stringList(theStream).getStrings();
 		for (auto& group: groups)
 		{
 			buildTrigger += ("AND = {\n\t\t\t\treligion_group = " + group + "\n\t\t\t\thas_owner_religion = yes\n\t\t\t}\n\t\t");
 		}
 	});
 	registerKeyword("cultural_groups", [this](const std::string& mods, std::istream& theStream) {
-		const auto groups = commonItems::stringList(theStream).getStrings();
+		const auto& groups = commonItems::stringList(theStream).getStrings();
 		for (auto& group: groups)
 		{
 			buildTrigger += ("AND = {\n\t\t\t\tcultural_groups = " + group + "\n\t\t\t\thas_owner_culture = yes\n\t\t\t}\n\t\t");
@@ -63,7 +63,7 @@ void mappers::MonumentsMapping::CreateBuildTrigger(std::istream& theStream)
 void mappers::MonumentsMapping::AddProvinceSet(std::istream& theStream)
 {
 	registerRegex(commonItems::catchallRegex, [this](const std::string& mods, std::istream& theStream) {
-		if (numOfModifiers < 5 && !provinceModifiers.count(mods))
+		if (numOfModifiers < 5 && !provinceModifiers.contains(mods))
 		{
 			provinceModifiers.emplace(mods, commonItems::doubleList(theStream).getDoubles());
 			numOfModifiers++;
@@ -73,7 +73,7 @@ void mappers::MonumentsMapping::AddProvinceSet(std::istream& theStream)
 void mappers::MonumentsMapping::AddAreaSet(std::istream& theStream)
 {
 	registerRegex(commonItems::catchallRegex, [this](const std::string& mods, std::istream& theStream) {
-		if (numOfModifiers < 5 && !provinceModifiers.count(mods))
+		if (numOfModifiers < 5 && !provinceModifiers.contains(mods))
 		{
 			areaModifiers.emplace(mods, commonItems::doubleList(theStream).getDoubles());
 			numOfModifiers++;
@@ -83,7 +83,7 @@ void mappers::MonumentsMapping::AddAreaSet(std::istream& theStream)
 void mappers::MonumentsMapping::AddCountrySet(std::istream& theStream)
 {
 	registerRegex(commonItems::catchallRegex, [this](const std::string& mods, std::istream& theStream) {
-		if (numOfModifiers < 5 && !provinceModifiers.count(mods))
+		if (numOfModifiers < 5 && !provinceModifiers.contains(mods))
 		{
 			countryModifiers.emplace(mods, commonItems::doubleList(theStream).getDoubles());
 			numOfModifiers++;

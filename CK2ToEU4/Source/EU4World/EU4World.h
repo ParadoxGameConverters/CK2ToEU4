@@ -47,7 +47,7 @@ class World
 	void outputVersion(const mappers::VersionParser& versionParser, const Configuration& theConfiguration) const;
 	void outputCommonCountriesFile(const Configuration& theConfiguration) const;
 	void outputHistoryCountries(const Configuration& theConfiguration) const;
-	void outputHistoryProvinces(const Configuration& theConfiguration, std::set<std::string> premades) const;
+	void outputHistoryProvinces(const Configuration& theConfiguration, const std::set<std::string>& premades) const;
 	void outputInvasionExtras(const Configuration& theConfiguration, bool invasion) const;
 	void outputCommonCountries(const Configuration& theConfiguration) const;
 	void outputLocalization(const Configuration& theConfiguration, bool invasion, bool greekReformation) const;

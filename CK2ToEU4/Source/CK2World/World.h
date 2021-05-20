@@ -45,6 +45,7 @@ class World: commonItems::parser
 	[[nodiscard]] const auto& getReligionReforms() const { return religionReforms; }
 	[[nodiscard]] const auto& getUnreligionReforms() const { return unreligionReforms; }
 	[[nodiscard]] const auto& getExistentPremadeMonuments() const { return existentPremadeMonuments; }
+	[[nodiscard]] auto isLeviathanDLCPresent() const { return leviathanDLC; }
 	[[nodiscard]] auto isInvasion() const { return invasion; }
 	[[nodiscard]] auto wasNoReformation() const { return wereNoReformations; }
 	[[nodiscard]] auto isGreekReformation() const { return greekReformation; }
@@ -77,6 +78,7 @@ class World: commonItems::parser
 	void loadDynasties(const Configuration& theConfiguration);
 	void loadProvinces(const Configuration& theConfiguration);
 
+	bool leviathanDLC;
 	bool invasion = false;	
 	bool wereNoReformations = true;
 	bool greekReformation = false;

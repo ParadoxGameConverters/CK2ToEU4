@@ -58,8 +58,6 @@ class Province
 	void setMil(int mil) { details.baseManpower = mil; }
 	void buildFort() { details.fort = true; }
 	void addDiscoveredBy(const std::string& bywhom) { details.discoveredBy.insert(bywhom); }
-	void buildMonument();
-	void setHasMonument() { hasMonument = true; }
 	void sterilize();
 
 	friend std::ostream& operator<<(std::ostream& output, const Province& versionParser);

@@ -16,9 +16,9 @@ class Provinces: commonItems::parser
 	[[nodiscard]] const auto& getProvinces() const { return provinces; }
 	
 
-	void linkPrimarySettlements();
-	void linkWonders(const Wonders& wonders); //No Leviathan DLC
-	std::set<std::string> linkMonuments(const Wonders& wonders, Characters characters); // Leviathan DLC
+	[[nodiscard]] void linkPrimarySettlements();
+	[[nodiscard]] void linkWonders(const Wonders& wonders);														  // No Leviathan DLC
+	const std::set<std::string>& linkMonuments(const Wonders& wonders, const Characters& characters); // Leviathan DLC
 
   private:
 	void registerKeys();

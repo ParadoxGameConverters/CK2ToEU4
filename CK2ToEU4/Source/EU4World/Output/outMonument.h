@@ -15,7 +15,7 @@ namespace EU4
 	{
 		public:
 			outMonument(const Configuration& theConfiguration, std::optional<std::pair<int, std::shared_ptr<CK2::Wonder>>> wonder); //Dynamic Monuments
-			outMonument(const Configuration theConfiguration, std::set<std::string> premades); //Premade Monuments
+			outMonument(const Configuration& theConfiguration, const std::set<std::string>& premades); //Premade Monuments
 	};
 }; // namespace outReligion
 

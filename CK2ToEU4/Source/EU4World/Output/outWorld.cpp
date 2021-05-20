@@ -330,7 +330,7 @@ void EU4::World::outputCommonCountriesFile(const Configuration& theConfiguration
 	output.close();
 }
 
-void EU4::World::outputHistoryProvinces(const Configuration& theConfiguration, std::set<std::string> premades) const
+void EU4::World::outputHistoryProvinces(const Configuration& theConfiguration, const std::set<std::string>& premades) const
 {
 	commonItems::TryCreateFolder("output/" + theConfiguration.getOutputName() + "/common/great_projects/");
 	commonItems::TryCopyFile("configurables/monuments/great_projects/01_monuments.txt", "output/" + theConfiguration.getOutputName() + "/common/great_projects/");

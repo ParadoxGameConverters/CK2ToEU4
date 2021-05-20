@@ -20,7 +20,7 @@ class Wonder: commonItems::parser
 	[[nodiscard]] auto getStage() const { return stage; }
 	[[nodiscard]] auto getProvinceID() const { return provinceID; }
 	[[nodiscard]] auto getBuilder() const { return builder; }
-	[[nodiscard]] auto getDate() const { return date; }
+	[[nodiscard]] auto getBinaryDate() const { return binaryDate; }
 	[[nodiscard]] auto isActive() const { return active; }
 	[[nodiscard]] auto isTransferrable() const { return active && stage == 3; }
 	[[nodiscard]] auto getTrueDate() { return trueDate; }
@@ -30,8 +30,7 @@ class Wonder: commonItems::parser
 	[[nodiscard]] auto isSpent() const { return spent; }
 	void addUpgrade(std::string mod){ upgrades.emplace(mod); }
 	void setWonderID(short mod) { wonderID = mod; }
-	void setTrueDate(std::string mod) { trueDate = mod; }
-	void setTrueDate(int mod);
+	void setTrueDate(int binaryDate);
 	void setBuilderCulture(std::string culture) { builderCulture = culture; }
 	void setBuilderReligion(std::string religion) { builderReligion = religion; }
 	void setSpent() { spent = true; }
@@ -43,7 +42,7 @@ class Wonder: commonItems::parser
 	short stage = 0;
 	int provinceID = 0;
 	long long builder = 0;
-	int date = 0;
+	int binaryDate = 0;
 	bool active = false;
 	bool spent = false;
 	std::string type;

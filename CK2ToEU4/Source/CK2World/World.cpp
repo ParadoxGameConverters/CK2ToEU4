@@ -164,10 +164,11 @@ CK2::World::World(const Configuration& theConfiguration)
 	provinces.linkPrimarySettlements();
 	Log(LogLevel::Progress) << "19 %";
 	LOG(LogLevel::Info) << "-- Linking Provinces With Wonders";
-	if (!commonItems::DoesFileExist(theConfiguration.getEU4Path() + "/dlc/dlc106_leviathan/dlc106.dlc"))
-		provinces.linkWonders(wonders);
-	else
+	leviathanDLC = commonItems::DoesFileExist(theConfiguration.getEU4Path() + "/dlc/dlc106_leviathan/dlc106.dlc");
+	if (isLeviathanDLCPresent())
 		setExistentPremadeMonuments(provinces.linkMonuments(wonders, characters));
+	else
+		provinces.linkWonders(wonders);
 	Log(LogLevel::Progress) << "20 %";
 	LOG(LogLevel::Info) << "-- Linking Titles With Holders";
 	titles.linkHolders(characters);
