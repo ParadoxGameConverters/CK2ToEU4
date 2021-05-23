@@ -1,6 +1,9 @@
 #include "../../CK2ToEU4/Source/Mappers/MonumentsMapper/MonumentsMapping.h"
 #include "gtest/gtest.h"
 #include <sstream>
+#include <string>
+#include <iostream>
+using namespace std;
 
 // Default
 TEST(Mappers_MonumentsMapping, defaultClassTest)
@@ -34,12 +37,11 @@ TEST(Mappers_MonumentsMappingTests, doesItGetTheRightProvinceModifiers)
 
 	const auto& test = theMapper.getProvinceModifiers();
 
-	std::map<std::string, std::vector<double>> tester;
 	std::string a = "local_defensiveness";
 	std::vector<double> b = {0.05, 0.2, 0.33, 0.33};
-	tester.emplace(std::pair(a, b));
 
-	ASSERT_EQ(tester, test);
+	ASSERT_EQ(test.find(a)->first, a);
+	ASSERT_EQ(test.find(a)->second, b);	
 }
 
 TEST(Mappers_MonumentsMappingTests, doesItGetTheRightAreaModifiers)
@@ -49,31 +51,29 @@ TEST(Mappers_MonumentsMappingTests, doesItGetTheRightAreaModifiers)
 
 	mappers::MonumentsMapping theMapper(input);
 
-	const auto& test = theMapper.getProvinceModifiers();
+	const auto& test = theMapper.getAreaModifiers();
 
-	std::map<std::string, std::vector<double>> tester;
 	std::string a = "local_defensiveness";
 	std::vector<double> b = {0.05, 0.2, 0.33, 0.33};
-	tester.emplace(std::pair(a, b));
 
-	ASSERT_EQ(tester, test);
+	ASSERT_EQ(test.find(a)->first, a);
+	ASSERT_EQ(test.find(a)->second, b);
 }
 
 TEST(Mappers_MonumentsMappingTests, doesItGetTheRightCountryModifiers)
 {
 	std::stringstream input;
-	input << "country = { defensiveness = { 0.05 0.2 0.33 0.33 } }";
+	input << "country_modifiers = { defensiveness = { 0.05 0.2 0.33 0.33 } }";
 
 	mappers::MonumentsMapping theMapper(input);
 
-	const auto& test = theMapper.getProvinceModifiers();
+	const auto& test = theMapper.getCountryModifiers();
 
-	std::map<std::string, std::vector<double>> tester;
 	std::string a = "defensiveness";
 	std::vector<double> b = {0.05, 0.2, 0.33, 0.33};
-	tester.emplace(std::pair(a, b));
 
-	ASSERT_EQ(tester, test);
+	ASSERT_EQ(test.find(a)->first, a);
+	ASSERT_EQ(test.find(a)->second, b);
 }
 
 TEST(Mappers_MonumentsMappingTests, doesItGetTheRightOnUpgraded)
@@ -85,7 +85,7 @@ TEST(Mappers_MonumentsMappingTests, doesItGetTheRightOnUpgraded)
 
 	const auto& test = theMapper.getOnUpgraded();
 
-	ASSERT_EQ("do a thing= yes", test);
+	ASSERT_EQ(" do a thing = yes ", test);
 }
 
 TEST(Mappers_MonumentsMappingTests, doesItGetBuilderCulture)

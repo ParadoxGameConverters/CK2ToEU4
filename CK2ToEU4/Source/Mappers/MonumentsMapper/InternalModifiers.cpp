@@ -1,0 +1,26 @@
+#include "Log.h"
+#include "ParserHelpers.h"
+#include "InternalModifiers.h"
+#include <iomanip>
+#include <set>
+
+mappers::InternalModifiers::InternalModifiers()
+{
+	registerKeys();
+	clearRegisteredKeywords();
+}
+
+mappers::InternalModifiers::InternalModifiers(std::istream& theStream)
+{
+	registerKeys();
+	parseStream(theStream);
+	clearRegisteredKeywords();
+}
+
+void mappers::InternalModifiers::registerKeys()
+{
+	registerRegex(commonItems::catchallRegex, [this](const std::string& mod, std::istream& theStream) {
+		modifierType = mod;
+		modifierValues = commonItems::doubleList(theStream).getDoubles();	
+	});
+}

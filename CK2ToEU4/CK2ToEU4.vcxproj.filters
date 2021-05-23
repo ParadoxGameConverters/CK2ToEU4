@@ -276,6 +276,9 @@
     <ClCompile Include="Source\EU4World\Output\outMonument.cpp">
       <Filter>EU4World\Output</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Mappers\MonumentsMapper\InternalModifiers.cpp">
+      <Filter>Mappers\MonumentsMapper</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CK2ToEU4Converter.h" />
@@ -533,6 +536,9 @@
     </ClInclude>
     <ClInclude Include="Source\EU4World\Output\outMonument.h">
       <Filter>EU4World\Output</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Mappers\MonumentsMapper\InternalModifiers.h">
+      <Filter>Mappers\MonumentsMapper</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -167,7 +167,7 @@ EU4::outMonument::outMonument(const Configuration& theConfiguration, std::option
 	output << "\n}";
 }
 
-EU4::outMonument::outMonument(const Configuration& theConfiguration, std::set<std::string>& premades)
+EU4::outMonument::outMonument(const Configuration& theConfiguration, const std::set<std::string>& premades)
 {
 	if (premades.contains("wonder_pyramid_giza"))
 		commonItems::TryCopyFile("configurables/monuments/great_projects/103_pyramids_of_cheops.txt", "output/" + theConfiguration.getOutputName() + "/common/great_projects/");

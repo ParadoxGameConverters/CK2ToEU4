@@ -68,7 +68,7 @@ void CK2::Provinces::linkWonders(const Wonders& wonders) //No Leviathan DLC
 	}
 	Log(LogLevel::Info) << "<> " << counter << " active and finished wonders have been linked.";
 }
-const std::set<std::string>& CK2::Provinces::linkMonuments(const Wonders& wonders, const Characters& characters) // Leviathan DLC
+std::set<std::string> CK2::Provinces::linkMonuments(const Wonders& wonders, const Characters& characters) // Leviathan DLC
 {
 	auto counter = 0;
 	std::set<std::string> premadeMonuments = { "wonder_pyramid_giza", "wonder_pagan_stones_stonehenge" "wonder_mausoleum_halicarnassus", "wonder_lighthouse_alexandria",

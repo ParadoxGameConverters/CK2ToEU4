@@ -365,6 +365,7 @@
     <ClCompile Include="Source\Mappers\GovernmentsMapper\GovernmentsMapping.cpp" />
     <ClCompile Include="Source\Mappers\IAmHreMapper\IAmHreMapper.cpp" />
     <ClCompile Include="Source\Mappers\LocalizationMapper\LocalizationMapper.cpp" />
+    <ClCompile Include="Source\Mappers\MonumentsMapper\InternalModifiers.cpp" />
     <ClCompile Include="Source\Mappers\MonumentsMapper\MonumentsMapper.cpp" />
     <ClCompile Include="Source\Mappers\MonumentsMapper\MonumentsMapping.cpp" />
     <ClCompile Include="Source\Mappers\PersonalityScraper\PersonalityScraper.cpp" />
@@ -457,6 +458,7 @@
     <ClInclude Include="Source\Mappers\LocalizationMapper\LocalizationMapper.h" />
     <ClCompile Include="Source\Mappers\MonumentsMapper\MonumentsMapper.h" />
     <ClCompile Include="Source\Mappers\MonumentsMapper\MonumentsMapping.h" />
+    <ClInclude Include="Source\Mappers\MonumentsMapper\InternalModifiers.h" />
     <ClInclude Include="Source\Mappers\PersonalityScraper\PersonalityScraper.h" />
     <ClInclude Include="Source\Mappers\PrimaryTagMapper\PrimaryTagCultureGroup.h" />
     <ClInclude Include="Source\Mappers\PrimaryTagMapper\PrimaryTagMapper.h" />

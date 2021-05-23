@@ -1,5 +1,6 @@
 #include "ParserHelpers.h"
 #include "MonumentsMapping.h"
+#include "InternalModifiers.h"
 #include <iomanip>
 
 mappers::MonumentsMapping::MonumentsMapping(std::istream& theStream)
@@ -29,7 +30,10 @@ void mappers::MonumentsMapping::registerKeys()
 		AddCountrySet(theStream);
 	});
 	registerKeyword("on_upgraded", [this](const std::string& mods, std::istream& theStream) {
-		onUpgraded = commonItems::singleString(theStream).getString();
+		onUpgraded = commonItems::stringOfItem(theStream).getString();
+
+		onUpgraded = onUpgraded.substr(onUpgraded.find('{')+1, onUpgraded.length());
+		onUpgraded = onUpgraded.substr(0, onUpgraded.find('}'));
 	});
 	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }
@@ -62,31 +66,37 @@ void mappers::MonumentsMapping::CreateBuildTrigger(std::istream& theStream)
 }
 void mappers::MonumentsMapping::AddProvinceSet(std::istream& theStream)
 {
-	registerRegex(commonItems::catchallRegex, [this](const std::string& mods, std::istream& theStream) {
-		if (numOfModifiers < 5 && !provinceModifiers.contains(mods))
-		{
-			provinceModifiers.emplace(mods, commonItems::doubleList(theStream).getDoubles());
-			numOfModifiers++;
-		}
-	});
+	mappers::InternalModifiers mods(theStream);
+	const auto& tempMod = mods.getModifierType();
+	const auto& tempValues = mods.getModifierValues();
+
+	if (numOfModifiers < 5 && !provinceModifiers.contains(tempMod))
+	{
+		provinceModifiers.emplace(tempMod, tempValues);
+		numOfModifiers++;
+	}
 }
 void mappers::MonumentsMapping::AddAreaSet(std::istream& theStream)
 {
-	registerRegex(commonItems::catchallRegex, [this](const std::string& mods, std::istream& theStream) {
-		if (numOfModifiers < 5 && !provinceModifiers.contains(mods))
-		{
-			areaModifiers.emplace(mods, commonItems::doubleList(theStream).getDoubles());
-			numOfModifiers++;
-		}
-	});
+	mappers::InternalModifiers mods(theStream);
+	const auto& tempMod = mods.getModifierType();
+	const auto& tempValues = mods.getModifierValues();
+	
+	if (numOfModifiers < 5 && !areaModifiers.contains(tempMod))
+	{
+		areaModifiers.emplace(tempMod, tempValues);
+		numOfModifiers++;
+	}
 }
 void mappers::MonumentsMapping::AddCountrySet(std::istream& theStream)
 {
-	registerRegex(commonItems::catchallRegex, [this](const std::string& mods, std::istream& theStream) {
-		if (numOfModifiers < 5 && !provinceModifiers.contains(mods))
-		{
-			countryModifiers.emplace(mods, commonItems::doubleList(theStream).getDoubles());
-			numOfModifiers++;
-		}
-	});
+	mappers::InternalModifiers mods(theStream);
+	const auto& tempMod = mods.getModifierType();
+	const auto& tempValues = mods.getModifierValues();
+
+	if (numOfModifiers < 5 && !countryModifiers.contains(tempMod))
+	{
+		countryModifiers.emplace(tempMod, tempValues);
+		numOfModifiers++;
+	}
 }
