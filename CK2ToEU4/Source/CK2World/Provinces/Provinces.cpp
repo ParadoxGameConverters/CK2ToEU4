@@ -71,7 +71,7 @@ void CK2::Provinces::linkWonders(const Wonders& wonders) //No Leviathan DLC
 std::set<std::string> CK2::Provinces::linkMonuments(const Wonders& wonders, const Characters& characters) // Leviathan DLC
 {
 	auto counter = 0;
-	std::set<std::string> premadeMonuments = { "wonder_pyramid_giza", "wonder_pagan_stones_stonehenge" "wonder_mausoleum_halicarnassus", "wonder_lighthouse_alexandria",
+	std::set<std::string> premadeMonuments = { "wonder_pyramid_giza", "wonder_pagan_stones_stonehenge", "wonder_mausoleum_halicarnassus", "wonder_lighthouse_alexandria",
 											   "wonder_temple_hindu_konark", "wonder_apostolic_palace", "wonder_house_of_wisdom", "wonder_underground_city_petra",
 											   "wonder_cathedral_hagia_sophia", "wonder_cathedral_notre_dame" //Theses monuments have set definitions already
 	};

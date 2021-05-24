@@ -1,4 +1,5 @@
 #include "outMonument.h"
+#include <fstream>
 
 EU4::outMonument::outMonument(const Configuration& theConfiguration, std::optional<std::pair<int, std::shared_ptr<CK2::Wonder>>> wonder)
 {
