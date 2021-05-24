@@ -333,10 +333,10 @@ void EU4::World::outputCommonCountriesFile(const Configuration& theConfiguration
 void EU4::World::outputHistoryProvinces(const Configuration& theConfiguration, const std::set<std::string>& premades) const
 {
 	commonItems::TryCreateFolder("output/" + theConfiguration.getOutputName() + "/common/great_projects/");
-	commonItems::TryCopyFile("configurables/monuments/great_projects/01_monuments.txt", "output/" + theConfiguration.getOutputName() + "/common/great_projects/");
-	commonItems::TryCopyFile("configurables/monuments/great_projects/101_old_monuments.txt", "output/" + theConfiguration.getOutputName() + "/common/great_projects/");
-	commonItems::TryCopyFile("configurables/monuments/great_projects/102_unbuilt_at_game_start.txt", "output/" + theConfiguration.getOutputName() + "/common/great_projects/");
-	commonItems::TryCopyFile("configurables/monuments/great_projects/!00_converted_monuments.txt", "output/" + theConfiguration.getOutputName() + "/common/great_projects/");
+	commonItems::TryCopyFile("configurables/monuments/great_projects/01_monuments.txt", "output/" + theConfiguration.getOutputName() + "/common/great_projects/01_monuments.txt");
+	commonItems::TryCopyFile("configurables/monuments/great_projects/101_old_monuments.txt", "output/" + theConfiguration.getOutputName() + "/common/great_projects/101_old_monuments.txt");
+	commonItems::TryCopyFile("configurables/monuments/great_projects/102_unbuilt_at_game_start.txt", "output/" + theConfiguration.getOutputName() + "/common/great_projects/102_unbuilt_at_game_start.txt");
+	commonItems::TryCopyFile("configurables/monuments/great_projects/!00_converted_monuments.txt", "output/" + theConfiguration.getOutputName() + "/common/great_projects/!00_converted_monuments.txt");
 	outMonument(theConfiguration, premades); //Outputs Premade files
 	for (const auto& province: provinces)
 	{
