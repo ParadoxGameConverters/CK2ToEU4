@@ -3,17 +3,24 @@
 
 EU4::outMonument::outMonument(const Configuration& theConfiguration, std::optional<std::pair<int, std::shared_ptr<CK2::Wonder>>> wonder)
 {
-	std::ofstream output("output/" + theConfiguration.getOutputName() + " /common/great_projects/!00_converted_monuments.txt");
+	if (!wonder->second)
+	{
+		Log(LogLevel::Error) << "You fed me a dangling pointer.";
+		return;
+	}
+
+	std::ofstream output("output/" + theConfiguration.getOutputName() + "/common/great_projects/!00_converted_monuments.txt", std::ios::out | std::ios::app);
 	if (!output.is_open())
 		throw std::runtime_error("Could not create monuments file: output/" + theConfiguration.getOutputName() + "/common/great_projects/!00_converted_monuments.txt");
 
 	mappers::MonumentsMapper monumentsMapper;
-	mappers::MonumentsMapping monumentsMapping;
 
 	std::string canBeMoved = "no";
 	std::string builderTrigger;
 	std::vector<std::string> onUpgraded;
+
 	wonder->second->setTrueDate(wonder->second->getBinaryDate());
+	Log(LogLevel::Debug) << "Date: " << wonder->second->getTrueDate();
 
 	std::map<std::string, std::vector<double>> provinceModifiers;
 	std::map<std::string, std::vector<double>> areaModifiers;
@@ -25,7 +32,12 @@ EU4::outMonument::outMonument(const Configuration& theConfiguration, std::option
 	{
 		bool addedMod = false;
 
-		monumentsMapping = monumentsMapper.getWonders().find(upgrade)->second;
+		if (monumentsMapper.getWonders().find(upgrade) == monumentsMapper.getWonders().end())
+		{
+			Log(LogLevel::Warning) << "Upgrade " << upgrade << " has no mapping!";
+			continue;
+		}
+		auto monumentsMapping = monumentsMapper.getWonders().find(upgrade)->second;
 		if (monumentsMapping.getCanBeMoved())
 			canBeMoved = "yes";
 		if (!monumentsMapping.getBuildTrigger().empty())
@@ -37,19 +49,19 @@ EU4::outMonument::outMonument(const Configuration& theConfiguration, std::option
 				builderTrigger += "AND = {\n\t\t\t\treligion = " + wonder->second->getBuilderReligion() + "\n\t\t\t\thas_owner_religion = yes\n\t\t\t}\n\t\t";
 		}
 		for (const auto& mod: monumentsMapping.getProvinceModifiers())
-			if (!provinceModifiers.count(mod.first))
+			if (!provinceModifiers.contains(mod.first))
 			{
 				provinceModifiers.emplace(mod);
 				addedMod = true;
 			}
 		for (const auto& mod: monumentsMapping.getAreaModifiers())
-			if (!provinceModifiers.count(mod.first))
+			if (!provinceModifiers.contains(mod.first))
 			{
 				areaModifiers.emplace(mod);
 				addedMod = true;
 			}
 		for (const auto& mod: monumentsMapping.getCountryModifiers())
-			if (!provinceModifiers.count(mod.first))
+			if (!provinceModifiers.contains(mod.first))
 			{
 				countryModifiers.emplace(mod);
 				addedMod = true;
@@ -150,44 +162,46 @@ EU4::outMonument::outMonument(const Configuration& theConfiguration, std::option
 		output << "cost_to_upgrade = {\n\t\t\tfactor = 7000\n\t\t}\n\n\t";
 		output << "province_modifiers = {\n\t\t\t";
 			for (auto modifiers: provinceModifiers)
-				output << modifiers.first << " = " << modifiers.second[0] << "\n\t\t\t";
+				output << modifiers.first << " = " << modifiers.second[3] << "\n\t\t\t";
 			output << "\n\t\t}\n\n\t\t";
 		output << "area_modifier = {\n\t\t\t";
 			for (auto modifiers: areaModifiers)
-				output << modifiers.first << " = " << modifiers.second[0] << "\n\t\t\t";
+				output << modifiers.first << " = " << modifiers.second[3] << "\n\t\t\t";
 			output << "\n\t\t}\n\n\t\t";
 		output << "country_modifiers = {\n\t\t\t";
 			for (auto modifiers: countryModifiers)
-				output << modifiers.first << " = " << modifiers.second[0] << "\n\t\t\t";
+				output << modifiers.first << " = " << modifiers.second[3] << "\n\t\t\t";
 			output << "\n\t\t}\n\n\t\t";
 		output << "on_upgraded = {\n\t\t\t";
 			for (auto effect: onUpgraded)
 				output << effect << "\n\t\t\t";
 			output << "\n\t\t}";
 		output << "\n\t}";
-	output << "\n}";
+	output << "\n}\n\n#-----------------------------\n\n";
+
+	output.close();
 }
 
 EU4::outMonument::outMonument(const Configuration& theConfiguration, const std::set<std::string>& premades)
 {
 	if (premades.contains("wonder_pyramid_giza"))
-		commonItems::TryCopyFile("configurables/monuments/great_projects/103_pyramids_of_cheops.txt", "output/" + theConfiguration.getOutputName() + "/common/great_projects/");
+		commonItems::TryCopyFile("configurables/monuments/great_projects/103_pyramids_of_cheops.txt", "output/" + theConfiguration.getOutputName() + "/common/great_projects/103_pyramids_of_cheops.txt");
 	else if (premades.contains("wonder_pagan_stones_stonehenge"))
-		commonItems::TryCopyFile("configurables/monuments/great_projects/104_stonehenge.txt", "output/" + theConfiguration.getOutputName() + "/common/great_projects/");
+		commonItems::TryCopyFile("configurables/monuments/great_projects/104_stonehenge.txt", "output/" + theConfiguration.getOutputName() + "/common/great_projects/104_stonehenge.txt");
 	else if (premades.contains("wonder_mausoleum_halicarnassus"))
-		commonItems::TryCopyFile("configurables/monuments/great_projects/105_mausoleum_at_helicarnassus.txt", "output/" + theConfiguration.getOutputName() + "/common/great_projects/");
+		commonItems::TryCopyFile("configurables/monuments/great_projects/105_mausoleum_at_helicarnassus.txt", "output/" + theConfiguration.getOutputName() + "/common/great_projects/105_mausoleum_at_helicarnassus.txt");
 	else if (premades.contains("wonder_lighthouse_alexandria"))
-		commonItems::TryCopyFile("configurables/monuments/great_projects/106_lighthouse_of_alexandria.txt", "output/" + theConfiguration.getOutputName() + "/common/great_projects/");
+		commonItems::TryCopyFile("configurables/monuments/great_projects/106_lighthouse_of_alexandria.txt", "output/" + theConfiguration.getOutputName() + "/common/great_projects/106_lighthouse_of_alexandria.txt");
 	else if (premades.contains("wonder_temple_hindu_konark"))
-		commonItems::TryCopyFile("configurables/monuments/great_projects/107_hindu_konark.txt", "output/" + theConfiguration.getOutputName() + "/common/great_projects/");
+		commonItems::TryCopyFile("configurables/monuments/great_projects/107_hindu_konark.txt", "output/" + theConfiguration.getOutputName() + "/common/great_projects/107_hindu_konark.txt");
 	else if (premades.contains("wonder_apostolic_palace"))
-		commonItems::TryCopyFile("configurables/monuments/great_projects/108_apostolic_palace.txt", "output/" + theConfiguration.getOutputName() + "/common/great_projects/");
+		commonItems::TryCopyFile("configurables/monuments/great_projects/108_apostolic_palace.txt", "output/" + theConfiguration.getOutputName() + "/common/great_projects/108_apostolic_palace.txt");
 	else if (premades.contains("wonder_house_of_wisdom"))
-		commonItems::TryCopyFile("configurables/monuments/great_projects/109_house_of_wisdom.txt", "output/" + theConfiguration.getOutputName() + "/common/great_projects/");
+		commonItems::TryCopyFile("configurables/monuments/great_projects/109_house_of_wisdom.txt", "output/" + theConfiguration.getOutputName() + "/common/great_projects/109_house_of_wisdom.txt");
 	else if (premades.contains("wonder_underground_city_petra"))
-		commonItems::TryCopyFile("configurables/monuments/great_projects/110_petra.txt", "output/" + theConfiguration.getOutputName() + "/common/great_projects/");
+		commonItems::TryCopyFile("configurables/monuments/great_projects/110_petra.txt", "output/" + theConfiguration.getOutputName() + "/common/great_projects/110_petra.txt");
 	else if (premades.contains("wonder_cathedral_hagia_sophia"))
-		commonItems::TryCopyFile("configurables/monuments/great_projects/111_hagia_sophia.txt", "output/" + theConfiguration.getOutputName() + "/common/great_projects/");
+		commonItems::TryCopyFile("configurables/monuments/great_projects/111_hagia_sophia.txt", "output/" + theConfiguration.getOutputName() + "/common/great_projects/111_hagia_sophia.txt");
 	else if (premades.contains("wonder_cathedral_notre_dame"))
-		commonItems::TryCopyFile("configurables/monuments/great_projects/112_notre_dames.txt", "output/" + theConfiguration.getOutputName() + "/common/great_projects/");
+		commonItems::TryCopyFile("configurables/monuments/great_projects/112_notre_dames.txt", "output/" + theConfiguration.getOutputName() + "/common/great_projects/112_notre_dames.txt");
 }

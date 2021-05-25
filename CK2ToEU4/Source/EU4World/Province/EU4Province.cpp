@@ -119,17 +119,17 @@ void EU4::Province::initializeFromCK2(std::shared_ptr<CK2::Province> origProvinc
 	details.localAutonomy = 0; // let the game handle this.
 	// not touching native_size/ferocity/hostileness.
 	// not touching existing permanent modifiers. These mostly relate to new world anyway. Wonders do need to be added.
-	if (srcProvince->getWonder() && !srcProvince->getWonder()->second->isSpent()) // For non-Leviathan DLC Owners
+	if (srcProvince->getWonder() && srcProvince->getWonder()->second && !srcProvince->getWonder()->second->isSpent()) // For non-Leviathan DLC Owners
 	{
 		ProvinceModifier newModifier;
 		newModifier.name = srcProvince->getWonder()->second->getType();
 		details.provinceModifiers.emplace_back(newModifier);
 		srcProvince->getWonder()->second->setSpent(); // We must spend it to avoid mapping it into multiple eu4 provinces.
 	}
-	if (srcProvince->getMonument()) // For Leviathan DLC owners
+	if (srcProvince->getMonument() && srcProvince->getMonument()->second) // For Leviathan DLC owners
 	{
 		hasMonument = true;
-		srcProvince->getWonder()->second->setSpent(); // We must spend it to avoid mapping it into multiple eu4 provinces.
+		srcProvince->getMonument()->second->setSpent(); // We must spend it to avoid mapping it into multiple eu4 provinces.
 	}
 
 	details.shipyard = false; // we'll distribute these later.
