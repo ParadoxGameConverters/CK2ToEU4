@@ -71,18 +71,17 @@ void CK2::Provinces::linkWonders(const Wonders& wonders) //No Leviathan DLC
 std::set<std::string> CK2::Provinces::linkMonuments(const Wonders& wonders, const Characters& characters) // Leviathan DLC
 {
 	auto counter = 0;
-	std::set<std::string> premadeMonuments = { "wonder_pyramid_giza", "wonder_pagan_stones_stonehenge", "wonder_mausoleum_halicarnassus", "wonder_lighthouse_alexandria",
+	const std::set<std::string> premadeMonuments = { "wonder_pyramid_giza", "wonder_pagan_stones_stonehenge", "wonder_mausoleum_halicarnassus", "wonder_lighthouse_alexandria",
 											   "wonder_temple_hindu_konark", "wonder_apostolic_palace", "wonder_house_of_wisdom", "wonder_underground_city_petra",
 											   "wonder_cathedral_hagia_sophia", "wonder_cathedral_notre_dame" //Theses monuments have set definitions already
 	};
-	std::set<std::string> existentMonuments;
+	std::set<std::string> extantMonuments;
 	for (const auto& wonder: wonders.getWonders())
 	{
 		if (wonder.second)
-		{
-			const auto& monumentName = wonder.second->getType();
-			if (premadeMonuments.contains(monumentName))
-				existentMonuments.emplace(monumentName);
+		{			
+			if (const auto& monumentName = wonder.second->getType(); premadeMonuments.contains(monumentName))
+				extantMonuments.emplace(monumentName);
 			else if (wonder.second->getStage() < 3)
 			{
 				if (monumentName == "wonder_cathedral" || monumentName == "wonder_mosque" || monumentName == "wonder_synagogue" ||
@@ -145,8 +144,14 @@ std::set<std::string> CK2::Provinces::linkMonuments(const Wonders& wonders, cons
 				}
 			}
 
-			wonder.second->setBuilderCulture(characters.getCharacters().find(wonder.second->getBuilder())->second->getCulture());
-			wonder.second->setBuilderReligion(characters.getCharacters().find(wonder.second->getBuilder())->second->getReligion());
+			if (wonder.second->getBuilder() > 0)
+			{
+				if (const auto& builder = characters.getCharacters().find(wonder.second->getBuilder()); builder != characters.getCharacters().end())
+				{
+					wonder.second->setBuilderCulture(builder->second->getCulture());
+					wonder.second->setBuilderReligion(builder->second->getReligion());
+				}				
+			}
 
 			const auto& provinceItr = provinces.find(wonder.second->getProvinceID());
 			if (provinceItr == provinces.end())
@@ -159,5 +164,5 @@ std::set<std::string> CK2::Provinces::linkMonuments(const Wonders& wonders, cons
 		counter++;
 	}
 	Log(LogLevel::Info) << "<> " << counter << " wonders have been linked.";
-	return existentMonuments;
+	return extantMonuments;
 }

@@ -347,12 +347,7 @@ void EU4::World::outputHistoryProvinces(const Configuration& theConfiguration, c
 		output.close();
 
 		if (province.second->getHasMonument())
-		{						
-			std::ofstream output("output/" + theConfiguration.getOutputName() + "/common/great_projects/!00_converted_monuments.txt");
-			if (!output.is_open())
-				throw std::runtime_error("Could not create monuments file: output/" + theConfiguration.getOutputName() + "/common/great_projects/!00_converted_monuments.txt");
 			outMonument(theConfiguration, province.second->getSourceProvince()->getMonument());
-		}
 	}
 }
 

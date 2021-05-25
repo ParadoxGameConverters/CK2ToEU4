@@ -10,7 +10,7 @@ mappers::MonumentsMapper::MonumentsMapper()
 	registerKeys();
 	parseFile("configurables/monuments_mappings.txt");
 	clearRegisteredKeywords();
-	LOG(LogLevel::Info) << "<> " << " Monuments mapped.";
+	LOG(LogLevel::Info) << "<> " << wonders.size() << " Monuments mapped.";
 }
 
 mappers::MonumentsMapper::MonumentsMapper(std::istream& theStream)
