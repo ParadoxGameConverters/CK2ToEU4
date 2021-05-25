@@ -334,6 +334,7 @@
     <ClCompile Include="Source\CK2World\Titles\Title.cpp" />
     <ClCompile Include="Source\CK2World\Titles\Titles.cpp" />
     <ClCompile Include="Source\CK2World\Vars\Vars.cpp" />
+    <ClCompile Include="Source\CK2World\Wonders\ConstructionHistory.cpp" />
     <ClCompile Include="Source\CK2World\Wonders\Wonder.cpp" />
     <ClCompile Include="Source\CK2World\Wonders\Wonders.cpp" />
     <ClCompile Include="Source\CK2World\World.cpp" />
@@ -427,6 +428,7 @@
     <ClInclude Include="Source\CK2World\Titles\Title.h" />
     <ClInclude Include="Source\CK2World\Titles\Titles.h" />
     <ClInclude Include="Source\CK2World\Vars\Vars.h" />
+    <ClInclude Include="Source\CK2World\Wonders\ConstructionHistory.h" />
     <ClInclude Include="Source\CK2World\Wonders\Wonder.h" />
     <ClInclude Include="Source\CK2World\Wonders\Wonders.h" />
     <ClInclude Include="Source\CK2World\World.h" />

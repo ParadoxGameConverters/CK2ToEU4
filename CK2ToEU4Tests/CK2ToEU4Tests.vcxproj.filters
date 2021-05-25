@@ -560,6 +560,9 @@
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\MonumentsMapper\InternalModifiers.cpp">
       <Filter>ConverterFiles\Mappers\MonumentsMapper</Filter>
     </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Wonders\ConstructionHistory.cpp">
+      <Filter>ConverterFiles\CK2World\Wonders</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4WorldTests">

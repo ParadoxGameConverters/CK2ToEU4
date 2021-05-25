@@ -279,6 +279,9 @@
     <ClCompile Include="Source\Mappers\MonumentsMapper\InternalModifiers.cpp">
       <Filter>Mappers\MonumentsMapper</Filter>
     </ClCompile>
+    <ClCompile Include="Source\CK2World\Wonders\ConstructionHistory.cpp">
+      <Filter>CK2World\Wonders</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CK2ToEU4Converter.h" />
@@ -539,6 +542,9 @@
     </ClInclude>
     <ClInclude Include="Source\Mappers\MonumentsMapper\InternalModifiers.h">
       <Filter>Mappers\MonumentsMapper</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CK2World\Wonders\ConstructionHistory.h">
+      <Filter>CK2World\Wonders</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,6 +1,7 @@
 #include "Wonder.h"
 #include "Log.h"
 #include "ParserHelpers.h"
+#include "ConstructionHistory.h"
 
 CK2::Wonder::Wonder(std::istream& theStream)
 {
@@ -27,7 +28,13 @@ void CK2::Wonder::registerKeys()
 		for (const auto& blob: commonItems::blobList(theStream).getBlobs())
 		{
 			std::stringstream tempStream(blob);
-			fillConstructionHistory(tempStream);
+			auto historyItem = ConstructionHistory(tempStream);
+			if (const auto& tempBuilderID = historyItem.getBuilderID(); builderID == 0 && tempBuilderID > 0)
+				builderID = tempBuilderID;
+			if (const auto& tempDate = historyItem.getBinaryDate(); binaryDate == 0 || tempDate < binaryDate) // Gets the earliest date
+				binaryDate = tempDate;
+			if (!historyItem.getUpgrade().empty())
+				upgrades.insert(historyItem.getUpgrade());
 		}
 	});
 	registerKeyword("stage", [this](const std::string& unused, std::istream& theStream) {
@@ -38,35 +45,16 @@ void CK2::Wonder::registerKeys()
 	});
 	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }
-void CK2::Wonder::fillConstructionHistory(std::istream& theStream)
-{
-	registerKeyword("wonder_historical_event_character", [this](const std::string& mods, std::istream& theStream) {
-		const auto& tempBuilder = commonItems::singleLlong(theStream).getLlong();
-		if (builder == 0)
-			builder = tempBuilder;
-			
-	});
-	registerKeyword("wonder_historical_event_date", [this](const std::string& mods, std::istream& theStream) {
-		const auto& tempDate = commonItems::singleInt(theStream).getInt();
-		if (binaryDate < 1 || tempDate < binaryDate) // Gets the earliest date
-			binaryDate = tempDate;
-	});
-	registerKeyword("wonder_upgrade", [this](const std::string& mods, std::istream& theStream) {
-		upgrades.insert(commonItems::singleString(theStream).getString());
-	});
-	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
-}
 
-void CK2::Wonder::setTrueDate(int binaryDate)
+void CK2::Wonder::setTrueDate(int binDate)
 {
-	short hours = binaryDate % 24;
-	binaryDate /= 24;
-	short month_day_from_julian = binaryDate % 365;
-	binaryDate /= 365;
-	binaryDate -= 5000;
+	binDate /= 24;
+	const auto month_day_from_julian = binDate % 365;
+	binDate /= 365;
+	binDate -= 5000;
 
-	short month = 12;
-	short days = 1;
+	auto month = 12;
+	int days;
 	if (month_day_from_julian < 30)
 	{
 		month = 1;
@@ -125,5 +113,5 @@ void CK2::Wonder::setTrueDate(int binaryDate)
 	else
 		days = month_day_from_julian - 333;
 
-	trueDate = (binaryDate + "." + std::to_string(month) + "." + std::to_string(days));
+	trueDate = std::to_string(binDate) + "." + std::to_string(month) + "." + std::to_string(days);
 }
