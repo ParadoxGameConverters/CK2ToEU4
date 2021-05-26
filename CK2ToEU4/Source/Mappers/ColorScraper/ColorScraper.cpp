@@ -1,6 +1,7 @@
 #include "ColorScraper.h"
 #include "Log.h"
 #include "ParserHelpers.h"
+#include "CommonRegexes.h"
 
 void mappers::ColorScraper::scrapeColors(const std::string& filePath)
 {

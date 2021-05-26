@@ -2,6 +2,7 @@
 #include "Log.h"
 #include "ParserHelpers.h"
 #include "ConstructionHistory.h"
+#include "CommonRegexes.h"
 
 CK2::Wonder::Wonder(std::istream& theStream)
 {

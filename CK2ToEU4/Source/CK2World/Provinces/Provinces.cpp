@@ -5,6 +5,7 @@
 #include "Log.h"
 #include "ParserHelpers.h"
 #include "Province.h"
+#include "CommonRegexes.h"
 
 CK2::Provinces::Provinces(std::istream& theStream)
 {

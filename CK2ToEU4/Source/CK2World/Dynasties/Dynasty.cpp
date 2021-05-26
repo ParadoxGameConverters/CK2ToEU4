@@ -1,6 +1,7 @@
 #include "Dynasty.h"
 #include "Log.h"
 #include "ParserHelpers.h"
+#include "CommonRegexes.h"
 
 CK2::Dynasty::Dynasty(std::istream& theStream, int theDynID): dynID(theDynID)
 {

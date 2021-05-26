@@ -4,6 +4,7 @@
 #include "OSCompatibilityLayer.h"
 #include "ParserHelpers.h"
 #include <set>
+#include "CommonRegexes.h"
 
 void mappers::PersonalityScraper::scrapePersonalities(const Configuration& theConfiguration)
 {

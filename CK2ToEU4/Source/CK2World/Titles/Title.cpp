@@ -3,6 +3,7 @@
 #include "../Provinces/Province.h"
 #include "Log.h"
 #include "ParserHelpers.h"
+#include "CommonRegexes.h"
 
 CK2::Title::Title(std::istream& theStream, std::string theName): name(std::move(theName))
 {
