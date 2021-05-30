@@ -5,7 +5,7 @@
 # mappings, it will default to fallback.
 
 link = { ck2 = tang_china eu4 = TNG }
-link = { ck2 = jin_china eu4 = JIN }
+link = { ck2 = jin_china eu4 = MCH } # 晉 is not the same as 金
 link = { ck2 = wei_china eu4 = WEI }
 link = { ck2 = qi_china eu4 = QIC }
 link = { ck2 = zhou_china eu4 = CZH }
