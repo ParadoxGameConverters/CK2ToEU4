@@ -938,7 +938,7 @@ link = { ck2 = e_poland eu4 = PLC } # Commonwealth
 link = { ck2 = k_taurica eu4 = CRI } # Crimea
 link = { ck2 = k_galicia eu4 = VOL } # Galicia–Volhynia
 link = { ck2 = c_glogow eu4 = GLG } # Glogow
-link = { ck2 = d_lesser_poland eu4 = KRA } # Krakow
+#link = { ck2 = d_lesser_poland eu4 = KRA } # Why? Why does it take president over d_krakow let alone exist anyway?
 link = { ck2 = c_aukshayts eu4 = LIT } # Lithuania
 link = { ck2 = e_baltic_empire eu4 = LIT } # Lithuania
 link = { ck2 = d_livonian_brothers_of_the_sword eu4 = LIV } # Livonian Order
@@ -1106,7 +1106,7 @@ link = { ck2 = d_tabarestan eu4 = TAB } # Mazandaran
 link = { ck2 = c_sistan eu4 = SIS } # Sistan
 link = { ck2 = k_sistan eu4 = SIS } # Sistan
 link = { ck2 = k_mavarannahr eu4 = TRS } # Transoxiana
-link = { ck2 = k_mesopotamia eu4 = ASY } # Asyria
+link = { ck2 = k_mesopotamia eu4 = ASY } # Assyria
 
 # Russia
 link = { ck2 = k_vladimir eu4 = MOS } # Muscovy
