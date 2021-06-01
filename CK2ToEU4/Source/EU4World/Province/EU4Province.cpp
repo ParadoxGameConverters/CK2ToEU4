@@ -126,7 +126,7 @@ void EU4::Province::initializeFromCK2(std::shared_ptr<CK2::Province> origProvinc
 		details.provinceModifiers.emplace_back(newModifier);
 		srcProvince->getWonder()->second->setSpent(); // We must spend it to avoid mapping it into multiple eu4 provinces.
 	}
-	if (srcProvince->getMonument() && srcProvince->getMonument()->second) // For Leviathan DLC owners
+	if (srcProvince->getMonument() && srcProvince->getMonument()->second && !srcProvince->getMonument()->second->isSpent()) // For Leviathan DLC owners
 	{
 		hasMonument = true;
 		srcProvince->getMonument()->second->setSpent(); // We must spend it to avoid mapping it into multiple eu4 provinces.

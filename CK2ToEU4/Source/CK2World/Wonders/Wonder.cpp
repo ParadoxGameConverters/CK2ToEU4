@@ -40,6 +40,11 @@ void CK2::Wonder::registerKeys()
 	});
 	registerKeyword("stage", [this](const std::string& unused, std::istream& theStream) {
 		stage = commonItems::singleInt(theStream).getInt();
+		if (stage < 0)
+		{
+			stage = 0;
+			upgrades.emplace("generic_misc_upgrade_3");
+		}
 	});
 	registerKeyword("active", [this](const std::string& unused, std::istream& theStream) {
 		active = (commonItems::singleString(theStream).getString() == "yes");

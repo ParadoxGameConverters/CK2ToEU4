@@ -1,6 +1,6 @@
-##Apostolic Palace
+##House of Wisdom
 
-apostolic_palace = {
+house_of_wisdom = {
 	# province it starts in
 	start = 410
 	

@@ -19,6 +19,7 @@ void mappers::MonumentsMapping::registerKeys()
 		canBeMoved = movedStr.getString() == "can_be_moved = yes";
 	});
 	registerKeyword("build_trigger", [this](const std::string& mods, std::istream& theStream) {
+		buildTrigger = "OR = {\n\t\t";
 		CreateBuildTrigger(theStream);
 	});
 	registerKeyword("province_modifiers", [this](const std::string& mods, std::istream& theStream) {
@@ -31,7 +32,7 @@ void mappers::MonumentsMapping::registerKeys()
 		AddCountrySet(theStream);
 	});
 	registerKeyword("on_upgraded", [this](const std::string& mods, std::istream& theStream) {
-		onUpgraded = commonItems::stringOfItem(theStream).getString();
+		onUpgraded += commonItems::stringOfItem(theStream).getString();
 
 		onUpgraded = onUpgraded.substr(onUpgraded.find('{')+1, onUpgraded.length());
 		onUpgraded = onUpgraded.substr(0, onUpgraded.find('}'));
@@ -61,7 +62,10 @@ void mappers::MonumentsMapping::CreateBuildTrigger(std::istream& theStream)
 		religious = true;
 	});
 	registerKeyword("other", [this](const std::string& mods, std::istream& theStream) {
-		buildTrigger += commonItems::singleString(theStream).getString();
+		buildTrigger += commonItems::stringOfItem(theStream).getString();
+
+		buildTrigger = buildTrigger.substr(buildTrigger.find('{') + 1, buildTrigger.length());
+		buildTrigger = buildTrigger.substr(0, buildTrigger.find('}'));
 	});
 	buildTrigger += "\n\t}";
 }

@@ -93,7 +93,7 @@ CK2::World::World(const Configuration& theConfiguration)
 		vars = Vars(theStream);
 		LOG(LogLevel::Info) << ">> Loaded " << vars.getVars().size() << " global variables.";
 	});
-
+	
 	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 	Log(LogLevel::Progress) << "4 %";
 

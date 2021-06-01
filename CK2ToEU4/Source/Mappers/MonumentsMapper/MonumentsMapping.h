@@ -46,7 +46,7 @@ class MonumentsMapping: commonItems::parser
 	std::map<std::string, std::vector<double>> areaModifiers;
 	std::map<std::string, std::vector<double>> countryModifiers;
 
-	std::string buildTrigger = "OR = {\n\t\t";
+	std::string buildTrigger;
 	std::string onUpgraded;
 };
 } // namespace mappers

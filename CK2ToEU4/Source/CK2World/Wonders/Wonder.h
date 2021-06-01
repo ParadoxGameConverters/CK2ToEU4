@@ -28,6 +28,7 @@ class Wonder: commonItems::parser
 	[[nodiscard]] auto isSpent() const { return spent; }
 	void addUpgrade(const std::string& mod){ upgrades.emplace(mod); }
 	void setWonderID(int mod) { wonderID = mod; }
+	void setName(const std::string& newName) { name = newName; }
 	void setTrueDate(int binDate);
 	void setBuilderCulture(const std::string& culture) { builderCulture = culture; }
 	void setBuilderReligion(const std::string& religion) { builderReligion = religion; }

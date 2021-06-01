@@ -35,7 +35,10 @@ stonehenge = {
 				has_owner_religion = yes
 			}
 			AND = {
-				culture = english
+				OR = {
+					culture_group = british
+					culture_group = gaelic
+				}
 				OR = {
 					has_owner_culture = yes
 					has_owner_accepted_culture = yes
@@ -62,7 +65,10 @@ stonehenge = {
 				has_owner_religion = yes
 			}
 			AND = {
-				culture = english
+				OR = {
+					culture_group = british
+					culture_group = gaelic
+				}
 				OR = {
 					has_owner_culture = yes
 					has_owner_accepted_culture = yes
@@ -79,7 +85,10 @@ stonehenge = {
 				has_owner_religion = yes
 			}
 			AND = {
-				culture = english
+				OR = {
+					culture_group = british
+					culture_group = gaelic
+				}
 				OR = {
 					has_owner_culture = yes
 					has_owner_accepted_culture = yes

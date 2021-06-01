@@ -337,6 +337,10 @@ void EU4::World::outputHistoryProvinces(const Configuration& theConfiguration, c
 	commonItems::TryCopyFile("configurables/monuments/great_projects/101_old_monuments.txt", "output/" + theConfiguration.getOutputName() + "/common/great_projects/101_old_monuments.txt");
 	commonItems::TryCopyFile("configurables/monuments/great_projects/102_unbuilt_at_game_start.txt", "output/" + theConfiguration.getOutputName() + "/common/great_projects/102_unbuilt_at_game_start.txt");
 	commonItems::TryCopyFile("configurables/monuments/great_projects/!00_converted_monuments.txt", "output/" + theConfiguration.getOutputName() + "/common/great_projects/!00_converted_monuments.txt");
+	commonItems::TryCopyFile("configurables/monuments/gfx/zzz_converted_monuments.gfx", "output/" + theConfiguration.getOutputName() + "/interface/zzz_converted_monuments.gfx");
+	auto fileNames = commonItems::GetAllFilesInFolder("configurables/monuments/localisation/");
+	for (const auto& fileName: fileNames)
+		commonItems::TryCopyFile("configurables/monuments/localisation/" + fileName, "output/" + theConfiguration.getOutputName() + "/localisation/" + fileName);
 	outMonument(theConfiguration, premades); //Outputs Premade files
 	for (const auto& province: provinces)
 	{
@@ -346,9 +350,16 @@ void EU4::World::outputHistoryProvinces(const Configuration& theConfiguration, c
 		output << *province.second;
 		output.close();
 
-		if (province.second->getHasMonument())
-			outMonument(theConfiguration, province.second->getSourceProvince()->getMonument());
+		if (province.second->getHasMonument() && !premades.contains(province.second->getSourceProvince()->getMonument()->second->getType()))
+			outMonument(theConfiguration, province.second->getSourceProvince()->getMonument(), province.first);
 	}
+	//Final closing brace for the GFX file
+	std::ofstream gfxOutput("output/" + theConfiguration.getOutputName() + "/interface/zzz_converted_monuments.gfx", std::ios::out | std::ios::app);
+	if (!gfxOutput.is_open())
+		throw std::runtime_error("Could not create monuments file: output/" + theConfiguration.getOutputName() + "/interface/zzz_converted_monuments.gfx");
+	gfxOutput << "\n}";
+	gfxOutput.close();
+	
 }
 
 void EU4::World::outputHistoryCountries(const Configuration& theConfiguration) const

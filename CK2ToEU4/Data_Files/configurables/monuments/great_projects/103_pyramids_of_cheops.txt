@@ -35,7 +35,10 @@ pyramid_of_cheops = {
 				has_owner_religion = yes
 			}
 			AND = {
-				culture = al_misr_arabic
+				OR = {
+					culture = al_misr_arabic
+					culture = coptic
+				}
 				has_owner_culture = yes					
 				}
 		}
@@ -59,7 +62,10 @@ pyramid_of_cheops = {
 				has_owner_religion = yes
 			}
 			AND = {
-				culture = al_misr_arabic
+				OR = {
+					culture = al_misr_arabic
+					culture = coptic
+				}
 				has_owner_culture = yes					
 				}
 		}
@@ -73,7 +79,10 @@ pyramid_of_cheops = {
 				has_owner_religion = yes
 			}
 			AND = {
-				culture = al_misr_arabic
+				OR = {
+					culture = al_misr_arabic
+					culture = coptic
+				}
 				has_owner_culture = yes					
 				}
 		}

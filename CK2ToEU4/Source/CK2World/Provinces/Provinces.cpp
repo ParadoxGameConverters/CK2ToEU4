@@ -1,6 +1,7 @@
 #include "Provinces.h"
 #include "../Wonders/Wonder.h"
 #include "../Wonders/Wonders.h"
+#include "../Titles/Title.h"
 #include "../../Mappers/MonumentsMapper/MonumentsMapping.h"
 #include "Log.h"
 #include "ParserHelpers.h"
@@ -76,70 +77,72 @@ std::set<std::string> CK2::Provinces::linkMonuments(const Wonders& wonders, cons
 											   "wonder_temple_hindu_konark", "wonder_apostolic_palace", "wonder_house_of_wisdom", "wonder_underground_city_petra",
 											   "wonder_cathedral_hagia_sophia", "wonder_cathedral_notre_dame" //Theses monuments have set definitions already
 	};
+	
 	std::set<std::string> extantMonuments;
 	for (const auto& wonder: wonders.getWonders())
 	{
 		if (wonder.second)
-		{			
-			if (const auto& monumentName = wonder.second->getType(); premadeMonuments.contains(monumentName))
+		{
+			const auto& monumentName = wonder.second->getType();
+			if (premadeMonuments.contains(monumentName))
 				extantMonuments.emplace(monumentName);
-			else if (wonder.second->getStage() < 3)
-			{
+			else if (wonder.second->getUpgrades().size() < 4)
+			{					
 				if (monumentName == "wonder_cathedral" || monumentName == "wonder_mosque" || monumentName == "wonder_synagogue" ||
 					 monumentName == "wonder_temple_pagan" || monumentName == "wonder_temple_buddhist" || monumentName == "wonder_temple_hindu")
 				{
-					if (wonder.second->getStage() < 1)
+					if (wonder.second->getUpgrades().size() < 1)
 						wonder.second->addUpgrade("generic_religious_upgrade_1");
-					if (wonder.second->getStage() < 2)
+					if (wonder.second->getUpgrades().size() < 2)
 						wonder.second->addUpgrade("generic_religious_upgrade_2");
 					wonder.second->addUpgrade("generic_religious_upgrade_3");
 				}
 				else if (monumentName == "wonder_statue_ruler" || monumentName == "wonder_statue_horse")
 				{
-					if (wonder.second->getStage() < 1)
+					if (wonder.second->getUpgrades().size() < 1)
 						wonder.second->addUpgrade("generic_statue_upgrade_1");
-					if (wonder.second->getStage() < 2)
+					if (wonder.second->getUpgrades().size() < 2)
 						wonder.second->addUpgrade("generic_statue_upgrade_2");
 					wonder.second->addUpgrade("generic_statue_upgrade_3");
 				}
 				else if (monumentName == "wonder_fortress" || monumentName == "wonder_underground_city" || monumentName == "wonder_wall")
 				{
-					if (wonder.second->getStage() < 1)
+					if (wonder.second->getUpgrades().size() < 1)
 						wonder.second->addUpgrade("generic_fortification_upgrade_1");
-					if (wonder.second->getStage() < 2)
+					if (wonder.second->getUpgrades().size() < 2)
 						wonder.second->addUpgrade("generic_fortification_upgrade_2");
 					wonder.second->addUpgrade("generic_fortification_upgrade_3");
 				}
 				else if (monumentName == "wonder_harbor" || monumentName == "wonder_lighthouse")
 				{
-					if (wonder.second->getStage() < 1)
+					if (wonder.second->getUpgrades().size() < 1)
 						wonder.second->addUpgrade("generic_coastal_upgrade_1");
-					if (wonder.second->getStage() < 2)
+					if (wonder.second->getUpgrades().size() < 2)
 						wonder.second->addUpgrade("generic_coastal_upgrade_2");
 					wonder.second->addUpgrade("generic_coastal_upgrade_3");
 				}
 				else if (monumentName == "wonder_amphitheater" || monumentName == "wonder_palace" || monumentName == "wonder_garden")
 				{
-					if (wonder.second->getStage() < 1)
-						wonder.second->addUpgrade("generic_coastal_upgrade_1");
-					if (wonder.second->getStage() < 2)
-						wonder.second->addUpgrade("generic_coastal_upgrade_2");
-					wonder.second->addUpgrade("generic_coastal_upgrade_3");
+					if (wonder.second->getUpgrades().size() < 1)
+						wonder.second->addUpgrade("generic_culture_upgrade_1");
+					if (wonder.second->getUpgrades().size() < 2)
+						wonder.second->addUpgrade("generic_culture_upgrade_2");
+					wonder.second->addUpgrade("generic_culture_upgrade_3");
 				}
 				else if (monumentName == "wonder_university" || monumentName == "wonder_library")
 				{
-					if (wonder.second->getStage() < 1)
+					if (wonder.second->getUpgrades().size() < 1)
 						wonder.second->addUpgrade("generic_learning_upgrade_1");
-					if (wonder.second->getStage() < 2)
+					if (wonder.second->getUpgrades().size() < 2)
 						wonder.second->addUpgrade("generic_learning_upgrade_2");
 					wonder.second->addUpgrade("generic_learning_upgrade_3");
 				}
 				else if (monumentName == "wonder_mausoleum" || monumentName == "wonder_pyramid" || monumentName == "wonder_pagan_stones" ||
 							monumentName == "wonder_aztec_pyramid")
 				{
-					if (wonder.second->getStage() < 1)
+					if (wonder.second->getUpgrades().size() < 1)
 						wonder.second->addUpgrade("generic_misc_upgrade_1");
-					if (wonder.second->getStage() < 2)
+					if (wonder.second->getUpgrades().size() < 2)
 						wonder.second->addUpgrade("generic_misc_upgrade_2");
 					wonder.second->addUpgrade("generic_misc_upgrade_3");
 				}
@@ -154,6 +157,8 @@ std::set<std::string> CK2::Provinces::linkMonuments(const Wonders& wonders, cons
 				}				
 			}
 
+			
+
 			const auto& provinceItr = provinces.find(wonder.second->getProvinceID());
 			if (provinceItr == provinces.end())
 			{
@@ -161,6 +166,52 @@ std::set<std::string> CK2::Provinces::linkMonuments(const Wonders& wonders, cons
 				continue;
 			}
 			provinceItr->second->loadMonument(wonder);
+			// Fixing any blank names, using province/builder name
+			if (wonder.second->getName().empty())
+			{
+				if (wonder.second->getType() == "wonder_cathedral")
+					wonder.second->setName(provinceItr->second->getName() + " Cathedral");
+				else if (wonder.second->getType() == "wonder_mosque")
+					wonder.second->setName("Grand Mosque of " + provinceItr->second->getName());
+				else if (wonder.second->getType() == "wonder_synagogue")
+					wonder.second->setName("Great " + provinceItr->second->getName() + " Synagogue");
+				else if (wonder.second->getType() == "wonder_temple_pagan" || wonder.second->getType() == "wonder_temple_buddhist" || wonder.second->getType() == "wonder_temple_hindu")
+					wonder.second->setName("Great Temple of" + provinceItr->second->getName());
+				else if (wonder.second->getType() == "wonder_statue_ruler")
+					wonder.second->setName(characters.getCharacters().find(wonder.second->getBuilder())->second->getName() + " of " + characters.getCharacters().find(wonder.second->getBuilder())->second->getPrimaryTitle().second->getTitle().second->getDisplayName());
+				else if (wonder.second->getType() == "wonder_statue_horse")
+					wonder.second->setName("Colossal Mount of " + provinceItr->second->getName());
+				else if (wonder.second->getType() == "wonder_fortress")
+					wonder.second->setName("Fortress at " + provinceItr->second->getName());
+				else if (wonder.second->getType() == "wonder_underground_city")
+					wonder.second->setName("Underground City of " + provinceItr->second->getName());
+				else if (wonder.second->getType() == "wonder_wall")
+					wonder.second->setName("Great Wall of " + provinceItr->second->getName());
+				else if (wonder.second->getType() == "wonder_harbor")
+					wonder.second->setName("Grand Harbour of " + provinceItr->second->getName());
+				else if (wonder.second->getType() == "wonder_lighthouse")
+					wonder.second->setName("Lighthouse of " + provinceItr->second->getName());
+				else if (wonder.second->getType() == "wonder_amphitheater")
+					wonder.second->setName(provinceItr->second->getName() + " Colosseum");
+				else if (wonder.second->getType() == "wonder_palace")
+					wonder.second->setName("Glittering Palace of " + provinceItr->second->getName());
+				else if (wonder.second->getType() == "wonder_garden")
+					wonder.second->setName("Hanging Gardens of " + provinceItr->second->getName());
+				else if (wonder.second->getType() == "wonder_university")
+					wonder.second->setName(provinceItr->second->getName() + " University");
+				else if (wonder.second->getType() == "wonder_library")
+					wonder.second->setName("Library of " + provinceItr->second->getName());
+				else if (wonder.second->getType() == "wonder_library")
+					wonder.second->setName("Mausoleum at " + provinceItr->second->getName());
+				else if (wonder.second->getType() == "wonder_pyramid")
+					wonder.second->setName("Pyramids of " + characters.getCharacters().find(wonder.second->getBuilder())->second->getName());
+				else if (wonder.second->getType() == "wonder_pagan_stones")
+					wonder.second->setName("Standing Stones at " + provinceItr->second->getName());
+				else if (wonder.second->getType() == "wonder_aztec_pyramid")
+					wonder.second->setName(provinceItr->second->getName() + " Altar");
+				else
+					wonder.second->setName("Grand Monument at " + provinceItr->second->getName()); // Fallback
+			}
 		}
 		counter++;
 	}

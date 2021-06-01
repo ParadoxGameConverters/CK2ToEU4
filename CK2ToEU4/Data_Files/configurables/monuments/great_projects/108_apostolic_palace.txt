@@ -121,11 +121,15 @@ apostolic_palace = {
 
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
-			appoint_cardinal_cost = -0.25
+			appoint_cardinal_cost = -0.05
 		}
 
 		#what effects happen when this tier is achieved
 		on_upgraded = {
+			add_estate_loyalty = {
+				estate = estate_church
+				loyalty = 10
+			}
 		}
 	}
 
@@ -150,13 +154,17 @@ apostolic_palace = {
 
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
-			appoint_cardinal_cost = -0.25
+			appoint_cardinal_cost = -0.1
 			global_religious_conversion_resistance = 1
 			missionaries = 1
 		}
 
 		#what effects happen when this tier is achieved
 		on_upgraded = {
+			add_estate_loyalty = {
+				estate = estate_church
+				loyalty = 10
+			}
 		}
 	}
 
@@ -182,13 +190,17 @@ apostolic_palace = {
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
 			enforce_religion_cost = -0.33
-			appoint_cardinal_cost = -0.25
+			appoint_cardinal_cost = -0.2
 			global_religious_conversion_resistance = 1
 			missionaries = 1
 		}
 
 		#what effects happen when this tier is achieved
-		on_upgraded = {	
+		on_upgraded = {
+			add_estate_loyalty = {
+				estate = estate_church
+				loyalty = 10
+			}
 		}
 	}
 }

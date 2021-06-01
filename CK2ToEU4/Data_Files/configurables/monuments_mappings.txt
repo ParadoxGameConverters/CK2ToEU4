@@ -105,17 +105,6 @@ wonder_temple_buddhist = {
 		prestige = { 0.1 0.5 1 1 }
 	}
 }
-wonder_temple_buddhist = {
-	properties = {
-		can_be_moved = no
-	}
-	build_trigger = {
-		religious_groups = { eastern }
-	}
-	country_modifiers = {
-		prestige = { 0.1 0.5 1 1 }
-	}
-}
 wonder_temple_hindu = {
 	properties = {
 		can_be_moved = no
