@@ -2,6 +2,7 @@
 #include "../Titles/Liege.h"
 #include "Log.h"
 #include "ParserHelpers.h"
+#include "CommonRegexes.h"
 
 CK2::Domain::Domain(std::istream& theStream)
 {

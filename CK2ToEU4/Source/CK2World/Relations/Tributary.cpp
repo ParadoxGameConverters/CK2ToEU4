@@ -1,5 +1,6 @@
 #include "Tributary.h"
 #include "ParserHelpers.h"
+#include "CommonRegexes.h"
 
 CK2::Tributary::Tributary(std::istream& theStream)
 {

@@ -1,5 +1,6 @@
 #include "Liege.h"
 #include "ParserHelpers.h"
+#include "CommonRegexes.h"
 
 CK2::Liege::Liege(std::istream& theStream)
 {

@@ -563,6 +563,9 @@
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Wonders\ConstructionHistory.cpp">
       <Filter>ConverterFiles\CK2World\Wonders</Filter>
     </ClCompile>
+    <ClCompile Include="..\commonItems\ConvenientParser.cpp">
+      <Filter>ConverterFiles\commonItems</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4WorldTests">

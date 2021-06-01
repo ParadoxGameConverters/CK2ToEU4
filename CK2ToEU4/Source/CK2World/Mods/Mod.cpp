@@ -1,6 +1,7 @@
 #include "Mod.h"
 #include "Log.h"
 #include "ParserHelpers.h"
+#include "CommonRegexes.h"
 
 CK2::Mod::Mod(std::istream& theStream)
 {

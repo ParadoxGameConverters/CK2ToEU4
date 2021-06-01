@@ -2,6 +2,7 @@
 #include "../../CK2World/Characters/Character.h"
 #include "Log.h"
 #include "ParserHelpers.h"
+#include "CommonRegexes.h"
 
 mappers::RulerPersonalitiesMapper::RulerPersonalitiesMapper()
 {
