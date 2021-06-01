@@ -3,6 +3,7 @@
 #include "MonumentsMapper.h"
 #include <iomanip>
 #include <set>
+#include "CommonRegexes.h"
 
 mappers::MonumentsMapper::MonumentsMapper()
 {

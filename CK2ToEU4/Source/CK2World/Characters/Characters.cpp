@@ -8,6 +8,7 @@
 #include "Character.h"
 #include "Log.h"
 #include "ParserHelpers.h"
+#include "CommonRegexes.h"
 
 CK2::Characters::Characters(std::istream& theStream)
 {

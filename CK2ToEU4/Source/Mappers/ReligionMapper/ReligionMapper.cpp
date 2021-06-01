@@ -2,6 +2,7 @@
 #include "Log.h"
 #include "ParserHelpers.h"
 #include "ReligionMapping.h"
+#include "CommonRegexes.h"
 
 mappers::ReligionMapper::ReligionMapper()
 {

@@ -2,6 +2,7 @@
 #include "MonumentsMapping.h"
 #include "InternalModifiers.h"
 #include <iomanip>
+#include "CommonRegexes.h"
 
 mappers::MonumentsMapping::MonumentsMapping(std::istream& theStream)
 {

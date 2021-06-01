@@ -7,6 +7,7 @@
 #include "Log.h"
 #include "ParserHelpers.h"
 #include "Title.h"
+#include "CommonRegexes.h"
 
 CK2::Titles::Titles(std::istream& theStream)
 {

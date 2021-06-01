@@ -1,5 +1,6 @@
 #include "Relations.h"
 #include "ParserHelpers.h"
+#include "CommonRegexes.h"
 
 CK2::Relations::Relations(std::istream& theStream, std::string first)
 {
