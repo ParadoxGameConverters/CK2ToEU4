@@ -125,7 +125,7 @@ wonder_statue_ruler = {
 		cultural = yes
 	}
 	area_modifiers = {
-		local_unrest = { 0 0.5 1 2 }
+		local_unrest = { 0 -0.5 -1 -2 }
 	}
 }
 wonder_statue_horse = {
@@ -333,7 +333,7 @@ upgrade_torture_chamber = {
 }
 upgrade_brewery = {
 	country_modifiers = {
-		global_unrest = { 0 0.5 1 1 }
+		global_unrest = { 0 -0.5 -1 -1 }
 	}
 }
 upgrade_vineyard = {
@@ -848,7 +848,7 @@ upgrade_statues_garden = {
 }
 upgrade_pet_graveyard = {
 	country_modifiers = {
-		administrative_efficiency = { 0 0 0.05 1 }
+		administrative_efficiency = { 0 0 0.05 0.1 }
 	}
 }
 
@@ -1128,7 +1128,7 @@ upgrade_vestibule = {
 }
 upgrade_holy_place = {
 	country_modifiers = {
-		global_unrest = { 0 0.5 1 1 }
+		global_unrest = { 0 -0.5 -1 -1 }
 	}
 }
 upgrade_holy_of_holies = {
@@ -1165,7 +1165,7 @@ generic_religious_upgrade_1 = {
 }
 generic_religious_upgrade_2 = {
 	country_modifiers = {
-		global_unrest = { 0 0.5 1 1 }
+		global_unrest = { 0 -0.5 -1 -1 }
 	}
 }
 generic_religious_upgrade_3 = {

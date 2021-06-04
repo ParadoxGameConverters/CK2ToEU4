@@ -7,6 +7,7 @@
 #include "ParserHelpers.h"
 #include "Province.h"
 #include "CommonRegexes.h"
+#include "OSCompatibilityLayer.h"
 
 CK2::Provinces::Provinces(std::istream& theStream)
 {
@@ -91,58 +92,58 @@ std::set<std::string> CK2::Provinces::linkMonuments(const Wonders& wonders, cons
 				if (monumentName == "wonder_cathedral" || monumentName == "wonder_mosque" || monumentName == "wonder_synagogue" ||
 					 monumentName == "wonder_temple_pagan" || monumentName == "wonder_temple_buddhist" || monumentName == "wonder_temple_hindu")
 				{
-					if (wonder.second->getUpgrades().size() < 1)
-						wonder.second->addUpgrade("generic_religious_upgrade_1");
 					if (wonder.second->getUpgrades().size() < 2)
+						wonder.second->addUpgrade("generic_religious_upgrade_1");
+					if (wonder.second->getUpgrades().size() < 3)
 						wonder.second->addUpgrade("generic_religious_upgrade_2");
 					wonder.second->addUpgrade("generic_religious_upgrade_3");
 				}
 				else if (monumentName == "wonder_statue_ruler" || monumentName == "wonder_statue_horse")
 				{
-					if (wonder.second->getUpgrades().size() < 1)
-						wonder.second->addUpgrade("generic_statue_upgrade_1");
 					if (wonder.second->getUpgrades().size() < 2)
+						wonder.second->addUpgrade("generic_statue_upgrade_1");
+					if (wonder.second->getUpgrades().size() < 3)
 						wonder.second->addUpgrade("generic_statue_upgrade_2");
 					wonder.second->addUpgrade("generic_statue_upgrade_3");
 				}
 				else if (monumentName == "wonder_fortress" || monumentName == "wonder_underground_city" || monumentName == "wonder_wall")
 				{
-					if (wonder.second->getUpgrades().size() < 1)
-						wonder.second->addUpgrade("generic_fortification_upgrade_1");
 					if (wonder.second->getUpgrades().size() < 2)
+						wonder.second->addUpgrade("generic_fortification_upgrade_1");
+					if (wonder.second->getUpgrades().size() < 3)
 						wonder.second->addUpgrade("generic_fortification_upgrade_2");
 					wonder.second->addUpgrade("generic_fortification_upgrade_3");
 				}
 				else if (monumentName == "wonder_harbor" || monumentName == "wonder_lighthouse")
 				{
-					if (wonder.second->getUpgrades().size() < 1)
-						wonder.second->addUpgrade("generic_coastal_upgrade_1");
 					if (wonder.second->getUpgrades().size() < 2)
+						wonder.second->addUpgrade("generic_coastal_upgrade_1");
+					if (wonder.second->getUpgrades().size() < 3)
 						wonder.second->addUpgrade("generic_coastal_upgrade_2");
 					wonder.second->addUpgrade("generic_coastal_upgrade_3");
 				}
 				else if (monumentName == "wonder_amphitheater" || monumentName == "wonder_palace" || monumentName == "wonder_garden")
 				{
-					if (wonder.second->getUpgrades().size() < 1)
-						wonder.second->addUpgrade("generic_culture_upgrade_1");
 					if (wonder.second->getUpgrades().size() < 2)
+						wonder.second->addUpgrade("generic_culture_upgrade_1");
+					if (wonder.second->getUpgrades().size() < 3)
 						wonder.second->addUpgrade("generic_culture_upgrade_2");
 					wonder.second->addUpgrade("generic_culture_upgrade_3");
 				}
 				else if (monumentName == "wonder_university" || monumentName == "wonder_library")
 				{
-					if (wonder.second->getUpgrades().size() < 1)
-						wonder.second->addUpgrade("generic_learning_upgrade_1");
 					if (wonder.second->getUpgrades().size() < 2)
+						wonder.second->addUpgrade("generic_learning_upgrade_1");
+					if (wonder.second->getUpgrades().size() < 3)
 						wonder.second->addUpgrade("generic_learning_upgrade_2");
 					wonder.second->addUpgrade("generic_learning_upgrade_3");
 				}
 				else if (monumentName == "wonder_mausoleum" || monumentName == "wonder_pyramid" || monumentName == "wonder_pagan_stones" ||
 							monumentName == "wonder_aztec_pyramid")
 				{
-					if (wonder.second->getUpgrades().size() < 1)
-						wonder.second->addUpgrade("generic_misc_upgrade_1");
 					if (wonder.second->getUpgrades().size() < 2)
+						wonder.second->addUpgrade("generic_misc_upgrade_1");
+					if (wonder.second->getUpgrades().size() < 3)
 						wonder.second->addUpgrade("generic_misc_upgrade_2");
 					wonder.second->addUpgrade("generic_misc_upgrade_3");
 				}
@@ -212,6 +213,8 @@ std::set<std::string> CK2::Provinces::linkMonuments(const Wonders& wonders, cons
 				else
 					wonder.second->setName("Grand Monument at " + provinceItr->second->getName()); // Fallback
 			}
+			//Converts name to the proper encoding type
+			wonder.second->setName(commonItems::convertWin1252ToUTF8(wonder.second->getName()));
 		}
 		counter++;
 	}

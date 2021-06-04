@@ -39,8 +39,6 @@ class MonumentsMapping: commonItems::parser
 	bool cultural = false;
 	bool religious = false;
 
-	short numOfModifiers = 0;
-
 	// Modifier, { tier0, tier1, tier2, tier3 }
 	std::map<std::string, std::vector<double>> provinceModifiers;
 	std::map<std::string, std::vector<double>> areaModifiers;

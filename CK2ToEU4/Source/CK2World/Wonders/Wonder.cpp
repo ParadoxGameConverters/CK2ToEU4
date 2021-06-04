@@ -15,6 +15,7 @@ void CK2::Wonder::registerKeys()
 {
 	registerKeyword("type", [this](const std::string& unused, std::istream& theStream) {
 		type = commonItems::singleString(theStream).getString();
+		upgrades.insert(type);
 	});
 	registerKeyword("province", [this](const std::string& unused, std::istream& theStream) {
 		provinceID = commonItems::singleInt(theStream).getInt();

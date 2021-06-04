@@ -75,11 +75,8 @@ void mappers::MonumentsMapping::AddProvinceSet(std::istream& theStream)
 	const auto& tempMod = mods.getModifierType();
 	const auto& tempValues = mods.getModifierValues();
 
-	if (numOfModifiers < 5 && !provinceModifiers.contains(tempMod))
-	{
+	if (!provinceModifiers.contains(tempMod))
 		provinceModifiers.emplace(tempMod, tempValues);
-		numOfModifiers++;
-	}
 }
 void mappers::MonumentsMapping::AddAreaSet(std::istream& theStream)
 {
@@ -87,11 +84,8 @@ void mappers::MonumentsMapping::AddAreaSet(std::istream& theStream)
 	const auto& tempMod = mods.getModifierType();
 	const auto& tempValues = mods.getModifierValues();
 	
-	if (numOfModifiers < 5 && !areaModifiers.contains(tempMod))
-	{
+	if (!areaModifiers.contains(tempMod))
 		areaModifiers.emplace(tempMod, tempValues);
-		numOfModifiers++;
-	}
 }
 void mappers::MonumentsMapping::AddCountrySet(std::istream& theStream)
 {
@@ -99,9 +93,6 @@ void mappers::MonumentsMapping::AddCountrySet(std::istream& theStream)
 	const auto& tempMod = mods.getModifierType();
 	const auto& tempValues = mods.getModifierValues();
 
-	if (numOfModifiers < 5 && !countryModifiers.contains(tempMod))
-	{
+	if (!countryModifiers.contains(tempMod))
 		countryModifiers.emplace(tempMod, tempValues);
-		numOfModifiers++;
-	}
 }

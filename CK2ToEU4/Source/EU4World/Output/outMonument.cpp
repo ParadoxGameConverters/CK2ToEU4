@@ -20,7 +20,10 @@ EU4::outMonument::outMonument(const Configuration& theConfiguration, std::option
 	std::vector<std::string> onUpgraded;
 
 	wonder->second->setTrueDate(wonder->second->getBinaryDate());
-	Log(LogLevel::Debug) << "Date: " << wonder->second->getTrueDate();
+	Log(LogLevel::Debug) << "Name: " << wonder->second->getName();
+	Log(LogLevel::Debug) << "Upgrades: ";
+	for (const auto& upgrade: wonder->second->getUpgrades())
+		Log(LogLevel::Debug) << "\t" << upgrade;
 
 	std::map<std::string, std::vector<double>> provinceModifiers;
 	std::map<std::string, std::vector<double>> areaModifiers;
@@ -28,6 +31,7 @@ EU4::outMonument::outMonument(const Configuration& theConfiguration, std::option
 	short numOfModifiers = 0;
 	
 	// Goes through each upgrade that a wonder has and creates vectors for the bonuses, only done for up to a max of 4 bonuses.
+	Log(LogLevel::Debug) << "Upgrades Actually Added: ";
 	for (const auto& upgrade: wonder->second->getUpgrades())
 	{
 		bool addedMod = false;
@@ -55,13 +59,13 @@ EU4::outMonument::outMonument(const Configuration& theConfiguration, std::option
 				addedMod = true;
 			}
 		for (const auto& mod: monumentsMapping.getAreaModifiers())
-			if (!provinceModifiers.contains(mod.first))
+			if (!areaModifiers.contains(mod.first))
 			{
 				areaModifiers.emplace(mod);
 				addedMod = true;
 			}
 		for (const auto& mod: monumentsMapping.getCountryModifiers())
-			if (!provinceModifiers.contains(mod.first))
+			if (!countryModifiers.contains(mod.first))
 			{
 				countryModifiers.emplace(mod);
 				addedMod = true;
@@ -70,8 +74,9 @@ EU4::outMonument::outMonument(const Configuration& theConfiguration, std::option
 		{
 			onUpgraded.emplace_back(monumentsMapping.getOnUpgraded()); //This way we will have 4 onUpgrades to match the 4 tiers
 			numOfModifiers++;
+			Log(LogLevel::Debug) << "\t" << upgrade;
 		}
-		if (numOfModifiers > 3)
+		if(numOfModifiers > 3)
 			break;
 	}
 	
