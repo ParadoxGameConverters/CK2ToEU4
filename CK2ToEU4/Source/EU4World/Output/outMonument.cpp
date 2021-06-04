@@ -48,33 +48,36 @@ EU4::outMonument::outMonument(const Configuration& theConfiguration, std::option
 		{
 			builderTrigger = monumentsMapping.getBuildTrigger();
 			if (monumentsMapping.isOfBuilderCulture())
-				builderTrigger += "AND = {\n\t\t\t\tculture = " + wonder->second->getBuilderCulture() + "\n\t\t\t\thas_owner_culture = yes\n\t\t\t}\n\t\t";
+				builderTrigger += ("AND = {\n\t\t\t\tculture = " + wonder->second->getBuilderCulture() + "\n\t\t\t\thas_owner_culture = yes\n\t\t\t}\n\t\t");
 			if (monumentsMapping.isOfBuilderReligion())
-				builderTrigger += "AND = {\n\t\t\t\treligion = " + wonder->second->getBuilderReligion() + "\n\t\t\t\thas_owner_religion = yes\n\t\t\t}\n\t\t";
+				builderTrigger += ("AND = {\n\t\t\t\treligion = " + wonder->second->getBuilderReligion() + "\n\t\t\t\thas_owner_religion = yes\n\t\t\t}\n\t\t");
 		}
+		Log(LogLevel::Debug) << "\t" << upgrade;
 		for (const auto& mod: monumentsMapping.getProvinceModifiers())
 			if (!provinceModifiers.contains(mod.first))
 			{
 				provinceModifiers.emplace(mod);
+				Log(LogLevel::Debug) << "\t Province Modifier(s): " << mod.first;
 				addedMod = true;
 			}
 		for (const auto& mod: monumentsMapping.getAreaModifiers())
 			if (!areaModifiers.contains(mod.first))
 			{
 				areaModifiers.emplace(mod);
+				Log(LogLevel::Debug) << "\t Area Modifier(s): " << mod.first;
 				addedMod = true;
 			}
 		for (const auto& mod: monumentsMapping.getCountryModifiers())
 			if (!countryModifiers.contains(mod.first))
 			{
 				countryModifiers.emplace(mod);
+				Log(LogLevel::Debug) << "\t Country Modifier(s): " << mod.first;
 				addedMod = true;
 			}
 		if (addedMod)
 		{
 			onUpgraded.emplace_back(monumentsMapping.getOnUpgraded()); //This way we will have 4 onUpgrades to match the 4 tiers
 			numOfModifiers++;
-			Log(LogLevel::Debug) << "\t" << upgrade;
 		}
 		if(numOfModifiers > 3)
 			break;

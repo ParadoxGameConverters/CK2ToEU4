@@ -1,7 +1,6 @@
 #ifndef INTERNAL_MODIFIERS
 #define INTERNAL_MODIFIERS
 #include "Parser.h"
-#include "InternalModifiers.h"
 
 namespace mappers
 {

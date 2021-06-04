@@ -14,7 +14,6 @@ class MonumentsMapping: commonItems::parser
 	MonumentsMapping() = default;
 	MonumentsMapping(std::istream& theStream);
 
-	void CreateBuildTrigger(std::istream& theStream);
 	void AddProvinceSet(std::istream& theStream);
 	void AddAreaSet(std::istream& theStream);
 	void AddCountrySet(std::istream& theStream);

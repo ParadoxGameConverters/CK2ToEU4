@@ -1258,7 +1258,7 @@ generic_learning_upgrade_2 = {
 		idea_cost = { 0 -0.1 -0.15 -0.2 }
 	}
 }
-generic_culture_upgrade_3 = {
+generic_learning_upgrade_3 = {
 	country_modifiers = {
 		technology_cost = { 0 -0.05 -0.1 -0.1 }
 	}

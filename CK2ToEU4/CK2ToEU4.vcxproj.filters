@@ -285,6 +285,12 @@
     <ClCompile Include="..\commonItems\ConvenientParser.cpp">
       <Filter>CommonItems</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Mappers\MonumentsMapper\BuildTriggerBuilder.cpp">
+      <Filter>Mappers\MonumentsMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Mappers\MonumentsMapper\BuildTriggerBuilder.h">
+      <Filter>Mappers\MonumentsMapper</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CK2ToEU4Converter.h" />

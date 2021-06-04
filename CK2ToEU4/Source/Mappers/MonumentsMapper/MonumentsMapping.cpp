@@ -1,6 +1,7 @@
 #include "ParserHelpers.h"
 #include "MonumentsMapping.h"
 #include "InternalModifiers.h"
+#include "BuildTriggerBuilder.h"
 #include <iomanip>
 #include "CommonRegexes.h"
 
@@ -20,7 +21,10 @@ void mappers::MonumentsMapping::registerKeys()
 	});
 	registerKeyword("build_trigger", [this](const std::string& mods, std::istream& theStream) {
 		buildTrigger = "OR = {\n\t\t";
-		CreateBuildTrigger(theStream);
+		mappers::BuildTriggerBuilder builder(theStream);
+		buildTrigger += builder.getBuildTrigger();
+		cultural = builder.getCultural();
+		religious = builder.getReligious();
 	});
 	registerKeyword("province_modifiers", [this](const std::string& mods, std::istream& theStream) {
 		AddProvinceSet(theStream);
@@ -38,36 +42,6 @@ void mappers::MonumentsMapping::registerKeys()
 		onUpgraded = onUpgraded.substr(0, onUpgraded.find('}'));
 	});
 	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
-}
-void mappers::MonumentsMapping::CreateBuildTrigger(std::istream& theStream)
-{	
-	registerKeyword("religious_groups", [this](const std::string& mods, std::istream& theStream) {
-		const auto& groups = commonItems::stringList(theStream).getStrings();
-		for (auto& group: groups)
-		{
-			buildTrigger += ("AND = {\n\t\t\t\treligion_group = " + group + "\n\t\t\t\thas_owner_religion = yes\n\t\t\t}\n\t\t");
-		}
-	});
-	registerKeyword("cultural_groups", [this](const std::string& mods, std::istream& theStream) {
-		const auto& groups = commonItems::stringList(theStream).getStrings();
-		for (auto& group: groups)
-		{
-			buildTrigger += ("AND = {\n\t\t\t\tcultural_groups = " + group + "\n\t\t\t\thas_owner_culture = yes\n\t\t\t}\n\t\t");
-		}
-	});
-	registerKeyword("cultural", [this](const std::string& mods, std::istream& theStream) {
-		cultural = true;
-	});
-	registerKeyword("religious", [this](const std::string& mods, std::istream& theStream) {
-		religious = true;
-	});
-	registerKeyword("other", [this](const std::string& mods, std::istream& theStream) {
-		buildTrigger += commonItems::stringOfItem(theStream).getString();
-
-		buildTrigger = buildTrigger.substr(buildTrigger.find('{') + 1, buildTrigger.length());
-		buildTrigger = buildTrigger.substr(0, buildTrigger.find('}'));
-	});
-	buildTrigger += "\n\t}";
 }
 void mappers::MonumentsMapping::AddProvinceSet(std::istream& theStream)
 {
