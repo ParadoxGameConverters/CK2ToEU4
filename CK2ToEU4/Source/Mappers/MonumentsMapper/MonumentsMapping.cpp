@@ -4,6 +4,7 @@
 #include "BuildTriggerBuilder.h"
 #include <iomanip>
 #include "CommonRegexes.h"
+#include "Log.h"
 
 mappers::MonumentsMapping::MonumentsMapping(std::istream& theStream)
 {
@@ -18,6 +19,8 @@ void mappers::MonumentsMapping::registerKeys()
 		isBase = true; // Only the wonder bases have properties
 		const commonItems::singleString movedStr(theStream);
 		canBeMoved = movedStr.getString() == "can_be_moved = yes";
+		/*auto movedStr = commonItems::stringOfItem(theStream).getString();
+		canBeMoved = (movedStr.find("can_be_moved = yes") != std::string::npos);*/
 	});
 	registerKeyword("build_trigger", [this](const std::string& mods, std::istream& theStream) {
 		buildTrigger = "OR = {\n\t\t";

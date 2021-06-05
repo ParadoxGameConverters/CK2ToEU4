@@ -16,6 +16,7 @@ mappers::BuildTriggerBuilder::BuildTriggerBuilder(std::istream& theStream)
 	registerKeys();
 	parseStream(theStream);
 	clearRegisteredKeywords();
+	buildTrigger += "\n\t}";
 }
 
 void mappers::BuildTriggerBuilder::registerKeys()
@@ -35,16 +36,18 @@ void mappers::BuildTriggerBuilder::registerKeys()
 		}
 	});
 	registerKeyword("cultural", [this](const std::string& mods, std::istream& theStream) {
+		commonItems::ignoreItem("unused", theStream);
 		cultural = true;
 	});
 	registerKeyword("religious", [this](const std::string& mods, std::istream& theStream) {
+		commonItems::ignoreItem("unused", theStream);
 		religious = true;
 	});
 	registerKeyword("other", [this](const std::string& mods, std::istream& theStream) {
 		buildTrigger += commonItems::stringOfItem(theStream).getString();
 
 		buildTrigger = buildTrigger.substr(buildTrigger.find('{') + 1, buildTrigger.length());
-		buildTrigger = buildTrigger.substr(0, buildTrigger.find('}'));
+		buildTrigger = buildTrigger.substr(0, buildTrigger.find_last_of('}'));
 	});
-	buildTrigger += "\n\t}";
+	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }

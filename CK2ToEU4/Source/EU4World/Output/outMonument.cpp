@@ -42,6 +42,7 @@ EU4::outMonument::outMonument(const Configuration& theConfiguration, std::option
 			continue;
 		}
 		auto monumentsMapping = monumentsMapper.getWonders().find(upgrade)->second;
+		Log(LogLevel::Debug) << "Mapping: " << monumentsMapper.getWonders().find(upgrade)->first;
 		if (monumentsMapping.getCanBeMoved())
 			canBeMoved = "yes";
 		if (!monumentsMapping.getBuildTrigger().empty())
@@ -53,6 +54,7 @@ EU4::outMonument::outMonument(const Configuration& theConfiguration, std::option
 				builderTrigger += ("AND = {\n\t\t\t\treligion = " + wonder->second->getBuilderReligion() + "\n\t\t\t\thas_owner_religion = yes\n\t\t\t}\n\t\t");
 		}
 		Log(LogLevel::Debug) << "\t" << upgrade;
+		Log(LogLevel::Debug) << "Province Modifiers: " << monumentsMapping.getProvinceModifiers().size();
 		for (const auto& mod: monumentsMapping.getProvinceModifiers())
 			if (!provinceModifiers.contains(mod.first))
 			{
@@ -60,6 +62,7 @@ EU4::outMonument::outMonument(const Configuration& theConfiguration, std::option
 				Log(LogLevel::Debug) << "\t Province Modifier(s): " << mod.first;
 				addedMod = true;
 			}
+		Log(LogLevel::Debug) << "Area Modifiers: " << monumentsMapping.getAreaModifiers().size();
 		for (const auto& mod: monumentsMapping.getAreaModifiers())
 			if (!areaModifiers.contains(mod.first))
 			{
@@ -67,6 +70,7 @@ EU4::outMonument::outMonument(const Configuration& theConfiguration, std::option
 				Log(LogLevel::Debug) << "\t Area Modifier(s): " << mod.first;
 				addedMod = true;
 			}
+		Log(LogLevel::Debug) << "Country Modifiers: " << monumentsMapping.getCountryModifiers().size();
 		for (const auto& mod: monumentsMapping.getCountryModifiers())
 			if (!countryModifiers.contains(mod.first))
 			{

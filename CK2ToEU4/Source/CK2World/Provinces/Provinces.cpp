@@ -202,7 +202,7 @@ std::set<std::string> CK2::Provinces::linkMonuments(const Wonders& wonders, cons
 					wonder.second->setName(provinceItr->second->getName() + " University");
 				else if (wonder.second->getType() == "wonder_library")
 					wonder.second->setName("Library of " + provinceItr->second->getName());
-				else if (wonder.second->getType() == "wonder_library")
+				else if (wonder.second->getType() == "wonder_mausoleum")
 					wonder.second->setName("Mausoleum at " + provinceItr->second->getName());
 				else if (wonder.second->getType() == "wonder_pyramid")
 					wonder.second->setName("Pyramids of " + characters.getCharacters().find(wonder.second->getBuilder())->second->getName());
