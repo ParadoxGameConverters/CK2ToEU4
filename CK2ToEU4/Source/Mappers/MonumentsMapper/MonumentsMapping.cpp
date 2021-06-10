@@ -24,7 +24,7 @@ void mappers::MonumentsMapping::registerKeys()
 	});
 	registerKeyword("build_trigger", [this](const std::string& mods, std::istream& theStream) {
 		buildTrigger = "OR = {\n\t\t";
-		mappers::BuildTriggerBuilder builder(theStream);
+		BuildTriggerBuilder builder(theStream);
 		buildTrigger += builder.getBuildTrigger();
 		cultural = builder.getCultural();
 		religious = builder.getReligious();
@@ -39,16 +39,16 @@ void mappers::MonumentsMapping::registerKeys()
 		AddCountrySet(theStream);
 	});
 	registerKeyword("on_upgraded", [this](const std::string& mods, std::istream& theStream) {
-		onUpgraded += commonItems::stringOfItem(theStream).getString();
-
-		onUpgraded = onUpgraded.substr(onUpgraded.find('{')+1, onUpgraded.length());
-		onUpgraded = onUpgraded.substr(0, onUpgraded.find('}'));
+		auto tempInput = commonItems::stringOfItem(theStream).getString();
+		tempInput = tempInput.substr(tempInput.find('{') + 1, tempInput.length());
+		tempInput = tempInput.substr(0, tempInput.find('}'));		
+		onUpgraded += tempInput;
 	});
 	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }
 void mappers::MonumentsMapping::AddProvinceSet(std::istream& theStream)
 {
-	mappers::InternalModifiers mods(theStream);
+	InternalModifiers mods(theStream);
 	const auto& tempMod = mods.getModifierType();
 	const auto& tempValues = mods.getModifierValues();
 
@@ -57,7 +57,7 @@ void mappers::MonumentsMapping::AddProvinceSet(std::istream& theStream)
 }
 void mappers::MonumentsMapping::AddAreaSet(std::istream& theStream)
 {
-	mappers::InternalModifiers mods(theStream);
+	InternalModifiers mods(theStream);
 	const auto& tempMod = mods.getModifierType();
 	const auto& tempValues = mods.getModifierValues();
 	
@@ -66,7 +66,7 @@ void mappers::MonumentsMapping::AddAreaSet(std::istream& theStream)
 }
 void mappers::MonumentsMapping::AddCountrySet(std::istream& theStream)
 {
-	mappers::InternalModifiers mods(theStream);
+	InternalModifiers mods(theStream);
 	const auto& tempMod = mods.getModifierType();
 	const auto& tempValues = mods.getModifierValues();
 

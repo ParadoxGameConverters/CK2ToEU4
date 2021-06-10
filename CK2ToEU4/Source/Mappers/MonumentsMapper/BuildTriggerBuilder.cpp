@@ -44,10 +44,10 @@ void mappers::BuildTriggerBuilder::registerKeys()
 		religious = true;
 	});
 	registerKeyword("other", [this](const std::string& mods, std::istream& theStream) {
-		buildTrigger += commonItems::stringOfItem(theStream).getString();
-
-		buildTrigger = buildTrigger.substr(buildTrigger.find('{') + 1, buildTrigger.length());
-		buildTrigger = buildTrigger.substr(0, buildTrigger.find_last_of('}'));
+		auto tempInput = commonItems::stringOfItem(theStream).getString();
+		tempInput = tempInput.substr(tempInput.find('{') + 1, tempInput.length());
+		tempInput = tempInput.substr(0, tempInput.find_last_of('}'));
+		buildTrigger += tempInput;
 	});
 	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }

@@ -7,8 +7,8 @@ namespace mappers
 	class InternalModifiers: commonItems::parser
 	{
 	  public:
-		InternalModifiers();
-		InternalModifiers(std::istream& theStream);
+		InternalModifiers() = default;
+		explicit InternalModifiers(std::istream& theStream);
 
 		[[nodiscard]] auto getModifierType() { return modifierType; }
 		[[nodiscard]] auto getModifierValues() { return modifierValues; }
