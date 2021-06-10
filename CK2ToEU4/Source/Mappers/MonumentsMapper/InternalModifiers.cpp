@@ -5,12 +5,6 @@
 #include <set>
 #include "CommonRegexes.h"
 
-mappers::InternalModifiers::InternalModifiers()
-{
-	registerKeys();
-	clearRegisteredKeywords();
-}
-
 mappers::InternalModifiers::InternalModifiers(std::istream& theStream)
 {
 	registerKeys();

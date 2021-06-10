@@ -184,6 +184,7 @@
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\GovernmentsMapper\GovernmentsMapper.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\GovernmentsMapper\GovernmentsMapping.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\IAmHreMapper\IAmHreMapper.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\MonumentsMapper\BuildTriggerBuilder.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\MonumentsMapper\InternalModifiers.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\MonumentsMapper\MonumentsMapper.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\MonumentsMapper\MonumentsMapping.cpp" />

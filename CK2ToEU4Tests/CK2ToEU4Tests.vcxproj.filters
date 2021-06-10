@@ -566,6 +566,9 @@
     <ClCompile Include="..\commonItems\ConvenientParser.cpp">
       <Filter>ConverterFiles\commonItems</Filter>
     </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\MonumentsMapper\BuildTriggerBuilder.cpp">
+      <Filter>ConverterFiles\Mappers\MonumentsMapper</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4WorldTests">
