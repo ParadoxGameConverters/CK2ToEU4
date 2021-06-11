@@ -44,6 +44,7 @@ void mappers::MonumentsMapping::registerKeys()
 	});
 	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }
+
 void mappers::MonumentsMapping::AddProvinceSet(std::istream& theStream)
 {
 	InternalModifiers mods(theStream);
