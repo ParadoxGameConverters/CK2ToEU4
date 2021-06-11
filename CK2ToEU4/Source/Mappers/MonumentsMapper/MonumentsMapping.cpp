@@ -17,10 +17,8 @@ void mappers::MonumentsMapping::registerKeys()
 {
 	registerKeyword("properties", [this](const std::string& mods, std::istream& theStream) {
 		isBase = true; // Only the wonder bases have properties
-		const commonItems::singleString movedStr(theStream);
-		canBeMoved = movedStr.getString() == "can_be_moved = yes";
-		/*auto movedStr = commonItems::stringOfItem(theStream).getString();
-		canBeMoved = (movedStr.find("can_be_moved = yes") != std::string::npos);*/
+		auto movedStr = commonItems::stringOfItem(theStream).getString();
+		canBeMoved = (movedStr.find("can_be_moved = yes") != std::string::npos);
 	});
 	registerKeyword("build_trigger", [this](const std::string& mods, std::istream& theStream) {
 		buildTrigger = "OR = {\n\t\t";

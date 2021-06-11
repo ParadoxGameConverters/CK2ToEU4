@@ -20,8 +20,8 @@ EU4::outMonument::outMonument(const Configuration& theConfiguration, std::option
 	std::vector<std::string> onUpgraded;
 
 	wonder->second->setTrueDate(wonder->second->getBinaryDate());
-	Log(LogLevel::Debug) << "Name: " << wonder->second->getName();
-	Log(LogLevel::Debug) << "Upgrades: ";
+	Log(LogLevel::Debug) << "\n----------------\nName: " << wonder->second->getName();
+	Log(LogLevel::Debug) << "Requested upgrades: ";
 	for (const auto& upgrade: wonder->second->getUpgrades())
 		Log(LogLevel::Debug) << "\t" << upgrade;
 
@@ -31,55 +31,85 @@ EU4::outMonument::outMonument(const Configuration& theConfiguration, std::option
 	short numOfModifiers = 0;
 	
 	// Goes through each upgrade that a wonder has and creates vectors for the bonuses, only done for up to a max of 4 bonuses.
-	Log(LogLevel::Debug) << "Upgrades Actually Added: ";
+	Log(LogLevel::Debug) << "Upgrades Constructing.";
 	for (const auto& upgrade: wonder->second->getUpgrades())
 	{
 		bool addedMod = false;
+		Log(LogLevel::Debug) << "\tUpgrade: |" << upgrade << "|";
 
-		if (monumentsMapper.getWonders().find(upgrade) == monumentsMapper.getWonders().end())
+		if (const auto& upgItr = monumentsMapper.getWonders().find(upgrade); upgItr == monumentsMapper.getWonders().end())
 		{
 			Log(LogLevel::Warning) << "Upgrade " << upgrade << " has no mapping!";
 			continue;
 		}
-		auto monumentsMapping = monumentsMapper.getWonders().find(upgrade)->second;
+		else
+		{
+			Log(LogLevel::Debug) << "Upgrade found in getWonders";			
+		}
+		
 		Log(LogLevel::Debug) << "Mapping: " << monumentsMapper.getWonders().find(upgrade)->first;
+		auto monumentsMapping = monumentsMapper.getWonders().find(upgrade)->second;
+		
 		if (monumentsMapping.getCanBeMoved())
+		{
 			canBeMoved = "yes";
+			Log(LogLevel::Debug) << "\tUpgrade " << upgrade << " can be moved.";			
+		}
+		else
+		{
+			Log(LogLevel::Debug) << "\tUpgrade " << upgrade << " can NOT be moved.";		
+			
+		}
 		if (!monumentsMapping.getBuildTrigger().empty())
 		{
+			Log(LogLevel::Debug) << "Build trigger is not empty.";
 			builderTrigger = monumentsMapping.getBuildTrigger();
 			if (monumentsMapping.isOfBuilderCulture())
 				builderTrigger += ("AND = {\n\t\t\t\tculture = " + wonder->second->getBuilderCulture() + "\n\t\t\t\thas_owner_culture = yes\n\t\t\t}\n\t\t");
 			if (monumentsMapping.isOfBuilderReligion())
 				builderTrigger += ("AND = {\n\t\t\t\treligion = " + wonder->second->getBuilderReligion() + "\n\t\t\t\thas_owner_religion = yes\n\t\t\t}\n\t\t");
+			Log(LogLevel::Debug) << "Build trigger is now: |" << builderTrigger << "|";
 		}
-		Log(LogLevel::Debug) << "\t" << upgrade;
-		Log(LogLevel::Debug) << "Province Modifiers: " << monumentsMapping.getProvinceModifiers().size();
+		
+		Log(LogLevel::Debug) << "Poking Province Modifiers: " << monumentsMapping.getProvinceModifiers().size();
 		for (const auto& mod: monumentsMapping.getProvinceModifiers())
+		{
+			Log(LogLevel::Debug) << "Province modifier: |" << mod.first << "|";
 			if (!provinceModifiers.contains(mod.first))
 			{
 				provinceModifiers.emplace(mod);
-				Log(LogLevel::Debug) << "\t Province Modifier(s): " << mod.first;
+				Log(LogLevel::Debug) << "Not contained, emplaced.";
 				addedMod = true;
-			}
-		Log(LogLevel::Debug) << "Area Modifiers: " << monumentsMapping.getAreaModifiers().size();
+			}			
+		}
+		
+		Log(LogLevel::Debug) << "Poking Area Modifiers: " << monumentsMapping.getAreaModifiers().size();
 		for (const auto& mod: monumentsMapping.getAreaModifiers())
+		{
+			Log(LogLevel::Debug) << "Area modifier: |" << mod.first << "|";
 			if (!areaModifiers.contains(mod.first))
 			{
 				areaModifiers.emplace(mod);
-				Log(LogLevel::Debug) << "\t Area Modifier(s): " << mod.first;
+				Log(LogLevel::Debug) << "Not contained, emplaced.";
 				addedMod = true;
 			}
-		Log(LogLevel::Debug) << "Country Modifiers: " << monumentsMapping.getCountryModifiers().size();
+		}
+		
+		Log(LogLevel::Debug) << "Poking Country Modifiers: " << monumentsMapping.getCountryModifiers().size();
 		for (const auto& mod: monumentsMapping.getCountryModifiers())
+		{
+			Log(LogLevel::Debug) << "Country modifier: |" << mod.first << "|";
 			if (!countryModifiers.contains(mod.first))
 			{
 				countryModifiers.emplace(mod);
-				Log(LogLevel::Debug) << "\t Country Modifier(s): " << mod.first;
+				Log(LogLevel::Debug) << "Not contained, emplaced.";
 				addedMod = true;
-			}
+			}			
+		}
+		
 		if (addedMod)
 		{
+			Log(LogLevel::Debug) << "AddedMod is true.";
 			onUpgraded.emplace_back(monumentsMapping.getOnUpgraded()); //This way we will have 4 onUpgrades to match the 4 tiers
 			numOfModifiers++;
 		}
@@ -87,8 +117,9 @@ EU4::outMonument::outMonument(const Configuration& theConfiguration, std::option
 			break;
 	}
 	
-
+	Log(LogLevel::Debug) << "-- starting dump";
 	
+	output << "\n#----------- " << wonder->second->getName() << " -----------\n";
 	output << wonder->second->getType() << "_" << wonder->second->getWonderID() << " = {\n\t";
 	//Base
 		output << "start = " << eu4Province << "\n\n\t";
@@ -193,6 +224,8 @@ EU4::outMonument::outMonument(const Configuration& theConfiguration, std::option
 
 	output.close();
 
+	Log(LogLevel::Debug) << "--------- dump done, gfx incoming";
+
 	//Now then, let's populate the GFX file
 	std::ofstream gfxOutput("output/" + theConfiguration.getOutputName() + "/interface/zzz_converted_monuments.gfx", std::ios::out | std::ios::app);
 	if (!gfxOutput.is_open())
@@ -204,6 +237,8 @@ EU4::outMonument::outMonument(const Configuration& theConfiguration, std::option
 	gfxOutput << "}\n\n\t";
 	gfxOutput.close();
 
+	Log(LogLevel::Debug) << "--------- gfx done, locs incoming";
+
 	//Finally, let's populate the localisation
 	auto fileNames = commonItems::GetAllFilesInFolder("configurables/monuments/localisation/");
 	for (const auto& fileName: fileNames)
@@ -212,6 +247,8 @@ EU4::outMonument::outMonument(const Configuration& theConfiguration, std::option
 		locOutput << wonder->second->getType() << "_" << wonder->second->getWonderID() << ":0 \"" << wonder->second->getName() << "\"\n ";
 		locOutput.close();
 	}
+
+	Log(LogLevel::Debug) << "--------- done.";
 }
 
 EU4::outMonument::outMonument(const Configuration& theConfiguration, const std::set<std::string>& premades)
