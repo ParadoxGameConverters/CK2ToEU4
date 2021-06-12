@@ -36,11 +36,9 @@ void mappers::BuildTriggerBuilder::registerKeys()
 		}
 	});
 	registerKeyword("cultural", [this](const std::string& mods, std::istream& theStream) {
-		commonItems::ignoreItem("unused", theStream);
 		cultural = true;
 	});
 	registerKeyword("religious", [this](const std::string& mods, std::istream& theStream) {
-		commonItems::ignoreItem("unused", theStream);
 		religious = true;
 	});
 	registerKeyword("other", [this](const std::string& mods, std::istream& theStream) {

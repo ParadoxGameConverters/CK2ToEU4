@@ -21,7 +21,7 @@ void mappers::MonumentsMapping::registerKeys()
 		canBeMoved = (movedStr.find("can_be_moved = yes") != std::string::npos);
 	});
 	registerKeyword("build_trigger", [this](const std::string& mods, std::istream& theStream) {
-		buildTrigger = "OR = {\n\t\t";
+		buildTrigger = "OR = {\n\t\t\t";
 		BuildTriggerBuilder builder(theStream);
 		buildTrigger += builder.getBuildTrigger();
 		cultural = builder.getCultural();

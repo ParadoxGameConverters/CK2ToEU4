@@ -26,7 +26,6 @@ class MonumentsMapping: commonItems::parser
 	[[nodiscard]] auto isOfBuilderCulture() { return cultural; }
 	[[nodiscard]] auto isOfBuilderReligion() { return religious; }
 	[[nodiscard]] auto getBuildTrigger() { return buildTrigger; }
-	void setCanBeMoved(bool mod) { canBeMoved = mod; }
 	[[nodiscard]] auto getCanBeMoved() { return canBeMoved; }
 	
 

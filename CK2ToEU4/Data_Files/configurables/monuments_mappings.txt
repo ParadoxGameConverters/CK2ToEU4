@@ -119,7 +119,7 @@ wonder_statue_ruler = {
 		can_be_moved = yes
 	}
 	build_trigger = {
-		cultural = yes
+		cultural
 	}
 	area_modifiers = {
 		local_unrest = { 0 -0.5 -1 -2 }
@@ -205,10 +205,6 @@ wonder_palace = {
 wonder_garden = {
 	properties = {
 		can_be_moved = no
-	}
-	build_trigger = {
-		cultural_groups = { lost_cultures_group byzantine latin }
-		religious_groups = { pagan }
 	}
 	country_modifiers = {
 		monarch_lifespan = { 0 0.05 0.1 0.1 }
