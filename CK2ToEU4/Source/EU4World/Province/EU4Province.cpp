@@ -144,11 +144,6 @@ void EU4::Province::initializeFromCK2(std::shared_ptr<CK2::Province> origProvinc
 	details.vaisyasBurghers = false;	 // No.
 }
 
-void buildMonument()
-{
-	
-}
-
 void EU4::Province::sterilize()
 {
 	details.owner.clear();

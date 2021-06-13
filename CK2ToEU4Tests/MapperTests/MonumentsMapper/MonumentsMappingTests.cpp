@@ -1,9 +1,7 @@
 #include "../../CK2ToEU4/Source/Mappers/MonumentsMapper/MonumentsMapping.h"
 #include "gtest/gtest.h"
-#include <sstream>
-#include <string>
-#include <iostream>
-using namespace std;
+#include <gmock/gmock-matchers.h>
+using testing::ElementsAre;
 
 // Default
 TEST(Mappers_MonumentsMapping, defaultClassTest)
@@ -11,7 +9,7 @@ TEST(Mappers_MonumentsMapping, defaultClassTest)
 	mappers::MonumentsMapping theMapper;
 
 	const auto& test = theMapper.getCanBeMoved();
-	ASSERT_EQ(false, test);
+	EXPECT_EQ(false, test);
 }
 
 // Getters
@@ -25,7 +23,7 @@ TEST(Mappers_MonumentsMappingTests, doesItGetBase)
 	mappers::MonumentsMapping theMapper(input);
 
 	const auto& test = theMapper.getIsBase();
-	ASSERT_EQ(1, test);
+	EXPECT_EQ(1, test);
 }
 
 TEST(Mappers_MonumentsMappingTests, doesItGetTheRightProvinceModifiers)
@@ -38,10 +36,9 @@ TEST(Mappers_MonumentsMappingTests, doesItGetTheRightProvinceModifiers)
 	const auto& test = theMapper.getProvinceModifiers();
 
 	std::string a = "local_defensiveness";
-	std::vector<double> b = {0.05, 0.2, 0.33, 0.33};
 
-	ASSERT_EQ(test.find(a)->first, a);
-	ASSERT_EQ(test.find(a)->second, b);	
+	EXPECT_EQ(test.find(a)->first, a);
+	EXPECT_THAT(test.find(a)->second, ElementsAre(0.05, 0.2, 0.33, 0.33));
 }
 
 TEST(Mappers_MonumentsMappingTests, doesItGetTheRightAreaModifiers)
@@ -54,10 +51,9 @@ TEST(Mappers_MonumentsMappingTests, doesItGetTheRightAreaModifiers)
 	const auto& test = theMapper.getAreaModifiers();
 
 	std::string a = "local_defensiveness";
-	std::vector<double> b = {0.05, 0.2, 0.33, 0.33};
 
-	ASSERT_EQ(test.find(a)->first, a);
-	ASSERT_EQ(test.find(a)->second, b);
+	EXPECT_EQ(test.find(a)->first, a);
+	EXPECT_THAT(test.find(a)->second, ElementsAre(0.05, 0.2, 0.33, 0.33));
 }
 
 TEST(Mappers_MonumentsMappingTests, doesItGetTheRightCountryModifiers)
@@ -70,10 +66,9 @@ TEST(Mappers_MonumentsMappingTests, doesItGetTheRightCountryModifiers)
 	const auto& test = theMapper.getCountryModifiers();
 
 	std::string a = "defensiveness";
-	std::vector<double> b = {0.05, 0.2, 0.33, 0.33};
 
-	ASSERT_EQ(test.find(a)->first, a);
-	ASSERT_EQ(test.find(a)->second, b);
+	EXPECT_EQ(test.find(a)->first, a);
+	EXPECT_THAT(test.find(a)->second, ElementsAre(0.05, 0.2, 0.33, 0.33));
 }
 
 TEST(Mappers_MonumentsMappingTests, doesItGetTheRightOnUpgraded)
@@ -85,7 +80,7 @@ TEST(Mappers_MonumentsMappingTests, doesItGetTheRightOnUpgraded)
 
 	const auto& test = theMapper.getOnUpgraded();
 
-	ASSERT_EQ(" do a thing = yes ", test);
+	EXPECT_EQ(" do a thing = yes ", test);
 }
 
 TEST(Mappers_MonumentsMappingTests, doesItGetBuilderCulture)
@@ -97,7 +92,7 @@ TEST(Mappers_MonumentsMappingTests, doesItGetBuilderCulture)
 
 	const auto& test = theMapper.isOfBuilderCulture();
 
-	ASSERT_EQ(1, test);
+	EXPECT_EQ(1, test);
 }
 
 TEST(Mappers_MonumentsMappingTests, doesItGetBuilderReligion)
@@ -109,16 +104,5 @@ TEST(Mappers_MonumentsMappingTests, doesItGetBuilderReligion)
 
 	const auto& test = theMapper.isOfBuilderReligion();
 
-	ASSERT_EQ(1, test);
-}
-
-// Setters
-TEST(Mappers_MonumentsMappingTests, doesItSetCanBeMoved)
-{
-	std::stringstream input;
-	mappers::MonumentsMapping theMapper(input);
-	theMapper.setCanBeMoved(true);
-
-	const auto& test = theMapper.getCanBeMoved();
-	ASSERT_EQ(1, test);
+	EXPECT_EQ(1, test);
 }

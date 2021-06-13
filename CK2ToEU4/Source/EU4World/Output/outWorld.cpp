@@ -7,8 +7,8 @@ namespace fs = std::filesystem;
 #include "../../Configuration/Configuration.h"
 #include "OSCompatibilityLayer.h"
 #include "outCountry.h"
-#include "outReligion.h"
 #include "outMonument.h"
+#include "outReligion.h"
 
 void EU4::World::output(const mappers::VersionParser& versionParser, const Configuration& theConfiguration, const CK2::World& sourceWorld) const
 {
@@ -76,7 +76,7 @@ void EU4::World::output(const mappers::VersionParser& versionParser, const Confi
 		LOG(LogLevel::Info) << "<- Writing Dynamic Institution Files";
 		outputDynamicInstitutions(theConfiguration);
 	}
-	
+
 	LOG(LogLevel::Info) << "<- Writing Advisers";
 	outputAdvisers(theConfiguration);
 	Log(LogLevel::Progress) << "89 %";
@@ -333,33 +333,38 @@ void EU4::World::outputCommonCountriesFile(const Configuration& theConfiguration
 void EU4::World::outputHistoryProvinces(const Configuration& theConfiguration, const std::set<std::string>& premades) const
 {
 	commonItems::TryCreateFolder("output/" + theConfiguration.getOutputName() + "/common/great_projects/");
-	commonItems::TryCopyFile("configurables/monuments/great_projects/01_monuments.txt", "output/" + theConfiguration.getOutputName() + "/common/great_projects/01_monuments.txt");
-	commonItems::TryCopyFile("configurables/monuments/great_projects/101_old_monuments.txt", "output/" + theConfiguration.getOutputName() + "/common/great_projects/101_old_monuments.txt");
-	commonItems::TryCopyFile("configurables/monuments/great_projects/102_unbuilt_at_game_start.txt", "output/" + theConfiguration.getOutputName() + "/common/great_projects/102_unbuilt_at_game_start.txt");
-	commonItems::TryCopyFile("configurables/monuments/great_projects/!00_converted_monuments.txt", "output/" + theConfiguration.getOutputName() + "/common/great_projects/!00_converted_monuments.txt");
-	commonItems::TryCopyFile("configurables/monuments/gfx/zzz_converted_monuments.gfx", "output/" + theConfiguration.getOutputName() + "/interface/zzz_converted_monuments.gfx");
+	commonItems::TryCopyFile("configurables/monuments/great_projects/01_monuments.txt",
+		 "output/" + theConfiguration.getOutputName() + "/common/great_projects/01_monuments.txt");
+	commonItems::TryCopyFile("configurables/monuments/great_projects/101_old_monuments.txt",
+		 "output/" + theConfiguration.getOutputName() + "/common/great_projects/101_old_monuments.txt");
+	commonItems::TryCopyFile("configurables/monuments/great_projects/102_unbuilt_at_game_start.txt",
+		 "output/" + theConfiguration.getOutputName() + "/common/great_projects/102_unbuilt_at_game_start.txt");
+	commonItems::TryCopyFile("configurables/monuments/great_projects/!00_converted_monuments.txt",
+		 "output/" + theConfiguration.getOutputName() + "/common/great_projects/!00_converted_monuments.txt");
+	commonItems::TryCopyFile("configurables/monuments/gfx/zzz_converted_monuments.gfx",
+		 "output/" + theConfiguration.getOutputName() + "/interface/zzz_converted_monuments.gfx");
 	auto fileNames = commonItems::GetAllFilesInFolder("configurables/monuments/localisation/");
 	for (const auto& fileName: fileNames)
 		commonItems::TryCopyFile("configurables/monuments/localisation/" + fileName, "output/" + theConfiguration.getOutputName() + "/localisation/" + fileName);
-	outMonument(theConfiguration, premades); //Outputs Premade files
+	outMonument(theConfiguration, premades); // Outputs Premade files
 	for (const auto& province: provinces)
 	{
 		std::ofstream output("output/" + theConfiguration.getOutputName() + "/" + province.second->getHistoryCountryFile());
 		if (!output.is_open())
-			throw std::runtime_error("Could not create country history file: output/" + theConfiguration.getOutputName() + "/" + province.second->getHistoryCountryFile());
+			throw std::runtime_error(
+				 "Could not create country history file: output/" + theConfiguration.getOutputName() + "/" + province.second->getHistoryCountryFile());
 		output << *province.second;
 		output.close();
 
 		if (province.second->getHasMonument() && !premades.contains(province.second->getSourceProvince()->getMonument()->second->getType()))
 			outMonument(theConfiguration, province.second->getSourceProvince()->getMonument(), province.first);
 	}
-	//Final closing brace for the GFX file
+	// Final closing brace for the GFX file
 	std::ofstream gfxOutput("output/" + theConfiguration.getOutputName() + "/interface/zzz_converted_monuments.gfx", std::ios::out | std::ios::app);
 	if (!gfxOutput.is_open())
 		throw std::runtime_error("Could not create monuments file: output/" + theConfiguration.getOutputName() + "/interface/zzz_converted_monuments.gfx");
 	gfxOutput << "\n}";
 	gfxOutput.close();
-	
 }
 
 void EU4::World::outputHistoryCountries(const Configuration& theConfiguration) const

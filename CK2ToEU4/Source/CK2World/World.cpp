@@ -2,6 +2,7 @@
 #include "../Configuration/Configuration.h"
 #include "Characters/Character.h"
 #include "CommonFunctions.h"
+#include "CommonRegexes.h"
 #include "Date.h"
 #include "GameVersion.h"
 #include "Log.h"
@@ -12,14 +13,10 @@
 #include "Religions/Religions.h"
 #include "Titles/Liege.h"
 #include "Titles/Title.h"
-#include "Wonders/Wonder.h"
 #include <ZipFile.h>
 #include <cmath>
 #include <filesystem>
 #include <fstream>
-#include "CommonRegexes.h"
-
-
 namespace fs = std::filesystem;
 
 CK2::World::World(const Configuration& theConfiguration)
@@ -94,7 +91,7 @@ CK2::World::World(const Configuration& theConfiguration)
 		vars = Vars(theStream);
 		LOG(LogLevel::Info) << ">> Loaded " << vars.getVars().size() << " global variables.";
 	});
-	
+
 	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 	Log(LogLevel::Progress) << "4 %";
 

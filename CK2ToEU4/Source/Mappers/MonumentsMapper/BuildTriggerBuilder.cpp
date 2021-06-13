@@ -1,9 +1,7 @@
-#include "Log.h"
-#include "ParserHelpers.h"
 #include "BuildTriggerBuilder.h"
-#include <iomanip>
-#include <set>
 #include "CommonRegexes.h"
+#include "ParserHelpers.h"
+#include <iomanip>
 
 mappers::BuildTriggerBuilder::BuildTriggerBuilder()
 {
@@ -36,10 +34,10 @@ void mappers::BuildTriggerBuilder::registerKeys()
 		}
 	});
 	registerKeyword("cultural", [this](const std::string& mods, std::istream& theStream) {
-		cultural = true;
+		cultural = commonItems::getString(theStream) == "yes";
 	});
 	registerKeyword("religious", [this](const std::string& mods, std::istream& theStream) {
-		religious = true;
+		religious = commonItems::getString(theStream) == "yes";
 	});
 	registerKeyword("other", [this](const std::string& mods, std::istream& theStream) {
 		auto tempInput = commonItems::stringOfItem(theStream).getString();

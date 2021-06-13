@@ -61,7 +61,7 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 	Log(LogLevel::Progress) << "58 %";
 
 	// Next we import ck2 provinces and translate them ontop a significant part of all imported provinces.
-	importCK2Provinces(sourceWorld, sourceWorld.isLeviathanDLCPresent());
+	importCK2Provinces(sourceWorld);
 	Log(LogLevel::Progress) << "59 %";
 
 	// With Ck2 provinces linked to those eu4 provinces they affect, we can adjust eu4 province dev values.
@@ -1569,10 +1569,10 @@ void EU4::World::importCK2Country(const std::pair<std::string, std::shared_ptr<C
 	}
 }
 
-void EU4::World::importCK2Provinces(const CK2::World& sourceWorld, bool hasLeviathan)
+void EU4::World::importCK2Provinces(const CK2::World& sourceWorld)
 {
 	LOG(LogLevel::Info) << "-> Importing CK2 Provinces";
-	
+
 	auto counter = 0;
 	// CK2 provinces map to a subset of eu4 provinces. We'll only rewrite those we are responsible for.
 	for (const auto& province: provinces)
