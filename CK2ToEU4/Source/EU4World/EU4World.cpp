@@ -1572,6 +1572,7 @@ void EU4::World::importCK2Country(const std::pair<std::string, std::shared_ptr<C
 void EU4::World::importCK2Provinces(const CK2::World& sourceWorld)
 {
 	LOG(LogLevel::Info) << "-> Importing CK2 Provinces";
+
 	auto counter = 0;
 	// CK2 provinces map to a subset of eu4 provinces. We'll only rewrite those we are responsible for.
 	for (const auto& province: provinces)

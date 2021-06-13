@@ -10,6 +10,7 @@
 #include <fstream>
 #include <stdexcept>
 namespace fs = std::filesystem;
+#include "CommonRegexes.h"
 
 mappers::ProvinceMapper::ProvinceMapper(const CK2::Mods& mods)
 {

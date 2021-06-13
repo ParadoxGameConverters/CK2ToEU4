@@ -3,6 +3,7 @@
 #include "ReformedReligionMapper.h"
 #include <iomanip>
 #include <set>
+#include "CommonRegexes.h"
 
 mappers::ReformedReligionMapper::ReformedReligionMapper()
 {

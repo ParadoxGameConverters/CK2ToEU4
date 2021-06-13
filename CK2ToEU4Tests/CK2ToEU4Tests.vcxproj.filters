@@ -545,6 +545,30 @@
     <ClCompile Include="CK2WorldTests\Flags\FlagsTests.cpp">
       <Filter>CK2WorldTests\Flags</Filter>
     </ClCompile>
+    <ClCompile Include="MapperTests\MonumentsMapper\MonumentsMapperTests.cpp">
+      <Filter>MapperTests\MonumentsMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="MapperTests\MonumentsMapper\MonumentsMappingTests.cpp">
+      <Filter>MapperTests\MonumentsMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\MonumentsMapper\MonumentsMapper.cpp">
+      <Filter>ConverterFiles\Mappers\MonumentsMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\MonumentsMapper\MonumentsMapping.cpp">
+      <Filter>ConverterFiles\Mappers\MonumentsMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\MonumentsMapper\InternalModifiers.cpp">
+      <Filter>ConverterFiles\Mappers\MonumentsMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Wonders\ConstructionHistory.cpp">
+      <Filter>ConverterFiles\CK2World\Wonders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\commonItems\ConvenientParser.cpp">
+      <Filter>ConverterFiles\commonItems</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\MonumentsMapper\BuildTriggerBuilder.cpp">
+      <Filter>ConverterFiles\Mappers\MonumentsMapper</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4WorldTests">
@@ -744,6 +768,12 @@
     </Filter>
     <Filter Include="ConverterFiles\CK2World\Flags">
       <UniqueIdentifier>{f5da847b-a34b-4c1d-a211-65aa708821b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MapperTests\MonumentsMapper">
+      <UniqueIdentifier>{e6c5bb3d-8fb4-4078-81df-8842da795bd3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ConverterFiles\Mappers\MonumentsMapper">
+      <UniqueIdentifier>{96103e92-e230-4de8-8984-befcc31e61c8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -3,6 +3,7 @@
 #include "Barony.h"
 #include "Log.h"
 #include "ParserHelpers.h"
+#include "CommonRegexes.h"
 
 CK2::Province::Province(std::istream& theStream, int provID): provinceID(provID)
 {

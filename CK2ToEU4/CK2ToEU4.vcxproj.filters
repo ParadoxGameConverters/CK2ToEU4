@@ -261,6 +261,36 @@
     <ClCompile Include="Source\EU4World\Output\outReligion.cpp">
       <Filter>EU4World\Output</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Mappers\MonumentsMapper\MonumentsMapper.cpp">
+      <Filter>Mappers\MonumentsMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Mappers\MonumentsMapper\MonumentsMapper.h">
+      <Filter>Mappers\MonumentsMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Mappers\MonumentsMapper\MonumentsMapping.cpp">
+      <Filter>Mappers\MonumentsMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Mappers\MonumentsMapper\MonumentsMapping.h">
+      <Filter>Mappers\MonumentsMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\EU4World\Output\outMonument.cpp">
+      <Filter>EU4World\Output</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Mappers\MonumentsMapper\InternalModifiers.cpp">
+      <Filter>Mappers\MonumentsMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CK2World\Wonders\ConstructionHistory.cpp">
+      <Filter>CK2World\Wonders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\commonItems\ConvenientParser.cpp">
+      <Filter>CommonItems</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Mappers\MonumentsMapper\BuildTriggerBuilder.cpp">
+      <Filter>Mappers\MonumentsMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Mappers\MonumentsMapper\BuildTriggerBuilder.h">
+      <Filter>Mappers\MonumentsMapper</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CK2ToEU4Converter.h" />
@@ -516,6 +546,18 @@
     <ClInclude Include="Source\EU4World\Output\outReligion.h">
       <Filter>EU4World\Output</Filter>
     </ClInclude>
+    <ClInclude Include="Source\EU4World\Output\outMonument.h">
+      <Filter>EU4World\Output</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Mappers\MonumentsMapper\InternalModifiers.h">
+      <Filter>Mappers\MonumentsMapper</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CK2World\Wonders\ConstructionHistory.h">
+      <Filter>CK2World\Wonders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\commonItems\ConvenientParser.h">
+      <Filter>CommonItems</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4World">
@@ -628,6 +670,9 @@
     </Filter>
     <Filter Include="CK2World\Flags">
       <UniqueIdentifier>{e8be8f25-f2f2-4765-a672-a5f652424e90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mappers\MonumentsMapper">
+      <UniqueIdentifier>{5f30ec84-1dc7-47a6-b1a6-0732bca69802}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

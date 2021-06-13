@@ -1,0 +1,1277 @@
+# These are the religious bonuses you get for monuments
+# All Follow the following format:
+
+##Wonder Base
+#type = {
+#	properties = {
+#		can_be_moved
+#	}
+#	build_trigger = {
+#		religious_groups = { religion_group1 religion_group2 }
+#		cultural_groups = { cultural_group1 cultural_group2 }
+#		cultural = yes #Culture group of ruler who built it
+#		religious = yes #Religion group of ruler who built it
+#		other = { direct text } #This will be taken verbatim
+#	}
+#	#Modifiers WILL be scaled over tiers, give tier 0 level
+#	province_modifiers = { 
+#		Province modifier = { tier0 tier1 tier2 tier3 }
+#	}
+#	area_modifiers = {
+#		Area modifier = { tier0 tier1 tier2 tier3 }
+#	}
+#	country_modifiers = {
+#		Country modifier = { tier0 tier1 tier2 tier3 }
+#	}
+#	on_upgraded = {
+#		On upgrade effect
+#	}
+#}
+
+##Wonder Upgrades
+##type = {
+#	#Modifiers WILL be scaled over tiers, give tier 1 level
+#	province_modifiers = { 
+#		Province modifiers
+#	}
+#	area_modifiers = {
+#		Area modifiers
+#	}
+#	country_modifiers = {
+#		Country modifiers 
+#	}
+#	on_upgraded = {
+#		On upgrade effect
+#	}
+#}
+
+### WONDERS
+
+wonder_cathedral = {
+	properties = {
+		can_be_moved = no
+	}
+	build_trigger = {
+		religious_groups = { christian }
+	}
+	country_modifiers = {
+		prestige = { 0.1 0.5 1 1 }
+	}
+}
+wonder_mosque = {
+	properties = {
+		can_be_moved = no
+	}
+	build_trigger = {
+		religious_groups = { muslim }
+	}
+	country_modifiers = {
+		prestige = { 0.1 0.5 1 1 }
+	}
+}
+wonder_synagogue = {
+	properties = {
+		can_be_moved = no
+	}
+	build_trigger = {
+		religious_groups = { jewish_group }
+	}
+	country_modifiers = {
+		prestige = { 0.1 0.5 1 1 }
+	}
+}
+wonder_temple_pagan = {
+	properties = {
+		can_be_moved = no
+	}
+	build_trigger = {
+		religious_groups = { pagan }
+	}
+	country_modifiers = {
+		prestige = { 0.1 0.5 1 1 }
+	}
+}
+wonder_temple_buddhist = {
+	properties = {
+		can_be_moved = no
+	}
+	build_trigger = {
+		religious_groups = { pagan }
+	}
+	country_modifiers = {
+		prestige = { 0.1 0.5 1 1 }
+	}
+}
+wonder_temple_hindu = {
+	properties = {
+		can_be_moved = no
+	}
+	build_trigger = {
+		religious_groups = { dharmic }
+	}
+	country_modifiers = {
+		prestige = { 0.1 0.5 1 1 }
+	}
+}
+
+wonder_statue_ruler = {
+	properties = {
+		can_be_moved = yes
+	}
+	build_trigger = {
+		cultural = yes
+	}
+	area_modifiers = {
+		local_unrest = { 0 -0.5 -1 -2 }
+	}
+}
+wonder_statue_horse = {
+	properties = {
+		can_be_moved = yes
+	}
+	area_modifiers = {
+		local_friendly_movement_speed = { 0 0.1 0.2 0.2 }
+		local_hostile_movement_speed = { 0 0 -0.1 -0.2 }
+	}
+}
+
+wonder_fortress = {
+	properties = {
+		can_be_moved = no
+	}
+	province_modifiers = {
+		local_defensiveness = { 0.05 0.2 0.33 0.33 }
+	}
+}	
+wonder_underground_city = {
+	properties = {
+		can_be_moved = no
+	}
+	area_modifiers = {
+		province_trade_power_value = { 0 5 10 15 }
+	}
+}	
+wonder_wall = {
+	properties = {
+		can_be_moved = no
+	}
+	area_modifiers = {
+		local_defensiveness = { 0 0.15 0.2 0.25 }
+	}
+	province_modifiers = {
+		garrison_size  = { 0 0 0.15 0.25 }
+	}
+}
+wonder_harbor = {
+	properties = {
+		can_be_moved = no
+	}
+	province_modifiers = {
+		local_ship_repair  = { 0 0.1 0.2 0.25 }
+		local_sailors_modifier = { 0 0.1 0.2 0.25 }
+	}
+}
+wonder_lighthouse = {
+	properties = {
+		can_be_moved = no
+	}
+	province_modifiers = {
+		global_tax_modifier = { 0 0.05 0.1 0.2 }
+		local_ship_cost = { 0 -0.1 -0.2 -0.2 }
+	}
+}
+
+wonder_amphitheater = {
+	properties = {
+		can_be_moved = no
+	}
+	build_trigger = {
+		cultural_groups = { lost_cultures_group byzantine latin }
+		religious_groups = { pagan }
+	}
+	country_modifiers = {
+		diplomatic_reputation = { 0 0.5 1 1 }
+	}
+}
+wonder_palace = {
+	properties = {
+		can_be_moved = no
+	}
+	country_modifiers = {
+		advisor_pool = { 0 0 1 1 }
+		advisor_cost = { 0 -0.1 -0.2 -0.25 }
+	}
+}
+wonder_garden = {
+	properties = {
+		can_be_moved = no
+	}
+	country_modifiers = {
+		monarch_lifespan = { 0 0.05 0.1 0.1 }
+	}
+}
+wonder_university = {
+	properties = {
+		can_be_moved = no
+	}
+	build_trigger = {
+		other = { NOT = { has_reform = steppe_horde } }
+	}
+	country_modifiers = {
+		idea_cost = { 0 -0.1 -0.15 -0.2 }
+	}
+}
+wonder_library = {
+	properties = {
+		can_be_moved = yes
+	}
+	build_trigger = {
+		other = { NOT = { has_reform = steppe_horde } }
+	}
+	country_modifiers = {
+		technology_cost = { 0 -0.05 -0.1 -0.1 }
+	}
+}
+
+wonder_mausoleum = {
+	properties = {
+		can_be_moved = no
+	}
+	build_trigger = {
+		religious = yes
+	}
+	country_modifiers = {
+		legitimacy = { 0 0.5 1 1 }
+		devotion = { 0 0.5 1 1 }
+		horde_unity = { 0 0.5 1 1 }
+		republican_tradition = { 0 0.25 0.5 0.5 }
+		meritocracy = { 0 0.25 0.5 0.5 }
+	}
+}
+wonder_pyramid = {
+	properties = {
+		can_be_moved = no
+	}
+	build_trigger = {
+		cultural = yes
+	}
+	country_modifiers = {
+		build_cost = { -0.05 -0.1 -0.15 -0.15 }
+	}
+}
+wonder_pagan_stones = {
+	properties = {
+		can_be_moved = yes
+	}
+	build_trigger = {
+		religious_groups = { pagan }
+	}
+	country_modifiers = {
+		global_missionary_strength = { 0 0.005 0.01 0.01 }
+	}
+}
+wonder_aztec_pyramid = {
+	properties = {
+		can_be_moved = no
+	}
+	build_trigger = {
+		religious_groups = { pagan }
+	}
+	country_modifiers = {
+		infantry_cost = { 0 -0.05 -0.1 -0.2 }
+	}
+}
+
+##Wonder Upgrades
+#Generic
+upgrade_roads = {
+	area_modifiers = {
+		local_friendly_movement_speed = { 0 0.1 0.2 0.2 }
+	}
+}
+upgrade_watchtower_network = {
+	area_modifiers = {
+		garrison_growth = { 0 0.1 0.2 0.33 }
+	}
+}
+upgrade_spikes = {
+	area_modifiers = {
+		local_hostile_attrition = { 0 1 1 2 }
+	}
+}
+upgrade_tower = {
+	area_modifiers = {
+		local_defensiveness = { 0 0.1 0.15 0.2 }
+	}
+}
+upgrade_hypocausts = {
+	area_modifiers = {
+		local_development_cost = { 0 -0.1 -0.15 -0.2 }
+	}
+}
+upgrade_heating_pipes = {
+	area_modifiers = {
+		local_development_cost = { 0 -0.1 -0.15 -0.2 }
+	}
+}
+upgrade_retinue = {
+	country_modifiers = {
+		discipline = { 0 0.025 0.05 0.05 }
+	}
+}
+upgrade_torture_chamber = {
+	country_modifiers = {
+		global_spy_defence = { 0 0.1 0.2 0.25 }
+	}
+}
+upgrade_brewery = {
+	country_modifiers = {
+		global_unrest = { 0 -0.5 -1 -1 }
+	}
+}
+upgrade_vineyard = {
+	country_modifiers = {
+		stability_cost_modifier = { 0 -0.1 -0.2 -0.25 }
+	}
+}
+upgrade_historical_mural = {
+	country_modifiers = {
+		prestige_decay = { 0 -0.01 -0.025 -0.05 }
+	}
+}
+upgrade_road_tolls = {
+	country_modifiers = {
+		caravan_power = { 0 0.1 0.2 0.3 }
+	}
+}
+upgrade_tavern = {
+	country_modifiers = {
+		culture_conversion_cost = { 0 -0.1 -0.2 -0.25 }
+	}
+}
+
+#Cathedral
+upgrade_gargoyles = {
+	country_modifiers = {
+		max_absolutism = { 0 5 10 15 }
+	}
+}
+upgrade_bells = {
+	area_modifiers = {
+		local_defensiveness = { 0 0.1 0.15 0.2 }
+	}
+}
+upgrade_stained_glass_window = {
+	country_modifiers = {
+		church_loyalty_modifier = { 0 0.05 0.1 0.15 }
+	}
+}
+upgrade_relic_tomb = {
+	country_modifiers = {
+		legitimacy = { 0 0.5 1 1 }
+		devotion = { 0 0.5 1 1 }
+		horde_unity = { 0 0.5 1 1 }
+		republican_tradition = { 0 0.25 0.5 0.5 }
+		meritocracy = { 0 0.25 0.5 0.5 }
+	}
+}
+upgrade_grand_basilica = {
+	country_modifiers = {
+		burghers_loyalty_modifier = { 0 0.05 0.1 0.15 }
+	}
+}
+upgrade_catacombs = {
+	area_modifiers = {
+		local_hostile_attrition = { 0 1 1 2 }
+	}
+}
+upgrade_giant_cross = {
+	country_modifiers = {
+		missionaries = { 0 1 1 1 }
+	}
+}
+upgrade_bells_golden = {
+	area_modifiers = {
+		local_defensiveness = { 0 0.1 0.15 0.2 }
+	}
+}
+
+#Temple
+upgrade_statue_god = {
+	country_modifiers = {
+		church_loyalty_modifier = { 0 0.05 0.1 0.15 }
+	}
+}
+upgrade_temple_guards = {
+	area_modifiers = {
+		local_unrest = { 0 -0.5 -1 -2 }
+	}
+}
+upgrade_temple_guards = {
+	area_modifiers = {
+		local_unrest = { 0 -0.5 -1 -2 }
+	}
+}
+upgrade_sacrificial_altar = {
+	country_modifiers = {
+		land_morale = { 0 0.05 0.1 0.1 }
+	}
+}
+upgrade_sacred_grove = {
+	country_modifiers = {
+		stability_cost_modifier = { 0 -0.1 -0.2 -0.25 }
+	}
+}
+upgrade_prophecy_rooms = {
+	country_modifiers = {
+		global_missionary_strength = { 0 0.01 0.02 0.02 }
+	}
+}
+upgrade_temple_precinct = {
+	country_modifiers = {
+		missionaries = { 0 1 1 1 }
+	}
+}
+upgrade_inner_sanctuary = {
+	area_modifiers = {
+		development_cost = { 0 -0.05 -0.1 -0.1 }
+	}
+}
+upgrade_custodian_of_temple = {
+	area_modifiers = {
+		local_governing_cost = { 0 -0.5 -0.75 -1 }
+	}
+}
+
+#Mosque
+upgrade_minaret = {
+	country_modifiers = {
+		global_missionary_strength = { 0 0.01 0.02 0.02 }
+	}
+}
+upgrade_open_courtyard = {
+	area_modifiers = {
+		allowed_num_of_buildings = { 0 1 1 1 }
+	}
+}
+upgrade_dome = {
+	area_modifiers = {
+		church_loyalty_modifier = { 0 0.05 0.1 0.15 }
+	}
+}
+upgrade_lamps_hanging = {
+	area_modifiers = {
+		local_unrest = { 0 -0.5 -1 -2 }
+	}
+}
+upgrade_soup_kitchen = {
+	country_modifiers = {
+		global_unrest = { 0 -0.5 -1 -1 }
+	}
+}
+upgrade_school_mosque = {
+	country_modifiers = {
+		idea_cost = { 0 -0.1 -0.15 -0.2 }
+	}
+}
+upgrade_hostel = {
+	country_modifiers = {
+		global_institution_spread = { 0 0.1 0.15 0.2 }
+	}
+}
+upgrade_hostel = {
+	area_modifiers = {
+		local_governing_cost = { 0 -0.5 -0.75 -1 }
+	}
+}
+
+#Synagogue
+upgrade_tallest_building = {
+	country_modifiers = {
+		land_morale = { 0 0.05 0.1 0.1 }
+	}
+}
+upgrade_garden_outer = {
+	province_modifiers = {
+		local_defensiveness = { 0 0.1 0.2 0.3 }
+	}
+}
+upgrade_holy_ark = {
+	country_modifiers = {
+		church_loyalty_modifier = { 0 0.05 0.1 0.15 }
+	}
+}
+upgrade_decorations = {
+	country_modifiers = {
+		prestige = { 0 0.5 1 1 }
+	}
+}
+upgrade_choir_rooms = {
+	country_modifiers = {
+		prestige_decay = { 0 -0.01 -0.025 -0.05 }
+	}
+}
+upgrade_school_synagogue = {
+	country_modifiers = {
+		technology_cost = { 0 -0.05 -0.1 -0.1 }
+	}
+}
+
+
+#Buddhist Temple
+upgrade_chaitya-grihas = {
+	area_modifiers = {
+		local_unrest = { 0 -0.5 -1 -2 }
+	}
+}
+upgrade_gompa = {
+	province_modifiers = {
+		local_defensiveness = { 0 0.1 0.2 0.3 }
+	}
+}
+upgrade_bodhi_tree  = {
+	country_modifiers = {
+		diplomatic_reputation = { 0 0.5 1 1 }
+	}
+}
+upgrade_cave_complex  = {
+	area_modifiers = {
+		local_hostile_attrition = { 0 1 1 2 }
+	}
+}
+upgrade_vihara  = {
+	country_modifiers = {
+		global_institution_spread = { 0 0.1 0.15 0.2 }
+	}
+}
+upgrade_school_buddhist  = {
+	country_modifiers = {
+		technology_cost = { 0 -0.05 -0.1 -0.1 }
+	}
+}
+upgrade_relic_stupa  = {
+	country_modifiers = {
+		church_loyalty_modifier = { 0 0.05 0.1 0.15 }
+	}
+}
+upgrade_commerative_stupa  = {
+	country_modifiers = {
+		prestige = { 0 0.5 1 1 }
+	}
+}
+upgrade_votive_stupa  = {
+	area_modifiers = {
+		local_tax_modifier = { 0 0.1 0.25 0.5 }
+	}
+}
+
+#Hindu Temple
+upgrade_high_gopura  = {
+	area_modifiers = {
+		local_unrest = { 0 -0.5 -1 -2 }
+	}
+}
+upgrade_shikhara  = {
+	country_modifiers = {
+		church_loyalty_modifier = { 0 0.05 0.1 0.15 }
+		brahmins_loyalty_modifier = { 0 0.05 0.1 0.15 }
+	}
+}
+upgrade_mandapa  = {
+	area_modifiers = {
+		local_manpower_modifier = { 0 0.15 0.25 0.33 }
+	}
+}
+upgrade_temple_complex  = {
+	country_modifiers = {
+		diplomatic_reputation = { 0 0.5 1 1 }
+	}
+}
+upgrade_school_hindu  = {
+	country_modifiers = {
+		idea_cost = { 0 -0.1 -0.15 -0.2 }
+	}
+}
+upgrade_hospital_hindu  = {
+	country_modifiers = {
+		monarch_lifespan = { 0 0.05 0.1 0.1 }
+	}
+}
+
+#University
+upgrade_great_seminars  = {
+	country_modifiers = {
+		embracement_cost = { 0 -0.1 -0.2 -0.3 }
+	}
+}
+upgrade_wing_of_diplomacy  = {
+	country_modifiers = {
+		dip_tech_cost_modifier = { 0 -0.05 -0.1 -0.2 }
+	}
+}
+upgrade_wing_of_martial  = {
+	country_modifiers = {
+		mil_tech_cost_modifier = { 0 -0.05 -0.1 -0.2 }
+	}
+}
+upgrade_wing_of_stewardship  = {
+	country_modifiers = {
+		adm_tech_cost_modifier = { 0 -0.05 -0.1 -0.2 }
+	}
+}
+upgrade_wing_of_intrigue  = {
+	country_modifiers = {
+		spy_offence = { 0 0.1 0.2 0.3 }
+	}
+}
+upgrade_wing_of_learning  = {
+	country_modifiers = {
+		technology_cost = { 0 -0.05 -0.1 -0.1 }
+	}
+}
+upgrade_guardian_of_knowledge  = {
+	country_modifiers = {
+		advisor_cost = { 0 -0.1 -0.2 -0.25 }
+	}
+}
+
+#Statue
+upgrade_plating_gold  = {
+	country_modifiers = {
+		prestige = { 0 0.5 1 1 }
+	}
+}
+upgrade_plating_silver  = {
+	country_modifiers = {
+		prestige = { 0 0.5 1 1 }
+	}
+}
+upgrade_plating_bronze  = {
+	country_modifiers = {
+		prestige = { 0 0.5 1 1 }
+	}
+}
+upgrade_statues_family  = {
+	country_modifiers = {
+		heir_chance = { 0 0.5 1 1 }
+	}
+}
+upgrade_golden_crown  = {
+	country_modifiers = {
+		reduced_liberty_desire = { 0 5 10 20 }
+	}
+}
+upgrade_watcher_of_giants  = {
+	province_modifiers = {
+		local_state_maintenance_modifier = { 0 -0.5 -0.75 -1 }
+	}
+}
+
+#Statue of Horse
+upgrade_stable  = {
+	country_modifiers = {
+		cavalry_power = { 0 0.05 0.1 0.15 }
+	}
+}
+upgrade_statues_animals  = {
+	country_modifiers = {
+		diplomatic_reputation = { 0 0.5 1 1 }
+	}
+}
+upgrade_horse_graveyard  = {
+	country_modifiers = {
+		cavalry_cost = { 0 -0.05 -0.1 -0.2 }
+	}
+}
+
+#Great Harbour
+upgrade_cothon  = {
+	province_modifiers = {
+		blockade_force_required = { 0 0.25 0.5 1 }
+		hostile_disembark_speed = { 0 0.25 0.5 0.5 }
+	}
+}
+upgrade_piers  = {
+	province_modifiers = {
+		province_trade_power_value = { 0 5 10 25 }
+	}
+}
+upgrade_office_harbor  = {
+	area_modifiers = {
+		local_tax_modifier = { 0 0.1 0.25 0.5 }
+	}
+}
+upgrade_lighthouse  = {
+	country_modifiers = {
+		global_ship_trade_power = { 0 0.1 0.2 0.25 }
+	}
+}
+upgrade_military_wharf  = {
+	country_modifiers = {
+		ship_durability = { 0 0.05 0.1 0.1 }
+	}
+}
+upgrade_master_of_tides  = {
+	province_modifiers = {
+		local_state_maintenance_modifier = { 0 -0.5 -0.75 -1 }
+	}
+}
+
+#Great Lighthouse
+upgrade_treasure_chamber  = {
+	province_modifiers = {
+		local_defensiveness = { 0 0.1 0.2 0.3 }
+	}
+}
+upgrade_giant_banners  = {
+	country_modifiers = {
+		naval_morale = { 0 0.05 0.1 0.1 }
+	}
+}
+upgrade_lighthouse_custodian  = {
+	area_modifiers = {
+		local_governing_cost = { 0 -0.5 -0.75 -1 }
+	}
+}
+upgrade_royal_apartments  = {
+	country_modifiers = {
+		advisor_pool = { 0 1 1 2 }
+	}
+}
+
+#Mausoleum
+upgrade_statues_dead  = {
+	country_modifiers = {
+		global_unrest = { 0 -0.5 -1 -1 }
+	}
+}
+upgrade_eternal_flame  = {
+	country_modifiers = {
+		stability_cost_modifier = { 0 -0.1 -0.2 -0.25 }
+	}
+}
+upgrade_unmarked_tombs  = {
+	country_modifiers = {
+		culture_conversion_cost = { 0 -0.1 -0.2 -0.3 }
+	}
+}
+upgrade_quadriga_statue  = {
+	country_modifiers = {
+		prestige_decay = { 0 -0.01 -0.025 -0.05 }
+	}
+}
+upgrade_keeper_of_the_dead = {
+	area_modifiers = {
+		local_governing_cost = { 0 -0.5 -0.75 -1 }
+	}
+}
+
+#Amphitheater
+upgrade_naval_spectacle = {
+	country_modifiers = {
+		navy_tradition = { 0 0.5 1 1 }
+	}
+}
+upgrade_animal_cages = {
+	country_modifiers = {
+		prestige = { 0 0.5 1 1 }
+	}
+}
+upgrade_hippodrome = {
+	country_modifiers = {
+		cavalry_power = { 0 0.05 0.1 0.15 }
+	}
+}
+upgrade_training_academy = {
+	country_modifiers = {
+		army_tradition = { 0 0.5 1 1 }
+	}
+}
+upgrade_theater_stage = {
+	country_modifiers = {
+		num_accepted_cultures = { 0 1 1 1 }
+	}
+}
+upgrade_master_of_the_games = {
+	province_modifiers = {
+		local_state_maintenance_modifier = { 0 -0.5 -0.75 -1 }
+	}
+}
+
+#Gardens
+upgrade_fountains = {
+	country_modifiers = {
+		prestige = { 0 0.5 1 1 }
+	}
+}
+upgrade_fountain_of_youth = {
+	country_modifiers = {
+		monarch_lifespan = { 0 0.25 0.5 0.5 }
+	}
+}
+upgrade_hanging_gardens = {
+	country_modifiers = {
+		core_creation = { 0 -0.1 -0.1 -0.2 }
+	}
+}
+upgrade_secluded_groves = {
+	country_modifiers = {
+		heir_chance = { 0 0.5 1 1 }
+	}
+}
+upgrade_hidden_burial = {
+	country_modifiers = {
+		global_spy_defence = { 0 0.1 0.2 0.25 }
+	}
+}
+upgrade_poisonous_flowers = {
+	country_modifiers = {
+		spy_offence = { 0 0.1 0.2 0.3 }
+	}
+}
+upgrade_herb_garden = {
+	country_modifiers = {
+		monarch_admin_power = { 0 0 1 1 }
+	}
+}
+upgrade_statues_garden = {
+	country_modifiers = {
+		diplomatic_reputation = { 0 0.5 1 1 }
+	}
+}
+upgrade_pet_graveyard = {
+	country_modifiers = {
+		administrative_efficiency = { 0 0 0.05 0.1 }
+	}
+}
+
+#Fortress
+upgrade_armory = {
+	country_modifiers = {
+		infantry_power = { 0 0.05 0.1 0.15 }
+	}
+}
+upgrade_watch_tower = {
+	area_modifiers = {
+		local_defensiveness = { 0 0.1 0.15 0.2 }
+	}
+}
+upgrade_vault = {
+	area_modifiers = {
+		local_development_cost = { 0 -0.1 -0.15 -0.2 }
+	}
+}
+upgrade_moat_pit = {
+	area_modifiers = {
+		local_hostile_attrition = { 0 1 1 2 }
+	}
+}
+upgrade_moat_spike = {
+	area_modifiers = {
+		local_hostile_attrition = { 0 1 1 2 }
+	}
+}
+upgrade_moat_water = {
+	area_modifiers = {
+		local_hostile_attrition = { 0 1 1 2 }
+	}
+}
+upgrade_moat_bones = {
+	area_modifiers = {
+		local_hostile_attrition = { 0 1 1 2 }
+	}
+}
+upgrade_hidden_passageways = {
+	country_modifiers = {
+		global_spy_defence = { 0 0.1 0.2 0.25 }
+	}
+}
+upgrade_garden_inner = {
+	country_modifiers = {
+		land_morale = { 0 0.05 0.1 0.1 }
+	}
+}
+upgrade_dueling_room = {
+	country_modifiers = {
+		monarch_military_power = { 0 0 1 1 }
+	}
+}
+
+#Great Walls
+upgrade_walls_sea = {
+	province_modifiers = {
+		hostile_fleet_attrition = { 0 0 5 10 }
+	}
+}
+upgrade_studded_bastions = {
+	province_modifiers = {
+		fort_level = { 0 1 1 2 }
+	}
+}
+upgrade_strategic_exclaves = {
+	area_modifiers = {
+		local_manpower_modifier = { 0 0.15 0.25 0.33 }
+	}
+}
+upgrade_soaring_fortresses = {
+	province_modifiers = {
+		local_defensiveness = { 0 0.1 0.15 0.2 }
+	}
+}
+upgrade_hidden_gates = {
+	province_modifiers = {
+		local_hostile_movement_speed = { 0 -0.1 -0.1 -0.2 }
+	}
+}
+upgrade_gatehouse_forts = {
+	area_modifiers = {
+		garrison_growth = { 0 0.05 0.1 0.2 }
+	}
+}
+upgrade_killing_fields = {
+	area_modifiers = {
+		local_hostile_attrition = { 0 1 1 2 }
+	}
+}
+upgrade_deep_defense_architecture = {
+	province_modifiers = {
+		local_defensiveness = { 0 0.1 0.15 0.2 }
+	}
+}
+upgrade_artificial_islands = {
+	province_modifiers = {
+		blockade_force_required = { 0 0.25 0.5 1 }
+		hostile_disembark_speed = { 0 0.25 0.5 0.5 }
+	}
+}
+upgrade_wall_walker = {
+	area_modifiers = {
+		local_regiment_cost = { 0 0 -0.1 -0.2 }
+	}
+}
+
+#Underground City
+upgrade_dungeon = {
+	country_modifiers = {
+		spy_offence = { 0 0.1 0.2 0.3 }
+	}
+}
+upgrade_caves_natural = {
+	country_modifiers = {
+		global_spy_defence = { 0 0.1 0.2 0.25 }
+	}
+}
+upgrade_tunnels_travel = {
+	country_modifiers = {
+		caravan_power = { 0 0.1 0.2 0.3 }
+	}
+}
+upgrade_metal_mine_precious = {
+	area_modifiers = {
+		local_production_efficiency = { 0 0.1 0.2 0.3 }
+	}
+}
+upgrade_guardian_of_the_deep = {
+	area_modifiers = {
+		local_governing_cost = { 0 -0.5 -0.75 -1 }
+	}
+}
+
+#Royal Palace
+upgrade_throne_fancy = {
+	country_modifiers = {
+		prestige = { 0 0.5 1 1 }
+	}
+}
+upgrade_trap_door = {
+	country_modifiers = {
+		global_spy_defence = { 0 0.1 0.2 0.25 }
+	}
+}
+upgrade_royal_bedchamber = {
+	country_modifiers = {
+		heir_chance = { 0 0.5 1 1 }
+	}
+}
+upgrade_skull_throne = {
+	country_modifiers = {
+		spy_offence = { 0 0.1 0.2 0.3 }
+	}
+}
+upgrade_golden_throne = {
+	country_modifiers = {
+		max_absolutism = { 0 5 10 15 }
+	}
+}
+upgrade_automata_throne = {
+	country_modifiers = {
+		all_power_cost = { 0 0 0 -0.1 }
+	}
+}
+upgrade_royal_custodian = {
+	country_modifiers = {
+		governing_capacity_modifier = { 0 0.05 0.1 0.15 }
+	}
+}
+
+#Pagan Stones
+upgrade_runestones = {
+	country_modifiers = {
+		diplomatic_reputation = { 0 0.5 1 1 }
+	}
+}
+upgrade_stone_custodian = {
+	country_modifiers = {
+		missionary_maintenance_cost = { 0 -0.1 -0.25 -0.5 }
+	}
+}
+upgrade_more_stones = {
+	country_modifiers = {
+		missionaries = { 0 1 1 1 }
+	}
+}
+
+#Grand Library
+upgrade_collection_drama = {
+	country_modifiers = {
+		free_dip_policy = { 0 0 0 1 }
+	}
+}
+upgrade_collection_architecture = {
+	country_modifiers = {
+		build_cost = { 0 -0.05 -0.1 -0.15 }
+	}
+}
+upgrade_collection_history = {
+	country_modifiers = {
+		free_mil_policy = { 0 0 0 1 }
+	}
+}
+upgrade_collection_science = {
+	country_modifiers = {
+		innovativeness_gain = { 0 0.25 0.5 1 }
+	}
+}
+upgrade_collection_math = {
+	country_modifiers = {
+		free_adm_policy = { 0 0 0 1 }
+	}
+}
+upgrade_scribe_room = {
+	country_modifiers = {
+		idea_cost = { 0 -0.1 -0.15 -0.2 }
+	}
+}
+upgrade_keeper_of_tomes = {
+	country_modifiers = {
+		advisor_cost = { 0 -0.1 -0.2 -0.25 }
+	}
+}
+
+#Pyramids
+upgrade_extra_pyramids = {
+	country_modifiers = {
+		improve_relation_modifier = { 0 0.1 0.1 0.2 }
+	}
+}
+upgrade_mythological_beast = {
+	country_modifiers = {
+		church_loyalty_modifier = { 0 0.05 0.1 0.15 }
+	}
+}
+upgrade_hidden_room = {
+	country_modifiers = {
+		global_spy_defence = { 0 0.1 0.2 0.25 }
+	}
+}
+upgrade_necropolis = {
+	country_modifiers = {
+		legitimacy = { 0 0.5 1 1 }
+		devotion = { 0 0.5 1 1 }
+		horde_unity = { 0 0.5 1 1 }
+		republican_tradition = { 0 0.25 0.5 0.5 }
+		meritocracy = { 0 0.25 0.5 0.5 }
+	}
+}
+upgrade_traps = {
+	area_modifiers = {
+		local_hostile_attrition = { 0 1 2 2 }
+	}
+}
+upgrade_lime_stone_casing = {
+	country_modifiers = {
+		production_efficiency = { 0 0.05 0.1 0.15 }
+	}
+}
+upgrade_overseer_of_rites = {
+	province_modifiers = {
+		local_state_maintenance_modifier = { 0 -0.5 -0.75 -1 }
+	}
+}
+
+#Temple of Solomon
+upgrade_vestibule = {
+	country_modifiers = {
+		legitimacy = { 0 0.5 1 1 }
+		devotion = { 0 0.5 1 1 }
+		horde_unity = { 0 0.5 1 1 }
+		republican_tradition = { 0 0.25 0.5 0.5 }
+		meritocracy = { 0 0.25 0.5 0.5 }
+	}
+}
+upgrade_holy_place = {
+	country_modifiers = {
+		global_unrest = { 0 -0.5 -1 -1 }
+	}
+}
+upgrade_holy_of_holies = {
+	country_modifiers = {
+		missionaries = { 0 1 1 1 }
+	}
+}
+upgrade_cherubim = {
+	country_modifiers = {
+		prestige = { 0 0.5 1 1 }
+	}
+}
+upgrade_great_court = {
+	country_modifiers = {
+		advisor_cost = { 0 -0.1 -0.2 -0.25 }
+	}
+}
+upgrade_inner_court = {
+	country_modifiers = {
+		church_loyalty_modifier = { 0 0.05 0.1 0.15 }
+	}
+}
+
+#IGNORE NEGATIVE UPGRADES
+
+
+##GENERIC TIER UPGRADES FOR MONUMENTS NOT AT TIER 3
+#These will be classed as CK2 itself classifies them (except harbour/lighthouse)
+#Religious
+generic_religious_upgrade_1 = {
+	country_modifiers = {
+		church_loyalty_modifier = { 0 0.05 0.1 0.15 }
+	}
+}
+generic_religious_upgrade_2 = {
+	country_modifiers = {
+		global_unrest = { 0 -0.5 -1 -1 }
+	}
+}
+generic_religious_upgrade_3 = {
+	country_modifiers = {
+		missionaries = { 0 1 1 1 }
+	}
+}
+
+#Statues
+generic_statue_upgrade_1 = {
+	country_modifiers = {
+		prestige = { 0 0.5 1 1 }
+	}
+}
+generic_statue_upgrade_2 = {
+	country_modifiers = {
+		legitimacy = { 0 0.5 1 1 }
+		devotion = { 0 0.5 1 1 }
+		horde_unity = { 0 0.5 1 1 }
+		republican_tradition = { 0 0.25 0.5 0.5 }
+		meritocracy = { 0 0.25 0.5 0.5 }
+	}
+}
+generic_statue_upgrade_3 = {
+	country_modifiers = {
+		land_morale = { 0 0.05 0.1 0.1 }
+	}
+}
+
+#Fortifications
+generic_fortification_upgrade_1 = {
+	area_modifiers = {
+		local_defensiveness = { 0 0.1 0.15 0.2 }
+	}
+}
+generic_fortification_upgrade_2 = {
+	area_modifiers = {	
+		local_hostile_attrition = { 0 1 1 2 }
+	}
+}
+generic_fortification_upgrade_3 = {
+	country_modifiers = {
+		caravan_power = { 0 0.1 0.2 0.3 }
+	}
+}
+
+#Coastal Fortifications
+generic_coastal_upgrade_1 = {
+	province_modifiers = {
+		blockade_force_required = { 0 0.25 0.5 1 }
+		hostile_disembark_speed = { 0 0.25 0.5 0.5 }
+	}
+}
+generic_coastal_upgrade_2 = {
+	country_modifiers = {	
+		global_ship_trade_power = { 0 0.1 0.2 0.25 }
+	}
+}
+generic_coastal_upgrade_3 = {
+	province_modifiers = {
+		hostile_fleet_attrition = { 0 0 5 10 }
+	}
+}
+
+#Culture/Recreation
+generic_culture_upgrade_1 = {
+	province_modifiers = {
+		local_state_maintenance_modifier = { 0 -0.5 -0.75 -1 }
+	}
+}
+generic_culture_upgrade_2 = {
+	country_modifiers = {
+		num_accepted_cultures = { 0 1 1 1 }
+	}
+}
+generic_culture_upgrade_3 = {
+	country_modifiers = {
+		advisor_cost = { 0 -0.1 -0.2 -0.25 }
+	}
+}
+
+#Learning
+generic_learning_upgrade_1 = {
+	country_modifiers = {
+		innovativeness_gain = { 0 0.25 0.5 1 }
+	}
+}
+generic_learning_upgrade_2 = {
+	country_modifiers = {
+		idea_cost = { 0 -0.1 -0.15 -0.2 }
+	}
+}
+generic_learning_upgrade_3 = {
+	country_modifiers = {
+		technology_cost = { 0 -0.05 -0.1 -0.1 }
+	}
+}
+
+#Misc
+generic_misc_upgrade_1 = {
+	country_modifiers = {
+		church_loyalty_modifier = { 0 0.05 0.1 0.15 }
+	}
+}
+generic_misc_upgrade_2 = {
+	country_modifiers = {
+		infantry_cost = { 0 -0.05 -0.1 -0.2 }
+	}
+}
+generic_misc_upgrade_3 = {
+	country_modifiers = {
+		governing_capacity_modifier = { 0 0.05 0.1 0.15 }
+	}
+}
+
+

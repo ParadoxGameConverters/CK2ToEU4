@@ -301,6 +301,7 @@
   <ItemGroup>
     <ClCompile Include="..\commonItems\Color.cpp" />
     <ClCompile Include="..\commonItems\CommonFunctions.cpp" />
+    <ClCompile Include="..\commonItems\ConvenientParser.cpp" />
     <ClCompile Include="..\commonItems\Date.cpp" />
     <ClCompile Include="..\commonItems\GameVersion.cpp" />
     <ClCompile Include="..\commonItems\iconvlite.cpp" />
@@ -334,6 +335,7 @@
     <ClCompile Include="Source\CK2World\Titles\Title.cpp" />
     <ClCompile Include="Source\CK2World\Titles\Titles.cpp" />
     <ClCompile Include="Source\CK2World\Vars\Vars.cpp" />
+    <ClCompile Include="Source\CK2World\Wonders\ConstructionHistory.cpp" />
     <ClCompile Include="Source\CK2World\Wonders\Wonder.cpp" />
     <ClCompile Include="Source\CK2World\Wonders\Wonders.cpp" />
     <ClCompile Include="Source\CK2World\World.cpp" />
@@ -348,6 +350,7 @@
     <ClCompile Include="Source\EU4World\Output\outAgreement.cpp" />
     <ClCompile Include="Source\EU4World\Output\outCountry.cpp" />
     <ClCompile Include="Source\EU4World\Output\outModFile.cpp" />
+    <ClCompile Include="Source\EU4World\Output\outMonument.cpp" />
     <ClCompile Include="Source\EU4World\Output\outProvince.cpp" />
     <ClCompile Include="Source\EU4World\Output\outReligion.cpp" />
     <ClCompile Include="Source\EU4World\Output\outVersion.cpp" />
@@ -364,6 +367,10 @@
     <ClCompile Include="Source\Mappers\GovernmentsMapper\GovernmentsMapping.cpp" />
     <ClCompile Include="Source\Mappers\IAmHreMapper\IAmHreMapper.cpp" />
     <ClCompile Include="Source\Mappers\LocalizationMapper\LocalizationMapper.cpp" />
+    <ClCompile Include="Source\Mappers\MonumentsMapper\BuildTriggerBuilder.cpp" />
+    <ClCompile Include="Source\Mappers\MonumentsMapper\InternalModifiers.cpp" />
+    <ClCompile Include="Source\Mappers\MonumentsMapper\MonumentsMapper.cpp" />
+    <ClCompile Include="Source\Mappers\MonumentsMapper\MonumentsMapping.cpp" />
     <ClCompile Include="Source\Mappers\PersonalityScraper\PersonalityScraper.cpp" />
     <ClCompile Include="Source\Mappers\PrimaryTagMapper\PrimaryTagCultureGroup.cpp" />
     <ClCompile Include="Source\Mappers\PrimaryTagMapper\PrimaryTagMapper.cpp" />
@@ -391,6 +398,7 @@
   <ItemGroup>
     <ClInclude Include="..\commonItems\Color.h" />
     <ClInclude Include="..\commonItems\CommonFunctions.h" />
+    <ClInclude Include="..\commonItems\ConvenientParser.h" />
     <ClInclude Include="..\commonItems\Date.h" />
     <ClInclude Include="..\commonItems\GameVersion.h" />
     <ClInclude Include="..\commonItems\iconvlite.h" />
@@ -423,6 +431,7 @@
     <ClInclude Include="Source\CK2World\Titles\Title.h" />
     <ClInclude Include="Source\CK2World\Titles\Titles.h" />
     <ClInclude Include="Source\CK2World\Vars\Vars.h" />
+    <ClInclude Include="Source\CK2World\Wonders\ConstructionHistory.h" />
     <ClInclude Include="Source\CK2World\Wonders\Wonder.h" />
     <ClInclude Include="Source\CK2World\Wonders\Wonders.h" />
     <ClInclude Include="Source\CK2World\World.h" />
@@ -435,6 +444,7 @@
     <ClInclude Include="Source\EU4World\Diplomacy\Diplomacy.h" />
     <ClInclude Include="Source\EU4World\EU4World.h" />
     <ClInclude Include="Source\EU4World\Output\outAgreement.h" />
+    <ClInclude Include="Source\EU4World\Output\outMonument.h" />
     <ClInclude Include="Source\EU4World\Output\outProvince.h" />
     <ClInclude Include="Source\EU4World\Output\outCountry.h" />
     <ClInclude Include="Source\EU4World\Output\outModFile.h" />
@@ -451,6 +461,10 @@
     <ClInclude Include="Source\Mappers\GovernmentsMapper\GovernmentsMapping.h" />
     <ClInclude Include="Source\Mappers\IAmHreMapper\IAmHreMapper.h" />
     <ClInclude Include="Source\Mappers\LocalizationMapper\LocalizationMapper.h" />
+    <ClCompile Include="Source\Mappers\MonumentsMapper\BuildTriggerBuilder.h" />
+	<ClInclude Include="Source\Mappers\MonumentsMapper\InternalModifiers.h" />
+    <ClCompile Include="Source\Mappers\MonumentsMapper\MonumentsMapper.h" />
+    <ClCompile Include="Source\Mappers\MonumentsMapper\MonumentsMapping.h" />
     <ClInclude Include="Source\Mappers\PersonalityScraper\PersonalityScraper.h" />
     <ClInclude Include="Source\Mappers\PrimaryTagMapper\PrimaryTagCultureGroup.h" />
     <ClInclude Include="Source\Mappers\PrimaryTagMapper\PrimaryTagMapper.h" />

@@ -6,6 +6,7 @@
 #include "../Mappers/PersonalityScraper/PersonalityScraper.h"
 #include "../Mappers/ProvinceTitleMapper/ProvinceTitleMapper.h"
 #include "../Mappers/ReformedReligionMapper/ReformedReligionMapper.h"
+#include "../Mappers/MonumentsMapper/MonumentsMapper.h"
 #include "../Mappers/ReligionMapper/ReligionMapper.h"
 #include "Characters/Characters.h"
 #include "Date.h"
@@ -34,17 +35,22 @@ class World: commonItems::parser
 
 	[[nodiscard]] const auto& getProvinceTitleMapper() const { return provinceTitleMapper; }
 	[[nodiscard]] const auto& getIndepTitles() const { return independentTitles; }
-	[[nodiscard]] const auto& getProvinces() const { return provinces.getProvinces(); }
 	[[nodiscard]] const auto& getConversionDate() const { return endDate; }
 	[[nodiscard]] const auto& getOffmaps() const { return offmaps; }
+	[[nodiscard]] const auto& getCharacters() const { return characters; }
 	[[nodiscard]] const auto& getDiplomacy() const { return diplomacy; }
 	[[nodiscard]] const auto& getVars() const { return vars; }
 	[[nodiscard]] const auto& getMods() const { return mods; }
+	[[nodiscard]] const auto& getProvinces() const { return provinces.getProvinces(); }
 	[[nodiscard]] const auto& getReligionReforms() const { return religionReforms; }
 	[[nodiscard]] const auto& getUnreligionReforms() const { return unreligionReforms; }
+	[[nodiscard]] const auto& getExistentPremadeMonuments() const { return existentPremadeMonuments; }
+	[[nodiscard]] auto isLeviathanDLCPresent() const { return leviathanDLC; }
 	[[nodiscard]] auto isInvasion() const { return invasion; }
 	[[nodiscard]] auto wasNoReformation() const { return wereNoReformations; }
 	[[nodiscard]] auto isGreekReformation() const { return greekReformation; }
+
+	void setExistentPremadeMonuments(std::set<std::string> premades) { existentPremadeMonuments = premades; }
 
   private:
 	bool uncompressSave(const std::string& saveGamePath);
@@ -72,6 +78,7 @@ class World: commonItems::parser
 	void loadDynasties(const Configuration& theConfiguration);
 	void loadProvinces(const Configuration& theConfiguration);
 
+	bool leviathanDLC;
 	bool invasion = false;	
 	bool wereNoReformations = true;
 	bool greekReformation = false;
@@ -110,6 +117,7 @@ class World: commonItems::parser
 	std::vector<mappers::ReformedReligionMapping> unreligionReforms;
 	std::set<std::string> reformationList;
 	std::set<std::string> unreformationList;
+	std::set<std::string> existentPremadeMonuments;
 };
 } // namespace CK2
 

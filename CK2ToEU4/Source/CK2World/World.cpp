@@ -2,6 +2,7 @@
 #include "../Configuration/Configuration.h"
 #include "Characters/Character.h"
 #include "CommonFunctions.h"
+#include "CommonRegexes.h"
 #include "Date.h"
 #include "GameVersion.h"
 #include "Log.h"
@@ -16,8 +17,6 @@
 #include <cmath>
 #include <filesystem>
 #include <fstream>
-
-
 namespace fs = std::filesystem;
 
 CK2::World::World(const Configuration& theConfiguration)
@@ -164,7 +163,11 @@ CK2::World::World(const Configuration& theConfiguration)
 	provinces.linkPrimarySettlements();
 	Log(LogLevel::Progress) << "19 %";
 	LOG(LogLevel::Info) << "-- Linking Provinces With Wonders";
-	provinces.linkWonders(wonders);
+	leviathanDLC = commonItems::DoesFileExist(theConfiguration.getEU4Path() + "/dlc/dlc106_leviathan/dlc106.dlc");
+	if (isLeviathanDLCPresent())
+		setExistentPremadeMonuments(provinces.linkMonuments(wonders, characters));
+	else
+		provinces.linkWonders(wonders);
 	Log(LogLevel::Progress) << "20 %";
 	LOG(LogLevel::Info) << "-- Linking Titles With Holders";
 	titles.linkHolders(characters);

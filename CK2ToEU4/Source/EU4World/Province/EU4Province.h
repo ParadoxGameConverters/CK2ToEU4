@@ -42,6 +42,7 @@ class Province
 	[[nodiscard]] auto getMil() const { return details.baseManpower; }
 	[[nodiscard]] auto getDip() const { return details.baseProduction; }
 	[[nodiscard]] auto getProvinceID() const { return provID; }
+	[[nodiscard]] auto getHasMonument() const { return hasMonument; }
 	
 
 	void registerTagCountry(const std::pair<std::string, std::shared_ptr<Country>>& theCountry) { tagCountry = theCountry; }
@@ -63,6 +64,7 @@ class Province
 
   private:
 	int provID = 0;
+	bool hasMonument = false; //For Leviathan DLC owners only
 	std::string historyProvincesFile;
 	std::shared_ptr<CK2::Province> srcProvince;
 	ProvinceDetails details;

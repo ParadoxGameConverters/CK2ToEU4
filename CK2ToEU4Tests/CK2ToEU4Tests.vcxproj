@@ -174,6 +174,7 @@
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Titles\Title.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Titles\Titles.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Vars\Vars.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Wonders\ConstructionHistory.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Wonders\Wonder.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Wonders\Wonders.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Configuration\Configuration.cpp" />
@@ -183,6 +184,10 @@
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\GovernmentsMapper\GovernmentsMapper.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\GovernmentsMapper\GovernmentsMapping.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\IAmHreMapper\IAmHreMapper.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\MonumentsMapper\BuildTriggerBuilder.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\MonumentsMapper\InternalModifiers.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\MonumentsMapper\MonumentsMapper.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\MonumentsMapper\MonumentsMapping.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\PersonalityScraper\PersonalityScraper.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\PrimaryTagMapper\PrimaryTagCulture.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\PrimaryTagMapper\PrimaryTagCultureGroup.cpp" />
@@ -208,6 +213,7 @@
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\VersionParser\VersionParser.cpp" />
     <ClCompile Include="..\commonItems\Color.cpp" />
     <ClCompile Include="..\commonItems\CommonFunctions.cpp" />
+    <ClCompile Include="..\commonItems\ConvenientParser.cpp" />
     <ClCompile Include="..\commonItems\Date.cpp" />
     <ClCompile Include="..\commonItems\GameVersion.cpp" />
     <ClCompile Include="..\commonItems\iconvlite.cpp" />
@@ -313,6 +319,8 @@
     <ClCompile Include="MapperTests\GovernmentsMapper\GovernmentsMapperTests.cpp" />
     <ClCompile Include="MapperTests\GovernmentsMapper\GovernmentsMappingTests.cpp" />
     <ClCompile Include="MapperTests\IAmHreMapper\IAmHreMapperTests.cpp" />
+    <ClCompile Include="MapperTests\MonumentsMapper\MonumentsMapperTests.cpp" />
+    <ClCompile Include="MapperTests\MonumentsMapper\MonumentsMappingTests.cpp" />
     <ClCompile Include="MapperTests\PersonalityScraper\PersonalityScraperTests.cpp" />
     <ClCompile Include="MapperTests\PrimaryTagMapper\PrimaryTagCultureGroupTests.cpp" />
     <ClCompile Include="MapperTests\PrimaryTagMapper\PrimaryTagCultureTests.cpp" />
