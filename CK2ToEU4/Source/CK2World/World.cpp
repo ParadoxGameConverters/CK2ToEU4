@@ -12,6 +12,7 @@
 #include "Religions/Religions.h"
 #include "Titles/Liege.h"
 #include "Titles/Title.h"
+#include "Wonders/Wonder.h"
 #include <ZipFile.h>
 #include <cmath>
 #include <filesystem>

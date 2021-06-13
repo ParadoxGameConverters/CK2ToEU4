@@ -3,6 +3,11 @@
 #include "Parser.h"
 #include "../Characters/Characters.h"
 #include "../Characters/Character.h"
+#include "../Wonders/Wonder.h"
+#include "../Wonders/Wonders.h"
+#include "../../Mappers/MonumentsMapper/MonumentsMapping.h"
+#include "../../Mappers/MonumentsMapper/MonumentsMapper.h"
+
 
 namespace CK2
 {
@@ -22,6 +27,7 @@ class Provinces: commonItems::parser
 
   private:
 	void registerKeys();
+	void buildMonument(const mappers::MonumentsMapper& monumentsMapper, const std::shared_ptr<CK2::Wonder>& wonder);
 
 	std::map<int, std::shared_ptr<Province>> provinces;
 };

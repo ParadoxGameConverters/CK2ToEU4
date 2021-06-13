@@ -1,8 +1,5 @@
 #include "Provinces.h"
-#include "../Wonders/Wonder.h"
-#include "../Wonders/Wonders.h"
 #include "../Titles/Title.h"
-#include "../../Mappers/MonumentsMapper/MonumentsMapping.h"
 #include "Log.h"
 #include "ParserHelpers.h"
 #include "Province.h"
@@ -80,6 +77,7 @@ std::set<std::string> CK2::Provinces::linkMonuments(const Wonders& wonders, cons
 	};
 	
 	std::set<std::string> extantMonuments;
+	const mappers::MonumentsMapper monumentsMapper;
 	for (const auto& wonder: wonders.getWonders())
 	{
 		if (wonder.second)
@@ -215,9 +213,81 @@ std::set<std::string> CK2::Provinces::linkMonuments(const Wonders& wonders, cons
 			}
 			//Converts name to the proper encoding type
 			wonder.second->setName(commonItems::convertWin1252ToUTF8(wonder.second->getName()));
+
+			//Now we will finish building the monument
+			if (!premadeMonuments.contains(monumentName))
+				buildMonument(monumentsMapper, wonder.second);
 		}
 		counter++;
 	}
 	Log(LogLevel::Info) << "<> " << counter << " wonders have been linked.";
 	return extantMonuments;
+}
+
+
+void CK2::Provinces::buildMonument(const mappers::MonumentsMapper& monumentsMapper, const std::shared_ptr<CK2::Wonder>& wonder)
+{	
+	wonder->setTrueDate(wonder->getBinaryDate());
+
+	short numOfModifiers = 0;
+
+	// Goes through each upgrade that a wonder has and creates vectors for the bonuses, only done for up to a max of 4 bonuses.
+	for (const auto& upgrade: wonder->getUpgrades())
+	{
+		bool addedMod = false;
+
+		if (const auto& upgItr = monumentsMapper.getWonders().find(upgrade); upgItr == monumentsMapper.getWonders().end())
+		{
+			Log(LogLevel::Warning) << "Upgrade " << upgrade << " has no mapping!";
+			continue;
+		}
+
+		auto monumentsMapping = monumentsMapper.getWonders().find(upgrade)->second;
+
+		if (monumentsMapping.getCanBeMoved())
+			wonder->setCanBeMoved("yes");
+		if (!monumentsMapping.getBuildTrigger().empty())
+		{
+			wonder->setBuildTrigger(monumentsMapping.getBuildTrigger());
+			if (monumentsMapping.isOfBuilderCulture())
+				wonder->setBuildTrigger(wonder->getBuildTrigger() + "AND = {\n\t\t\t\tculture = " + wonder->getBuilderCulture() + "\n\t\t\t\thas_owner_culture = yes\n\t\t\t}\n\t\t");
+			if (monumentsMapping.isOfBuilderReligion())
+				wonder->setBuildTrigger(wonder->getBuildTrigger() + "AND = {\n\t\t\t\treligion = " + wonder->getBuilderReligion() + "\n\t\t\t\thas_owner_religion = yes\n\t\t\t}\n\t\t");
+		}
+
+		for (const auto& mod: monumentsMapping.getProvinceModifiers())
+		{
+			if (!wonder->getProvinceModifiers().contains(mod.first))
+			{
+				wonder->addProvinceModifier(mod);
+				addedMod = true;
+			}
+		}
+
+		for (const auto& mod: monumentsMapping.getAreaModifiers())
+		{
+			if (!wonder->getAreaModifiers().contains(mod.first))
+			{
+				wonder->addAreaModifier(mod);
+				addedMod = true;
+			}
+		}
+
+		for (const auto& mod: monumentsMapping.getCountryModifiers())
+		{
+			if (!wonder->getCountryModifiers().contains(mod.first))
+			{
+				wonder->addCountryModifier(mod);
+				addedMod = true;
+			}
+		}
+
+		if (addedMod)
+		{
+			wonder->getOnUpgraded().emplace_back(monumentsMapping.getOnUpgraded()); // This way we will have 4 onUpgrades to match the 4 tiers
+			numOfModifiers++;
+		}
+		if (numOfModifiers > 3)
+			break;
+	}
 }

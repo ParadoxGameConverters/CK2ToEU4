@@ -22,16 +22,27 @@ class Wonder: commonItems::parser
 	[[nodiscard]] auto isActive() const { return active; }
 	[[nodiscard]] auto isTransferrable() const { return active && stage == 3; }
 	[[nodiscard]] auto getTrueDate() { return trueDate; }
+	[[nodiscard]] auto getCanBeMoved() { return canBeMoved; }
 	[[nodiscard]] auto getBuilderCulture() { return builderCulture; }
 	[[nodiscard]] auto getBuilderReligion() { return builderReligion; }
+	[[nodiscard]] auto getBuildTrigger() { return buildTrigger; }
+	[[nodiscard]] auto getOnUpgraded() { return onUpgraded; }
+	[[nodiscard]] auto getProvinceModifiers() { return provinceModifiers; }
+	[[nodiscard]] auto getAreaModifiers() { return areaModifiers; }
+	[[nodiscard]] auto getCountryModifiers() { return countryModifiers; }
 	[[nodiscard]] auto getUpgrades() { return upgrades; }
 	[[nodiscard]] auto isSpent() const { return spent; }
 	void addUpgrade(const std::string& mod){ upgrades.emplace(mod); }
 	void setWonderID(int mod) { wonderID = mod; }
 	void setName(const std::string& newName) { name = newName; }
 	void setTrueDate(int binDate);
+	void setCanBeMoved(const std::string& can) { canBeMoved = can; }
 	void setBuilderCulture(const std::string& culture) { builderCulture = culture; }
 	void setBuilderReligion(const std::string& religion) { builderReligion = religion; }
+	void setBuildTrigger(const std::string& trigger) { buildTrigger = trigger; }
+	void addProvinceModifier(const std::pair<std::string, std::vector<double>>& mod) { provinceModifiers.emplace(mod); }
+	void addAreaModifier(const std::pair<std::string, std::vector<double>>& mod) { areaModifiers.emplace(mod); }
+	void addCountryModifier(const std::pair<std::string, std::vector<double>>& mod) { countryModifiers.emplace(mod); }
 	void setSpent() { spent = true; }
 
   private:
@@ -48,10 +59,16 @@ class Wonder: commonItems::parser
 	std::string name;
 	std::string desc;
 	std::string trueDate = "0";
+	std::string canBeMoved = "no";
 	std::string builderCulture;
 	std::string builderReligion;
+	std::string buildTrigger;
 
 	std::set<std::string> upgrades;
+	std::vector<std::string> onUpgraded;
+	std::map<std::string, std::vector<double>> provinceModifiers;
+	std::map<std::string, std::vector<double>> areaModifiers;
+	std::map<std::string, std::vector<double>> countryModifiers;
 };
 } // namespace CK2
 

@@ -5,19 +5,19 @@
 
 namespace mappers
 {
-class MonumentsMapper: commonItems::parser
-{
-  public:
-	MonumentsMapper();
-	MonumentsMapper(std::istream& theStream);
+	class MonumentsMapper: commonItems::parser
+	{
+	  public:
+		MonumentsMapper();
+		MonumentsMapper(std::istream& theStream);
 
-	std::map<std::string, MonumentsMapping> getWonders() { return wonders; }
+		[[nodiscard]] const auto& getWonders() const { return wonders; }
 
-  private:
-	void registerKeys();
+	  private:
+		void registerKeys();
 
-	std::map<std::string, MonumentsMapping> wonders;
-};
+		std::map<std::string, MonumentsMapping> wonders;
+	};
 } // namespace mappers
 
 #endif // CK2_MONUMENTS_MAPPER_H
