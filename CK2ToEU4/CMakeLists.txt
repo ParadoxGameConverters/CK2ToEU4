@@ -59,13 +59,14 @@ file(GLOB EU4WORLD_PROVINCE_SOURCES "${PROJECT_SOURCE_DIR}/EU4World/Province/*.c
 file(GLOB EU4WORLD_OUTPUT_SOURCES "${PROJECT_SOURCE_DIR}/EU4World/Output/*.cpp")
 set(COMMON_SOURCES "../commonItems/CommonFunctions.cpp")
 set(COMMON_SOURCES ${COMMON_SOURCES} "../commonItems/Color.cpp")
-set(COMMON_SOURCES ${COMMON_SOURCES} "../commonItems/GameVersion.cpp")
+set(COMMON_SOURCES ${COMMON_SOURCES} "../commonItems/ConvenientParser.cpp")
 set(COMMON_SOURCES ${COMMON_SOURCES} "../commonItems/Date.cpp")
+set(COMMON_SOURCES ${COMMON_SOURCES} "../commonItems/GameVersion.cpp")
 set(COMMON_SOURCES ${COMMON_SOURCES} "../commonItems/LinuxUtils.cpp")
 set(COMMON_SOURCES ${COMMON_SOURCES} "../commonItems/Log.cpp")
-set(COMMON_SOURCES ${COMMON_SOURCES} "../commonItems/OSCommonLayer.cpp")
 set(COMMON_SOURCES ${COMMON_SOURCES} "../commonItems/Parser.cpp")
 set(COMMON_SOURCES ${COMMON_SOURCES} "../commonItems/ParserHelpers.cpp")
+set(COMMON_SOURCES ${COMMON_SOURCES} "../commonItems/OSCommonLayer.cpp")
 set(COMMON_SOURCES ${COMMON_SOURCES} "../commonItems/StringUtils.cpp")
 
 add_executable(CK2ToEU4 
