@@ -1,13 +1,11 @@
 #ifndef CK2_PROVINCES_H
 #define CK2_PROVINCES_H
-#include "Parser.h"
-#include "../Characters/Characters.h"
+#include "../../Mappers/MonumentsMapper/MonumentsMapper.h"
 #include "../Characters/Character.h"
+#include "../Characters/Characters.h"
 #include "../Wonders/Wonder.h"
 #include "../Wonders/Wonders.h"
-#include "../../Mappers/MonumentsMapper/MonumentsMapping.h"
-#include "../../Mappers/MonumentsMapper/MonumentsMapper.h"
-
+#include "Parser.h"
 
 namespace CK2
 {
@@ -19,10 +17,10 @@ class Provinces: commonItems::parser
 	Provinces() = default;
 	explicit Provinces(std::istream& theStream);
 	[[nodiscard]] const auto& getProvinces() const { return provinces; }
-	
+
 
 	void linkPrimarySettlements();
-	void linkWonders(const Wonders& wonders);													// No Leviathan DLC
+	void linkWonders(const Wonders& wonders);																	 // No Leviathan DLC
 	std::set<std::string> linkMonuments(const Wonders& wonders, const Characters& characters); // Leviathan DLC
 
   private:

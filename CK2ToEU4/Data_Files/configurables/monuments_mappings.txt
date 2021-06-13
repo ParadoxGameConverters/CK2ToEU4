@@ -9,8 +9,8 @@
 #	build_trigger = {
 #		religious_groups = { religion_group1 religion_group2 }
 #		cultural_groups = { cultural_group1 cultural_group2 }
-#		cultural #Culture group of ruler who built it
-#		religious #Religion group of ruler who built it
+#		cultural = yes #Culture group of ruler who built it
+#		religious = yes #Religion group of ruler who built it
 #		other = { direct text } #This will be taken verbatim
 #	}
 #	#Modifiers WILL be scaled over tiers, give tier 0 level
@@ -119,7 +119,7 @@ wonder_statue_ruler = {
 		can_be_moved = yes
 	}
 	build_trigger = {
-		cultural
+		cultural = yes
 	}
 	area_modifiers = {
 		local_unrest = { 0 -0.5 -1 -2 }
@@ -238,7 +238,7 @@ wonder_mausoleum = {
 		can_be_moved = no
 	}
 	build_trigger = {
-		religious
+		religious = yes
 	}
 	country_modifiers = {
 		legitimacy = { 0 0.5 1 1 }
@@ -253,7 +253,7 @@ wonder_pyramid = {
 		can_be_moved = no
 	}
 	build_trigger = {
-		cultural
+		cultural = yes
 	}
 	country_modifiers = {
 		build_cost = { -0.05 -0.1 -0.15 -0.15 }

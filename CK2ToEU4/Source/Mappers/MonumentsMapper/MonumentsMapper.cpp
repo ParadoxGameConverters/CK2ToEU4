@@ -1,17 +1,17 @@
+#include "MonumentsMapper.h"
+#include "CommonRegexes.h"
 #include "Log.h"
 #include "ParserHelpers.h"
-#include "MonumentsMapper.h"
 #include <iomanip>
 #include <set>
-#include "CommonRegexes.h"
 
 mappers::MonumentsMapper::MonumentsMapper()
 {
-	LOG(LogLevel::Info) << "-> Parsing Monuments mappings";
+	Log(LogLevel::Info) << "-> Parsing Monuments mappings";
 	registerKeys();
 	parseFile("configurables/monuments_mappings.txt");
 	clearRegisteredKeywords();
-	LOG(LogLevel::Info) << "<> " << wonders.size() << " Monuments mapped.";
+	Log(LogLevel::Info) << "<> " << wonders.size() << " Monuments mapped.";
 }
 
 mappers::MonumentsMapper::MonumentsMapper(std::istream& theStream)

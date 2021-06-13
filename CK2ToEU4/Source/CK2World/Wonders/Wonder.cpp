@@ -1,8 +1,8 @@
 #include "Wonder.h"
+#include "CommonRegexes.h"
+#include "ConstructionHistory.h"
 #include "Log.h"
 #include "ParserHelpers.h"
-#include "ConstructionHistory.h"
-#include "CommonRegexes.h"
 
 CK2::Wonder::Wonder(std::istream& theStream)
 {
@@ -19,7 +19,7 @@ void CK2::Wonder::registerKeys()
 	});
 	registerKeyword("province", [this](const std::string& unused, std::istream& theStream) {
 		provinceID = commonItems::singleInt(theStream).getInt();
-	});	
+	});
 	registerKeyword("name", [this](const std::string& unused, std::istream& theStream) {
 		name = commonItems::singleString(theStream).getString();
 	});

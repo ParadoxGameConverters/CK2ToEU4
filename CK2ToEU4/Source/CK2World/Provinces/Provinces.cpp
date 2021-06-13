@@ -1,10 +1,10 @@
 #include "Provinces.h"
 #include "../Titles/Title.h"
+#include "CommonRegexes.h"
 #include "Log.h"
+#include "OSCompatibilityLayer.h"
 #include "ParserHelpers.h"
 #include "Province.h"
-#include "CommonRegexes.h"
-#include "OSCompatibilityLayer.h"
 
 CK2::Provinces::Provinces(std::istream& theStream)
 {
@@ -50,8 +50,8 @@ void CK2::Provinces::linkPrimarySettlements()
 	Log(LogLevel::Info) << "<> " << counter << " primary baronies linked.";
 }
 
-void CK2::Provinces::linkWonders(const Wonders& wonders) //No Leviathan DLC
-{	
+void CK2::Provinces::linkWonders(const Wonders& wonders) // No Leviathan DLC
+{
 	auto counter = 0;
 	for (const auto& wonder: wonders.getWonders())
 	{
@@ -68,14 +68,23 @@ void CK2::Provinces::linkWonders(const Wonders& wonders) //No Leviathan DLC
 	}
 	Log(LogLevel::Info) << "<> " << counter << " active and finished wonders have been linked.";
 }
+
 std::set<std::string> CK2::Provinces::linkMonuments(const Wonders& wonders, const Characters& characters) // Leviathan DLC
 {
 	auto counter = 0;
-	const std::set<std::string> premadeMonuments = { "wonder_pyramid_giza", "wonder_pagan_stones_stonehenge", "wonder_mausoleum_halicarnassus", "wonder_lighthouse_alexandria",
-											   "wonder_temple_hindu_konark", "wonder_apostolic_palace", "wonder_house_of_wisdom", "wonder_underground_city_petra",
-											   "wonder_cathedral_hagia_sophia", "wonder_cathedral_notre_dame" //Theses monuments have set definitions already
+	const std::set<std::string> premadeMonuments = {
+		 "wonder_pyramid_giza",
+		 "wonder_pagan_stones_stonehenge",
+		 "wonder_mausoleum_halicarnassus",
+		 "wonder_lighthouse_alexandria",
+		 "wonder_temple_hindu_konark",
+		 "wonder_apostolic_palace",
+		 "wonder_house_of_wisdom",
+		 "wonder_underground_city_petra",
+		 "wonder_cathedral_hagia_sophia",
+		 "wonder_cathedral_notre_dame" // Theses monuments have set definitions already
 	};
-	
+
 	std::set<std::string> extantMonuments;
 	const mappers::MonumentsMapper monumentsMapper;
 	for (const auto& wonder: wonders.getWonders())
@@ -86,7 +95,7 @@ std::set<std::string> CK2::Provinces::linkMonuments(const Wonders& wonders, cons
 			if (premadeMonuments.contains(monumentName))
 				extantMonuments.emplace(monumentName);
 			else if (wonder.second->getUpgrades().size() < 4)
-			{					
+			{
 				if (monumentName == "wonder_cathedral" || monumentName == "wonder_mosque" || monumentName == "wonder_synagogue" ||
 					 monumentName == "wonder_temple_pagan" || monumentName == "wonder_temple_buddhist" || monumentName == "wonder_temple_hindu")
 				{
@@ -153,10 +162,8 @@ std::set<std::string> CK2::Provinces::linkMonuments(const Wonders& wonders, cons
 				{
 					wonder.second->setBuilderCulture(builder->second->getCulture());
 					wonder.second->setBuilderReligion(builder->second->getReligion());
-				}				
+				}
 			}
-
-			
 
 			const auto& provinceItr = provinces.find(wonder.second->getProvinceID());
 			if (provinceItr == provinces.end())
@@ -174,10 +181,13 @@ std::set<std::string> CK2::Provinces::linkMonuments(const Wonders& wonders, cons
 					wonder.second->setName("Grand Mosque of " + provinceItr->second->getName());
 				else if (wonder.second->getType() == "wonder_synagogue")
 					wonder.second->setName("Great " + provinceItr->second->getName() + " Synagogue");
-				else if (wonder.second->getType() == "wonder_temple_pagan" || wonder.second->getType() == "wonder_temple_buddhist" || wonder.second->getType() == "wonder_temple_hindu")
+				else if (wonder.second->getType() == "wonder_temple_pagan" || wonder.second->getType() == "wonder_temple_buddhist" ||
+							wonder.second->getType() == "wonder_temple_hindu")
 					wonder.second->setName("Great Temple of" + provinceItr->second->getName());
 				else if (wonder.second->getType() == "wonder_statue_ruler")
-					wonder.second->setName(characters.getCharacters().find(wonder.second->getBuilder())->second->getName() + " of " + characters.getCharacters().find(wonder.second->getBuilder())->second->getPrimaryTitle().second->getTitle().second->getDisplayName());
+					wonder.second->setName(
+						 characters.getCharacters().find(wonder.second->getBuilder())->second->getName() + " of " +
+						 characters.getCharacters().find(wonder.second->getBuilder())->second->getPrimaryTitle().second->getTitle().second->getDisplayName());
 				else if (wonder.second->getType() == "wonder_statue_horse")
 					wonder.second->setName("Colossal Mount of " + provinceItr->second->getName());
 				else if (wonder.second->getType() == "wonder_fortress")
@@ -211,10 +221,11 @@ std::set<std::string> CK2::Provinces::linkMonuments(const Wonders& wonders, cons
 				else
 					wonder.second->setName("Grand Monument at " + provinceItr->second->getName()); // Fallback
 			}
-			//Converts name to the proper encoding type
+
+			// Converts name to the proper encoding type
 			wonder.second->setName(commonItems::convertWin1252ToUTF8(wonder.second->getName()));
 
-			//Now we will finish building the monument
+			// Now we will finish building the monument
 			if (!premadeMonuments.contains(monumentName))
 				buildMonument(monumentsMapper, wonder.second);
 		}
@@ -226,7 +237,7 @@ std::set<std::string> CK2::Provinces::linkMonuments(const Wonders& wonders, cons
 
 
 void CK2::Provinces::buildMonument(const mappers::MonumentsMapper& monumentsMapper, const std::shared_ptr<CK2::Wonder>& wonder)
-{	
+{
 	wonder->setTrueDate(wonder->getBinaryDate());
 
 	short numOfModifiers = 0;
@@ -250,9 +261,11 @@ void CK2::Provinces::buildMonument(const mappers::MonumentsMapper& monumentsMapp
 		{
 			wonder->setBuildTrigger(monumentsMapping.getBuildTrigger());
 			if (monumentsMapping.isOfBuilderCulture())
-				wonder->setBuildTrigger(wonder->getBuildTrigger() + "AND = {\n\t\t\t\tculture = " + wonder->getBuilderCulture() + "\n\t\t\t\thas_owner_culture = yes\n\t\t\t}\n\t\t");
+				wonder->setBuildTrigger(
+					 wonder->getBuildTrigger() + "AND = {\n\t\t\t\tculture = " + wonder->getBuilderCulture() + "\n\t\t\t\thas_owner_culture = yes\n\t\t\t}\n\t\t");
 			if (monumentsMapping.isOfBuilderReligion())
-				wonder->setBuildTrigger(wonder->getBuildTrigger() + "AND = {\n\t\t\t\treligion = " + wonder->getBuilderReligion() + "\n\t\t\t\thas_owner_religion = yes\n\t\t\t}\n\t\t");
+				wonder->setBuildTrigger(wonder->getBuildTrigger() + "AND = {\n\t\t\t\treligion = " + wonder->getBuilderReligion() +
+												"\n\t\t\t\thas_owner_religion = yes\n\t\t\t}\n\t\t");
 		}
 
 		for (const auto& mod: monumentsMapping.getProvinceModifiers())

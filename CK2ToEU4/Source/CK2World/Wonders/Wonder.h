@@ -21,18 +21,19 @@ class Wonder: commonItems::parser
 	[[nodiscard]] auto getBinaryDate() const { return binaryDate; }
 	[[nodiscard]] auto isActive() const { return active; }
 	[[nodiscard]] auto isTransferrable() const { return active && stage == 3; }
-	[[nodiscard]] auto getTrueDate() { return trueDate; }
-	[[nodiscard]] auto getCanBeMoved() { return canBeMoved; }
-	[[nodiscard]] auto getBuilderCulture() { return builderCulture; }
-	[[nodiscard]] auto getBuilderReligion() { return builderReligion; }
-	[[nodiscard]] auto getBuildTrigger() { return buildTrigger; }
-	[[nodiscard]] auto getOnUpgraded() { return onUpgraded; }
-	[[nodiscard]] auto getProvinceModifiers() { return provinceModifiers; }
-	[[nodiscard]] auto getAreaModifiers() { return areaModifiers; }
-	[[nodiscard]] auto getCountryModifiers() { return countryModifiers; }
-	[[nodiscard]] auto getUpgrades() { return upgrades; }
+	[[nodiscard]] const auto& getTrueDate() const { return trueDate; }
+	[[nodiscard]] const auto& getCanBeMoved() const { return canBeMoved; }
+	[[nodiscard]] const auto& getBuilderCulture() const { return builderCulture; }
+	[[nodiscard]] const auto& getBuilderReligion() const { return builderReligion; }
+	[[nodiscard]] const auto& getBuildTrigger() const { return buildTrigger; }
+	[[nodiscard]] const auto& getOnUpgraded() const { return onUpgraded; }
+	[[nodiscard]] const auto& getProvinceModifiers() const { return provinceModifiers; }
+	[[nodiscard]] const auto& getAreaModifiers() const { return areaModifiers; }
+	[[nodiscard]] const auto& getCountryModifiers() const { return countryModifiers; }
+	[[nodiscard]] const auto& getUpgrades() const { return upgrades; }
 	[[nodiscard]] auto isSpent() const { return spent; }
-	void addUpgrade(const std::string& mod){ upgrades.emplace(mod); }
+
+	void addUpgrade(const std::string& mod) { upgrades.emplace(mod); }
 	void setWonderID(int mod) { wonderID = mod; }
 	void setName(const std::string& newName) { name = newName; }
 	void setTrueDate(int binDate);
