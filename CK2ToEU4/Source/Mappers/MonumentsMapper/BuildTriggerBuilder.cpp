@@ -34,10 +34,10 @@ void mappers::BuildTriggerBuilder::registerKeys()
 		}
 	});
 	registerKeyword("cultural", [this](const std::string& mods, std::istream& theStream) {
-		cultural = commonItems::getString(theStream) == "yes";
+		cultural = commonItems::getString(theStream).find("yes") != std::string::npos;
 	});
 	registerKeyword("religious", [this](const std::string& mods, std::istream& theStream) {
-		religious = commonItems::getString(theStream) == "yes";
+		religious = commonItems::getString(theStream).find("yes") != std::string::npos;
 	});
 	registerKeyword("other", [this](const std::string& mods, std::istream& theStream) {
 		auto tempInput = commonItems::stringOfItem(theStream).getString();

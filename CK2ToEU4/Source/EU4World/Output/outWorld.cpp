@@ -12,6 +12,7 @@ namespace fs = std::filesystem;
 
 void EU4::World::output(const mappers::VersionParser& versionParser, const Configuration& theConfiguration, const CK2::World& sourceWorld) const
 {
+	const auto isLeviathanDLCPresent = sourceWorld.isLeviathanDLCPresent();
 	const auto invasion = sourceWorld.isInvasion();
 	const auto dynamicInstitutions = theConfiguration.getDynamicInstitutions() == Configuration::INSTITUTIONS::DYNAMIC;
 	const date conversionDate = sourceWorld.getConversionDate();
@@ -82,7 +83,7 @@ void EU4::World::output(const mappers::VersionParser& versionParser, const Confi
 	Log(LogLevel::Progress) << "89 %";
 
 	LOG(LogLevel::Info) << "<- Writing Provinces";
-	outputHistoryProvinces(theConfiguration, sourceWorld.getExistentPremadeMonuments());
+	outputHistoryProvinces(theConfiguration, sourceWorld.getExistentPremadeMonuments(), isLeviathanDLCPresent);
 	Log(LogLevel::Progress) << "90 %";
 
 	LOG(LogLevel::Info) << "<- Writing Localization";
@@ -330,23 +331,27 @@ void EU4::World::outputCommonCountriesFile(const Configuration& theConfiguration
 	output.close();
 }
 
-void EU4::World::outputHistoryProvinces(const Configuration& theConfiguration, const std::set<std::string>& premades) const
+void EU4::World::outputHistoryProvinces(const Configuration& theConfiguration, const std::set<std::string>& premades, const bool& isLeviathanDLCPresent) const
 {
-	commonItems::TryCreateFolder("output/" + theConfiguration.getOutputName() + "/common/great_projects/");
-	commonItems::TryCopyFile("configurables/monuments/great_projects/01_monuments.txt",
-		 "output/" + theConfiguration.getOutputName() + "/common/great_projects/01_monuments.txt");
-	commonItems::TryCopyFile("configurables/monuments/great_projects/101_old_monuments.txt",
-		 "output/" + theConfiguration.getOutputName() + "/common/great_projects/101_old_monuments.txt");
-	commonItems::TryCopyFile("configurables/monuments/great_projects/102_unbuilt_at_game_start.txt",
-		 "output/" + theConfiguration.getOutputName() + "/common/great_projects/102_unbuilt_at_game_start.txt");
-	commonItems::TryCopyFile("configurables/monuments/great_projects/!00_converted_monuments.txt",
-		 "output/" + theConfiguration.getOutputName() + "/common/great_projects/!00_converted_monuments.txt");
-	commonItems::TryCopyFile("configurables/monuments/gfx/zzz_converted_monuments.gfx",
-		 "output/" + theConfiguration.getOutputName() + "/interface/zzz_converted_monuments.gfx");
-	auto fileNames = commonItems::GetAllFilesInFolder("configurables/monuments/localisation/");
-	for (const auto& fileName: fileNames)
-		commonItems::TryCopyFile("configurables/monuments/localisation/" + fileName, "output/" + theConfiguration.getOutputName() + "/localisation/" + fileName);
-	outMonument(theConfiguration, premades); // Outputs Premade files
+	if (isLeviathanDLCPresent)
+	{
+		commonItems::TryCreateFolder("output/" + theConfiguration.getOutputName() + "/common/great_projects/");
+		commonItems::TryCopyFile("configurables/monuments/great_projects/01_monuments.txt",
+			 "output/" + theConfiguration.getOutputName() + "/common/great_projects/01_monuments.txt");
+		commonItems::TryCopyFile("configurables/monuments/great_projects/101_old_monuments.txt",
+			 "output/" + theConfiguration.getOutputName() + "/common/great_projects/101_old_monuments.txt");
+		commonItems::TryCopyFile("configurables/monuments/great_projects/102_unbuilt_at_game_start.txt",
+			 "output/" + theConfiguration.getOutputName() + "/common/great_projects/102_unbuilt_at_game_start.txt");
+		commonItems::TryCopyFile("configurables/monuments/great_projects/!00_converted_monuments.txt",
+			 "output/" + theConfiguration.getOutputName() + "/common/great_projects/!00_converted_monuments.txt");
+		commonItems::TryCopyFile("configurables/monuments/gfx/zzz_converted_monuments.gfx",
+			 "output/" + theConfiguration.getOutputName() + "/interface/zzz_converted_monuments.gfx");
+		auto fileNames = commonItems::GetAllFilesInFolder("configurables/monuments/localisation/");
+		for (const auto& fileName: fileNames)
+			commonItems::TryCopyFile("configurables/monuments/localisation/" + fileName,
+				 "output/" + theConfiguration.getOutputName() + "/localisation/" + fileName);
+		outMonument(theConfiguration, premades); // Outputs Premade files
+	}
 	for (const auto& province: provinces)
 	{
 		std::ofstream output("output/" + theConfiguration.getOutputName() + "/" + province.second->getHistoryCountryFile());
@@ -359,12 +364,15 @@ void EU4::World::outputHistoryProvinces(const Configuration& theConfiguration, c
 		if (province.second->getHasMonument() && !premades.contains(province.second->getSourceProvince()->getMonument()->second->getType()))
 			outMonument(theConfiguration, province.second->getSourceProvince()->getMonument(), province.first);
 	}
-	// Final closing brace for the GFX file
-	std::ofstream gfxOutput("output/" + theConfiguration.getOutputName() + "/interface/zzz_converted_monuments.gfx", std::ios::out | std::ios::app);
-	if (!gfxOutput.is_open())
-		throw std::runtime_error("Could not create monuments file: output/" + theConfiguration.getOutputName() + "/interface/zzz_converted_monuments.gfx");
-	gfxOutput << "\n}";
-	gfxOutput.close();
+	if (isLeviathanDLCPresent) // This has to be last
+	{
+		// Final closing brace for the GFX file
+		std::ofstream gfxOutput("output/" + theConfiguration.getOutputName() + "/interface/zzz_converted_monuments.gfx", std::ios::out | std::ios::app);
+		if (!gfxOutput.is_open())
+			throw std::runtime_error("Could not create monuments file: output/" + theConfiguration.getOutputName() + "/interface/zzz_converted_monuments.gfx");
+		gfxOutput << "\n}";
+		gfxOutput.close();
+	}
 }
 
 void EU4::World::outputHistoryCountries(const Configuration& theConfiguration) const

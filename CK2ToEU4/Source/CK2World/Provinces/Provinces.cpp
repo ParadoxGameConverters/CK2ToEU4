@@ -297,7 +297,7 @@ void CK2::Provinces::buildMonument(const mappers::MonumentsMapper& monumentsMapp
 
 		if (addedMod)
 		{
-			wonder->getOnUpgraded().emplace_back(monumentsMapping.getOnUpgraded()); // This way we will have 4 onUpgrades to match the 4 tiers
+			wonder->addOnUpgraded(monumentsMapping.getOnUpgraded()); // This way we will have 4 onUpgrades to match the 4 tiers
 			numOfModifiers++;
 		}
 		if (numOfModifiers > 3)

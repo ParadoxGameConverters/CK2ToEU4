@@ -44,6 +44,7 @@ class Wonder: commonItems::parser
 	void addProvinceModifier(const std::pair<std::string, std::vector<double>>& mod) { provinceModifiers.emplace(mod); }
 	void addAreaModifier(const std::pair<std::string, std::vector<double>>& mod) { areaModifiers.emplace(mod); }
 	void addCountryModifier(const std::pair<std::string, std::vector<double>>& mod) { countryModifiers.emplace(mod); }
+	void addOnUpgraded(const std::string& on) { onUpgraded.emplace_back(on); }
 	void setSpent() { spent = true; }
 
   private:
