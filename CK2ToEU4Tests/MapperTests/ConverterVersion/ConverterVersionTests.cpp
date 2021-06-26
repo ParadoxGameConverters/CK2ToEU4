@@ -31,27 +31,27 @@ TEST(Mappers_ConverterVersionTests, VersionCanBeSet)
 TEST(Mappers_ConverterVersionTests, DescriptionCanBeConstructed)
 {
 	std::stringstream input;
-	input << "source = \"CK3\"\n";
+	input << "source = \"CK2\"\n";
 	input << "target = \"EU4\"\n";
-	input << "minSource = \"1.3\"\n";
-	input << "maxSource = \"1.4\"\n";
+	input << "minSource = \"3.3\"\n";
+	input << "maxSource = \"3.4\"\n";
 	input << "minTarget = \"1.30.6\"\n";
 	input << "maxTarget = \"1.31.4\"\n";
 	const mappers::ConverterVersion version(input);
 
-	EXPECT_EQ("Compatible with CK3 [v1.3-v1.4] and EU4 [v1.30.6-v1.31.4]", version.getDescription());
+	EXPECT_EQ("Compatible with CK2 [v3.3-v3.4] and EU4 [v1.30.6-v1.31.4]", version.getDescription());
 }
 
 TEST(Mappers_ConverterVersionTests, DescriptionDoesNotDuplicateVersions)
 {
 	std::stringstream input;
-	input << "source = \"CK3\"\n";
+	input << "source = \"CK2\"\n";
 	input << "target = \"EU4\"\n";
-	input << "minSource = \"1.3\"\n";
-	input << "maxSource = \"1.3\"\n";
+	input << "minSource = \"3.3\"\n";
+	input << "maxSource = \"3.3\"\n";
 	input << "minTarget = \"1.31\"\n";
 	input << "maxTarget = \"1.31\"\n";
 	const mappers::ConverterVersion version(input);
 
-	EXPECT_EQ("Compatible with CK3 [v1.3] and EU4 [v1.31]", version.getDescription());
+	EXPECT_EQ("Compatible with CK2 [v3.3] and EU4 [v1.31]", version.getDescription());
 }
