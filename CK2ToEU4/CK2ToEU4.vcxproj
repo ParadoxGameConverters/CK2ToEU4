@@ -360,6 +360,7 @@
     <ClCompile Include="Source\EU4World\Province\ProvinceModifier.cpp" />
     <ClCompile Include="Source\main.cpp" />
     <ClCompile Include="Source\Mappers\ColorScraper\ColorScraper.cpp" />
+    <ClCompile Include="Source\Mappers\ConverterVersion\ConverterVersion.cpp" />
     <ClCompile Include="Source\Mappers\CultureMapper\CultureMapper.cpp" />
     <ClCompile Include="Source\Mappers\CultureMapper\CultureMappingRule.cpp" />
     <ClCompile Include="Source\Mappers\DevWeightsMapper\DevWeightsMapper.cpp" />
@@ -393,7 +394,6 @@
     <ClCompile Include="Source\Mappers\ShatterEmpiresMapper\ShatterEmpiresMapper.cpp" />
     <ClCompile Include="Source\Mappers\TitleTagMapper\TitleTagMapper.cpp" />
     <ClCompile Include="Source\Mappers\TitleTagMapper\TitleTagMapping.cpp" />
-    <ClCompile Include="Source\Mappers\VersionParser\VersionParser.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\commonItems\Color.h" />
@@ -454,6 +454,7 @@
     <ClInclude Include="Source\EU4World\Province\ProvinceDetails.h" />
     <ClInclude Include="Source\EU4World\Province\ProvinceModifier.h" />
     <ClInclude Include="Source\Mappers\ColorScraper\ColorScraper.h" />
+    <ClInclude Include="Source\Mappers\ConverterVersion\ConverterVersion.h" />
     <ClInclude Include="Source\Mappers\CultureMapper\CultureMapper.h" />
     <ClInclude Include="Source\Mappers\CultureMapper\CultureMappingRule.h" />
     <ClInclude Include="Source\Mappers\DevWeightsMapper\DevWeightsMapper.h" />
@@ -462,7 +463,7 @@
     <ClInclude Include="Source\Mappers\IAmHreMapper\IAmHreMapper.h" />
     <ClInclude Include="Source\Mappers\LocalizationMapper\LocalizationMapper.h" />
     <ClCompile Include="Source\Mappers\MonumentsMapper\BuildTriggerBuilder.h" />
-	<ClInclude Include="Source\Mappers\MonumentsMapper\InternalModifiers.h" />
+    <ClInclude Include="Source\Mappers\MonumentsMapper\InternalModifiers.h" />
     <ClCompile Include="Source\Mappers\MonumentsMapper\MonumentsMapper.h" />
     <ClCompile Include="Source\Mappers\MonumentsMapper\MonumentsMapping.h" />
     <ClInclude Include="Source\Mappers\PersonalityScraper\PersonalityScraper.h" />
@@ -487,7 +488,6 @@
     <ClInclude Include="Source\Mappers\ShatterEmpiresMapper\ShatterEmpiresMapper.h" />
     <ClInclude Include="Source\Mappers\TitleTagMapper\TitleTagMapper.h" />
     <ClInclude Include="Source\Mappers\TitleTagMapper\TitleTagMapping.h" />
-    <ClInclude Include="Source\Mappers\VersionParser\VersionParser.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ZipLib\ZipLib.vcxproj">

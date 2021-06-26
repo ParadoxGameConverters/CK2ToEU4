@@ -2,4 +2,9 @@
 
 version = "1.0"
 name = "Foix"
-descriptionLine = "Compatible with CK2 3.3 and EU4 1.31"
+source = "CK2"
+target = "EU4"
+minSource = "3.3"
+maxSource = "3.3"
+minTarget = "1.31"
+maxTarget = "1.31.4"

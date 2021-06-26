@@ -8,14 +8,14 @@ int main(const int argc, const char* argv[])
 	{
 		std::ofstream clearLog("log.txt");
 		clearLog.close();
-		const mappers::VersionParser versionParser;
-		Log(LogLevel::Info) << versionParser;
+		const mappers::ConverterVersion converterVersion;
+		Log(LogLevel::Info) << converterVersion;
 		if (argc >= 2)
 		{
 			Log(LogLevel::Info) << "CK2ToEU4 takes no parameters.";
 			Log(LogLevel::Info) << "It uses configuration.txt, configured manually or by the frontend.";
 		}
-		convertCK2ToEU4(versionParser);
+		convertCK2ToEU4(converterVersion);
 		return 0;
 	}
 

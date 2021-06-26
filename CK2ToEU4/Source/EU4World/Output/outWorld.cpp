@@ -1,16 +1,16 @@
-#include "../EU4World.h"
-#include "Log.h"
-#include <filesystem>
-#include <fstream>
-namespace fs = std::filesystem;
 #include "../../CK2World/Titles/Title.h"
 #include "../../Configuration/Configuration.h"
+#include "../EU4World.h"
+#include "Log.h"
 #include "OSCompatibilityLayer.h"
 #include "outCountry.h"
 #include "outMonument.h"
 #include "outReligion.h"
+#include <filesystem>
+#include <fstream>
+namespace fs = std::filesystem;
 
-void EU4::World::output(const mappers::VersionParser& versionParser, const Configuration& theConfiguration, const CK2::World& sourceWorld) const
+void EU4::World::output(const mappers::ConverterVersion& converterVersion, const Configuration& theConfiguration, const CK2::World& sourceWorld) const
 {
 	const auto isLeviathanDLCPresent = sourceWorld.isLeviathanDLCPresent();
 	const auto invasion = sourceWorld.isInvasion();
@@ -51,7 +51,7 @@ void EU4::World::output(const mappers::VersionParser& versionParser, const Confi
 
 	// Record converter version
 	LOG(LogLevel::Info) << "<- Writing version";
-	outputVersion(versionParser, theConfiguration);
+	outputVersion(converterVersion, theConfiguration);
 	Log(LogLevel::Progress) << "85 %";
 
 	// Output common\countries.txt
@@ -304,12 +304,12 @@ void EU4::World::outputLocalization(const Configuration& theConfiguration, bool 
 	}
 }
 
-void EU4::World::outputVersion(const mappers::VersionParser& versionParser, const Configuration& theConfiguration) const
+void EU4::World::outputVersion(const mappers::ConverterVersion& converterVersion, const Configuration& theConfiguration) const
 {
 	std::ofstream output("output/" + theConfiguration.getOutputName() + "/ck2toeu4_version.txt");
 	if (!output.is_open())
 		throw std::runtime_error("Error writing version file! Is the output folder writable?");
-	output << versionParser;
+	output << converterVersion;
 	output.close();
 }
 

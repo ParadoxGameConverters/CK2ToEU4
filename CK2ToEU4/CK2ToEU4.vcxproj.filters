@@ -21,9 +21,6 @@
     <ClCompile Include="..\commonItems\iconvlite.cpp">
       <Filter>CommonItems</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Mappers\VersionParser\VersionParser.cpp">
-      <Filter>Mappers\VersionParser</Filter>
-    </ClCompile>
     <ClCompile Include="Source\EU4World\Output\outVersion.cpp">
       <Filter>EU4World\Output</Filter>
     </ClCompile>
@@ -291,6 +288,9 @@
     <ClCompile Include="Source\Mappers\MonumentsMapper\BuildTriggerBuilder.h">
       <Filter>Mappers\MonumentsMapper</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Mappers\ConverterVersion\ConverterVersion.cpp">
+      <Filter>Mappers\ConverterVersion</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CK2ToEU4Converter.h" />
@@ -311,9 +311,6 @@
     </ClInclude>
     <ClInclude Include="..\commonItems\iconvlite.h">
       <Filter>CommonItems</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Mappers\VersionParser\VersionParser.h">
-      <Filter>Mappers\VersionParser</Filter>
     </ClInclude>
     <ClInclude Include="Source\CK2World\World.h">
       <Filter>CK2World</Filter>
@@ -558,6 +555,9 @@
     <ClInclude Include="..\commonItems\ConvenientParser.h">
       <Filter>CommonItems</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Mappers\ConverterVersion\ConverterVersion.h">
+      <Filter>Mappers\ConverterVersion</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4World">
@@ -571,9 +571,6 @@
     </Filter>
     <Filter Include="CK2World">
       <UniqueIdentifier>{a0c46cb3-3d7e-4148-9e87-15482ee7f5aa}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Mappers\VersionParser">
-      <UniqueIdentifier>{4aa0e976-f0df-433b-a548-cf38eaf50268}</UniqueIdentifier>
     </Filter>
     <Filter Include="EU4World\Output">
       <UniqueIdentifier>{5b048b58-a54b-4e0a-9aa3-40c1fca7e6c7}</UniqueIdentifier>
@@ -673,6 +670,9 @@
     </Filter>
     <Filter Include="Mappers\MonumentsMapper">
       <UniqueIdentifier>{5f30ec84-1dc7-47a6-b1a6-0732bca69802}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mappers\ConverterVersion">
+      <UniqueIdentifier>{4aa0e976-f0df-433b-a548-cf38eaf50268}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

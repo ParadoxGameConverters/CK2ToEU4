@@ -101,12 +101,6 @@
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\IAmHreMapper\IAmHreMapper.cpp">
       <Filter>ConverterFiles\Mappers\IAmHreMapper</Filter>
     </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\Mappers\VersionParser\VersionParser.cpp">
-      <Filter>ConverterFiles\Mappers\VersionParser</Filter>
-    </ClCompile>
-    <ClCompile Include="MapperTests\VersionParser\VersionParserTests.cpp">
-      <Filter>MapperTests\VersionParser</Filter>
-    </ClCompile>
     <ClCompile Include="MapperTests\ProvinceMapper\ProvinceMapperTests.cpp">
       <Filter>MapperTests\ProvinceMapper</Filter>
     </ClCompile>
@@ -569,6 +563,12 @@
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\MonumentsMapper\BuildTriggerBuilder.cpp">
       <Filter>ConverterFiles\Mappers\MonumentsMapper</Filter>
     </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\ConverterVersion\ConverterVersion.cpp">
+      <Filter>ConverterFiles\Mappers\ConverterVersion</Filter>
+    </ClCompile>
+    <ClCompile Include="MapperTests\ConverterVersion\ConverterVersionTests.cpp">
+      <Filter>MapperTests\ConverterVersion</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4WorldTests">
@@ -633,12 +633,6 @@
     </Filter>
     <Filter Include="ConverterFiles\Mappers\IAmHreMapper">
       <UniqueIdentifier>{d2c156bb-e2da-4758-8d12-ca6b7e69f94c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ConverterFiles\Mappers\VersionParser">
-      <UniqueIdentifier>{e2e95329-e73e-495a-b8e5-81927a7220fa}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="MapperTests\VersionParser">
-      <UniqueIdentifier>{1cf0d7a6-82a1-4c5c-a820-68b3fd331846}</UniqueIdentifier>
     </Filter>
     <Filter Include="MapperTests\ProvinceMapper">
       <UniqueIdentifier>{90a90850-b9a7-409f-91a8-327aa01377f2}</UniqueIdentifier>
@@ -774,6 +768,12 @@
     </Filter>
     <Filter Include="ConverterFiles\Mappers\MonumentsMapper">
       <UniqueIdentifier>{96103e92-e230-4de8-8984-befcc31e61c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ConverterFiles\Mappers\ConverterVersion">
+      <UniqueIdentifier>{e2e95329-e73e-495a-b8e5-81927a7220fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MapperTests\ConverterVersion">
+      <UniqueIdentifier>{1cf0d7a6-82a1-4c5c-a820-68b3fd331846}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
