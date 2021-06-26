@@ -19,7 +19,7 @@
 #include <fstream>
 namespace fs = std::filesystem;
 
-CK2::World::World(const Configuration& theConfiguration)
+CK2::World::World(const Configuration& theConfiguration, const mappers::ConverterVersion& converterVersion)
 {
 	LOG(LogLevel::Info) << "*** Hello CK2, Deus Vult! ***";
 	registerKeyword("CK2txt", [](const std::string& unused, std::istream& theStream) {
@@ -37,10 +37,21 @@ CK2::World::World(const Configuration& theConfiguration)
 		flags = Flags(theStream);
 		LOG(LogLevel::Info) << ">> Loaded " << flags.getFlags().size() << " Global Flags.";
 	});
-	registerKeyword("version", [this](const std::string& unused, std::istream& theStream) {
+	registerKeyword("version", [this, converterVersion](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleString versionString(theStream);
 		CK2Version = GameVersion(versionString.getString());
 		Log(LogLevel::Info) << "<> Savegame version: " << versionString.getString();
+
+		if (converterVersion.getMinSource() > CK2Version)
+		{
+			Log(LogLevel::Error) << "Converter requires a minimum save from v" << converterVersion.getMinSource().toShortString();
+			throw std::runtime_error("Savegame vs converter version mismatch!");
+		}
+		if (!converterVersion.getMaxSource().isLargerishThan(CK2Version))
+		{
+			Log(LogLevel::Error) << "Converter requires a maximum save from v" << converterVersion.getMaxSource().toShortString();
+			throw std::runtime_error("Savegame vs converter version mismatch!");
+		}
 	});
 	registerKeyword("provinces", [this](const std::string& unused, std::istream& theStream) {
 		LOG(LogLevel::Info) << "-> Loading Provinces";

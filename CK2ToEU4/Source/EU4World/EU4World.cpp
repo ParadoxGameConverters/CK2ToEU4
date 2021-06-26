@@ -1,18 +1,18 @@
 #include "EU4World.h"
-#include "Log.h"
-#include "OSCompatibilityLayer.h"
-#include <filesystem>
-#include <fstream>
-namespace fs = std::filesystem;
 #include "../CK2World/Characters/Character.h"
 #include "../CK2World/Dynasties/Dynasty.h"
 #include "../CK2World/Offmaps/Offmap.h"
 #include "../CK2World/Provinces/Barony.h"
 #include "../CK2World/Titles/Title.h"
 #include "../Configuration/Configuration.h"
+#include "Log.h"
+#include "OSCompatibilityLayer.h"
 #include <cmath>
+#include <filesystem>
+#include <fstream>
+namespace fs = std::filesystem;
 
-EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfiguration, const mappers::VersionParser& versionParser)
+EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfiguration, const mappers::ConverterVersion& converterVersion)
 {
 	LOG(LogLevel::Info) << "*** Hello EU4, let's get painting. ***";
 	// Scraping localizations from CK2 so we may know proper names for our countries.
@@ -143,7 +143,7 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 	// And finally, the Dump.
 	LOG(LogLevel::Info) << "---> The Dump <---";
 	modFile.outname = theConfiguration.getOutputName();
-	output(versionParser, theConfiguration, sourceWorld);
+	output(converterVersion, theConfiguration, sourceWorld);
 	LOG(LogLevel::Info) << "*** Farewell EU4, granting you independence. ***";
 }
 

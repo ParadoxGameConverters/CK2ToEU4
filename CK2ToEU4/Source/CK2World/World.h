@@ -1,19 +1,20 @@
 #ifndef CK2_WORLD_H
 #define CK2_WORLD_H
-#include "GameVersion.h"
+#include "../Mappers/ConverterVersion/ConverterVersion.h"
 #include "../Mappers/IAmHreMapper/IAmHreMapper.h"
-#include "../Mappers/ShatterEmpiresMapper/ShatterEmpiresMapper.h"
 #include "../Mappers/PersonalityScraper/PersonalityScraper.h"
 #include "../Mappers/ProvinceTitleMapper/ProvinceTitleMapper.h"
 #include "../Mappers/ReformedReligionMapper/ReformedReligionMapper.h"
-#include "../Mappers/MonumentsMapper/MonumentsMapper.h"
 #include "../Mappers/ReligionMapper/ReligionMapper.h"
+#include "../Mappers/ShatterEmpiresMapper/ShatterEmpiresMapper.h"
 #include "Characters/Characters.h"
 #include "Date.h"
 #include "Dynasties/Dynasties.h"
 #include "Flags/Flags.h"
+#include "GameVersion.h"
 #include "Mods/Mods.h"
 #include "Offmaps/Offmaps.h"
+#include "Parser.h"
 #include "Provinces/Province.h"
 #include "Provinces/Provinces.h"
 #include "Relations/AllRelations.h"
@@ -22,7 +23,6 @@
 #include "Titles/Titles.h"
 #include "Vars/Vars.h"
 #include "Wonders/Wonders.h"
-#include "Parser.h"
 
 class Configuration;
 
@@ -31,7 +31,7 @@ namespace CK2
 class World: commonItems::parser
 {
   public:
-	explicit World(const Configuration& theConfiguration);
+	explicit World(const Configuration& theConfiguration, const mappers::ConverterVersion& converterVersion);
 
 	[[nodiscard]] const auto& getProvinceTitleMapper() const { return provinceTitleMapper; }
 	[[nodiscard]] const auto& getIndepTitles() const { return independentTitles; }
@@ -79,7 +79,7 @@ class World: commonItems::parser
 	void loadProvinces(const Configuration& theConfiguration);
 
 	bool leviathanDLC;
-	bool invasion = false;	
+	bool invasion = false;
 	bool wereNoReformations = true;
 	bool greekReformation = false;
 	date endDate = date("1444.11.11");

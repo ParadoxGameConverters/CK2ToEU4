@@ -86,23 +86,19 @@ TEST(Mappers_MonumentsMappingTests, doesItGetTheRightOnUpgraded)
 TEST(Mappers_MonumentsMappingTests, doesItGetBuilderCulture)
 {
 	std::stringstream input;
-	input << "build_trigger = { cultural }";
+	input << "build_trigger = { cultural = yes }";
 
 	mappers::MonumentsMapping theMapper(input);
 
-	const auto& test = theMapper.isOfBuilderCulture();
-
-	EXPECT_EQ(1, test);
+	EXPECT_TRUE(theMapper.isOfBuilderCulture());
 }
 
 TEST(Mappers_MonumentsMappingTests, doesItGetBuilderReligion)
 {
 	std::stringstream input;
-	input << "build_trigger = { religious }";
+	input << "build_trigger = { religious = yes }";
 
 	mappers::MonumentsMapping theMapper(input);
 
-	const auto& test = theMapper.isOfBuilderReligion();
-
-	EXPECT_EQ(1, test);
+	EXPECT_TRUE(theMapper.isOfBuilderReligion());
 }
