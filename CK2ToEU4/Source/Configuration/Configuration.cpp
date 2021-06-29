@@ -174,7 +174,7 @@ void Configuration::verifyCK2Version(const commonItems::ConverterVersion& conver
 	if (!converterVersion.getMaxSource().isLargerishThan(*CK2Version))
 	{
 		Log(LogLevel::Error) << "CK2 version is v" << CK2Version->toShortString() << ", converter requires maximum v"
-									<< converterVersion.getMinSource().toShortString() << "!";
+									<< converterVersion.getMaxSource().toShortString() << "!";
 		throw std::runtime_error("Converter vs CK2 installation mismatch!");
 	}
 }
