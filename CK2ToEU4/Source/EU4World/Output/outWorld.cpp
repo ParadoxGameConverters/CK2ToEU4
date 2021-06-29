@@ -10,7 +10,7 @@
 #include <fstream>
 namespace fs = std::filesystem;
 
-void EU4::World::output(const mappers::ConverterVersion& converterVersion, const Configuration& theConfiguration, const CK2::World& sourceWorld) const
+void EU4::World::output(const commonItems::ConverterVersion& converterVersion, const Configuration& theConfiguration, const CK2::World& sourceWorld) const
 {
 	const auto isLeviathanDLCPresent = sourceWorld.isLeviathanDLCPresent();
 	const auto invasion = sourceWorld.isInvasion();
@@ -304,7 +304,7 @@ void EU4::World::outputLocalization(const Configuration& theConfiguration, bool 
 	}
 }
 
-void EU4::World::outputVersion(const mappers::ConverterVersion& converterVersion, const Configuration& theConfiguration) const
+void EU4::World::outputVersion(const commonItems::ConverterVersion& converterVersion, const Configuration& theConfiguration) const
 {
 	std::ofstream output("output/" + theConfiguration.getOutputName() + "/ck2toeu4_version.txt");
 	if (!output.is_open())

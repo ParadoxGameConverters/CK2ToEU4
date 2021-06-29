@@ -19,7 +19,7 @@
 #include <fstream>
 namespace fs = std::filesystem;
 
-CK2::World::World(const Configuration& theConfiguration, const mappers::ConverterVersion& converterVersion)
+CK2::World::World(const Configuration& theConfiguration, const commonItems::ConverterVersion& converterVersion)
 {
 	LOG(LogLevel::Info) << "*** Hello CK2, Deus Vult! ***";
 	registerKeyword("CK2txt", [](const std::string& unused, std::istream& theStream) {

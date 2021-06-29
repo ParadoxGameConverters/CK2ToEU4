@@ -4,7 +4,7 @@
 #include "EU4World/EU4World.h"
 #include "Log.h"
 
-void convertCK2ToEU4(const mappers::ConverterVersion& converterVersion)
+void convertCK2ToEU4(const commonItems::ConverterVersion& converterVersion)
 {
 	Log(LogLevel::Progress) << "0 %";
 	const auto theConfiguration = Configuration(converterVersion);
