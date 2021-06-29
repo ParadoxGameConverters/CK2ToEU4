@@ -178,7 +178,6 @@
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Wonders\Wonder.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Wonders\Wonders.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Configuration\Configuration.cpp" />
-    <ClCompile Include="..\CK2ToEU4\Source\Mappers\ConverterVersion\ConverterVersion.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\CultureMapper\CultureMapper.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\CultureMapper\CultureMappingRule.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\DevWeightsMapper\DevWeightsMapper.cpp" />
@@ -313,7 +312,6 @@
     <ClCompile Include="CK2WorldTests\Wonders\WondersTests.cpp" />
     <ClCompile Include="CK2WorldTests\Wonders\WonderTests.cpp" />
     <ClCompile Include="ConfigurationTests.cpp" />
-    <ClCompile Include="MapperTests\ConverterVersion\ConverterVersionTests.cpp" />
     <ClCompile Include="MapperTests\CultureMapper\CultureMapperTests.cpp" />
     <ClCompile Include="MapperTests\CultureMapper\CultureMappingTests.cpp" />
     <ClCompile Include="MapperTests\DevWeightsMapper\DevWeightsMapperTests.cpp" />

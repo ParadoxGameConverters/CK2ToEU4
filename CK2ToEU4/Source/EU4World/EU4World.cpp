@@ -12,7 +12,7 @@
 #include <fstream>
 namespace fs = std::filesystem;
 
-EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfiguration, const mappers::ConverterVersion& converterVersion)
+EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfiguration, const commonItems::ConverterVersion& converterVersion)
 {
 	LOG(LogLevel::Info) << "*** Hello EU4, let's get painting. ***";
 	// Scraping localizations from CK2 so we may know proper names for our countries.

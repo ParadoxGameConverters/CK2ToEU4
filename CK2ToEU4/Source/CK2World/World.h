@@ -1,6 +1,5 @@
 #ifndef CK2_WORLD_H
 #define CK2_WORLD_H
-#include "../Mappers/ConverterVersion/ConverterVersion.h"
 #include "../Mappers/IAmHreMapper/IAmHreMapper.h"
 #include "../Mappers/PersonalityScraper/PersonalityScraper.h"
 #include "../Mappers/ProvinceTitleMapper/ProvinceTitleMapper.h"
@@ -8,6 +7,7 @@
 #include "../Mappers/ReligionMapper/ReligionMapper.h"
 #include "../Mappers/ShatterEmpiresMapper/ShatterEmpiresMapper.h"
 #include "Characters/Characters.h"
+#include "ConverterVersion.h"
 #include "Date.h"
 #include "Dynasties/Dynasties.h"
 #include "Flags/Flags.h"
@@ -31,7 +31,7 @@ namespace CK2
 class World: commonItems::parser
 {
   public:
-	explicit World(const Configuration& theConfiguration, const mappers::ConverterVersion& converterVersion);
+	explicit World(const Configuration& theConfiguration, const commonItems::ConverterVersion& converterVersion);
 
 	[[nodiscard]] const auto& getProvinceTitleMapper() const { return provinceTitleMapper; }
 	[[nodiscard]] const auto& getIndepTitles() const { return independentTitles; }

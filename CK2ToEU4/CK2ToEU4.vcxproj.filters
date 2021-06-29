@@ -21,9 +21,6 @@
     <ClCompile Include="..\commonItems\iconvlite.cpp">
       <Filter>CommonItems</Filter>
     </ClCompile>
-    <ClCompile Include="Source\EU4World\Output\outVersion.cpp">
-      <Filter>EU4World\Output</Filter>
-    </ClCompile>
     <ClCompile Include="Source\CK2World\World.cpp">
       <Filter>CK2World</Filter>
     </ClCompile>
@@ -288,8 +285,8 @@
     <ClCompile Include="Source\Mappers\MonumentsMapper\BuildTriggerBuilder.h">
       <Filter>Mappers\MonumentsMapper</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Mappers\ConverterVersion\ConverterVersion.cpp">
-      <Filter>Mappers\ConverterVersion</Filter>
+    <ClCompile Include="..\commonItems\ConverterVersion.cpp">
+      <Filter>CommonItems</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -397,9 +394,6 @@
       <Filter>EU4World\Output</Filter>
     </ClInclude>
     <ClInclude Include="Source\EU4World\Output\outModFile.h">
-      <Filter>EU4World\Output</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\EU4World\Output\outVersion.h">
       <Filter>EU4World\Output</Filter>
     </ClInclude>
     <ClInclude Include="Source\EU4World\Output\outProvince.h">
@@ -555,8 +549,8 @@
     <ClInclude Include="..\commonItems\ConvenientParser.h">
       <Filter>CommonItems</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Mappers\ConverterVersion\ConverterVersion.h">
-      <Filter>Mappers\ConverterVersion</Filter>
+    <ClInclude Include="..\commonItems\ConverterVersion.h">
+      <Filter>CommonItems</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -670,9 +664,6 @@
     </Filter>
     <Filter Include="Mappers\MonumentsMapper">
       <UniqueIdentifier>{5f30ec84-1dc7-47a6-b1a6-0732bca69802}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Mappers\ConverterVersion">
-      <UniqueIdentifier>{4aa0e976-f0df-433b-a548-cf38eaf50268}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

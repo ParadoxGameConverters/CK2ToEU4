@@ -2,7 +2,6 @@
 #define EU4_WORLD_H
 #include "../CK2World/World.h"
 #include "../Mappers/ColorScraper/ColorScraper.h"
-#include "../Mappers/ConverterVersion/ConverterVersion.h"
 #include "../Mappers/CultureMapper/CultureMapper.h"
 #include "../Mappers/DevWeightsMapper/DevWeightsMapper.h"
 #include "../Mappers/GovernmentsMapper/GovernmentsMapper.h"
@@ -13,6 +12,7 @@
 #include "../Mappers/ReligionMapper/ReligionMapper.h"
 #include "../Mappers/RulerPersonalitiesMapper/RulerPersonalitiesMapper.h"
 #include "../Mappers/TitleTagMapper/TitleTagMapper.h"
+#include "ConverterVersion.h"
 #include "Country/Country.h"
 #include "Diplomacy/Diplomacy.h"
 #include "Output/outModFile.h"
@@ -30,7 +30,7 @@ namespace EU4
 class World
 {
   public:
-	World(const CK2::World& sourceWorld, const Configuration& theConfiguration, const mappers::ConverterVersion& converterVersion);
+	World(const CK2::World& sourceWorld, const Configuration& theConfiguration, const commonItems::ConverterVersion& converterVersion);
 
   private:
 	// void loadRegions(const Configuration& theConfiguration); waiting on geography.
@@ -42,9 +42,9 @@ class World
 		 Configuration::STARTDATE startDateOption,
 		 const CK2::World& sourceWorld);
 	void importCK2Provinces(const CK2::World& sourceWorld);
-	void output(const mappers::ConverterVersion& converterVersion, const Configuration& theConfiguration, const CK2::World& sourceWorld) const;
+	void output(const commonItems::ConverterVersion& converterVersion, const Configuration& theConfiguration, const CK2::World& sourceWorld) const;
 	void createModFile(const Configuration& theConfiguration) const;
-	void outputVersion(const mappers::ConverterVersion& converterVersion, const Configuration& theConfiguration) const;
+	void outputVersion(const commonItems::ConverterVersion& converterVersion, const Configuration& theConfiguration) const;
 	void outputCommonCountriesFile(const Configuration& theConfiguration) const;
 	void outputHistoryCountries(const Configuration& theConfiguration) const;
 	void outputHistoryProvinces(const Configuration& theConfiguration, const std::set<std::string>& premades, const bool& isLeviathanDLCPresent) const;

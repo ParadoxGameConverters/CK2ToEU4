@@ -1,14 +1,15 @@
 #include "Configuration.h"
 #include "CommonFunctions.h"
 #include "CommonRegexes.h"
+#include "GameVersion.h"
 #include "Log.h"
 #include "OSCompatibilityLayer.h"
 #include "ParserHelpers.h"
 #include <fstream>
 
-Configuration::Configuration(const mappers::ConverterVersion& converterVersion)
+Configuration::Configuration(const commonItems::ConverterVersion& converterVersion)
 {
-	LOG(LogLevel::Info) << "Reading configuration file";
+	Log(LogLevel::Info) << "Reading configuration file";
 	registerKeys();
 	parseFile("configuration.txt");
 	clearRegisteredKeywords();
@@ -125,7 +126,7 @@ void Configuration::verifyCK2Path() const
 		throw std::runtime_error(CK2Path + " does not contain Crusader Kings 2!");
 	if (!commonItems::DoesFileExist(CK2Path + "/map/positions.txt"))
 		throw std::runtime_error(CK2Path + " does not appear to be a valid CK2 install!");
-	LOG(LogLevel::Info) << "\tCK2 install path is " << CK2Path;
+	Log(LogLevel::Info) << "\tCK2 install path is " << CK2Path;
 }
 
 void Configuration::verifyEU4Path() const
@@ -136,7 +137,7 @@ void Configuration::verifyEU4Path() const
 		throw std::runtime_error(EU4Path + " does not contain Europa Universalis 4!");
 	if (!commonItems::DoesFileExist(EU4Path + "/map/positions.txt"))
 		throw std::runtime_error(EU4Path + " does not appear to be a valid EU4 install!");
-	LOG(LogLevel::Info) << "\tEU4 install path is " << EU4Path;
+	Log(LogLevel::Info) << "\tEU4 install path is " << EU4Path;
 }
 
 void Configuration::setOutputName()
@@ -150,110 +151,19 @@ void Configuration::setOutputName()
 	outputName = replaceCharacter(outputName, ' ');
 
 	outputName = commonItems::normalizeUTF8Path(outputName);
-	LOG(LogLevel::Info) << "Using output name " << outputName;
+	Log(LogLevel::Info) << "Using output name " << outputName;
 }
 
-std::optional<GameVersion> Configuration::getRawVersion(const std::string& filePath) const
+void Configuration::verifyCK2Version(const commonItems::ConverterVersion& converterVersion) const
 {
-	if (!commonItems::DoesFileExist(filePath))
-	{
-		Log(LogLevel::Warning) << "Failure verifying version: " << filePath << " does not exist. Proceeding blind.";
-		return std::nullopt;
-	}
-
-	std::ifstream versionFile(filePath);
-	if (!versionFile.is_open())
-	{
-		Log(LogLevel::Warning) << "Failure verifying version: " << filePath << " cannot be opened. Proceeding blind.";
-		return std::nullopt;
-	}
-
-	while (!versionFile.eof())
-	{
-		std::string line;
-		std::getline(versionFile, line);
-		if (line.find("rawVersion") == std::string::npos)
-			continue;
-		auto pos = line.find(':');
-		if (pos == std::string::npos)
-		{
-			Log(LogLevel::Warning) << "Failure extracting version: " << filePath << " has broken rawVersion. Proceeding blind.";
-			return std::nullopt;
-		}
-		line = line.substr(pos + 1, line.length());
-		pos = line.find_first_of('\"');
-		if (pos == std::string::npos)
-		{
-			Log(LogLevel::Warning) << "Failure extracting version: " << filePath << " has broken rawVersion. Proceeding blind.";
-			return std::nullopt;
-		}
-		line = line.substr(pos + 1, line.length());
-		pos = line.find_first_of('\"');
-		if (pos == std::string::npos)
-		{
-			Log(LogLevel::Warning) << "Failure extracting version: " << filePath << " has broken rawVersion. Proceeding blind.";
-			return std::nullopt;
-		}
-		line = line.substr(0, pos);
-		Log(LogLevel::Info) << "\tVersion is: " << line;
-		return GameVersion(line);
-	}
-
-	Log(LogLevel::Warning) << "Failure verifying version: " << filePath << " doesn't contain rawVersion. Proceeding blind.";
-	return std::nullopt;
-}
-
-std::optional<GameVersion> Configuration::getChangelogVersion(const std::string& filePath) const
-{
-	if (!commonItems::DoesFileExist(filePath))
-	{
-		Log(LogLevel::Warning) << "Failure verifying version: " << filePath << " does not exist. Proceeding blind.";
-		return std::nullopt;
-	}
-
-	std::ifstream versionFile(filePath);
-	if (!versionFile.is_open())
-	{
-		Log(LogLevel::Warning) << "Failure verifying version: " << filePath << " cannot be opened. Proceeding blind.";
-		return std::nullopt;
-	}
-
-	std::string line;
-	std::getline(versionFile, line);
-	std::getline(versionFile, line);
-	if (versionFile.eof())
-	{
-		Log(LogLevel::Warning) << "Failure verifying version: " << filePath << " is broken. Proceeding blind.";
-		return std::nullopt;
-	}
-	std::getline(versionFile, line);
-
-	auto pos = line.find_first_of(' ');
-	if (pos == std::string::npos)
-	{
-		Log(LogLevel::Warning) << "Failure extracting version: " << filePath << " has broken version. Proceeding blind.";
-		return std::nullopt;
-	}
-	line = line.substr(pos + 1, line.length());
-	pos = line.find_first_of(' ');
-	if (pos == std::string::npos)
-	{
-		Log(LogLevel::Warning) << "Failure extracting version: " << filePath << " has broken version. Proceeding blind.";
-		return std::nullopt;
-	}
-	line = line.substr(0, pos);
-	Log(LogLevel::Info) << "\tVersion is: " << line;
-	return GameVersion(line);
-}
-
-void Configuration::verifyCK2Version(const mappers::ConverterVersion& converterVersion) const
-{
-	const auto CK2Version = getChangelogVersion(CK2Path + "/ChangeLog.txt");
+	const auto CK2Version = GameVersion::extractVersionFromChangeLog(CK2Path + "/ChangeLog.txt");
 	if (!CK2Version)
 	{
 		Log(LogLevel::Error) << "CK2 version could not be determined, proceeding blind!";
 		return;
 	}
+
+	Log(LogLevel::Info) << "CK2 version: " << CK2Version->toShortString();
 
 	if (converterVersion.getMinSource() > *CK2Version)
 	{
@@ -269,14 +179,16 @@ void Configuration::verifyCK2Version(const mappers::ConverterVersion& converterV
 	}
 }
 
-void Configuration::verifyEU4Version(const mappers::ConverterVersion& converterVersion) const
+void Configuration::verifyEU4Version(const commonItems::ConverterVersion& converterVersion) const
 {
-	const auto EU4Version = getRawVersion(EU4Path + "/launcher-settings.json");
+	const auto EU4Version = GameVersion::extractVersionFromLauncher(EU4Path + "/launcher-settings.json");
 	if (!EU4Version)
 	{
 		Log(LogLevel::Error) << "EU4 version could not be determined, proceeding blind!";
 		return;
 	}
+
+	Log(LogLevel::Info) << "EU4 version: " << EU4Version->toShortString();
 
 	if (converterVersion.getMinTarget() > *EU4Version)
 	{
