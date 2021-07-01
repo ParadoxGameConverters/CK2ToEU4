@@ -16,7 +16,7 @@ include_directories("../commonItems")
 include_directories("../commonItems/ZipLib")
 include_directories("${PROJECT_SOURCE_DIR}")
 
-add_subdirectory(../ZipLib [binary_dir])
+add_subdirectory(../commonItems/ZipLib [binary_dir])
 
 file(GLOB MAIN_SOURCES "${PROJECT_SOURCE_DIR}/*.cpp")
 file(GLOB COMMON_COMMON_SOURCES "${PROJECT_SOURCE_DIR}/Common/*.cpp")
