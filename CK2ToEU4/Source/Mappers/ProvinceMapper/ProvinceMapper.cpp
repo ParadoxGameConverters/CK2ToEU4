@@ -1,5 +1,4 @@
 #include "ProvinceMapper.h"
-#include "../../CK2World/Mods/Mods.h"
 #include "../../Configuration/Configuration.h"
 #include "GameVersion.h"
 #include "Log.h"
@@ -12,13 +11,13 @@
 namespace fs = std::filesystem;
 #include "CommonRegexes.h"
 
-mappers::ProvinceMapper::ProvinceMapper(const CK2::Mods& mods)
+mappers::ProvinceMapper::ProvinceMapper(const Mods& mods)
 {
 	LOG(LogLevel::Info) << "-> Parsing province mappings";
 	registerKeys();
 
 	auto loadedProvinces = false;
-	for (const auto& [name, path]: mods.getMods())
+	for (const auto& [name, path]: mods)
 		if (commonItems::DoesFileExist("configurables/" + name + "_province_mappings.txt"))
 		{
 			Log(LogLevel::Info) << ">> Loading Province Mappings for " << name;

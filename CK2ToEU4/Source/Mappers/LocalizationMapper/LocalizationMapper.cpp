@@ -5,7 +5,7 @@
 #include <fstream>
 #include <set>
 
-void mappers::LocalizationMapper::scrapeLocalizations(const Configuration& theConfiguration, const std::map<std::string, std::string>& mods)
+void mappers::LocalizationMapper::scrapeLocalizations(const Configuration& theConfiguration, const Mods& mods)
 {
 	LOG(LogLevel::Info) << "-> Reading Words";
 	auto filenames = commonItems::GetAllFilesInFolder(theConfiguration.getCK2Path() + "/localisation/");
@@ -17,14 +17,14 @@ void mappers::LocalizationMapper::scrapeLocalizations(const Configuration& theCo
 	}
 	for (const auto& mod: mods)
 	{
-		if (commonItems::DoesFolderExist(mod.second + "/localisation/"))
+		if (commonItems::DoesFolderExist(mod.path + "/localisation/"))
 		{
-			Log(LogLevel::Info) << "\t>> Found some words in: " << mod.second + "/localization/";
-			filenames = commonItems::GetAllFilesInFolder(mod.second + "/localisation/");
+			Log(LogLevel::Info) << "\t>> Found some words in [" << mod.name << "]: " << mod.path + "/localization/";
+			filenames = commonItems::GetAllFilesInFolder(mod.path + "/localisation/");
 			for (const auto& file: filenames)
 			{
 				if (file.find(".csv") == std::string::npos) continue;
-				std::ifstream theFile(mod.second + "/localisation/" + file);
+				std::ifstream theFile(mod.path + "/localisation/" + file);
 				scrapeStream(theFile);
 				theFile.close();
 			}			

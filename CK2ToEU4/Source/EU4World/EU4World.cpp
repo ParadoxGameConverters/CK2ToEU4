@@ -16,7 +16,7 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 {
 	LOG(LogLevel::Info) << "*** Hello EU4, let's get painting. ***";
 	// Scraping localizations from CK2 so we may know proper names for our countries.
-	localizationMapper.scrapeLocalizations(theConfiguration, sourceWorld.getMods().getMods());
+	localizationMapper.scrapeLocalizations(theConfiguration, sourceWorld.getMods());
 
 	// Scrape Primary Tags for nationalities
 	primaryTagMapper.loadPrimaryTags(theConfiguration);
@@ -201,16 +201,16 @@ void EU4::World::scrapeColors(const Configuration& theConfiguration, const CK2::
 			continue;
 		colorScraper.scrapeColors(theConfiguration.getCK2Path() + "/common/landed_titles/" + file);
 	}
-	for (const auto& mod: sourceWorld.getMods().getMods())
+	for (const auto& mod: sourceWorld.getMods())
 	{
-		fileNames = commonItems::GetAllFilesInFolder(mod.second + "/common/landed_titles/");
+		fileNames = commonItems::GetAllFilesInFolder(mod.path + "/common/landed_titles/");
 		if (!fileNames.empty())
-			Log(LogLevel::Info) << "\t>> Found some colors in: " << mod.first;
+			Log(LogLevel::Info) << "\t>> Found some colors in [" << mod.name << "]: " << mod.path;
 		for (const auto& file: fileNames)
 		{
 			if (file.find(".txt") == std::string::npos)
 				continue;
-			colorScraper.scrapeColors(mod.second + "/common/landed_titles/" + file);
+			colorScraper.scrapeColors(mod.path + "/common/landed_titles/" + file);
 		}
 	}
 	LOG(LogLevel::Info) << ">> " << colorScraper.getColors().size() << " colors soaked up.";

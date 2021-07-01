@@ -8,6 +8,7 @@
 #include "outReligion.h"
 #include <filesystem>
 #include <fstream>
+#include "ModLoader/ModLoader.h"
 namespace fs = std::filesystem;
 
 void EU4::World::output(const commonItems::ConverterVersion& converterVersion, const Configuration& theConfiguration, const CK2::World& sourceWorld) const
@@ -174,14 +175,14 @@ void EU4::World::outputFlags(const Configuration& theConfiguration, const CK2::W
 	for (const auto& file: fileNames)
 		sourceFlagSources[file].insert(theConfiguration.getCK2Path() + "/gfx/flags/" + file);
 
-	for (const auto& mod: sourceWorld.getMods().getMods())
+	for (const auto& mod: sourceWorld.getMods())
 	{
-		if (commonItems::DoesFolderExist(mod.second + "/gfx/flags/"))
+		if (commonItems::DoesFolderExist(mod.path + "/gfx/flags/"))
 		{
-			Log(LogLevel::Info) << "\t>> Found some flags over in: " << mod.second << "/gfx/flags/";
-			fileNames = commonItems::GetAllFilesInFolder(mod.second + "/gfx/flags/");
+			Log(LogLevel::Info) << "\t>> Found some flags over in [" << mod.name << "]: " << mod.path << "/gfx/flags/";
+			fileNames = commonItems::GetAllFilesInFolder(mod.path + "/gfx/flags/");
 			for (const auto& file: fileNames)
-				sourceFlagSources[file].insert(mod.second + "/gfx/flags/" + file);
+				sourceFlagSources[file].insert(mod.path + "/gfx/flags/" + file);
 		}
 	}
 

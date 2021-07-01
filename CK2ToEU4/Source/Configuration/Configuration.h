@@ -2,7 +2,7 @@
 #define CONFIGURATION_H
 #include "ConverterVersion.h"
 #include "Parser.h"
-#include <set>
+#include "ModLoader/ModLoader.h"
 
 class Configuration: commonItems::parser
 {
@@ -74,7 +74,7 @@ class Configuration: commonItems::parser
 
 	[[nodiscard]] const auto& getSaveGamePath() const { return SaveGamePath; }
 	[[nodiscard]] const auto& getCK2Path() const { return CK2Path; }
-	[[nodiscard]] const auto& getCK2ModsPath() const { return CK2ModsPath; }
+	[[nodiscard]] const auto& getCK2DocsPath() const { return CK2DocsPath; }
 	[[nodiscard]] const auto& getEU4Path() const { return EU4Path; }
 	[[nodiscard]] const auto& getOutputName() const { return outputName; }
 	[[nodiscard]] const auto& getHRE() const { return iAmHre; }
@@ -86,7 +86,7 @@ class Configuration: commonItems::parser
 	[[nodiscard]] const auto& getSunset() const { return sunset; }
 	[[nodiscard]] const auto& getDynamicInstitutions() const { return dynamicInstitutions; }
 	[[nodiscard]] const auto& getDevelopment() const { return development; }
-	[[nodiscard]] const auto& getModFileNames() const { return modFileNames; }
+	[[nodiscard]] const auto& getMods() const { return mods; }
 	[[nodiscard]] const auto& getSplitVassals() const { return splitVassals; }
 	[[nodiscard]] const auto& getStartDateOption() const { return startDate; }
 
@@ -100,7 +100,7 @@ class Configuration: commonItems::parser
 
 	std::string SaveGamePath;
 	std::string CK2Path;
-	std::string CK2ModsPath;
+	std::string CK2DocsPath;
 	std::string EU4Path;
 	std::string outputName;
 
@@ -116,7 +116,7 @@ class Configuration: commonItems::parser
 	DEJURE dejure = DEJURE::ENABLED;
 	SPLITVASSALS splitVassals = SPLITVASSALS::YES;
 
-	std::set<std::string> modFileNames;
+	Mods mods;
 };
 
 #endif // CONFIGURATION_H

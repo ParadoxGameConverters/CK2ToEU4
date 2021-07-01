@@ -13,7 +13,7 @@ add_compile_options("-pthread")
 add_link_options(-no-pie)
 
 include_directories("../commonItems")
-include_directories("../ZipLib")
+include_directories("../commonItems/ZipLib")
 include_directories("${PROJECT_SOURCE_DIR}")
 
 add_subdirectory(../ZipLib [binary_dir])
@@ -28,7 +28,6 @@ file(GLOB CK2WORLD_TITLES_SOURCES "${PROJECT_SOURCE_DIR}/CK2World/Titles/*.cpp")
 file(GLOB CK2WORLD_PROVINCES_SOURCES "${PROJECT_SOURCE_DIR}/CK2World/Provinces/*.cpp")
 file(GLOB CK2WORLD_WONDERS_SOURCES "${PROJECT_SOURCE_DIR}/CK2World/Wonders/*.cpp")
 file(GLOB CK2WORLD_OFFMAPS_SOURCES "${PROJECT_SOURCE_DIR}/CK2World/Offmaps/*.cpp")
-file(GLOB CK2WORLD_MODS_SOURCES "${PROJECT_SOURCE_DIR}/CK2World/Mods/*.cpp")
 file(GLOB CK2WORLD_RELATIONS_SOURCES "${PROJECT_SOURCE_DIR}/CK2World/Relations/*.cpp")
 file(GLOB CK2WORLD_RELIGIONS_SOURCES "${PROJECT_SOURCE_DIR}/CK2World/Religions/*.cpp")
 file(GLOB CK2WORLD_FLAGS_SOURCES "${PROJECT_SOURCE_DIR}/CK2World/Flags/*.cpp")
@@ -64,6 +63,8 @@ set(COMMON_SOURCES ${COMMON_SOURCES} "../commonItems/Date.cpp")
 set(COMMON_SOURCES ${COMMON_SOURCES} "../commonItems/GameVersion.cpp")
 set(COMMON_SOURCES ${COMMON_SOURCES} "../commonItems/LinuxUtils.cpp")
 set(COMMON_SOURCES ${COMMON_SOURCES} "../commonItems/Log.cpp")
+set(COMMON_SOURCES ${COMMON_SOURCES} "../commonItems/ModLoader/ModLoader.cpp")
+set(COMMON_SOURCES ${COMMON_SOURCES} "../commonItems/ModLoader/ModParser.cpp")
 set(COMMON_SOURCES ${COMMON_SOURCES} "../commonItems/Parser.cpp")
 set(COMMON_SOURCES ${COMMON_SOURCES} "../commonItems/ParserHelpers.cpp")
 set(COMMON_SOURCES ${COMMON_SOURCES} "../commonItems/OSCommonLayer.cpp")
@@ -80,7 +81,6 @@ add_executable(CK2ToEU4
 	${CK2WORLD_PROVINCES_SOURCES}
 	${CK2WORLD_WONDERS_SOURCES}
 	${CK2WORLD_OFFMAPS_SOURCES}
-	${CK2WORLD_MODS_SOURCES}
 	${CK2WORLD_RELATIONS_SOURCES}
 	${CK2WORLD_RELIGIONS_SOURCES}
 	${CK2WORLD_FLAGS_SOURCES}

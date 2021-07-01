@@ -1,13 +1,14 @@
 #include "../CK2ToEU4/Source/Configuration/Configuration.h"
 #include "gtest/gtest.h"
-#include <sstream>
+#include <gmock/gmock-matchers.h>
+using testing::UnorderedElementsAre;
 
 TEST(CK2ToEU4_ConfigurationTests, EU4PathDefaultsBlank)
 {
 	std::stringstream input("");
 	const Configuration testConfiguration(input);
 
-	ASSERT_EQ(testConfiguration.getEU4Path(), "");
+	EXPECT_EQ(testConfiguration.getEU4Path(), "");
 }
 
 TEST(CK2ToEU4_ConfigurationTests, EU4PathCanBeSet)
@@ -16,7 +17,7 @@ TEST(CK2ToEU4_ConfigurationTests, EU4PathCanBeSet)
 	input << "EU4directory = \"C:\\EU4Path\"";
 	const Configuration testConfiguration(input);
 
-	ASSERT_EQ(testConfiguration.getEU4Path(), "C:\\EU4Path");
+	EXPECT_EQ(testConfiguration.getEU4Path(), "C:\\EU4Path");
 }
 
 TEST(CK2ToEU4_ConfigurationTests, CK2PathDefaultsBlank)
@@ -24,7 +25,7 @@ TEST(CK2ToEU4_ConfigurationTests, CK2PathDefaultsBlank)
 	std::stringstream input("");
 	const Configuration testConfiguration(input);
 
-	ASSERT_EQ(testConfiguration.getCK2Path(), "");
+	EXPECT_EQ(testConfiguration.getCK2Path(), "");
 }
 
 TEST(CK2ToEU4_ConfigurationTests, CK2PathCanBeSet)
@@ -33,7 +34,7 @@ TEST(CK2ToEU4_ConfigurationTests, CK2PathCanBeSet)
 	input << "CK2directory = \"C:\\CK2Path\"";
 	const Configuration testConfiguration(input);
 
-	ASSERT_EQ(testConfiguration.getCK2Path(), "C:\\CK2Path");
+	EXPECT_EQ(testConfiguration.getCK2Path(), "C:\\CK2Path");
 }
 
 TEST(CK2ToEU4_ConfigurationTests, CK2ModsPathDefaultsBlank)
@@ -41,16 +42,16 @@ TEST(CK2ToEU4_ConfigurationTests, CK2ModsPathDefaultsBlank)
 	std::stringstream input("");
 	const Configuration testConfiguration(input);
 
-	ASSERT_EQ(testConfiguration.getCK2ModsPath(), "");
+	EXPECT_EQ(testConfiguration.getCK2DocsPath(), "");
 }
 
 TEST(CK2ToEU4_ConfigurationTests, CK2ModsPathCanBeSet)
 {
 	std::stringstream input;
-	input << "CK2ModsDirectory = \"C:\\CK2Path\\Mods\"";
+	input << "CK2DocDirectory = \"C:\\CK2Path\\Mods\"";
 	const Configuration testConfiguration(input);
 
-	ASSERT_EQ(testConfiguration.getCK2ModsPath(), "C:\\CK2Path\\Mods");
+	EXPECT_EQ(testConfiguration.getCK2DocsPath(), "C:\\CK2Path\\Mods");
 }
 
 TEST(CK2ToEU4_ConfigurationTests, SaveGamePathDefaultsBlank)
@@ -58,7 +59,7 @@ TEST(CK2ToEU4_ConfigurationTests, SaveGamePathDefaultsBlank)
 	std::stringstream input("");
 	const Configuration testConfiguration(input);
 
-	ASSERT_EQ(testConfiguration.getSaveGamePath(), "");
+	EXPECT_EQ(testConfiguration.getSaveGamePath(), "");
 }
 
 TEST(CK2ToEU4_ConfigurationTests, SaveGamePathCanBeSet)
@@ -67,7 +68,7 @@ TEST(CK2ToEU4_ConfigurationTests, SaveGamePathCanBeSet)
 	input << "SaveGame = \"C:\\CK2Path\\save games\\autosave.ck2\"";
 	const Configuration testConfiguration(input);
 
-	ASSERT_EQ(testConfiguration.getSaveGamePath(), "C:\\CK2Path\\save games\\autosave.ck2");
+	EXPECT_EQ(testConfiguration.getSaveGamePath(), "C:\\CK2Path\\save games\\autosave.ck2");
 }
 
 TEST(CK2ToEU4_ConfigurationTests, OutputNameDefaultsToSaveGameWithNoOutputName)
@@ -77,7 +78,7 @@ TEST(CK2ToEU4_ConfigurationTests, OutputNameDefaultsToSaveGameWithNoOutputName)
 
 	const Configuration testConfiguration(input);
 
-	ASSERT_EQ(testConfiguration.getOutputName(), "autosave");
+	EXPECT_EQ(testConfiguration.getOutputName(), "autosave");
 }
 
 TEST(CK2ToEU4_ConfigurationTests, OutputNameResistantToMixedSlashes)
@@ -86,7 +87,7 @@ TEST(CK2ToEU4_ConfigurationTests, OutputNameResistantToMixedSlashes)
 	input << "SaveGame = \"C:\\CK2Path/save games/autosave.ck2\"";
 	const Configuration testConfiguration(input);
 
-	ASSERT_EQ(testConfiguration.getOutputName(), "autosave");
+	EXPECT_EQ(testConfiguration.getOutputName(), "autosave");
 }
 
 TEST(CK2ToEU4_ConfigurationTests, OutputNameReplacesSpacesAndMinuses)
@@ -96,7 +97,7 @@ TEST(CK2ToEU4_ConfigurationTests, OutputNameReplacesSpacesAndMinuses)
 
 	const Configuration testConfiguration(input);
 
-	ASSERT_EQ(testConfiguration.getOutputName(), "autosav_____._second_e");
+	EXPECT_EQ(testConfiguration.getOutputName(), "autosav_____._second_e");
 }
 
 TEST(CK2ToEU4_ConfigurationTests, OutputNameDefaultsToSaveGame)
@@ -107,7 +108,7 @@ TEST(CK2ToEU4_ConfigurationTests, OutputNameDefaultsToSaveGame)
 
 	const Configuration testConfiguration(input);
 
-	ASSERT_EQ(testConfiguration.getOutputName(), "autosave");
+	EXPECT_EQ(testConfiguration.getOutputName(), "autosave");
 }
 
 TEST(CK2ToEU4_ConfigurationTests, OutputNameCanBeSet)
@@ -118,7 +119,7 @@ TEST(CK2ToEU4_ConfigurationTests, OutputNameCanBeSet)
 
 	const Configuration testConfiguration(input);
 
-	ASSERT_EQ(testConfiguration.getOutputName(), "override");
+	EXPECT_EQ(testConfiguration.getOutputName(), "override");
 }
 
 TEST(CK2ToEU4_ConfigurationTests, ModFileNamesDefaultToEmpty)
@@ -126,7 +127,7 @@ TEST(CK2ToEU4_ConfigurationTests, ModFileNamesDefaultToEmpty)
 	std::stringstream input("");
 	const Configuration testConfiguration(input);
 
-	ASSERT_TRUE(testConfiguration.getModFileNames().empty());
+	EXPECT_TRUE(testConfiguration.getMods().empty());
 }
 
 TEST(CK2ToEU4_ConfigurationTests, ModFileNamesCanBeLoaded)
@@ -136,12 +137,9 @@ TEST(CK2ToEU4_ConfigurationTests, ModFileNamesCanBeLoaded)
 	input << "\t\"modfilename1.mod\"\n";
 	input << "\t\"oddlyshaped.mod.mod.mod.mod\"\n";
 	input << "\t\"mod with spaces.mod\"\n";
-	input << "\t\"oddlyshaped.mod.mod.mod.mod\"\n";
 	input << "}";
 	const Configuration testConfiguration(input);
 
-	ASSERT_EQ(testConfiguration.getModFileNames().size(), 3);
-	ASSERT_TRUE(testConfiguration.getModFileNames().count("modfilename1.mod"));
-	ASSERT_TRUE(testConfiguration.getModFileNames().count("oddlyshaped.mod.mod.mod.mod"));
-	ASSERT_TRUE(testConfiguration.getModFileNames().count("mod with spaces.mod"));
+	EXPECT_THAT(testConfiguration.getMods(),
+		 UnorderedElementsAre(Mod("", "modfilename1.mod"), Mod("", "oddlyshaped.mod.mod.mod.mod"), Mod("", "mod with spaces.mod")));
 }
