@@ -40,9 +40,9 @@ void Configuration::registerKeys()
 		const commonItems::singleString path(theStream);
 		CK2Path = path.getString();
 	});
-	registerKeyword("CK2ModsDirectory", [this](const std::string& unused, std::istream& theStream) {
+	registerKeyword("CK2DocDirectory", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleString path(theStream);
-		CK2ModsPath = path.getString();
+		CK2DocsPath = path.getString();
 	});
 	registerKeyword("EU4directory", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleString path(theStream);
@@ -109,10 +109,9 @@ void Configuration::registerKeys()
 		Log(LogLevel::Info) << "Development set to: " << developmentString.getString();
 	});
 	registerKeyword("selectedMods", [this](const std::string& unused, std::istream& theStream) {
-		const commonItems::stringList modsList(theStream);
-		const auto& theList = modsList.getStrings();
-		modFileNames.insert(theList.begin(), theList.end());
-		Log(LogLevel::Info) << modFileNames.size() << " mods selected by configuration. Deselected mods will be ignored.";
+		for (const auto& path: commonItems::getStrings(theStream))
+			mods.emplace_back(Mod("", path));
+		Log(LogLevel::Info) << mods.size() << " mods selected by configuration. Deselected mods will be ignored.";
 	});
 	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }

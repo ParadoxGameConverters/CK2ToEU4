@@ -3,7 +3,7 @@ converterFolder = CK2ToEU4
 displayName = CK2DISPLAYNAME
 sourceGame = CK2GAME
 targetGame = EU4GAME
-autoGenerateModsFrom = CK2ModsDirectory
+autoGenerateModsFrom = CK2DocDirectory
 
 requiredFolder = {
 	name = CK2directory
@@ -14,12 +14,12 @@ requiredFolder = {
 	searchPathID = 203770
 }
 requiredFolder = {
-	name = CK2ModsDirectory
-	displayName = CK2MOD
-	tooltip = CK2MODTIP
+	name = CK2DocDirectory
+	displayName = CK2DOC
+	tooltip = CK2DOCTIP
 	mandatory = true
 	searchPathType = windowsUsersFolder
-	searchPath = "Paradox Interactive\Crusader Kings II\mod"
+	searchPath = "Paradox Interactive\Crusader Kings II"
 }
 requiredFolder = {
 	name = EU4directory

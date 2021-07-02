@@ -186,12 +186,6 @@
     <ClCompile Include="Source\CK2World\Dynasties\CoatOfArms.cpp">
       <Filter>CK2World\Dynasties</Filter>
     </ClCompile>
-    <ClCompile Include="Source\CK2World\Mods\Mod.cpp">
-      <Filter>CK2World\Mods</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\CK2World\Mods\Mods.cpp">
-      <Filter>CK2World\Mods</Filter>
-    </ClCompile>
     <ClCompile Include="Source\CK2World\Relations\Relation.cpp">
       <Filter>CK2World\Relation</Filter>
     </ClCompile>
@@ -287,6 +281,12 @@
     </ClCompile>
     <ClCompile Include="..\commonItems\ConverterVersion.cpp">
       <Filter>CommonItems</Filter>
+    </ClCompile>
+    <ClCompile Include="..\commonItems\ModLoader\ModLoader.cpp">
+      <Filter>CommonItems\ModLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="..\commonItems\ModLoader\ModParser.cpp">
+      <Filter>CommonItems\ModLoader</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -471,12 +471,6 @@
     <ClInclude Include="Source\CK2World\Dynasties\CoatOfArms.h">
       <Filter>CK2World\Dynasties</Filter>
     </ClInclude>
-    <ClInclude Include="Source\CK2World\Mods\Mod.h">
-      <Filter>CK2World\Mods</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\CK2World\Mods\Mods.h">
-      <Filter>CK2World\Mods</Filter>
-    </ClInclude>
     <ClInclude Include="Source\CK2World\Relations\Relation.h">
       <Filter>CK2World\Relation</Filter>
     </ClInclude>
@@ -551,6 +545,12 @@
     </ClInclude>
     <ClInclude Include="..\commonItems\ConverterVersion.h">
       <Filter>CommonItems</Filter>
+    </ClInclude>
+    <ClInclude Include="..\commonItems\ModLoader\ModLoader.h">
+      <Filter>CommonItems\ModLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\commonItems\ModLoader\ModParser.h">
+      <Filter>CommonItems\ModLoader</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -635,9 +635,6 @@
     <Filter Include="CK2World\Offmaps">
       <UniqueIdentifier>{bd95b28f-f8d4-4712-881c-2bca3de7f6b1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="CK2World\Mods">
-      <UniqueIdentifier>{b4ef6bfa-1e19-4608-bb13-ff782d906fad}</UniqueIdentifier>
-    </Filter>
     <Filter Include="CK2World\Relation">
       <UniqueIdentifier>{ad570e8b-6418-4b55-b259-604cffc3bbfc}</UniqueIdentifier>
     </Filter>
@@ -664,6 +661,9 @@
     </Filter>
     <Filter Include="Mappers\MonumentsMapper">
       <UniqueIdentifier>{5f30ec84-1dc7-47a6-b1a6-0732bca69802}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CommonItems\ModLoader">
+      <UniqueIdentifier>{674155bf-ba63-464a-8631-7efb46f5d116}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

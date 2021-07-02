@@ -6,7 +6,6 @@
 #include "Date.h"
 #include "GameVersion.h"
 #include "Log.h"
-#include "Mods/Mods.h"
 #include "OSCompatibilityLayer.h"
 #include "Offmaps/Offmap.h"
 #include "ParserHelpers.h"
@@ -124,7 +123,9 @@ CK2::World::World(const Configuration& theConfiguration, const commonItems::Conv
 	}
 
 	Log(LogLevel::Info) << "-> Locating mods in mod folder";
-	mods.loadModDirectory(theConfiguration);
+	commonItems::ModLoader modLoader;
+	modLoader.loadMods(theConfiguration.getCK2DocsPath(), theConfiguration.getMods());
+	mods = modLoader.getMods();
 	Log(LogLevel::Progress) << "6 %";
 
 	// We must load initializers before the savegame.
@@ -261,15 +262,15 @@ void CK2::World::loadDynasties(const Configuration& theConfiguration)
 	auto fileNames = commonItems::GetAllFilesInFolder(theConfiguration.getCK2Path() + "/common/dynasties/");
 	for (const auto& file: fileNames)
 		dynasties.loadDynasties(theConfiguration.getCK2Path() + "/common/dynasties/" + file);
-	for (const auto& mod: mods.getMods())
+	for (const auto& mod: mods)
 	{
-		fileNames = commonItems::GetAllFilesInFolder(mod.second + "/common/dynasties/");
+		fileNames = commonItems::GetAllFilesInFolder(mod.path + "/common/dynasties/");
 		for (const auto& file: fileNames)
 		{
 			if (file.find(".txt") == std::string::npos)
 				continue;
-			Log(LogLevel::Info) << "\t>> Loading additional dynasties from mod source: " << mod.second + "/common/dynasties/" + file;
-			dynasties.loadDynasties(mod.second + "/common/dynasties/" + file);
+			Log(LogLevel::Info) << "\t>> Loading additional dynasties from [" << mod.name << "]: " << mod.path + "/common/dynasties/" + file;
+			dynasties.loadDynasties(mod.path + "/common/dynasties/" + file);
 		}
 	}
 }
@@ -280,12 +281,12 @@ void CK2::World::loadProvinces(const Configuration& theConfiguration)
 	// but for mods we're overwriting all multimap matches.
 	provinceTitleMapper.loadProvinces(theConfiguration.getCK2Path());
 
-	for (const auto& mod: mods.getMods())
+	for (const auto& mod: mods)
 	{
-		if (commonItems::DoesFolderExist(mod.second + "/history/provinces/"))
+		if (commonItems::DoesFolderExist(mod.path + "/history/provinces/"))
 		{
-			Log(LogLevel::Info) << "\t>> Loading additional provinces from mod source: " << mod.second + "/history/provinces/";
-			provinceTitleMapper.updateProvinces(mod.second);
+			Log(LogLevel::Info) << "\t>> Loading additional provinces from [" << mod.name << "]: " << mod.path + "/history/provinces/";
+			provinceTitleMapper.updateProvinces(mod.path);
 		}
 	}
 }

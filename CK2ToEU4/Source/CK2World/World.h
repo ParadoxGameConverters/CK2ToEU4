@@ -12,7 +12,6 @@
 #include "Dynasties/Dynasties.h"
 #include "Flags/Flags.h"
 #include "GameVersion.h"
-#include "Mods/Mods.h"
 #include "Offmaps/Offmaps.h"
 #include "Parser.h"
 #include "Provinces/Province.h"
@@ -23,6 +22,7 @@
 #include "Titles/Titles.h"
 #include "Vars/Vars.h"
 #include "Wonders/Wonders.h"
+#include "ModLoader/ModLoader.h"
 
 class Configuration;
 

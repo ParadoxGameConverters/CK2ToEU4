@@ -4,9 +4,6 @@
 [submodule "googletest"]
 	path = googletest
 	url = https://github.com/google/googletest/
-[submodule "ZipLib"]
-	path = ZipLib
-	url = https://github.com/ParadoxGameConverters/ZipLib
 [submodule "Fronter"]
 	path = Fronter
 	url = https://github.com/ParadoxGameConverters/Fronter

@@ -5,10 +5,7 @@
 #include "Parser.h"
 #include <map>
 #include <set>
-
-namespace CK2 {
-	class Mods;
-}
+#include "ModLoader/ModLoader.h"
 
 class Configuration;
 
@@ -17,7 +14,7 @@ namespace mappers
 class ProvinceMapper: commonItems::parser
 {
   public:
-	explicit ProvinceMapper(const CK2::Mods& mods);
+	explicit ProvinceMapper(const Mods& mods);
 	explicit ProvinceMapper(std::istream& theStream);
 
 	[[nodiscard]] std::vector<int> getCK2ProvinceNumbers(int eu4ProvinceNumber) const;
