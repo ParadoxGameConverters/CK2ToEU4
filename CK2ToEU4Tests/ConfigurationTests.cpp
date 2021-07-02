@@ -37,7 +37,7 @@ TEST(CK2ToEU4_ConfigurationTests, CK2PathCanBeSet)
 	EXPECT_EQ(testConfiguration.getCK2Path(), "C:\\CK2Path");
 }
 
-TEST(CK2ToEU4_ConfigurationTests, CK2ModsPathDefaultsBlank)
+TEST(CK2ToEU4_ConfigurationTests, CK2DocsPathDefaultsBlank)
 {
 	std::stringstream input("");
 	const Configuration testConfiguration(input);
@@ -45,13 +45,13 @@ TEST(CK2ToEU4_ConfigurationTests, CK2ModsPathDefaultsBlank)
 	EXPECT_EQ(testConfiguration.getCK2DocsPath(), "");
 }
 
-TEST(CK2ToEU4_ConfigurationTests, CK2ModsPathCanBeSet)
+TEST(CK2ToEU4_ConfigurationTests, CK2DocsPathCanBeSet)
 {
 	std::stringstream input;
-	input << "CK2DocDirectory = \"C:\\CK2Path\\Mods\"";
+	input << "CK2DocDirectory = \"C:\\CK2DocsPath\"";
 	const Configuration testConfiguration(input);
 
-	EXPECT_EQ(testConfiguration.getCK2DocsPath(), "C:\\CK2Path\\Mods");
+	EXPECT_EQ(testConfiguration.getCK2DocsPath(), "C:\\CK2DocsPath");
 }
 
 TEST(CK2ToEU4_ConfigurationTests, SaveGamePathDefaultsBlank)
