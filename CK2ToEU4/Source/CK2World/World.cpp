@@ -750,13 +750,15 @@ bool CK2::World::uncompressSave(const std::string& saveGamePath)
 			LOG(LogLevel::Info) << ">> Uncompressing metadata";
 			saveGame.metadata = std::string{std::istreambuf_iterator<char>(*entry->GetDecompressionStream()), std::istreambuf_iterator<char>()};
 		}
-		else if (name == trimPath(saveGamePath))
+		else if (getExtension(saveGamePath) == "ck2")
 		{
 			LOG(LogLevel::Info) << ">> Uncompressing gamestate";
 			saveGame.gamestate = std::string{std::istreambuf_iterator<char>(*entry->GetDecompressionStream()), std::istreambuf_iterator<char>()};
 		}
 		else
-			throw std::runtime_error("Unrecognized savegame structure!");
+		{
+			throw std::runtime_error("Unrecognized savegame structure! What is this file: " + name);
+		}
 	}
 	return true;
 }
