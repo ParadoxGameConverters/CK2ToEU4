@@ -1,10 +1,10 @@
 # Version info
 
-version = "1.0"
-name = "Foix"
+version = "1.0G"
+name = "Gildehusen"
 source = "CK2"
 target = "EU4"
 minSource = "3.3"
 maxSource = "3.3"
-minTarget = "1.31"
-maxTarget = "1.31.4"
+minTarget = "1.31.5"
+maxTarget = "1.31"
