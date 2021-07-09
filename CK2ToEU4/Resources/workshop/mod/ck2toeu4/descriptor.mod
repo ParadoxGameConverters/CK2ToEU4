@@ -1,5 +1,5 @@
 name="CK2 To EU4 Converter"
 path="mod/ck2toeu4"
 picture="thumbnail.png"
-version="1.0F"
+version="1.0G"
 remote_file_id="2061437373"
