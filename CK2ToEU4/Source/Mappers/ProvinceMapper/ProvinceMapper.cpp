@@ -17,11 +17,11 @@ mappers::ProvinceMapper::ProvinceMapper(const Mods& mods)
 	registerKeys();
 
 	auto loadedProvinces = false;
-	for (const auto& [name, path]: mods)
-		if (commonItems::DoesFileExist("configurables/" + name + "_province_mappings.txt"))
+	for (const auto& mod: mods)
+		if (commonItems::DoesFileExist("configurables/" + mod.name + "_province_mappings.txt"))
 		{
-			Log(LogLevel::Info) << ">> Loading Province Mappings for " << name;
-			parseFile("configurables/" + name + "_province_mappings.txt");
+			Log(LogLevel::Info) << ">> Loading Province Mappings for " << mod.name;
+			parseFile("configurables/" + mod.name + "_province_mappings.txt");
 			loadedProvinces = true;
 			break;
 		}

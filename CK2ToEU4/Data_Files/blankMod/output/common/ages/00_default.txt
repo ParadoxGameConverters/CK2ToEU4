@@ -61,7 +61,7 @@ age_of_discovery = {
 				any_owned_province = {
 					is_core = ROOT
 					controlled_by = owner
-					development = 30
+					development_discounting_tribal = 30
 				}
 			}
 		}
@@ -299,7 +299,7 @@ age_of_reformation = {
 		}
 		
 		obj_colonial_empire = {
-			num_of_colonies = 5
+			colony = 5
 		}
 		
 		obj_force_converted = {
@@ -877,6 +877,7 @@ age_of_revolutions = {
 			allow = {
 				OR = {
 					tag = PRU
+					tag = GER
 					has_reform = prussian_monarchy 
 					has_reform = prussian_republic_reform
 				}
