@@ -1,14 +1,14 @@
 #include "PersonalityScraper.h"
 #include "../../Configuration/Configuration.h"
+#include "CommonRegexes.h"
 #include "Log.h"
 #include "OSCompatibilityLayer.h"
 #include "ParserHelpers.h"
 #include <set>
-#include "CommonRegexes.h"
 
 void mappers::PersonalityScraper::scrapePersonalities(const Configuration& theConfiguration)
 {
-	LOG(LogLevel::Info) << "-> Examiming Personalities";
+	Log(LogLevel::Info) << "-> Examiming Personalities";
 	registerKeys();
 	auto fileNames = commonItems::GetAllFilesInFolder(theConfiguration.getCK2Path() + "/common/traits/");
 	for (const auto& fileName: fileNames)
@@ -18,7 +18,7 @@ void mappers::PersonalityScraper::scrapePersonalities(const Configuration& theCo
 		parseFile(theConfiguration.getCK2Path() + "/common/traits/" + fileName);
 	}
 	clearRegisteredKeywords();
-	LOG(LogLevel::Info) << ">> " << personalities.size() << " personalities scrutinized.";
+	Log(LogLevel::Info) << ">> " << personalities.size() << " personalities scrutinized.";
 }
 
 void mappers::PersonalityScraper::scrapePersonalities(std::istream& theStream)

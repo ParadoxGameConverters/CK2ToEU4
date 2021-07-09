@@ -1,7 +1,7 @@
 #include "CultureMapper.h"
+#include "CommonRegexes.h"
 #include "Log.h"
 #include "ParserHelpers.h"
-#include "CommonRegexes.h"
 
 mappers::CultureMapper::CultureMapper(std::istream& theStream)
 {
@@ -12,11 +12,11 @@ mappers::CultureMapper::CultureMapper(std::istream& theStream)
 
 mappers::CultureMapper::CultureMapper()
 {
-	LOG(LogLevel::Info) << "-> Parsing culture mappings.";
+	Log(LogLevel::Info) << "-> Parsing culture mappings.";
 	registerKeys();
 	parseFile("configurables/culture_map.txt");
 	clearRegisteredKeywords();
-	LOG(LogLevel::Info) << "<> Loaded " << cultureMapRules.size() << " cultural links.";
+	Log(LogLevel::Info) << "<> Loaded " << cultureMapRules.size() << " cultural links.";
 }
 
 void mappers::CultureMapper::loadRegionMapper(std::shared_ptr<RegionMapper> theRegionMapper)

@@ -14,7 +14,7 @@ namespace fs = std::filesystem;
 
 EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfiguration, const commonItems::ConverterVersion& converterVersion)
 {
-	LOG(LogLevel::Info) << "*** Hello EU4, let's get painting. ***";
+	Log(LogLevel::Info) << "*** Hello EU4, let's get painting. ***";
 	// Scraping localizations from CK2 so we may know proper names for our countries.
 	localizationMapper.scrapeLocalizations(theConfiguration, sourceWorld.getMods());
 
@@ -141,18 +141,18 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 	Log(LogLevel::Progress) << "75 %";
 
 	// And finally, the Dump.
-	LOG(LogLevel::Info) << "---> The Dump <---";
+	Log(LogLevel::Info) << "---> The Dump <---";
 	modFile.outname = theConfiguration.getOutputName();
 	modFile.version = converterVersion.getMaxTarget();
 	output(converterVersion, theConfiguration, sourceWorld);
-	LOG(LogLevel::Info) << "*** Farewell EU4, granting you independence. ***";
+	Log(LogLevel::Info) << "*** Farewell EU4, granting you independence. ***";
 }
 
 void EU4::World::indianQuestion()
 {
 	// countries with capitals in india or persia superregions, need to have their provinces updated to buddhism (from vajrayana),
 	// as well as state religion if vajrayana.
-	LOG(LogLevel::Info) << "-> Resolving the Indian Question";
+	Log(LogLevel::Info) << "-> Resolving the Indian Question";
 	auto countryCounter = 0;
 	auto provinceCounter = 0;
 
@@ -188,13 +188,13 @@ void EU4::World::indianQuestion()
 				}
 		}
 	}
-	LOG(LogLevel::Info) << "-> " << countryCounter << " countries and " << provinceCounter << " provinces resolved.";
+	Log(LogLevel::Info) << "-> " << countryCounter << " countries and " << provinceCounter << " provinces resolved.";
 }
 
 
 void EU4::World::scrapeColors(const Configuration& theConfiguration, const CK2::World& sourceWorld)
 {
-	LOG(LogLevel::Info) << "-> Soaking Up Colors";
+	Log(LogLevel::Info) << "-> Soaking Up Colors";
 	auto fileNames = commonItems::GetAllFilesInFolder(theConfiguration.getCK2Path() + "/common/landed_titles/");
 	for (const auto& file: fileNames)
 	{
@@ -214,7 +214,7 @@ void EU4::World::scrapeColors(const Configuration& theConfiguration, const CK2::
 			colorScraper.scrapeColors(mod.path + "/common/landed_titles/" + file);
 		}
 	}
-	LOG(LogLevel::Info) << ">> " << colorScraper.getColors().size() << " colors soaked up.";
+	Log(LogLevel::Info) << ">> " << colorScraper.getColors().size() << " colors soaked up.";
 }
 
 void EU4::World::distributeDeadCores()
@@ -975,14 +975,14 @@ void EU4::World::alterProvinceDevelopment()
 
 void EU4::World::importAdvisers(Configuration::STARTDATE startDateOption, date theConversionDate)
 {
-	LOG(LogLevel::Info) << "-> Importing Advisers";
+	Log(LogLevel::Info) << "-> Importing Advisers";
 	auto counter = 0;
 	for (const auto& country: countries)
 	{
 		country.second->initializeAdvisers(religionMapper, cultureMapper, startDateOption, theConversionDate);
 		counter += static_cast<int>(country.second->getAdvisers().size());
 	}
-	LOG(LogLevel::Info) << "<> Imported " << counter << " advisers.";
+	Log(LogLevel::Info) << "<> Imported " << counter << " advisers.";
 }
 
 
@@ -1136,7 +1136,7 @@ void EU4::World::distributeHRESubtitles(const Configuration& theConfiguration)
 {
 	if (theConfiguration.getHRE() == Configuration::I_AM_HRE::NONE)
 		return;
-	LOG(LogLevel::Info) << "-> Locating Emperor";
+	Log(LogLevel::Info) << "-> Locating Emperor";
 	// Emperor may or may not be set.
 	for (const auto& country: countries)
 		if (country.second->isHREEmperor())
@@ -1157,7 +1157,7 @@ void EU4::World::distributeHRESubtitles(const Configuration& theConfiguration)
 
 void EU4::World::setElectors()
 {
-	LOG(LogLevel::Info) << "-> Setting Electors";
+	Log(LogLevel::Info) << "-> Setting Electors";
 	std::vector<std::pair<int, std::shared_ptr<Country>>> bishops;	  // piety-tag
 	std::vector<std::pair<int, std::shared_ptr<Country>>> duchies;	  // dev-tag
 	std::vector<std::pair<int, std::shared_ptr<Country>>> republics; // dev-tag
@@ -1257,12 +1257,12 @@ void EU4::World::setElectors()
 		elector->setElector();
 		Log(LogLevel::Info) << "\t- Electorate set: " << elector->getTag() << " (from " << elector->getTitle().first << ")";
 	}
-	LOG(LogLevel::Info) << "<> There are " << electors.size() << " electors recognized.";
+	Log(LogLevel::Info) << "<> There are " << electors.size() << " electors recognized.";
 }
 
 void EU4::World::setFreeCities()
 {
-	LOG(LogLevel::Info) << "-> Setting Free Cities";
+	Log(LogLevel::Info) << "-> Setting Free Cities";
 	// How many free cities do we already have?
 	auto freeCityNum = 0;
 	for (const auto& country: countries)
@@ -1294,7 +1294,7 @@ void EU4::World::setFreeCities()
 			}
 		}
 	}
-	LOG(LogLevel::Info) << "<> There are " << freeCityNum << " free cities.";
+	Log(LogLevel::Info) << "<> There are " << freeCityNum << " free cities.";
 }
 
 void EU4::World::linkProvincesToCountries()
@@ -1425,7 +1425,7 @@ void EU4::World::verifyReligionsAndCultures()
 
 void EU4::World::importVanillaProvinces(const std::string& eu4Path, bool invasion)
 {
-	LOG(LogLevel::Info) << "-> Importing Vanilla Provinces";
+	Log(LogLevel::Info) << "-> Importing Vanilla Provinces";
 	// ---- Loading history/provinces
 	auto fileNames = commonItems::GetAllFilesInFolder(eu4Path + "/history/provinces/");
 	for (const auto& fileName: fileNames)
@@ -1451,7 +1451,7 @@ void EU4::World::importVanillaProvinces(const std::string& eu4Path, bool invasio
 			Log(LogLevel::Warning) << "Invalid province filename: " << eu4Path << "/history/provinces/" << fileName << " : " << e.what();
 		}
 	}
-	LOG(LogLevel::Info) << ">> Loaded " << provinces.size() << " province definitions.";
+	Log(LogLevel::Info) << ">> Loaded " << provinces.size() << " province definitions.";
 	if (invasion)
 	{
 		fileNames = commonItems::GetAllFilesInFolder("configurables/sunset/history/provinces/");
@@ -1469,7 +1469,7 @@ void EU4::World::importVanillaProvinces(const std::string& eu4Path, bool invasio
 
 void EU4::World::importCK2Countries(Configuration::STARTDATE startDateOption, const CK2::World& sourceWorld)
 {
-	LOG(LogLevel::Info) << "-> Importing CK2 Countries";
+	Log(LogLevel::Info) << "-> Importing CK2 Countries";
 
 	// countries holds all tags imported from EU4. We'll now overwrite some and
 	// add new ones from ck2 titles.
@@ -1497,7 +1497,7 @@ void EU4::World::importCK2Countries(Configuration::STARTDATE startDateOption, co
 			continue;
 		importCK2Country(title, startDateOption, sourceWorld);
 	}
-	LOG(LogLevel::Info) << ">> " << countries.size() << " total countries recognized.";
+	Log(LogLevel::Info) << ">> " << countries.size() << " total countries recognized.";
 }
 
 void EU4::World::importCK2Country(const std::pair<std::string, std::shared_ptr<CK2::Title>>& title,
@@ -1572,7 +1572,7 @@ void EU4::World::importCK2Country(const std::pair<std::string, std::shared_ptr<C
 
 void EU4::World::importCK2Provinces(const CK2::World& sourceWorld)
 {
-	LOG(LogLevel::Info) << "-> Importing CK2 Provinces";
+	Log(LogLevel::Info) << "-> Importing CK2 Provinces";
 
 	auto counter = 0;
 	// CK2 provinces map to a subset of eu4 provinces. We'll only rewrite those we are responsible for.
@@ -1599,7 +1599,7 @@ void EU4::World::importCK2Provinces(const CK2::World& sourceWorld)
 		// And finally, initialize it.
 		counter++;
 	}
-	LOG(LogLevel::Info) << ">> " << sourceWorld.getProvinces().size() << " CK2 provinces imported into " << counter << " EU4 provinces.";
+	Log(LogLevel::Info) << ">> " << sourceWorld.getProvinces().size() << " CK2 provinces imported into " << counter << " EU4 provinces.";
 }
 
 void EU4::World::assignAllCountryReforms()
@@ -1614,7 +1614,7 @@ void EU4::World::assignAllCountryReforms()
 
 void EU4::World::importVanillaCountries(const std::string& eu4Path, bool invasion)
 {
-	LOG(LogLevel::Info) << "-> Importing Vanilla Countries";
+	Log(LogLevel::Info) << "-> Importing Vanilla Countries";
 	// ---- Loading common/countries/
 	std::ifstream eu4CountriesFile(fs::u8path(eu4Path + "/common/country_tags/00_countries.txt"));
 	if (!eu4CountriesFile.is_open())
@@ -1643,9 +1643,9 @@ void EU4::World::importVanillaCountries(const std::string& eu4Path, bool invasio
 		sunset.close();
 	}
 
-	LOG(LogLevel::Info) << ">> Loaded " << countries.size() << " countries.";
+	Log(LogLevel::Info) << ">> Loaded " << countries.size() << " countries.";
 
-	LOG(LogLevel::Info) << "-> Importing Vanilla Country History";
+	Log(LogLevel::Info) << "-> Importing Vanilla Country History";
 	// ---- Loading history/countries/
 	auto fileNames = commonItems::GetAllFilesInFolder(eu4Path + "/history/countries/");
 	for (const auto& fileName: fileNames)
@@ -1671,7 +1671,7 @@ void EU4::World::importVanillaCountries(const std::string& eu4Path, bool invasio
 			countries[tag]->loadHistory("configurables/sunset/history/countries/" + fileName);
 		}
 	}
-	LOG(LogLevel::Info) << ">> Loaded " << fileNames.size() << " history files.";
+	Log(LogLevel::Info) << ">> Loaded " << fileNames.size() << " history files.";
 }
 
 void EU4::World::loadCountriesFromSource(std::istream& theStream, const std::string& sourcePath, bool isVanillaSource)

@@ -39,8 +39,11 @@ pyramid_of_cheops = {
 					culture = al_misr_arabic
 					culture = coptic
 				}
-				has_owner_culture = yes					
+				OR = {
+					has_owner_culture = yes
+					has_owner_accepted_culture = yes
 				}
+			}
 		}
 	}
 
@@ -66,8 +69,11 @@ pyramid_of_cheops = {
 					culture = al_misr_arabic
 					culture = coptic
 				}
-				has_owner_culture = yes					
+				OR = {
+					has_owner_culture = yes
+					has_owner_accepted_culture = yes
 				}
+			}
 		}
 	}
 
@@ -83,8 +89,11 @@ pyramid_of_cheops = {
 					culture = al_misr_arabic
 					culture = coptic
 				}
-				has_owner_culture = yes					
+				OR = {
+					has_owner_culture = yes
+					has_owner_accepted_culture = yes
 				}
+			}
 		}
 	}
 
@@ -159,7 +168,7 @@ pyramid_of_cheops = {
 
 		#cost to upgrade to this level (0 for tier 0)
 		cost_to_upgrade = {
-			factor = 3500
+			factor = 2500
 		}
 
 		#what modifiers are added to the province when we have this project here on this tier
@@ -190,7 +199,7 @@ pyramid_of_cheops = {
 
 		#cost to upgrade to this level (0 for tier 0)
 		cost_to_upgrade = {
-			factor = 7000
+			factor = 5000
 		}
 
 		#what modifiers are added to the province when we have this project here on this tier

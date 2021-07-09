@@ -1,6 +1,5 @@
 #include "ProvinceMapper.h"
 #include "../../Configuration/Configuration.h"
-#include "GameVersion.h"
 #include "Log.h"
 #include "OSCompatibilityLayer.h"
 #include "ParserHelpers.h"
@@ -13,7 +12,7 @@ namespace fs = std::filesystem;
 
 mappers::ProvinceMapper::ProvinceMapper(const Mods& mods)
 {
-	LOG(LogLevel::Info) << "-> Parsing province mappings";
+	Log(LogLevel::Info) << "-> Parsing province mappings";
 	registerKeys();
 
 	auto loadedProvinces = false;
@@ -30,7 +29,7 @@ mappers::ProvinceMapper::ProvinceMapper(const Mods& mods)
 
 	clearRegisteredKeywords();
 	createMappings();
-	LOG(LogLevel::Info) << "<> " << theMappings.getMappings().size() << " mappings loaded.";
+	Log(LogLevel::Info) << "<> " << theMappings.getMappings().size() << " mappings loaded.";
 	loadOffmapChineseProvinces();
 }
 
@@ -103,7 +102,7 @@ std::vector<int> mappers::ProvinceMapper::getEU4ProvinceNumbers(int ck2ProvinceN
 
 void mappers::ProvinceMapper::determineValidProvinces(const Configuration& theConfiguration)
 {
-	LOG(LogLevel::Info) << "-> Loading Valid Provinces";
+	Log(LogLevel::Info) << "-> Loading Valid Provinces";
 	std::ifstream definitionFile(fs::u8path(theConfiguration.getEU4Path() + "/map/definition.csv"));
 	if (!definitionFile.is_open())
 		throw std::runtime_error("Could not open <eu4>/map/definition.csv");
@@ -121,16 +120,16 @@ void mappers::ProvinceMapper::determineValidProvinces(const Configuration& theCo
 		auto provNum = std::stoi(inputStr.substr(0, inputStr.find_first_of(';')));
 		validEU4Provinces.insert(provNum);
 	}
-	LOG(LogLevel::Info) << "<> " << validEU4Provinces.size() << " valid provinces located.";
+	Log(LogLevel::Info) << "<> " << validEU4Provinces.size() << " valid provinces located.";
 }
 
 void mappers::ProvinceMapper::loadOffmapChineseProvinces()
 {
-	LOG(LogLevel::Info) << "-> Loading Offmap Chinese Provinces";
+	Log(LogLevel::Info) << "-> Loading Offmap Chinese Provinces";
 	registerOffmapKeys();
 	parseFile("configurables/chinese_offmap_provinces.txt");
 	clearRegisteredKeywords();
-	LOG(LogLevel::Info) << "<> " << offmapChineseProvinces.size() << " chinese provinces loaded.";
+	Log(LogLevel::Info) << "<> " << offmapChineseProvinces.size() << " chinese provinces loaded.";
 }
 
 void mappers::ProvinceMapper::loadOffmapChineseProvinces(std::istream& theStream)

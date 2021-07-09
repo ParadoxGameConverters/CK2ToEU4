@@ -7,7 +7,7 @@
 
 void mappers::LocalizationMapper::scrapeLocalizations(const Configuration& theConfiguration, const Mods& mods)
 {
-	LOG(LogLevel::Info) << "-> Reading Words";
+	Log(LogLevel::Info) << "-> Reading Words";
 	auto filenames = commonItems::GetAllFilesInFolder(theConfiguration.getCK2Path() + "/localisation/");
 	for (const auto& file: filenames)
 	{
@@ -23,14 +23,15 @@ void mappers::LocalizationMapper::scrapeLocalizations(const Configuration& theCo
 			filenames = commonItems::GetAllFilesInFolder(mod.path + "/localisation/");
 			for (const auto& file: filenames)
 			{
-				if (file.find(".csv") == std::string::npos) continue;
+				if (file.find(".csv") == std::string::npos)
+					continue;
 				std::ifstream theFile(mod.path + "/localisation/" + file);
 				scrapeStream(theFile);
 				theFile.close();
-			}			
+			}
 		}
 	}
-	
+
 	// Override with our keys
 	if (commonItems::DoesFileExist("configurables/ck2_localization_override.csv"))
 	{
@@ -38,7 +39,7 @@ void mappers::LocalizationMapper::scrapeLocalizations(const Configuration& theCo
 		scrapeStream(theFile);
 		theFile.close();
 	}
-	LOG(LogLevel::Info) << ">> " << localizations.size() << " words read.";
+	Log(LogLevel::Info) << ">> " << localizations.size() << " words read.";
 }
 
 void mappers::LocalizationMapper::scrapeStream(std::istream& theStream)
@@ -48,7 +49,7 @@ void mappers::LocalizationMapper::scrapeStream(std::istream& theStream)
 		std::string line;
 		getline(theStream, line);
 
-		if (line.length() < 4 || line [0] == '#' || line[1] == '#' )
+		if (line.length() < 4 || line[0] == '#' || line[1] == '#')
 			continue;
 
 		auto sepLoc = line.find_first_of(';');

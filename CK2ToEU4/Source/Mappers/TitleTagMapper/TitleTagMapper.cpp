@@ -1,19 +1,19 @@
 #include "TitleTagMapper.h"
+#include "CommonRegexes.h"
 #include "Log.h"
 #include "ParserHelpers.h"
 #include <iomanip>
-#include "CommonRegexes.h"
 
 mappers::TitleTagMapper::TitleTagMapper()
 {
-	LOG(LogLevel::Info) << "-> Parsing Tag mappings";
+	Log(LogLevel::Info) << "-> Parsing Tag mappings";
 	registerKeys();
 	parseFile("configurables/tag_mappings.txt");
 	clearRegisteredKeywords();
 	registerChineseKeys();
 	parseFile("configurables/chinese_tag_mappings.txt");
 	clearRegisteredKeywords();
-	LOG(LogLevel::Info) << "<> " << theMappings.size() << " mappings and " << chineseMappings.size() << " Chinas loaded.";
+	Log(LogLevel::Info) << "<> " << theMappings.size() << " mappings and " << chineseMappings.size() << " Chinas loaded.";
 }
 
 mappers::TitleTagMapper::TitleTagMapper(std::istream& theStream)
