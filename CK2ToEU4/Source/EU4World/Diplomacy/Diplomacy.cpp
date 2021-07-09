@@ -1,17 +1,17 @@
 #include "Diplomacy.h"
 #include "../../CK2World/Titles/Title.h"
 #include "../Country/Country.h"
+#include "CommonRegexes.h"
 #include "Log.h"
 #include "ParserHelpers.h"
-#include "CommonRegexes.h"
 
 EU4::Diplomacy::Diplomacy()
 {
-	LOG(LogLevel::Info) << "-> Loading Eastern Diplomacy";
+	Log(LogLevel::Info) << "-> Loading Eastern Diplomacy";
 	registerKeys();
 	parseFile("configurables/chinese_tributaries.txt");
 	clearRegisteredKeywords();
-	LOG(LogLevel::Info) << ">> " << agreements.size() << " tributaries loaded.";
+	Log(LogLevel::Info) << ">> " << agreements.size() << " tributaries loaded.";
 }
 
 void EU4::Diplomacy::registerKeys()
@@ -25,7 +25,7 @@ void EU4::Diplomacy::registerKeys()
 
 void EU4::Diplomacy::importAgreements(const std::map<std::string, std::shared_ptr<Country>>& countries, const CK2::Diplomacy& diplomacy, date conversionDate)
 {
-	LOG(LogLevel::Info) << "-> Explaining Diplomacy Like It's Five";
+	Log(LogLevel::Info) << "-> Explaining Diplomacy Like It's Five";
 	importVassals(countries);
 	importTributaries(countries, diplomacy, conversionDate);
 }

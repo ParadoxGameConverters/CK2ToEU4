@@ -20,7 +20,7 @@ namespace fs = std::filesystem;
 
 CK2::World::World(const Configuration& theConfiguration, const commonItems::ConverterVersion& converterVersion)
 {
-	LOG(LogLevel::Info) << "*** Hello CK2, Deus Vult! ***";
+	Log(LogLevel::Info) << "*** Hello CK2, Deus Vult! ***";
 	registerKeyword("CK2txt", [](const std::string& unused, std::istream& theStream) {
 	});
 	registerKeyword("date", [this](const std::string& unused, std::istream& theStream) {
@@ -32,9 +32,9 @@ CK2::World::World(const Configuration& theConfiguration, const commonItems::Conv
 		startDate = date(startDateString.getString());
 	});
 	registerKeyword("flags", [this](const std::string& unused, std::istream& theStream) {
-		LOG(LogLevel::Info) << "-> Loading Flags";
+		Log(LogLevel::Info) << "-> Loading Flags";
 		flags = Flags(theStream);
-		LOG(LogLevel::Info) << ">> Loaded " << flags.getFlags().size() << " Global Flags.";
+		Log(LogLevel::Info) << ">> Loaded " << flags.getFlags().size() << " Global Flags.";
 	});
 	registerKeyword("version", [this, converterVersion](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleString versionString(theStream);
@@ -53,68 +53,68 @@ CK2::World::World(const Configuration& theConfiguration, const commonItems::Conv
 		}
 	});
 	registerKeyword("provinces", [this](const std::string& unused, std::istream& theStream) {
-		LOG(LogLevel::Info) << "-> Loading Provinces";
+		Log(LogLevel::Info) << "-> Loading Provinces";
 		provinces = Provinces(theStream);
-		LOG(LogLevel::Info) << ">> Loaded " << provinces.getProvinces().size() << " provinces.";
+		Log(LogLevel::Info) << ">> Loaded " << provinces.getProvinces().size() << " provinces.";
 	});
 	registerKeyword("character", [this](const std::string& unused, std::istream& theStream) {
-		LOG(LogLevel::Info) << "-> Loading Characters";
+		Log(LogLevel::Info) << "-> Loading Characters";
 		characters = Characters(theStream);
-		LOG(LogLevel::Info) << ">> Loaded " << characters.getCharacters().size() << " characters.";
+		Log(LogLevel::Info) << ">> Loaded " << characters.getCharacters().size() << " characters.";
 	});
 	registerKeyword("title", [this](const std::string& unused, std::istream& theStream) {
-		LOG(LogLevel::Info) << "-> Loading Titles";
+		Log(LogLevel::Info) << "-> Loading Titles";
 		titles = Titles(theStream);
-		LOG(LogLevel::Info) << ">> Loaded " << titles.getTitles().size() << " titles.";
+		Log(LogLevel::Info) << ">> Loaded " << titles.getTitles().size() << " titles.";
 	});
 	registerKeyword("religion", [this](const std::string& unused, std::istream& theStream) {
-		LOG(LogLevel::Info) << "-> Loading Religions";
+		Log(LogLevel::Info) << "-> Loading Religions";
 		religions = Religions(theStream);
-		LOG(LogLevel::Info) << ">> Loaded " << religions.getReformedReligion().size() << " Reformed Religions.";
+		Log(LogLevel::Info) << ">> Loaded " << religions.getReformedReligion().size() << " Reformed Religions.";
 	});
 	registerKeyword("dynasties", [this](const std::string& unused, std::istream& theStream) {
-		LOG(LogLevel::Info) << "-> Loading Dynasties";
+		Log(LogLevel::Info) << "-> Loading Dynasties";
 		dynasties.loadDynasties(theStream);
-		LOG(LogLevel::Info) << ">> Loaded " << dynasties.getDynasties().size() << " dynasties.";
+		Log(LogLevel::Info) << ">> Loaded " << dynasties.getDynasties().size() << " dynasties.";
 	});
 	registerKeyword("wonder", [this](const std::string& unused, std::istream& theStream) {
-		LOG(LogLevel::Info) << "-> Loading Wonders";
+		Log(LogLevel::Info) << "-> Loading Wonders";
 		wonders = Wonders(theStream);
-		LOG(LogLevel::Info) << ">> Loaded " << wonders.getWonders().size() << " wonders.";
+		Log(LogLevel::Info) << ">> Loaded " << wonders.getWonders().size() << " wonders.";
 	});
 	registerKeyword("offmap_powers", [this](const std::string& unused, std::istream& theStream) {
-		LOG(LogLevel::Info) << "-> Loading Offmaps";
+		Log(LogLevel::Info) << "-> Loading Offmaps";
 		offmaps = Offmaps(theStream);
-		LOG(LogLevel::Info) << ">> Loaded " << offmaps.getOffmaps().size() << " offmaps.";
+		Log(LogLevel::Info) << ">> Loaded " << offmaps.getOffmaps().size() << " offmaps.";
 	});
 	registerKeyword("dyn_title", [this](const std::string& unused, std::istream& theStream) {
 		const auto dynTitle = Liege(theStream);
 		dynamicTitles.insert(std::pair(dynTitle.getTitle().first, dynTitle));
 	});
 	registerKeyword("relation", [this](const std::string& unused, std::istream& theStream) {
-		LOG(LogLevel::Info) << "-> Loading Diplomacy";
+		Log(LogLevel::Info) << "-> Loading Diplomacy";
 		diplomacy = Diplomacy(theStream);
-		LOG(LogLevel::Info) << ">> Loaded " << diplomacy.getDiplomacy().size() << " personal diplomacies.";
+		Log(LogLevel::Info) << ">> Loaded " << diplomacy.getDiplomacy().size() << " personal diplomacies.";
 	});
 	registerKeyword("vars", [this](const std::string& unused, std::istream& theStream) {
-		LOG(LogLevel::Info) << "-> Loading Variables";
+		Log(LogLevel::Info) << "-> Loading Variables";
 		vars = Vars(theStream);
-		LOG(LogLevel::Info) << ">> Loaded " << vars.getVars().size() << " global variables.";
+		Log(LogLevel::Info) << ">> Loaded " << vars.getVars().size() << " global variables.";
 	});
 
 	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 	Log(LogLevel::Progress) << "4 %";
 
-	LOG(LogLevel::Info) << "-> Verifying CK2 save.";
+	Log(LogLevel::Info) << "-> Verifying CK2 save.";
 	verifySave(theConfiguration.getSaveGamePath());
 
-	LOG(LogLevel::Info) << "-> Importing CK2 save.";
+	Log(LogLevel::Info) << "-> Importing CK2 save.";
 	if (!saveGame.compressed)
 	{
 		std::ifstream inBinary(fs::u8path(theConfiguration.getSaveGamePath()), std::ios::binary);
 		if (!inBinary.is_open())
 		{
-			LOG(LogLevel::Error) << "Could not open " << theConfiguration.getSaveGamePath() << " for parsing.";
+			Log(LogLevel::Error) << "Could not open " << theConfiguration.getSaveGamePath() << " for parsing.";
 			throw std::runtime_error("Could not open " + theConfiguration.getSaveGamePath() + " for parsing.");
 		}
 		std::stringstream inStream;
@@ -139,121 +139,121 @@ CK2::World::World(const Configuration& theConfiguration, const commonItems::Conv
 	parseStream(gameState);
 	Log(LogLevel::Progress) << "10 %";
 	clearRegisteredKeywords();
-	LOG(LogLevel::Info) << ">> Loaded " << dynamicTitles.size() << " dynamic titles.";
-	LOG(LogLevel::Info) << "-> Importing Province Titles";
+	Log(LogLevel::Info) << ">> Loaded " << dynamicTitles.size() << " dynamic titles.";
+	Log(LogLevel::Info) << "-> Importing Province Titles";
 	loadProvinces(theConfiguration);
 	Log(LogLevel::Progress) << "11 %";
-	LOG(LogLevel::Info) << "-> Setting Flags";
+	Log(LogLevel::Info) << "-> Setting Flags";
 	invasion = flags.getInvasion();					  // Sunset Invasion
 	reformationList = flags.fillReformationList(); // Reformed Pagans
 	if (flags.hellenicReformation())
 		greekReformation = flags.isGreek(); // Were Hellenes Greek or Roman?
 	Log(LogLevel::Progress) << "12 %";
 
-	LOG(LogLevel::Info) << "*** Building World ***";
+	Log(LogLevel::Info) << "*** Building World ***";
 
 	// Link all the intertwining pointers
-	LOG(LogLevel::Info) << "-- Filtering Excess Province Titles";
+	Log(LogLevel::Info) << "-- Filtering Excess Province Titles";
 	provinceTitleMapper.filterSelf(provinces, titles);
 	Log(LogLevel::Progress) << "13 %";
-	LOG(LogLevel::Info) << "-- Linking Characters With Dynasties";
+	Log(LogLevel::Info) << "-- Linking Characters With Dynasties";
 	characters.linkDynasties(dynasties);
 	Log(LogLevel::Progress) << "14 %";
-	LOG(LogLevel::Info) << "-- Linking Characters With Lieges and Spouses";
+	Log(LogLevel::Info) << "-- Linking Characters With Lieges and Spouses";
 	characters.linkLiegesAndSpouses();
 	Log(LogLevel::Progress) << "15 %";
-	LOG(LogLevel::Info) << "-- Linking Characters With Family";
+	Log(LogLevel::Info) << "-- Linking Characters With Family";
 	characters.linkMothersAndFathers();
 	Log(LogLevel::Progress) << "16 %";
-	LOG(LogLevel::Info) << "-- Linking Characters With Primary Titles";
+	Log(LogLevel::Info) << "-- Linking Characters With Primary Titles";
 	characters.linkPrimaryTitles(titles);
 	Log(LogLevel::Progress) << "17 %";
-	LOG(LogLevel::Info) << "-- Linking Characters With Capitals";
+	Log(LogLevel::Info) << "-- Linking Characters With Capitals";
 	characters.linkCapitals(provinces);
 	Log(LogLevel::Progress) << "18 %";
-	LOG(LogLevel::Info) << "-- Linking Provinces With Primary Baronies";
+	Log(LogLevel::Info) << "-- Linking Provinces With Primary Baronies";
 	provinces.linkPrimarySettlements();
 	Log(LogLevel::Progress) << "19 %";
-	LOG(LogLevel::Info) << "-- Linking Provinces With Wonders";
+	Log(LogLevel::Info) << "-- Linking Provinces With Wonders";
 	leviathanDLC = commonItems::DoesFileExist(theConfiguration.getEU4Path() + "/dlc/dlc106_leviathan/dlc106.dlc");
 	if (isLeviathanDLCPresent())
 		setExistentPremadeMonuments(provinces.linkMonuments(wonders, characters));
 	else
 		provinces.linkWonders(wonders);
 	Log(LogLevel::Progress) << "20 %";
-	LOG(LogLevel::Info) << "-- Linking Titles With Holders";
+	Log(LogLevel::Info) << "-- Linking Titles With Holders";
 	titles.linkHolders(characters);
 	Log(LogLevel::Progress) << "21 %";
-	LOG(LogLevel::Info) << "-- Linking Titles With Previous Holders";
+	Log(LogLevel::Info) << "-- Linking Titles With Previous Holders";
 	titles.linkPreviousHolders(characters);
 	Log(LogLevel::Progress) << "22 %";
-	LOG(LogLevel::Info) << "-- Linking Titles With Liege and DeJure Titles";
+	Log(LogLevel::Info) << "-- Linking Titles With Liege and DeJure Titles";
 	titles.linkLiegePrimaryTitles();
 	Log(LogLevel::Progress) << "23 %";
-	LOG(LogLevel::Info) << "-- Linking Titles With Vassals and DeJure Vassals";
+	Log(LogLevel::Info) << "-- Linking Titles With Vassals and DeJure Vassals";
 	titles.linkVassals();
 	Log(LogLevel::Progress) << "24 %";
-	LOG(LogLevel::Info) << "-- Linking Titles With Provinces";
+	Log(LogLevel::Info) << "-- Linking Titles With Provinces";
 	titles.linkProvinces(provinces, provinceTitleMapper); // Untestable due to disk access.
 	Log(LogLevel::Progress) << "25 %";
-	LOG(LogLevel::Info) << "-- Linking Titles With Base Titles";
+	Log(LogLevel::Info) << "-- Linking Titles With Base Titles";
 	titles.linkBaseTitles();
 	Log(LogLevel::Progress) << "26 %";
-	LOG(LogLevel::Info) << "-- Linking The Celestial Emperor";
+	Log(LogLevel::Info) << "-- Linking The Celestial Emperor";
 	linkCelestialEmperor();
 	Log(LogLevel::Progress) << "30 %";
-	LOG(LogLevel::Info) << "-- Creating Reformed Religions";
+	Log(LogLevel::Info) << "-- Creating Reformed Religions";
 	createReformedFeatures();
 	Log(LogLevel::Progress) << "31 %";
 
 	// Filter top-tier active titles and assign them provinces.
 
-	LOG(LogLevel::Info) << "-- Merging Independent Baronies";
+	Log(LogLevel::Info) << "-- Merging Independent Baronies";
 	mergeIndependentBaronies();
 	Log(LogLevel::Progress) << "32 %";
-	LOG(LogLevel::Info) << "-- Merging Revolts Into Base";
+	Log(LogLevel::Info) << "-- Merging Revolts Into Base";
 	titles.mergeRevolts();
 	Log(LogLevel::Progress) << "33 %";
-	LOG(LogLevel::Info) << "-- Flagging HRE Provinces";
+	Log(LogLevel::Info) << "-- Flagging HRE Provinces";
 	flagHREProvinces(theConfiguration);
-	LOG(LogLevel::Info) << "-- Shattering HRE";
+	Log(LogLevel::Info) << "-- Shattering HRE";
 	shatterHRE(theConfiguration);
 	Log(LogLevel::Progress) << "34 %";
-	LOG(LogLevel::Info) << "-- Shattering Empires";
+	Log(LogLevel::Info) << "-- Shattering Empires";
 	shatterEmpires(theConfiguration);
 	Log(LogLevel::Progress) << "35 %";
-	LOG(LogLevel::Info) << "-- Filtering Independent Titles";
+	Log(LogLevel::Info) << "-- Filtering Independent Titles";
 	filterIndependentTitles();
 	Log(LogLevel::Progress) << "36 %";
-	LOG(LogLevel::Info) << "-- Splitting Off Vassals";
+	Log(LogLevel::Info) << "-- Splitting Off Vassals";
 	splitVassals(theConfiguration);
 	Log(LogLevel::Progress) << "37 %";
-	LOG(LogLevel::Info) << "-- Rounding Up Some People";
+	Log(LogLevel::Info) << "-- Rounding Up Some People";
 	gatherCourtierNames();
 	Log(LogLevel::Progress) << "38 %";
-	LOG(LogLevel::Info) << "-- Congregating Provinces for Independent Titles";
+	Log(LogLevel::Info) << "-- Congregating Provinces for Independent Titles";
 	congregateProvinces();
 	Log(LogLevel::Progress) << "39 %";
-	LOG(LogLevel::Info) << "-- Distributing Electorates";
+	Log(LogLevel::Info) << "-- Distributing Electorates";
 	linkElectors();
 	Log(LogLevel::Progress) << "40 %";
-	LOG(LogLevel::Info) << "-- Congregating DeJure Provinces for Independent Titles";
+	Log(LogLevel::Info) << "-- Congregating DeJure Provinces for Independent Titles";
 	congregateDeJureProvinces();
 	Log(LogLevel::Progress) << "41 %";
-	LOG(LogLevel::Info) << "-- Performing Province Sanity Check";
+	Log(LogLevel::Info) << "-- Performing Province Sanity Check";
 	sanityCheckifyProvinces();
 	Log(LogLevel::Progress) << "42 %";
-	LOG(LogLevel::Info) << "-- Filtering Provinceless Titles";
+	Log(LogLevel::Info) << "-- Filtering Provinceless Titles";
 	filterProvincelessTitles();
 	Log(LogLevel::Progress) << "43 %";
-	LOG(LogLevel::Info) << "-- Determining Heirs";
+	Log(LogLevel::Info) << "-- Determining Heirs";
 	determineHeirs();
 	Log(LogLevel::Progress) << "44 %";
-	LOG(LogLevel::Info) << "-- Decyphering Personalities";
+	Log(LogLevel::Info) << "-- Decyphering Personalities";
 	characters.assignPersonalities(personalityScraper);
 	Log(LogLevel::Progress) << "45 %";
 	alterSunset(theConfiguration);
-	LOG(LogLevel::Info) << "*** Good-bye CK2, rest in peace. ***";
+	Log(LogLevel::Info) << "*** Good-bye CK2, rest in peace. ***";
 	Log(LogLevel::Progress) << "47 %";
 }
 
@@ -424,37 +424,37 @@ void CK2::World::linkCelestialEmperor() const
 	const auto& china = offmaps.getChina();
 	if (!china)
 	{
-		LOG(LogLevel::Info) << ">< No China detected.";
+		Log(LogLevel::Info) << ">< No China detected.";
 		return;
 	}
 	if (!china->second->getHolder().first)
 	{
-		LOG(LogLevel::Info) << ">< China has no emperor.";
+		Log(LogLevel::Info) << ">< China has no emperor.";
 		return;
 	}
 	const auto& chars = characters.getCharacters();
 	const auto& characterItr = chars.find(china->second->getHolder().first);
 	if (characterItr == chars.end())
 	{
-		LOG(LogLevel::Info) << ">< Celestial emperor has no definition!";
+		Log(LogLevel::Info) << ">< Celestial emperor has no definition!";
 		return;
 	}
 	china->second->setHolder(std::pair(characterItr->first, characterItr->second));
 	const auto& holder = china->second->getHolder();
 	if (!holder.second->getDynasty().first)
 	{
-		LOG(LogLevel::Info) << ">< Celestial emperor has no dynasty!";
+		Log(LogLevel::Info) << ">< Celestial emperor has no dynasty!";
 		return;
 	}
 	const auto& dyns = dynasties.getDynasties();
 	const auto& dynastyItr = dyns.find(holder.second->getDynasty().first);
 	if (dynastyItr == dyns.end())
 	{
-		LOG(LogLevel::Info) << ">< Celestial emperor's dynasty has no definition!";
+		Log(LogLevel::Info) << ">< Celestial emperor's dynasty has no definition!";
 		return;
 	}
 	holder.second->setDynasty(dynastyItr->second);
-	LOG(LogLevel::Info) << "<> One Celestial Emperor linked.";
+	Log(LogLevel::Info) << "<> One Celestial Emperor linked.";
 }
 
 void CK2::World::determineHeirs()
@@ -475,7 +475,7 @@ void CK2::World::determineHeirs()
 		else if (law == "turkish_succession")
 			resolveTurkish(holder);
 	}
-	LOG(LogLevel::Info) << "<> Heirs resolved where possible.";
+	Log(LogLevel::Info) << "<> Heirs resolved where possible.";
 }
 
 void CK2::World::resolveTurkish(const std::pair<int, std::shared_ptr<Character>>& holder) const
@@ -747,12 +747,12 @@ bool CK2::World::uncompressSave(const std::string& saveGamePath)
 		const auto& name = entry->GetName();
 		if (name == "meta")
 		{
-			LOG(LogLevel::Info) << ">> Uncompressing metadata";
+			Log(LogLevel::Info) << ">> Uncompressing metadata";
 			saveGame.metadata = std::string{std::istreambuf_iterator<char>(*entry->GetDecompressionStream()), std::istreambuf_iterator<char>()};
 		}
 		else if (getExtension(saveGamePath) == "ck2")
 		{
-			LOG(LogLevel::Info) << ">> Uncompressing gamestate";
+			Log(LogLevel::Info) << ">> Uncompressing gamestate";
 			saveGame.gamestate = std::string{std::istreambuf_iterator<char>(*entry->GetDecompressionStream()), std::istreambuf_iterator<char>()};
 		}
 		else
@@ -1279,5 +1279,5 @@ void CK2::World::createReformedFeatures()
 		unreligionReforms.push_back(tempUnreligion);
 	}
 
-	LOG(LogLevel::Info) << "<> " << reformationList.size() << " religion(s) reformed in CK2.";
+	Log(LogLevel::Info) << "<> " << reformationList.size() << " religion(s) reformed in CK2.";
 }

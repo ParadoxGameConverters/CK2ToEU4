@@ -34,11 +34,11 @@ hagia_sophia = {
 				religion_group = christian
 				has_owner_religion = yes
 			}
-			AND= {
+			AND = {
 				religion_group = muslim
 				has_owner_religion = yes
 			}
-		}		
+		}			
 	}
 
 	#what to do when it's built
@@ -159,7 +159,7 @@ hagia_sophia = {
 
 		#cost to upgrade to this level (0 for tier 0)
 		cost_to_upgrade = {
-			factor = 3500
+			factor = 2500
 		}
 
 		#what modifiers are added to the province when we have this project here on this tier
@@ -175,14 +175,17 @@ hagia_sophia = {
 			tolerance_own = 0.5
 			tolerance_heretic = 0.5
 			monthly_piety = 0.001
-			yearly_patriarch_authority = 0.001
+			yearly_patriarch_authority = 0.002
+			papal_influence = 0.5
 		}
 
 		#what effects happen when this tier is achieved
 		on_upgraded = {
-			add_estate_loyalty = {
-				estate = estate_church
-				loyalty = 5
+			owner = {
+				add_estate_loyalty = {
+					estate = estate_church
+					loyalty = 5
+				}
 			}
 		}
 	}
@@ -195,7 +198,7 @@ hagia_sophia = {
 
 		#cost to upgrade to this level (0 for tier 0)
 		cost_to_upgrade = {
-			factor = 7000
+			factor = 5000
 		}
 
 		#what modifiers are added to the province when we have this project here on this tier
@@ -211,14 +214,17 @@ hagia_sophia = {
 			tolerance_own = 1
 			tolerance_heretic = 1
 			monthly_piety = 0.002
-			yearly_patriarch_authority = 0.002
+			yearly_patriarch_authority = 0.005
+			papal_influence = 1
 		}
 
 		#what effects happen when this tier is achieved
 		on_upgraded = {
-			add_estate_loyalty = {
-				estate = estate_church
-				loyalty = 10
+			owner = {
+				add_estate_loyalty = {
+					estate = estate_church
+					loyalty = 10
+				}
 			}
 		}
 	}

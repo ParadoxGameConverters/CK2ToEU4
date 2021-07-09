@@ -1,18 +1,18 @@
+#include "ReformedReligionMapper.h"
+#include "CommonRegexes.h"
 #include "Log.h"
 #include "ParserHelpers.h"
-#include "ReformedReligionMapper.h"
 #include <iomanip>
-#include <set>
-#include "CommonRegexes.h"
 
 mappers::ReformedReligionMapper::ReformedReligionMapper()
 {
-	LOG(LogLevel::Info) << "-> Parsing Reformed Religion mappings";
+	Log(LogLevel::Info) << "-> Parsing Reformed Religion mappings";
 	registerKeys();
 	parseFile("configurables/reformed_religions_mappings.txt");
 	parseFile("configurables/pagan_religions.txt");
 	clearRegisteredKeywords();
-	LOG(LogLevel::Info) << "<> " << " Religions mapped.";
+	Log(LogLevel::Info) << "<> "
+							  << " Religions mapped.";
 }
 
 mappers::ReformedReligionMapper::ReformedReligionMapper(std::istream& theStream)

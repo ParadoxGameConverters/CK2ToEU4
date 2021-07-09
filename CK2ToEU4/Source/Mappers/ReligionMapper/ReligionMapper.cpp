@@ -1,16 +1,16 @@
 #include "ReligionMapper.h"
+#include "CommonRegexes.h"
 #include "Log.h"
 #include "ParserHelpers.h"
 #include "ReligionMapping.h"
-#include "CommonRegexes.h"
 
 mappers::ReligionMapper::ReligionMapper()
 {
-	LOG(LogLevel::Info) << "-> Parsing religion mappings.";
+	Log(LogLevel::Info) << "-> Parsing religion mappings.";
 	registerKeys();
 	parseFile("configurables/religion_map.txt");
 	clearRegisteredKeywords();
-	LOG(LogLevel::Info) << "<> Loaded " << ck2ToEu4ReligionMap.size() << " religious links.";
+	Log(LogLevel::Info) << "<> Loaded " << ck2ToEu4ReligionMap.size() << " religious links.";
 }
 
 mappers::ReligionMapper::ReligionMapper(std::istream& theStream)

@@ -11,6 +11,6 @@ void convertCK2ToEU4(const commonItems::ConverterVersion& converterVersion)
 	const CK2::World sourceWorld(theConfiguration, converterVersion);
 	EU4::World destWorld(sourceWorld, theConfiguration, converterVersion);
 
-	LOG(LogLevel::Info) << "* Conversion complete *";
+	Log(LogLevel::Info) << "* Conversion complete *";
 	Log(LogLevel::Progress) << "100 %";
 }

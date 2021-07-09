@@ -2,13 +2,13 @@
 #include "../../Configuration/Configuration.h"
 #include "../EU4World.h"
 #include "Log.h"
+#include "ModLoader/ModLoader.h"
 #include "OSCompatibilityLayer.h"
 #include "outCountry.h"
 #include "outMonument.h"
 #include "outReligion.h"
 #include <filesystem>
 #include <fstream>
-#include "ModLoader/ModLoader.h"
 namespace fs = std::filesystem;
 
 void EU4::World::output(const commonItems::ConverterVersion& converterVersion, const Configuration& theConfiguration, const CK2::World& sourceWorld) const
@@ -17,7 +17,7 @@ void EU4::World::output(const commonItems::ConverterVersion& converterVersion, c
 	const auto invasion = sourceWorld.isInvasion();
 	const auto dynamicInstitutions = theConfiguration.getDynamicInstitutions() == Configuration::INSTITUTIONS::DYNAMIC;
 	const date conversionDate = sourceWorld.getConversionDate();
-	LOG(LogLevel::Info) << "<- Creating Output Folder";
+	Log(LogLevel::Info) << "<- Creating Output Folder";
 
 	commonItems::TryCreateFolder("output");
 	if (commonItems::DoesFolderExist("output/" + theConfiguration.getOutputName()))
@@ -27,11 +27,11 @@ void EU4::World::output(const commonItems::ConverterVersion& converterVersion, c
 	}
 	Log(LogLevel::Progress) << "80 %";
 
-	LOG(LogLevel::Info) << "<- Copying Mod Template";
+	Log(LogLevel::Info) << "<- Copying Mod Template";
 	commonItems::CopyFolder("blankMod/output", "output/output");
 	Log(LogLevel::Progress) << "81 %";
 
-	LOG(LogLevel::Info) << "<- Moving Mod Template >> " << theConfiguration.getOutputName();
+	Log(LogLevel::Info) << "<- Moving Mod Template >> " << theConfiguration.getOutputName();
 	commonItems::RenameFolder("output/output", "output/" + theConfiguration.getOutputName());
 	Log(LogLevel::Progress) << "82 %";
 
@@ -46,68 +46,68 @@ void EU4::World::output(const commonItems::ConverterVersion& converterVersion, c
 	commonItems::TryCreateFolder("output/" + theConfiguration.getOutputName() + "/localisation/");
 	Log(LogLevel::Progress) << "83 %";
 
-	LOG(LogLevel::Info) << "<- Crafting .mod File";
+	Log(LogLevel::Info) << "<- Crafting .mod File";
 	createModFile(theConfiguration);
 	Log(LogLevel::Progress) << "84 %";
 
 	// Record converter version
-	LOG(LogLevel::Info) << "<- Writing version";
+	Log(LogLevel::Info) << "<- Writing version";
 	outputVersion(converterVersion, theConfiguration);
 	Log(LogLevel::Progress) << "85 %";
 
 	// Output common\countries.txt
-	LOG(LogLevel::Info) << "<- Creating countries.txt";
+	Log(LogLevel::Info) << "<- Creating countries.txt";
 	outputCommonCountriesFile(theConfiguration);
 	Log(LogLevel::Progress) << "86 %";
 
-	LOG(LogLevel::Info) << "<- Writing Country Commons";
+	Log(LogLevel::Info) << "<- Writing Country Commons";
 	outputCommonCountries(theConfiguration);
 	Log(LogLevel::Progress) << "87 %";
 
-	LOG(LogLevel::Info) << "<- Writing Country Histories";
+	Log(LogLevel::Info) << "<- Writing Country Histories";
 	outputHistoryCountries(theConfiguration);
 	Log(LogLevel::Progress) << "88 %";
 
 	if (invasion)
 	{
-		LOG(LogLevel::Info) << "<- Writing Sunset Invasion Files";
+		Log(LogLevel::Info) << "<- Writing Sunset Invasion Files";
 		outputInvasionExtras(theConfiguration, invasion);
 	}
 	if (dynamicInstitutions)
 	{
-		LOG(LogLevel::Info) << "<- Writing Dynamic Institution Files";
+		Log(LogLevel::Info) << "<- Writing Dynamic Institution Files";
 		outputDynamicInstitutions(theConfiguration);
 	}
 
-	LOG(LogLevel::Info) << "<- Writing Advisers";
+	Log(LogLevel::Info) << "<- Writing Advisers";
 	outputAdvisers(theConfiguration);
 	Log(LogLevel::Progress) << "89 %";
 
-	LOG(LogLevel::Info) << "<- Writing Provinces";
+	Log(LogLevel::Info) << "<- Writing Provinces";
 	outputHistoryProvinces(theConfiguration, sourceWorld.getExistentPremadeMonuments(), isLeviathanDLCPresent);
 	Log(LogLevel::Progress) << "90 %";
 
-	LOG(LogLevel::Info) << "<- Writing Localization";
+	Log(LogLevel::Info) << "<- Writing Localization";
 	outputLocalization(theConfiguration, invasion, sourceWorld.isGreekReformation());
 	Log(LogLevel::Progress) << "91 %";
 
-	LOG(LogLevel::Info) << "<- Writing Emperor";
+	Log(LogLevel::Info) << "<- Writing Emperor";
 	outputEmperor(theConfiguration, conversionDate);
 	Log(LogLevel::Progress) << "92 %";
 
-	LOG(LogLevel::Info) << "<- Writing Diplomacy";
+	Log(LogLevel::Info) << "<- Writing Diplomacy";
 	outputDiplomacy(theConfiguration, diplomacy.getAgreements(), invasion);
 	Log(LogLevel::Progress) << "93 %";
 
-	LOG(LogLevel::Info) << "<- Moving Flags";
+	Log(LogLevel::Info) << "<- Moving Flags";
 	outputFlags(theConfiguration, sourceWorld);
 	Log(LogLevel::Progress) << "94 %";
 
-	LOG(LogLevel::Info) << "<- Replacing Bookmark";
+	Log(LogLevel::Info) << "<- Replacing Bookmark";
 	outputBookmark(theConfiguration, conversionDate);
 	Log(LogLevel::Progress) << "95 %";
 
-	LOG(LogLevel::Info) << "<- Writing Any Pagan Reformations";
+	Log(LogLevel::Info) << "<- Writing Any Pagan Reformations";
 	outputReformedReligions(theConfiguration, sourceWorld.wasNoReformation(), sourceWorld.getUnreligionReforms(), sourceWorld.getReligionReforms());
 	Log(LogLevel::Progress) << "96 %";
 }
@@ -235,7 +235,7 @@ void EU4::World::createModFile(const Configuration& theConfiguration) const
 	std::ofstream output("output/" + theConfiguration.getOutputName() + ".mod");
 	if (!output.is_open())
 		throw std::runtime_error("Could not create " + theConfiguration.getOutputName() + ".mod");
-	LOG(LogLevel::Info) << "<< Writing to: "
+	Log(LogLevel::Info) << "<< Writing to: "
 							  << "output/" + theConfiguration.getOutputName() + ".mod";
 	output << modFile;
 	output.close();
@@ -243,7 +243,7 @@ void EU4::World::createModFile(const Configuration& theConfiguration) const
 	std::ofstream output2("output/" + theConfiguration.getOutputName() + "/descriptor.mod");
 	if (!output2.is_open())
 		throw std::runtime_error("Could not create " + theConfiguration.getOutputName() + "/descriptor.mod");
-	LOG(LogLevel::Info) << "<< Writing to: "
+	Log(LogLevel::Info) << "<< Writing to: "
 							  << "output/" + theConfiguration.getOutputName() + "/descriptor.mod";
 	output2 << modFile;
 	output2.close();
@@ -339,6 +339,8 @@ void EU4::World::outputHistoryProvinces(const Configuration& theConfiguration, c
 		commonItems::TryCreateFolder("output/" + theConfiguration.getOutputName() + "/common/great_projects/");
 		commonItems::TryCopyFile("configurables/monuments/great_projects/01_monuments.txt",
 			 "output/" + theConfiguration.getOutputName() + "/common/great_projects/01_monuments.txt");
+		commonItems::TryCopyFile("configurables/monuments/great_projects/100_out_of_scope_monuments.txt",
+			 "output/" + theConfiguration.getOutputName() + "/common/great_projects/100_out_of_scope_monuments.txt");
 		commonItems::TryCopyFile("configurables/monuments/great_projects/101_old_monuments.txt",
 			 "output/" + theConfiguration.getOutputName() + "/common/great_projects/101_old_monuments.txt");
 		commonItems::TryCopyFile("configurables/monuments/great_projects/102_unbuilt_at_game_start.txt",
@@ -499,7 +501,7 @@ void EU4::World::outputDiplomacy(const Configuration& theConfiguration, const st
 		}
 		else
 		{
-			LOG(LogLevel::Warning) << "Cannot output diplomatic agreement type " << agreement->getType() << "!";
+			Log(LogLevel::Warning) << "Cannot output diplomatic agreement type " << agreement->getType() << "!";
 		}
 	}
 

@@ -9,7 +9,7 @@ namespace fs = std::filesystem;
 
 void mappers::RegionMapper::loadRegions(const Configuration& theConfiguration)
 {
-	LOG(LogLevel::Info) << "-> Initializing Geography";
+	Log(LogLevel::Info) << "-> Initializing Geography";
 	auto areaFilename = theConfiguration.getEU4Path() + "/map/area.txt";
 	auto regionFilename = theConfiguration.getEU4Path() + "/map/region.txt";
 	auto superRegionFilename = theConfiguration.getEU4Path() + "/map/superregion.txt";
