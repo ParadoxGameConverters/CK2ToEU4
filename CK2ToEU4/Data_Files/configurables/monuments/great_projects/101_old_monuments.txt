@@ -1131,7 +1131,7 @@ fire_temple_of_ateshgah = {
 
 	#can we build it?
 	build_trigger = {
-		religion = zoroastrian
+		religion_group = zoroastrian_group
 		has_owner_religion = yes
 	}
 
@@ -1147,13 +1147,13 @@ fire_temple_of_ateshgah = {
 
 	#can our country use it?
 	can_use_modifiers_trigger = {
-		religion = zoroastrian
+		religion_group = zoroastrian_group
 		has_owner_religion = yes
 	}
 
 	#can our country upgrade it?
 	can_upgrade_trigger = {
-		religion = zoroastrian
+		religion_group = zoroastrian_group
 		has_owner_religion = yes
 	}
 
@@ -1505,7 +1505,7 @@ holy_city_jerusalem = {
 				has_owner_religion = yes
 			}
 			AND = {
-				religion = jewish
+				religion_group = jewish_group
 				has_owner_religion = yes
 			}
 		}
@@ -1533,7 +1533,7 @@ holy_city_jerusalem = {
 				has_owner_religion = yes
 			}
 			AND = {
-				religion = jewish
+				religion_group = jewish_group
 				has_owner_religion = yes
 			}
 		}
@@ -1551,7 +1551,7 @@ holy_city_jerusalem = {
 				has_owner_religion = yes
 			}
 			AND = {
-				religion = jewish
+				religion_group = jewish_group
 				has_owner_religion = yes
 			}
 		}

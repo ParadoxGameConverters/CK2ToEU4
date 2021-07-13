@@ -214,6 +214,9 @@ wonder_university = {
 	properties = {
 		can_be_moved = no
 	}
+	build_trigger = {
+		other = { NOT = { OWNER = { has_reform = steppe_horde } } }
+	}
 	country_modifiers = {
 		idea_cost = { 0 -0.1 -0.15 -0.2 }
 	}
@@ -221,6 +224,9 @@ wonder_university = {
 wonder_library = {
 	properties = {
 		can_be_moved = yes
+	}
+	build_trigger = {
+		other = { NOT = { OWNER = { has_reform = steppe_horde } } }
 	}
 	country_modifiers = {
 		technology_cost = { 0 -0.05 -0.1 -0.1 }

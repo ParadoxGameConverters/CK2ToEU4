@@ -1,0 +1,10 @@
+#This file exists for record keeping ONLY, it should not be copied over to the modifier
+#This file logs all the monuments that have PURPOSEFULLY NOT been copied from the base game.
+
+#Tower of London, built 1078, in-scope
+#Cologne Cathedral, built 1248, in-scope
+#Kremlin, built 1339, in-scope
+#Alhambra, built 1333, in-scope
+#Ait Benhaddou, built 1050, in-scope
+#Registan Square, built 1417, in-scope
+#Kiev Pechersk Lavra, built 1051, in-scope
