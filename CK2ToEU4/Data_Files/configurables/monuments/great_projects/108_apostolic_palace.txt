@@ -1,11 +1,11 @@
-##To change starting tier of Petra
+##Apostolic Palace
 
-petra = {
+apostolic_palace = {
 	# province it starts in
-	start = 2327
+	start = 118
 	
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
-	date = -2500.01.01
+	date = 499.1.1
 	
 	#time to build
 	time = {
@@ -19,7 +19,7 @@ petra = {
 	can_be_moved = no
 	
 	#time to move the project one unit of distance, in days
-	move_days_per_unit_distance = 10
+	move_days_per_unit_distance = 1
 	
 	#tier that the project starts at when first placed in the game (be that at game start or when built by a country as the game progresses)
 	starting_tier = 0
@@ -29,58 +29,63 @@ petra = {
 
 	#can we build it?
 	build_trigger = {
-		AND = {
+		OWNER = {
 			OR = {
-				culture = al_suryah_arabic
-				culture = bedouin_arabic
-			}
-			OR = {
-				has_owner_culture = yes
-				has_owner_accepted_culture = yes
+				tag = PAP
+				tag = FAP
 			}
 		}
+		OR = {
+			religion = catholic
+			religion = fraticelli
+		}
+		has_owner_religion = yes
 	}
 
 	#what to do when it's built
 	on_built = {
-		show_ambient_object = petra
+		
 	}
 	
 	#what to do when it's destroyed
 	on_destroyed = {
-		hide_ambient_object = petra
+		
 	}
 
 	#can our country use it?
 	can_use_modifiers_trigger = {
-		AND = {
+		OWNER = {
 			OR = {
-				culture = al_suryah_arabic
-				culture = bedouin_arabic
-			}
-			OR = {
-				has_owner_culture = yes
-				has_owner_accepted_culture = yes
+				tag = PAP
+				tag = FAP
 			}
 		}
+		OR = {
+			religion = catholic
+			religion = fraticelli
+		}
+		has_owner_religion = yes
 	}
 
 	#can our country upgrade it?
 	can_upgrade_trigger = {
-		AND = {
+		OWNER = {
 			OR = {
-				culture = al_suryah_arabic
-				culture = bedouin_arabic
-			}
-			OR = {
-				has_owner_culture = yes
-				has_owner_accepted_culture = yes
+				tag = PAP
+				tag = FAP
 			}
 		}
+		OR = {
+			religion = catholic
+			religion = fraticelli
+		}
+		has_owner_religion = yes
 	}
 
 	#can our country keep it or is it destroyed when we get hold of it?
 	keep_trigger = {
+		NOT = { religion = reformed }
+		NOT = { religion = protestant }
 	}
 
 	#tier data
@@ -109,6 +114,7 @@ petra = {
 
 		#what effects happen when this tier is achieved
 		on_upgraded = {
+			
 		}
 	}
 
@@ -133,12 +139,15 @@ petra = {
 
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
-			diplomatic_reputation = 1
-			envoy_travel_time = -0.20
+			appoint_cardinal_cost = -0.05
 		}
 
 		#what effects happen when this tier is achieved
 		on_upgraded = {
+			add_estate_loyalty = {
+				estate = estate_church
+				loyalty = 10
+			}
 		}
 	}
 
@@ -150,7 +159,7 @@ petra = {
 
 		#cost to upgrade to this level (0 for tier 0)
 		cost_to_upgrade = {
-			factor = 2500
+			factor = 3500
 		}
 
 		#what modifiers are added to the province when we have this project here on this tier
@@ -163,13 +172,17 @@ petra = {
 
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
-			diplomatic_reputation = 1
-			envoy_travel_time = -0.25
-			fabricate_claims_cost = -0.1
+			appoint_cardinal_cost = -0.1
+			global_religious_conversion_resistance = 1
+			missionaries = 1
 		}
 
 		#what effects happen when this tier is achieved
 		on_upgraded = {
+			add_estate_loyalty = {
+				estate = estate_church
+				loyalty = 10
+			}
 		}
 	}
 
@@ -181,7 +194,7 @@ petra = {
 
 		#cost to upgrade to this level (0 for tier 0)
 		cost_to_upgrade = {
-			factor = 5000
+			factor = 7000
 		}
 
 		#what modifiers are added to the province when we have this project here on this tier
@@ -194,14 +207,18 @@ petra = {
 
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
-			diplomatic_reputation = 2
-			envoy_travel_time = -0.33
-			diplomatic_upkeep = 1
-			fabricate_claims_cost = -0.2
+			enforce_religion_cost = -0.33
+			appoint_cardinal_cost = -0.2
+			global_religious_conversion_resistance = 1
+			missionaries = 1
 		}
 
 		#what effects happen when this tier is achieved
 		on_upgraded = {
+			add_estate_loyalty = {
+				estate = estate_church
+				loyalty = 10
+			}
 		}
 	}
 }

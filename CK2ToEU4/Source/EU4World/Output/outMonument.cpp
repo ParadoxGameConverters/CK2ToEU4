@@ -157,6 +157,9 @@ EU4::outMonument::outMonument(const Configuration& theConfiguration, const std::
 	if (premades.contains("wonder_temple_hindu_konark"))
 		commonItems::TryCopyFile("configurables/monuments/great_projects/107_hindu_konark.txt",
 			 "output/" + theConfiguration.getOutputName() + "/common/great_projects/107_hindu_konark.txt");
+	if (premades.contains("wonder_apostolic_palace"))
+		commonItems::TryCopyFile("configurables/monuments/great_projects/108_apostolic_palace.txt",
+			 "output/" + theConfiguration.getOutputName() + "/common/great_projects/108_apostolic_palace.txt");
 	if (premades.contains("wonder_house_of_wisdom"))
 		commonItems::TryCopyFile("configurables/monuments/great_projects/109_house_of_wisdom.txt",
 			 "output/" + theConfiguration.getOutputName() + "/common/great_projects/109_house_of_wisdom.txt");

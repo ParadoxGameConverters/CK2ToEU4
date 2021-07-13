@@ -212,15 +212,9 @@ angkor_wat = {
 	build_trigger = {
 		OR = {		
 			AND = {
-				religion = buddhism
-				has_owner_religion = yes
-			}
-			AND = {
-				religion = vajrayana
-				has_owner_religion = yes
-			}
-			AND= {
-				religion = mahayana
+				religion_group = eastern
+				NOT = { religion = confucianism }
+				NOT = { religion = shinto }
 				has_owner_religion = yes
 			}
 			AND= {
@@ -244,15 +238,9 @@ angkor_wat = {
 	can_use_modifiers_trigger = {
 		OR = {		
 			AND = {
-				religion = buddhism
-				has_owner_religion = yes
-			}
-			AND = {
-				religion = vajrayana
-				has_owner_religion = yes
-			}
-			AND= {
-				religion = mahayana
+				religion_group = eastern
+				NOT = { religion = confucianism }
+				NOT = { religion = shinto }
 				has_owner_religion = yes
 			}
 			AND= {
@@ -266,15 +254,9 @@ angkor_wat = {
 	can_upgrade_trigger = {
 		OR = {		
 			AND = {
-				religion = buddhism
-				has_owner_religion = yes
-			}
-			AND = {
-				religion = vajrayana
-				has_owner_religion = yes
-			}
-			AND= {
-				religion = mahayana
+				religion_group = eastern
+				NOT = { religion = confucianism }
+				NOT = { religion = shinto }
 				has_owner_religion = yes
 			}
 			AND= {
@@ -4069,15 +4051,8 @@ imperial_city_hue = {
 	build_trigger = {
 		OR = {
 			AND = { 
-				religion = buddhism
-				has_owner_religion = yes 
-			}
-			AND = { 
-				religion = vajrayana
-				has_owner_religion = yes 
-			}
-			AND = { 
-				religion = mahayana
+				religion_group = eastern
+				NOT = { religion = shinto }
 				has_owner_religion = yes 
 			}
 			owner = {
@@ -4100,15 +4075,8 @@ imperial_city_hue = {
 	can_use_modifiers_trigger = {
 		OR = {
 			AND = { 
-				religion = buddhism
-				has_owner_religion = yes 
-			}
-			AND = { 
-				religion = vajrayana
-				has_owner_religion = yes 
-			}
-			AND = { 
-				religion = mahayana
+				religion_group = eastern
+				NOT = { religion = shinto }
 				has_owner_religion = yes 
 			}
 			owner = {
@@ -4121,15 +4089,8 @@ imperial_city_hue = {
 	can_upgrade_trigger = {
 		OR = {
 			AND = { 
-				religion = buddhism
-				has_owner_religion = yes 
-			}
-			AND = { 
-				religion = vajrayana
-				has_owner_religion = yes 
-			}
-			AND = { 
-				religion = mahayana
+				religion_group = eastern
+				NOT = { religion = shinto }
 				has_owner_religion = yes 
 			}
 			owner = {
