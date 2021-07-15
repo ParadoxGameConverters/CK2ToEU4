@@ -6,6 +6,9 @@
  TERAPANTHA: "Terapantha"
  DARKNESS: "Darkness"
  
+ #Blessings
+ mazdaki_blessings:0 "Rituals"
+ pick_mazdaki_blessing:0 "Pick Ritual"
  
  ##Religious Descriptions
  pagan_religion_religion_desc: "Since the dawn of history, both Europe and the Middle East have been home to countless Pagan religions and cults unrelated to the Abrahamic faiths."

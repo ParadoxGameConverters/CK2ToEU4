@@ -5,6 +5,12 @@ l_spanish:
  old_prussian: "de la antigua Prusia"
  TERAPANTHA: "Terapantha"
  DARKNESS: "Oscuridad"
+ 
+ #Blessings
+ mazdaki_blessings:0 "Rituales"
+ pick_mazdaki_blessing:0 "Escoger Ritual"
+ 
+ #Other
  european_tribal_ideas: "Ideas tribales europeas"
  european_tribal_ideas_start: "Tradiciones tribales europeas"
  european_tribal_ideas_bonus: "Ambiciones tribales europeas"

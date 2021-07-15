@@ -824,6 +824,16 @@ zoroastrian_group = {
 			global_unrest = -1
 			tolerance_heretic = 1
 		}
+
+		holy_sites = { 421 4430 2223 441 2235 }
+		
+		blessings = {
+			blessing_yasna
+			blessing_haoma
+			blessing_navjote
+			blessing_manthras
+			blessing_dakhma
+		}
 		
 		heretic = { MANICHEAN }
 	}

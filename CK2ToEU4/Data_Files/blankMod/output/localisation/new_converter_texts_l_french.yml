@@ -5,6 +5,12 @@
  old_prussian: "vieille-prussienne"
  TERAPANTHA: "Terapantha"
  DARKNESS: "Obscurité"
+ 
+ #Blessings
+ mazdaki_blessings:0 "Rituels"
+ pick_mazdaki_blessing:0 "Choisissez Rituel"
+ 
+ #Other
  european_tribal_ideas: "Doctrines tribales européennes"
  european_tribal_ideas_start: "tradition tribales européennes"
  european_tribal_ideas_bonus: "ambitions tribales européennes"

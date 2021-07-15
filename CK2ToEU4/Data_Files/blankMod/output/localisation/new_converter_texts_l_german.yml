@@ -5,6 +5,12 @@
  old_prussian: "Preußisch"
  TERAPANTHA: "Terapantha"
  DARKNESS: "Finsternis"
+ 
+ #Blessings
+ mazdaki_blessings:0 "Rituale"
+ pick_mazdaki_blessing:0 "Wählen Sie Ritual"
+ 
+ #Other
  european_tribal_ideas: "Europäische Stammesideen"
  european_tribal_ideas_start: "Europäische Stammestraditionen"
  european_tribal_ideas_bonus: "Europäische Stammesambitionen"

@@ -1619,6 +1619,8 @@ zoroastrian_group = {
 			merchants = 1
 			tolerance_own = 1
 		}
+    
+		holy_sites = { 421 4430 2223 441 2235 }
 		
 		blessings = {
 			blessing_yasna
