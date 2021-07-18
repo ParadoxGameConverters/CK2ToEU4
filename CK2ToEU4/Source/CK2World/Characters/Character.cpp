@@ -1,9 +1,9 @@
 #include "Character.h"
 #include "../Dynasties/Dynasty.h"
+#include "CommonRegexes.h"
 #include "Domain.h"
 #include "Log.h"
 #include "ParserHelpers.h"
-#include "CommonRegexes.h"
 
 CK2::Character::Character(std::istream& theStream, int chrID): charID(chrID)
 {

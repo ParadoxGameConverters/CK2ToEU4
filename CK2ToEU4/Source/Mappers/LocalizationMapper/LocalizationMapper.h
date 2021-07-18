@@ -1,9 +1,9 @@
 #ifndef LOCALIZATION_MAPPER
 #define LOCALIZATION_MAPPER
+#include "ModLoader/ModLoader.h"
 #include <map>
 #include <optional>
 #include <string>
-#include "ModLoader/ModLoader.h"
 
 class Configuration;
 namespace mappers

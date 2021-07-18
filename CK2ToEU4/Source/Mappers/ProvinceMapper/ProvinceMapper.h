@@ -1,11 +1,11 @@
 #ifndef PROVINCE_MAPPER_H
 #define PROVINCE_MAPPER_H
 
-#include "ProvinceMappingsVersion.h"
+#include "ModLoader/ModLoader.h"
 #include "Parser.h"
+#include "ProvinceMappingsVersion.h"
 #include <map>
 #include <set>
-#include "ModLoader/ModLoader.h"
 
 class Configuration;
 

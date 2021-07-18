@@ -1,8 +1,8 @@
 #ifndef CONFIGURATION_H
 #define CONFIGURATION_H
 #include "ConverterVersion.h"
-#include "Parser.h"
 #include "ModLoader/ModLoader.h"
+#include "Parser.h"
 
 class Configuration: commonItems::parser
 {

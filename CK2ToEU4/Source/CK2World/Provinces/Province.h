@@ -50,9 +50,9 @@ class Province: commonItems::parser
 	std::string religion;
 	std::string name;
 	std::pair<std::string, std::shared_ptr<Barony>> primarySettlement;
-	std::pair<std::string, std::shared_ptr<Title>> title;			// owner title (e_francia or similar)
-	std::pair<std::string, std::shared_ptr<Title>> deJureTitle; // county (c_paris)
-	std::optional<std::pair<int, std::shared_ptr<Wonder>>> wonder;   // For those who do not own the Leviathan DLC
+	std::pair<std::string, std::shared_ptr<Title>> title;				  // owner title (e_francia or similar)
+	std::pair<std::string, std::shared_ptr<Title>> deJureTitle;		  // county (c_paris)
+	std::optional<std::pair<int, std::shared_ptr<Wonder>>> wonder;	  // For those who do not own the Leviathan DLC
 	std::optional<std::pair<int, std::shared_ptr<Wonder>>> monument; // For Leviathan DLC owners
 	std::map<std::string, std::shared_ptr<Barony>> baronies;
 };

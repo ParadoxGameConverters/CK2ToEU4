@@ -56,7 +56,7 @@ class Country
 	[[nodiscard]] const auto& getCommonCountryFile() const { return commonCountryFile; }
 	[[nodiscard]] const auto& getHistoryCountryFile() const { return historyCountryFile; }
 	[[nodiscard]] const auto& getLocalizations() const { return localizations; }
-	[[nodiscard]] const auto& getPrimaryCulture() const { return details.primaryCulture; }	
+	[[nodiscard]] const auto& getPrimaryCulture() const { return details.primaryCulture; }
 	[[nodiscard]] const auto& getMajorityReligion() const { return details.majorityReligion; }
 	[[nodiscard]] const auto& getReligion() const { return details.religion; }
 	[[nodiscard]] const auto& getTechGroup() const { return details.technologyGroup; }

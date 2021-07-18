@@ -1,8 +1,8 @@
 #include "Offmaps.h"
+#include "CommonRegexes.h"
 #include "Log.h"
 #include "Offmap.h"
 #include "ParserHelpers.h"
-#include "CommonRegexes.h"
 
 CK2::Offmaps::Offmaps(std::istream& theStream)
 {

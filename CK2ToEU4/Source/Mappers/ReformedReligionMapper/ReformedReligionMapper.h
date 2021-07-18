@@ -1,7 +1,7 @@
 #ifndef REFORMED_RELIGION_MAPPER
 #define REFORMED_RELIGION_MAPPER
-#include "ReformedReligionMapping.h"
 #include "Parser.h"
+#include "ReformedReligionMapping.h"
 
 namespace mappers
 {
@@ -18,7 +18,6 @@ class ReformedReligionMapper: commonItems::parser
 
 
 	std::map<std::string, ReformedReligionMapping> religionEntries;
-
 };
 } // namespace mappers
 

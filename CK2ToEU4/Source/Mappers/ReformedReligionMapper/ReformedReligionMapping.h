@@ -1,7 +1,7 @@
 #ifndef REFORMED_RELIGION_MAPPING
 #define REFORMED_RELIGION_MAPPING
-#include "Parser.h"
 #include "Color.h"
+#include "Parser.h"
 #include <set>
 
 
@@ -53,8 +53,7 @@ class ReformedReligionMapping: commonItems::parser
 	std::string nonUniqueMechanics;
 
 	std::string hereticStrings;
-	
 };
-} // namespace CK2
+} // namespace mappers
 
 #endif // CK2_RELIGIONS_H

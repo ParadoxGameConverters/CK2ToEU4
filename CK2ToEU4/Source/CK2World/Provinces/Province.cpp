@@ -1,9 +1,9 @@
 #include "Province.h"
 #include "../Titles/Title.h"
 #include "Barony.h"
+#include "CommonRegexes.h"
 #include "Log.h"
 #include "ParserHelpers.h"
-#include "CommonRegexes.h"
 
 CK2::Province::Province(std::istream& theStream, int provID): provinceID(provID)
 {
@@ -68,7 +68,7 @@ std::optional<std::pair<std::string, std::shared_ptr<CK2::Title>>> CK2::Province
 {
 	if (deJureTitle.second && deJureTitle.second->getLiege().second && deJureTitle.second->getLiege().second->getTitle().second &&
 		 deJureTitle.second->getLiege().second->getTitle().second->getLiege().second &&
-		 deJureTitle.second->getLiege().second->getTitle().second->getLiege().second->getTitle().second && 
+		 deJureTitle.second->getLiege().second->getTitle().second->getLiege().second->getTitle().second &&
 		 deJureTitle.second->getLiege().second->getTitle().second->getLiege().second->getTitle().first.find("k_") == 0)
 		return deJureTitle.second->getLiege().second->getTitle().second->getLiege().second->getTitle();
 	else

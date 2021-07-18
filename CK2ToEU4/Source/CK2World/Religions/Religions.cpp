@@ -1,7 +1,7 @@
-#include "Religion.h"
 #include "Religions.h"
-#include "ParserHelpers.h"
 #include "CommonRegexes.h"
+#include "ParserHelpers.h"
+#include "Religion.h"
 
 CK2::Religions::Religions(std::istream& theStream)
 {

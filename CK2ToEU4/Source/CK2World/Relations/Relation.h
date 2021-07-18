@@ -1,7 +1,7 @@
 #ifndef CK2_RELATION_H
 #define CK2_RELATION_H
-#include "Tributary.h"
 #include "Parser.h"
+#include "Tributary.h"
 
 namespace CK2
 {

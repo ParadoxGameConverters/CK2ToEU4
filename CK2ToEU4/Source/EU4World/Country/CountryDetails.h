@@ -101,7 +101,7 @@ class CountryDetails: commonItems::parser
 	std::set<std::string> shipNames;
 	std::set<std::string> armyNames;
 	std::set<std::string> fleetNames;
-	std::map<std::string, std::pair<int, int>> monarchNames;	 // name (without regnal), pair(regnal, chance)	
+	std::map<std::string, std::pair<int, int>> monarchNames;	 // name (without regnal), pair(regnal, chance)
 	std::vector<std::pair<date, std::string>> historyLessons; // this is used to store history entries for countries we're only transcribing.
 
 	Character monarch;

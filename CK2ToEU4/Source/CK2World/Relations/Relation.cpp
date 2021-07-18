@@ -1,6 +1,6 @@
 #include "Relation.h"
-#include "ParserHelpers.h"
 #include "CommonRegexes.h"
+#include "ParserHelpers.h"
 
 CK2::Relation::Relation(std::istream& theStream, const int second): secondCharacterID(second)
 {

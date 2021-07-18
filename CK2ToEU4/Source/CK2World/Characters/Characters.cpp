@@ -6,9 +6,9 @@
 #include "../Titles/Title.h"
 #include "../Titles/Titles.h"
 #include "Character.h"
+#include "CommonRegexes.h"
 #include "Log.h"
 #include "ParserHelpers.h"
-#include "CommonRegexes.h"
 
 CK2::Characters::Characters(std::istream& theStream)
 {
@@ -148,8 +148,7 @@ void CK2::Characters::linkPrimaryTitles(const Titles& theTitles)
 			}
 			else
 			{
-				Log(LogLevel::Warning) << "Primary title ID: " << character.second->getPrimaryTitle().first
-											  << " has no definition!";
+				Log(LogLevel::Warning) << "Primary title ID: " << character.second->getPrimaryTitle().first << " has no definition!";
 			}
 			if (!character.second->getPrimaryTitle().second->getBaseTitle().first.empty())
 			{
@@ -161,9 +160,7 @@ void CK2::Characters::linkPrimaryTitles(const Titles& theTitles)
 				}
 				else
 				{
-					Log(LogLevel::Warning) << "Base title ID: "
-												  << character.second->getPrimaryTitle().second->getBaseTitle().first
-												  << " has no definition!";
+					Log(LogLevel::Warning) << "Base title ID: " << character.second->getPrimaryTitle().second->getBaseTitle().first << " has no definition!";
 				}
 			}
 		}
@@ -184,8 +181,7 @@ void CK2::Characters::linkCapitals(const Provinces& theProvinces)
 		const auto& baronies = province.second->getBaronies();
 		for (const auto& barony: baronies)
 		{
-			baronyMap.insert(
-				 std::pair(barony.first, std::pair(barony.second, std::pair(province.first, province.second))));
+			baronyMap.insert(std::pair(barony.first, std::pair(barony.second, std::pair(province.first, province.second))));
 		}
 	}
 
@@ -202,8 +198,7 @@ void CK2::Characters::linkCapitals(const Provinces& theProvinces)
 			}
 			else
 			{
-				Log(LogLevel::Warning) << "Capital barony ID: " << character.second->getCapital().first
-											  << " has no definition!";
+				Log(LogLevel::Warning) << "Capital barony ID: " << character.second->getCapital().first << " has no definition!";
 			}
 		}
 	}

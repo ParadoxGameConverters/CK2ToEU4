@@ -18,7 +18,7 @@ class DevWeightsMapper: commonItems::parser
 	void registerKeys();
 
 	double devFromBuilding = 0.1; // Default, unless overridden
-	double devFromBarony = 0.3; // Default, unless overridden
+	double devFromBarony = 0.3;	// Default, unless overridden
 };
 } // namespace mappers
 

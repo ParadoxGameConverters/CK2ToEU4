@@ -3,11 +3,11 @@
 #include "../Characters/Characters.h"
 #include "../Provinces/Province.h"
 #include "../Provinces/Provinces.h"
+#include "CommonRegexes.h"
 #include "Liege.h"
 #include "Log.h"
 #include "ParserHelpers.h"
 #include "Title.h"
-#include "CommonRegexes.h"
 
 CK2::Titles::Titles(std::istream& theStream)
 {

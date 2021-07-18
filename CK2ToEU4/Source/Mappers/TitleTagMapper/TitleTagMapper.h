@@ -1,8 +1,8 @@
 #ifndef TITLE_TAG_MAPPER_H
 #define TITLE_TAG_MAPPER_H
 
-#include "TitleTagMapping.h"
 #include "Parser.h"
+#include "TitleTagMapping.h"
 
 namespace mappers
 {

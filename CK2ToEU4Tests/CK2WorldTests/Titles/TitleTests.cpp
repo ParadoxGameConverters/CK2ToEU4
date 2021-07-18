@@ -477,4 +477,3 @@ TEST(CK2World_TitleTests, electorsCanBeSet)
 	ASSERT_TRUE(theTitle.getElectors().count(2));
 	ASSERT_TRUE(theTitle.getElectors().count(3));
 }
-

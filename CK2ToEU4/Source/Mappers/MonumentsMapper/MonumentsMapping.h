@@ -1,10 +1,6 @@
 #ifndef MONUMENTS_MAPPING
 #define MONUMENTS_MAPPING
-#include "Color.h"
 #include "Parser.h"
-#include <set>
-
-
 
 namespace mappers
 {
@@ -21,13 +17,13 @@ class MonumentsMapping: commonItems::parser
 	[[nodiscard]] auto getIsBase() { return isBase; }
 	[[nodiscard]] auto getProvinceModifiers() { return provinceModifiers; }
 	[[nodiscard]] auto getAreaModifiers() { return areaModifiers; }
-	[[nodiscard]] auto getCountryModifiers() { return countryModifiers; }	
-	[[nodiscard]] auto getOnUpgraded() { return onUpgraded; }	
+	[[nodiscard]] auto getCountryModifiers() { return countryModifiers; }
+	[[nodiscard]] auto getOnUpgraded() { return onUpgraded; }
 	[[nodiscard]] auto isOfBuilderCulture() { return cultural; }
 	[[nodiscard]] auto isOfBuilderReligion() { return religious; }
 	[[nodiscard]] auto getBuildTrigger() { return buildTrigger; }
 	[[nodiscard]] auto getCanBeMoved() { return canBeMoved; }
-	
+
 
   private:
 	void registerKeys();
