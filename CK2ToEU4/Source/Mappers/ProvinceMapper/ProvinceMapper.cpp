@@ -1,5 +1,6 @@
 #include "ProvinceMapper.h"
 #include "../../Configuration/Configuration.h"
+#include "CommonRegexes.h"
 #include "Log.h"
 #include "OSCompatibilityLayer.h"
 #include "ParserHelpers.h"
@@ -8,7 +9,6 @@
 #include <fstream>
 #include <stdexcept>
 namespace fs = std::filesystem;
-#include "CommonRegexes.h"
 
 mappers::ProvinceMapper::ProvinceMapper(const Mods& mods)
 {

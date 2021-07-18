@@ -2,9 +2,9 @@
 #define EU4_REGIONS_H
 
 #include "Area.h"
+#include "Parser.h"
 #include "Region.h"
 #include "SuperRegion.h"
-#include "Parser.h"
 #include <map>
 
 class Configuration;

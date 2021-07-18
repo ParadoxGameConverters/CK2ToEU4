@@ -1,7 +1,7 @@
 #include "ColorScraper.h"
+#include "CommonRegexes.h"
 #include "Log.h"
 #include "ParserHelpers.h"
-#include "CommonRegexes.h"
 
 void mappers::ColorScraper::scrapeColors(const std::string& filePath)
 {
@@ -27,7 +27,8 @@ void mappers::ColorScraper::registerKeys()
 		auto foundColors = newScraper.getColors();
 		for (const auto& foundColor: foundColors)
 		{
-			if (!foundColor.second) continue;
+			if (!foundColor.second)
+				continue;
 			titleColors[foundColor.first] = foundColor.second; // Overwriting for mod sources
 		}
 	});
@@ -43,6 +44,6 @@ std::optional<commonItems::Color> mappers::ColorScraper::getColorForTitle(const 
 {
 	const auto& titleItr = titleColors.find(titleName);
 	if (titleItr != titleColors.end())
-		return titleItr->second;		
+		return titleItr->second;
 	return std::nullopt;
 }

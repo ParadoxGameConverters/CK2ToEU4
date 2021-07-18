@@ -1,7 +1,7 @@
 #ifndef CK2_DIPLOMACY_H
 #define CK2_DIPLOMACY_H
-#include "Relations.h"
 #include "Parser.h"
+#include "Relations.h"
 
 namespace CK2
 {

@@ -59,7 +59,7 @@ class Character: commonItems::parser
 	[[nodiscard]] auto getID() const { return charID; }
 	[[nodiscard]] auto getHost() const { return host; }
 	[[nodiscard]] auto isSpent() const { return spent; }
-	
+
 	[[nodiscard]] bool hasTrait(const std::string& wantedTrait) const;
 
 	void setDynasty(std::shared_ptr<Dynasty> theDynasty) { dynasty.second = std::move(theDynasty); }

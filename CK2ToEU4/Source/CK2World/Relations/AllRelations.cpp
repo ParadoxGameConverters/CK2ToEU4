@@ -1,6 +1,6 @@
 #include "AllRelations.h"
-#include "ParserHelpers.h"
 #include "CommonRegexes.h"
+#include "ParserHelpers.h"
 
 CK2::Diplomacy::Diplomacy(std::istream& theStream)
 {

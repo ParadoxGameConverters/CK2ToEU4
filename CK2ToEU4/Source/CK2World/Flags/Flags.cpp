@@ -1,7 +1,7 @@
 #include "Flags.h"
-#include "ParserHelpers.h"
-#include "Log.h"
 #include "CommonRegexes.h"
+#include "Log.h"
+#include "ParserHelpers.h"
 
 CK2::Flags::Flags(std::istream& theStream)
 {

@@ -1,10 +1,9 @@
-#include "ParserHelpers.h"
 #include "MonumentsMapping.h"
-#include "InternalModifiers.h"
 #include "BuildTriggerBuilder.h"
-#include <iomanip>
 #include "CommonRegexes.h"
-#include "Log.h"
+#include "InternalModifiers.h"
+#include "ParserHelpers.h"
+#include <iomanip>
 
 mappers::MonumentsMapping::MonumentsMapping(std::istream& theStream)
 {
@@ -39,7 +38,7 @@ void mappers::MonumentsMapping::registerKeys()
 	registerKeyword("on_upgraded", [this](const std::string& mods, std::istream& theStream) {
 		auto tempInput = commonItems::stringOfItem(theStream).getString();
 		tempInput = tempInput.substr(tempInput.find('{') + 1, tempInput.length());
-		tempInput = tempInput.substr(0, tempInput.find('}'));		
+		tempInput = tempInput.substr(0, tempInput.find('}'));
 		onUpgraded += tempInput;
 	});
 	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
@@ -59,7 +58,7 @@ void mappers::MonumentsMapping::AddAreaSet(std::istream& theStream)
 	InternalModifiers mods(theStream);
 	const auto& tempMod = mods.getModifierType();
 	const auto& tempValues = mods.getModifierValues();
-	
+
 	if (!areaModifiers.contains(tempMod))
 		areaModifiers.emplace(tempMod, tempValues);
 }

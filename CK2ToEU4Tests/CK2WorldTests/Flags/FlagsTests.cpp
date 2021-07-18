@@ -54,7 +54,7 @@ TEST(CK2World_FlagsTests, doesItFillThings)
 
 	const auto& test = theMapper.fillReformationList();
 
-	std::set<std::string> tester = { "zun_pagan_reformed", "bon_reformed", "west_african_pagan_reformed" };
+	std::set<std::string> tester = {"zun_pagan_reformed", "bon_reformed", "west_african_pagan_reformed"};
 
 	ASSERT_EQ(tester, test);
 }

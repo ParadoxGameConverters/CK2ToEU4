@@ -21,10 +21,9 @@ TEST(Mappers_PrimaryTagCultureGroupTests, PrimaryTagsCanBeLoaded)
 	const mappers::PrimaryTagCultureGroup theMapping(input);
 
 	const auto& theTags = theMapping.getCollectedTags();
-	
+
 	ASSERT_EQ(theTags.size(), 2);
 	ASSERT_EQ(theTags.find("culture1")->second, "TAG");
 	ASSERT_EQ(theTags.find("culture2"), theTags.end());
 	ASSERT_EQ(theTags.find("culture3")->second, "GAT");
 }
-

@@ -1,8 +1,8 @@
 #ifndef EU4_PROVINCE_DETAILS_H
 #define EU4_PROVINCE_DETAILS_H
 
-#include "ProvinceModifier.h"
 #include "Parser.h"
+#include "ProvinceModifier.h"
 #include <set>
 
 namespace EU4
@@ -46,7 +46,7 @@ class ProvinceDetails: commonItems::parser
 	std::string religion;
 	std::string tradeGoods;
 	std::string estate;
-	std::string datedInfo; //For things set with 1444.1.1
+	std::string datedInfo; // For things set with 1444.1.1
 	std::set<std::string> cores;
 	std::set<std::string> discoveredBy;
 	std::set<std::string> latentGoods;

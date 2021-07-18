@@ -1,8 +1,9 @@
 #include "outReligion.h"
+#include <fstream>
 
-
-
-EU4::outReligion::outReligion(const Configuration& theConfiguration, std::vector<mappers::ReformedReligionMapping> unreligionReforms, std::vector<mappers::ReformedReligionMapping> religionReforms)
+EU4::outReligion::outReligion(const Configuration& theConfiguration,
+	 std::vector<mappers::ReformedReligionMapping> unreligionReforms,
+	 std::vector<mappers::ReformedReligionMapping> religionReforms)
 {
 	std::ofstream unReformedReligions("configurables/reformation/dynamicPagans/03_converter_unreformed_religions.txt");
 	if (!unReformedReligions.is_open())

@@ -1,6 +1,6 @@
 #include "Vars.h"
-#include "ParserHelpers.h"
 #include "CommonRegexes.h"
+#include "ParserHelpers.h"
 
 CK2::Vars::Vars(std::istream& theStream)
 {

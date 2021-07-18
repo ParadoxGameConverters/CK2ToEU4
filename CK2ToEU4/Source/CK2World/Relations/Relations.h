@@ -1,7 +1,7 @@
 #ifndef CK2_RELATIONS_H
 #define CK2_RELATIONS_H
-#include "Relation.h"
 #include "Parser.h"
+#include "Relation.h"
 
 namespace CK2
 {

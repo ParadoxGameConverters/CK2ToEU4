@@ -1,7 +1,7 @@
 #include "Barony.h"
+#include "CommonRegexes.h"
 #include "Log.h"
 #include "ParserHelpers.h"
-#include "CommonRegexes.h"
 
 CK2::Barony::Barony(std::istream& theStream, const std::string& baronyName): name(baronyName)
 {

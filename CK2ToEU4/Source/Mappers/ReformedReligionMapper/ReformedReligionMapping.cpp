@@ -1,7 +1,7 @@
 #include "ReformedReligionMapping.h"
+#include "CommonRegexes.h"
 #include "ParserHelpers.h"
 #include <iomanip>
-#include "CommonRegexes.h"
 
 mappers::ReformedReligionMapping::ReformedReligionMapping(std::istream& theStream)
 {

@@ -941,7 +941,7 @@ void EU4::Country::assignReforms(const std::shared_ptr<mappers::RegionMapper>& r
 		setMajorityReligion(primeReligion);
 	}
 
-	//Set Accepted Cultures
+	// Set Accepted Cultures
 	setAcceptedCultures();
 
 	const auto& actualHolder = title.second->getHolder().second;

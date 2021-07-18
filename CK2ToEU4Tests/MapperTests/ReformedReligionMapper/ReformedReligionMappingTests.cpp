@@ -2,7 +2,7 @@
 #include "gtest/gtest.h"
 #include <sstream>
 
-//Default
+// Default
 TEST(Mappers_ReformedReligionMappingTests, defaultClassTest)
 {
 	mappers::ReformedReligionMapping theMapper;
@@ -11,7 +11,7 @@ TEST(Mappers_ReformedReligionMappingTests, defaultClassTest)
 	ASSERT_EQ(0, test);
 }
 
-//Getters
+// Getters
 TEST(Mappers_ReformedReligionMappingTests, doesItGetTheRightIconNumber)
 {
 	std::stringstream input;
@@ -97,7 +97,7 @@ TEST(Mappers_ReformedReligionMappingTests, doesItGetHeretics)
 	ASSERT_EQ(" WOOD DUCK ", test);
 }
 
-//Setters
+// Setters
 TEST(Mappers_ReformedReligionMappingTests, doesItSetTheRightIconNumber)
 {
 	std::stringstream input;
@@ -151,7 +151,7 @@ TEST(Mappers_ReformedReligionMappingTests, doesItSetNonUnique)
 {
 	std::stringstream input;
 	mappers::ReformedReligionMapping theMapper(input);
-	theMapper.setNonUniqueMechanics("can_raid_self =yes\ncan_ignore_treaties =yes\n");	
+	theMapper.setNonUniqueMechanics("can_raid_self =yes\ncan_ignore_treaties =yes\n");
 
 	const auto& test = theMapper.getNonUniqueMechanics();
 	ASSERT_EQ("can_raid_self =yes\ncan_ignore_treaties =yes\n", test);
