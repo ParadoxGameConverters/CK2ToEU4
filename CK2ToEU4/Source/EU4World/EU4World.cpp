@@ -95,6 +95,12 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 	// We're onto the finesse part of conversion now. HRE was shattered in CK2 World and now we're assigning electorates, free
 	// cities, and such.
 	distributeHRESubtitles(theConfiguration);
+
+	if (sourceWorld.getHRETitle())
+	{
+		Log(LogLevel::Info) << "-> Marking HRE Title";
+		markHRETag(theConfiguration, sourceWorld.getHRETitle()->first);
+	}
 	Log(LogLevel::Progress) << "66 %";
 
 	// With all religious/cultural matters taken care of, we can now set reforms
@@ -1131,6 +1137,23 @@ void EU4::World::resolvePersonalUnions()
 	}
 }
 
+void EU4::World::markHRETag(const Configuration& theConfiguration, const std::string& hreTitleName)
+{
+	if (theConfiguration.getHRE() == Configuration::I_AM_HRE::NONE)
+		return;
+	if (hreTitleName.empty())
+		return;
+	const auto hreTag = titleTagMapper.getTagForTitle(hreTitleName);
+	if (!hreTag)
+	{
+		Log(LogLevel::Warning) << "No known tag for CK2's HRE Title: " << hreTitleName << "! Add it to tag_mappings.txt!";
+		return;
+	}
+	actualHRETag = *hreTag;
+	if (actualHRETag == "HLR")
+		actualHRETag = "HRE";
+	Log(LogLevel::Info) << "<> Marked " << actualHRETag << " as HRE tag.";
+}
 
 void EU4::World::distributeHRESubtitles(const Configuration& theConfiguration)
 {
