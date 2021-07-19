@@ -49,6 +49,7 @@ class World: commonItems::parser
 	[[nodiscard]] auto isInvasion() const { return invasion; }
 	[[nodiscard]] auto wasNoReformation() const { return wereNoReformations; }
 	[[nodiscard]] auto isGreekReformation() const { return greekReformation; }
+	[[nodiscard]] const auto& getHRETitle() const { return hreTitle; }
 
 	void setExistentPremadeMonuments(std::set<std::string> premades) { existentPremadeMonuments = premades; }
 

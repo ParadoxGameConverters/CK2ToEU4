@@ -882,9 +882,6 @@ link = { ck2 = c_dyrrachion eu4 = ALB } # Albania
 link = { ck2 = c_vrhbosna eu4 = BOS } # Bosnia
 link = { ck2 = c_tyrnovo eu4 = BUL } # Bulgaria
 link = { ck2 = d_turnovo eu4 = BUL } # Bulgaria
-link = { ck2 = c_byzantion eu4 = BYZ } # Byzantium
-link = { ck2 = d_thrace eu4 = BYZ } # Byzantium
-link = { ck2 = k_thrace eu4 = BYZ } # Byzantium
 link = { ck2 = c_corfu eu4 = CEP } # Corfu
 link = { ck2 = k_candia eu4 = CRT } # Crete
 link = { ck2 = d_dalmatian_islands eu4 = DAL } # Dalmatia

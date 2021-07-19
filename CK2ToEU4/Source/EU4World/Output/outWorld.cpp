@@ -461,6 +461,13 @@ void EU4::World::outputEmperor(const Configuration& theConfiguration, date conve
 	else
 		output2 << actualConversionDate << " = { celestial_emperor = " << celestialEmperorTag << " }\n";
 	output2.close();
+
+	if (!actualHRETag.empty())
+	{
+		std::ofstream output3("output/" + theConfiguration.getOutputName() + "/i_am_hre.txt");
+		output3 << actualHRETag;
+		output3.close();
+	}
 }
 
 void EU4::World::outputDiplomacy(const Configuration& theConfiguration, const std::vector<std::shared_ptr<Agreement>>& agreements, bool invasion) const

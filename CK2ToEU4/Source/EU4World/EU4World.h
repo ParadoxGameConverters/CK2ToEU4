@@ -81,12 +81,14 @@ class World
 	void africaQuestion();
 	void indianQuestion();
 	void fixDuplicateNames();
+	void markHRETag(const Configuration& theConfiguration, const std::string& hreTitle);
 
 	[[nodiscard]] std::optional<std::pair<int, std::shared_ptr<CK2::Province>>> determineProvinceSource(const std::vector<int>& ck2ProvinceNumbers,
 		 const CK2::World& sourceWorld) const;
 
 	std::string emperorTag;
 	std::string celestialEmperorTag;
+	std::string actualHRETag;
 	std::map<std::string, std::shared_ptr<Country>> countries;
 	std::map<int, std::shared_ptr<Province>> provinces;
 	std::shared_ptr<mappers::RegionMapper> regionMapper;
