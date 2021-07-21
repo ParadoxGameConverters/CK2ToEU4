@@ -6,6 +6,7 @@
 #include "../Mappers/ReformedReligionMapper/ReformedReligionMapper.h"
 #include "../Mappers/ReligionMapper/ReligionMapper.h"
 #include "../Mappers/ShatterEmpiresMapper/ShatterEmpiresMapper.h"
+#include "../Mappers/VassalSplitoffMapper/VassalSplitoffMapper.h"
 #include "Characters/Characters.h"
 #include "ConverterVersion.h"
 #include "Date.h"
@@ -112,6 +113,7 @@ class World: commonItems::parser
 	mappers::PersonalityScraper personalityScraper;
 	mappers::ProvinceTitleMapper provinceTitleMapper;
 	mappers::ReformedReligionMapper reformedReligionMapper;
+	mappers::VassalSplitoffMapper vassalSplitoffMapper;
 	std::map<std::string, std::shared_ptr<Title>> independentTitles;
 	std::map<std::string, Liege> dynamicTitles; // Reusing Liege as it has identical structure
 	std::vector<mappers::ReformedReligionMapping> religionReforms;

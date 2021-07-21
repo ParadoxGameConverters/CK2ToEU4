@@ -394,6 +394,7 @@
     <ClCompile Include="Source\Mappers\ShatterEmpiresMapper\ShatterEmpiresMapper.cpp" />
     <ClCompile Include="Source\Mappers\TitleTagMapper\TitleTagMapper.cpp" />
     <ClCompile Include="Source\Mappers\TitleTagMapper\TitleTagMapping.cpp" />
+    <ClCompile Include="Source\Mappers\VassalSplitoffMapper\VassalSplitoffMapper.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\commonItems\Color.h" />
@@ -487,6 +488,7 @@
     <ClInclude Include="Source\Mappers\ShatterEmpiresMapper\ShatterEmpiresMapper.h" />
     <ClInclude Include="Source\Mappers\TitleTagMapper\TitleTagMapper.h" />
     <ClInclude Include="Source\Mappers\TitleTagMapper\TitleTagMapping.h" />
+    <ClInclude Include="Source\Mappers\VassalSplitoffMapper\VassalSplitoffMapper.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

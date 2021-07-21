@@ -371,6 +371,12 @@
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\MonumentsMapper\BuildTriggerBuilder.cpp">
       <Filter>ConverterFiles\Mappers\MonumentsMapper</Filter>
     </ClCompile>
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\VassalSplitoffMapper\VassalSplitoffMapper.cpp">
+      <Filter>ConverterFiles\Mappers\VassalSplitoffMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="MapperTests\VassalSplitoffMapper\VassalSplitoffMapperTests.cpp">
+      <Filter>MapperTests\VassalSplitoffMapper</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4WorldTests">
@@ -549,6 +555,12 @@
     </Filter>
     <Filter Include="ConverterFiles\Mappers\MonumentsMapper">
       <UniqueIdentifier>{96103e92-e230-4de8-8984-befcc31e61c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MapperTests\VassalSplitoffMapper">
+      <UniqueIdentifier>{408e16e5-81d1-43c7-aaaa-459a98682c67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ConverterFiles\Mappers\VassalSplitoffMapper">
+      <UniqueIdentifier>{a90751ed-45be-40e4-9bdb-9b4595aaac52}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

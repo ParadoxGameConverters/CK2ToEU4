@@ -288,6 +288,9 @@
     <ClCompile Include="..\commonItems\ModLoader\ModParser.cpp">
       <Filter>CommonItems\ModLoader</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Mappers\VassalSplitoffMapper\VassalSplitoffMapper.cpp">
+      <Filter>Mappers\VassalSplitoffMapper</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CK2ToEU4Converter.h" />
@@ -552,6 +555,9 @@
     <ClInclude Include="..\commonItems\ModLoader\ModParser.h">
       <Filter>CommonItems\ModLoader</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Mappers\VassalSplitoffMapper\VassalSplitoffMapper.h">
+      <Filter>Mappers\VassalSplitoffMapper</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4World">
@@ -664,6 +670,9 @@
     </Filter>
     <Filter Include="CommonItems\ModLoader">
       <UniqueIdentifier>{674155bf-ba63-464a-8631-7efb46f5d116}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mappers\VassalSplitoffMapper">
+      <UniqueIdentifier>{c6c0c961-5b04-4a70-96cf-d568ab51989a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

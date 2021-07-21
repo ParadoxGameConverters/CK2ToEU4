@@ -699,8 +699,9 @@ void CK2::World::splitVassals(const Configuration& theConfiguration)
 				continue; // Not splitting our own land.
 			const auto& vassalProvincesClaimed = vassal.second->coalesceProvinces();
 
-			// a vassal goes indep if they control 1/relevantvassals + 10% land.
-			const double threshold = static_cast<double>(provincesClaimed.size()) / relevantVassals + 0.1 * static_cast<double>(provincesClaimed.size());
+			// a vassal goes indep if they (control 1/relevantvassals + 10% land) * factor defined in vassal_splitoff.txt.
+			double threshold = static_cast<double>(provincesClaimed.size()) / relevantVassals + 0.1 * static_cast<double>(provincesClaimed.size());
+			threshold *= vassalSplitoffMapper.getFactor();
 			if (static_cast<double>(vassalProvincesClaimed.size()) > threshold)
 				newIndeps.insert(vassal);
 		}
