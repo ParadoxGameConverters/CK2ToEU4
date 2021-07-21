@@ -209,6 +209,7 @@
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\ShatterEmpiresMapper\ShatterEmpiresMapper.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\TitleTagMapper\TitleTagMapper.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\TitleTagMapper\TitleTagMapping.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\VassalSplitoffMapper\VassalSplitoffMapper.cpp" />
     <ClCompile Include="..\commonItems\Color.cpp" />
     <ClCompile Include="..\commonItems\CommonFunctions.cpp" />
     <ClCompile Include="..\commonItems\ConvenientParser.cpp" />
@@ -277,6 +278,7 @@
     <ClCompile Include="MapperTests\TitleTagMapper\TitleTagMappingTests.cpp" />
     <ClCompile Include="MapperTests\ReformedReligionMapper\ReformedReligionMapperTests.cpp" />
     <ClCompile Include="MapperTests\ReformedReligionMapper\ReformedReligionMappingTests.cpp" />
+    <ClCompile Include="MapperTests\VassalSplitoffMapper\VassalSplitoffMapperTests.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
