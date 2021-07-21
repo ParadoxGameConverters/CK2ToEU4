@@ -510,7 +510,7 @@ void EU4::World::siberianQuestion(const Configuration& theConfiguration)
 	// We're deleting all tags with:
 	// * capital is in Siberia
 	// * nomad or tribal level
-	// * no more than 5 provinces
+	// * no more than 5 provinces / option
 	for (const auto& country: countries)
 	{
 		if (country.second->getGovernment() != "nomad" && country.second->getGovernment() != "tribal")
@@ -524,7 +524,7 @@ void EU4::World::siberianQuestion(const Configuration& theConfiguration)
 			continue;
 		if (region != "west_siberia_region" && region != "east_siberia_region")
 			continue;
-		if (country.second->getProvinces().size() > 5)
+		if (theConfiguration.getSiberia() == Configuration::SIBERIA::SMALL_SIBERIA && country.second->getProvinces().size() > 5)
 			continue;
 		if (country.second->getTag() == "CHU" || country.second->getTag() == "HOD" || country.second->getTag() == "CHV" || country.second->getTag() == "KMC")
 			continue;
