@@ -360,6 +360,8 @@
     <ClCompile Include="Source\EU4World\Province\ProvinceDetails.cpp" />
     <ClCompile Include="Source\EU4World\Province\ProvinceModifier.cpp" />
     <ClCompile Include="Source\main.cpp" />
+    <ClCompile Include="Source\Mappers\AfricanPassesMapper\AfricanPassesMapper.cpp" />
+    <ClCompile Include="Source\Mappers\AfricanPassesMapper\AfricanPassesMapping.cpp" />
     <ClCompile Include="Source\Mappers\ColorScraper\ColorScraper.cpp" />
     <ClCompile Include="Source\Mappers\CultureMapper\CultureMapper.cpp" />
     <ClCompile Include="Source\Mappers\CultureMapper\CultureMappingRule.cpp" />
@@ -454,6 +456,8 @@
     <ClInclude Include="Source\EU4World\Province\EU4Province.h" />
     <ClInclude Include="Source\EU4World\Province\ProvinceDetails.h" />
     <ClInclude Include="Source\EU4World\Province\ProvinceModifier.h" />
+    <ClInclude Include="Source\Mappers\AfricanPassesMapper\AfricanPassesMapper.h" />
+    <ClInclude Include="Source\Mappers\AfricanPassesMapper\AfricanPassesMapping.h" />
     <ClInclude Include="Source\Mappers\ColorScraper\ColorScraper.h" />
     <ClInclude Include="Source\Mappers\CultureMapper\CultureMapper.h" />
     <ClInclude Include="Source\Mappers\CultureMapper\CultureMappingRule.h" />

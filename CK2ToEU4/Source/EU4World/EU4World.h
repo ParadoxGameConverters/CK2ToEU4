@@ -1,6 +1,7 @@
 #ifndef EU4_WORLD_H
 #define EU4_WORLD_H
 #include "../CK2World/World.h"
+#include "../Mappers/AfricanPassesMapper/AfricanPassesMapper.h"
 #include "../Mappers/ColorScraper/ColorScraper.h"
 #include "../Mappers/CultureMapper/CultureMapper.h"
 #include "../Mappers/DevWeightsMapper/DevWeightsMapper.h"
@@ -104,6 +105,7 @@ class World
 	mappers::RulerPersonalitiesMapper rulerPersonalitiesMapper;
 	mappers::PrimaryTagMapper primaryTagMapper;
 	mappers::DevWeightsMapper devWeightsMapper;
+	mappers::AfricanPassesMapper africanPassesMapper;
 	ModFile modFile;
 	Diplomacy diplomacy;
 };
