@@ -452,21 +452,41 @@ void EU4::World::outputEmperor(const Configuration& theConfiguration, date conve
 		output << actualConversionDate << " = { emperor = " << emperorTag << " }\n";
 	output.close();
 
-	std::ofstream output2("output/" + theConfiguration.getOutputName() + "/history/diplomacy/celestial_empire.txt");
-	if (!output2.is_open())
+	output.open("output/" + theConfiguration.getOutputName() + "/history/diplomacy/celestial_empire.txt");
+	if (!output.is_open())
 		throw std::runtime_error(
 			 "Could not create celestial empire diplomacy file: output/" + theConfiguration.getOutputName() + "/history/diplomacy/celestial_empire.txt!");
 	if (celestialEmperorTag.empty())
-		output2 << actualConversionDate << " = { celestial_emperor = --- }\n";
+		output << actualConversionDate << " = { celestial_emperor = --- }\n";
 	else
-		output2 << actualConversionDate << " = { celestial_emperor = " << celestialEmperorTag << " }\n";
-	output2.close();
+		output << actualConversionDate << " = { celestial_emperor = " << celestialEmperorTag << " }\n";
+	output.close();
 
 	if (!actualHRETag.empty())
 	{
-		std::ofstream output3("output/" + theConfiguration.getOutputName() + "/i_am_hre.txt");
-		output3 << actualHRETag;
-		output3.close();
+		output.open("output/" + theConfiguration.getOutputName() + "/i_am_hre.txt");
+		output << actualHRETag;
+		output.close();
+
+		if (actualHRETag != "HRE")
+		{
+			std::ifstream input(theConfiguration.getEU4Path() + "/events/HolyRomanEmpire.txt");
+			if (!input.is_open())
+			{
+				Log(LogLevel::Warning) << "Where is " << theConfiguration.getEU4Path() << "/events/HolyRomanEmpire.txt?!";
+			}
+			else
+			{
+				std::stringstream inStream;
+				inStream << input.rdbuf();
+				auto eventFileString = inStream.str();
+				input.close();
+				eventFileString = std::regex_replace(eventFileString, std::regex("HLR"), actualHRETag);
+				output.open("output/" + theConfiguration.getOutputName() + "/events/HolyRomanEmpire.txt");
+				output << eventFileString;
+				output.close();
+			}
+		}
 	}
 }
 
