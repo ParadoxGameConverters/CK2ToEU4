@@ -291,6 +291,12 @@
     <ClCompile Include="Source\Mappers\VassalSplitoffMapper\VassalSplitoffMapper.cpp">
       <Filter>Mappers\VassalSplitoffMapper</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Mappers\AfricanPassesMapper\AfricanPassesMapper.cpp">
+      <Filter>Mappers\AfricanPassesMapper</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Mappers\AfricanPassesMapper\AfricanPassesMapping.cpp">
+      <Filter>Mappers\AfricanPassesMapper</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CK2ToEU4Converter.h" />
@@ -558,6 +564,12 @@
     <ClInclude Include="Source\Mappers\VassalSplitoffMapper\VassalSplitoffMapper.h">
       <Filter>Mappers\VassalSplitoffMapper</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Mappers\AfricanPassesMapper\AfricanPassesMapper.h">
+      <Filter>Mappers\AfricanPassesMapper</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Mappers\AfricanPassesMapper\AfricanPassesMapping.h">
+      <Filter>Mappers\AfricanPassesMapper</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4World">
@@ -673,6 +685,9 @@
     </Filter>
     <Filter Include="Mappers\VassalSplitoffMapper">
       <UniqueIdentifier>{c6c0c961-5b04-4a70-96cf-d568ab51989a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mappers\AfricanPassesMapper">
+      <UniqueIdentifier>{09c3d3c6-cd15-43ce-a2e6-b82283dc756f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -177,6 +177,8 @@
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Wonders\Wonder.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Wonders\Wonders.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Configuration\Configuration.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\AfricanPassesMapper\AfricanPassesMapper.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\AfricanPassesMapper\AfricanPassesMapping.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\CultureMapper\CultureMapper.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\CultureMapper\CultureMappingRule.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\DevWeightsMapper\DevWeightsMapper.cpp" />
@@ -250,6 +252,8 @@
     <ClCompile Include="CK2WorldTests\Wonders\WondersTests.cpp" />
     <ClCompile Include="CK2WorldTests\Wonders\WonderTests.cpp" />
     <ClCompile Include="ConfigurationTests.cpp" />
+    <ClCompile Include="MapperTests\AfricanPassesMapper\AfricanPassesMapperTests.cpp" />
+    <ClCompile Include="MapperTests\AfricanPassesMapper\AfricanPassesMappingTests.cpp" />
     <ClCompile Include="MapperTests\CultureMapper\CultureMapperTests.cpp" />
     <ClCompile Include="MapperTests\CultureMapper\CultureMappingTests.cpp" />
     <ClCompile Include="MapperTests\DevWeightsMapper\DevWeightsMapperTests.cpp" />
