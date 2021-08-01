@@ -43,3 +43,28 @@
  karaite_faith: "Karaite"
  jain: "Jain"
  arianism: "Arianisme"
+ 
+ #I:R religions
+
+ canaanite_pagan: "Cananéenne"
+ druidic_pagan: "Druidisme"
+ kemetism_pagan: "Kémétisme"
+ sumerian_pagan: "Mardoukisme"
+ cybelene_pagan: "Cybelène"
+ zalmoxian_pagan: "Zamolxiste"
+ arabic_pagan: "Wataniyya"
+ khaldic_pagan: "Hétanisme"
+ armazic_pagan: "Tsarmartoba"
+ iberian_pagan: "Ibérique"
+ heptadic_pagan: "Scythe"
+
+ canaanite_pagan_reformed: "Cananéenne Réformé"
+ druidic_pagan_reformed: "Druidisme Réformé"
+ sumerian_pagan_reformed: "Mardoukisme Réformé"
+ cybelene_pagan_reformed: "Cybelène Réformé"
+ zalmoxian_pagan_reformed: "Zamolxiste Réformé"
+ arabic_pagan_reformed: "Wataniyya Réformé"
+ khaldic_pagan_reformed: "Hétanisme Réformé"
+ armazic_pagan_reformed: "Tsarmartoba Réformé"
+ iberian_pagan_reformed: "Ibérique Réformé"
+ heptadic_pagan_reformed: "Scythe Réformé"

@@ -4,7 +4,7 @@
 
 # Pagan
 
-link = { eu4 = pagan_religion ck2 = pagan ck2 = georgian_pagan_reformed ck2 = georgian_pagan ck2 = celtic_pagan_reformed ck2 = celtic_pagan ck2 = semitic_pagan_reformed ck2 = semitic_pagan ck2 = semitic_pagan_heresy ck2 = assyrian_pagan ck2 = vasconic_pagan_reformed ck2 = vasconic_pagan ck2 = egyptian_pagan }
+link = { eu4 = pagan_religion ck2 = pagan ck2 = semitic_pagan_reformed ck2 = semitic_pagan ck2 = semitic_pagan_heresy ck2 = assyrian_pagan }
 link = { eu4 = norse_pagan ck2 = norse_pagan ck2 = germanic_pagan ck2 = west_pagan }
 link = { eu4 = norse_pagan_reformed ck2 = norse_pagan_reformed ck2 = germanic_pagan_reformed }
 link = { eu4 = tengri_pagan ck2 = tengri_pagan ck2 = scythian_pagan }
@@ -17,12 +17,39 @@ link = { eu4 = slavic_pagan ck2 = slavic_pagan }
 link = { eu4 = slavic_pagan_reformed ck2 = slavic_pagan_reformed }
 link = { eu4 = shamanism ck2 = west_african_pagan ck2 = dravidian_pagan_reformed ck2 = dravidian_pagan ck2 = central_african_pagan_reformed ck2 = central_african_pagan ck2 = gurzil ck2 = msoura_pagan ck2 = east_african_pagan }
 link = { eu4 = west_african_pagan_reformed ck2 = west_african_pagan_reformed ck2 = east_african_pagan_reformed  }
-link = { eu4 = hellenic_pagan ck2 = hellenic_pagan ck2 = illyran_pagan ck2 = cybelian_pagan ck2 = mastimani }
+link = { eu4 = hellenic_pagan ck2 = hellenic_pagan ck2 = illyran_pagan ck2 = mastimani }
 link = { eu4 = hellenic_pagan_reformed ck2 = hellenic_pagan_reformed ck2 = illyran_pagan_reformed ck2 = neoplatonist }
-link = { eu4 = zun_pagan ck2 = zun_pagan ck2 = african_solar_pagan ck2 = latin_solar_pagan ck2 = mandulis_pagan ck2 = dacian_pagan }
-link = { eu4 = zun_pagan_reformed ck2 = zun_pagan_reformed ck2 = african_solar_pagan_reformed ck2 = latin_solar_pagan_reformed ck2 = dacian_pagan_reformed ck2 = mithraic_pagan ck2 = aten_pagan }
+link = { eu4 = zun_pagan ck2 = zun_pagan ck2 = african_solar_pagan ck2 = latin_solar_pagan ck2 = mandulis_pagan }
+link = { eu4 = zun_pagan_reformed ck2 = zun_pagan_reformed ck2 = african_solar_pagan_reformed ck2 = latin_solar_pagan_reformed ck2 = mithraic_pagan ck2 = aten_pagan }
 link = { eu4 = bon ck2 = bon ck2 = root_west_pagan }
 link = { eu4 = bon_reformed ck2 = bon_reformed ck2 = root_west_pagan_reformed }
+
+link = { eu4 = druidic_pagan ck2 = druidic ck2 = celtic_pagan }
+link = { eu4 = druidic_pagan_reformed ck2 = druidic_reformed ck2 = celtic_pagan_reformed }
+link = { eu4 = iberian_pagan ck2 = iberian ck2 = vasconic_pagan }
+link = { eu4 = iberian_pagan_reformed ck2 = iberian_reformed ck2 = vasconic_pagan_reformed }
+link = { eu4 = megalithic_pagan ck2 = megalithic }
+link = { eu4 = megalithic_pagan_reformed ck2 = megalithic_reformed }
+link = { eu4 = canaanite_pagan ck2 = canaanite }
+link = { eu4 = canaanite_pagan_reformed ck2 = canaanite_reformed }
+link = { eu4 = arabic_pagan ck2 = arabic }
+link = { eu4 = arabic_pagan_reformed ck2 = arabic_reformed }
+link = { eu4 = cybelene_pagan ck2 = cybelene ck2 = cybelian_pagan }
+link = { eu4 = cybelene_pagan_reformed ck2 = cybelene_reformed }
+link = { eu4 = sumerian_pagan ck2 = sumerian }
+link = { eu4 = sumerian_pagan_reformed ck2 = sumerian_reformed }
+link = { eu4 = khaldic_pagan ck2 = khaldic }
+link = { eu4 = khaldic_pagan_reformed ck2 = khaldic_reformed }
+link = { eu4 = armazic_pagan ck2 = armazic ck2 = georgian_pagan }
+link = { eu4 = armazic_pagan_reformed ck2 = armazic_reformed ck2 = georgian_pagan_reformed }
+link = { eu4 = heptadic_pagan ck2 = scythian }
+link = { eu4 = heptadic_pagan_reformed ck2 = scythian_reformed }
+link = { eu4 = zalmoxian_pagan ck2 = zalmoxian ck2 = dacian_pagan }
+link = { eu4 = zalmoxian_pagan_reformed ck2 = zalmoxian_reformed ck2 = dacian_pagan_reformed }
+link = { eu4 = ritualistic_pagan ck2 = ritualistic }
+link = { eu4 = ritualistic_pagan_reformed ck2 = ritualistic_reformed }
+
+link = { eu4 = kemetism ck2 = egyptian ck2 = egyptian_pagan }
 
 link = { eu4 = nahuatl ck2 = aztec ck2 = aztec_reformed }
 
