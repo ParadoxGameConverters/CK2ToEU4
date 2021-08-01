@@ -123,6 +123,21 @@
  west_african_pagan_reformed_religion_desc: "La religión africana reformada es una fusión de muchas creencias populares, con un solo Libro Sagrado que incluye un mito de la creación, capítulos sobre los espíritus, fábulas de tótems animales y dioses."
  arianism_religion_desc: "El arrianismo es una rama del cristianismo Nontrinitario que afirma que Jesucristo es el Hijo de Dios, creado por Dios el Padre, distinto del Padre y por lo tanto subordinado al Padre. enseñanzas arrianas fueron atribuidas primero a Arrio y declaradas heréticas por el Primer Concilio de Nicea en el año 325."
  
+ ##I:R Religious Descriptions
+ canaanite_pagan_religion_desc: "La religión cananea venera a varios dioses y sus aspectos, de manera politeísta. Baal es considerado la deidad principal en una compleja jerarquía de dioses menores, que a menudo eran adorados en santuarios que se encuentran en montañas o colinas."
+ druidic_pagan_religion_desc: "Los druidas actuaron para los celtas, como una clase social distinta. A menudo actuando como magistrados y legisladores, también dictaban las costumbres y creencias religiosas locales."
+ kemetism_religion_desc: "La historia de la religión indígena egipcia se remonta a muchos miles de años. Manifestando como una fe politeísta, la adoración de Ra, Atum, Sekhmet y otros, muestra una profunda reverencia por los aspectos fundamentales del mundo natural."
+ sumerian_pagan_religion_desc: "La historia del panteón caldeo se remonta a muchos miles de años. Adorando a dioses como Anu, Enki y Nanna, los devotos de la religión caldea construyen imponentes templos en honor a su Dios elegido."
+ cybelene_pagan_religion_desc:0 "El culto frigio de Cibeles está vinculado al de la Diosa Madre prehistórica. Habiendo evolucionado a lo largo de los milenios, a menudo está vinculado a figuras y héroes míticos y se practica a través del culto a los ídolos."
+ zalmoxian_pagan_religion_desc:0 "No se sabe realmente si Zalmoxis fue originalmente un profeta o un dios; pero los dacios y los getas lo veneran como un ser de esencia divina y le atribuyen una serie de milagros."
+ arabic_pagan_religion_desc:0 "La religión en Arabia es un sincretismo politeísta de deidades, aspectos y demonios, practicado en localidades y enclaves repartidos por toda la región. En algunos de estos lugares, se adora al dios creador Alá como cabeza de este panteón."
+ khaldic_pagan_religion_desc:0 "El panteón que rodea a Jaldi representa una religión heredada de la cultura de Urartu, un reino que ha desaparecido durante siglos. Es una fe esencialmente politeísta, de la cual el dios guerrero Jaldi es considerado el líder."
+ armazic_pagan_religion_desc:0 "Sin duda vinculado a las religiones vecinas de Anatolia, el panteón del Cáucaso e Iberia está gobernado por el dios Armazi."
+ iberian_pagan_religion_desc:0 "Por su sincretismo politeísta, las prácticas religiosas de los íberos implican la veneración de los espíritus animales y el culto a los antepasados. Adoran a varios dioses helénicos y fenicios, así como a deidades locales como Betatun o Ategina."
+ heptadic_pagan_religion_desc:0 "Originaria de los territorios de los escitas, esta fe panteísta adora a siete deidades principales, a menudo asociadas con las del panteón griego. Allí se han conservado elementos de la religión politeísta popular de los escitas, así como la práctica del sacrificio de caballos y túmulos de carros como entre los celtas."
+ megalithic_pagan_religion_desc:0 "La cultura y la religión antigua eran un crisol de creencias egipcias tradicionales, culto a los astros y veneración de los ancestros. Aún existen muchos megalitos (construcciones de piedra erigidas en honor a los dioses) esparcidos a lo largo de África."
+ ritualistic_pagan_religion_desc:0 "El ritualismo representa una variedad de creencias y religiones populares locales. Promueve el culto a los ancestros, el animismo y las ofrendas votivas."
+ 
  pagan_religion_rebels_title: "Religioso"
  pagan_religion_rebels_name: "Fanáticos de $RELIGION$"
  pagan_religion_rebels_desc: "Los fanáticos religiosos suelen aparecer en provincias controladas por naciones que practican una creencia diferente. Buscan propagar su fe y sofocar a todos los infieles."
