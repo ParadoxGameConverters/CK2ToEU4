@@ -347,4 +347,462 @@ pagan = {
 		heretic = { GOAT_SKULL }
 	}
 	
+	#I:R pagans
+
+	druidic_pagan_reformed = {
+		color = { 0.15 0.55 0.1 }
+		icon = 141
+		
+		province = {
+			local_missionary_strength = 0.02
+		}
+		country = {
+			land_maintenance_modifier = -0.10
+			tolerance_own = 1
+		}
+		country_as_secondary = {
+			merc_maintenance_modifier = -0.1
+			hostile_attrition = 1
+		}
+		heretic = { ELUVEITIE ASTERIX }
+		uses_karma = yes
+	}
+	druidic_pagan = {
+		color = { 0.1 0.6 0.1 }
+		icon = 155
+		
+		province = {
+			local_missionary_strength = 0.02
+		}
+		country = {
+			land_maintenance_modifier = -0.10
+			tolerance_own = 1
+		}
+		country_as_secondary = {
+			merc_maintenance_modifier = -0.1
+			hostile_attrition = 1
+		}
+		heretic = { ELUVEITIE ASTERIX }
+		uses_karma = yes
+	}
+
+	iberian_pagan_reformed = {
+		color = { 0.96 0.66 0.77 }
+		icon = 139
+		
+		country = {
+			tolerance_heathen = 2
+			diplomatic_reputation = 1
+		}
+		province = {
+			local_missionary_strength = 0.02
+		}
+		country_as_secondary = {
+			tolerance_own = 2
+			loot_amount = 0.25
+		}
+		heretic = { SERAPIS }
+	}
+	iberian_pagan = {
+		color = { 0.91 0.71 0.82 }
+		icon = 153
+		
+		country = {
+			tolerance_heathen = 2
+			diplomatic_reputation = 1
+		}
+		province = {
+			local_missionary_strength = 0.02
+		}
+		country_as_secondary = {
+			tolerance_own = 2
+			loot_amount = 0.25
+		}
+		heretic = { SERAPIS }
+	}
+
+	megalithic_pagan_reformed = {
+		color = { 110 33 18 }
+		icon = 142
+		
+		country = {
+			land_attrition = -0.10
+			diplomatic_reputation = 1
+		}
+		province = {
+			local_missionary_strength = 0.02
+		}
+		country_as_secondary = {
+			tolerance_own = 2
+			loot_amount = 0.25
+		}
+		heretic = { SERAPIS }
+	}
+	megalithic_pagan = {
+		color = { 97 46 31 }
+		icon = 156
+		
+		country = {
+			land_attrition = -0.10
+			diplomatic_reputation = 1
+		}
+		province = {
+			local_missionary_strength = 0.02
+		}
+		country_as_secondary = {
+			tolerance_own = 2
+			loot_amount = 0.25
+		}
+		heretic = { SERAPIS }
+	}
+
+	canaanite_pagan_reformed = {
+		color = { 157 173 6 }
+		icon = 130
+		country = {
+			naval_forcelimit_modifier = 0.10
+			global_sailors_modifier = 0.10
+		}
+		province = {
+			local_missionary_strength = 0.02
+		}
+		country_as_secondary = {
+			naval_forcelimit_modifier = 0.05
+			global_sailors_modifier = 0.05
+		}
+		center_of_religion = 379 # Jerusalem
+		heretic = { MOLOCHITES AMMONITES JEBUSAEI MOABITES EDOMITES }
+		on_convert = {
+			add_prestige = -100
+			add_stability = -1
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}
+		}
+	}
+	canaanite_pagan = {
+		color = { 144 186 19 }
+		icon = 144
+		country = {
+			naval_forcelimit_modifier = 0.10
+			global_sailors_modifier = 0.10
+		}
+		province = {
+			local_missionary_strength = 0.02
+		}
+		country_as_secondary = {
+			naval_forcelimit_modifier = 0.05
+			global_sailors_modifier = 0.05
+		}
+		center_of_religion = 379 # Jerusalem
+		heretic = { MOLOCHITES AMMONITES JEBUSAEI MOABITES EDOMITES }
+		on_convert = {
+			add_prestige = -100
+			add_stability = -1
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}
+		}
+	}
+
+	arabic_pagan_reformed = {
+		color = { 153 7 37 }
+		icon = 136
+		province = {
+			local_missionary_strength = 0.02
+		}
+		country = {
+			tolerance_heathen = 2
+			tolerance_heretic = 2
+		}
+		country_as_secondary = {
+			prestige = 1
+			land_attrition = -0.10
+		}
+
+		uses_piety = yes
+		declare_war_in_regency = yes
+		
+		heretic = { BEAR_SPIRIT SNAKE_CLAN }
+	}
+	arabic_pagan = {
+		color = { 140 20 50 }
+		icon = 150
+		province = {
+			local_missionary_strength = 0.02
+		}
+		country = {
+			tolerance_heathen = 2
+			tolerance_heretic = 2
+		}
+		country_as_secondary = {
+			prestige = 1
+			land_attrition = -0.10
+		}
+
+		uses_piety = yes
+		declare_war_in_regency = yes
+		
+		heretic = { BEAR_SPIRIT SNAKE_CLAN }
+	}
+
+	cybelene_pagan_reformed = {
+		color = { 168 0 68 }
+		icon = 133
+		country = {
+			tolerance_own = 1
+			advisor_pool = 1
+		}
+		country_as_secondary = {
+			advisor_pool = 1
+			stability_cost_modifier = -0.1
+		}
+		province = {
+			local_missionary_strength = 0.02
+		}
+		heretic = { SPHYNX }
+	}
+	cybelene_pagan = {
+		color = { 155 13 81 }
+		icon = 147
+		country = {
+			tolerance_own = 1
+			advisor_pool = 1
+		}
+		country_as_secondary = {
+			advisor_pool = 1
+			stability_cost_modifier = -0.1
+		}
+		province = {
+			local_missionary_strength = 0.02
+		}
+		heretic = { SPHYNX }
+	}
+
+	sumerian_pagan_reformed = {
+		icon = 132
+		color = { 141 0 0 }
+		country = {
+			monthly_splendor = 2
+			harsh_treatment_cost = -0.3
+		}
+		province = {
+			local_defensiveness = 0.1
+			local_missionary_strength = 0.02
+		}
+		country_as_secondary = {
+			monthly_splendor = 1
+			harsh_treatment_cost = -0.1
+		}
+		heretic = { DANIEL SUMER }
+	}
+	sumerian_pagan = {
+		icon = 146
+		color = { 128 11 0 }
+		country = {
+			monthly_splendor = 2
+			harsh_treatment_cost = -0.3
+		}
+		province = {
+			local_defensiveness = 0.1
+			local_missionary_strength = 0.02
+		}
+		country_as_secondary = {
+			monthly_splendor = 1
+			harsh_treatment_cost = -0.1
+		}
+		heretic = { DANIEL SUMER }
+	}
+
+	khaldic_pagan_reformed = {
+		color = { 0.38 0.37 0.13 }
+		icon = 137
+		province = {
+			local_missionary_strength = 0.02
+		}
+		country = {
+			tolerance_heathen = 2
+			tolerance_heretic = 2
+		}
+		country_as_secondary = {
+			prestige = 1
+			land_attrition = -0.10
+		}
+		heretic = { SPHYNX }
+	}
+	khaldic_pagan = {
+		color = { 0.33 0.42 0.18 }
+		icon = 151
+		province = {
+			local_missionary_strength = 0.02
+		}
+		country = {
+			tolerance_heathen = 2
+			tolerance_heretic = 2
+		}
+		country_as_secondary = {
+			prestige = 1
+			land_attrition = -0.10
+		}
+		heretic = { SPHYNX }
+	}
+
+	armazic_pagan_reformed = {
+		color = { 0.85 0.15 0.15 }
+		icon = 138
+		province = {
+			local_missionary_strength = 0.01
+		}
+		country = {
+			tolerance_heathen = 1
+			defensiveness = 0.1
+		}
+		country_as_secondary = {
+			global_regiment_recruit_speed = -0.10
+			defensiveness = 0.2
+		}
+		heretic = { SPHYNX }
+	}
+	armazic_pagan = {
+		color = { 0.8 0.2 0.2 }
+		icon = 152
+		province = {
+			local_missionary_strength = 0.01
+		}
+		country = {
+			tolerance_heathen = 1
+			defensiveness = 0.1
+		}
+		country_as_secondary = {
+			global_regiment_recruit_speed = -0.10
+			defensiveness = 0.2
+		}
+		heretic = { SPHYNX }
+	}
+
+	heptadic_pagan_reformed = {
+		color = { 0.55 0.14 0.15 }
+		icon = 140
+		
+		province = {
+			local_missionary_strength = 0.02
+		}
+		country = {
+			tolerance_heretic = 1
+			tolerance_heathen = 1
+		}
+		country_as_secondary = {
+			build_cost = -0.1
+			defensiveness = 0.2
+		}
+		heretic = { GOAT_SKULL FINNIC }
+	}
+	heptadic_pagan = {
+		color = { 0.5 0.19 0.2 }
+		icon = 154
+		
+		province = {
+			local_missionary_strength = 0.02
+		}
+		country = {
+			tolerance_heretic = 1
+			tolerance_heathen = 1
+		}
+		country_as_secondary = {
+			build_cost = -0.1
+			defensiveness = 0.2
+		}
+		heretic = { GOAT_SKULL FINNIC }
+	}
+
+	zalmoxian_pagan_reformed = {
+		color = { 0.5 0 95 }
+		icon = 134
+		province = {
+			local_missionary_strength = 0.06
+		}
+		country = {
+			global_tax_modifier = 0.05
+			tolerance_heathen = 1
+		}
+		country_as_secondary = {
+			infantry_power = 0.1
+			tolerance_heathen = 1
+		}
+
+		heretic = { SERAPIS }
+	}
+	zalmoxian_pagan = {
+		color = { 0.0 0 100 }
+		icon = 148
+		province = {
+			local_missionary_strength = 0.06
+		}
+		country = {
+			global_tax_modifier = 0.05
+			tolerance_heathen = 1
+		}
+		country_as_secondary = {
+			infantry_power = 0.1
+			tolerance_heathen = 1
+		}
+
+		heretic = { SERAPIS }
+	}
+
+	ritualistic_pagan_reformed = {
+		color = { 13 54 18 }
+		icon = 143
+		country = {
+			tolerance_own = 2
+			tolerance_heretic = 2
+		}
+		province = {
+			local_missionary_strength = 0.02
+		}
+		country_as_secondary = {
+			tolerance_own = 2
+			tolerance_heretic = 2
+		}
+		
+		heretic = { SNAKE_CLAN }
+	}
+	ritualistic_pagan = {
+		color = { 0 67 31 }
+		icon = 145
+		country = {
+			tolerance_own = 2
+			tolerance_heretic = 2
+		}
+		province = {
+			local_missionary_strength = 0.02
+		}
+		country_as_secondary = {
+			tolerance_own = 2
+			tolerance_heretic = 2
+		}
+		
+		heretic = { SNAKE_CLAN }
+	}
+
+	kemetism = {
+		color = { 179 45 0 }
+		icon = 131
+		country = {
+			legitimacy = 2
+			republican_tradition = 2
+		}
+		province = {
+			local_missionary_strength = 0.02
+		}
+		country_as_secondary = {
+			legitimacy = 1
+			republican_tradition = 1
+		}
+		personal_deity = yes
+		heretic = { KUSHITE SPHYNX }
+	}
+	
 }
