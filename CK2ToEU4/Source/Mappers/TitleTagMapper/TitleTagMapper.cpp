@@ -202,3 +202,11 @@ std::optional<std::string> mappers::TitleTagMapper::getChinaForTitle(const std::
 	// No china?
 	return std::nullopt;
 }
+
+std::set<std::string> mappers::TitleTagMapper::getAllChinas() const
+{
+	std::set<std::string> toReturn;
+	for (const auto& mapping: chineseMappings)
+		toReturn.insert(mapping.getEU4Tag());
+	return toReturn;
+}

@@ -46,11 +46,10 @@ void CK2::Wonder::registerKeys()
 			stage = 0;
 			upgrades.emplace("generic_misc_upgrade_3");
 		}
-		else if (stage > 3) //For mods
+		else if (stage > 3) // For mods
 		{
 			stage = 3;
 		}
-
 	});
 	registerKeyword("active", [this](const std::string& unused, std::istream& theStream) {
 		active = (commonItems::singleString(theStream).getString() == "yes");

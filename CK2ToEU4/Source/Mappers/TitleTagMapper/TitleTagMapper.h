@@ -18,6 +18,7 @@ class TitleTagMapper: commonItems::parser
 	std::optional<std::string> getTagForTitle(const std::string& ck2Title, int eu4Capital);
 	std::optional<std::string> getTagForTitle(const std::string& ck2Title);
 	std::optional<std::string> getChinaForTitle(const std::string& ck2Title);
+	std::set<std::string> getAllChinas() const;
 
 	[[nodiscard]] const auto& getMappings() const { return theMappings; }						  // used for testing
 	[[nodiscard]] const auto& getRegisteredTitleTags() const { return registeredTitleTags; } // used for testing
