@@ -574,7 +574,7 @@ upgrade_high_gopura  = {
 upgrade_shikhara  = {
 	country_modifiers = {
 		church_loyalty_modifier = { 0 0.05 0.1 0.15 }
-		brahmins_loyalty_modifier = { 0 0.05 0.1 0.15 }
+		brahmins_hindu_loyalty_modifier = { 0 0.05 0.1 0.15 }
 	}
 }
 upgrade_mandapa  = {

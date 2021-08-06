@@ -255,6 +255,8 @@ void CK2::Provinces::buildMonument(const mappers::MonumentsMapper& monumentsMapp
 
 		auto monumentsMapping = monumentsMapper.getWonders().find(upgrade)->second;
 
+		if (!wonder->hasBase() && monumentsMapping.getIsBase())
+			wonder->setBase(true);
 		if (monumentsMapping.getCanBeMoved())
 			wonder->setCanBeMoved("yes");
 		if (!monumentsMapping.getBuildTrigger().empty())

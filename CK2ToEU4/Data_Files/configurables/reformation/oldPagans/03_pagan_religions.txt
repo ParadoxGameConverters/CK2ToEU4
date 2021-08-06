@@ -155,7 +155,6 @@ pagan = {
 			tolerance_heretic = 2
 		}
 		province = {
-			local_missionary_strength = 0.02
 		}
 		country_as_secondary = {
 			tolerance_own = 2

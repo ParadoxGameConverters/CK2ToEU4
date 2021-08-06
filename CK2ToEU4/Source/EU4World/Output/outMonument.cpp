@@ -8,6 +8,8 @@ EU4::outMonument::outMonument(const Configuration& theConfiguration, std::option
 		Log(LogLevel::Error) << "You fed me a dangling pointer.";
 		return;
 	}
+	if (!wonder->second->hasBase() || (wonder->second->getProvinceModifiers().empty() && wonder->second->getAreaModifiers().empty() && wonder->second->getCountryModifiers().empty())) // This is a modded monument, probably better to not convert
+		return;
 
 	std::ofstream output("output/" + theConfiguration.getOutputName() + "/common/great_projects/!00_converted_monuments.txt", std::ios::out | std::ios::app);
 	if (!output.is_open())
@@ -33,8 +35,8 @@ EU4::outMonument::outMonument(const Configuration& theConfiguration, std::option
 	output << "keep_trigger = {\n\t\t\n\t}\n\n\t";
 	// Tier 0
 	output << "tier_0 = {\n\t\t";
-	output << "upgrade_time = {\n\t\t\tmonths = 0\n\t\t}\n\n\t";
-	output << "cost_to_upgrade = {\n\t\t\tfactor = 0\n\t\t}\n\n\t";
+	output << "upgrade_time = {\n\t\t\tmonths = 0\n\t\t}\n\n\t\t";
+	output << "cost_to_upgrade = {\n\t\t\tfactor = 0\n\t\t}\n\n\t\t";
 	output << "province_modifiers = {\n\t\t\t";
 	for (auto modifiers: wonder->second->getProvinceModifiers())
 		output << modifiers.first << " = " << modifiers.second[0] << "\n\t\t\t";
@@ -54,8 +56,8 @@ EU4::outMonument::outMonument(const Configuration& theConfiguration, std::option
 	output << "\n\t}\n\n\t";
 	// Tier 1
 	output << "tier_1 = {\n\t\t";
-	output << "upgrade_time = {\n\t\t\tmonths = 120\n\t\t}\n\n\t";
-	output << "cost_to_upgrade = {\n\t\t\tfactor = 1000\n\t\t}\n\n\t";
+	output << "upgrade_time = {\n\t\t\tmonths = 120\n\t\t}\n\n\t\t";
+	output << "cost_to_upgrade = {\n\t\t\tfactor = 1000\n\t\t}\n\n\t\t";
 	output << "province_modifiers = {\n\t\t\t";
 	for (auto modifiers: wonder->second->getProvinceModifiers())
 		output << modifiers.first << " = " << modifiers.second[1] << "\n\t\t\t";
@@ -75,8 +77,8 @@ EU4::outMonument::outMonument(const Configuration& theConfiguration, std::option
 	output << "\n\t}\n\n\t";
 	// Tier 2
 	output << "tier_2 = {\n\t\t";
-	output << "upgrade_time = {\n\t\t\tmonths = 240\n\t\t}\n\n\t";
-	output << "cost_to_upgrade = {\n\t\t\tfactor = 3500\n\t\t}\n\n\t";
+	output << "upgrade_time = {\n\t\t\tmonths = 240\n\t\t}\n\n\t\t";
+	output << "cost_to_upgrade = {\n\t\t\tfactor = 3500\n\t\t}\n\n\t\t";
 	output << "province_modifiers = {\n\t\t\t";
 	for (auto modifiers: wonder->second->getProvinceModifiers())
 		output << modifiers.first << " = " << modifiers.second[2] << "\n\t\t\t";
@@ -96,8 +98,8 @@ EU4::outMonument::outMonument(const Configuration& theConfiguration, std::option
 	output << "\n\t}\n\n\t";
 	// Tier 3
 	output << "tier_3 = {\n\t\t";
-	output << "upgrade_time = {\n\t\t\tmonths = 480\n\t\t}\n\n\t";
-	output << "cost_to_upgrade = {\n\t\t\tfactor = 7000\n\t\t}\n\n\t";
+	output << "upgrade_time = {\n\t\t\tmonths = 480\n\t\t}\n\n\t\t";
+	output << "cost_to_upgrade = {\n\t\t\tfactor = 7000\n\t\t}\n\n\t\t";
 	output << "province_modifiers = {\n\t\t\t";
 	for (auto modifiers: wonder->second->getProvinceModifiers())
 		output << modifiers.first << " = " << modifiers.second[3] << "\n\t\t\t";
