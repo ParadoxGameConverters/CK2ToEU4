@@ -8,6 +8,14 @@
 		name = start_convert_pagan_religion
 		file = "start_conversion_norse.wav"
 	}
+	sound = {
+		name = religion_pagan_religion_reformed
+		file = "tab_religion_pagan.wav"
+	}
+	sound = {
+		name = start_convert_pagan_religion_reformed
+		file = "start_conversion_norse.wav"
+	}
 	#Norse
 	sound = {
 		name = religion_norse_pagan

@@ -154,7 +154,23 @@
 		}
 		
 		heretic = { SNAKE_CLAN }
-	}	
+	}
+	pagan_religion_reformed = { #Should be impossible, but just in case
+		color = { 0 0 0 }
+		icon = 121
+		country = {
+			tolerance_own = 2
+			tolerance_heretic = 2
+		}
+		province = {
+		}
+		country_as_secondary = {
+			tolerance_own = 2
+			tolerance_heretic = 2
+		}
+		
+		heretic = { SNAKE_CLAN }
+	}
 	norse_pagan = {
 		icon = 122
 		color = { 240 240 240 }
@@ -565,8 +581,12 @@
 			land_attrition = -0.10
 		}
 
-		uses_piety = yes
-		declare_war_in_regency = yes
+		unique_modifiers = {
+			uses_piety = yes
+		}
+		not_unique_modifiers = {
+			declare_war_in_regency = yes
+		}
 		
 		heretic = { BEAR_SPIRIT SNAKE_CLAN }
 	}
@@ -585,8 +605,12 @@
 			land_attrition = -0.10
 		}
 
-		uses_piety = yes
-		declare_war_in_regency = yes
+		unique_modifiers = {
+			uses_piety = yes
+		}
+		not_unique_modifiers = {
+			declare_war_in_regency = yes
+		}
 		
 		heretic = { BEAR_SPIRIT SNAKE_CLAN }
 	}
