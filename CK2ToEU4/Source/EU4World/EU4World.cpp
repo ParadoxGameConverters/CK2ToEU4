@@ -131,6 +131,9 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 	adjustChina(sourceWorld);
 	Log(LogLevel::Progress) << "72 %";
 
+	// Filter dead relationships
+	diplomacy.filterDeadRelationships(countries, titleTagMapper.getAllChinas());
+
 	// Check for duplicate country names and rename accordingly
 	fixDuplicateNames();
 

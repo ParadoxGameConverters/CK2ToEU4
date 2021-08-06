@@ -5,6 +5,7 @@
 #include "Agreement.h"
 #include "Parser.h"
 #include <map>
+#include <set>
 #include <vector>
 
 class Configuration;
@@ -22,6 +23,7 @@ class Diplomacy: commonItems::parser
 	void importTributaries(const std::map<std::string, std::shared_ptr<Country>>& countries, const CK2::Diplomacy& diplomacy, date conversionDate);
 	void updateTagsInAgreements(const std::string& oldTag, const std::string& newTag);
 	void deleteAgreementsWithTag(const std::string& deadTag);
+	void filterDeadRelationships(const std::map<std::string, std::shared_ptr<Country>>& countries, const std::set<std::string>& chinaTags);
 
 	[[nodiscard]] const auto& getAgreements() const { return agreements; }
 	[[nodiscard]] bool isCountryVassal(const std::string& tag) const;

@@ -156,3 +156,22 @@ bool EU4::Diplomacy::isCountryJunior(const std::string& tag) const
 	}
 	return false;
 }
+
+void EU4::Diplomacy::filterDeadRelationships(const std::map<std::string, std::shared_ptr<Country>>& countries, const std::set<std::string>& chinaTags)
+{
+	std::vector<std::shared_ptr<Agreement>> newAgreements;
+	std::set<std::string> landlessCountries;
+
+	for (const auto& [countryTag, country]: countries)
+		if (country->getProvinces().empty())
+			landlessCountries.insert(countryTag);
+
+	// All countries we process must have provinces, unless First is a China, since we sideload those separately.
+	for (const auto& agreement: agreements)
+		if (landlessCountries.contains(agreement->getFirst()) && !chinaTags.contains(agreement->getFirst()) || landlessCountries.contains(agreement->getSecond()))
+			continue;
+		else
+			newAgreements.emplace_back(agreement);
+
+	agreements.swap(newAgreements);
+}
