@@ -225,8 +225,38 @@ byzantine = {
 	anatolian = {
 		primary = BYZ
 	}
+	empurian = {
+		primary = SPA
+	}
+	histrian = {
+		primary = RMN
+	}
+	kyrenaikan = {
+		primary = TRP
+	}
+	leucaethiopian = {
+		primary = ETH
+	}
 	magnagreek = {
 		primary = BYZ
+	}
+	messalian = {
+		primary = PRO
+	}
+	ptolemaic = {
+		primary = EGY
+	}
+	pulian = {
+		primary = CLI
+	}
+	seleucian = {
+		primary = PER
+	}
+	tylosi = {
+		primary = ARB
+	}
+	yavana = {
+		primary = AFG
 	}
 	phrygian = {
 		male_names = {
