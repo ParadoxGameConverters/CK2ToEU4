@@ -226,7 +226,7 @@ link = { eu4 = komi ck2 = komi tech = eastern gfx = inuitgfx }
 link = { eu4 = samoyed ck2 = samoyed tech = eastern gfx = inuitgfx }
 link = { eu4 = mordvin ck2 = mordvin tech = eastern gfx = inuitgfx }
 link = { eu4 = ostyaki ck2 = khanty tech = eastern gfx = inuitgfx }
-link = { eu4 = meshchera ck2 = meshchera tech = eastern gfx = inuitgfx }
+link = { eu4 = meshchera ck2 = mari ck2 = meshchera tech = eastern gfx = inuitgfx }
 
 # Baltic
 
@@ -244,7 +244,6 @@ link = { eu4 = nogaybak ck2 = mongol tech = nomad_group gfx = muslimgfx region =
 link = { eu4 = siberian ck2 = mongol tech = nomad_group gfx = muslimgfx region = west_siberia_region }
 
 # Tatar (Historical Immersion Project - SWMH)
-link = { eu4 = kazani ck2 = mari tech = nomad_group gfx = muslimgfx } #Fallback
 link = { eu4 = bashkir ck2 = bashkir tech = nomad_group gfx = muslimgfx } #Fallback
 
 # Altaic
