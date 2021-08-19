@@ -9,6 +9,8 @@
  #Blessings
  mazdaki_blessings:0 "Rituels"
  pick_mazdaki_blessing:0 "Choisissez Rituel"
+ nestorian_blessings:0 "Bénédictions"
+ pick_nestorian_blessing:0 "Choisir la Bénédiction"
  
  #Other
  european_tribal_ideas: "Doctrines tribales européennes"
