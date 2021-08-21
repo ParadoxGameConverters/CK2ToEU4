@@ -21,7 +21,7 @@ CEG = "countries/Cheng.txt"
 SNG = "countries/Song.txt"
 YIN = "countries/Yin.txt"
 CHN = "countries/China.txt"
-GJN = "Countries/GreatJin.txt"
+GJN = "countries/GreatJin.txt"
 
 #Holy Orders
 ADD = "countries/OrderAddai.txt"
