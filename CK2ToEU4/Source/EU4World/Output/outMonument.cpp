@@ -8,8 +8,8 @@ EU4::outMonument::outMonument(const Configuration& theConfiguration, std::option
 		Log(LogLevel::Error) << "You fed me a dangling pointer.";
 		return;
 	}
-	if (!wonder->second->hasBase() || (wonder->second->getProvinceModifiers().empty() && wonder->second->getAreaModifiers().empty() &&
-													  wonder->second->getCountryModifiers().empty())) // This is a modded monument, probably better to not convert
+	if (wonder->second->getProvinceModifiers().empty() && wonder->second->getAreaModifiers().empty() &&
+		 wonder->second->getCountryModifiers().empty()) // This is a modded monument, probably better to not convert
 		return;
 
 	std::ofstream output("output/" + theConfiguration.getOutputName() + "/common/great_projects/!00_converted_monuments.txt", std::ios::out | std::ios::app);
