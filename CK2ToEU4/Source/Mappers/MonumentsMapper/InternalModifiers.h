@@ -15,7 +15,7 @@ class InternalModifiers: commonItems::parser
   private:
 	void registerKeys();
 
-	std::map<std::string, std::vector<double>> modifierMap; //e.g. local_defensiveness, {0.05, 0.2, 0.33, 0.33}
+	std::map<std::string, std::vector<double>> modifierMap; // e.g. local_defensiveness, {0.05, 0.2, 0.33, 0.33}
 };
 } // namespace mappers
 

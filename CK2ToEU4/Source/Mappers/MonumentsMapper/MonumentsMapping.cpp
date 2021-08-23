@@ -63,5 +63,5 @@ void mappers::MonumentsMapping::AddCountrySet(std::istream& theStream)
 	InternalModifiers mods(theStream);
 	for (auto tempMod: mods.getModifierMap())
 		if (!countryModifiers.contains(tempMod.first))
-			countryModifiers.emplace(tempMod.first, tempMod.second);	
+			countryModifiers.emplace(tempMod.first, tempMod.second);
 }
