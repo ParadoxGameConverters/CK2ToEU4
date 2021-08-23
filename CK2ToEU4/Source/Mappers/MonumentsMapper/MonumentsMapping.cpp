@@ -47,27 +47,21 @@ void mappers::MonumentsMapping::registerKeys()
 void mappers::MonumentsMapping::AddProvinceSet(std::istream& theStream)
 {
 	InternalModifiers mods(theStream);
-	const auto& tempMod = mods.getModifierType();
-	const auto& tempValues = mods.getModifierValues();
-
-	if (!provinceModifiers.contains(tempMod))
-		provinceModifiers.emplace(tempMod, tempValues);
+	for (auto tempMod: mods.getModifierMap())
+		if (!provinceModifiers.contains(tempMod.first))
+			provinceModifiers.emplace(tempMod.first, tempMod.second);
 }
 void mappers::MonumentsMapping::AddAreaSet(std::istream& theStream)
 {
 	InternalModifiers mods(theStream);
-	const auto& tempMod = mods.getModifierType();
-	const auto& tempValues = mods.getModifierValues();
-
-	if (!areaModifiers.contains(tempMod))
-		areaModifiers.emplace(tempMod, tempValues);
+	for (auto tempMod: mods.getModifierMap())
+		if (!areaModifiers.contains(tempMod.first))
+			areaModifiers.emplace(tempMod.first, tempMod.second);
 }
 void mappers::MonumentsMapping::AddCountrySet(std::istream& theStream)
 {
 	InternalModifiers mods(theStream);
-	const auto& tempMod = mods.getModifierType();
-	const auto& tempValues = mods.getModifierValues();
-
-	if (!countryModifiers.contains(tempMod))
-		countryModifiers.emplace(tempMod, tempValues);
+	for (auto tempMod: mods.getModifierMap())
+		if (!countryModifiers.contains(tempMod.first))
+			countryModifiers.emplace(tempMod.first, tempMod.second);
 }

@@ -34,7 +34,7 @@ class Wonder: commonItems::parser
 	[[nodiscard]] const auto& getUpgrades() const { return upgrades; }
 	[[nodiscard]] auto isSpent() const { return spent; }
 
-	void addUpgrade(const std::string& mod) { upgrades.emplace(mod); }
+	void addUpgrade(const std::string& mod) { upgrades.emplace_back(mod); }
 	void setWonderID(int mod) { wonderID = mod; }
 	void setName(const std::string& newName) { name = newName; }
 	void setTrueDate(int binDate);
@@ -69,7 +69,7 @@ class Wonder: commonItems::parser
 	std::string builderReligion;
 	std::string buildTrigger;
 
-	std::set<std::string> upgrades;
+	std::vector<std::string> upgrades;
 	std::vector<std::string> onUpgraded;
 	std::map<std::string, std::vector<double>> provinceModifiers;
 	std::map<std::string, std::vector<double>> areaModifiers;

@@ -15,7 +15,7 @@ void CK2::Wonder::registerKeys()
 {
 	registerKeyword("type", [this](const std::string& unused, std::istream& theStream) {
 		type = commonItems::singleString(theStream).getString();
-		upgrades.insert(type);
+		upgrades.emplace_back(type);
 	});
 	registerKeyword("province", [this](const std::string& unused, std::istream& theStream) {
 		provinceID = commonItems::singleInt(theStream).getInt();
@@ -36,7 +36,7 @@ void CK2::Wonder::registerKeys()
 			if (const auto& tempDate = historyItem.getBinaryDate(); binaryDate == 0 || tempDate < binaryDate) // Gets the earliest date
 				binaryDate = tempDate;
 			if (!historyItem.getUpgrade().empty())
-				upgrades.insert(historyItem.getUpgrade());
+				upgrades.emplace_back(historyItem.getUpgrade());
 		}
 	});
 	registerKeyword("stage", [this](const std::string& unused, std::istream& theStream) {
@@ -44,7 +44,7 @@ void CK2::Wonder::registerKeys()
 		if (stage < 0)
 		{
 			stage = 0;
-			upgrades.emplace("generic_misc_upgrade_3");
+			upgrades.emplace_back("generic_misc_upgrade_3");
 		}
 		else if (stage > 3) // For mods
 		{
