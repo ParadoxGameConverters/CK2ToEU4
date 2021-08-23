@@ -10,14 +10,12 @@ class InternalModifiers: commonItems::parser
 	InternalModifiers() = default;
 	explicit InternalModifiers(std::istream& theStream);
 
-	[[nodiscard]] const auto& getModifierType() const { return modifierType; }
-	[[nodiscard]] const auto& getModifierValues() const { return modifierValues; }
+	[[nodiscard]] const auto& getModifierMap() const { return modifierMap; }
 
   private:
 	void registerKeys();
 
-	std::string modifierType;				// e.g. local_defensiveness
-	std::vector<double> modifierValues; // e.g. {0.05, 0.2, 0.33, 0.33}
+	std::map<std::string, std::vector<double>> modifierMap; //e.g. local_defensiveness, {0.05, 0.2, 0.33, 0.33}
 };
 } // namespace mappers
 

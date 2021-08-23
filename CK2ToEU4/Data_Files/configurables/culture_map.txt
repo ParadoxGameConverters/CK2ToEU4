@@ -7,10 +7,13 @@
 
 # North Germanic
 
+link = { eu4 = icelandic ck2 = norse ck2 = norwegian ck2 = danish ck2 = swedish tech = western gfx = westerngfx region = subarctic_islands_area }
+link = { eu4 = swedish ck2 = norse tech = western gfx = westerngfx region = norrland_area region = gotaland_area region = bothnia_area province = 4151 region = vastra_gotaland_area region = ostra_svealand_area }
 link = { eu4 = swedish ck2 = swedish tech = western gfx = westerngfx }
+link = { eu4 = norwegian ck2 = norse tech = western gfx = westerngfx region = northern_norway region = eastern_norway region = western_norway province = 315 }
 link = { eu4 = norwegian ck2 = norwegian tech = western gfx = westerngfx }
+link = { eu4 = danish ck2 = norse tech = western gfx = westerngfx region = jutland_area region = denmark_area region = north_german_region region = skaneland_area }
 link = { eu4 = danish ck2 = danish tech = western gfx = westerngfx }
-link = { eu4 = icelandic ck2 = norse ck2 = norwegian ck2 = danish ck2 = swedish province = 370 province = 371 tech = western gfx = westerngfx }
 link = { eu4 = hannoverian ck2 = old_saxon tech = western gfx = westerngfx }
 link = { eu4 = norse ck2 = norse tech = western gfx = westerngfx } #PLEASE KEEP THIS LINE HERE!
 

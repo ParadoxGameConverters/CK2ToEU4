@@ -13,7 +13,6 @@ mappers::InternalModifiers::InternalModifiers(std::istream& theStream)
 void mappers::InternalModifiers::registerKeys()
 {
 	registerRegex(commonItems::catchallRegex, [this](const std::string& mod, std::istream& theStream) {
-		modifierType = mod;
-		modifierValues = commonItems::doubleList(theStream).getDoubles();
+		modifierMap.emplace(mod, commonItems::doubleList(theStream).getDoubles());
 	});
 }
