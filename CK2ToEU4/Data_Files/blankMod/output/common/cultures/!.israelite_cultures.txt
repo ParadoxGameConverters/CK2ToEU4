@@ -18,6 +18,6 @@ israelite = {
 		Miriam Miryam Muskat Nachalah Nechamah Puah Peninah Rachel Rivkah Rhoda Ruth Sarah Shoshanah Shulamit Simchat "Anna Frank" Tamar Tikvah Tirtzah Tzipporah Tzitta Tziviah Yael Yehudit Yaffah Yiska Yochanah Yocheved Yonah Zelda Zlata
 		"Rosa Luxembourg" Salome
 		}
-		dynasty_names = { Abramovitch Ashkenazi Bernstein Birnbaum Bloch Cantor Cohen Frank Friedl√§nder Ginsberg Goldstein Horowitz Israel Jacobsohn Kagan Kaplan Klein
+		dynasty_names = { Abramovitch Ashkenazi Bernstein Birnbaum Bloch Cantor Cohen Frank Friedl‰nder Ginsberg Goldstein Horowitz Israel Jacobsohn Kagan Kaplan Klein
 		Levin Luria Morgenstern Nathan Oren Rosenthal Sachs Schapiro Schwartz Weinstein Weiss }
 }
