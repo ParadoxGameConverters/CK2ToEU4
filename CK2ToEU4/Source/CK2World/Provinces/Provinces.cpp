@@ -245,7 +245,7 @@ std::set<std::string> CK2::Provinces::linkMonuments(const Wonders& wonders, cons
 
 			// Now we will finish building the monument
 			if (!premadeMonuments.contains(monumentName))
-				buildMonument(monumentsMapper, wonder.second);				
+				buildMonument(monumentsMapper, wonder.second);
 		}
 		counter++;
 	}
