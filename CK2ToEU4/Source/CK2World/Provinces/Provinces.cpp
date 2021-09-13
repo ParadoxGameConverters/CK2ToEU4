@@ -185,9 +185,27 @@ std::set<std::string> CK2::Provinces::linkMonuments(const Wonders& wonders, cons
 							wonder.second->getType() == "wonder_temple_hindu")
 					wonder.second->setName("Great Temple of" + provinceItr->second->getName());
 				else if (wonder.second->getType() == "wonder_statue_ruler")
-					wonder.second->setName(
-						 characters.getCharacters().find(wonder.second->getBuilder())->second->getName() + " of " +
-						 characters.getCharacters().find(wonder.second->getBuilder())->second->getPrimaryTitle().second->getTitle().second->getDisplayName());
+				{
+					std::string builderName;
+					std::string locationName;
+					if (const auto& theBuilder = characters.getCharacters().find(wonder.second->getBuilder()); theBuilder != characters.getCharacters().end())
+					{
+						if (theBuilder->second && !theBuilder->second->getName().empty())
+						{
+							builderName = theBuilder->second->getName();
+							const auto& primaryTitle = theBuilder->second->getPrimaryTitle().second;
+							if (primaryTitle && primaryTitle->getTitle().second && !primaryTitle->getTitle().second->getDisplayName().empty())
+								locationName = primaryTitle->getTitle().second->getDisplayName();
+						}
+					}
+					std::string theName;
+					if (!builderName.empty() && !locationName.empty())
+						wonder.second->setName(builderName + " of " + locationName);
+					else if (!builderName.empty() && locationName.empty())
+						wonder.second->setName(builderName + " of " + provinceItr->second->getName());
+					else
+						wonder.second->setName("Great Statue of " + provinceItr->second->getName());
+				}
 				else if (wonder.second->getType() == "wonder_statue_horse")
 					wonder.second->setName("Colossal Mount of " + provinceItr->second->getName());
 				else if (wonder.second->getType() == "wonder_fortress")
