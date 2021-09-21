@@ -189,6 +189,8 @@ link = { eu4 = isaurian ck2 = isaurian tech = eastern gfx = easterngfx }
 link = { eu4 = paphlagonian ck2 = paphlagonian tech = eastern gfx = easterngfx }
 link = { eu4 = cilician ck2 = cilician tech = eastern gfx = easterngfx }
 link = { eu4 = babylonian ck2 = babylonian tech = eastern gfx = easterngfx }
+link = { eu4 = dagestani ck2 = caucasian_albanian tech = eastern gfx = easterngfx }
+link = { eu4 = hellenistic ck2 = hellenistic tech = eastern gfx = easterngfx }
 
 # Punic
 
@@ -197,6 +199,7 @@ link = { eu4 = phoenician ck2 = phoenician tech = muslim gfx = muslimgfx }
 
 # Celtic
 link = { eu4 = highland_scottish ck2 = irish tech = western gfx = westerngfx region = kingdom_of_the_isles_area region = highlands_area region = lowlands_area region = scottish_marches_area }
+link = { eu4 = highland_scottish ck2 = manx tech = western gfx = westerngfx }
 link = { eu4 = irish ck2 = irish tech = western gfx = westerngfx }
 link = { eu4 = pictish ck2 = pictish tech = western gfx = westerngfx }
 link = { eu4 = scottish ck2 = scottish tech = western gfx = westerngfx }
