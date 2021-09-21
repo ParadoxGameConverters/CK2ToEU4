@@ -1,3 +1,6 @@
+#Add new culture groups to bottom of the file, in order to preserve their colors defined in
+#common/region_colors/00_region_colors.txt
+
 oghuz = {
 	# Pecheneg name pool used as default one
 	male_names = { 
