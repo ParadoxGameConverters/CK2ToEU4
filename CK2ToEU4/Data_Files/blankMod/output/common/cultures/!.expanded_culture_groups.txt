@@ -258,6 +258,8 @@ byzantine = {
 	yavana = {
 		primary = AFG
 	}
+	hellenistic = {
+	}
 	phrygian = {
 		male_names = {
 			Morzios Gaizatorix Pylaemenes Mithridates Datames Ariobarzanes Ariamnes Ariarathes Croesus Gyges Ardys Sadyattes Atys Adrastus Gordias Midas
