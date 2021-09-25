@@ -10,7 +10,7 @@ on:
 jobs:
   build_test_and_publish:
     if: github.repository_owner == 'ParadoxGameConverters'
-    runs-on: [[self-hosted, windows]]
+    runs-on: [self-hosted, windows]
     
     steps:
     - uses: actions/checkout@v2

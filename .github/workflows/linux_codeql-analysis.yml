@@ -18,7 +18,7 @@ jobs:
   analyze_main:
     name: Analyze
     if: github.repository_owner == 'ParadoxGameConverters'
-    runs-on: [[self-hosted, linux]]
+    runs-on: [self-hosted, linux]
 
     strategy:
       fail-fast: false
