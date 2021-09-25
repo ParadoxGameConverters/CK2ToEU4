@@ -9,6 +9,7 @@ on:
 
 jobs:
   build_test_and_publish:
+    name: Build, test and publish local
     if: github.repository_owner == 'ParadoxGameConverters'
     runs-on: [self-hosted, windows]
     
@@ -66,7 +67,8 @@ jobs:
       run: |
         Get-ChildItem -Path $Env:GITHUB_WORKSPACE -Recurse -Force | Remove-Item -force -recurse
  
-   build_test:
+  build_test:
+    name: Build and test foreign
     if: github.repository_owner != 'ParadoxGameConverters'
     runs-on: windows-latest
     

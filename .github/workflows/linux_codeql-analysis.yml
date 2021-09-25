@@ -16,7 +16,7 @@ on:
 
 jobs:
   analyze_main:
-    name: Analyze
+    name: Analyze Local
     if: github.repository_owner == 'ParadoxGameConverters'
     runs-on: [self-hosted, linux]
 
@@ -64,7 +64,7 @@ jobs:
       if: ${{ true }} # To ensure this step runs even when earlier steps fail      
 
   analyze:
-    name: Analyze
+    name: Analyze Foreign
     if: github.repository_owner != 'ParadoxGameConverters'
     runs-on: ubuntu-latest
 
