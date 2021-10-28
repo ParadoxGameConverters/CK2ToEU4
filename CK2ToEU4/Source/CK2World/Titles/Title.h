@@ -67,7 +67,7 @@ class Title: commonItems::parser
 	void setPreviousHolders(const std::map<int, std::shared_ptr<Character>>& thePreviousHolders) { previousHolders = thePreviousHolders; }
 	void overrideLiege() { liege = deJureLiege; }
 	void overrideLiege(const std::pair<std::string, std::shared_ptr<Liege>>& theLiege) { liege = theLiege; }
-	void registerGeneratedLiege(const std::pair<std::string, std::shared_ptr<Title>>& liege) { generatedLiege = liege; }
+	void registerGeneratedLiege(const std::pair<std::string, std::shared_ptr<Title>>& theLiege) { generatedLiege = theLiege; }
 	void registerVassal(const std::pair<std::string, std::shared_ptr<Title>>& theVassal) { vassals.insert(theVassal); }
 	void registerGeneratedVassal(const std::pair<std::string, std::shared_ptr<Title>>& theVassal);
 	void registerDeJureVassal(const std::pair<std::string, std::shared_ptr<Title>>& theVassal) { deJureVassals.insert(theVassal); }

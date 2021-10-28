@@ -8,21 +8,21 @@ class MonumentsMapping: commonItems::parser
 {
   public:
 	MonumentsMapping() = default;
-	MonumentsMapping(std::istream& theStream);
+	explicit MonumentsMapping(std::istream& theStream);
 
 	void AddProvinceSet(std::istream& theStream);
 	void AddAreaSet(std::istream& theStream);
 	void AddCountrySet(std::istream& theStream);
 
-	[[nodiscard]] auto getIsBase() { return isBase; }
-	[[nodiscard]] auto getProvinceModifiers() { return provinceModifiers; }
-	[[nodiscard]] auto getAreaModifiers() { return areaModifiers; }
-	[[nodiscard]] auto getCountryModifiers() { return countryModifiers; }
-	[[nodiscard]] auto getOnUpgraded() { return onUpgraded; }
-	[[nodiscard]] auto isOfBuilderCulture() { return cultural; }
-	[[nodiscard]] auto isOfBuilderReligion() { return religious; }
-	[[nodiscard]] auto getBuildTrigger() { return buildTrigger; }
-	[[nodiscard]] auto getCanBeMoved() { return canBeMoved; }
+	[[nodiscard]] auto getIsBase() const { return isBase; }
+	[[nodiscard]] auto getProvinceModifiers() const { return provinceModifiers; }
+	[[nodiscard]] auto getAreaModifiers() const { return areaModifiers; }
+	[[nodiscard]] auto getCountryModifiers() const { return countryModifiers; }
+	[[nodiscard]] auto getOnUpgraded() const { return onUpgraded; }
+	[[nodiscard]] auto isOfBuilderCulture() const { return cultural; }
+	[[nodiscard]] auto isOfBuilderReligion() const { return religious; }
+	[[nodiscard]] auto getBuildTrigger() const { return buildTrigger; }
+	[[nodiscard]] auto getCanBeMoved() const { return canBeMoved; }
 
 
   private:
