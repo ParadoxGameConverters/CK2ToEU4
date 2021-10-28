@@ -712,7 +712,6 @@ void CK2::World::splitVassals(const Configuration& theConfiguration)
 	{
 		const auto& liege = newIndep.second->getLiege().second->getTitle();
 		liege.second->registerGeneratedVassal(newIndep);
-		newIndep.second->clearLiege();
 		newIndep.second->registerGeneratedLiege(liege);
 		independentTitles.insert(newIndep);
 	}

@@ -7,8 +7,8 @@ namespace mappers
 class BuildTriggerBuilder: commonItems::parser
 {
   public:
-	BuildTriggerBuilder();
-	BuildTriggerBuilder(std::istream& theStream);
+	BuildTriggerBuilder() = default;
+	explicit BuildTriggerBuilder(std::istream& theStream);
 
 	[[nodiscard]] const auto& getBuildTrigger() const { return buildTrigger; }
 	[[nodiscard]] auto getCultural() const { return cultural; }

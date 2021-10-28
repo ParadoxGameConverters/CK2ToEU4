@@ -466,10 +466,10 @@
     <ClInclude Include="Source\Mappers\GovernmentsMapper\GovernmentsMapping.h" />
     <ClInclude Include="Source\Mappers\IAmHreMapper\IAmHreMapper.h" />
     <ClInclude Include="Source\Mappers\LocalizationMapper\LocalizationMapper.h" />
-    <ClCompile Include="Source\Mappers\MonumentsMapper\BuildTriggerBuilder.h" />
+    <ClInclude Include="Source\Mappers\MonumentsMapper\BuildTriggerBuilder.h" />
     <ClInclude Include="Source\Mappers\MonumentsMapper\InternalModifiers.h" />
-    <ClCompile Include="Source\Mappers\MonumentsMapper\MonumentsMapper.h" />
-    <ClCompile Include="Source\Mappers\MonumentsMapper\MonumentsMapping.h" />
+    <ClInclude Include="Source\Mappers\MonumentsMapper\MonumentsMapper.h" />
+    <ClInclude Include="Source\Mappers\MonumentsMapper\MonumentsMapping.h" />
     <ClInclude Include="Source\Mappers\PersonalityScraper\PersonalityScraper.h" />
     <ClInclude Include="Source\Mappers\PrimaryTagMapper\PrimaryTagCultureGroup.h" />
     <ClInclude Include="Source\Mappers\PrimaryTagMapper\PrimaryTagMapper.h" />
