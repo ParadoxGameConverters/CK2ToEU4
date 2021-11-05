@@ -8,3 +8,20 @@
 #Ait Benhaddou, built 1050, in-scope
 #Registan Square, built 1417, in-scope
 #Kiev Pechersk Lavra, built 1051, in-scope
+
+##Origins
+#Bran Castle, Built 1357, in-scope
+#Doge's Palace, Built 1340, in-scope
+#Duomo Milano, Built 1386, in-scope
+#Gomateshwara Statue, Built 983, in-scope
+#Chola Temples, Built 1035, in-scope
+#Kashi Vishwanath, (Re)Built 1194, in-scope
+#Khajuraho, Built 850, in-scope
+#Krakow Cloth Hall, Built 1250, in-scope
+#Malbork Castle, Built 1300, in-scope
+#Rila Monasteries, Built 927, in-scope
+#Churches Lalibela, Built 1137, in-scope
+#Sankore Madrasah, Built 1132, in-scope
+#Santa Maria Del Fiore, Built 1379, in-scope
+#Konark Sun Temple, Built 1250, in-scope
+#Ulm Minster, Built 1377, in-scope

@@ -4558,3 +4558,1824 @@ potosi = {
 		}
 	}
 }
+
+#### Origins
+
+cahokia = {
+	start = 917 #Cahokia
+	date = 100.01.01
+	time = { months = 0	}
+	build_cost = 0
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+	starting_tier = 2
+	type = monument
+
+	build_trigger = {
+		religion = totemism
+		has_owner_religion = yes
+	}
+
+	on_built = {
+	}
+
+	on_destroyed = {
+	}
+
+	can_use_modifiers_trigger = {
+		religion = totemism
+		has_owner_religion = yes
+	}
+
+	can_upgrade_trigger = {
+		religion = totemism
+		has_owner_religion = yes
+	}
+
+	keep_trigger = {
+	}
+
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_1 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+		province_modifiers = {
+			local_monthly_devastation = -0.25
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+			tribal_development_growth = 0.01			
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_2 = {
+		upgrade_time = {
+			months = 240
+		}
+		cost_to_upgrade = {
+			factor = 2500
+		}
+		province_modifiers = {
+			local_monthly_devastation = -0.5
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+			tribal_development_growth = 0.02
+			global_manpower_modifier = 0.1
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_3 = {
+		upgrade_time = {
+			months = 480
+		}
+		cost_to_upgrade = {
+			factor = 5000
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+			local_monthly_devastation = -1
+		}
+		country_modifiers = {
+			tribal_development_growth = 0.03
+			global_manpower_modifier = 0.2
+		}
+		on_upgraded = {
+		}
+	}
+}
+
+cartagena_de_indias = {
+	start = 828 #Cartagena
+	date = 1444.01.01	#1719.01.01
+	time = { months = 0	}
+	build_cost = 0
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+	starting_tier = 0
+	type = monument
+
+	build_trigger = {
+	}
+
+	on_built = {
+	}
+
+	on_destroyed = {
+	}
+
+	can_use_modifiers_trigger = {
+	}
+
+	can_upgrade_trigger = {
+	}
+
+	keep_trigger = {
+	}
+
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_1 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+		province_modifiers = {
+			local_defensiveness = 0.15
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+			blockade_force_required = 0.5
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_2 = {
+		upgrade_time = {
+			months = 240
+		}
+		cost_to_upgrade = {
+			factor = 2500
+		}
+		province_modifiers = {
+			local_hostile_attrition = 0.5
+		}
+		area_modifier = {
+			local_defensiveness = 0.15
+		}
+		country_modifiers = {
+			blockade_force_required = 1
+			hostile_fleet_attrition = 5
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_3 = {
+		upgrade_time = {
+			months = 480
+		}
+		cost_to_upgrade = {
+			factor = 5000
+		}
+		province_modifiers = {
+			local_hostile_attrition = 1
+		}
+		area_modifier = {
+			local_defensiveness = 0.25
+		}
+		country_modifiers = {
+			blockade_force_required = 1
+			hostile_fleet_attrition = 10
+		}
+		on_upgraded = {
+		}
+	}
+}
+
+chan_chan_citadel = {
+	start = 812 #Chanchan
+	date = 850.01.01
+	time = { months = 0	}
+	build_cost = 0
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+	starting_tier = 2
+	type = monument
+
+	build_trigger = {
+	}
+
+	on_built = {
+	}
+
+	on_destroyed = {
+	}
+
+	can_use_modifiers_trigger = {
+	}
+
+	can_upgrade_trigger = {
+	}
+
+	keep_trigger = {
+	}
+
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_1 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+		province_modifiers = {
+			local_defensiveness = 0.15
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+			diplomatic_upkeep = 1
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_2 = {
+		upgrade_time = {
+			months = 240
+		}
+		cost_to_upgrade = {
+			factor = 2500
+		}
+		province_modifiers = {
+			local_development_cost = -0.1
+		}
+		area_modifier = {
+			local_defensiveness = 0.15
+		}
+		country_modifiers = {
+			diplomatic_upkeep = 1
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_3 = {
+		upgrade_time = {
+			months = 480
+		}
+		cost_to_upgrade = {
+			factor = 5000
+		}
+		province_modifiers = {						
+		}
+		area_modifier = {
+			local_defensiveness = 0.25
+			local_development_cost = -0.1
+		}
+		country_modifiers = {
+			diplomatic_upkeep = 2
+		}
+		on_upgraded = {
+		}
+	}
+}
+
+fuerte_del_morro = {
+	start = 484 #Havana
+	date = 1444.01.01	#1589.01.01
+	time = { months = 0	}
+	build_cost = 0
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+	starting_tier = 0
+	type = monument
+
+	build_trigger = {
+	}
+
+	on_built = {
+	}
+
+	on_destroyed = {
+	}
+
+	can_use_modifiers_trigger = {
+	}
+
+	can_upgrade_trigger = {
+	}
+
+	keep_trigger = {
+	}
+
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_1 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+		province_modifiers = {
+			local_defensiveness = 0.15
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+			naval_forcelimit_modifier = 0.1
+			overlord_naval_forcelimit = 0.1
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_2 = {
+		upgrade_time = {
+			months = 240
+		}
+		cost_to_upgrade = {
+			factor = 2500
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+			local_defensiveness = 0.15
+		}
+		country_modifiers = {
+			blockade_force_required = 0.5
+			naval_forcelimit_modifier = 0.2
+			overlord_naval_forcelimit = 0.2
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_3 = {
+		upgrade_time = {
+			months = 480
+		}
+		cost_to_upgrade = {
+			factor = 5000
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+			local_defensiveness = 0.25
+		}
+		country_modifiers = {
+			blockade_force_required = 1
+			naval_forcelimit_modifier = 0.3
+			overlord_naval_forcelimit = 0.3
+		}
+		on_upgraded = {
+		}
+	}
+}
+
+
+gyeongbok_palace = {
+	start = 735 #Hanseong
+	date = 1394.01.01
+	time = { months = 0	}
+	build_cost = 0
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+	starting_tier = 2
+	type = monument
+
+	build_trigger = {
+		culture = korean
+		OR = {
+			has_owner_culture = yes
+			has_owner_accepted_culture = yes
+		}
+	}
+
+	on_built = {
+	}
+
+	on_destroyed = {
+	}
+
+	can_use_modifiers_trigger = {
+		culture = korean
+		OR = {
+			has_owner_culture = yes
+			has_owner_accepted_culture = yes
+		}
+	}
+
+	can_upgrade_trigger = {
+		culture = korean
+		OR = {
+			has_owner_culture = yes
+			has_owner_accepted_culture = yes
+		}
+	}
+
+	keep_trigger = {
+	}
+
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_1 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+			legitimacy = 0.25
+			global_autonomy = -0.01	
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_2 = {
+		upgrade_time = {
+			months = 240
+		}
+		cost_to_upgrade = {
+			factor = 2500
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+			legitimacy = 0.5
+			technology_cost = -0.05
+			global_autonomy = -0.025
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_3 = {
+		upgrade_time = {
+			months = 480
+		}
+		cost_to_upgrade = {
+			factor = 5000
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+			legitimacy = 1
+			technology_cost = -0.1
+			global_autonomy = -0.05	
+		}
+		on_upgraded = {
+		}
+	}
+}
+
+
+kilwa_city = {
+	start = 1196 #Kilwa
+	date = 975.01.01
+	time = { months = 0	}
+	build_cost = 0
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+	starting_tier = 2
+	type = monument
+
+	build_trigger = {
+		religion_group = muslim
+		has_owner_religion = yes
+	}
+
+	on_built = {
+	}
+
+	on_destroyed = {
+	}
+
+	can_use_modifiers_trigger = {
+		religion_group = muslim
+		has_owner_religion = yes
+	}
+
+	can_upgrade_trigger = {
+		religion_group = muslim
+		has_owner_religion = yes
+	}
+
+	keep_trigger = {
+	}
+
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_1 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+			prestige = 0.25
+			global_ship_trade_power = 0.1
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_2 = {
+		upgrade_time = {
+			months = 240
+		}
+		cost_to_upgrade = {
+			factor = 2500
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+			prestige = 0.5
+			global_ship_trade_power = 0.2
+			placed_merchant_power = 2
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_3 = {
+		upgrade_time = {
+			months = 480
+		}
+		cost_to_upgrade = {
+			factor = 5000
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+			prestige = 1
+			global_ship_trade_power = 0.3
+			placed_merchant_power = 4
+		}
+		on_upgraded = {
+		}
+	}
+}
+
+
+nan_madoll = {
+	start = 1995 #Micronesia
+	date = 500.01.01	#Date is a little bit iffy here
+	time = { months = 0	}
+	build_cost = 0
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+	starting_tier = 1
+	type = monument
+
+	build_trigger = {
+	}
+
+	on_built = {
+	}
+
+	on_destroyed = {
+	}
+
+	can_use_modifiers_trigger = {
+	}
+
+	can_upgrade_trigger = {
+	}
+
+	keep_trigger = {
+	}
+
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_1 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+			global_colonial_growth = 10
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_2 = {
+		upgrade_time = {
+			months = 240
+		}
+		cost_to_upgrade = {
+			factor = 2500
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+			global_colonial_growth = 15
+			navy_tradition = 0.5
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_3 = {
+		upgrade_time = {
+			months = 480
+		}
+		cost_to_upgrade = {
+			factor = 5000
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+			global_colonial_growth = 25
+			navy_tradition = 1
+			colonist_placement_chance = 0.05
+		}
+		on_upgraded = {
+		}
+	}
+}
+
+
+porcelain_tower_nanjing = {
+	start = 1821 #Nanjing
+	date = 1431.01.01
+	time = { months = 0	}
+	build_cost = 0
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+	starting_tier = 2
+	type = monument
+
+	build_trigger = {
+		culture_group = east_asian
+		OR = {
+			has_owner_culture = yes
+			has_owner_accepted_culture = yes
+		}
+	}
+
+	on_built = {
+	}
+
+	on_destroyed = {
+	}
+
+	can_use_modifiers_trigger = {
+		culture_group = east_asian
+		OR = {
+			has_owner_culture = yes
+			has_owner_accepted_culture = yes
+		}
+	}
+
+	can_upgrade_trigger = {
+		culture_group = east_asian
+		OR = {
+			has_owner_culture = yes
+			has_owner_accepted_culture = yes
+		}
+	}
+
+	keep_trigger = {
+	}
+
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_1 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+		province_modifiers = {
+			local_unrest = -1
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+			meritocracy = 0.1
+			global_institution_spread = 0.1
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_2 = {
+		upgrade_time = {
+			months = 240
+		}
+		cost_to_upgrade = {
+			factor = 2500
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+			local_unrest = -1
+		}
+		country_modifiers = {
+			meritocracy = 0.25
+			global_institution_spread = 0.2
+			embracement_cost = -0.1
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_3 = {
+		upgrade_time = {
+			months = 480
+		}
+		cost_to_upgrade = {
+			factor = 5000
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+			local_unrest = -2
+		}
+		country_modifiers = {
+			meritocracy = 0.5
+			global_institution_spread = 0.3
+			embracement_cost = -0.15
+		}
+		on_upgraded = {
+		}
+	}
+}
+
+
+qhapaq_nam = {
+	start = 820 #Quito
+	date = 100.01.01
+	time = { months = 0	}
+	build_cost = 0
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+	starting_tier = 1
+	type = monument
+
+	build_trigger = {
+		culture_group = andean_group
+		OR = {
+			has_owner_culture = yes
+			has_owner_accepted_culture = yes
+		}
+	}
+
+	on_built = {
+	}
+
+	on_destroyed = {
+	}
+
+	can_use_modifiers_trigger = {
+		culture_group = andean_group
+		OR = {
+			has_owner_culture = yes
+			has_owner_accepted_culture = yes
+		}
+	}
+
+	can_upgrade_trigger = {
+		culture_group = andean_group
+		OR = {
+			has_owner_culture = yes
+			has_owner_accepted_culture = yes
+		}
+	}
+
+	keep_trigger = {
+	}
+
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_1 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+			yearly_authority = 0.1
+			reinforce_speed = 0.1
+			trade_efficiency = 0.05
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_2 = {
+		upgrade_time = {
+			months = 240
+		}
+		cost_to_upgrade = {
+			factor = 2500
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+			yearly_authority = 0.2
+			reinforce_speed = 0.2
+			trade_efficiency = 0.1
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_3 = {
+		upgrade_time = {
+			months = 480
+		}
+		cost_to_upgrade = {
+			factor = 5000
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+			yearly_authority = 0.3
+			reinforce_speed = 0.33
+			trade_efficiency = 0.2
+		}
+		on_upgraded = {
+		}
+	}
+}
+
+
+san_antonio_missions = {
+	start = 4627 #Tanu
+	date = 1444.01.01	#1716.01.01
+	time = { months = 0	}
+	build_cost = 0
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+	starting_tier = 0
+	type = monument
+
+	build_trigger = {
+		religion = catholic
+		has_owner_religion = yes
+	}
+
+	on_built = {
+	}
+
+	on_destroyed = {
+	}
+
+	can_use_modifiers_trigger = {
+		religion = catholic
+		has_owner_religion = yes
+	}
+
+	can_upgrade_trigger = {
+		religion = catholic
+		has_owner_religion = yes
+	}
+
+	keep_trigger = {
+	}
+
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_1 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+		province_modifiers = {
+			local_unrest = -1
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+			global_heathen_missionary_strength = 0.01
+			institution_spread_from_true_faith = 0.1
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_2 = {
+		upgrade_time = {
+			months = 240
+		}
+		cost_to_upgrade = {
+			factor = 2500
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+			local_unrest = -1
+			local_colonial_growth = 15
+		}
+		country_modifiers = {
+			global_heathen_missionary_strength = 0.02
+			institution_spread_from_true_faith = 0.2
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_3 = {
+		upgrade_time = {
+			months = 480
+		}
+		cost_to_upgrade = {
+			factor = 5000
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+			local_unrest = -2
+			local_colonial_growth = 25
+		}
+		country_modifiers = {
+			global_heathen_missionary_strength = 0.03
+			institution_spread_from_true_faith = 0.3
+		}
+		on_upgraded = {
+		}
+	}
+}
+
+
+white_house = {
+	start = 953 #Piscataway
+	date = 1444.01.01	#1800.01.01
+	time = { months = 0	}
+	build_cost = 0
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+	starting_tier = 0
+	type = monument
+
+	build_trigger = {
+		owner = {
+			OR = {
+				is_former_colonial_nation = yes
+				tag = USA
+			}			
+		}
+	}
+
+	on_built = {
+	}
+
+	on_destroyed = {
+	}
+
+	can_use_modifiers_trigger = {
+		owner = {
+			OR = {
+				is_former_colonial_nation = yes
+				tag = USA
+			}			
+		}
+	}
+
+	can_upgrade_trigger = {
+		owner = {
+			OR = {
+				is_former_colonial_nation = yes
+				tag = USA
+			}			
+		}
+	}
+
+	keep_trigger = {
+	}
+
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_1 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+			reform_progress_growth = 0.05
+			state_governing_cost = -0.05
+			reelection_cost = -0.05
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_2 = {
+		upgrade_time = {
+			months = 240
+		}
+		cost_to_upgrade = {
+			factor = 2500
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+			reform_progress_growth = 0.1
+			state_governing_cost = -0.15
+			reelection_cost = -0.1
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_3 = {
+		upgrade_time = {
+			months = 480
+		}
+		cost_to_upgrade = {
+			factor = 5000
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+			reform_progress_growth = 0.2
+			state_governing_cost = -0.25
+			reelection_cost = -0.1
+		}
+		on_upgraded = {
+		}
+	}
+}
+
+
+tikal = {
+	start = 842 #Petén
+	date = 10.01.01
+	time = { months = 0	}
+	build_cost = 0
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+	starting_tier = 0
+	type = monument
+
+	build_trigger = {
+		culture_group = maya
+		OR = {
+			has_owner_culture = yes
+			has_owner_accepted_culture = yes
+		}
+	}
+
+	on_built = {
+	}
+
+	on_destroyed = {
+	}
+
+	can_use_modifiers_trigger = {
+		culture_group = maya
+		OR = {
+			has_owner_culture = yes
+			has_owner_accepted_culture = yes
+		}
+	}
+
+	can_upgrade_trigger = {
+		culture_group = maya
+		OR = {
+			has_owner_culture = yes
+			has_owner_accepted_culture = yes
+		}
+	}
+
+	keep_trigger = {
+	}
+
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_1 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+		province_modifiers = {
+			local_development_cost = -0.15
+		}
+		area_modifier = {
+			local_unrest = -1
+		}
+		country_modifiers = {
+			stability_cost_modifier = -0.1
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_2 = {
+		upgrade_time = {
+			months = 240
+		}
+		cost_to_upgrade = {
+			factor = 2500
+		}
+		province_modifiers = {
+			local_development_cost = -0.2
+		}
+		area_modifier = {
+			local_unrest = -2
+		}
+		country_modifiers = {
+			stability_cost_modifier = -0.2
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_3 = {
+		upgrade_time = {
+			months = 480
+		}
+		cost_to_upgrade = {
+			factor = 5000
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+			local_development_cost = -0.3
+		}
+		country_modifiers = {
+			stability_cost_modifier = -0.3
+			global_unrest = -2
+		}
+		on_upgraded = {
+		}
+	}
+}
+
+
+tiwanaku = {
+	start = 2831 #Tihuanaco
+	date = 10.01.01
+	time = { months = 0	}
+	build_cost = 0
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+	starting_tier = 0
+	type = monument
+
+	build_trigger = {
+		religion = inti
+		has_owner_religion = yes
+	}
+
+	on_built = {
+	}
+
+	on_destroyed = {
+	}
+
+	can_use_modifiers_trigger = {
+		religion = inti
+		has_owner_religion = yes
+	}
+
+	can_upgrade_trigger = {
+		religion = inti
+		has_owner_religion = yes
+	}
+
+	keep_trigger = {
+	}
+
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_1 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+			yearly_authority = 0.1
+			global_missionary_strength = 0.005
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_2 = {
+		upgrade_time = {
+			months = 240
+		}
+		cost_to_upgrade = {
+			factor = 2500
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+			yearly_authority = 0.2
+			global_missionary_strength = 0.01
+			religious_unity = 0.15
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_3 = {
+		upgrade_time = {
+			months = 480
+		}
+		cost_to_upgrade = {
+			factor = 5000
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+			yearly_authority = 0.3
+			global_missionary_strength = 0.02
+			religious_unity = 0.3
+		}
+		on_upgraded = {
+		}
+	}
+}
+
+
+tortuga_island = {
+	start = 489 #Tortuga
+	date = 1444.01.01	#1640.01.01
+	time = { months = 0	}
+	build_cost = 0
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+	starting_tier = 0
+	type = monument
+
+	build_trigger = {
+	}
+
+	on_built = {
+	}
+
+	on_destroyed = {
+	}
+
+	can_use_modifiers_trigger = {
+	}
+
+	can_upgrade_trigger = {
+	}
+
+	keep_trigger = {
+	}
+
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_1 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+		province_modifiers = {
+			local_defensiveness = 0.15
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+			privateer_efficiency = 0.2
+			blockade_force_required = 0.5
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_2 = {
+		upgrade_time = {
+			months = 240
+		}
+		cost_to_upgrade = {
+			factor = 2500
+		}
+		province_modifiers = {
+			local_defensiveness = 0.25
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+			privateer_efficiency = 0.33
+			blockade_force_required = 1
+			power_projection_from_insults = 0.5
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_3 = {
+		upgrade_time = {
+			months = 480
+		}
+		cost_to_upgrade = {
+			factor = 5000
+		}
+		province_modifiers = {
+			local_defensiveness = 0.5
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+			privateer_efficiency = 0.5
+			blockade_force_required = 1
+			power_projection_from_insults = 1
+		}
+		on_upgraded = {
+		}
+	}
+}
+
+
+walls_benin = {
+	start = 1147 #Benin
+	date = 900.01.01
+	time = { months = 0	}
+	build_cost = 0
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+	starting_tier = 2
+	type = monument
+
+	build_trigger = {
+		religion_group = pagan
+		has_owner_religion = yes
+	}
+
+	on_built = {
+	}
+
+	on_destroyed = {
+	}
+
+	can_use_modifiers_trigger = {
+		religion_group = pagan
+		has_owner_religion = yes
+	}
+
+	can_upgrade_trigger = {
+		religion_group = pagan
+		has_owner_religion = yes
+	}
+
+	keep_trigger = {
+	}
+
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_1 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+		province_modifiers = {
+			local_defensiveness = 0.15
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+			prestige_from_land = 0.5
+			nobles_loyalty_modifier = 0.05
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_2 = {
+		upgrade_time = {
+			months = 240
+		}
+		cost_to_upgrade = {
+			factor = 2500
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+			local_defensiveness = 0.15
+		}
+		country_modifiers = {
+			prestige_from_land = 1
+			global_prov_trade_power_modifier = 0.1
+			nobles_loyalty_modifier = 0.05
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_3 = {
+		upgrade_time = {
+			months = 480
+		}
+		cost_to_upgrade = {
+			factor = 5000
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+			local_defensiveness = 0.25
+		}
+		country_modifiers = {
+			prestige_from_land = 1
+			global_prov_trade_power_modifier = 0.2
+			nobles_loyalty_modifier = 0.1
+		}
+		on_upgraded = {
+		}
+	}
+}
+
+
+zacatecas_mine_city = {
+	start = 856 #Zacatecas
+	date = 1444.01.01	#1548.01.01
+	time = { months = 0	}
+	build_cost = 0
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+	starting_tier = 0
+	type = monument
+
+	build_trigger = {
+	}
+
+	on_built = {
+	}
+
+	on_destroyed = {
+	}
+
+	can_use_modifiers_trigger = {
+	}
+
+	can_upgrade_trigger = {
+	}
+
+	keep_trigger = {
+	}
+
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_1 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+		province_modifiers = {
+			trade_goods_size = 1.0
+		}
+		area_modifier = {
+			trade_goods_size_modifier = 0.05
+		}
+		country_modifiers = {			
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_2 = {
+		upgrade_time = {
+			months = 240
+		}
+		cost_to_upgrade = {
+			factor = 2500
+		}
+		province_modifiers = {
+			trade_goods_size = 2.0
+		}
+		area_modifier = {
+			trade_goods_size_modifier = 0.1
+		}
+		country_modifiers = {
+			interest = -0.25
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_3 = {
+		upgrade_time = {
+			months = 480
+		}
+		cost_to_upgrade = {
+			factor = 5000
+		}
+		province_modifiers = {
+			trade_goods_size = 3.0
+		}
+		area_modifier = {
+			trade_goods_size_modifier = 0.15
+		}
+		country_modifiers = {
+			interest = -0.5
+		}
+		on_upgraded = {
+		}
+	}
+}
+
