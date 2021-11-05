@@ -36,7 +36,7 @@ pyramid_of_cheops = {
 			}
 			AND = {
 				OR = {
-					culture = al_misr_arabic
+					culture_group = turko_semitic
 					culture = coptic
 				}
 				OR = {
@@ -66,7 +66,7 @@ pyramid_of_cheops = {
 			}
 			AND = {
 				OR = {
-					culture = al_misr_arabic
+					culture_group = turko_semitic
 					culture = coptic
 				}
 				OR = {
@@ -86,7 +86,7 @@ pyramid_of_cheops = {
 			}
 			AND = {
 				OR = {
-					culture = al_misr_arabic
+					culture_group = turko_semitic
 					culture = coptic
 				}
 				OR = {
@@ -212,7 +212,7 @@ pyramid_of_cheops = {
 
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
-			advisor_cost = -0.2
+			advisor_cost = -0.15
 			church_loyalty_modifier = 0.15
 			idea_cost = -0.05
 		}

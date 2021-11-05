@@ -42,6 +42,20 @@ buddha_statues = {
 				religion = mahayana
 				has_owner_religion = yes
 			}
+			AND = {
+				religion = hinduism
+				has_owner_religion = yes
+				owner = {
+					has_personal_deity = buddha	
+				}						
+			}
+			AND = {
+				religion = shamanism
+				has_owner_religion = yes
+				owner = {
+					has_unlocked_cult = buddhism_cult	
+				}				
+			}
 		}
 	}
 
@@ -72,6 +86,20 @@ buddha_statues = {
 				religion = mahayana
 				has_owner_religion = yes
 			}
+			AND = {
+				religion = hinduism
+				has_owner_religion = yes
+				owner = {
+					has_personal_deity = buddha	
+				}						
+			}
+			AND = {
+				religion = shamanism
+				has_owner_religion = yes
+				owner = {
+					has_unlocked_cult = buddhism_cult	
+				}				
+			}
 		}
 	}
 
@@ -90,8 +118,23 @@ buddha_statues = {
 				religion = mahayana
 				has_owner_religion = yes
 			}
+			AND = {
+				religion = hinduism
+				has_owner_religion = yes
+				owner = {
+					has_personal_deity = buddha	
+				}						
+			}
+			AND = {
+				religion = shamanism
+				has_owner_religion = yes
+				owner = {
+					has_unlocked_cult = buddhism_cult	
+				}				
+			}
 		}
 	}
+
 
 	#can our country keep it or is it destroyed when we get hold of it?
 	keep_trigger = {
@@ -211,6 +254,7 @@ buddha_statues = {
 			culture_conversion_cost = -0.25
 			global_missionary_strength = 0.01
 			missionaries = 1
+			idea_cost = -0.05
 		}
 
 		#what effects happen when this tier is achieved
@@ -260,6 +304,13 @@ parthenon = {
 					has_owner_accepted_culture = yes
 				}
 			}
+			AND = {
+				culture = athenian
+				OR = {
+					has_owner_culture = yes
+					has_owner_accepted_culture = yes
+				}
+			}
 		}	
 	}
 
@@ -296,6 +347,13 @@ parthenon = {
 					has_owner_accepted_culture = yes
 				}
 			}
+			AND = {
+				culture = athenian
+				OR = {
+					has_owner_culture = yes
+					has_owner_accepted_culture = yes
+				}
+			}
 		}
 	}
 
@@ -308,6 +366,13 @@ parthenon = {
 			}
 			AND = {
 				culture = greek
+				OR = {
+					has_owner_culture = yes
+					has_owner_accepted_culture = yes
+				}
+			}
+			AND = {
+				culture = athenian
 				OR = {
 					has_owner_culture = yes
 					has_owner_accepted_culture = yes
@@ -690,6 +755,20 @@ jokhang_temple = {
 				religion = mahayana
 				has_owner_religion = yes
 			}
+			AND = {
+				religion = hinduism
+				has_owner_religion = yes
+				owner = {
+					has_personal_deity = buddha	
+				}						
+			}
+			AND = {
+				religion = shamanism
+				has_owner_religion = yes
+				owner = {
+					has_unlocked_cult = buddhism_cult	
+				}				
+			}
 		}
 	}
 
@@ -718,6 +797,20 @@ jokhang_temple = {
 				religion = mahayana
 				has_owner_religion = yes
 			}
+			AND = {
+				religion = hinduism
+				has_owner_religion = yes
+				owner = {
+					has_personal_deity = buddha	
+				}						
+			}
+			AND = {
+				religion = shamanism
+				has_owner_religion = yes
+				owner = {
+					has_unlocked_cult = buddhism_cult	
+				}				
+			}
 		} 
 	}
 
@@ -735,6 +828,20 @@ jokhang_temple = {
 			AND= {
 				religion = mahayana
 				has_owner_religion = yes
+			}
+			AND = {
+				religion = hinduism
+				has_owner_religion = yes
+				owner = {
+					has_personal_deity = buddha	
+				}						
+			}
+			AND = {
+				religion = shamanism
+				has_owner_religion = yes
+				owner = {
+					has_unlocked_cult = buddhism_cult	
+				}				
 			}
 		} 
 	}
@@ -908,11 +1015,25 @@ borobudur_temple = {
 				has_owner_religion = yes
 			}
 			AND = {
-				culture = javanese
+				culture_group = malay
 				OR = {
 					has_owner_culture = yes
 					has_owner_accepted_culture = yes
 				}
+			}
+			AND = {
+				religion = hinduism
+				has_owner_religion = yes
+				owner = {
+					has_personal_deity = buddha	
+				}						
+			}
+			AND = {
+				religion = shamanism
+				has_owner_religion = yes
+				owner = {
+					has_unlocked_cult = buddhism_cult	
+				}				
 			}
 		}		
 	}
@@ -943,11 +1064,25 @@ borobudur_temple = {
 				has_owner_religion = yes
 			}
 			AND = {
-				culture = javanese
+				culture_group = malay
 				OR = {
 					has_owner_culture = yes
 					has_owner_accepted_culture = yes
 				}
+			}
+			AND = {
+				religion = hinduism
+				has_owner_religion = yes
+				owner = {
+					has_personal_deity = buddha	
+				}						
+			}
+			AND = {
+				religion = shamanism
+				has_owner_religion = yes
+				owner = {
+					has_unlocked_cult = buddhism_cult	
+				}				
 			}
 		}
 	}
@@ -968,11 +1103,25 @@ borobudur_temple = {
 				has_owner_religion = yes
 			}
 			AND = {
-				culture = javanese
+				culture_group = malay
 				OR = {
 					has_owner_culture = yes
 					has_owner_accepted_culture = yes
 				}
+			}
+			AND = {
+				religion = hinduism
+				has_owner_religion = yes
+				owner = {
+					has_personal_deity = buddha	
+				}						
+			}
+			AND = {
+				religion = shamanism
+				has_owner_religion = yes
+				owner = {
+					has_unlocked_cult = buddhism_cult	
+				}				
 			}
 		}
 	}
@@ -1063,6 +1212,7 @@ borobudur_temple = {
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
 			culture_conversion_cost = -0.1
+			global_unrest = -1
 		}
 
 		#what effects happen when this tier is achieved
@@ -1092,6 +1242,7 @@ borobudur_temple = {
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
 			culture_conversion_cost = -0.25
+			global_unrest = -2
 			num_accepted_cultures = 1
 			global_autonomy = -0.05
 		}

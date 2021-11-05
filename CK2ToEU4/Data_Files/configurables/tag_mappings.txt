@@ -423,8 +423,6 @@ link = { ck2 = k_germiyan eu4 = GRM }
 link = { ck2 = d_hadramut eu4 = HDR }
 link = { ck2 = c_hijaz eu4 = HED }
 link = { ck2 = c_beirut eu4 = LEB }
-link = { ck2 = k_nubia eu4 = MAK }
-link = { ck2 = d_nubia eu4 = MAK }
 link = { ck2 = c_makuria eu4 = MAK }
 link = { ck2 = d_medina eu4 = MDA }
 link = { ck2 = c_medina eu4 = MDA }
@@ -1131,7 +1129,6 @@ link = { ck2 = d_kano eu4 = KAN } # Kano
 link = { ck2 = c_masin eu4 = ZAF } # Macina
 link = { ck2 = d_mossi eu4 = MSI } # Mossi
 link = { ck2 = c_gao eu4 = SON } # Songhai
-link = { ck2 = c_gurma eu4 = YAT } # Yatenga
 
 # Additional
 link = { capitals = { 4492 } eu4 = DTI } # Doti
@@ -1140,3 +1137,12 @@ link = { capitals = { 2211 } eu4 = ARD } # Ardalan
 link = { capitals = { 64 } eu4 = LBV } # Landshut
 link = { capitals = { 2972 } eu4 = PAD } # Paderborn
 link = { capitals = { 4716 } eu4 = COB } # Coburg
+
+# 1.32 Songhai / Origins
+
+link = { ck2 = c_wagadougou eu4 = WGD } # Wagadugu
+link = { ck2 = c_kurumba eu4 = ZND } # Zandoma
+link = { ck2 = c_gurma eu4 = GUR } # Gurma
+link = { ck2 = k_nubia eu4 = NUB } # Nubia
+link = { ck2 = d_nubia eu4 = NUB } # Nubia
+link = { ck2 = c_wadai eu4 = WAD } # Wadai

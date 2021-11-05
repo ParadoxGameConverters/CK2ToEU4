@@ -29,8 +29,9 @@ forbidden_city = {
 
 	#can we build it?
 	build_trigger = {
-		religion = confucianism
-		has_owner_religion = yes
+		owner = {
+			has_reform = celestial_empire
+		}
 	}
 
 	#what to do when it's built
@@ -45,14 +46,16 @@ forbidden_city = {
 
 	#can our country use it?
 	can_use_modifiers_trigger = {
-		religion = confucianism
-		has_owner_religion = yes
+		owner = {
+			has_reform = celestial_empire
+		}
 	}
 
 	#can our country upgrade it?
 	can_upgrade_trigger = {
-		religion = confucianism
-		has_owner_religion = yes
+		owner = {
+			has_reform = celestial_empire
+		}
 	}
 
 	#can our country keep it or is it destroyed when we get hold of it?
@@ -431,7 +434,7 @@ machu_picchu = {
 
 	#can we build it?
 	build_trigger = {
-		culture = inca
+		culture_group = andean_group
 		OR = {
 			has_owner_culture = yes
 			has_owner_accepted_culture = yes
@@ -450,7 +453,7 @@ machu_picchu = {
 
 	#can our country use it?
 	can_use_modifiers_trigger = {
-		culture = inca
+		culture_group = andean_group
 		OR = {
 			has_owner_culture = yes
 			has_owner_accepted_culture = yes
@@ -459,7 +462,7 @@ machu_picchu = {
 
 	#can our country upgrade it?
 	can_upgrade_trigger = {
-		culture = inca
+		culture_group = andean_group
 		OR = {
 			has_owner_culture = yes
 			has_owner_accepted_culture = yes
@@ -838,7 +841,6 @@ himeji_castle = {
 
 	#can we build it?
 	build_trigger = {
-		culture_group = japanese_g
 	}
 
 	#what to do when it's built
@@ -853,12 +855,10 @@ himeji_castle = {
 
 	#can our country use it?
 	can_use_modifiers_trigger = {
-		culture_group = japanese_g
 	}
 
 	#can our country upgrade it?
 	can_upgrade_trigger = {
-		culture_group = japanese_g
 	}
 
 	#can our country keep it or is it destroyed when we get hold of it?
@@ -1020,6 +1020,10 @@ moai = {
 	#can we build it?
 	build_trigger = {
 		culture = polynesian
+		OR = {
+			has_owner_culture = yes
+			has_owner_accepted_culture = yes
+		}
 	}
 
 	#what to do when it's built
@@ -1035,11 +1039,19 @@ moai = {
 	#can our country use it?
 	can_use_modifiers_trigger = {
 		culture = polynesian
+		OR = {
+			has_owner_culture = yes
+			has_owner_accepted_culture = yes
+		}
 	}
 
 	#can our country upgrade it?
 	can_upgrade_trigger = {
 		culture = polynesian
+		OR = {
+			has_owner_culture = yes
+			has_owner_accepted_culture = yes
+		}
 	}
 
 	#can our country keep it or is it destroyed when we get hold of it?
@@ -1128,6 +1140,7 @@ moai = {
 		country_modifiers = {
 			religious_unity = 0.10
 			tolerance_own = 1
+			nobles_loyalty_modifier = 0.05
 		}
 
 		#what effects happen when this tier is achieved
@@ -1165,6 +1178,7 @@ moai = {
 			religious_unity = 0.25
 			tolerance_own = 1
 			tolerance_heretic = 1
+			nobles_loyalty_modifier = 0.1
 		}
 
 		#what effects happen when this tier is achieved
@@ -1619,6 +1633,20 @@ shwedagon_pagoda = {
 				religion = mahayana
 				has_owner_religion = yes
 			}
+			AND = {
+				religion = hinduism
+				has_owner_religion = yes
+				owner = {
+					has_personal_deity = buddha	
+				}						
+			}
+			AND = {
+				religion = shamanism
+				has_owner_religion = yes
+				owner = {
+					has_unlocked_cult = buddhism_cult	
+				}				
+			}
 		}
 	}
 
@@ -1647,6 +1675,20 @@ shwedagon_pagoda = {
 				religion = mahayana
 				has_owner_religion = yes
 			}
+			AND = {
+				religion = hinduism
+				has_owner_religion = yes
+				owner = {
+					has_personal_deity = buddha	
+				}						
+			}
+			AND = {
+				religion = shamanism
+				has_owner_religion = yes
+				owner = {
+					has_unlocked_cult = buddhism_cult	
+				}				
+			}
 		}
 	}
 
@@ -1664,6 +1706,20 @@ shwedagon_pagoda = {
 			AND= {
 				religion = mahayana
 				has_owner_religion = yes
+			}
+			AND = {
+				religion = hinduism
+				has_owner_religion = yes
+				owner = {
+					has_personal_deity = buddha	
+				}						
+			}
+			AND = {
+				religion = shamanism
+				has_owner_religion = yes
+				owner = {
+					has_unlocked_cult = buddhism_cult	
+				}				
 			}
 		}
 	}
@@ -2396,6 +2452,20 @@ bagan_temples = {
 				religion = mahayana
 				has_owner_religion = yes
 			}
+			AND = {
+				religion = hinduism
+				has_owner_religion = yes
+				owner = {
+					has_personal_deity = buddha	
+				}						
+			}
+			AND = {
+				religion = shamanism
+				has_owner_religion = yes
+				owner = {
+					has_unlocked_cult = buddhism_cult	
+				}				
+			}
 		}
 	}
 
@@ -2424,6 +2494,20 @@ bagan_temples = {
 				religion = mahayana
 				has_owner_religion = yes
 			}
+			AND = {
+				religion = hinduism
+				has_owner_religion = yes
+				owner = {
+					has_personal_deity = buddha	
+				}						
+			}
+			AND = {
+				religion = shamanism
+				has_owner_religion = yes
+				owner = {
+					has_unlocked_cult = buddhism_cult	
+				}				
+			}
 		}
 	}
 
@@ -2441,6 +2525,20 @@ bagan_temples = {
 			AND= {
 				religion = mahayana
 				has_owner_religion = yes
+			}
+			AND = {
+				religion = hinduism
+				has_owner_religion = yes
+				owner = {
+					has_personal_deity = buddha	
+				}						
+			}
+			AND = {
+				religion = shamanism
+				has_owner_religion = yes
+				owner = {
+					has_unlocked_cult = buddhism_cult	
+				}				
 			}
 		}
 	}
@@ -3156,7 +3254,6 @@ khami_ruins = {
 
 	#can we build it?
 	build_trigger = {
-		religion_group = pagan
 	}
 
 	#what to do when it's built
@@ -3171,12 +3268,10 @@ khami_ruins = {
 
 	#can our country use it?
 	can_use_modifiers_trigger = {
-		religion_group = pagan
 	}
 
 	#can our country upgrade it?
 	can_upgrade_trigger = {
-		religion_group = pagan
 	}
 
 	#can our country keep it or is it destroyed when we get hold of it?
@@ -3687,7 +3782,11 @@ sankin_kotai_palaces = {
 
 	#can we build it?
 	build_trigger = {
-		#anyone
+		culture_group = japanese_g
+		OR = {
+			has_owner_culture = yes
+			has_owner_accepted_culture = yes
+		}
 	}
 
 	#what to do when it's built
@@ -3702,12 +3801,20 @@ sankin_kotai_palaces = {
 
 	#can our country use it?
 	can_use_modifiers_trigger = {
-		#anyone
+		culture_group = japanese_g
+		OR = {
+			has_owner_culture = yes
+			has_owner_accepted_culture = yes
+		}
 	}
 
 	#can our country upgrade it?
 	can_upgrade_trigger = {
-		#anyone
+		culture_group = japanese_g
+		OR = {
+			has_owner_culture = yes
+			has_owner_accepted_culture = yes
+		}
 	}
 
 	#can our country keep it or is it destroyed when we get hold of it?
@@ -3829,7 +3936,7 @@ sankin_kotai_palaces = {
 		country_modifiers = {
 			war_taxes_cost_modifier = -1
 			prestige_from_land = 1
-			general_cost = -0.2
+			general_cost = -0.1
 		}
 
 		#what effects happen when this tier is achieved
@@ -4058,6 +4165,20 @@ imperial_city_hue = {
 			owner = {
 				religion = confucianism
 			}
+			AND = {
+				religion = hinduism
+				has_owner_religion = yes
+				owner = {
+					has_personal_deity = buddha	
+				}						
+			}
+			AND = {
+				religion = shamanism
+				has_owner_religion = yes
+				owner = {
+					has_unlocked_cult = buddhism_cult	
+				}				
+			}
 		}
 	}
 
@@ -4082,6 +4203,20 @@ imperial_city_hue = {
 			owner = {
 				religion = confucianism
 			}
+			AND = {
+				religion = hinduism
+				has_owner_religion = yes
+				owner = {
+					has_personal_deity = buddha	
+				}						
+			}
+			AND = {
+				religion = shamanism
+				has_owner_religion = yes
+				owner = {
+					has_unlocked_cult = buddhism_cult	
+				}				
+			}
 		}
 	}
 
@@ -4095,6 +4230,20 @@ imperial_city_hue = {
 			}
 			owner = {
 				religion = confucianism
+			}
+			AND = {
+				religion = hinduism
+				has_owner_religion = yes
+				owner = {
+					has_personal_deity = buddha	
+				}						
+			}
+			AND = {
+				religion = shamanism
+				has_owner_religion = yes
+				owner = {
+					has_unlocked_cult = buddhism_cult	
+				}				
 			}
 		}
 	}
@@ -4340,7 +4489,6 @@ potosi = {
 
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
-			interest = -0.25
 		}
 
 		#what effects happen when this tier is achieved
@@ -4371,7 +4519,7 @@ potosi = {
 
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
-			interest = -0.5
+			interest = -0.25
 		}
 
 		#what effects happen when this tier is achieved
@@ -4397,12 +4545,12 @@ potosi = {
 
 		#what modifiers are added to the provinces in the map area when we have this project here on this tier
 		area_modifier = {
-			trade_goods_size_modifier = 0.2
+			trade_goods_size_modifier = 0.15
 		}
 
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
-			interest = -1
+			interest = -0.5
 		}
 
 		#what effects happen when this tier is achieved

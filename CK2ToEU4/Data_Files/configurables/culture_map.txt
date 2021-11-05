@@ -401,6 +401,7 @@ link = { eu4 = kanuri ck2 = kanuri tech = sub_saharan gfx = africangfx }
 link = { eu4 = hausa ck2 = hausa tech = sub_saharan gfx = africangfx }
 link = { eu4 = bilala ck2 = zaghawa tech = sub_saharan gfx = africangfx region = kanem_area }
 link = { eu4 = zaghawa ck2 = zaghawa tech = sub_saharan gfx = africangfx }
+link = { eu4 = tunjur ck2 = zaghawa tech = sub_saharan gfx = africangfx region = darfur_central_sahara_area }
 # eu4 fulani?
 
 # West African
