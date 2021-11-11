@@ -91,7 +91,7 @@ link = { ck2 = k_england eu4 = ENG }
 link = { ck2 = e_britannia eu4 = GBR }
 link = { ck2 = d_moray eu4 = HSC }
 link = { ck2 = k_ireland eu4 = IRE }
-#link = { ck2 = c_westmeath eu4 = FLY } # Westmeath is not Offaly
+link = { ck2 = c_westmeath eu4 = FLY }
 link = { ck2 = c_kildare eu4 = KID }
 link = { ck2 = d_the_isles eu4 = KOI }
 link = { ck2 = c_isle_of_man eu4 = KOI }
@@ -571,7 +571,6 @@ link = { ck2 = k_mali eu4 = MAL }
 link = { ck2 = d_mali eu4 = MAL }
 link = { ck2 = c_mali eu4 = MAL }
 link = { ck2 = c_kosti eu4 = NUB }
-link = { ck2 = c_wagadougou eu4 = MSI }
 link = { ck2 = c_soso eu4 = SOF }
 link = { ck2 = k_songhay eu4 = SON }
 link = { ck2 = d_songhay eu4 = SON }
@@ -580,6 +579,7 @@ link = { ck2 = d_timbuktu eu4 = TMB }
 link = { ck2 = c_timbuktu eu4 = TMB }
 link = { ck2 = c_fitri eu4 = YAO }
 link = { ck2 = d_yatenga eu4 = YAT }
+link = { ck2 = c_yatenga eu4 = YAT }
 link = { ck2 = d_bambuk eu4 = ZAF }
 link = { ck2 = c_mema eu4 = ZAF }
 
@@ -835,6 +835,20 @@ link = { ck2 = d_franconia eu4 = FKN } # Franconia
 link = { ck2 = k_swabia eu4 = SWA } # Swabia
 link = { ck2 = d_swabia eu4 = SWA } # Swabia
 link = { ck2 = c_schwaben eu4 = SWA } # Swabia
+
+# 1.32 Songhai / Origins
+
+link = { ck2 = c_wagadougou eu4 = WGD } # Wagadugu
+link = { ck2 = c_kurumba eu4 = ZND } # Zandoma
+link = { ck2 = d_gurma eu4 = GUR } # Gurma
+link = { ck2 = c_gurma eu4 = GUR } # Gurma
+link = { ck2 = k_nubia eu4 = NBI } # Nubia
+link = { ck2 = d_nubia eu4 = NBI } # Nubia
+link = { ck2 = d_axum eu4 = AKS } # Aksum
+link = { ck2 = c_aksum eu4 = AKS } # Aksum
+link = { ck2 = d_wadai eu4 = WAD } # Wadai
+link = { ck2 = c_wadai eu4 = WAD } # Wadai
+
 
 # ---- SUPPORTED MODS ----- Historical Immersion Project (SWMH)
 # Arabia
@@ -1119,13 +1133,13 @@ link = { ck2 = k_terra eu4 = LVA } # Livonia
 link = { ck2 = d_uppland eu4 = SWE } # Sweden
 
 # West Africa
-link = { ck2 = c_kebbi eu4 = HAU } # Hausa
 link = { ck2 = d_kebbi eu4 = HAU } # Hausa
-link = { ck2 = c_djolof eu4 = JOL } # Jolof
+link = { ck2 = c_kebbi eu4 = HAU } # Hausa
 link = { ck2 = d_wolof eu4 = JOL } # Jolof
-link = { ck2 = c_kanem eu4 = KBO } # Kanem Bornu
+link = { ck2 = c_djolof eu4 = JOL } # Jolof
 link = { ck2 = d_kanem eu4 = KBO } # Kanem Bornu
 link = { ck2 = d_kano eu4 = KAN } # Kano
+link = { ck2 = c_kanem eu4 = KBO } # Kanem Bornu
 link = { ck2 = c_masin eu4 = ZAF } # Macina
 link = { ck2 = d_mossi eu4 = MSI } # Mossi
 link = { ck2 = c_gao eu4 = SON } # Songhai
@@ -1137,12 +1151,3 @@ link = { capitals = { 2211 } eu4 = ARD } # Ardalan
 link = { capitals = { 64 } eu4 = LBV } # Landshut
 link = { capitals = { 2972 } eu4 = PAD } # Paderborn
 link = { capitals = { 4716 } eu4 = COB } # Coburg
-
-# 1.32 Songhai / Origins
-
-link = { ck2 = c_wagadougou eu4 = WGD } # Wagadugu
-link = { ck2 = c_kurumba eu4 = ZND } # Zandoma
-link = { ck2 = c_gurma eu4 = GUR } # Gurma
-link = { ck2 = k_nubia eu4 = NUB } # Nubia
-link = { ck2 = d_nubia eu4 = NUB } # Nubia
-link = { ck2 = c_wadai eu4 = WAD } # Wadai
