@@ -1,6 +1,23 @@
 #Check for reformed religions in a "HISTORICAL" start
 on_startup = {	
-	#VANILLA
+	########### VANILLA
+	if = {
+		limit = {
+			current_age = age_of_discovery
+		}
+		LXA = {
+			if = {
+				limit = {
+					NOT = { has_country_flag = lxa_loyalty_flag }
+				}
+				add_estate_loyalty = {
+					estate = estate_church
+					loyalty = -10
+				}
+				set_country_flag = lxa_loyalty_flag
+			}
+		}
+	}
 	emperor = {
 		save_global_event_target_as = Emperor
 	}
@@ -12,7 +29,7 @@ on_startup = {
 	}
 	events = {
 		muslim_school_events.20 #Pick School
-#		flavor_fra.15000 #Make the French Revolution happen if starting in 1789
+	#flavor_fra.15000 #Make the French Revolution happen if starting in 1789
 	}
 	if = {
 		limit = {
@@ -47,7 +64,19 @@ on_startup = {
 			disaster = french_revolution
 		}
 	}
-	#MODDED
+	if = {
+		limit = {
+			exists = SUK
+		}
+		SUK = {
+			set_ruler_flag = suk_monarch_flag
+		}
+		AYU = {
+			set_country_flag = ayu_monarch_flag
+		}
+	}
+	
+	############MODDED
 	if = {
 		limit = { NOT = { has_global_flag = ZZZ_enhanced_random_world } }
 		#Norse
@@ -237,8 +266,9 @@ on_battle_lost_country = {
 	#MODDED
 	ZZZ_enhanced_converter_battle_cult_spreading_effect = yes
 }
+
 on_province_owner_change = {
-	#VANILLA
+	######### VANILLA
 	events = {
 		japan.1
 	}
@@ -308,7 +338,109 @@ on_province_owner_change = {
 		remove_province_modifier = sufi_shrine
 	}
 	on_province_owner_change_estate_privileges_effect = yes
-	#MODDED
+	judaism_on_province_change_religion_or_change_owner_effect = yes
+	kongo_on_province_change_culture_or_change_owner_effect = yes
+	
+	if = {
+		limit = {
+			region = indo_china_region
+			has_building = farm_estate
+			trade_goods = grain
+			owner = {
+				has_mission = mnd_khm_irrigation 
+				NOT = {
+					OR = {
+						has_estate = estate_vaisyas
+						has_estate = estate_burghers
+					}
+				}
+			}
+		}
+		add_province_modifier = {
+			name = grain_production_improved
+			duration = 7300
+		}
+	}
+
+	if = {
+		limit = {
+			trade_goods = gold
+			NOT = { has_province_modifier = estate_burghers_control_over_gold_mine }
+			owner = {
+				has_estate_privilege = estate_burghers_control_over_the_mint
+			}
+		}
+		add_province_modifier = {
+			name = estate_burghers_control_over_gold_mine
+			duration = -1
+		}
+	}
+	if = {
+		limit = {
+			owner = {
+				religion = ROOT
+				culture_group = ROOT
+				has_estate_privilege = estate_church_one_faith_one_culture
+			}
+			NOT = { has_province_modifier = estate_church_united_faith_and_culture }
+		}
+		add_province_modifier = {
+			name = estate_church_united_faith_and_culture
+			duration = -1
+		}
+	}
+	if = {
+		limit = {
+			owner = {
+				NOT = { culture_group = ROOT }
+				has_owner_accepted_culture = no
+				has_estate_privilege = estate_church_one_faith_one_culture
+			}
+			NOT = { has_province_modifier = estate_church_false_culture }
+		}
+		add_province_modifier = {
+			name = estate_church_false_culture
+			duration = -1
+		}
+	}
+	if = {
+		limit = {
+			owner = {
+				has_country_modifier = son_fetishism_as_secondary_religion
+			}
+			religion = shamanism
+			NOT = { has_province_modifier = son_fetishism_as_secondary_religion_province }
+		}
+		add_province_modifier = {
+			name = son_fetishism_as_secondary_religion_province
+			duration = -1
+			desc = son_fetishism_as_secondary_religion_province_desc
+		}
+	}
+	
+	if = {
+		limit = {
+			province_id = 379
+			owner = {
+				NOT = { religion = jewish }
+			}
+		}
+		remove_country_modifier = third_temple_country_modifier
+	}
+	else_if = {
+		limit = {
+			OR = {
+				owner = {
+					NOT = { has_country_modifier = son_fetishism_as_secondary_religion }
+				}
+				NOT = { religion = shamanism }
+			}
+			has_province_modifier = son_fetishism_as_secondary_religion_province
+		}
+		remove_province_modifier = son_fetishism_as_secondary_religion_province
+	}
+
+	###########  MODDED
 	if = {
 		limit = {
 			has_province_modifier = ZZZ_enhanced_mighty_temple_being_built
@@ -319,24 +451,18 @@ on_province_owner_change = {
 
 #Fraticelli Pope
 on_five_year_pulse_4 = {
-	#VANILLA
+	#### MODDED 
 	if = { #fail-safe for flavor_pap.7, making religious leagues happen at some point if there is no PAP
 		limit = {
 			is_year = 1610
 			NOT = { exists = FAP }
-			NOT = { has_global_flag = counter_reformation }
-		}
-		set_global_flag = counter_reformation
-	}
-	#MODDED
-	if = { #fail-safe for flavor_pap.7, making religious leagues happen at some point if there is no PAP
-		limit = {
-			is_year = 1610
 			NOT = { exists = PAP }
 			NOT = { has_global_flag = counter_reformation }
 		}
 		set_global_flag = counter_reformation
 	}
+	
+	########### VANILLA
 	#fail-safe if for whatever reason these flags stay after being used in events
 	if = {
 		limit = {
@@ -365,20 +491,20 @@ on_five_year_pulse_4 = {
 		}
 		clr_country_flag = advisor_events_mil
 	}
-}
-on_create_vassal = {
-	#VANILLA
+	#Clearing of Jewish events flags
 	if = {
 		limit = {
-			has_dlc = "Emperor"
-			FROM = {
-				is_revolutionary = yes
+			had_country_flag = {
+				flag = shalosh_regalim
+				days = 365
 			}
 		}
-		change_government = republic
-		add_government_reform = junior_revolutionary_republic_reform
-		set_country_flag = had_revolution
+		clr_country_flag = shalosh_regalim
 	}
+}
+
+on_create_vassal = {
+	#### VANILLA
 	if = {
 		limit = {
 			tag = PAP
@@ -388,7 +514,8 @@ on_create_vassal = {
 		add_government_reform = papacy_reform
 		adopt_reform_progress = FROM
 	}
-	#MODDED
+	
+	###### MODDED
 	if = {
 		limit = {
 			tag = FAP
@@ -399,8 +526,9 @@ on_create_vassal = {
 		adopt_reform_progress = FROM
 	}
 }
+
 on_country_released = {
-	#VANILLA
+	##### VANILLA
 	if = {
 		limit = {
 			tag = PAP
@@ -426,7 +554,8 @@ on_country_released = {
 			change_religion = FROM
 		}
 	}
-	#MODDED
+	
+	####### MODDED
 	if = {
 		limit = {
 			tag = FAP
@@ -437,8 +566,9 @@ on_country_released = {
 		adopt_reform_progress = FROM
 	}
 }
+
 on_country_creation = {
-	#VANILLA
+	###### VANILLA
 	if = {
 		limit = {
 			tag = PAP
@@ -458,7 +588,8 @@ on_country_creation = {
 		change_government = theocracy
 		add_government_reform = papacy_reform
 	}
-	#MODDED
+	
+	####### MODDED
 	if = {
 		limit = {
 			tag = FAP
