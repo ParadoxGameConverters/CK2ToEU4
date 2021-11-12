@@ -17,7 +17,7 @@ oghuz = {
 		Bayandur Irtim Talmat Batas Alayuntlu Çepni Eymür Salgurlu Kankali
 	}
 	pecheneg = {
-		primary = GLH
+		primary = PTZ
 	}
 	cuman = {
 		primary = GLH

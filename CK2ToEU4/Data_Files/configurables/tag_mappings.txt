@@ -367,6 +367,8 @@ link = { ck2 = c_crimea eu4 = CRI }
 link = { ck2 = c_theodosia eu4 = FEO }
 link = { ck2 = k_georgia eu4 = GEO }
 link = { ck2 = d_georgia eu4 = GEO }
+link = { ck2 = d_bandja eu4 = PTZ }
+link = { ck2 = c_pecheneg eu4 = PTZ }
 link = { ck2 = e_golden_horde eu4 = GLH }
 link = { ck2 = d_kazan eu4 = KAZ }
 link = { ck2 = c_qazan eu4 = KAZ }
