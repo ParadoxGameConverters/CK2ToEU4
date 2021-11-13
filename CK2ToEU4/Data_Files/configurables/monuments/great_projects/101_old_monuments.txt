@@ -2006,13 +2006,6 @@ ellora_caves = {
 				has_owner_religion = yes
 			}
 			AND = {
-				religion = hinduism
-				has_owner_religion = yes
-				owner = {
-					has_personal_deity = buddha	
-				}						
-			}
-			AND = {
 				religion = shamanism
 				has_owner_religion = yes
 				owner = {
@@ -2039,13 +2032,6 @@ ellora_caves = {
 			AND= {
 				religion_group = dharmic
 				has_owner_religion = yes
-			}
-			AND = {
-				religion = hinduism
-				has_owner_religion = yes
-				owner = {
-					has_personal_deity = buddha	
-				}						
 			}
 			AND = {
 				religion = shamanism
@@ -2286,13 +2272,6 @@ hampi = {
 				has_owner_religion = yes
 			}
 			AND = {
-				religion = hinduism
-				has_owner_religion = yes
-				owner = {
-					has_personal_deity = buddha	
-				}						
-			}
-			AND = {
 				religion = shamanism
 				has_owner_religion = yes
 				owner = {
@@ -2327,13 +2306,6 @@ hampi = {
 				has_owner_religion = yes
 			}
 			AND = {
-				religion = hinduism
-				has_owner_religion = yes
-				owner = {
-					has_personal_deity = buddha	
-				}						
-			}
-			AND = {
 				religion = shamanism
 				has_owner_religion = yes
 				owner = {
@@ -2360,13 +2332,6 @@ hampi = {
 			AND= {
 				religion_group = dharmic
 				has_owner_religion = yes
-			}
-			AND = {
-				religion = hinduism
-				has_owner_religion = yes
-				owner = {
-					has_personal_deity = buddha	
-				}						
 			}
 			AND = {
 				religion = shamanism
@@ -2484,6 +2449,8 @@ prague = {
 	}
 
 	can_use_modifiers_trigger = {
+		religion_group = christian
+		has_owner_religion = yes
 	}
 
 	can_upgrade_trigger = {
@@ -2492,8 +2459,6 @@ prague = {
 	}
 
 	keep_trigger = {
-		religion_group = christian
-		has_owner_religion = yes
 	}
 
 	tier_0 = {
@@ -2859,11 +2824,11 @@ malta_forts = {
 		}
 		province_modifiers = {
 			local_defensiveness = 0.15
+			hostile_disembark_speed = 0.5
 		}
 		area_modifier = {
 		}
 		country_modifiers = {
-			hostile_disembark_speed = 0.5
 			warscore_cost_vs_other_religion = -0.05
 		}
 		on_upgraded = {
@@ -2880,11 +2845,11 @@ malta_forts = {
 		province_modifiers = {
 			local_defensiveness = 0.25
 			local_hostile_attrition = 0.5
+			hostile_disembark_speed = 1
 		}
 		area_modifier = {
 		}
 		country_modifiers = {
-			hostile_disembark_speed = 1
 			warscore_cost_vs_other_religion = -0.1
 		}
 		on_upgraded = {
@@ -2901,11 +2866,11 @@ malta_forts = {
 		province_modifiers = {
 			local_defensiveness = 0.5
 			local_hostile_attrition = 1
+			hostile_disembark_speed = 2
 		}
 		area_modifier = {
 		}
 		country_modifiers = {
-			hostile_disembark_speed = 2
 			warscore_cost_vs_other_religion = -0.15
 		}
 		on_upgraded = {
