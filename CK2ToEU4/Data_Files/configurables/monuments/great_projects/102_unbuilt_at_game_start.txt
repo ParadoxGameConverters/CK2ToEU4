@@ -1601,7 +1601,7 @@ baiturrahman_grand_mosque = {
 		province_modifiers = {
 		}
 		area_modifier = {
-			local_unrest = -1
+			local_unrest = -2
 		}
 		country_modifiers = {
 			global_missionary_strength = 0.02
@@ -1815,7 +1815,7 @@ brandenburg_gate = {
 		area_modifier = {
 		}
 		country_modifiers = {
-			monthly_militarized_society = 0.04	
+			monthly_militarized_society = 0.05
 			prestige_from_land = 1.5
 			army_tradition_from_battle = 0.5
 		}
