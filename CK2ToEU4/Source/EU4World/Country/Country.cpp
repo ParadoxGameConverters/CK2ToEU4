@@ -1075,6 +1075,11 @@ void EU4::Country::assignReforms(const std::shared_ptr<mappers::RegionMapper>& r
 			details.reforms = {"noble_elite_reform"};
 			isMerc = true;
 		}
+		else if (actualHolder->getGovernment() == "chinese_imperial_government" && details.religion == "confucianism")
+		{
+			details.reforms.clear();
+			details.reforms = {"confucian_bureaucracy"};
+		}
 		else if (actualHolder->getGovernment() == "roman_imperial_government" || actualHolder->getGovernment() == "chinese_imperial_government")
 		{
 			details.reforms.clear();
@@ -1084,6 +1089,26 @@ void EU4::Country::assignReforms(const std::shared_ptr<mappers::RegionMapper>& r
 		{
 			details.reforms.clear();
 			details.reforms = {"feudal_theocracy"};
+		}
+		else if (tag == "ETH" && (governmentType == "despotic" || governmentType == "aristocratic"))
+		{
+			details.reforms.clear();
+			details.reforms = {"negusa_nagast"};
+		}
+		else if (tag == "ETH" && governmentType == "absolute")
+		{
+			details.reforms.clear();
+			details.reforms = {"solomonic_empire"};
+		}
+		else if (tag == "MSI")
+		{
+			details.reforms.clear();
+			details.reforms = {"mossi_federal_kingdom"};
+		}
+		else if ((tag == "MAL" || (details.primaryCulture == "malian" && details.governmentRank == 3)) && governmentType != "aristocratic")
+		{
+			details.reforms.clear();
+			details.reforms = {"musa_rule"};
 		}
 		// Iqta
 		else if (actualHolder->getGovernment() == "muslim_government" && muslimReligions.count(details.religion) &&
@@ -1151,11 +1176,17 @@ void EU4::Country::assignReforms(const std::shared_ptr<mappers::RegionMapper>& r
 	// TRIBES
 	if (details.government == "tribal")
 	{
-		// Tribal Kingdoms
-		if (title.second->getSuccessionLaw() == "gavelkind")
+		//Weird Edge Cases
+		if (details.governmentRank == 3 && actualHolder->getGovernment() != "nomadic_government")
 		{
 			details.reforms.clear();
-			details.reforms = {"tribal_kingdom"};
+			details.reforms = {"sacred_kingdom"};
+		}
+		
+		else if (title.second->getGenderLaw() == "enatic" || title.second->getGenderLaw() == "enatic_cognatic")
+		{
+			details.reforms.clear();
+			details.reforms = {"matrilineal_system"};
 		}
 		// Hordes
 		else if (actualHolder->getGovernment() == "nomadic_government")
@@ -1170,11 +1201,35 @@ void EU4::Country::assignReforms(const std::shared_ptr<mappers::RegionMapper>& r
 			details.reforms.clear();
 			details.reforms = {"siberian_tribe"};
 		}
+		//Tribal Confederacy
+		else if (!title.second->getLaws().count("tribal_organization_3")  || !title.second->getLaws().count("tribal_organization_4"))
+		{
+			details.reforms.clear();
+			details.reforms = {"tribal_confederacy"};
+		}
+		// Great Man
+		else if (title.second->getLaws().count("tribal_organization_4") && title.second->getSuccessionLaw() == "gavelkind")
+		{
+			details.reforms.clear();
+			details.reforms = {"great_man"};
+		}
+		// Tribal Kingdoms
+		else if (title.second->getSuccessionLaw() == "gavelkind")
+		{
+			details.reforms.clear();
+			details.reforms = {"tribal_kingdom"};
+		}
 		// Tribal Federations
 		else if (muslimReligions.count(details.religion))
 		{
 			details.reforms.clear();
 			details.reforms = {"tribal_federation"};
+		}
+		// Feudal Tribe
+		else if (title.second->getSuccessionLaw() != "elective_gavelkind" && title.second->getSuccessionLaw() != "gavelkind")
+		{
+			details.reforms.clear();
+			details.reforms = {"feudal_tribe"};
 		}
 		// Tribal Despotism, also the fallback
 		else

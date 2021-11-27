@@ -6,7 +6,7 @@ ambras_castle = {
 	start = 73
 	
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
-	date = 1444.01.01 #1564.01.01
+	date = 1.01.01 #1564.01.01
 	
 	#time to build
 	time = {
@@ -205,7 +205,7 @@ taj_mahal = {
 	start = 524
 	
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
-	date = 1444.01.01 #1632 
+	date = 1.01.01 #1632 
 	
 	#time to build
 	time = {
@@ -390,7 +390,7 @@ golden_temple = {
 	start = 2075
 	
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
-	date = 1444.01.01 #1574
+	date = 1.01.01 #1574
 	
 	#time to build
 	time = {
@@ -572,7 +572,7 @@ murud_janjira = {
 	start = 2089
 	
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
-	date = 1444.01.01 #1676
+	date = 1.01.01 #1676
 	
 	#time to build
 	time = {
@@ -751,7 +751,7 @@ belem_tower = {
 	start = 227
 	
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
-	date = 1444.01.01 #1519.01.01
+	date = 1.01.01 #1519.01.01
 	
 	#time to build
 	time = {
@@ -1114,7 +1114,7 @@ versailles = {
 	start = 183
 	
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
-	date = 1444.01.01 #1623 hunting lodge
+	date = 1.01.01 #1623 hunting lodge
 	
 	#time to build
 	time = {
@@ -1309,7 +1309,7 @@ el_escorial = {
 	start = 217
 	
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
-	date = 1444.01.01 #1584.01.01
+	date = 1.01.01 #1584.01.01
 	
 	#time to build
 	time = {
@@ -1501,7 +1501,7 @@ el_escorial = {
 ##ORIGINS MONUMENTS
 baiturrahman_grand_mosque = {
 	start = 617 #Kutaraja
-	date = 1444.01.01	#1612.01.01
+	date = 1.01.01	#1612.01.01
 	time = { months = 0	}
 	build_cost = 0
 	can_be_moved = no
@@ -1615,7 +1615,7 @@ baiturrahman_grand_mosque = {
 
 bara_katra = {
 	start = 564 #Dhaka
-	date = 1444.01.01	#1644.01.01
+	date = 1.01.01	#1644.01.01
 	time = { months = 0	}
 	build_cost = 0
 	can_be_moved = no
@@ -1721,7 +1721,7 @@ bara_katra = {
 
 brandenburg_gate = {
 	start = 50 #Berlin
-	date = 1444.01.01	#1788.01.01
+	date = 1.01.01	#1788.01.01
 	time = { months = 0	}
 	build_cost = 0
 	can_be_moved = no
@@ -1827,7 +1827,7 @@ brandenburg_gate = {
 
 buda_castle = {
 	start = 153 #Pest
-	date = 1444.01.01 #1460.01.01
+	date = 1.01.01 #1460.01.01
 	time = { months = 0	}
 	build_cost = 0
 	can_be_moved = no
@@ -1930,7 +1930,7 @@ buda_castle = {
 
 erdene_zuu = {
 	start = 2190 #Qaraqorum
-	date = 1444.01.01	#1585.01.01
+	date = 1.01.01	#1585.01.01
 	time = { months = 0	}
 	build_cost = 0
 	can_be_moved = no
@@ -2132,7 +2132,7 @@ erdene_zuu = {
 
 maidan-e_naqsh-e_jahan = {
 	start = 429 #Isfahan
-	date = 1444.01.01	#1600.01.01
+	date = 1.01.01	#1600.01.01
 	time = { months = 0	}
 	build_cost = 0
 	can_be_moved = no
@@ -2245,7 +2245,7 @@ maidan-e_naqsh-e_jahan = {
 
 mehrangarh_fort = {
 	start = 514 #Marwar
-	date = 1444.01.01	#1454.01.01
+	date = 1.01.01	#1454.01.01
 	time = { months = 0	}
 	build_cost = 0
 	can_be_moved = no
@@ -2355,7 +2355,7 @@ mehrangarh_fort = {
 
 royal_palace_caserta = {
 	start = 121 #Napoli
-	date = 1444.01.01	#1752.01.01
+	date = 1.01.01	#1752.01.01
 	time = { months = 0	}
 	build_cost = 0
 	can_be_moved = no
@@ -2461,7 +2461,7 @@ royal_palace_caserta = {
 
 sultan_ahmed_mosque = {
 	start = 151 #Constantinople
-	date = 1444.01.01	#1616.01.01
+	date = 1.01.01	#1616.01.01
 	time = { months = 0	}
 	build_cost = 0
 	can_be_moved = no
@@ -2574,7 +2574,7 @@ sultan_ahmed_mosque = {
 
 winter_palace = {
 	start = 33 #Neva
-	date = 1444.01.01	#1711.01.01
+	date = 1.01.01	#1711.01.01
 	time = { months = 0	}
 	build_cost = 0
 	can_be_moved = no

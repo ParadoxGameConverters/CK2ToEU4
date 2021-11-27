@@ -133,6 +133,16 @@
  dacian_group: "Dacian"
  pre_indo_european_group: "Pre-Indo-European"
 
+ #Norse Culture Breaks
+ elsinorian:0 "Elsinorian"
+ ruotsish:0 "Ruotsish"
+ holmgardrian:0 "Holmgardrian"
+ marisbaltician:0 "Marisbaltician"
+ normand:0 "Normand"
+ miklagardrian:0 "Miklagardrian"
+ serklandic:0 "Serklandic"
+ romsborgian:0 "Romsborgian" 
+ 
  #SI culture breaks
  franciatecatl:0 "Franciatecatl"
  daniatecatl:0 "Daniatecatl"

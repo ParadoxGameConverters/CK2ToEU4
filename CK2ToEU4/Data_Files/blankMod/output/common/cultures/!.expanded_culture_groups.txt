@@ -19,6 +19,23 @@ scandinavian = {
 		dynasty_names = { Arnórsson Ásgeirsson Benediktsson Bjarnasen Björnsson Eggers Eldjárn Hafstein Hansen
 		Hermannsson Johánesson Jónsson Magnússon Stefánsson Steinthosson Thórdarson Thórhallson Thorláksson Thurs }
 	}
+	elsinorian = {
+		primary = DAN
+		dynasty_names = {
+			Arnórsson Ásgeirsson Benediktsson Bjarnasen Björnsson Eggers Eldjárn Hafstein Hansen
+			Hermannsson Johánesson Jónsson Magnússon Stefánsson Steinthosson Thórdarson Thórhallson Thorláksson Thurs
+			Godhelming Beorming Eorling Æbbing Hæsting Ælling Eadricing Eadwulfing Leodwalding
+			Æthelfrithing Yffing Ingving Offing Oswalding Cerdicing Wiglafing Coenwalhing
+			Beorning Iceling Wuffing Wihtgilsing Ross Ciesla Rowe Borthwick
+		}
+	}
+	ruotsish = { primary = FIN }
+	holmgardrian = { primary = NOV }
+	marisbaltician = { primary = EST }
+	normand = { primary = NRM }
+	miklagardrian = { primary = BYZ }
+	serklandic = { } # No primary because it's truly a joke
+	romsborgian = { primary = ITA }
 }
 british = {
 	anglo_saxon = {
@@ -564,7 +581,7 @@ altaic = {
 	}
 }
 central_american = {
-	franciatlahtolli = {	
+	franciatecatl = {	
 		primary = AZT
 		male_names = {
 			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc 
@@ -577,7 +594,7 @@ central_american = {
 			Centehua Moyolehuani Yaotl Mixcoatl Necahual Nelli Ohtli Papa Patli
 		}
 	}
-	daniatlahtolli = {	
+	daniatecatl = {	
 		primary = AZT
 		male_names = {
 			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc 

@@ -193,7 +193,7 @@ const std::string EU4::outMonument::gfxType(const std::string& base)
 	else if (base == "wonder_temple_hindu")
 		return "great_project_prambanan_temple.dds";
 	else if (base == "wonder_statue_ruler")
-		return "great_project_buddha_statues.dds";
+		return "great_project_gomateshwara_statue.dds";
 	else if (base == "wonder_statue_horse")
 		return "great_project_easter_island_statues.dds"; // Should be replaced as soon as a good replacement can be found
 	else if (base == "wonder_fortress")
@@ -203,19 +203,19 @@ const std::string EU4::outMonument::gfxType(const std::string& base)
 	else if (base == "wonder_wall")
 		return "great_project_the_great_wall_of_china.dds";
 	else if (base == "wonder_harbor")
-		return "great_project_murud_janjira.dds"; // Should be replaced as soon as a good replacement can be found
+		return "great_project_doges_palace.dds";
 	else if (base == "wonder_lighthouse")
-		return "great_project_golden_temple.dds"; // Should be replaced as soon as a good replacement can be found
+		return "great_project_belem_tower.dds"; // Should be replaced as soon as a good replacement can be found
 	else if (base == "wonder_amphitheater")
-		return "great_project_the_kremlin.dds"; // Should be replaced as soon as a good replacement can be found
+		return "great_project_cartagena_de_indias.dds"; // Should be replaced as soon as a good replacement can be found
 	else if (base == "wonder_palace")
 		return "great_project_the_grand_palace.dds";
 	else if (base == "wonder_garden")
 		return "great_project_ambras_castle.dds"; // Should be replaced as soon as a good replacement can be found
 	else if (base == "wonder_university")
-		return "great_project_temple_of_confucius.dds"; // Should be replaced as soon as a good replacement can be found
+		return "great_project_sankore_madrasah.dds";
 	else if (base == "wonder_library")
-		return "great_project_registan_square.dds"; // Should be replaced as soon as a good replacement can be found
+		return "great_project_temple_of_confucius.dds"; // Should be replaced as soon as a good replacement can be found
 	else if (base == "wonder_mausoleum")
 		return "great_project_mausoleum_at_halicarnassus.dds";
 	else if (base == "wonder_pyramid")
@@ -223,7 +223,7 @@ const std::string EU4::outMonument::gfxType(const std::string& base)
 	else if (base == "great_project_stone_henge")
 		return "great_project_pyramid_of_cheops.dds";
 	else if (base == "wonder_aztec_pyramid")
-		return "great_project_tenochtitlan.dds";
+		return "great_project_chichen_itza.dds";
 
 	return "great_project_ait_benhaddou.dds"; // Fallback, just in case
 }

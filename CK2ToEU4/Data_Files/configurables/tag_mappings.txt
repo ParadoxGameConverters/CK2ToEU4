@@ -845,7 +845,6 @@ link = { ck2 = c_kurumba eu4 = ZND } # Zandoma
 link = { ck2 = d_gurma eu4 = GUR } # Gurma
 link = { ck2 = c_gurma eu4 = GUR } # Gurma
 link = { ck2 = k_nubia eu4 = NBI } # Nubia
-link = { ck2 = d_nubia eu4 = NBI } # Nubia
 link = { ck2 = d_axum eu4 = AKS } # Aksum
 link = { ck2 = c_aksum eu4 = AKS } # Aksum
 link = { ck2 = d_wadai eu4 = WAD } # Wadai
@@ -936,6 +935,7 @@ link = { ck2 = d_alodia eu4 = ALO } # Alodia
 link = { ck2 = k_alodia eu4 = ALO } # Alodia
 link = { ck2 = c_beja eu4 = BEJ } # Beja
 link = { ck2 = d_beja eu4 = BEJ } # Beja
+link = { ck2 = d_nubia eu4 = MAK } # Makuria, Ignore the nubia part
 link = { ck2 = c_ankober eu4 = DAM } # Damot
 link = { ck2 = d_darfur eu4 = DAR } # Darfur
 link = { ck2 = c_maikele_bahr eu4 = MED } # Medri Bahri

@@ -7,6 +7,7 @@
 #include "../Configuration/Configuration.h"
 #include "Log.h"
 #include "OSCompatibilityLayer.h"
+#include "CommonFunctions.h"
 #include <cmath>
 #include <filesystem>
 #include <fstream>
@@ -759,11 +760,13 @@ void EU4::World::adjustChina(const CK2::World& sourceWorld)
 		// We have all data to set emperor.
 		Character emperor;
 		emperor.birthDate = holder.second->getBirthDate();
+		if (holder.second->isFemale())
+			emperor.female = true;
 		emperor.name = holder.second->getName();
 		emperor.dynasty = holder.second->getDynasty().second->getName();
-		emperor.adm = 6;
-		emperor.dip = 4;
-		emperor.mil = 6;
+		emperor.adm = std::min((holder.second->getSkills().stewardship + holder.second->getSkills().learning) / 3 + 1, 6);
+		emperor.dip = std::min((holder.second->getSkills().diplomacy + holder.second->getSkills().intrigue) / 3 + 1, 6);
+		emperor.mil = std::min((holder.second->getSkills().martial + holder.second->getSkills().learning) / 3 + 1, 6);
 		std::string baseReligion;
 		if (!holder.second->getReligion().empty())
 			baseReligion = holder.second->getReligion();
@@ -793,6 +796,7 @@ void EU4::World::adjustChina(const CK2::World& sourceWorld)
 		emperor.isSet = true;
 		ourChina->setConversionDate(sourceWorld.getConversionDate());
 		ourChina->clearHistoryLessons();
+		ourChina->addAcceptedCulture(emperor.culture);
 		ourChina->setMonarch(emperor);
 	}
 	else

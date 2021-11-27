@@ -8,6 +8,7 @@ religion = nahuatl
 technology_group = high_american
 unit_type = high_american
 capital = 852	# Mexico
+set_estate_privilege = estate_nobles_strong_duchies
 historical_rival = INC
 
 #offensive_defensive = -5

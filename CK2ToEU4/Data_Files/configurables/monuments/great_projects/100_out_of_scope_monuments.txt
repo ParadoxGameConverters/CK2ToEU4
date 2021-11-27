@@ -2236,7 +2236,7 @@ the_grand_palace = {
 	start = 4831
 	
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
-	date = 1444.01.01 #1782
+	date = 1.01.01 #1782
 	
 	#time to build
 	time = {
@@ -3052,7 +3052,7 @@ kanbawzathadi_palace = {
 	start = 586
 	
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
-	date = 1444.01.01 #1556
+	date = 1.01.01 #1556
 	
 	#time to build
 	time = {
@@ -3758,7 +3758,7 @@ sankin_kotai_palaces = {
 	start = 1028
 	
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
-	date = 1444.01.01 #1582 Osaka Castle
+	date = 1.01.01 #1582 Osaka Castle
 	
 	#time to build
 	time = {
@@ -3950,7 +3950,7 @@ great_mosque_djenne = {
 	start = 1134
 	
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
-	date = 1444.01.01 #1300.01.01 #Unknown, c. 1200-1330
+	date = 1.01.01 #1300.01.01 #Unknown, c. 1200-1330
 	
 	#time to build
 	time = {
@@ -4132,7 +4132,7 @@ imperial_city_hue = {
 	start = 2373
 	
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
-	date = 1444.01.01 #1804.01.01
+	date = 1.01.01 #1804.01.01
 	
 	#time to build
 	time = {
@@ -4385,7 +4385,7 @@ potosi = {
 	start = 795
 	
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
-	date = 1444.01.01 #1545.01.01 #Date the silver mine started to be exploited
+	date = 1.01.01 #1545.01.01 #Date the silver mine started to be exploited
 	
 	#time to build
 	time = {
@@ -4674,7 +4674,7 @@ cahokia = {
 
 cartagena_de_indias = {
 	start = 828 #Cartagena
-	date = 1444.01.01	#1719.01.01
+	date = 1.01.01	#1719.01.01
 	time = { months = 0	}
 	build_cost = 0
 	can_be_moved = no
@@ -4891,7 +4891,7 @@ chan_chan_citadel = {
 
 fuerte_del_morro = {
 	start = 484 #Havana
-	date = 1444.01.01	#1589.01.01
+	date = 1.01.01	#1589.01.01
 	time = { months = 0	}
 	build_cost = 0
 	can_be_moved = no
@@ -5583,7 +5583,7 @@ qhapaq_nam = {
 
 san_antonio_missions = {
 	start = 4627 #Tanu
-	date = 1444.01.01	#1716.01.01
+	date = 1.01.01	#1716.01.01
 	time = { months = 0	}
 	build_cost = 0
 	can_be_moved = no
@@ -5698,7 +5698,7 @@ san_antonio_missions = {
 
 white_house = {
 	start = 953 #Piscataway
-	date = 1444.01.01	#1800.01.01
+	date = 1.01.01	#1800.01.01
 	time = { months = 0	}
 	build_cost = 0
 	can_be_moved = no
@@ -6057,7 +6057,7 @@ tiwanaku = {
 
 tortuga_island = {
 	start = 489 #Tortuga
-	date = 1444.01.01	#1640.01.01
+	date = 1.01.01	#1640.01.01
 	time = { months = 0	}
 	build_cost = 0
 	can_be_moved = no
@@ -6281,7 +6281,7 @@ walls_benin = {
 
 zacatecas_mine_city = {
 	start = 856 #Zacatecas
-	date = 1444.01.01	#1548.01.01
+	date = 1.01.01	#1548.01.01
 	time = { months = 0	}
 	build_cost = 0
 	can_be_moved = no

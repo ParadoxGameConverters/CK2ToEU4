@@ -1,8 +1,8 @@
-owner = SHA
+owner = CHE
 
-controller = SHA
+controller = CHE
 
-add_core = SHA
+add_core = CHE
 add_core = SUS
 
 culture = susquehannock
