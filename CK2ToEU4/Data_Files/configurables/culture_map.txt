@@ -419,7 +419,24 @@ link = { eu4 = senegambian ck2 = wolof tech = sub_saharan gfx = africangfx } #Fa
 
 # Mesoamerican - this is relevant only for azteks holding europe
 
+link = { eu4 = franciatecatl ck2 = nahuatl tech = high_american gfx = southamericagfx region = france_region }
+link = { eu4 = daniatecatl ck2 = nahuatl tech = high_american gfx = southamericagfx region = scandinavia_region }
+link = { eu4 = olandatecatl ck2 = nahuatl tech = high_american gfx = southamericagfx region = low_countries_region }
+link = { eu4 = itlaliatecatl ck2 = nahuatl tech = high_american gfx = southamericagfx region = italy_region }
+link = { eu4 = teutontecatl ck2 = nahuatl tech = high_american gfx = southamericagfx region = north_german_region region = south_german_region }
+link = { eu4 = ruxiatecatl ck2 = nahuatl tech = high_american gfx = southamericagfx region = russia_region region = ural_region region = baltic_region }
+link = { eu4 = caxtiltecatl ck2 = nahuatl tech = high_american gfx = southamericagfx region = iberia_region }
+link = { eu4 = irlantecatl ck2 = nahuatl tech = high_american gfx = southamericagfx region = munster_area region = connacht_area region = leinster_area region = ulster_area }
+link = { eu4 = anglitecatl ck2 = nahuatl tech = high_american gfx = southamericagfx region = british_isles_region }
+link = { eu4 = eslovakiatecatl ck2 = nahuatl tech = high_american gfx = southamericagfx region = poland_region region = ruthenia_region region = carpathia_region }
+link = { eu4 = kauayotltecatl ck2 = nahuatl tech = high_american gfx = southamericagfx region = crimea_region region = tartary_superregion }
+link = { eu4 = uitstlantecatl ck2 = nahuatl tech = high_american gfx = southamericagfx region = balkan_region }
+link = { eu4 = exiptlitecatl ck2 = nahuatl tech = high_american gfx = southamericagfx region = egypt_region region = maghreb_region }
+link = { eu4 = tlauhkampaerntecatl ck2 = nahuatl tech = high_american gfx = southamericagfx region = near_east_superregion region = persia_superregion }
+link = { eu4 = tlayouaktecatl ck2 = nahuatl tech = high_american gfx = southamericagfx region = africa_superregion region = southern_africa_superregion }
+link = { eu4 = elepantlitecatl ck2 = nahuatl tech = high_american gfx = southamericagfx region = india_superregion }
 link = { eu4 = aztek ck2 = nahuatl tech = high_american gfx = southamericagfx }
+
 
 # Aryan Indian
 

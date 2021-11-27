@@ -132,3 +132,23 @@
  gallic_group: "Continental Celtic"
  dacian_group: "Dacian"
  pre_indo_european_group: "Pre-Indo-European"
+
+ #SI culture breaks
+ franciatecatl:0 "Franciatecatl"
+ daniatecatl:0 "Daniatecatl"
+ olandatecatl:0 "Olandatecatl"
+ itlaliatecatl:0 "Itlaliatecatl"
+ teutontecatl:0 "Teutontecatl"
+ ruxiatecatl:0 "Ruxiatecatl"
+ caxtiltecatl:0 "Caxtiltecatl"
+ irlantecatl:0 "Irlantecatl"
+ anglitecatl:0 "Anglitecatl"
+ eslovakiatecatl:0 "Eslovakiatecatl"
+ kauayotltecatl:0 "Kauayotltecatl"
+ uitstlantecatl:0 "Uitstlantecatl"
+ exiptlitecatl:0 "Exiptlitecatl"
+ tlauhkampaerntecatl:0 "Tlauhkampaerntecatl"
+ tlayouaktecatl:0 "Tlayouaktecatl"
+ elepantlitecatl:0 "Elepantlitecatl"
+ 
+ 
