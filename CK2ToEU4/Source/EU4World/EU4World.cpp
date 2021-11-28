@@ -5,9 +5,9 @@
 #include "../CK2World/Provinces/Barony.h"
 #include "../CK2World/Titles/Title.h"
 #include "../Configuration/Configuration.h"
+#include "CommonFunctions.h"
 #include "Log.h"
 #include "OSCompatibilityLayer.h"
-#include "CommonFunctions.h"
 #include <cmath>
 #include <filesystem>
 #include <fstream>
