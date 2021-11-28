@@ -1176,13 +1176,12 @@ void EU4::Country::assignReforms(const std::shared_ptr<mappers::RegionMapper>& r
 	// TRIBES
 	if (details.government == "tribal")
 	{
-		//Weird Edge Cases
+		// Weird Edge Cases
 		if (details.governmentRank == 3 && actualHolder->getGovernment() != "nomadic_government")
 		{
 			details.reforms.clear();
 			details.reforms = {"sacred_kingdom"};
 		}
-		
 		else if (title.second->getGenderLaw() == "enatic" || title.second->getGenderLaw() == "enatic_cognatic")
 		{
 			details.reforms.clear();
@@ -1201,14 +1200,14 @@ void EU4::Country::assignReforms(const std::shared_ptr<mappers::RegionMapper>& r
 			details.reforms.clear();
 			details.reforms = {"siberian_tribe"};
 		}
-		//Tribal Confederacy
-		else if (!title.second->getLaws().count("tribal_organization_3")  || !title.second->getLaws().count("tribal_organization_4"))
+		// Tribal Confederacy
+		else if (!title.second->getLaws().count("tribal_organization_3") && !title.second->getLaws().count("tribal_organization_4"))
 		{
 			details.reforms.clear();
 			details.reforms = {"tribal_confederacy"};
 		}
 		// Great Man
-		else if (title.second->getLaws().count("tribal_organization_4") && title.second->getSuccessionLaw() == "gavelkind")
+		else if (title.second->getLaws().count("tribal_organization_4") && title.second->getSuccessionLaw() != "elective_gavelkind")
 		{
 			details.reforms.clear();
 			details.reforms = {"great_man"};

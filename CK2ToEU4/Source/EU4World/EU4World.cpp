@@ -796,7 +796,8 @@ void EU4::World::adjustChina(const CK2::World& sourceWorld)
 		emperor.isSet = true;
 		ourChina->setConversionDate(sourceWorld.getConversionDate());
 		ourChina->clearHistoryLessons();
-		ourChina->addAcceptedCulture(emperor.culture);
+		if(!emperor.culture.empty())
+			ourChina->addAcceptedCulture(emperor.culture);
 		ourChina->setMonarch(emperor);
 	}
 	else

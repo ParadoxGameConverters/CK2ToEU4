@@ -83,7 +83,7 @@ class Country
 
 	void registerProvince(std::pair<int, std::shared_ptr<Province>> theProvince) { provinces.insert(std::move(theProvince)); }
 	void setPrimaryCulture(const std::string& culture);
-	void addAcceptedCulture(std::string culture) { details.acceptedCultures.emplace(culture); };
+	void addAcceptedCulture(const std::string& culture) { details.acceptedCultures.emplace(culture); };
 	void setAcceptedCultures();
 	void setMajorityReligion(const std::string& religion);
 	void setReligion(const std::string& religion);
