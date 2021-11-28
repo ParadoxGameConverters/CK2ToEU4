@@ -8,13 +8,21 @@
 # North Germanic
 
 link = { eu4 = icelandic ck2 = norse ck2 = norwegian ck2 = danish ck2 = swedish tech = western gfx = westerngfx region = subarctic_islands_area }
-link = { eu4 = swedish ck2 = norse tech = western gfx = westerngfx region = norrland_area region = gotaland_area region = bothnia_area province = 4151 region = vastra_gotaland_area region = ostra_svealand_area }
+link = { eu4 = swedish ck2 = norse tech = western gfx = westerngfx region = norrland_area region = gotaland_area region = bothnia_area region = vastra_gotaland_area region = svealand_area region = ostra_svealand_area province = 4151 }
 link = { eu4 = swedish ck2 = swedish tech = western gfx = westerngfx }
 link = { eu4 = norwegian ck2 = norse tech = western gfx = westerngfx region = northern_norway region = eastern_norway region = western_norway province = 315 }
 link = { eu4 = norwegian ck2 = norwegian tech = western gfx = westerngfx }
 link = { eu4 = danish ck2 = norse tech = western gfx = westerngfx region = jutland_area region = denmark_area region = north_german_region region = skaneland_area }
 link = { eu4 = danish ck2 = danish tech = western gfx = westerngfx }
 link = { eu4 = hannoverian ck2 = old_saxon tech = western gfx = westerngfx }
+link = { eu4 = elsinorian ck2 = norse tech = western gfx = westerngfx region = british_isles_region } # Owned by Daneland
+link = { eu4 = ruotsish ck2 = norse tech = western gfx = westerngfx region = finland_area province = 1777 region = karelia_area region = north_karelia }
+link = { eu4 = holmgardrian ck2 = norse tech = eastern gfx = westerngfx region = russia_region region = ruthenia_region region = crimea_region }
+link = { eu4 = marisbaltician ck2 = norse tech = western gfx = westerngfx region = baltic_region region = poland_region }
+link = { eu4 = normand ck2 = norse tech = western gfx = westerngfx region = low_countries_region region = france_region }
+link = { eu4 = miklagardrian ck2 = norse tech = western gfx = westerngfx region = balkan_region region = anatolia_region }
+link = { eu4 = serklandic ck2 = norse tech = muslim gfx = westerngfx region = india_superregion region = tartary_superregion region = africa_superregion region = near_east_superregion region = persia_superregion }
+link = { eu4 = romsborgian ck2 = norse tech = western gfx = westerngfx region = italy_region }
 link = { eu4 = norse ck2 = norse tech = western gfx = westerngfx } #PLEASE KEEP THIS LINE HERE!
 
 # North Germanic (Historical Immersion Project - SWMH)
@@ -290,6 +298,7 @@ link = { eu4 = al_iraqiya_arabic ck2 = bedouin_arabic tech = muslim gfx = muslim
 link = { eu4 = al_iraqiya_arabic ck2 = levantine_arabic tech = muslim gfx = muslimgfx region = tabriz_area region = shahrizor_area region = iraq_arabi_area region = basra_area }
 link = { eu4 = omani_culture ck2 = bedouin_arabic tech = muslim gfx = muslimgfx region = oman_area region = mascat_area }
 link = { eu4 = yemeni_culture ck2 = bedouin_arabic tech = muslim gfx = muslimgfx region = asir_area region = tihama_al_yemen_area region = upper_yemen_area region = yemen_area }
+link = { eu4 = al_misr_arabic ck2 = bedouin_arabic tech = muslim gfx = muslimgfx region = egypt_region region = lower_nubia_area region = dongola_area region = upper_nubia_area region = red_sea_coast_area }
 link = { eu4 = bedouin_arabic ck2 = bedouin_arabic tech = muslim gfx = muslimgfx }
 link = { eu4 = algerian ck2 = maghreb_arabic ck2 = bedouin_arabic tech = muslim gfx = muslimgfx region = algiers_area region = hautes_plaines_area region = kabylia_area region = ouled_nail_area }
 link = { eu4 = moroccan ck2 = maghreb_arabic ck2 = bedouin_arabic tech = muslim gfx = muslimgfx region = northern_morocco_area region = tafilalt_area region = sus_area region = marrekesh_area region = western_morocco_area region = southern_morocco_area }
@@ -419,7 +428,24 @@ link = { eu4 = senegambian ck2 = wolof tech = sub_saharan gfx = africangfx } #Fa
 
 # Mesoamerican - this is relevant only for azteks holding europe
 
+link = { eu4 = pixantekatl ck2 = nahuatl tech = high_american gfx = southamericagfx region = france_region }
+link = { eu4 = tanitekatl ck2 = nahuatl tech = high_american gfx = southamericagfx region = scandinavia_region }
+link = { eu4 = olantekatl ck2 = nahuatl tech = high_american gfx = southamericagfx region = low_countries_region }
+link = { eu4 = italtekatl ck2 = nahuatl tech = high_american gfx = southamericagfx region = italy_region }
+link = { eu4 = almantekatl ck2 = nahuatl tech = high_american gfx = southamericagfx region = north_german_region region = south_german_region }
+link = { eu4 = loxatekatl ck2 = nahuatl tech = high_american gfx = southamericagfx region = russia_region region = ural_region region = baltic_region }
+link = { eu4 = kaxtiltekatl ck2 = nahuatl tech = high_american gfx = southamericagfx region = iberia_region }
+link = { eu4 = ixlantekatl ck2 = nahuatl tech = high_american gfx = southamericagfx region = munster_area region = connacht_area region = leinster_area region = ulster_area }
+link = { eu4 = ankiltekatl ck2 = nahuatl tech = high_american gfx = southamericagfx region = british_isles_region }
+link = { eu4 = xilpantekatl ck2 = nahuatl tech = high_american gfx = southamericagfx region = poland_region region = ruthenia_region region = carpathia_region }
+link = { eu4 = kauayotekatl ck2 = nahuatl tech = high_american gfx = southamericagfx region = crimea_region region = tartary_superregion }
+link = { eu4 = uitstlantekatl ck2 = nahuatl tech = high_american gfx = southamericagfx region = balkan_region }
+link = { eu4 = exiptekatl ck2 = nahuatl tech = high_american gfx = southamericagfx region = egypt_region region = maghreb_region }
+link = { eu4 = ikisatekatl ck2 = nahuatl tech = high_american gfx = southamericagfx region = near_east_superregion region = persia_superregion }
+link = { eu4 = kapotsautekatl ck2 = nahuatl tech = high_american gfx = southamericagfx region = africa_superregion region = southern_africa_superregion }
+link = { eu4 = elpantekatl ck2 = nahuatl tech = high_american gfx = southamericagfx region = india_superregion }
 link = { eu4 = aztek ck2 = nahuatl tech = high_american gfx = southamericagfx }
+
 
 # Aryan Indian
 

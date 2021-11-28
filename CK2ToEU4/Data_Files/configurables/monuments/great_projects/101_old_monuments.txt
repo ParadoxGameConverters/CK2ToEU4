@@ -1440,7 +1440,7 @@ kaaba = {
 	start = 385
 	
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
-	date = 1444.01.01 #630.01.01 #Muhammad securing Mecca and removing statues and images from Kaaba
+	date = 1.01.01 #630.01.01 #Muhammad securing Mecca and removing statues and images from Kaaba
 	
 	#time to build
 	time = {
@@ -1622,7 +1622,7 @@ holy_city_jerusalem = {
 	start = 379
 	
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
-	date = 1444.01.01 #957.01.01 BC #Supposed construction date of the Temple of Salomon 
+	date = 1.01.01 #957.01.01 BC #Supposed construction date of the Temple of Salomon 
 	
 	#time to build
 	time = {

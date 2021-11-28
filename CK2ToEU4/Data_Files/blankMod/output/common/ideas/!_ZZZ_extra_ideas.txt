@@ -1334,43 +1334,52 @@ MVA_ideas = {
 }
 
 highland_scottish_ideas = {
-	start = {
-		garrison_size = 0.25
-		heir_chance = 0.5
-	}
-	bonus = {
-		manpower_recovery_speed = 0.1
-	}
-	
 	trigger = {
 		OR = {
 			primary_culture = highland_scottish
 			primary_culture = pictish
 		}
 	}
-	
-	free = yes
-	hsc_the_wallace = {
-		land_morale = 0.15
+}
+
+irish_ideas = {
+	trigger = {
+		OR = {
+			tag = IRE
+			primary_culture = irish
+		}
 	}
-	hsc_highland_clans = {
-		hostile_attrition = 1
+}
+
+somali_ideas = {
+	trigger = {
+		OR = {
+			primary_culture = somali
+			primary_culture = harari
+			primary_culture = afar
+		}
 	}
-	hsc_storm_the_castle = {
-		siege_ability = 0.10
+}
+
+greek_ideas = {
+	trigger = {
+		culture_group = byzantine
 	}
-	hsc_episcopalianism = {
-		religious_unity = 0.1
-		stability_cost_modifier = -0.1
-	}
-	hsc_highland_charge = {
-		shock_damage = 0.15
-	}
-	hsc_arming_act = {
-		global_manpower_modifier = 0.1
-	}
-	hsc_ossian = {
-		prestige = 1
+}
+
+TIB_ideas = {	
+	trigger = {
+		OR = {
+			tag = TIB
+			AND = {
+				primary_culture = tibetan
+				OR = {
+					religion = vajrayana 
+					religion = bon
+					religion = bon_reformed
+				}
+			}
+		}
 	}
 }
 
