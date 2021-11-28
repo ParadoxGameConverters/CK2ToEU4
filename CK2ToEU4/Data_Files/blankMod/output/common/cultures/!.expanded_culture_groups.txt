@@ -581,7 +581,7 @@ altaic = {
 	}
 }
 central_american = {
-	franciatecatl = {	
+	pixantekatl = {	
 		primary = AZT
 		male_names = {
 			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc 
@@ -594,7 +594,7 @@ central_american = {
 			Centehua Moyolehuani Yaotl Mixcoatl Necahual Nelli Ohtli Papa Patli
 		}
 	}
-	daniatecatl = {	
+	tanitekatl = {	
 		primary = AZT
 		male_names = {
 			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc 
@@ -607,7 +607,7 @@ central_american = {
 			Centehua Moyolehuani Yaotl Mixcoatl Necahual Nelli Ohtli Papa Patli
 		}
 	}
-	olandatecatl = {	
+	olantekatl = {	
 		primary = AZT
 		male_names = {
 			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc 
@@ -620,7 +620,7 @@ central_american = {
 			Centehua Moyolehuani Yaotl Mixcoatl Necahual Nelli Ohtli Papa Patli
 		}
 	}
-	itlaliatecatl = {	
+	italtekatl = {	
 		primary = AZT
 		male_names = {
 			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc 
@@ -633,7 +633,7 @@ central_american = {
 			Centehua Moyolehuani Yaotl Mixcoatl Necahual Nelli Ohtli Papa Patli
 		}
 	}
-	teutontecatl = {	
+	almantekatl = {	
 		primary = AZT
 		male_names = {
 			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc 
@@ -646,7 +646,7 @@ central_american = {
 			Centehua Moyolehuani Yaotl Mixcoatl Necahual Nelli Ohtli Papa Patli
 		}
 	}
-	ruxiatecatl = {	
+	loxatekatl = {	
 		primary = AZT
 		male_names = {
 			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc 
@@ -659,7 +659,7 @@ central_american = {
 			Centehua Moyolehuani Yaotl Mixcoatl Necahual Nelli Ohtli Papa Patli
 		}
 	}	
-	caxtiltecatl = {	
+	kaxtiltekatl = {	
 		primary = AZT
 		male_names = {
 			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc 
@@ -672,7 +672,7 @@ central_american = {
 			Centehua Moyolehuani Yaotl Mixcoatl Necahual Nelli Ohtli Papa Patli
 		}
 	}
-	irlantecatl = {	
+	ixlantekatl = {	
 		primary = AZT
 		male_names = {
 			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc 
@@ -685,7 +685,7 @@ central_american = {
 			Centehua Moyolehuani Yaotl Mixcoatl Necahual Nelli Ohtli Papa Patli
 		}
 	}
-	anglitecatl = {	
+	ankiltekatl = {	
 		primary = AZT
 		male_names = {
 			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc 
@@ -698,7 +698,7 @@ central_american = {
 			Centehua Moyolehuani Yaotl Mixcoatl Necahual Nelli Ohtli Papa Patli
 		}
 	}
-	eslovakiatecatl = {	
+	xilpantekatl = {	
 		primary = AZT
 		male_names = {
 			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc 
@@ -711,7 +711,7 @@ central_american = {
 			Centehua Moyolehuani Yaotl Mixcoatl Necahual Nelli Ohtli Papa Patli
 		}
 	}
-	kauayotltecatl = {	
+	kauayotekatl = {	
 		primary = AZT
 		male_names = {
 			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc 
@@ -724,7 +724,7 @@ central_american = {
 			Centehua Moyolehuani Yaotl Mixcoatl Necahual Nelli Ohtli Papa Patli
 		}
 	}
-	uitstlantecatl = {	
+	uitstlantekatl = {	
 		primary = AZT
 		male_names = {
 			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc 
@@ -737,7 +737,7 @@ central_american = {
 			Centehua Moyolehuani Yaotl Mixcoatl Necahual Nelli Ohtli Papa Patli
 		}
 	}
-	exiptlitecatl = {	
+	exiptekatl = {	
 		primary = AZT
 		male_names = {
 			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc 
@@ -750,7 +750,7 @@ central_american = {
 			Centehua Moyolehuani Yaotl Mixcoatl Necahual Nelli Ohtli Papa Patli
 		}
 	}
-	tlauhkampaerntecatl = {	
+	ikisatekatl = {	
 		primary = AZT
 		male_names = {
 			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc 
@@ -763,7 +763,7 @@ central_american = {
 			Centehua Moyolehuani Yaotl Mixcoatl Necahual Nelli Ohtli Papa Patli
 		}
 	}
-	tlayouaktecatl = {	
+	kapotsautekatl = {	
 		primary = AZT
 		male_names = {
 			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc 
@@ -776,7 +776,7 @@ central_american = {
 			Centehua Moyolehuani Yaotl Mixcoatl Necahual Nelli Ohtli Papa Patli
 		}
 	}
-	elepantlitecatl = {	
+	elpantekatl = {	
 		primary = AZT
 		male_names = {
 			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc 
