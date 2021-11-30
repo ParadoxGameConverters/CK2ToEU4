@@ -14,10 +14,7 @@ dutch_polders = {
 
 	build_trigger = {
 		#culture = dutch
-		OR = {
-			has_owner_culture = yes
-			has_owner_accepted_culture = yes
-		}
+		province_is_or_accepts_culture = yes
 	}
 
 	on_built = {
@@ -28,18 +25,12 @@ dutch_polders = {
 
 	can_use_modifiers_trigger = {
 		#culture = dutch
-		OR = {
-			has_owner_culture = yes
-			has_owner_accepted_culture = yes
-		}
+		province_is_or_accepts_culture = yes
 	}
 
 	can_upgrade_trigger = {
 		#culture = dutch
-		OR = {
-			has_owner_culture = yes
-			has_owner_accepted_culture = yes
-		}
+		province_is_or_accepts_culture = yes
 	}
 
 	keep_trigger = {

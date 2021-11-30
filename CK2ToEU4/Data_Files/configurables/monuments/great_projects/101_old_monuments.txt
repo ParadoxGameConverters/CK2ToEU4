@@ -29,34 +29,7 @@ buddha_statues = {
 
 	#can we build it?
 	build_trigger = {
-		OR = {		
-			AND = {
-				religion = buddhism
-				has_owner_religion = yes
-			}
-			AND = {
-				religion = vajrayana
-				has_owner_religion = yes
-			}
-			AND= {
-				religion = mahayana
-				has_owner_religion = yes
-			}
-			AND = {
-				religion = hinduism
-				has_owner_religion = yes
-				owner = {
-					has_personal_deity = buddha	
-				}						
-			}
-			AND = {
-				religion = shamanism
-				has_owner_religion = yes
-				owner = {
-					has_unlocked_cult = buddhism_cult	
-				}				
-			}
-		}
+		province_is_buddhist_or_accepts_buddhism = yes
 	}
 
 	#what to do when it's built
@@ -73,66 +46,12 @@ buddha_statues = {
 
 	#can our country use it?
 	can_use_modifiers_trigger = {
-		OR = {		
-			AND = {
-				religion = buddhism
-				has_owner_religion = yes
-			}
-			AND = {
-				religion = vajrayana
-				has_owner_religion = yes
-			}
-			AND= {
-				religion = mahayana
-				has_owner_religion = yes
-			}
-			AND = {
-				religion = hinduism
-				has_owner_religion = yes
-				owner = {
-					has_personal_deity = buddha	
-				}						
-			}
-			AND = {
-				religion = shamanism
-				has_owner_religion = yes
-				owner = {
-					has_unlocked_cult = buddhism_cult	
-				}				
-			}
-		}
+		province_is_buddhist_or_accepts_buddhism = yes
 	}
 
 	#can our country upgrade it?
 	can_upgrade_trigger = {
-		OR = {		
-			AND = {
-				religion = buddhism
-				has_owner_religion = yes
-			}
-			AND = {
-				religion = vajrayana
-				has_owner_religion = yes
-			}
-			AND= {
-				religion = mahayana
-				has_owner_religion = yes
-			}
-			AND = {
-				religion = hinduism
-				has_owner_religion = yes
-				owner = {
-					has_personal_deity = buddha	
-				}						
-			}
-			AND = {
-				religion = shamanism
-				has_owner_religion = yes
-				owner = {
-					has_unlocked_cult = buddhism_cult	
-				}				
-			}
-		}
+		province_is_buddhist_or_accepts_buddhism = yes
 	}
 
 
@@ -742,34 +661,7 @@ jokhang_temple = {
 
 	#can we build it?
 	build_trigger = {
-		OR = {		
-			AND = {
-				religion = buddhism
-				has_owner_religion = yes
-			}
-			AND = {
-				religion = vajrayana
-				has_owner_religion = yes
-			}
-			AND= {
-				religion = mahayana
-				has_owner_religion = yes
-			}
-			AND = {
-				religion = hinduism
-				has_owner_religion = yes
-				owner = {
-					has_personal_deity = buddha	
-				}						
-			}
-			AND = {
-				religion = shamanism
-				has_owner_religion = yes
-				owner = {
-					has_unlocked_cult = buddhism_cult	
-				}				
-			}
-		}
+		province_is_buddhist_or_accepts_buddhism = yes
 	}
 
 	#what to do when it's built
@@ -784,66 +676,12 @@ jokhang_temple = {
 
 	#can our country use it?
 	can_use_modifiers_trigger = {
-		OR = {		
-			AND = {
-				religion = buddhism
-				has_owner_religion = yes
-			}
-			AND = {
-				religion = vajrayana
-				has_owner_religion = yes
-			}
-			AND= {
-				religion = mahayana
-				has_owner_religion = yes
-			}
-			AND = {
-				religion = hinduism
-				has_owner_religion = yes
-				owner = {
-					has_personal_deity = buddha	
-				}						
-			}
-			AND = {
-				religion = shamanism
-				has_owner_religion = yes
-				owner = {
-					has_unlocked_cult = buddhism_cult	
-				}				
-			}
-		} 
+		province_is_buddhist_or_accepts_buddhism = yes
 	}
 
 	#can our country upgrade it?
 	can_upgrade_trigger = {
-		OR = {		
-			AND = {
-				religion = buddhism
-				has_owner_religion = yes
-			}
-			AND = {
-				religion = vajrayana
-				has_owner_religion = yes
-			}
-			AND= {
-				religion = mahayana
-				has_owner_religion = yes
-			}
-			AND = {
-				religion = hinduism
-				has_owner_religion = yes
-				owner = {
-					has_personal_deity = buddha	
-				}						
-			}
-			AND = {
-				religion = shamanism
-				has_owner_religion = yes
-				owner = {
-					has_unlocked_cult = buddhism_cult	
-				}				
-			}
-		} 
+		province_is_buddhist_or_accepts_buddhism = yes
 	}
 
 	#can our country keep it or is it destroyed when we get hold of it?
@@ -2890,34 +2728,7 @@ swayambhunath = {
 	type = monument
 
 	build_trigger = {
-		OR = {		
-			AND = {
-				religion = buddhism
-				has_owner_religion = yes
-			}
-			AND = {
-				religion = vajrayana
-				has_owner_religion = yes
-			}
-			AND= {
-				religion = mahayana
-				has_owner_religion = yes
-			}
-			AND = {
-				religion = hinduism
-				has_owner_religion = yes
-				owner = {
-					has_personal_deity = buddha	
-				}						
-			}
-			AND = {
-				religion = shamanism
-				has_owner_religion = yes
-				owner = {
-					has_unlocked_cult = buddhism_cult	
-				}				
-			}
-		}
+		province_is_buddhist_or_accepts_buddhism = yes
 	}
 
 	on_built = {
@@ -2927,65 +2738,11 @@ swayambhunath = {
 	}
 
 	can_use_modifiers_trigger = {
-		OR = {		
-			AND = {
-				religion = buddhism
-				has_owner_religion = yes
-			}
-			AND = {
-				religion = vajrayana
-				has_owner_religion = yes
-			}
-			AND= {
-				religion = mahayana
-				has_owner_religion = yes
-			}
-			AND = {
-				religion = hinduism
-				has_owner_religion = yes
-				owner = {
-					has_personal_deity = buddha	
-				}						
-			}
-			AND = {
-				religion = shamanism
-				has_owner_religion = yes
-				owner = {
-					has_unlocked_cult = buddhism_cult	
-				}				
-			}
-		}
+		province_is_buddhist_or_accepts_buddhism = yes
 	}
 
 	can_upgrade_trigger = {
-		OR = {		
-			AND = {
-				religion = buddhism
-				has_owner_religion = yes
-			}
-			AND = {
-				religion = vajrayana
-				has_owner_religion = yes
-			}
-			AND= {
-				religion = mahayana
-				has_owner_religion = yes
-			}
-			AND = {
-				religion = hinduism
-				has_owner_religion = yes
-				owner = {
-					has_personal_deity = buddha	
-				}						
-			}
-			AND = {
-				religion = shamanism
-				has_owner_religion = yes
-				owner = {
-					has_unlocked_cult = buddhism_cult	
-				}				
-			}
-		}
+		province_is_buddhist_or_accepts_buddhism = yes
 	}
 
 	keep_trigger = {
