@@ -333,7 +333,7 @@
  desc_ZZZ_hellenic_pagan_migration_into_africa:0 "Eine große Anzahl hellenischer Gläubiger ist in diese Provinz ausgewandert. Sie haben versprochen, [Root.GetName] besser zu verwalten."
  ZZZ_bon_pagan_migration_into_africa:0 "Bön Migration"
  desc_ZZZ_bon_pagan_migration_into_africa:0 "Eine große Anzahl von Bön-Gläubigen ist in diese Provinz ausgewandert. Sie haben versprochen, hart zu arbeiten und keine Probleme zu verursachen."
- ZZZ_spreading_of_reformed_pagan_rituals:0 "$RELIGION$ Rituale"
+ ZZZ_spreading_of_reformed_pagan_rituals_title:0 "$RELIGION$ Rituale"
  desc_ZZZ_spreading_of_reformed_pagan_rituals_title:0 "Dieses Land hat ernsthafte konzertierte Anstrengungen unternommen, um $RELIGION$-Rituale unter der Bevölkerung zu verbreiten."
  
  
