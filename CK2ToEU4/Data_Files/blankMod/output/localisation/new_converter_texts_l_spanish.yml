@@ -333,7 +333,7 @@
  desc_ZZZ_hellenic_pagan_migration_into_africa:0 "Un gran número de fieles helénicos han emigrado a esta provincia. Prometieron ayudar a administrar mejor [Root.GetName]."
  ZZZ_bon_pagan_migration_into_africa:0 "Migración Bön"
  desc_ZZZ_bon_pagan_migration_into_africa:0 "Un gran número de fieles Bön han emigrado a esta provincia. Prometieron trabajar duro y no causar problemas."
- ZZZ_spreading_of_reformed_pagan_rituals:0 "$RELIGION$ Rituales"
+ ZZZ_spreading_of_reformed_pagan_rituals_title:0 "$RELIGION$ Rituales"
  desc_ZZZ_spreading_of_reformed_pagan_rituals_title:0 "Este país ha comenzado un serio esfuerzo concertado para difundir los rituales de $ RELIGION $ entre la población."
 
 
