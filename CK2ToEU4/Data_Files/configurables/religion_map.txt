@@ -1,6 +1,6 @@
 # Usage:
 # link = { eu4 = eu4religion ck2 = ck2religion }
-# multiple ck2 entires are allowed (and encouraged), multiple eu4 are not.
+# multiple ck2 entries are allowed (and encouraged), multiple eu4 are not.
 
 # Pagan
 

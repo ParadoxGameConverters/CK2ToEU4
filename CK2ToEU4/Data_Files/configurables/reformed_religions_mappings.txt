@@ -12,7 +12,7 @@
 #		secondary modifier(s)
 #		#Keep to the two doctrines to keep consistency
 #	}
-#	unique_modifiers =  { 
+#	unique_modifiers =  {
 #		#For unique mechanics such as "uses_karma = yes"
 #	}
 #	not_unique_modifiers =  {
@@ -62,10 +62,10 @@ religion_dogmatic = {
 		tolerance_heretic = -1
 		tolerance_heathen = -2
 	}
-	province = { 
+	province = {
 		local_missionary_strength = -0.02
 	}
-	unique_modifiers =  { 
+	unique_modifiers =  {
 		fervor = yes
 	}
 }
@@ -83,33 +83,33 @@ religion_cosmopolitan = {
 ## Generic
 religion_holy_family = {
 	country = {
-		diplomatic_reputation = 1	
+		diplomatic_reputation = 1
 	}
 	country_as_secondary = {
 		diplomatic_reputation = 1
 	}
 }
-	
+
 religion_harems = {
-	country = { 
+	country = {
 		heir_chance = 1
 	}
 	country_as_secondary = {
 		heir_chance = 1
 	}
 }
-	
+
 religion_meritocratic = {
-	country = { 
+	country = {
 		advisor_cost = -0.1
 	}
 	province = { }
 	unique_modifiers = { }
 	not_unique_modifiers =  { }
 }
-	
+
 religion_stable = {
-	country = { 
+	country = {
 		stability_cost_modifier = -0.1
 		global_unrest = -1
 	}
@@ -117,7 +117,7 @@ religion_stable = {
 		stability_cost_modifier = -0.1
 	}
 }
-	
+
 religion_jizya = {
 	country = {
 		global_tax_modifier = 0.1
@@ -126,7 +126,7 @@ religion_jizya = {
 		global_tax_modifier = 0.1
 	}
 }
-	
+
 religion_monastic = {
 	country = {
 		tolerance_own = 2
@@ -135,16 +135,16 @@ religion_monastic = {
 		tolerance_own = 2
 	}
 }
-	
+
 religion_syncretic = {
-	unique_modifiers =  { 
+	unique_modifiers =  {
 		can_have_secondary_religion = yes
 	}
 	country_as_secondary = {
 		raze_power_gain = 0.15
 	}
 }
-	
+
 religion_haruspicy = {
 	country = {
 		land_morale = 0.1
@@ -153,7 +153,7 @@ religion_haruspicy = {
 		land_morale = 0.1
 	}
 }
-	
+
 religion_astrology = {
 	country = {
 		leader_naval_manuever = 1
@@ -162,7 +162,7 @@ religion_astrology = {
 		leader_naval_manuever = 1
 	}
 }
-	
+
 religion_patriarchal = {
 	country = {
 		female_advisor_chance = -0.9
@@ -171,7 +171,7 @@ religion_patriarchal = {
 		shock_damage_received = -0.1
 	}
 }
-	
+
 religion_equal = {
 	country = {
 		female_advisor_chance = 0.5
@@ -180,12 +180,12 @@ religion_equal = {
 		female_advisor_chance = 0.5
 		fire_damage_received = -0.1
 	}
-	not_unique_modifiers = 
-	{	
+	not_unique_modifiers =
+	{
 		may_recruit_female_generals = yes
 	}
 }
-	
+
 religion_matriarchal = {
 	country = {
 		female_advisor_chance = 0.9
@@ -198,16 +198,16 @@ religion_matriarchal = {
 		may_recruit_female_generals = yes
 	}
 }
-	
+
 religion_ritual_sacrifice = {
-	country = { 
+	country = {
 		land_morale = 0.1
 	}
 	country_as_secondary = {
 		discipline = 0.05
 	}
 }
-	
+
 religion_adventuring = {
 	country = {
 		ae_impact = -0.1
@@ -216,7 +216,7 @@ religion_adventuring = {
 		ae_impact = -0.1
 	}
 }
-	
+
 religion_seafaring = {
 	country = {
 		naval_morale = 0.1
@@ -225,7 +225,7 @@ religion_seafaring = {
 		naval_morale = 0.1
 	}
 }
-	
+
 religion_relentless = {
 	country = { }
 	province = { local_manpower_modifier = 0.1 }
@@ -233,7 +233,7 @@ religion_relentless = {
 		global_manpower_modifier = 0.1
 	}
 }
-	
+
 religion_animistic = {
 	country = {
 		global_autonomy = -0.05
@@ -242,7 +242,7 @@ religion_animistic = {
 		global_autonomy = -0.05
 	}
 }
-	
+
 religion_beatification = {
 	country = {
 		legitimacy = 1
@@ -259,7 +259,7 @@ religion_beatification = {
 		republican_tradition = 0.5
 	}
 }
-	
+
 religion_feature_pyramids = {
 	country = {
 		build_cost = -0.1
@@ -325,7 +325,7 @@ religion_feature_finnish = {
 }
 
 religion_feature_west_african = {
-	unique_modifiers = { 
+	unique_modifiers = {
 		fetishist_cult = yes
 	}
 	country_as_secondary = {
@@ -347,9 +347,9 @@ religion_feature_bon = {
 	country_as_secondary = {
 		tolerance_heathen = 2
 	}
-	unique_modifiers = { 
+	unique_modifiers = {
 		uses_karma = yes
-	}	
+	}
 }
 
 religion_feature_aztec = {
@@ -371,7 +371,7 @@ religion_feature_hellenic = {
 	country_as_secondary = {
 		tolerance_heretic = 2
 	}
-	unique_modifiers = { 
+	unique_modifiers = {
 		personal_deity = yes
 	}
 }

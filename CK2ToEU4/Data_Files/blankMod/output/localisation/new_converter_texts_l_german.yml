@@ -5,13 +5,13 @@
  old_prussian: "Preußisch"
  TERAPANTHA: "Terapantha"
  DARKNESS: "Finsternis"
- 
+
  #Blessings
  mazdaki_blessings:0 "Rituale"
  pick_mazdaki_blessing:0 "Wählen Sie Ritual"
  nestorian_blessings:0 "Segen"
  pick_nestorian_blessing:0 "Pick-Segen"
- 
+
  #Other
  european_tribal_ideas: "Europäische Stammesideen"
  european_tribal_ideas_start: "Europäische Stammestraditionen"
@@ -27,7 +27,7 @@
  ancestral_pride: "Stolz auf die Vorväter"
  ancestral_pride_desc: "Als Volk waren wir schon immer stolz auf unsere Vergangenheit. Durch schlechte Ernten und lange Kriege hindurch bewahrt dieser Stolz die Stärke und Standhaftigkeit unserer Seelen."
  arctolatry: "Bärenkult"
- arctolatry_desc: "Seit altersher haben wir den Bären gehuldigt. Unsere Krieger studieren die Kampfesweise der Bären und attackieren den Feind auf dem Schlachtfeld mit deren Wildheit." 
+ arctolatry_desc: "Seit altersher haben wir den Bären gehuldigt. Unsere Krieger studieren die Kampfesweise der Bären und attackieren den Feind auf dem Schlachtfeld mit deren Wildheit."
  side_by_side: "Seiten an Seite"
  side_by_side_desc: "Wir wissen, dass Stärke nicht in der Zahl liegt sondern eher in den Banden zu finden ist, die uns miteinander verbinden. Auf dem Schlachtfeld sind wir furchtlos, da wir wissen, dass unsere Waffenbrüder uns den Rücken freihalten."
  hero_of_the_legends: "Held der Legenden"
@@ -123,7 +123,7 @@
  aztec_pagan_religion_desc: "Die aztekische Religion enthält einen Schöpfungsmythos, der sich auf Opfer konzentriert - sogar Götter wurden geopfert, um die Sonne in Bewegung zu halten. Dies spiegelt sich in den vielen Festen und Ritualen der Religion wider, bei denen Menschenopfer in großem Umfang eingesetzt werden. Die Hauptgötter sind Huitzilopochtli, Gott des Krieges und des Menschenopfers, Tlaloc, Gott des Donners und des Regens, Xiuhtecuhtli, Gott des Feuers, Xipe Totec, "unser Herr der Enthäutete" und Quetzalcoatl, Gott der Weisheit."
  west_african_pagan_reformed_religion_desc: "Die reformierte afrikanische Religion ist eine Verschmelzung vieler populärer Überzeugungen mit einem einzigen heiligen Buch, das einen Schöpfungsmythos, Kapitel über die Geister, Totemtierfabeln und Götter enthält."
  arianism_religion_desc:0 "Arianism is a nontrinitarian branch of Christianity that asserts that Jesus Christ is the Son of God, created by God the Father, distinct from the Father and therefore subordinate to the Father. Arian teachings were first attributed to Arius and declared heretical by the First Council of Nicaea in 325."
- 
+
  ##I:R Religious Descriptions
  canaanite_pagan_religion_desc: "Die kanaanitische Religion verehrt eine Reihe von Göttern und ihre Aspekte auf polytheistische Weise. Baal gilt als die Hauptgottheit in einer komplexen Hierarchie kleinerer Götter, die oft in Schreinen auf Bergen oder Hügeln verehrt wurden."
  druidic_pagan_religion_desc: "Druiden agierten für die Kelten als eigenständige soziale Klasse. Oft als Richter und Gesetzgeber tätig, diktierten sie auch lokale religiöse Bräuche und Überzeugungen."
@@ -138,26 +138,26 @@
  heptadic_pagan_religion_desc:0 "Dieser pantheistische Glaube, der aus skythischen Ländern stammt, verehrte sieben Hauptgötter, die oft mit denen des griechischen Pantheons gleichgesetzt wurden. Elemente der früheren polytheistischen Volksreligion der Sensen bleiben erhalten, ebenso wie die Praxis der Pferdeopfer und Wagenbestattungen, ähnlich denen der Kelten."
  megalithic_pagan_religion_desc:0 "Die alte Kultur und Religion war ein Schmelztiegel der traditionellen ägyptischen Religion, der Sternenanbetung und der Ahnenverehrung. Viele Megalithen - Steinkonstrukte, die zu Ehren der Götter errichtet wurden - gibt es immer noch verstreut über die gesamte afrikanische Landschaft."
  ritualistic_pagan_religion_desc:0 "Der Ritualismus repräsentiert eine Vielzahl von lokalen Religionen und Volksreligionen mit Ahnenanbetung, Animismus und Votivgaben."
- 
+
  pagan_religion_rebels_title: "Religiöse"
  pagan_religion_rebels_name: "$RELIGION$-Fanatiker"
  pagan_religion_rebels_desc: "Religiöse Fanatiker neigen dazu, sich in Provinzen zu erheben, die von Nationen eines anderen Glaubens kontrolliert werden. Sie versuchen, ihren Glauben zu verbreiten und alle Ungläubigen zu quälen."
  pagan_religion_rebels_army: "$RELIGION$-Armee"
  norse_pagan_rebels_name: "$RELIGION$-Fanatiker"
  norse_pagan_rebels_desc: "Religiöse Fanatiker neigen dazu, sich in Provinzen zu erheben, die von Nationen eines anderen Glaubens kontrolliert werden. Sie versuchen, ihren Glauben zu verbreiten und alle Ungläubigen zu quälen."
- norse_pagan_rebels_army: "$RELIGION$-Armee" 
+ norse_pagan_rebels_army: "$RELIGION$-Armee"
  slavic_pagan_rebels_title: "Religious"
  slavic_pagan_rebels_name: "$RELIGION$-Fanatiker"
  slavic_pagan_rebels_desc: "Religiöse Fanatiker neigen dazu, sich in Provinzen zu erheben, die von Nationen eines anderen Glaubens kontrolliert werden. Sie versuchen, ihren Glauben zu verbreiten und alle Ungläubigen zu quälen."
- slavic_pagan_rebels_army: "$RELIGION$-Armee" 
+ slavic_pagan_rebels_army: "$RELIGION$-Armee"
  baltic_pagan_rebels_title: "Religious"
  baltic_pagan_rebels_name: "$RELIGION$-Fanatiker"
  baltic_pagan_rebels_desc: "Religiöse Fanatiker neigen dazu, sich in Provinzen zu erheben, die von Nationen eines anderen Glaubens kontrolliert werden. Sie versuchen, ihren Glauben zu verbreiten und alle Ungläubigen zu quälen."
- baltic_pagan_rebels_army: "$RELIGION$-Armee" 
+ baltic_pagan_rebels_army: "$RELIGION$-Armee"
  finnish_pagan_rebels_title: "Religious"
  finnish_pagan_rebels_name: "$RELIGION$-Fanatiker"
  finnish_pagan_rebels_desc: "Religiöse Fanatiker neigen dazu, sich in Provinzen zu erheben, die von Nationen eines anderen Glaubens kontrolliert werden. Sie versuchen, ihren Glauben zu verbreiten und alle Ungläubigen zu quälen."
- finnish_pagan_rebels_army: "$RELIGION$-Armee" 
+ finnish_pagan_rebels_army: "$RELIGION$-Armee"
  tengri_pagan_rebels_title: "Religious"
  tengri_pagan_rebels_name: "$RELIGION$-Fanatiker"
  tengri_pagan_rebels_desc: "Religiöse Fanatiker neigen dazu, sich in Provinzen zu erheben, die von Nationen eines anderen Glaubens kontrolliert werden. Sie versuchen, ihren Glauben zu verbreiten und alle Ungläubigen zu quälen."
@@ -264,8 +264,8 @@
  arianism_rebels_name:0 "$RELIGION$e Fanatiker"
  arianism_rebels_desc:0 "Religiöse Fanatiker erheben sich vor allem in Provinzen, deren Religion von der Staatsreligion abweicht. Sie wollen ihre Religion verbreiten und alle Ungläubigen bekehren."
  arianism_rebels_army:0 "$RELIGION$e Armee"
- 
- 
+
+
  ##Fetishist Cults
  west_african_pagan_reformed_cult:0 "Älteste"
  west_african_pagan_reformed_cult_desc:0 "Wir folgen den Wegen unserer Verwandten, die uns die größeren Wahrheiten im Universum gezeigt haben, und sind dadurch stärker geworden."
@@ -285,7 +285,7 @@
  hellenic_cult_desc:0 "Wir ehren die Götter des Olymp und widmen uns dem Ziel, die besten Menschen zu werden."
  pagan_cult:0 "Paken"
  pagan_cult_desc:0 "Wir haben diejenigen angenommen, deren Überzeugungen anders sind als unsere eigenen, ihre Praktiken übernommen und ihren Göttern geopfert. Wir sind nur dafür stärker geworden."
- 
+
  ##Personal Deities
  #Khurmazta
  ZZZ_enhanced_desi:0 "Desi"
@@ -300,7 +300,7 @@
  ZZZ_enhanced_wishaghn_desc:0 "Wishaghn ist der Gott des Sieges."
  ZZZ_enhanced_zurvan:0 "Zurvan"
  ZZZ_enhanced_zurvan_desc:0 "Zurvan ist der Gott der Erkenntnis und der König der Götter."
- 
+
  #Triggered Mods
  ZZZ_enhanced_unreformed_religion:0 "Nicht Reformierter Heide"
  desc_ZZZ_enhanced_unreformed_religion:0 "Dieses Land folgt einer nicht reformierten heidnischen Religion. Dies erschwert die Bekehrung, bis sie ihren Glauben reformieren können."
@@ -308,8 +308,8 @@
  desc_fraticelli_rome:1 "Rom als Fraticelli zu besetzen, konnte nichts anderes tun, als allgemeine Empörung hervorzurufen."
  fraticelli_subjugation:0 "Unterwerfung des Papsttums"
  desc_fraticelli_subjugation:0 "Wir haben die Länder des Papsttums unterworfen. Dies verletzt unser Ansehen in den Augen anderer Fraticelli Faithful."
- 
- 
+
+
  #Country Mods
  west_african_pagan_reformed_migration_into_ZZZ:0 "Reformationsbemühungen"
  desc_west_african_pagan_reformed_migration_into_ZZZ:0 "Bestimmte Elemente der Gesellschaft möchten sowohl religiös als auch administrativ Veränderungen in unserer Gesellschaft bewirken."
@@ -335,8 +335,8 @@
  desc_ZZZ_bon_pagan_migration_into_africa:0 "Eine große Anzahl von Bön-Gläubigen ist in diese Provinz ausgewandert. Sie haben versprochen, hart zu arbeiten und keine Probleme zu verursachen."
  ZZZ_spreading_of_reformed_pagan_rituals:0 "$RELIGION$ Rituale"
  desc_ZZZ_spreading_of_reformed_pagan_rituals_title:0 "Dieses Land hat ernsthafte konzertierte Anstrengungen unternommen, um $RELIGION$-Rituale unter der Bevölkerung zu verbreiten."
- 
- 
+
+
  #Triggered Province Mods
  ZZZ_enhanced_mighty_temple:0 "Großer Tempel"
  desc_ZZZ_enhanced_mighty_temple:0 "Hier steht ein großer Tempel der Götter, vergleichbar mit dem Pantheon oder Parthenon."
@@ -344,7 +344,7 @@
  desc_ZZZ_enhanced_zoro_mecca:0 "Wir wurden vom muslimischen Eindringling aus unserem Land vertrieben. Unsere alten Tempel wurden entweiht und die ewigen Feuer von Zoroaster gelöscht, aber jetzt haben wir unsere Rache. [Root.GetCapitalName], die heilige Stadt des Islam, liegt unter unserer Kontrolle."
  ZZZ_enhanced_hellenic_rome:0 "Die Rückeroberung Roms"
  desc_ZZZ_enhanced_hellenic_rome:0 "Vor langer Zeit haben uns die christlichen Heiden fast an den Rand des Aussterbens getrieben, aber wir haben durchgehalten und mit Hilfe der Götter Rom zurückerobert und den Tod des Reiches gerächt."
- 
+
  #Province Mods
  ZZZ_defend_the_motherland_baltic_cult:0 "Verteidigung der Tradition"
  desc_ZZZ_defend_the_motherland_baltic_cult:0 "Als Anhänger von Divas und Pelkkunas sind wir verpflichtet, unser Land und unsere Lebensweise entschieden zu verteidigen."
@@ -370,5 +370,5 @@
  desc_ZZZ_great_omens:0 "Dieses Land hat in Bezug auf seine bevorstehenden Konflikte tolle vorzeichen erhalten."
  ZZZ_incredible_omens:0 "Unglaubliche Omens"
  desc_ZZZ_increedible_omens:0 "Dieses Land hat Vorzeichen erhalten, die den Sieg in Bezug auf alle anstehenden Konflikte sichern."
- 
- 
+
+

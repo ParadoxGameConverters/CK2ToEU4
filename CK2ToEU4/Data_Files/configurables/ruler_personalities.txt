@@ -11,7 +11,7 @@ midas_touched_personality = { midas_touched = 5 fortune_builder = 3 greedy = 2 }
 architectural_visionary_personality = { architect = 5 diligent = 2 }
 scholar_personality = { scholar = 5 physician = 5 erudite = 3 hafiz = 3 faqih = 3 shy = 2 humble = 1 }
 careful_personality = { shy = 3 temperate = 2 patient = 1 }
-entrepreneur_personality = { gardener = 5 diligent = 2 greedy = 1 } 
+entrepreneur_personality = { gardener = 5 diligent = 2 greedy = 1 }
 industrious_personality = { administrator = 5 diligent = 2 stubborn = 2 }
 expansionist_personality = { ambitious = 3 greedy = 2 }
 navigator_personality = { seaking = 5 sea_queen = 5 viking = 5 ravager = 5 adventurer = 2 }
@@ -23,7 +23,7 @@ charismatic_negotiator_personality = { grey_eminence = 3 charismatic_negotiator 
 silver_tongue_personality = { grey_eminence = 3 charismatic_negotiator = 2 seducer = 5 seductress = 5 deceitful = 3 }
 bold_fighter_personality = { duelist = 5 wroth = 3 brave = 2 strong = 1 robust = 1 }
 tactical_genius_personality = { strategist = 5 brilliant_strategist = 3 skilled_tactician = 3 patient = 3 cruel = 2 genius = 2 quick = 1 shrewd = 1 }
-fierce_negotiator_personality = { gregarious = 3 brave = 2 stubborn = 1 } 
+fierce_negotiator_personality = { gregarious = 3 brave = 2 stubborn = 1 }
 conqueror_personality = { gamer = 5 ambitious = 3 stubborn = 2 cruel = 1 }
 strict_personality = { brilliant_strategist = 2 skilled_tactician = 3 unyielding_leader = 3 just = 3 zealous = 2 paranoid = 1 }
 inspiring_leader_personality = { hunter = 5 inspiring_leader = 6 strong = 1 robust = 1 brave = 1 }
@@ -35,10 +35,10 @@ sinner_personality = { possessed = 3 cynical = 2 cannibal_trait = 3 gluttonous =
 greedy_personality = { greedy = 3 gluttonous = 2 arbitrary = 1 charitable = -99 }
 obsessive_perfectionist_personality = { conscientious = 1 fussy = 1 envious = 3 proud = 2 stubborn = 1 }
 drunkard_personality = { drunkard = 5 gluttonous = 3 }
-babbling_buffoon_personality = { possessed = 3 lunatic = 2 slow = 2 dull = 2 imbecile = 3 arbitrary = 1 lisp = 1 stutter = 1 } 
+babbling_buffoon_personality = { possessed = 3 lunatic = 2 slow = 2 dull = 2 imbecile = 3 arbitrary = 1 lisp = 1 stutter = 1 }
 cruel_personality = { impaler = 5 haughty = 1 cruel = 3 wroth = 2 cannibal_trait = 2 arbitrary = 1 misguided_warrior = 1 kind = -99 }
-naive_personality = { indolent = 1 trusting = 2 honest = 1 kind = 1 naive_appeaser = 1 imbecile = 4 slow = 1 dull = 1 } 
-loose_lips_personality = { honest = 2 arbitrary = 1 possessed = 4 amateurish_plotter = 1 } 
+naive_personality = { indolent = 1 trusting = 2 honest = 1 kind = 1 naive_appeaser = 1 imbecile = 4 slow = 1 dull = 1 }
+loose_lips_personality = { honest = 2 arbitrary = 1 possessed = 4 amateurish_plotter = 1 }
 malevolent_personality = { envious = 3 cruel = 2 paranoid = 1 kind = -99 }
 craven_personality = { craven = 3 shy = 2 slothful = 1 weak = 1 feeble = 1 timid = 1 brave = -99 }
 immortal_personality = { immortal = 99 }

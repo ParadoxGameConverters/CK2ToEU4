@@ -5,13 +5,13 @@
  old_prussian: "vieille-prussienne"
  TERAPANTHA: "Terapantha"
  DARKNESS: "Obscurité"
- 
+
  #Blessings
  mazdaki_blessings:0 "Rituels"
  pick_mazdaki_blessing:0 "Choisissez Rituel"
  nestorian_blessings:0 "Bénédictions"
  pick_nestorian_blessing:0 "Choisir la Bénédiction"
- 
+
  #Other
  european_tribal_ideas: "Doctrines tribales européennes"
  european_tribal_ideas_start: "tradition tribales européennes"
@@ -123,7 +123,7 @@
  aztec_pagan_religion_desc: "La religion aztèque présente un mythe de la création centré sur le sacrifice - même les dieux ont été sacrifiés pour faire bouger le soleil. Cela se reflète dans les nombreux festivals et rituels de la religion, qui comportent des sacrifices humains à grande échelle. Les principaux dieux sont Huitzilopochtli, dieu de la guerre et du sacrifice humain, Tlaloc, dieu du tonnerre et de la pluie, Xiuhtecuhtli, dieu du feu, Xipe Totec, Notre Seigneur l'écorché et Quetzalcoatl, dieu de la sagesse."
  west_african_pagan_reformed_religion_desc: "La religion africaine réformée est une fusion de nombreuses croyances populaires, avec un seul livre sacré comprenant un mythe de la création, des chapitres sur les esprits, des fables d'animaux totémiques et des dieux."
  arianism_religion_desc:0 "L'arianisme est une branche du christianisme qui affirme que Jésus-Christ est le Fils de Dieu, créé par Dieu le Père, distinct du Père et donc subordonné au Père. Les enseignements ariens ont d'abord été attribués à Arius, puis ont été déclarés hérétiques par le premier Concile de Nicée en 325."
- 
+
  ##I:R Religious Descriptions
  canaanite_pagan_religion_desc: "La religion cananéenne vénère un certain nombre de dieux et leurs aspects, de manière polythéiste. Baal est considéré comme la divinité principale dans une hiérarchie complexe de dieux mineurs, qui étaient souvent vénérés dans des sanctuaires situés sur des montagnes ou des collines."
  druidic_pagan_religion_desc: "Les druides agissaient pour les Celtes, en tant que classe sociale distincte. Agissant souvent en tant que magistrats et législateurs, ils dictaient également les coutumes et croyances religieuses locales."
@@ -138,26 +138,26 @@
  heptadic_pagan_religion_desc:0 "Originaire des territoires des Scythes, cette foi panthéistique vénère sept divinités principales, souvent associées à celles du panthéon grec. Des éléments de la religion polythéiste populaire des Scythes y ont été préservés, de même que la pratique du sacrifice de chevaux et des tumulus à chars comme chez les Celtes."
  megalithic_pagan_religion_desc:0 "Cette culture et cette religion fort anciennes sont un syncrétisme de croyances traditionnelles égyptiennes, de culte des astres et de celui des ancêtres. De nombreux mégalithes, ces pierres dressées en l'honneur des divinités, parsèment les paysages de l'Afrique."
  ritualistic_pagan_religion_desc:0 "Représentant tout un ensemble de croyances diverses et de religions populaires, le ritualisme comprend entre autres un culte des ancêtres, un aspect animiste et des offrandes votives."
- 
+
  pagan_religion_rebels_title: "Dévots"
  pagan_religion_rebels_name: "Fanatiques $RELIGION$s"
  pagan_religion_rebels_desc: "Ces fanatiques religieux ont tendance à se soulever dans les provinces contrôlées par des nations de confession différente. Ils cherchent à répandre leur foi et s'en prennent à tous les infidèles."
  pagan_religion_rebels_army: "Armée $RELIGION$"
  norse_pagan_rebels_name: "Fanatiques $RELIGION$s"
  norse_pagan_rebels_desc: "Ces fanatiques religieux ont tendance à se soulever dans les provinces contrôlées par des nations de confession différente. Ils cherchent à répandre leur foi et s'en prennent à tous les infidèles."
- norse_pagan_rebels_army: "Armée $RELIGION$" 
+ norse_pagan_rebels_army: "Armée $RELIGION$"
  slavic_pagan_rebels_title: "Religious"
  slavic_pagan_rebels_name: "Fanatiques $RELIGION$s"
  slavic_pagan_rebels_desc: "Ces fanatiques religieux ont tendance à se soulever dans les provinces contrôlées par des nations de confession différente. Ils cherchent à répandre leur foi et s'en prennent à tous les infidèles."
- slavic_pagan_rebels_army: "Armée $RELIGION$" 
+ slavic_pagan_rebels_army: "Armée $RELIGION$"
  baltic_pagan_rebels_title: "Religious"
  baltic_pagan_rebels_name: "Fanatiques $RELIGION$s"
  baltic_pagan_rebels_desc: "Ces fanatiques religieux ont tendance à se soulever dans les provinces contrôlées par des nations de confession différente. Ils cherchent à répandre leur foi et s'en prennent à tous les infidèles."
- baltic_pagan_rebels_army: "Armée $RELIGION$" 
+ baltic_pagan_rebels_army: "Armée $RELIGION$"
  finnish_pagan_rebels_title: "Religious"
  finnish_pagan_rebels_name: "Fanatiques $RELIGION$s"
  finnish_pagan_rebels_desc: "Ces fanatiques religieux ont tendance à se soulever dans les provinces contrôlées par des nations de confession différente. Ils cherchent à répandre leur foi et s'en prennent à tous les infidèles."
- finnish_pagan_rebels_army: "Armée $RELIGION$" 
+ finnish_pagan_rebels_army: "Armée $RELIGION$"
  tengri_pagan_rebels_title: "Religious"
  tengri_pagan_rebels_name: "Fanatiques $RELIGION$s"
  tengri_pagan_rebels_desc: "Ces fanatiques religieux ont tendance à se soulever dans les provinces contrôlées par des nations de confession différente. Ils cherchent à répandre leur foi et s'en prennent à tous les infidèles."
@@ -264,8 +264,8 @@
  arianism_rebels_name:0 "Fanatiques $RELIGION$s"
  arianism_rebels_desc:0 "Ces fanatiques religieux ont tendance à se soulever dans les provinces contrôlées par des nations de confession différente. Ils cherchent à répandre leur foi et s'en prennent à tous les infidèles."
  arianism_rebels_army:0 "Armée $RELIGION$"
- 
- 
+
+
  ##Fetishist Cults
  west_african_pagan_reformed_cult:0 "Eldership"
  west_african_pagan_reformed_cult_desc:0 "Nous suivons les voies de nos parents qui nous ont montré les plus grandes vérités dans l'univers et nous sommes devenus plus forts en conséquence."
@@ -285,7 +285,7 @@
  hellenic_cult_desc:0 "Nous honorons les dieux de l'Olympe et nous nous engageons à devenir le meilleur des hommes."
  pagan_cult:0 "Paken"
  pagan_cult_desc:0 "Nous avons embrassé ceux dont les croyances sont différentes des nôtres, adoptant leurs pratiques et sacrifiant à leurs dieux. Nous sommes seulement devenus plus forts pour cela."
- 
+
  ##Personal Deities
  #Khurmazta
  ZZZ_enhanced_desi:0 "Desi"
@@ -300,7 +300,7 @@
  ZZZ_enhanced_wishaghn_desc:0 "Wishaghn est le dieu de la victoire."
  ZZZ_enhanced_zurvan:0 "Zurvan"
  ZZZ_enhanced_zurvan_desc:0 "Zurvan est le dieu de la connaissance et le roi des dieux."
- 
+
  #Triggered Mods
  ZZZ_enhanced_unreformed_religion:0 "Païen Non Réformé"
  desc_ZZZ_enhanced_unreformed_religion:0 "Ce pays suit une religion païenne non réformée. Cela rend les conversions plus difficiles jusqu'à ce qu'ils soient en mesure de réformer leur foi."
@@ -308,8 +308,8 @@
  desc_fraticelli_rome:1 "Occuper Rome en tant que Fraticelli, ne pouvait rien faire d'autre que susciter l'indignation générale."
  fraticelli_subjugation:0 "Assujettissement de la papauté"
  desc_fraticelli_subjugation:0 "Nous avons soumis les terres de la papauté. Cela nuit à notre position aux yeux des autres fidèles de Fraticelli."
- 
- 
+
+
  #Country Mods
  west_african_pagan_reformed_migration_into_ZZZ:0 "Efforts de Réforme"
  desc_west_african_pagan_reformed_migration_into_ZZZ:0 "Certains éléments de la société souhaitent opérer des changements dans notre société, à la fois religieux et administratif."
@@ -335,8 +335,8 @@
  desc_ZZZ_bon_pagan_migration_into_africa:0 "Un grand nombre de fidèles Bön ont émigré dans cette province. Ils ont promis de travailler dur et de ne causer aucun problème."
  ZZZ_spreading_of_reformed_pagan_rituals:0 "$RELIGION$ Rituels"
  desc_ZZZ_spreading_of_reformed_pagan_rituals_title:0 "Ce pays a commencé un sérieux effort concerté pour répandre les rituels $RELIGION$ parmi la population."
- 
- 
+
+
  #Triggered Province Mods
  ZZZ_enhanced_mighty_temple:0 "Grand Temple"
  desc_ZZZ_enhanced_mighty_temple:0 "Un grand temple aux dieux, comparable au Panthéon ou au Parthénon se dresse ici."
@@ -344,7 +344,7 @@
  desc_ZZZ_enhanced_zoro_mecca:0 "Nous avons été chassés de nos terres par l'envahisseur musulman. Nos anciens temples ont été profanés et les feux éternels de Zoroastre éteints, mais maintenant nous avons notre revanche. [Root.GetCapitalName], ville sainte de l'Islam, est sous notre contrôle."
  ZZZ_enhanced_hellenic_rome:0 "La Reconquête de Rome"
  desc_ZZZ_enhanced_hellenic_rome:0 "Il y a longtemps, les païens chrétiens nous ont menés presque au bord de l'extinction, mais nous avons persévéré et avec l'aide des dieux, nous avons repris Rome et vengé la mort de l'Empire."
- 
+
  #Province Mods
  ZZZ_defend_the_motherland_baltic_cult:0 "Défense de la Tradition"
  desc_ZZZ_defend_the_motherland_baltic_cult:0 "En tant que disciples des Divas et des Pelkkunas, nous avons l'obligation de défendre fermement nos terres et notre mode de vie."
@@ -370,4 +370,4 @@
  desc_ZZZ_great_omens:0 "Ce pays a reçu de grands présages en ce qui concerne ses conflits à venir."
  ZZZ_incredible_omens:0 "Des Présages Incroyables"
  desc_ZZZ_increedible_omens:0 "Ce pays a reçu des présages qui assurent la victoire en ce qui concerne tous ses conflits à venir."
- 
+
