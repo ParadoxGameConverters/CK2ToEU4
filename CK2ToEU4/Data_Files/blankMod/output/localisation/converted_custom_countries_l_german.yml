@@ -1,7 +1,7 @@
 ﻿l_german:
  theocratic_government_norse_pagan_reformed:0 "Kriegerkult"
  theocratic_government_ruler_norse_pagan_reformed:0 "Kriegsführer"
- 
+
  #From Vanilla Converter
  JOM:0 "Jomswikinger"
  JOM_ADJ:0 "Jomswikingisch"
@@ -13,7 +13,7 @@
  ISR_ADJ:0 "Israelisch"
  TEM:0 "Tempelritter"
  TEM_ADJ:0 "Templer"
- 
+
  #New Countries Added By Us
  ADD:0 "Orden des Heiligen Addai"
  ADD_ADJ:0 "Heiligaddaisch"
@@ -50,10 +50,10 @@
  FOA_ADJ2:0 "Arjunisch"
  HYY:0 "Haruriyyah"
  HYY_ADJ:0 "Haruriyyah"
- HYY_ADJ2:0 "Haruriyyah" 
+ HYY_ADJ2:0 "Haruriyyah"
  IMM:0 "Unsterbliche"
  IMM_ADJ:0 "Unsterblich"
- IMM_ADJ2:0 "Unsterblich" 
+ IMM_ADJ2:0 "Unsterblich"
  KCL:0 "Orden von Calatrava"
  KCL_ADJ:0 "Calatravanisch"
  KCL_ADJ2:0 "Calatravanisch"
@@ -138,7 +138,7 @@
  TRO:0 "Troy"
  TRO_ADJ:0 "trojanisch"
  TRO_ADJ2:0 "trojanisch"
- 
+
  #Added By Another
  ASY:0 "Assyrien"
  ASY_ADJ:0 "Assyrer"

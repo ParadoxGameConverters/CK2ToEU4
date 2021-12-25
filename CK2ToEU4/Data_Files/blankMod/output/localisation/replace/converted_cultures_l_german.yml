@@ -132,7 +132,7 @@
  gallic_group: "Kontinentalkeltische"
  dacian_group: "Dacische"
  pre_indo_european_group: "Vorindoeuropänische"
- 
+
  #Norse Culture Breaks
  elsinorian:0 "Elsinorian"
  ruotsish:0 "Ruotsish"
@@ -141,8 +141,8 @@
  normand:0 "Normand"
  miklagardrian:0 "Miklagardrian"
  serklandic:0 "Serklandic"
- romsborgian:0 "Romsborgian" 
- 
+ romsborgian:0 "Romsborgian"
+
  #SI culture breaks
  pixantekatl:0 "Pixantekatl"
  tanitekatl:0 "Tanitekatl"
@@ -160,4 +160,4 @@
  ikisatekatl:0 "Ikisatekatl"
  kapotsautekatl:0 "Kapotsautekatl"
  elpantekatl:0 "Elpantekatl"
- 
+

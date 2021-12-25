@@ -1,7 +1,7 @@
 ﻿l_french:
  theocratic_government_norse_pagan_reformed:0 "Culte du guerrier"
  theocratic_government_ruler_norse_pagan_reformed:0 "Chef de guerre"
- 
+
  #From Vanilla Converter
  JOM:0 "Jomsvikings"
  JOM_ADJ:0 "jomsviking"
@@ -13,8 +13,8 @@
  ISR_ADJ:0 "israëlienne"
  TEM:0 "Chevaliers du Temple"
  TEM_ADJ:0 "templière"
- 
- 
+
+
  #New Countries Added By Us
  ADD:0 "Ordre de Saint Addaï"
  ADD_ADJ:0 "de Saint Addaï"
@@ -51,10 +51,10 @@
  FOA_ADJ2:0 "Arjuno"
  HYY:0 "Haruriyyah"
  HYY_ADJ:0 "Haruriyyah"
- HYY_ADJ2:0 "Haruriyo" 
+ HYY_ADJ2:0 "Haruriyo"
  IMM:0 "Immortels"
  IMM_ADJ:0 "Immortelle"
- IMM_ADJ2:0 "Immortello" 
+ IMM_ADJ2:0 "Immortello"
  KCL:0 "Ordre de Calatrava"
  KCL_ADJ:0 "Calatravoise"
  KCL_ADJ2:0 "Calatravo"
@@ -139,10 +139,10 @@
  TRO:0 "Troie"
  TRO_ADJ:0 "troyenne"
  TRO_ADJ2:0 "troyo"
- 
+
  #Added By Another
  ASY:0 "Assyrie"
  ASY_ADJ:0 "Assyrien"
  ASY_ADJ2:0 "Assyrien"
- 
- 
+
+

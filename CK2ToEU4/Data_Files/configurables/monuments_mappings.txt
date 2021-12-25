@@ -14,7 +14,7 @@
 #		other = { direct text } #This will be taken verbatim
 #	}
 #	#Modifiers WILL be scaled over tiers, give tier 0 level
-#	province_modifiers = { 
+#	province_modifiers = {
 #		Province modifier = { tier0 tier1 tier2 tier3 }
 #	}
 #	area_modifiers = {
@@ -31,14 +31,14 @@
 ##Wonder Upgrades
 ##type = {
 #	#Modifiers WILL be scaled over tiers, give tier 1 level
-#	province_modifiers = { 
+#	province_modifiers = {
 #		Province modifiers
 #	}
 #	area_modifiers = {
 #		Area modifiers
 #	}
 #	country_modifiers = {
-#		Country modifiers 
+#		Country modifiers
 #	}
 #	on_upgraded = {
 #		On upgrade effect
@@ -142,7 +142,7 @@ wonder_fortress = {
 	province_modifiers = {
 		local_defensiveness = { 0.05 0.2 0.33 0.33 }
 	}
-}	
+}
 wonder_underground_city = {
 	properties = {
 		can_be_moved = no
@@ -150,7 +150,7 @@ wonder_underground_city = {
 	area_modifiers = {
 		province_trade_power_value = { 0 5 10 15 }
 	}
-}	
+}
 wonder_wall = {
 	properties = {
 		can_be_moved = no
@@ -1195,7 +1195,7 @@ generic_fortification_upgrade_1 = {
 	}
 }
 generic_fortification_upgrade_2 = {
-	area_modifiers = {	
+	area_modifiers = {
 		local_hostile_attrition = { 0 1 1 2 }
 	}
 }
@@ -1213,7 +1213,7 @@ generic_coastal_upgrade_1 = {
 	}
 }
 generic_coastal_upgrade_2 = {
-	country_modifiers = {	
+	country_modifiers = {
 		global_ship_trade_power = { 0 0.1 0.2 0.25 }
 	}
 }
