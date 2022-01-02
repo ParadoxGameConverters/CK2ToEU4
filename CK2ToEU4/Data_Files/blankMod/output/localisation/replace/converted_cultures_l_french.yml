@@ -1,4 +1,4 @@
-﻿l_french:
+l_french:
  pictish: "Picte"
  norse: "Norroise"
  german: "Allemande"
@@ -76,7 +76,7 @@
  misrayim: "Misrayim"
  zarphatic: "Tzarphatique"
  laaz: "Laatz"
- kaifeng: "Kaifeng"
+ kaifeng: "Kaifeng" 
  carthaginian: "Carthaginienne"
  hispanic: "Hispanique"
  aegyptian: "Aegyptienne"
@@ -132,17 +132,17 @@
  gallic_group: "Continental Celtic"
  dacian_group: "Dace"
  pre_indo_european_group: "Pre-Indo-European"
-
+ 
  #Norse Culture Breaks
  elsinorian:0 "Elsinorian"
  ruotsish:0 "Ruotsish"
  holmgardrian:0 "Holmgardrian"
  marisbaltician:0 "Marisbaltician"
- normand:0 "Normand"
+ normand_norse:0 "Normand"
  miklagardrian:0 "Miklagardrian"
  serklandic:0 "Serklandic"
- romsborgian:0 "Romsborgian"
-
+ romsborgian:0 "Romsborgian" 
+ 
  #SI culture breaks
  pixantekatl:0 "Pixantekatl"
  tanitekatl:0 "Tanitekatl"
@@ -160,4 +160,4 @@
  ikisatekatl:0 "Ikisatekatl"
  kapotsautekatl:0 "Kapotsautekatl"
  elpantekatl:0 "Elpantekatl"
-
+ 

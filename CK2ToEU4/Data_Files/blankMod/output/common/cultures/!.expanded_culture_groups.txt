@@ -32,7 +32,7 @@ scandinavian = {
 	ruotsish = { primary = FIN }
 	holmgardrian = { primary = NOV }
 	marisbaltician = { primary = EST }
-	normand = { primary = NRM }
+	normand_norse = { primary = NRM }
 	miklagardrian = { primary = BYZ }
 	serklandic = { } # No primary because it's truly a joke
 	romsborgian = { primary = ITA }
