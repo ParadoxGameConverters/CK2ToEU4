@@ -19,7 +19,7 @@ link = { eu4 = elsinorian ck2 = norse tech = western gfx = westerngfx region = b
 link = { eu4 = ruotsish ck2 = norse tech = western gfx = westerngfx region = finland_area province = 1777 region = karelia_area region = north_karelia }
 link = { eu4 = holmgardrian ck2 = norse tech = eastern gfx = westerngfx region = russia_region region = ruthenia_region region = crimea_region }
 link = { eu4 = marisbaltician ck2 = norse tech = western gfx = westerngfx region = baltic_region region = poland_region }
-link = { eu4 = normand ck2 = norse tech = western gfx = westerngfx region = low_countries_region region = france_region }
+link = { eu4 = normand_norse ck2 = norse tech = western gfx = westerngfx region = low_countries_region region = france_region }
 link = { eu4 = miklagardrian ck2 = norse tech = western gfx = westerngfx region = balkan_region region = anatolia_region }
 link = { eu4 = serklandic ck2 = norse tech = muslim gfx = westerngfx region = india_superregion region = tartary_superregion region = africa_superregion region = near_east_superregion region = persia_superregion }
 link = { eu4 = romsborgian ck2 = norse tech = western gfx = westerngfx region = italy_region }
