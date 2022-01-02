@@ -3,33 +3,33 @@
 hagia_sophia = {
 	# province it starts in
 	start = 151
-	
+
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
 	date = 537.01.01
-	
+
 	#time to build
 	time = {
 		months = 0
 	}
-	
+
 	#how much to build one
 	build_cost = 0
-	
+
 	#can we move it?
 	can_be_moved = no
-	
+
 	#time to move the project one unit of distance, in days
 	move_days_per_unit_distance = 10
-	
+
 	#tier that the project starts at when first placed in the game (be that at game start or when built by a country as the game progresses)
 	starting_tier = 2
-	
+
 	#project type
 	type = monument
 
 	#can we build it?
 	build_trigger = {
-		OR = {		
+		OR = {
 			AND = {
 				religion_group = christian
 				has_owner_religion = yes
@@ -38,14 +38,14 @@ hagia_sophia = {
 				religion_group = muslim
 				has_owner_religion = yes
 			}
-		}			
+		}
 	}
 
 	#what to do when it's built
 	on_built = {
 		if = {
-			limit = { 
-				has_global_flag = hagia_sophia_now_mosque 
+			limit = {
+				has_global_flag = hagia_sophia_now_mosque
 			}
 			show_ambient_object = hagia_sophia_minarets
 		}
@@ -53,7 +53,7 @@ hagia_sophia = {
 			show_ambient_object = hagia_sophia
 		}
 	}
-	
+
 	#what to do when it's destroyed
 	on_destroyed = {
 		hide_ambient_object = hagia_sophia_minarets
@@ -62,7 +62,7 @@ hagia_sophia = {
 
 	#can our country use it?
 	can_use_modifiers_trigger = {
-		OR = {		
+		OR = {
 			AND = {
 				religion_group = christian
 				has_owner_religion = yes
@@ -71,12 +71,12 @@ hagia_sophia = {
 				religion_group = muslim
 				has_owner_religion = yes
 			}
-		}		
+		}
 	}
 
 	#can our country upgrade it?
 	can_upgrade_trigger = {
-		OR = {		
+		OR = {
 			AND = {
 				religion_group = christian
 				has_owner_religion = yes
@@ -85,7 +85,7 @@ hagia_sophia = {
 				religion_group = muslim
 				has_owner_religion = yes
 			}
-		}		
+		}
 	}
 
 	#can our country keep it or is it destroyed when we get hold of it?

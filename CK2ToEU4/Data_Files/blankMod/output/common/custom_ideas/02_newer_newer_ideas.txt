@@ -2,7 +2,7 @@
 # DEFAULT: base_cost = 0, level_cost = 0.4, max_level = 4
 
 newer_newer_idea_adm_modifiers = {
-	category = ADM	
+	category = ADM
 	custom_negative_piety = {
 		monthly_piety = -0.001
 		max_level = 2
@@ -68,12 +68,12 @@ newer_newer_idea_adm_modifiers = {
 				NOT = { religion = yazidi }
 			}
 		}
-	}		
+	}
 }
 
 
 newer_newer_idea_dip_modifiers = {
-	category = DIP	
+	category = DIP
 	custom_power_prod_insults = {
 		power_projection_from_insults = 1
 		max_level = 1
@@ -151,7 +151,7 @@ newer_newer_idea_dip_modifiers = {
 }
 
 newer_newer_idea_mil_modifiers = {
-	category = MIL	
+	category = MIL
 	custom_artillery_fire = {
 		artillery_fire = 1
 		max_level = 1

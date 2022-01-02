@@ -16,7 +16,7 @@ grand_duchy_monarchy = {
 		2 = QUEEN
 		3 = EMPRESS
 	}
-	
+
 	trigger = {
 		has_reform = grand_duchy_reform
 		NOT = { government_rank = 2 }

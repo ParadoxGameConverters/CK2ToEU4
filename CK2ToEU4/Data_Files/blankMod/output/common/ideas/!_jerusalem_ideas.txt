@@ -3,17 +3,17 @@ jerusalem_ideas = {
 		tolerance_heathen = 1
 		global_missionary_strength = 0.03
 	}
-	
+
 	bonus = {
 		global_manpower_modifier = 0.25
 	}
-	
+
 	trigger = {
 		tag = KOJ
 		religion_group = christian
 	}
 	free = yes
-	
+
 	crown_of_thorns = {
 		prestige = 1
 		legitimacy = 1

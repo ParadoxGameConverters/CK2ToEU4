@@ -1,5 +1,5 @@
 # Maintain parity with vanilla culture groups at all costs or lose vanilla culture group colors!
-# New culture groups must be added to other files, alphabetically after this one. 
+# New culture groups must be added to other files, alphabetically after this one.
 # Update this file for every EU4 vanilla update.
 
 germanic = {
@@ -44,9 +44,9 @@ british = {
 	}
 }
 gaelic = {
-	pictish = { 
-		primary = HSC 
-		dynasty_names = { "map Artcois" "map Bargoit" "map Buthud" "map Enfret" "map Eru" "map Gyrom" "map Lutrin" "map Mailcon" "map Munait" "map Taixali" "map Uleo" "map Wthoil" Circin Deoardivois Diuberr Erilich "Gaed Brechach" Gurthinmoch Ini Loc Morbet Necton Olgudach Smertae Tina Uecla Uip Vepogenus Wurgest } 
+	pictish = {
+		primary = HSC
+		dynasty_names = { "map Artcois" "map Bargoit" "map Buthud" "map Enfret" "map Eru" "map Gyrom" "map Lutrin" "map Mailcon" "map Munait" "map Taixali" "map Uleo" "map Wthoil" Circin Deoardivois Diuberr Erilich "Gaed Brechach" Gurthinmoch Ini Loc Morbet Necton Olgudach Smertae Tina Uecla Uip Vepogenus Wurgest }
 	}
 }
 latin = {
@@ -59,52 +59,52 @@ iberian	= {
 	iberic = {
 		primary = NAV
 		dynasty_names = {
-			"de Navarra" "de Beaumont" "de Lerín" "de Monteagudo" Escors 
+			"de Navarra" "de Beaumont" "de Lerín" "de Monteagudo" Escors
 			# CKII
 			"de Haro"
 		}
 		male_names = {
-			Enrique Carlos Francisco Juan Luis Gastón Pedro Buenaventura Francisco Godofredo Jaime Lanzarote 
-			Martín Sancho García Felipe Teobaldo Alfonso Agustín Alejandro Álvaro Andrés Antonio Bernardo César 
+			Enrique Carlos Francisco Juan Luis Gastón Pedro Buenaventura Francisco Godofredo Jaime Lanzarote
+			Martín Sancho García Felipe Teobaldo Alfonso Agustín Alejandro Álvaro Andrés Antonio Bernardo César
 			Cristóbal Diego Esteban Fernando Gaspar José Melchor Nicolás Simón Leonel
-			Alfontso Alphonse Alvar Oliver Antso Sancho Aznar Aznar Belasko Vasco Bermudo Vermudo 
-			Bernard Diego Diaco Donato Donatus Egidio Egidius Eneko Inigo Erramun Raymond Fernando 
-			Fortun Galindo Galindo Gartzia Garcia Gilen William Gontzal Gonzalo Herramel Joanes John 
-			Lope Lupo Luis Louis Manrike Amalric Martín Martin Munio Munio Nuño Nuno Obeko Obeko Ordoño 
-			Ordono Pelaio Pelagius Piarres Peter Ramiro Ramiro Rodrigo Roderick Vela Vela Ximeno Simon 
+			Alfontso Alphonse Alvar Oliver Antso Sancho Aznar Aznar Belasko Vasco Bermudo Vermudo
+			Bernard Diego Diaco Donato Donatus Egidio Egidius Eneko Inigo Erramun Raymond Fernando
+			Fortun Galindo Galindo Gartzia Garcia Gilen William Gontzal Gonzalo Herramel Joanes John
+			Lope Lupo Luis Louis Manrike Amalric Martín Martin Munio Munio Nuño Nuno Obeko Obeko Ordoño
+			Ordono Pelaio Pelagius Piarres Peter Ramiro Ramiro Rodrigo Roderick Vela Vela Ximeno Simon
 			Zentulo Centule Ladron Ferdinand Bernart
 		}
 		female_names = {
 			Juana Catalina Leonor Blanca
-			Aines Agnes Aldontza Aldonza Andregoto Antsa Sancha Belaskita Berengaria Berengaria Blanka 
-			Blanche Elbira Elvira Eliza Emili Emily Estefania Stephania Joana Joan Konstantzia Constance 
-			Maior Mayor Maria Maria Mentzia Mencia Munia Munia Nuña Oneka Oneka Oria Plazentzia 
+			Aines Agnes Aldontza Aldonza Andregoto Antsa Sancha Belaskita Berengaria Berengaria Blanka
+			Blanche Elbira Elvira Eliza Emili Emily Estefania Stephania Joana Joan Konstantzia Constance
+			Maior Mayor Maria Maria Mentzia Mencia Munia Munia Nuña Oneka Oneka Oria Plazentzia
 			Teresa Teresa Toda Toda Urraka Urraca Ximena Ximena Plaisance
 		}
 	}
 	turdetanian = {
 		primary = NAV
 		dynasty_names = {
-			"de Navarra" "de Beaumont" "de Lerín" "de Monteagudo" Escors 
+			"de Navarra" "de Beaumont" "de Lerín" "de Monteagudo" Escors
 			# CKII
 			"de Haro"
 		}
 		male_names = {
-			Enrique Carlos Francisco Juan Luis Gastón Pedro Buenaventura Francisco Godofredo Jaime Lanzarote 
-			Martín Sancho García Felipe Teobaldo Alfonso Agustín Alejandro Álvaro Andrés Antonio Bernardo César 
+			Enrique Carlos Francisco Juan Luis Gastón Pedro Buenaventura Francisco Godofredo Jaime Lanzarote
+			Martín Sancho García Felipe Teobaldo Alfonso Agustín Alejandro Álvaro Andrés Antonio Bernardo César
 			Cristóbal Diego Esteban Fernando Gaspar José Melchor Nicolás Simón Leonel
-			Alfontso Alphonse Alvar Oliver Antso Sancho Aznar Aznar Belasko Vasco Bermudo Vermudo 
-			Bernard Diego Diaco Donato Donatus Egidio Egidius Eneko Inigo Erramun Raymond Fernando 
-			Fortun Galindo Galindo Gartzia Garcia Gilen William Gontzal Gonzalo Herramel Joanes John 
-			Lope Lupo Luis Louis Manrike Amalric Martín Martin Munio Munio Nuño Nuno Obeko Obeko Ordoño 
-			Ordono Pelaio Pelagius Piarres Peter Ramiro Ramiro Rodrigo Roderick Vela Vela Ximeno Simon 
+			Alfontso Alphonse Alvar Oliver Antso Sancho Aznar Aznar Belasko Vasco Bermudo Vermudo
+			Bernard Diego Diaco Donato Donatus Egidio Egidius Eneko Inigo Erramun Raymond Fernando
+			Fortun Galindo Galindo Gartzia Garcia Gilen William Gontzal Gonzalo Herramel Joanes John
+			Lope Lupo Luis Louis Manrike Amalric Martín Martin Munio Munio Nuño Nuno Obeko Obeko Ordoño
+			Ordono Pelaio Pelagius Piarres Peter Ramiro Ramiro Rodrigo Roderick Vela Vela Ximeno Simon
 			Zentulo Centule Ladron Ferdinand Bernart
 		}
 		female_names = {
 			Juana Catalina Leonor Blanca
-			Aines Agnes Aldontza Aldonza Andregoto Antsa Sancha Belaskita Berengaria Berengaria Blanka 
-			Blanche Elbira Elvira Eliza Emili Emily Estefania Stephania Joana Joan Konstantzia Constance 
-			Maior Mayor Maria Maria Mentzia Mencia Munia Munia Nuña Oneka Oneka Oria Plazentzia 
+			Aines Agnes Aldontza Aldonza Andregoto Antsa Sancha Belaskita Berengaria Berengaria Blanka
+			Blanche Elbira Elvira Eliza Emili Emily Estefania Stephania Joana Joan Konstantzia Constance
+			Maior Mayor Maria Maria Mentzia Mencia Munia Munia Nuña Oneka Oneka Oria Plazentzia
 			Teresa Teresa Toda Toda Urraka Urraca Ximena Ximena Plaisance
 		}
 	}
@@ -138,14 +138,14 @@ south_slavic = {
 	arbereshe = {
 		primary = ALB
 		male_names = {
-			Gjergj Lekë Gjon Kostandin Lulëzim Pal Tanush Aleksandër Karolus Filippo Adnan Agim Bashkim Besnik 
-			Dardan Dhurim Dritëro Elidon Erjon Fatmir Flamur Florin Hekuran Ilir Ismail Klodian Luigj Milaim 
-			Pashko Pëllumb Përparim Pjetër Rrok Shpëtim Tahir Viktor Xhevat Ylli Zenel Halil Ali Mustafa Qemal 
-			Mehmet Ramiz Edi Demaci Edon Dukagjin Haxhi Lishëndri Mensur Kreshnik Rahman Nxhiku Riza Rexhep 
+			Gjergj Lekë Gjon Kostandin Lulëzim Pal Tanush Aleksandër Karolus Filippo Adnan Agim Bashkim Besnik
+			Dardan Dhurim Dritëro Elidon Erjon Fatmir Flamur Florin Hekuran Ilir Ismail Klodian Luigj Milaim
+			Pashko Pëllumb Përparim Pjetër Rrok Shpëtim Tahir Viktor Xhevat Ylli Zenel Halil Ali Mustafa Qemal
+			Mehmet Ramiz Edi Demaci Edon Dukagjin Haxhi Lishëndri Mensur Kreshnik Rahman Nxhiku Riza Rexhep
 			Sulejman Selim Sadik Bujar Nikolla Enver Ramadan
 		}
 		female_names = {
-			Gjylo Afërdita Blerta Bora Dafina Dardana Era Fatmire Flutura Gentiana Jehona Lindita Lule Luljeta Pranvera Shpresa 
+			Gjylo Afërdita Blerta Bora Dafina Dardana Era Fatmire Flutura Gentiana Jehona Lindita Lule Luljeta Pranvera Shpresa
 			Shqipe Teuta Venera Vera Vesa Yllka
 		}
 		dynasty_names = {
@@ -157,7 +157,7 @@ south_slavic = {
 		}
 	}
 }
-west_slavic = {	
+west_slavic = {
 	graphical_culture = easterngfx
 	slovak = {
 		primary = SLO
@@ -169,7 +169,7 @@ west_slavic = {
 			Luboslav Lubomir Levoslav Stanislav
 		}
 		female_names = {
-			Maria Anna Alzbeta Ludmila Eva Jaroslava Jarmila Amalia Margareta Hana			 
+			Maria Anna Alzbeta Ludmila Eva Jaroslava Jarmila Amalia Margareta Hana
 		}
 		dynasty_names = {
 			Stibor Bel Kollar Podmanický Hatnanský Pongrac Bosniak Veseléni Zichy Turzo Andráši
@@ -225,7 +225,7 @@ baltic = {
 	old_prussian = {
 		primary = PRU
 		male_names = {
-			Alvydas Arelis Auctune Bajoras Beidras Budo Dagonis Ekkelis Galindas Galindo Gauronas Gerdautas Glande Golding 
+			Alvydas Arelis Auctune Bajoras Beidras Budo Dagonis Ekkelis Galindas Galindo Gauronas Gerdautas Glande Golding
 			Jauguttis Karatas Klukis Kugis Milzas Nomedas Prusas Sergonis Ulinniks Ulitis
 		}
 		female_names = {
@@ -379,7 +379,7 @@ caucasian = {
 	}
 	babylonian = {
 		dynasty_names = {
-			Amorite Sealand Larsa Kassite 
+			Amorite Sealand Larsa Kassite
 		}
 		male_names = {
 			Naplanum Emisum Samium Zabaia Gungunum Abisare Sumuel "Nur-Adad" "Sin-Iddinam" "Sin-Eribam" "Sin-Iqisham" "Silli-Adad" "Warad-Sin" "Rim-Sin" Hammurabi "Samsu-iluna" "Su-abu" "Sumu-la-El" "Sabum" "Apil-Sin" "Sin-muballit" Abieshu "Ammi-ditana" "Samsu-Ditana" Ammisaduqa Gandas Agum Kastiliasu "Abi-Rattas" Hurbazum Ulamburiash Karaindash "Enlil-nadin-ahi" Gulkishar
@@ -523,18 +523,18 @@ turko_semitic = {
 		primary = FRA
 		dynasty_names = {
 			"Mirdasid" "Maanid" "al-Shihab"  Yakubid Hassanid
-			Katkhuda Abaza Qasimiyya Qitas al-Qazdughli 
+			Katkhuda Abaza Qasimiyya Qitas al-Qazdughli
 		}
 		male_names = {
-			al-Nasr al-Mu'azzam al-Salih al-'Adil al-Kamil al-Ashraf al-Afdal Tadj Mujir ud-Din Djamal ud-Din 
-			ud-Din Shams Saif 'Abbas 'Abd al-Rahman Anwar Atuf Bakr Fahd Hakim Harun Hikmat Hisham Husayn 
-			Jamaal Karim Malîk Mirza Muhammad Rashîd Rusul Shimun Tarîq Usama Yasir Yusuf Zaid Zîyad Isma'il 	
+			al-Nasr al-Mu'azzam al-Salih al-'Adil al-Kamil al-Ashraf al-Afdal Tadj Mujir ud-Din Djamal ud-Din
+			ud-Din Shams Saif 'Abbas 'Abd al-Rahman Anwar Atuf Bakr Fahd Hakim Harun Hikmat Hisham Husayn
+			Jamaal Karim Malîk Mirza Muhammad Rashîd Rusul Shimun Tarîq Usama Yasir Yusuf Zaid Zîyad Isma'il
 			Jafar Shihab
 		}
 		female_names = {
-			Ihsan Marwa Aisha Aziza Duha Farida Golbahar Gulnar Gulnaz Gulpari Hafsa Hasti Huma Ibtisam Jalila Kamala 
+			Ihsan Marwa Aisha Aziza Duha Farida Golbahar Gulnar Gulnaz Gulpari Hafsa Hasti Huma Ibtisam Jalila Kamala
 			Karima Khandan Khaterah Khatira Kinah Lala Madiha Mahdokht Nazy Neelab Negar Niki Nikoo Noushin Rabiya
-			Mahsa Mahwash Marwa Mastana Mehri Mina Minoo Munawwar Muzhdah Nahal Najela Nasiba Nastaran Nazaneen 
+			Mahsa Mahwash Marwa Mastana Mehri Mina Minoo Munawwar Muzhdah Nahal Najela Nasiba Nastaran Nazaneen
 			Rajiya Sadiya Salma Sitara Thana Zahra Zahra Zuhayra
 		}
 	}
@@ -542,18 +542,18 @@ turko_semitic = {
 		primary = ARA
 		dynasty_names = {
 			"Mirdasid" "Maanid" "al-Shihab"  Yakubid Hassanid
-			Katkhuda Abaza Qasimiyya Qitas al-Qazdughli 
+			Katkhuda Abaza Qasimiyya Qitas al-Qazdughli
 		}
 		male_names = {
-			al-Nasr al-Mu'azzam al-Salih al-'Adil al-Kamil al-Ashraf al-Afdal Tadj Mujir ud-Din Djamal ud-Din 
-			ud-Din Shams Saif 'Abbas 'Abd al-Rahman Anwar Atuf Bakr Fahd Hakim Harun Hikmat Hisham Husayn 
-			Jamaal Karim Malîk Mirza Muhammad Rashîd Rusul Shimun Tarîq Usama Yasir Yusuf Zaid Zîyad Isma'il 	
+			al-Nasr al-Mu'azzam al-Salih al-'Adil al-Kamil al-Ashraf al-Afdal Tadj Mujir ud-Din Djamal ud-Din
+			ud-Din Shams Saif 'Abbas 'Abd al-Rahman Anwar Atuf Bakr Fahd Hakim Harun Hikmat Hisham Husayn
+			Jamaal Karim Malîk Mirza Muhammad Rashîd Rusul Shimun Tarîq Usama Yasir Yusuf Zaid Zîyad Isma'il
 			Jafar Shihab
 		}
 		female_names = {
-			Ihsan Marwa Aisha Aziza Duha Farida Golbahar Gulnar Gulnaz Gulpari Hafsa Hasti Huma Ibtisam Jalila Kamala 
+			Ihsan Marwa Aisha Aziza Duha Farida Golbahar Gulnar Gulnaz Gulpari Hafsa Hasti Huma Ibtisam Jalila Kamala
 			Karima Khandan Khaterah Khatira Kinah Lala Madiha Mahdokht Nazy Neelab Negar Niki Nikoo Noushin Rabiya
-			Mahsa Mahwash Marwa Mastana Mehri Mina Minoo Munawwar Muzhdah Nahal Najela Nasiba Nastaran Nazaneen 
+			Mahsa Mahwash Marwa Mastana Mehri Mina Minoo Munawwar Muzhdah Nahal Najela Nasiba Nastaran Nazaneen
 			Rajiya Sadiya Salma Sitara Thana Zahra Zahra Zuhayra
 		}
 	}
@@ -570,7 +570,7 @@ iranian = {
 	saka = {
 		primary = KAS
 	}
-	tajik = { 
+	tajik = {
 		primary = TRS
 	}
 }
@@ -581,12 +581,12 @@ altaic = {
 	}
 }
 central_american = {
-	pixantekatl = {	
+	pixantekatl = {
 		primary = AZT
 		male_names = {
-			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc 
-			Motelchiuh Tehuetstiquitzin Tlacotzin Xochiquentzin Acamapichtli Chimalpopoca Tenoch Acacitli 
-			Axacaya Cacamatzin Eyahue Huicton Ilhuicamina Itzquautzin Mazatl Nopaltzin Olintecke Opochtli 
+			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc
+			Motelchiuh Tehuetstiquitzin Tlacotzin Xochiquentzin Acamapichtli Chimalpopoca Tenoch Acacitli
+			Axacaya Cacamatzin Eyahue Huicton Ilhuicamina Itzquautzin Mazatl Nopaltzin Olintecke Opochtli
 			Quetzalmantzin Quimichetl Texcoyo Timas Tlacaelel Tlotzin Xiuhcozcatl Xocoyol Yaztachimal Zolton
 			Ahcambal Huanitzin Panitzin
 		}
@@ -594,12 +594,12 @@ central_american = {
 			Centehua Moyolehuani Yaotl Mixcoatl Necahual Nelli Ohtli Papa Patli
 		}
 	}
-	tanitekatl = {	
+	tanitekatl = {
 		primary = AZT
 		male_names = {
-			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc 
-			Motelchiuh Tehuetstiquitzin Tlacotzin Xochiquentzin Acamapichtli Chimalpopoca Tenoch Acacitli 
-			Axacaya Cacamatzin Eyahue Huicton Ilhuicamina Itzquautzin Mazatl Nopaltzin Olintecke Opochtli 
+			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc
+			Motelchiuh Tehuetstiquitzin Tlacotzin Xochiquentzin Acamapichtli Chimalpopoca Tenoch Acacitli
+			Axacaya Cacamatzin Eyahue Huicton Ilhuicamina Itzquautzin Mazatl Nopaltzin Olintecke Opochtli
 			Quetzalmantzin Quimichetl Texcoyo Timas Tlacaelel Tlotzin Xiuhcozcatl Xocoyol Yaztachimal Zolton
 			Ahcambal Huanitzin Panitzin
 		}
@@ -607,12 +607,12 @@ central_american = {
 			Centehua Moyolehuani Yaotl Mixcoatl Necahual Nelli Ohtli Papa Patli
 		}
 	}
-	olantekatl = {	
+	olantekatl = {
 		primary = AZT
 		male_names = {
-			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc 
-			Motelchiuh Tehuetstiquitzin Tlacotzin Xochiquentzin Acamapichtli Chimalpopoca Tenoch Acacitli 
-			Axacaya Cacamatzin Eyahue Huicton Ilhuicamina Itzquautzin Mazatl Nopaltzin Olintecke Opochtli 
+			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc
+			Motelchiuh Tehuetstiquitzin Tlacotzin Xochiquentzin Acamapichtli Chimalpopoca Tenoch Acacitli
+			Axacaya Cacamatzin Eyahue Huicton Ilhuicamina Itzquautzin Mazatl Nopaltzin Olintecke Opochtli
 			Quetzalmantzin Quimichetl Texcoyo Timas Tlacaelel Tlotzin Xiuhcozcatl Xocoyol Yaztachimal Zolton
 			Ahcambal Huanitzin Panitzin
 		}
@@ -620,12 +620,12 @@ central_american = {
 			Centehua Moyolehuani Yaotl Mixcoatl Necahual Nelli Ohtli Papa Patli
 		}
 	}
-	italtekatl = {	
+	italtekatl = {
 		primary = AZT
 		male_names = {
-			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc 
-			Motelchiuh Tehuetstiquitzin Tlacotzin Xochiquentzin Acamapichtli Chimalpopoca Tenoch Acacitli 
-			Axacaya Cacamatzin Eyahue Huicton Ilhuicamina Itzquautzin Mazatl Nopaltzin Olintecke Opochtli 
+			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc
+			Motelchiuh Tehuetstiquitzin Tlacotzin Xochiquentzin Acamapichtli Chimalpopoca Tenoch Acacitli
+			Axacaya Cacamatzin Eyahue Huicton Ilhuicamina Itzquautzin Mazatl Nopaltzin Olintecke Opochtli
 			Quetzalmantzin Quimichetl Texcoyo Timas Tlacaelel Tlotzin Xiuhcozcatl Xocoyol Yaztachimal Zolton
 			Ahcambal Huanitzin Panitzin
 		}
@@ -633,12 +633,12 @@ central_american = {
 			Centehua Moyolehuani Yaotl Mixcoatl Necahual Nelli Ohtli Papa Patli
 		}
 	}
-	almantekatl = {	
+	almantekatl = {
 		primary = AZT
 		male_names = {
-			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc 
-			Motelchiuh Tehuetstiquitzin Tlacotzin Xochiquentzin Acamapichtli Chimalpopoca Tenoch Acacitli 
-			Axacaya Cacamatzin Eyahue Huicton Ilhuicamina Itzquautzin Mazatl Nopaltzin Olintecke Opochtli 
+			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc
+			Motelchiuh Tehuetstiquitzin Tlacotzin Xochiquentzin Acamapichtli Chimalpopoca Tenoch Acacitli
+			Axacaya Cacamatzin Eyahue Huicton Ilhuicamina Itzquautzin Mazatl Nopaltzin Olintecke Opochtli
 			Quetzalmantzin Quimichetl Texcoyo Timas Tlacaelel Tlotzin Xiuhcozcatl Xocoyol Yaztachimal Zolton
 			Ahcambal Huanitzin Panitzin
 		}
@@ -646,25 +646,12 @@ central_american = {
 			Centehua Moyolehuani Yaotl Mixcoatl Necahual Nelli Ohtli Papa Patli
 		}
 	}
-	loxatekatl = {	
+	loxatekatl = {
 		primary = AZT
 		male_names = {
-			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc 
-			Motelchiuh Tehuetstiquitzin Tlacotzin Xochiquentzin Acamapichtli Chimalpopoca Tenoch Acacitli 
-			Axacaya Cacamatzin Eyahue Huicton Ilhuicamina Itzquautzin Mazatl Nopaltzin Olintecke Opochtli 
-			Quetzalmantzin Quimichetl Texcoyo Timas Tlacaelel Tlotzin Xiuhcozcatl Xocoyol Yaztachimal Zolton
-			Ahcambal Huanitzin Panitzin
-		}
-		female_names = {
-			Centehua Moyolehuani Yaotl Mixcoatl Necahual Nelli Ohtli Papa Patli
-		}
-	}	
-	kaxtiltekatl = {	
-		primary = AZT
-		male_names = {
-			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc 
-			Motelchiuh Tehuetstiquitzin Tlacotzin Xochiquentzin Acamapichtli Chimalpopoca Tenoch Acacitli 
-			Axacaya Cacamatzin Eyahue Huicton Ilhuicamina Itzquautzin Mazatl Nopaltzin Olintecke Opochtli 
+			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc
+			Motelchiuh Tehuetstiquitzin Tlacotzin Xochiquentzin Acamapichtli Chimalpopoca Tenoch Acacitli
+			Axacaya Cacamatzin Eyahue Huicton Ilhuicamina Itzquautzin Mazatl Nopaltzin Olintecke Opochtli
 			Quetzalmantzin Quimichetl Texcoyo Timas Tlacaelel Tlotzin Xiuhcozcatl Xocoyol Yaztachimal Zolton
 			Ahcambal Huanitzin Panitzin
 		}
@@ -672,12 +659,12 @@ central_american = {
 			Centehua Moyolehuani Yaotl Mixcoatl Necahual Nelli Ohtli Papa Patli
 		}
 	}
-	ixlantekatl = {	
+	kaxtiltekatl = {
 		primary = AZT
 		male_names = {
-			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc 
-			Motelchiuh Tehuetstiquitzin Tlacotzin Xochiquentzin Acamapichtli Chimalpopoca Tenoch Acacitli 
-			Axacaya Cacamatzin Eyahue Huicton Ilhuicamina Itzquautzin Mazatl Nopaltzin Olintecke Opochtli 
+			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc
+			Motelchiuh Tehuetstiquitzin Tlacotzin Xochiquentzin Acamapichtli Chimalpopoca Tenoch Acacitli
+			Axacaya Cacamatzin Eyahue Huicton Ilhuicamina Itzquautzin Mazatl Nopaltzin Olintecke Opochtli
 			Quetzalmantzin Quimichetl Texcoyo Timas Tlacaelel Tlotzin Xiuhcozcatl Xocoyol Yaztachimal Zolton
 			Ahcambal Huanitzin Panitzin
 		}
@@ -685,12 +672,12 @@ central_american = {
 			Centehua Moyolehuani Yaotl Mixcoatl Necahual Nelli Ohtli Papa Patli
 		}
 	}
-	ankiltekatl = {	
+	ixlantekatl = {
 		primary = AZT
 		male_names = {
-			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc 
-			Motelchiuh Tehuetstiquitzin Tlacotzin Xochiquentzin Acamapichtli Chimalpopoca Tenoch Acacitli 
-			Axacaya Cacamatzin Eyahue Huicton Ilhuicamina Itzquautzin Mazatl Nopaltzin Olintecke Opochtli 
+			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc
+			Motelchiuh Tehuetstiquitzin Tlacotzin Xochiquentzin Acamapichtli Chimalpopoca Tenoch Acacitli
+			Axacaya Cacamatzin Eyahue Huicton Ilhuicamina Itzquautzin Mazatl Nopaltzin Olintecke Opochtli
 			Quetzalmantzin Quimichetl Texcoyo Timas Tlacaelel Tlotzin Xiuhcozcatl Xocoyol Yaztachimal Zolton
 			Ahcambal Huanitzin Panitzin
 		}
@@ -698,12 +685,12 @@ central_american = {
 			Centehua Moyolehuani Yaotl Mixcoatl Necahual Nelli Ohtli Papa Patli
 		}
 	}
-	xilpantekatl = {	
+	ankiltekatl = {
 		primary = AZT
 		male_names = {
-			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc 
-			Motelchiuh Tehuetstiquitzin Tlacotzin Xochiquentzin Acamapichtli Chimalpopoca Tenoch Acacitli 
-			Axacaya Cacamatzin Eyahue Huicton Ilhuicamina Itzquautzin Mazatl Nopaltzin Olintecke Opochtli 
+			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc
+			Motelchiuh Tehuetstiquitzin Tlacotzin Xochiquentzin Acamapichtli Chimalpopoca Tenoch Acacitli
+			Axacaya Cacamatzin Eyahue Huicton Ilhuicamina Itzquautzin Mazatl Nopaltzin Olintecke Opochtli
 			Quetzalmantzin Quimichetl Texcoyo Timas Tlacaelel Tlotzin Xiuhcozcatl Xocoyol Yaztachimal Zolton
 			Ahcambal Huanitzin Panitzin
 		}
@@ -711,12 +698,12 @@ central_american = {
 			Centehua Moyolehuani Yaotl Mixcoatl Necahual Nelli Ohtli Papa Patli
 		}
 	}
-	kauayotekatl = {	
+	xilpantekatl = {
 		primary = AZT
 		male_names = {
-			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc 
-			Motelchiuh Tehuetstiquitzin Tlacotzin Xochiquentzin Acamapichtli Chimalpopoca Tenoch Acacitli 
-			Axacaya Cacamatzin Eyahue Huicton Ilhuicamina Itzquautzin Mazatl Nopaltzin Olintecke Opochtli 
+			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc
+			Motelchiuh Tehuetstiquitzin Tlacotzin Xochiquentzin Acamapichtli Chimalpopoca Tenoch Acacitli
+			Axacaya Cacamatzin Eyahue Huicton Ilhuicamina Itzquautzin Mazatl Nopaltzin Olintecke Opochtli
 			Quetzalmantzin Quimichetl Texcoyo Timas Tlacaelel Tlotzin Xiuhcozcatl Xocoyol Yaztachimal Zolton
 			Ahcambal Huanitzin Panitzin
 		}
@@ -724,12 +711,12 @@ central_american = {
 			Centehua Moyolehuani Yaotl Mixcoatl Necahual Nelli Ohtli Papa Patli
 		}
 	}
-	uitstlantekatl = {	
+	kauayotekatl = {
 		primary = AZT
 		male_names = {
-			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc 
-			Motelchiuh Tehuetstiquitzin Tlacotzin Xochiquentzin Acamapichtli Chimalpopoca Tenoch Acacitli 
-			Axacaya Cacamatzin Eyahue Huicton Ilhuicamina Itzquautzin Mazatl Nopaltzin Olintecke Opochtli 
+			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc
+			Motelchiuh Tehuetstiquitzin Tlacotzin Xochiquentzin Acamapichtli Chimalpopoca Tenoch Acacitli
+			Axacaya Cacamatzin Eyahue Huicton Ilhuicamina Itzquautzin Mazatl Nopaltzin Olintecke Opochtli
 			Quetzalmantzin Quimichetl Texcoyo Timas Tlacaelel Tlotzin Xiuhcozcatl Xocoyol Yaztachimal Zolton
 			Ahcambal Huanitzin Panitzin
 		}
@@ -737,12 +724,12 @@ central_american = {
 			Centehua Moyolehuani Yaotl Mixcoatl Necahual Nelli Ohtli Papa Patli
 		}
 	}
-	exiptekatl = {	
+	uitstlantekatl = {
 		primary = AZT
 		male_names = {
-			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc 
-			Motelchiuh Tehuetstiquitzin Tlacotzin Xochiquentzin Acamapichtli Chimalpopoca Tenoch Acacitli 
-			Axacaya Cacamatzin Eyahue Huicton Ilhuicamina Itzquautzin Mazatl Nopaltzin Olintecke Opochtli 
+			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc
+			Motelchiuh Tehuetstiquitzin Tlacotzin Xochiquentzin Acamapichtli Chimalpopoca Tenoch Acacitli
+			Axacaya Cacamatzin Eyahue Huicton Ilhuicamina Itzquautzin Mazatl Nopaltzin Olintecke Opochtli
 			Quetzalmantzin Quimichetl Texcoyo Timas Tlacaelel Tlotzin Xiuhcozcatl Xocoyol Yaztachimal Zolton
 			Ahcambal Huanitzin Panitzin
 		}
@@ -750,12 +737,12 @@ central_american = {
 			Centehua Moyolehuani Yaotl Mixcoatl Necahual Nelli Ohtli Papa Patli
 		}
 	}
-	ikisatekatl = {	
+	exiptekatl = {
 		primary = AZT
 		male_names = {
-			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc 
-			Motelchiuh Tehuetstiquitzin Tlacotzin Xochiquentzin Acamapichtli Chimalpopoca Tenoch Acacitli 
-			Axacaya Cacamatzin Eyahue Huicton Ilhuicamina Itzquautzin Mazatl Nopaltzin Olintecke Opochtli 
+			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc
+			Motelchiuh Tehuetstiquitzin Tlacotzin Xochiquentzin Acamapichtli Chimalpopoca Tenoch Acacitli
+			Axacaya Cacamatzin Eyahue Huicton Ilhuicamina Itzquautzin Mazatl Nopaltzin Olintecke Opochtli
 			Quetzalmantzin Quimichetl Texcoyo Timas Tlacaelel Tlotzin Xiuhcozcatl Xocoyol Yaztachimal Zolton
 			Ahcambal Huanitzin Panitzin
 		}
@@ -763,12 +750,12 @@ central_american = {
 			Centehua Moyolehuani Yaotl Mixcoatl Necahual Nelli Ohtli Papa Patli
 		}
 	}
-	kapotsautekatl = {	
+	ikisatekatl = {
 		primary = AZT
 		male_names = {
-			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc 
-			Motelchiuh Tehuetstiquitzin Tlacotzin Xochiquentzin Acamapichtli Chimalpopoca Tenoch Acacitli 
-			Axacaya Cacamatzin Eyahue Huicton Ilhuicamina Itzquautzin Mazatl Nopaltzin Olintecke Opochtli 
+			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc
+			Motelchiuh Tehuetstiquitzin Tlacotzin Xochiquentzin Acamapichtli Chimalpopoca Tenoch Acacitli
+			Axacaya Cacamatzin Eyahue Huicton Ilhuicamina Itzquautzin Mazatl Nopaltzin Olintecke Opochtli
 			Quetzalmantzin Quimichetl Texcoyo Timas Tlacaelel Tlotzin Xiuhcozcatl Xocoyol Yaztachimal Zolton
 			Ahcambal Huanitzin Panitzin
 		}
@@ -776,12 +763,25 @@ central_american = {
 			Centehua Moyolehuani Yaotl Mixcoatl Necahual Nelli Ohtli Papa Patli
 		}
 	}
-	elpantekatl = {	
+	kapotsautekatl = {
 		primary = AZT
 		male_names = {
-			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc 
-			Motelchiuh Tehuetstiquitzin Tlacotzin Xochiquentzin Acamapichtli Chimalpopoca Tenoch Acacitli 
-			Axacaya Cacamatzin Eyahue Huicton Ilhuicamina Itzquautzin Mazatl Nopaltzin Olintecke Opochtli 
+			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc
+			Motelchiuh Tehuetstiquitzin Tlacotzin Xochiquentzin Acamapichtli Chimalpopoca Tenoch Acacitli
+			Axacaya Cacamatzin Eyahue Huicton Ilhuicamina Itzquautzin Mazatl Nopaltzin Olintecke Opochtli
+			Quetzalmantzin Quimichetl Texcoyo Timas Tlacaelel Tlotzin Xiuhcozcatl Xocoyol Yaztachimal Zolton
+			Ahcambal Huanitzin Panitzin
+		}
+		female_names = {
+			Centehua Moyolehuani Yaotl Mixcoatl Necahual Nelli Ohtli Papa Patli
+		}
+	}
+	elpantekatl = {
+		primary = AZT
+		male_names = {
+			Moctezuma Auitzotl Axayacatl Cuauhtemoc Cuitlahuac Huitzilihuitl Itzcoatl Ohimalpopoca Tizoc
+			Motelchiuh Tehuetstiquitzin Tlacotzin Xochiquentzin Acamapichtli Chimalpopoca Tenoch Acacitli
+			Axacaya Cacamatzin Eyahue Huicton Ilhuicamina Itzquautzin Mazatl Nopaltzin Olintecke Opochtli
 			Quetzalmantzin Quimichetl Texcoyo Timas Tlacaelel Tlotzin Xiuhcozcatl Xocoyol Yaztachimal Zolton
 			Ahcambal Huanitzin Panitzin
 		}
@@ -907,7 +907,7 @@ sudanese = {
 		primary = EGY
 		male_names = {
 			Amyrteos Ankhmachis Anemhor Aratos Arganos Charias Djedhor Ezena Horemakhet Isocrates Khabbabash Leonippus Lydiadas Manetho Massiva
- 			Nakhthoreb Naravas Nefaarud Neferibre Nesisti Nicias Nicodemus Oezalces Oxyntas Pedubast Peneus Perdiccas Philocrates 
+ 			Nakhthoreb Naravas Nefaarud Neferibre Nesisti Nicias Nicodemus Oezalces Oxyntas Pedubast Peneus Perdiccas Philocrates
 			Philotheos Polyperchon Psherenamun Psherenptah Psammuthes Ptolemy Theocritus Therapon Timoleon Xanthos Xenon Zeteres Zosimus Ahmes
 			Ahmose Alarus Amasus Ameny Bakenrenef Cleomenes Euclid Harsiotef Henut Ibi Khabash Lagus Nectanebo Kheperkare Neferkare Nehi Osorkon Pami
 			Petubastis Teos
@@ -942,7 +942,7 @@ sudanese = {
 			Harsiotes Harsiotes Harsiotid Harsiotid
 			Henus Hena Henid Henid
 			Ibus Iba Ibid Ibid
-			Khabbash Khabbash Khabbashid Khabbashid	
+			Khabbash Khabbash Khabbashid Khabbashid
 			Amasus Amasa Amasid Amasid
 			Nectanebo Nectanebo Nectanebid Nectanebid
 			Petubast Petubast Petubastes Petubastid

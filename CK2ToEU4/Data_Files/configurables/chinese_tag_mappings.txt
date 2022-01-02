@@ -1,7 +1,7 @@
 ## This is a map that correctly maps the CK2 China
 ## to the equivalent EU4 tag
 
-# The default china shoud have a fallback = yes. In case a new china is added in future and not found in these
+# The default china should have a fallback = yes. In case a new china is added in future and not found in these
 # mappings, it will default to fallback.
 
 link = { ck2 = tang_china eu4 = TNG }
