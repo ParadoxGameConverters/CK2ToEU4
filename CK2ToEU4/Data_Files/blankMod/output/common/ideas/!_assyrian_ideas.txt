@@ -3,16 +3,16 @@ ASY_ideas = {
 		tolerance_own = 2
 		global_missionary_strength = 0.01
 	}
-	
+
 	bonus = {
 		leader_siege = 1
 	}
-	
+
 	trigger = {
 		tag = ASY
 	}
 	free = yes
-	
+
  	ZZZ_assyrian_bowmen = {
 		infantry_power = 0.1
 	}

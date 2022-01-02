@@ -1,14 +1,14 @@
 ## The FAQ
 
 Q: Is this the official converter?
-A: This converter has been done by the same team that specializes in other Paradox converters: 
+A: This converter has been done by the same team that specializes in other Paradox converters:
 EU4->Vic2, Vic2->HoI4, CK2->EU3, EU3->Vic2, Vic2->HoI3, and relatively soon, Imperator->CK3
 It is not official, it does not use official converter's code (though it does recycle some data files).
 
 This is a standalone effort (and so far, the third ck2->eu4 converter to exist).
 
 Q: What are the main advantages between this and the official converter?
-A: Speed, precision and versatility. 
+A: Speed, precision and versatility.
 
 This converter does all that official one does, with many additions and corrections:
 - Shattering any empire and using it as a base for HRE mechanics
@@ -19,11 +19,11 @@ This converter does all that official one does, with many additions and correcti
 - Integration of the Western Protectorate into China's mainland
 - Better provincial mappings (entirely redone to map CK 3.3 into EU4 1.29)
 - Import of councilmen as advisors
-- Special flags for muslim dynasties (kingdoms and empires are named after their dynasties)
+- Special flags for Muslim dynasties (kingdoms and empires are named after their dynasties)
 - Dual bookmarks (for both conversion date and 1444)
 - Full tributary support, both preserving offmap tributaries and importing CK2 ones
 - Expanded EU4 religions with CK2 ones, support for these religions in Vic2 and HoI4.
-- Clearing of siberian tribe and horde OPMs
+- Clearing of Siberian tribe and horde OPMs
 - Importing of excommunicated rulers
 - Fixed official converter's handling of starting cash and prestige (it could be negative)
 - Fixed official converter's bug with wonder replication
@@ -59,10 +59,10 @@ A: Use the guide in after_converting.txt in the converter subdirectory. Scan thr
 ### Quick Troubleshooting:
 
 Q: The generated mod was in a different language than my savegame.
-A: At the moment, CK2ToEU4 only guarantees english localisation, but german, french and spanish are nominally supported.
+A: At the moment, CK2ToEU4 only guarantees English localization, but German, French and Spanish are nominally supported.
 
 Q: Some/all country names appear as X25, FRA etc.
-A: This is an issue with the localisation. Only english is guaranteed, and you may be running EU4 in some other localization. Also, CK2 often lacks named and adjectives for various titles in non-english languages. We try to use english localisation when this happens.
+A: This is an issue with the localization. Only English is guaranteed, and you may be running EU4 in some other localization. Also, CK2 often lacks named and adjectives for various titles in non-English languages. We try to use English localization when this happens.
 
 Q: I loaded my mod, but nothing changed. What's wrong?
 A: Is the mod enabled in the launcher? If so, then EU4 refused to load it due to possible errors. Come to PDX forums and upload your save, log.txt and errors.txt so we may debug.

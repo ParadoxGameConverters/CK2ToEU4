@@ -1,5 +1,5 @@
 christian = {
-	
+
 	nestorian = {
 		color = { 0.8 0.3 0.5 }
 		icon = 31
@@ -15,11 +15,11 @@ christian = {
 			tolerance_own = 1
 		}
 		heretic = { ZAMIKAELITES STEPHANITES EUSTATHIANS }
-		
-		misguided_heretic = yes		# Other christians hate them less
-		
+
+		misguided_heretic = yes		# Other Christians hate them less
+
 		holy_sites = { 358 1227 2313 1234 419 }
-		
+
 		blessings = {
 			legitimize_government
 			encourage_warriors_of_the_faith
@@ -56,11 +56,11 @@ christian = {
 			remove_country_modifier = de_heretico_comburendo
 			remove_country_modifier = the_conventicle_act
 		}
-		
+
 		heretic = { BOGOMILIST WALDENSIAN HUSSITE LOLLARD SOCINIAN }
 
 		date = 325.1.1
-		
+
 		fervor = yes
 
 		misguided_heretic = yes		# Other christians hate them less
@@ -82,9 +82,9 @@ dharmic = {
 		country_as_secondary = {
 			religious_unity = 0.75
 		}
-		
+
 		uses_karma = yes
-		
+
 		heretic = { TERAPANTHA }
 	}
 }

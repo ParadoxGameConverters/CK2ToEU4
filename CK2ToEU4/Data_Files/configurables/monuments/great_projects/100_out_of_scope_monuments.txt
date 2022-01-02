@@ -3,27 +3,27 @@
 forbidden_city = {
 	# province it starts in
 	start = 1816
-	
+
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
 	date = 1406.01.01
-	
+
 	#time to build
 	time = {
 		months = 0
 	}
-	
+
 	#how much to build one
 	build_cost = 0
-	
+
 	#can we move it?
 	can_be_moved = no
-	
+
 	#time to move the project one unit of distance, in days
 	move_days_per_unit_distance = 10
-	
+
 	#tier that the project starts at when first placed in the game (be that at game start or when built by a country as the game progresses)
 	starting_tier = 1
-	
+
 	#project type
 	type = monument
 
@@ -38,7 +38,7 @@ forbidden_city = {
 	on_built = {
 		show_ambient_object = forbidden_city
 	}
-	
+
 	#what to do when it's destroyed
 	on_destroyed = {
 		hide_ambient_object = forbidden_city
@@ -187,33 +187,33 @@ forbidden_city = {
 angkor_wat = {
 	# province it starts in
 	start = 609
-	
+
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
 	date = 1120.01.01
-	
+
 	#time to build
 	time = {
 		months = 0
 	}
-	
+
 	#how much to build one
 	build_cost = 0
-	
+
 	#can we move it?
 	can_be_moved = no
-	
+
 	#time to move the project one unit of distance, in days
 	move_days_per_unit_distance = 10
-	
+
 	#tier that the project starts at when first placed in the game (be that at game start or when built by a country as the game progresses)
 	starting_tier = 1
-	
+
 	#project type
 	type = monument
 
 	#can we build it?
 	build_trigger = {
-		OR = {		
+		OR = {
 			AND = {
 				religion_group = eastern
 				NOT = { religion = confucianism }
@@ -231,7 +231,7 @@ angkor_wat = {
 	on_built = {
 		show_ambient_object = angkor_wat
 	}
-	
+
 	#what to do when it's destroyed
 	on_destroyed = {
 		hide_ambient_object = angkor_wat
@@ -239,7 +239,7 @@ angkor_wat = {
 
 	#can our country use it?
 	can_use_modifiers_trigger = {
-		OR = {		
+		OR = {
 			AND = {
 				religion_group = eastern
 				NOT = { religion = confucianism }
@@ -255,7 +255,7 @@ angkor_wat = {
 
 	#can our country upgrade it?
 	can_upgrade_trigger = {
-		OR = {		
+		OR = {
 			AND = {
 				religion_group = eastern
 				NOT = { religion = confucianism }
@@ -408,27 +408,27 @@ angkor_wat = {
 machu_picchu = {
 	# province it starts in
 	start = 807
-	
+
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
 	date = 1339.01.01
-	
+
 	#time to build
 	time = {
 		months = 0
 	}
-	
+
 	#how much to build one
 	build_cost = 0
-	
+
 	#can we move it?
 	can_be_moved = no
-	
+
 	#time to move the project one unit of distance, in days
 	move_days_per_unit_distance = 1
-	
+
 	#tier that the project starts at when first placed in the game (be that at game start or when built by a country as the game progresses)
 	starting_tier = 1
-	
+
 	#project type
 	type = monument
 
@@ -442,7 +442,7 @@ machu_picchu = {
 	on_built = {
 		show_ambient_object = machu_picchu
 	}
-	
+
 	#what to do when it's destroyed
 	on_destroyed = {
 		hide_ambient_object = machu_picchu
@@ -550,7 +550,7 @@ machu_picchu = {
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
 			idea_cost = -0.1
-			reform_progress_growth = 0.1			
+			reform_progress_growth = 0.1
 		}
 
 		#what effects happen when this tier is achieved
@@ -599,27 +599,27 @@ machu_picchu = {
 chichen_itza = {
 	# province it starts in
 	start = 846
-	
+
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
 	date = 600.01.01
-	
+
 	#time to build
 	time = {
 		months = 0
 	}
-	
+
 	#how much to build one
 	build_cost = 0
-	
+
 	#can we move it?
 	can_be_moved = no
-	
+
 	#time to move the project one unit of distance, in days
 	move_days_per_unit_distance = 1
-	
+
 	#tier that the project starts at when first placed in the game (be that at game start or when built by a country as the game progresses)
 	starting_tier = 1
-	
+
 	#project type
 	type = monument
 
@@ -633,7 +633,7 @@ chichen_itza = {
 	on_built = {
 		show_ambient_object = chichen_itza
 	}
-	
+
 	#what to do when it's destroyed
 	on_destroyed = {
 		hide_ambient_object = chichen_itza
@@ -797,27 +797,27 @@ chichen_itza = {
 himeji_castle = {
 	# province it starts in
 	start = 1019
-	
+
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
 	date = 1346.01.01
-	
+
 	#time to build
 	time = {
 		months = 0
 	}
-	
+
 	#how much to build one
 	build_cost = 0
-	
+
 	#can we move it?
 	can_be_moved = no
-	
+
 	#time to move the project one unit of distance, in days
 	move_days_per_unit_distance = 1
-	
+
 	#tier that the project starts at when first placed in the game (be that at game start or when built by a country as the game progresses)
 	starting_tier = 1
-	
+
 	#project type
 	type = monument
 
@@ -829,7 +829,7 @@ himeji_castle = {
 	on_built = {
 		show_ambient_object = himeji_castle
 	}
-	
+
 	#what to do when it's destroyed
 	on_destroyed = {
 		hide_ambient_object = himeji_castle
@@ -889,7 +889,7 @@ himeji_castle = {
 
 		#what modifiers are added to the province when we have this project here on this tier
 		province_modifiers = {
-			local_defensiveness = 0.15			
+			local_defensiveness = 0.15
 		}
 
 		#what modifiers are added to the provinces in the map area when we have this project here on this tier
@@ -919,7 +919,7 @@ himeji_castle = {
 
 		#what modifiers are added to the province when we have this project here on this tier
 		province_modifiers = {
-			local_defensiveness = 0.25				
+			local_defensiveness = 0.25
 		}
 
 		#what modifiers are added to the provinces in the map area when we have this project here on this tier
@@ -928,7 +928,7 @@ himeji_castle = {
 
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
-			prestige = 0.5		
+			prestige = 0.5
 			spy_offence = 0.1
 			global_spy_defence = 0.2
 		}
@@ -951,23 +951,23 @@ himeji_castle = {
 
 		#what modifiers are added to the province when we have this project here on this tier
 		province_modifiers = {
-			local_defensiveness = 0.25					
+			local_defensiveness = 0.25
 		}
 
 		#what modifiers are added to the provinces in the map area when we have this project here on this tier
 		area_modifier = {
-			local_defensiveness = 0.5			
+			local_defensiveness = 0.5
 		}
 
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
-			prestige = 0.5	
+			prestige = 0.5
 			spy_offence = 0.15
 			global_spy_defence = 0.25
 		}
 
 		#what effects happen when this tier is achieved
-		on_upgraded = {			
+		on_upgraded = {
 		}
 	}
 }
@@ -975,27 +975,27 @@ himeji_castle = {
 moai = {
 	# province it starts in
 	start = 1988
-	
+
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
 	date = 1400.01.01
-	
+
 	#time to build
 	time = {
 		months = 0
 	}
-	
+
 	#how much to build one
 	build_cost = 0
-	
+
 	#can we move it?
 	can_be_moved = yes
-	
+
 	#time to move the project one unit of distance, in days
 	move_days_per_unit_distance = 1
-	
+
 	#tier that the project starts at when first placed in the game (be that at game start or when built by a country as the game progresses)
 	starting_tier = 1
-	
+
 	#project type
 	type = monument
 
@@ -1009,7 +1009,7 @@ moai = {
 	on_built = {
 		show_ambient_object = moai
 	}
-	
+
 	#what to do when it's destroyed
 	on_destroyed = {
 		hide_ambient_object = moai
@@ -1163,33 +1163,33 @@ moai = {
 mount_fuji = {
 	# province it starts in
 	start = 1029
-	
+
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
 	date = 806.01.01 #when the Fujisan Hongū Sengen Taisha shrine was built
-	
+
 	#time to build
 	time = {
 		months = 0
 	}
-	
+
 	#how much to build one
 	build_cost = 0
-	
+
 	#can we move it?
 	can_be_moved = no
-	
+
 	#time to move the project one unit of distance, in days
 	move_days_per_unit_distance = 1
-	
+
 	#tier that the project starts at when first placed in the game (be that at game start or when built by a country as the game progresses)
 	starting_tier = 1
-	
+
 	#project type
 	type = monument
 
 	#can we build it?
 	build_trigger = {
-		OR = {		
+		OR = {
 			AND = {
 				religion = shinto
 				has_owner_religion = yes
@@ -1198,14 +1198,14 @@ mount_fuji = {
 				religion = mahayana
 				has_owner_religion = yes
 			}
-		}	
+		}
 	}
 
 	#what to do when it's built
 	on_built = {
 		show_ambient_object = mount_fuji
 	}
-	
+
 	#what to do when it's destroyed
 	on_destroyed = {
 		hide_ambient_object = mount_fuji
@@ -1213,7 +1213,7 @@ mount_fuji = {
 
 	#can our country use it?
 	can_use_modifiers_trigger = {
-		OR = {		
+		OR = {
 			AND = {
 				religion = shinto
 				has_owner_religion = yes
@@ -1222,12 +1222,12 @@ mount_fuji = {
 				religion = mahayana
 				has_owner_religion = yes
 			}
-		}	
+		}
 	}
 
 	#can our country upgrade it?
 	can_upgrade_trigger = {
-		OR = {		
+		OR = {
 			AND = {
 				religion = shinto
 				has_owner_religion = yes
@@ -1236,7 +1236,7 @@ mount_fuji = {
 				religion = mahayana
 				has_owner_religion = yes
 			}
-		}	
+		}
 	}
 
 	#can our country keep it or is it destroyed when we get hold of it?
@@ -1326,7 +1326,7 @@ mount_fuji = {
 
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
-			
+
 		}
 
 		#what effects happen when this tier is achieved
@@ -1373,27 +1373,27 @@ mount_fuji = {
 tenochtitlan = {
 	# province it starts in
 	start = 852
-	
+
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
 	date = 1325.01.01
-	
+
 	#time to build
 	time = {
 		months = 0
 	}
-	
+
 	#how much to build one
 	build_cost = 0
-	
+
 	#can we move it?
 	can_be_moved = no
-	
+
 	#time to move the project one unit of distance, in days
 	move_days_per_unit_distance = 1
-	
+
 	#tier that the project starts at when first placed in the game (be that at game start or when built by a country as the game progresses)
 	starting_tier = 2
-	
+
 	#project type
 	type = monument
 
@@ -1407,7 +1407,7 @@ tenochtitlan = {
 	on_built = {
 		show_ambient_object = tenochtitlan
 	}
-	
+
 	#what to do when it's destroyed
 	on_destroyed = {
 		hide_ambient_object = tenochtitlan
@@ -1558,27 +1558,27 @@ tenochtitlan = {
 shwedagon_pagoda = {
 	# province it starts in
 	start = 4399
-	
+
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
 	date = 1362.01.01
-	
+
 	#time to build
 	time = {
 		months = 0
 	}
-	
+
 	#how much to build one
 	build_cost = 0
-	
+
 	#can we move it?
 	can_be_moved = no
-	
+
 	#time to move the project one unit of distance, in days
 	move_days_per_unit_distance = 1
-	
+
 	#tier that the project starts at when first placed in the game (be that at game start or when built by a country as the game progresses)
 	starting_tier = 1
-	
+
 	#project type
 	type = monument
 
@@ -1591,7 +1591,7 @@ shwedagon_pagoda = {
 	on_built = {
 		show_ambient_object = shwedagon_pagoda
 	}
-	
+
 	#what to do when it's destroyed
 	on_destroyed = {
 		hide_ambient_object = shwedagon_pagoda
@@ -1688,7 +1688,7 @@ shwedagon_pagoda = {
 		}
 
 		#what modifiers are added to the provinces in the map area when we have this project here on this tier
-		area_modifier = {			
+		area_modifier = {
 		}
 
 		#what modifiers are added to the country when we have this project here on this tier
@@ -1744,27 +1744,27 @@ shwedagon_pagoda = {
 the_great_wall_of_china = {
 	# province it starts in
 	start = 698
-	
+
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
 	date = 1368.01.01 #Ming dynasty
-	
+
 	#time to build
 	time = {
 		months = 0
 	}
-	
+
 	#how much to build one
 	build_cost = 0
-	
+
 	#can we move it?
 	can_be_moved = no
-	
+
 	#time to move the project one unit of distance, in days
 	move_days_per_unit_distance = 1
-	
+
 	#tier that the project starts at when first placed in the game (be that at game start or when built by a country as the game progresses)
 	starting_tier = 1
-	
+
 	#project type
 	type = monument
 
@@ -1778,7 +1778,7 @@ the_great_wall_of_china = {
 	on_built = {
 		show_ambient_object = the_great_wall_of_china
 	}
-	
+
 	#what to do when it's destroyed
 	on_destroyed = {
 		hide_ambient_object = the_great_wall_of_china
@@ -1927,27 +1927,27 @@ the_great_wall_of_china = {
 mesa_verde = {
 	# province it starts in
 	start = 875
-	
+
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
 	date = 1190.01.01 #Cliff Palace
-	
+
 	#time to build
 	time = {
 		months = 0
 	}
-	
+
 	#how much to build one
 	build_cost = 0
-	
+
 	#can we move it?
 	can_be_moved = no
-	
+
 	#time to move the project one unit of distance, in days
 	move_days_per_unit_distance = 1
-	
+
 	#tier that the project starts at when first placed in the game (be that at game start or when built by a country as the game progresses)
 	starting_tier = 1
-	
+
 	#project type
 	type = monument
 
@@ -1961,7 +1961,7 @@ mesa_verde = {
 	on_built = {
 		show_ambient_object = mesa_verde
 	}
-	
+
 	#what to do when it's destroyed
 	on_destroyed = {
 		hide_ambient_object = mesa_verde
@@ -2063,7 +2063,7 @@ mesa_verde = {
 		}
 
 		#what modifiers are added to the country when we have this project here on this tier
-		country_modifiers = {	
+		country_modifiers = {
 			idea_cost = -0.05
 			technology_cost = -0.05
 		}
@@ -2100,7 +2100,7 @@ mesa_verde = {
 		}
 
 		#what effects happen when this tier is achieved
-		on_upgraded = {	
+		on_upgraded = {
 		}
 	}
 }
@@ -2108,27 +2108,27 @@ mesa_verde = {
 the_grand_palace = {
 	# province it starts in
 	start = 4831
-	
+
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
 	date = 1.01.01 #1782
-	
+
 	#time to build
 	time = {
 		months = 0
 	}
-	
+
 	#how much to build one
 	build_cost = 0
-	
+
 	#can we move it?
 	can_be_moved = no
-	
+
 	#time to move the project one unit of distance, in days
 	move_days_per_unit_distance = 1
-	
+
 	#tier that the project starts at when first placed in the game (be that at game start or when built by a country as the game progresses)
 	starting_tier = 0
-	
+
 	#project type
 	type = monument
 
@@ -2139,12 +2139,12 @@ the_grand_palace = {
 
 	#what to do when it's built
 	on_built = {
-		show_ambient_object = the_grand_palace 
+		show_ambient_object = the_grand_palace
 	}
-	
+
 	#what to do when it's destroyed
 	on_destroyed = {
-		hide_ambient_object = the_grand_palace 
+		hide_ambient_object = the_grand_palace
 	}
 
 	#can our country use it?
@@ -2279,7 +2279,7 @@ the_grand_palace = {
 		}
 
 		#what effects happen when this tier is achieved
-		on_upgraded = {	
+		on_upgraded = {
 		}
 	}
 }
@@ -2287,27 +2287,27 @@ the_grand_palace = {
 bagan_temples = {
 	# province it starts in
 	start = 2399
-	
+
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
 	date = 1105.01.01 #Ananda Temple
-	
+
 	#time to build
 	time = {
 		months = 0
 	}
-	
+
 	#how much to build one
 	build_cost = 0
-	
+
 	#can we move it?
 	can_be_moved = no
-	
+
 	#time to move the project one unit of distance, in days
 	move_days_per_unit_distance = 1
-	
+
 	#tier that the project starts at when first placed in the game (be that at game start or when built by a country as the game progresses)
 	starting_tier = 2
-	
+
 	#project type
 	type = monument
 
@@ -2318,12 +2318,12 @@ bagan_temples = {
 
 	#what to do when it's built
 	on_built = {
-		show_ambient_object = bagan_temples 
+		show_ambient_object = bagan_temples
 	}
-	
+
 	#what to do when it's destroyed
 	on_destroyed = {
-		hide_ambient_object = bagan_temples 
+		hide_ambient_object = bagan_temples
 	}
 
 	#can our country use it?
@@ -2460,7 +2460,7 @@ bagan_temples = {
 		}
 
 		#what effects happen when this tier is achieved
-		on_upgraded = {	
+		on_upgraded = {
 		}
 	}
 }
@@ -2468,44 +2468,44 @@ bagan_temples = {
 temple_of_confucius = {
 	# province it starts in
 	start = 2140
-	
+
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
 	date = 1302.01.01 #Yuan Dynasty restoration
-	
+
 	#time to build
 	time = {
 		months = 0
 	}
-	
+
 	#how much to build one
 	build_cost = 0
-	
+
 	#can we move it?
 	can_be_moved = no
-	
+
 	#time to move the project one unit of distance, in days
 	move_days_per_unit_distance = 1
-	
+
 	#tier that the project starts at when first placed in the game (be that at game start or when built by a country as the game progresses)
 	starting_tier = 1
-	
+
 	#project type
 	type = monument
 
 	#can we build it?
 	build_trigger = {
 		religion = confucianism
-		has_owner_religion = yes		
+		has_owner_religion = yes
 	}
 
 	#what to do when it's built
 	on_built = {
-		show_ambient_object = temple_of_confucius 
+		show_ambient_object = temple_of_confucius
 	}
-	
+
 	#what to do when it's destroyed
 	on_destroyed = {
-		hide_ambient_object = temple_of_confucius 
+		hide_ambient_object = temple_of_confucius
 	}
 
 	#can our country use it?
@@ -2647,7 +2647,7 @@ temple_of_confucius = {
 		}
 
 		#what effects happen when this tier is achieved
-		on_upgraded = {	
+		on_upgraded = {
 			owner = {
 				add_estate_loyalty = {
 					estate = estate_church
@@ -2661,27 +2661,27 @@ temple_of_confucius = {
 pura_besakih = {
 	# province it starts in
 	start = 631
-	
+
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
 	date = 1284.01.01
-	
+
 	#time to build
 	time = {
 		months = 0
 	}
-	
+
 	#how much to build one
 	build_cost = 0
-	
+
 	#can we move it?
 	can_be_moved = no
-	
+
 	#time to move the project one unit of distance, in days
 	move_days_per_unit_distance = 1
-	
+
 	#tier that the project starts at when first placed in the game (be that at game start or when built by a country as the game progresses)
 	starting_tier = 2
-	
+
 	#project type
 	type = monument
 
@@ -2693,12 +2693,12 @@ pura_besakih = {
 
 	#what to do when it's built
 	on_built = {
-		show_ambient_object = pura_besakih 
+		show_ambient_object = pura_besakih
 	}
-	
+
 	#what to do when it's destroyed
 	on_destroyed = {
-		hide_ambient_object = pura_besakih 
+		hide_ambient_object = pura_besakih
 	}
 
 	#can our country use it?
@@ -2835,7 +2835,7 @@ pura_besakih = {
 		}
 
 		#what effects happen when this tier is achieved
-		on_upgraded = {	
+		on_upgraded = {
 		}
 	}
 }
@@ -2843,27 +2843,27 @@ pura_besakih = {
 kanbawzathadi_palace = {
 	# province it starts in
 	start = 586
-	
+
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
 	date = 1.01.01 #1556
-	
+
 	#time to build
 	time = {
 		months = 0
 	}
-	
+
 	#how much to build one
 	build_cost = 0
-	
+
 	#can we move it?
 	can_be_moved = no
-	
+
 	#time to move the project one unit of distance, in days
 	move_days_per_unit_distance = 1
-	
+
 	#tier that the project starts at when first placed in the game (be that at game start or when built by a country as the game progresses)
 	starting_tier = 0
-	
+
 	#project type
 	type = monument
 
@@ -2874,12 +2874,12 @@ kanbawzathadi_palace = {
 
 	#what to do when it's built
 	on_built = {
-		show_ambient_object = kanbawzathadi_palace 
+		show_ambient_object = kanbawzathadi_palace
 	}
-	
+
 	#what to do when it's destroyed
 	on_destroyed = {
-		hide_ambient_object = kanbawzathadi_palace 
+		hide_ambient_object = kanbawzathadi_palace
 	}
 
 	#can our country use it?
@@ -3013,7 +3013,7 @@ kanbawzathadi_palace = {
 		}
 
 		#what effects happen when this tier is achieved
-		on_upgraded = {	
+		on_upgraded = {
 		}
 	}
 }
@@ -3021,27 +3021,27 @@ kanbawzathadi_palace = {
 khami_ruins = {
 	# province it starts in
 	start = 1184
-	
+
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
-	date = 1250.01.01 
-	
+	date = 1250.01.01
+
 	#time to build
 	time = {
 		months = 0
 	}
-	
+
 	#how much to build one
 	build_cost = 0
-	
+
 	#can we move it?
 	can_be_moved = no
-	
+
 	#time to move the project one unit of distance, in days
 	move_days_per_unit_distance = 1
-	
+
 	#tier that the project starts at when first placed in the game (be that at game start or when built by a country as the game progresses)
 	starting_tier = 1
-	
+
 	#project type
 	type = monument
 
@@ -3051,12 +3051,12 @@ khami_ruins = {
 
 	#what to do when it's built
 	on_built = {
-		show_ambient_object = khami_ruins 
+		show_ambient_object = khami_ruins
 	}
-	
+
 	#what to do when it's destroyed
 	on_destroyed = {
-		hide_ambient_object = khami_ruins 
+		hide_ambient_object = khami_ruins
 	}
 
 	#can our country use it?
@@ -3188,7 +3188,7 @@ khami_ruins = {
 		}
 
 		#what effects happen when this tier is achieved
-		on_upgraded = {	
+		on_upgraded = {
 		}
 	}
 }
@@ -3196,27 +3196,27 @@ khami_ruins = {
 prambanan_temple = {
 	# province it starts in
 	start = 2690
-	
+
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
-	date = 850.01.01 
-	
+	date = 850.01.01
+
 	#time to build
 	time = {
 		months = 0
 	}
-	
+
 	#how much to build one
 	build_cost = 0
-	
+
 	#can we move it?
 	can_be_moved = no
-	
+
 	#time to move the project one unit of distance, in days
 	move_days_per_unit_distance = 1
-	
+
 	#tier that the project starts at when first placed in the game (be that at game start or when built by a country as the game progresses)
 	starting_tier = 0
-	
+
 	#project type
 	type = monument
 
@@ -3228,12 +3228,12 @@ prambanan_temple = {
 
 	#what to do when it's built
 	on_built = {
-		show_ambient_object = prambanan_temple 
+		show_ambient_object = prambanan_temple
 	}
-	
+
 	#what to do when it's destroyed
 	on_destroyed = {
-		hide_ambient_object = prambanan_temple 
+		hide_ambient_object = prambanan_temple
 	}
 
 	#can our country use it?
@@ -3368,7 +3368,7 @@ prambanan_temple = {
 		}
 
 		#what effects happen when this tier is achieved
-		on_upgraded = {	
+		on_upgraded = {
 		}
 	}
 }
@@ -3376,50 +3376,50 @@ prambanan_temple = {
 inukshuk = {
 	# province it starts in
 	start = 1006
-	
+
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
-	date = -2000.01.01 
-	
+	date = -2000.01.01
+
 	#time to build
 	time = {
 		months = 0
 	}
-	
+
 	#how much to build one
 	build_cost = 0
-	
+
 	#can we move it?
 	can_be_moved = yes
-	
+
 	#time to move the project one unit of distance, in days
 	move_days_per_unit_distance = 1
-	
+
 	#tier that the project starts at when first placed in the game (be that at game start or when built by a country as the game progresses)
 	starting_tier = 1
-	
+
 	#project type
 	type = monument
 
 	#can we build it?
-	build_trigger = {		
+	build_trigger = {
 	}
 
 	#what to do when it's built
 	on_built = {
-		show_ambient_object = inukshuk 
+		show_ambient_object = inukshuk
 	}
-	
+
 	#what to do when it's destroyed
 	on_destroyed = {
-		hide_ambient_object = inukshuk 
+		hide_ambient_object = inukshuk
 	}
 
 	#can our country use it?
-	can_use_modifiers_trigger = {		
+	can_use_modifiers_trigger = {
 	}
 
 	#can our country upgrade it?
-	can_upgrade_trigger = {		
+	can_upgrade_trigger = {
 	}
 
 	#can our country keep it or is it destroyed when we get hold of it?
@@ -3541,7 +3541,7 @@ inukshuk = {
 		}
 
 		#what effects happen when this tier is achieved
-		on_upgraded = {	
+		on_upgraded = {
 		}
 	}
 }
@@ -3549,27 +3549,27 @@ inukshuk = {
 sankin_kotai_palaces = {
 	# province it starts in
 	start = 1028
-	
+
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
 	date = 1.01.01 #1582 Osaka Castle
-	
+
 	#time to build
 	time = {
 		months = 0
 	}
-	
+
 	#how much to build one
 	build_cost = 0
-	
+
 	#can we move it?
 	can_be_moved = no
-	
+
 	#time to move the project one unit of distance, in days
 	move_days_per_unit_distance = 1
-	
+
 	#tier that the project starts at when first placed in the game (be that at game start or when built by a country as the game progresses)
 	starting_tier = 0
-	
+
 	#project type
 	type = monument
 
@@ -3581,12 +3581,12 @@ sankin_kotai_palaces = {
 
 	#what to do when it's built
 	on_built = {
-		show_ambient_object = sankin_kotai_palaces 
+		show_ambient_object = sankin_kotai_palaces
 	}
-	
+
 	#what to do when it's destroyed
 	on_destroyed = {
-		hide_ambient_object = sankin_kotai_palaces 
+		hide_ambient_object = sankin_kotai_palaces
 	}
 
 	#can our country use it?
@@ -3631,7 +3631,7 @@ sankin_kotai_palaces = {
 
 		#what effects happen when this tier is achieved
 		on_upgraded = {
-			
+
 		}
 	}
 
@@ -3724,7 +3724,7 @@ sankin_kotai_palaces = {
 		}
 
 		#what effects happen when this tier is achieved
-		on_upgraded = {	
+		on_upgraded = {
 		}
 	}
 }
@@ -3732,27 +3732,27 @@ sankin_kotai_palaces = {
 great_mosque_djenne = {
 	# province it starts in
 	start = 1134
-	
+
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
 	date = 1.01.01 #1300.01.01 #Unknown, c. 1200-1330
-	
+
 	#time to build
 	time = {
 		months = 0
 	}
-	
+
 	#how much to build one
 	build_cost = 0
-	
+
 	#can we move it?
 	can_be_moved = no
-	
+
 	#time to move the project one unit of distance, in days
 	move_days_per_unit_distance = 1
-	
+
 	#tier that the project starts at when first placed in the game (be that at game start or when built by a country as the game progresses)
 	starting_tier = 1
-	
+
 	#project type
 	type = monument
 
@@ -3766,10 +3766,10 @@ great_mosque_djenne = {
 	on_built = {
 		show_ambient_object = great_mosque_djenne
 	}
-	
+
 	#what to do when it's destroyed
 	on_destroyed = {
-		hide_ambient_object = great_mosque_djenne 
+		hide_ambient_object = great_mosque_djenne
 	}
 
 	#can our country use it?
@@ -3814,7 +3814,7 @@ great_mosque_djenne = {
 
 		#what effects happen when this tier is achieved
 		on_upgraded = {
-			
+
 		}
 	}
 
@@ -3832,7 +3832,7 @@ great_mosque_djenne = {
 		#what modifiers are added to the province when we have this project here on this tier
 		province_modifiers = {
 		}
-		
+
 		#what modifiers are added to the provinces in the map area when we have this project here on this tier
 		area_modifier = {
 		}
@@ -3914,37 +3914,37 @@ great_mosque_djenne = {
 imperial_city_hue = {
 	# province it starts in
 	start = 2373
-	
+
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
 	date = 1.01.01 #1804.01.01
-	
+
 	#time to build
 	time = {
 		months = 0
 	}
-	
+
 	#how much to build one
 	build_cost = 0
-	
+
 	#can we move it?
 	can_be_moved = no
-	
+
 	#time to move the project one unit of distance, in days
 	move_days_per_unit_distance = 1
-	
+
 	#tier that the project starts at when first placed in the game (be that at game start or when built by a country as the game progresses)
 	starting_tier = 0
-	
+
 	#project type
 	type = monument
 
 	#can we build it?
 	build_trigger = {
 		OR = {
-			AND = { 
+			AND = {
 				religion_group = eastern
 				NOT = { religion = shinto }
-				has_owner_religion = yes 
+				has_owner_religion = yes
 			}
 			owner = {
 				religion = confucianism
@@ -3953,15 +3953,15 @@ imperial_city_hue = {
 				religion = hinduism
 				has_owner_religion = yes
 				owner = {
-					has_personal_deity = buddha	
-				}						
+					has_personal_deity = buddha
+				}
 			}
 			AND = {
 				religion = shamanism
 				has_owner_religion = yes
 				owner = {
-					has_unlocked_cult = buddhism_cult	
-				}				
+					has_unlocked_cult = buddhism_cult
+				}
 			}
 		}
 	}
@@ -3970,7 +3970,7 @@ imperial_city_hue = {
 	on_built = {
 		show_ambient_object = imperial_city_hue
 	}
-	
+
 	#what to do when it's destroyed
 	on_destroyed = {
 		hide_ambient_object = imperial_city_hue
@@ -3979,10 +3979,10 @@ imperial_city_hue = {
 	#can our country use it?
 	can_use_modifiers_trigger = {
 		OR = {
-			AND = { 
+			AND = {
 				religion_group = eastern
 				NOT = { religion = shinto }
-				has_owner_religion = yes 
+				has_owner_religion = yes
 			}
 			owner = {
 				religion = confucianism
@@ -3991,15 +3991,15 @@ imperial_city_hue = {
 				religion = hinduism
 				has_owner_religion = yes
 				owner = {
-					has_personal_deity = buddha	
-				}						
+					has_personal_deity = buddha
+				}
 			}
 			AND = {
 				religion = shamanism
 				has_owner_religion = yes
 				owner = {
-					has_unlocked_cult = buddhism_cult	
-				}				
+					has_unlocked_cult = buddhism_cult
+				}
 			}
 		}
 	}
@@ -4007,10 +4007,10 @@ imperial_city_hue = {
 	#can our country upgrade it?
 	can_upgrade_trigger = {
 		OR = {
-			AND = { 
+			AND = {
 				religion_group = eastern
 				NOT = { religion = shinto }
-				has_owner_religion = yes 
+				has_owner_religion = yes
 			}
 			owner = {
 				religion = confucianism
@@ -4019,15 +4019,15 @@ imperial_city_hue = {
 				religion = hinduism
 				has_owner_religion = yes
 				owner = {
-					has_personal_deity = buddha	
-				}						
+					has_personal_deity = buddha
+				}
 			}
 			AND = {
 				religion = shamanism
 				has_owner_religion = yes
 				owner = {
-					has_unlocked_cult = buddhism_cult	
-				}				
+					has_unlocked_cult = buddhism_cult
+				}
 			}
 		}
 	}
@@ -4062,7 +4062,7 @@ imperial_city_hue = {
 
 		#what effects happen when this tier is achieved
 		on_upgraded = {
-			
+
 		}
 	}
 
@@ -4080,7 +4080,7 @@ imperial_city_hue = {
 		#what modifiers are added to the province when we have this project here on this tier
 		province_modifiers = {
 		}
-		
+
 		#what modifiers are added to the provinces in the map area when we have this project here on this tier
 		area_modifier = {
 		}
@@ -4167,27 +4167,27 @@ imperial_city_hue = {
 potosi = {
 	# province it starts in
 	start = 795
-	
+
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
 	date = 1.01.01 #1545.01.01 #Date the silver mine started to be exploited
-	
+
 	#time to build
 	time = {
 		months = 0
 	}
-	
+
 	#how much to build one
 	build_cost = 0
-	
+
 	#can we move it?
 	can_be_moved = no
-	
+
 	#time to move the project one unit of distance, in days
 	move_days_per_unit_distance = 1
-	
+
 	#tier that the project starts at when first placed in the game (be that at game start or when built by a country as the game progresses)
 	starting_tier = 0
-	
+
 	#project type
 	type = monument
 
@@ -4198,12 +4198,12 @@ potosi = {
 
 	#what to do when it's built
 	on_built = {
-		show_ambient_object = potosi 
+		show_ambient_object = potosi
 	}
-	
+
 	#what to do when it's destroyed
 	on_destroyed = {
-		hide_ambient_object = potosi 
+		hide_ambient_object = potosi
 	}
 
 	#can our country use it?
@@ -4246,7 +4246,7 @@ potosi = {
 
 		#what effects happen when this tier is achieved
 		on_upgraded = {
-			
+
 		}
 	}
 
@@ -4265,7 +4265,7 @@ potosi = {
 		province_modifiers = {
 			trade_goods_size = 1.0
 		}
-		
+
 		#what modifiers are added to the provinces in the map area when we have this project here on this tier
 		area_modifier = {
 			trade_goods_size_modifier = 0.05
@@ -4409,7 +4409,7 @@ cahokia = {
 		area_modifier = {
 		}
 		country_modifiers = {
-			tribal_development_growth = 0.01			
+			tribal_development_growth = 0.01
 		}
 		on_upgraded = {
 		}
@@ -4659,7 +4659,7 @@ chan_chan_citadel = {
 		cost_to_upgrade = {
 			factor = 5000
 		}
-		province_modifiers = {						
+		province_modifiers = {
 		}
 		area_modifier = {
 			local_defensiveness = 0.25
@@ -4846,7 +4846,7 @@ gyeongbok_palace = {
 		}
 		country_modifiers = {
 			legitimacy = 0.25
-			global_autonomy = -0.01	
+			global_autonomy = -0.01
 		}
 		on_upgraded = {
 		}
@@ -4886,7 +4886,7 @@ gyeongbok_palace = {
 		country_modifiers = {
 			legitimacy = 1
 			technology_cost = -0.1
-			global_autonomy = -0.05	
+			global_autonomy = -0.05
 		}
 		on_upgraded = {
 		}
@@ -5468,7 +5468,7 @@ white_house = {
 			OR = {
 				is_former_colonial_nation = yes
 				tag = USA
-			}			
+			}
 		}
 	}
 
@@ -5483,7 +5483,7 @@ white_house = {
 			OR = {
 				is_former_colonial_nation = yes
 				tag = USA
-			}			
+			}
 		}
 	}
 
@@ -5492,7 +5492,7 @@ white_house = {
 			OR = {
 				is_former_colonial_nation = yes
 				tag = USA
-			}			
+			}
 		}
 	}
 
@@ -6085,7 +6085,7 @@ zacatecas_mine_city = {
 		area_modifier = {
 			trade_goods_size_modifier = 0.05
 		}
-		country_modifiers = {			
+		country_modifiers = {
 		}
 		on_upgraded = {
 		}

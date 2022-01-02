@@ -1,7 +1,7 @@
 incident_fraticelli_pope = {
 	event = incident_pope.2
 	default_option = 0
-	
+
 	can_stop = {
 		OR = {
 			NOT = {
@@ -10,7 +10,7 @@ incident_fraticelli_pope = {
 			FAP = { is_subject = yes }
 		}
 	}
-	
+
 	0 = { # pope joins
 		factor = 1
 		modifier = {
@@ -31,7 +31,7 @@ incident_fraticelli_pope = {
 			}
 		}
 	}
-	
+
 	1 = { # denied
 		factor = 1
 		modifier = {

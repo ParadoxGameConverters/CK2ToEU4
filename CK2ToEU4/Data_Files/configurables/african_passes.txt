@@ -1,5 +1,5 @@
-# We tend to sterilize african passes into subsaharan basin to slow down voracious speed at which europeans or north africans tend to expand
-# southwards and eat entire africa.
+# We tend to sterilize African passes into sub-Saharan basin to slow down voracious speed at which Europeans or north Africans tend to expand
+# southwards and eat entire Africa.
 
 # Each pass has two ends. If the same country holds both ends of a pass, or if those ends are in HRE, the pass will not be sterilized.
 

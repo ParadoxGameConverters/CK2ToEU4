@@ -14,10 +14,10 @@ ZZZ_enhanced_mighty_temple = {
 	prestige = 0.5
 	missionaries = 1
 	tolerance_own = 1
-	
+
 	on_activation = {
 	}
-	
+
 	on_deactivation = {
 	}
 }
@@ -26,33 +26,33 @@ ZZZ_enhanced_zoro_mecca = {
 	potential = {
 		NOT = { has_global_flag = ZZZ_enhanced_random_world }
 	}
-	
+
 	trigger = {
 		owner = {
 			religion_group = zoroastrian_group
 		}
 	}
-	
+
 	prestige = 0.5
 	missionaries = 1
 	tolerance_own = 1
-	
+
 	#Province scope
 	on_activation = {
-	
+
 	}
-	
+
 	on_deactivation = {
-	
+
 	}
-	
+
 }
 
 ZZZ_enhanced_hellenic_rome = {
 	potential = {
 		NOT = { has_global_flag = ZZZ_enhanced_random_world }
 	}
-	
+
 	trigger = {
 		owner = {
 			OR = {
@@ -61,20 +61,20 @@ ZZZ_enhanced_hellenic_rome = {
 			}
 		}
 	}
-	
+
 	prestige = 0.5
 	missionaries = 1
 	tolerance_own = 1
-	
+
 	#Province scope
 	on_activation = {
-	
+
 	}
-	
+
 	on_deactivation = {
-	
+
 	}
-	
+
 }
 
 #Fraticelli Pope
@@ -122,7 +122,7 @@ mil_vatican_library = {
 			}
 		}
 	}
-	
+
 	mil_tech_cost_modifier = -0.05
 	army_tradition_from_battle = 0.5
 }
@@ -140,7 +140,7 @@ pap_sistine_chapel = {
 			}
 		}
 	}
-	
+
 	devotion = 0.1
 }
 

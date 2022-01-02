@@ -1,7 +1,7 @@
 ﻿l_spanish:
  theocratic_government_norse_pagan_reformed:0 "Culto Bélico"
  theocratic_government_ruler_norse_pagan_reformed:0 "Caudillo"
- 
+
  #From Vanilla Converter
  JOM:0 "Jomsvikingos"
  JOM_ADJ:0 "Jomsvikinga"
@@ -13,7 +13,7 @@
  ISR_ADJ:0 "Israelí"
  TEM:0 "Caballeros Templarios"
  TEM_ADJ:0 "Templario"
- 
+
  #New Countries Added By Us
  ADD:0 "Orden de San Addai"
  ADD_ADJ:0 "de San Addai"
@@ -50,10 +50,10 @@
  FOA_ADJ2:0 "Arjunana"
  HYY:0 "Haruriyyah"
  HYY_ADJ:0 "Haruriyyah"
- HYY_ADJ2:0 "Haruriyyah" 
+ HYY_ADJ2:0 "Haruriyyah"
  IMM:0 "Inmortales"
  IMM_ADJ:0 "Inmortal"
- IMM_ADJ2:0 "Inmortal" 
+ IMM_ADJ2:0 "Inmortal"
  KCL:0 "Orden de Calatrava"
  KCL_ADJ:0 "Calatravesa"
  KCL_ADJ2:0 "Calatravesa"
@@ -138,7 +138,7 @@
  TRO:0 "Troya"
  TRO_ADJ:0 "troyana"
  TRO_ADJ2:0 "troyana"
- 
+
  #Added By Another
  ASY:0 "Asiria"
  ASY_ADJ:0 "Asirio"

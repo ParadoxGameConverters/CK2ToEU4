@@ -24,7 +24,7 @@
 	sound = {
 		name = start_convert_norse_pagan
 		file = "start_conversion_norse.wav"
-	}	
+	}
 	#Tengri
 	sound = {
 		name = religion_tengri_pagan
@@ -162,7 +162,7 @@
 		name = start_convert_bon_reformed
 		file = "start_conversion_eastern_buddhism.wav"
 	}
-	
+
 ##Zoroastrian
 	#Mazdaki
 	sound = {
@@ -240,11 +240,11 @@
 	}
 	#Monothelite
 	sound = {
-		name = religion_monothelite 
+		name = religion_monothelite
 		file = "tab_religion_christian.wav"
 	}
 	sound = {
-		name = start_convert_monothelite 
+		name = start_convert_monothelite
 		file = "start_conversion_christian_orthodox.wav"
 	}
 	#Iconoclast
@@ -292,7 +292,7 @@
 		name = start_convert_monophysite
 		file = "start_conversion_christian_orthodox.wav"
 	}
-	
+
 ##Islam
 	#Zikri
 	sound = {
@@ -348,7 +348,7 @@
 		name = start_convert_qarmatian
 		file = "start_conversion_muslim_shiite.wav"
 	}
-	
+
 ##Jewish
 	#Samaritan
 	sound = {
@@ -368,7 +368,7 @@
 		name = start_convert_karaite
 		file = "start_conversion_jewish.wav"
 	}
-	
+
 ##Eastern
 	#Jain
 	sound = {
@@ -379,14 +379,13 @@
 		name = start_convert_jain
 		file = "start_conversion_eastern_hinduism.wav"
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
+

@@ -2,7 +2,7 @@
 # DEFAULT: base_cost = 0, level_cost = 0.4, max_level = 4
 
 newer_idea_adm_modifiers = {
-	category = ADM	
+	category = ADM
 	custom_yearly_harmony = {
 		yearly_harmony = 0.25
 		max_level = 2
@@ -155,7 +155,7 @@ newer_idea_adm_modifiers = {
 	custom_governing_capacity_modifier = {
 		governing_capacity_modifier = 0.1
 		level_cost_2 = 5
-		level_cost_3 = 15		
+		level_cost_3 = 15
 		level_cost_4 = 30
 		chance = {
 			factor = 1
@@ -248,7 +248,7 @@ newer_idea_adm_modifiers = {
 	custom_global_trade_goods_size_modifier = {
 		global_trade_goods_size_modifier = 0.05
 		level_cost_2 = 5
-		level_cost_3 = 15		
+		level_cost_3 = 15
 		level_cost_4 = 30
 		chance = {
 			factor = 1
@@ -300,11 +300,11 @@ newer_idea_adm_modifiers = {
 }
 
 newer_idea_mil_modifiers = {
-	category = MIL	
+	category = MIL
 	custom_merc_discipline = {
 		mercenary_discipline = 0.025
 		level_cost_2 = 5
-		level_cost_3 = 15		
+		level_cost_3 = 15
 		level_cost_4 = 30
 		chance = {
 			factor = 0.25
@@ -378,7 +378,7 @@ newer_idea_mil_modifiers = {
 	custom_backrow_artillery_damage = {
 		backrow_artillery_damage = 0.05
 		level_cost_2 = 5
-		level_cost_3 = 15		
+		level_cost_3 = 15
 		level_cost_4 = 30
 		chance = {
 			factor = 0.25
@@ -404,7 +404,7 @@ newer_idea_mil_modifiers = {
 	custom_fire_damage_received = {
 		fire_damage_received = -0.05
 		level_cost_2 = 5
-		level_cost_3 = 15		
+		level_cost_3 = 15
 		level_cost_4 = 30
 		chance = {
 			factor = 1
@@ -418,7 +418,7 @@ newer_idea_mil_modifiers = {
 	custom_shock_damage_received = {
 		shock_damage_received = -0.05
 		level_cost_2 = 5
-		level_cost_3 = 15		
+		level_cost_3 = 15
 		level_cost_4 = 30
 		chance = {
 			factor = 1
@@ -449,7 +449,7 @@ newer_idea_mil_modifiers = {
 	custom_shock_damage = {
 		shock_damage = 0.05
 		level_cost_2 = 5
-		level_cost_3 = 15		
+		level_cost_3 = 15
 		level_cost_4 = 30
 		chance = {
 			factor = 1
@@ -474,7 +474,7 @@ newer_idea_mil_modifiers = {
 	custom_fire_damage = {
 		fire_damage = 0.05
 		level_cost_2 = 5
-		level_cost_3 = 15		
+		level_cost_3 = 15
 		level_cost_4 = 30
 		chance = {
 			factor = 1.1
@@ -500,7 +500,7 @@ newer_idea_mil_modifiers = {
 	custom_monthly_militarized_society = {
 		monthly_militarized_society = 0.05
 		level_cost_2 = 5
-		level_cost_3 = 15		
+		level_cost_3 = 15
 		level_cost_4 = 30
 		enabled = {
 			has_dlc = "Rights of Man"
@@ -612,7 +612,7 @@ newer_idea_mil_modifiers = {
 
 
 newer_idea_dip_modifiers = {
-	category = DIP	
+	category = DIP
 	custom_warscore_cost_vs_other_religion = {
 		warscore_cost_vs_other_religion = -0.125
 		max_level = 2
@@ -955,4 +955,3 @@ newer_idea_dip_modifiers = {
 	}
 }
 
-	

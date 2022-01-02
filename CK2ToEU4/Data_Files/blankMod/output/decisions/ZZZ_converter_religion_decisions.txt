@@ -1,5 +1,5 @@
 country_decisions = {
-	
+
 	# New Christian Religions
 	institute_the_societas_jesu_FAP = {
 		potential = {
@@ -14,7 +14,7 @@ country_decisions = {
 		allow = {
 			adm_tech = 10
 		}
-		effect = {	
+		effect = {
 			add_country_modifier = {
 				name = "the_societas_jesu"
 				duration = -1
@@ -23,9 +23,9 @@ country_decisions = {
 		}
 		ai_will_do = {
 			factor = 1
-		}	
+		}
 	}
-	
+
 	secularization_of_christian_theocracy_FAP = {
 		major = yes
 		potential = {
@@ -96,7 +96,7 @@ country_decisions = {
 			factor = 0
 		}
 	}
-	
+
 	statue_in_restraint_of_appeals_FAP = {
 		potential = {
 			NOT = { has_country_modifier = the_statue_in_restraint_of_appeals }
@@ -113,7 +113,7 @@ country_decisions = {
 			add_prestige = 10
 			add_reform_desire  = 0.01
 			every_neighbor_country = {
-				limit = {  
+				limit = {
 					religion = fraticelli
 					NOT = {
 						tag = FAP
@@ -133,12 +133,12 @@ country_decisions = {
 				custom_tooltip = will_increase_clergy_loyalty_by_5
 			}
 		}
-		
+
 		ai_will_do = {
 			factor = 1
 			modifier = {
 				factor = 0
-				FAP = { has_opinion = { who = root value = -100 } } 
+				FAP = { has_opinion = { who = root value = -100 } }
 				NOT = { is_excommunicated = yes }
 				OR = {
 					culture_group = french
@@ -153,7 +153,7 @@ country_decisions = {
 			}
 		}
 	}
-	
+
 	revoke_restraint_of_appeals_FAP = {
 		potential = {
 			has_country_modifier = the_statue_in_restraint_of_appeals
@@ -194,7 +194,7 @@ country_decisions = {
 			}
 		}
 	}
-	
+
 	move_capital_to_rome_FAP = {
 		major = yes
 		potential = {
@@ -220,11 +220,11 @@ country_decisions = {
 		}
 		do_not_core = 118 #Rome
 	}
-	
+
 	join_the_counter_reformation_FAP = {
 		major = yes
 		potential = {
-			NOT = { has_country_modifier = counter_reformation } 
+			NOT = { has_country_modifier = counter_reformation }
 			has_global_flag = counter_reformation
 			NOT = { has_idea = ecumenism }
 			NOT = { has_idea = liberty_egalite_fraternity }
@@ -249,9 +249,9 @@ country_decisions = {
 			if = {
 				limit = {
 					is_emperor = no
-					emperor = { 
+					emperor = {
 						OR = {
-							religion = catholic 
+							religion = catholic
 							religion = fraticelli
 						}
 					}
@@ -303,7 +303,7 @@ country_decisions = {
 			}
 		}
 	}
-	
+
 	#Protestants
 	secularization_of_protestant_theocracy_EXTRA = {
 		major = yes
@@ -373,7 +373,7 @@ country_decisions = {
 			factor = 1
 		}
 	}
-	
+
 	test_act_EXTRA = {
 		potential = {
 			NOT = { has_country_modifier = the_test_act }
@@ -387,7 +387,7 @@ country_decisions = {
 			adm_tech = 10
 			NOT = { has_country_modifier = the_declaration_of_indulgence }
 		}
-		effect = {	
+		effect = {
 			add_country_modifier = {
 				name = "the_test_act"
 				duration = -1
@@ -397,7 +397,7 @@ country_decisions = {
 			factor = 1
 		}
 	}
-	
+
 	dissolution_of_the_monasteries_EXTRA = {
 		potential = {
 			NOT = { has_country_modifier = the_dissolution_of_the_monasteries }
@@ -419,7 +419,7 @@ country_decisions = {
 			# Raises the king to be the legal authority in all religious matters
 			adm = 4
 		}
-		effect = {	
+		effect = {
 			add_country_modifier = {
 				name = "the_dissolution_of_the_monasteries"
 				duration = -1
@@ -427,13 +427,13 @@ country_decisions = {
 		}
 		ai_will_do = {
 			factor = 1
-			modifier = { 
+			modifier = {
 				NOT = { stability = 0 }
 				factor = 0
 			}
 		}
 	}
-	
+
 	popery_act_EXTRA = {
 		potential = {
 			NOT = { has_country_modifier = the_popery_act }
@@ -448,7 +448,7 @@ country_decisions = {
 			mil = 3
 			#NOT = { has_opinion = { who = FAP value = 0 } }
 		}
-		effect = {	
+		effect = {
 			add_country_modifier = {
 				name = "the_popery_act"
 				duration = -1
@@ -458,7 +458,7 @@ country_decisions = {
 			factor = 1
 		}
 	}
-	
+
 	trade_propagation_convert_to_islam_EXTRA = {
 		potential = {
 			has_dlc = "Cradle of Civilization"
@@ -501,7 +501,7 @@ country_decisions = {
 			}
 		}
 	}
-	
+
 	#Other
 	restrict_government_offices_EXTRA = {
 		potential = {
@@ -526,7 +526,7 @@ country_decisions = {
 			}
 		}
 	}
-	
+
 	tengri_yellow_shamanism_EXTRA = {
 		potential = {
 			NOT = { has_country_modifier = yellow_shamanism_modifier }
@@ -536,7 +536,7 @@ country_decisions = {
 		allow = {
 			ADM = 3
 		}
-		effect = {	
+		effect = {
 			add_country_modifier = {
 				name = "yellow_shamanism_modifier"
 				duration = -1
@@ -546,7 +546,7 @@ country_decisions = {
 			factor = 1
 		}
 	}
-	
+
 	tengri_black_shamanism_EXTRA = {
 		potential = {
 			NOT = { has_country_modifier = black_shamanism_modifier }
@@ -557,7 +557,7 @@ country_decisions = {
 			ADM = 3
 			NOT = { has_country_modifier = yellow_shamanism_modifier }
 		}
-		effect = {	
+		effect = {
 			add_country_modifier = {
 				name = "black_shamanism_modifier"
 				duration = -1
@@ -571,7 +571,7 @@ country_decisions = {
 			}
 		}
 	}
-	
+
 	tengri_expel_the_khojas_EXTRA = {
 		potential = {
 			religion = tengri_pagan
@@ -632,7 +632,7 @@ country_decisions = {
 			}
 		}
 	}
-	
+
 	zoroastrian_rites_of_admission_EXTRA = {
 		potential = {
 			NOT = { has_country_modifier = rites_of_admission_modifier }
@@ -659,7 +659,7 @@ country_decisions = {
 			}
 		}
 	}
-	
+
 	zoroastrian_royal_fires_EXTRA = {
 		potential = {
 			NOT = { has_country_modifier = royal_fires_modifier }
@@ -677,7 +677,7 @@ country_decisions = {
 			owns_core_province = 2223 #Various locations suggested to have been the site of these fires.
 		}
 		major = yes
-		effect = {	
+		effect = {
 			add_country_modifier = {
 				name = "royal_fires_modifier"
 				duration = -1
@@ -745,7 +745,7 @@ country_decisions = {
 			}
 		}
 	}
-	
+
 	animism_ritual_education_EXTRA = {
 		potential = {
 			NOT = { has_country_modifier = ritual_education_modifier }
@@ -775,7 +775,7 @@ country_decisions = {
 			}
 		}
 	}
-	
+
 	shamanism_wondering_shamans_EXTRA = {
 		potential = {
 			NOT = { has_country_modifier = wandering_shamans_modifier }
@@ -808,7 +808,7 @@ country_decisions = {
 			}
 		}
 	}
-	
+
 	spreading_of_norse_rituals_EXTRA = {
 		potential = {
 			NOT = { has_country_modifier = spreading_norse_rituals }
@@ -819,7 +819,7 @@ country_decisions = {
 			ADM = 3
 			adm_tech = 8
 		}
-		effect = {	
+		effect = {
 			add_country_modifier = {
 				name = "spreading_norse_rituals"
 				duration = -1

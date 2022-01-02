@@ -116,7 +116,7 @@ ZZZ_enhanced_converter_battle_cult_spreading_effect = {
 		}
 		FROM = { country_event = { id = fetishist_flavor.3 } }
 	}
-	
+
 	#Cwezi / Swezi / Kubandwa
 	if = {
 		limit = {
@@ -156,7 +156,7 @@ ZZZ_enhanced_converter_battle_cult_spreading_effect = {
 		}
 		FROM = { country_event = { id = fetishist_flavor.101 } }
 	}
-	
+
 	#Mlira and other Nature Spirits and/or ancestral cults of Central Africa
 	if = {
 		limit = {
@@ -196,7 +196,7 @@ ZZZ_enhanced_converter_battle_cult_spreading_effect = {
 		}
 		FROM = { country_event = { id = fetishist_flavor.102 } }
 	}
-	
+
 	#Mwari
 	if = {
 		limit = {
@@ -236,11 +236,11 @@ ZZZ_enhanced_converter_battle_cult_spreading_effect = {
 		}
 		FROM = { country_event = { id = fetishist_flavor.103 } }
 	}
-	
+
 	#Enkai
 	if = {
 		limit = {
-			ROOT = {				
+			ROOT = {
 				OR = {
 					religion = west_african_pagan
 					religion = west_african_pagan_reformed
@@ -259,7 +259,7 @@ ZZZ_enhanced_converter_battle_cult_spreading_effect = {
 	}
 	if = {
 		limit = {
-			FROM = {				
+			FROM = {
 				OR = {
 					religion = west_african_pagan
 					religion = west_african_pagan_reformed
@@ -279,7 +279,7 @@ ZZZ_enhanced_converter_battle_cult_spreading_effect = {
 	#Waaq
 	if = {
 		limit = {
-			ROOT = {				
+			ROOT = {
 				OR = {
 					religion = west_african_pagan
 					religion = west_african_pagan_reformed
@@ -579,7 +579,7 @@ ZZZ_enhanced_converter_battle_cult_spreading_effect = {
 				OR = {
 					religion = norse_pagan
 					religion = norse_pagan_reformed
-					has_unlocked_cult = norse_cult					
+					has_unlocked_cult = norse_cult
 				}
 			}
 		}
@@ -637,7 +637,7 @@ ZZZ_enhanced_converter_battle_cult_spreading_effect = {
 			}
 			FROM = {
 				OR = {
-					religion_group = zoroastrian_group 
+					religion_group = zoroastrian_group
 					has_unlocked_cult = zoroastrian_cult
 				}
 			}
@@ -676,7 +676,7 @@ ZZZ_enhanced_converter_battle_cult_spreading_effect = {
 			}
 			FROM = {
 				OR = {
-					religion = west_african_pagan_reformed 
+					religion = west_african_pagan_reformed
 					has_unlocked_cult = west_african_pagan_reformed_cult
 				}
 			}
@@ -714,8 +714,8 @@ ZZZ_enhanced_converter_battle_cult_spreading_effect = {
 			}
 			FROM = {
 				OR = {
-					religion = tengri_pagan 
-					religion = tengri_pagan_reformed 
+					religion = tengri_pagan
+					religion = tengri_pagan_reformed
 					has_unlocked_cult = tengri_cult
 				}
 			}
@@ -755,8 +755,8 @@ ZZZ_enhanced_converter_battle_cult_spreading_effect = {
 			}
 			FROM = {
 				OR = {
-					religion = finnish_pagan 
-					religion = finnish_pagan_reformed 
+					religion = finnish_pagan
+					religion = finnish_pagan_reformed
 					has_unlocked_cult = finnish_cult
 				}
 			}
@@ -796,8 +796,8 @@ ZZZ_enhanced_converter_battle_cult_spreading_effect = {
 			}
 			FROM = {
 				OR = {
-					religion = baltic_pagan 
-					religion = baltic_pagan_reformed 
+					religion = baltic_pagan
+					religion = baltic_pagan_reformed
 					has_unlocked_cult = baltic_cult
 				}
 			}
@@ -837,8 +837,8 @@ ZZZ_enhanced_converter_battle_cult_spreading_effect = {
 			}
 			FROM = {
 				OR = {
-					religion = slavic_pagan 
-					religion = slavic_pagan_reformed 
+					religion = slavic_pagan
+					religion = slavic_pagan_reformed
 					has_unlocked_cult = slavic_cult
 				}
 			}
@@ -878,8 +878,8 @@ ZZZ_enhanced_converter_battle_cult_spreading_effect = {
 			}
 			FROM = {
 				OR = {
-					religion = zun_pagan 
-					religion = zun_pagan_reformed 
+					religion = zun_pagan
+					religion = zun_pagan_reformed
 					has_unlocked_cult = zunist_cult
 				}
 			}
@@ -919,8 +919,8 @@ ZZZ_enhanced_converter_battle_cult_spreading_effect = {
 			}
 			FROM = {
 				OR = {
-					religion = bon_pagan 
-					religion = bon_pagan_reformed 
+					religion = bon_pagan
+					religion = bon_pagan_reformed
 					has_unlocked_cult = bon_cult
 				}
 			}
@@ -960,8 +960,8 @@ ZZZ_enhanced_converter_battle_cult_spreading_effect = {
 			}
 			FROM = {
 				OR = {
-					religion = hellenic_pagan 
-					religion = hellenic_pagan_reformed 
+					religion = hellenic_pagan
+					religion = hellenic_pagan_reformed
 					has_unlocked_cult = hellenic_cult
 				}
 			}
@@ -1031,5 +1031,5 @@ ZZZ_enhanced_converter_battle_cult_spreading_effect = {
 		}
 		FROM = { country_event = { id = ZZZ_enhanced_fetishist.12 } }
 	}
-	
+
 }

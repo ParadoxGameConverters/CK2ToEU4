@@ -17,9 +17,9 @@ christian = {
 			advisor_pool = 1
 		}
 		hre_heretic_religion = yes
-		
+
 		heretic = { BOGOMILIST WALDENSIAN FRATICELLI HUSSITE LOLLARD SOCINIAN }
-		
+
 		uses_church_power = yes				# Uses church power/aspect mechanics
 		aspects = {
 			organised_through_bishops_aspect
@@ -35,20 +35,20 @@ christian = {
 			allow_usury_aspect
 			translated_bibles_aspect
 		}
-		
+
 		on_convert = {
 			change_religion = cathar
 			add_prestige = -100
-			
+
 			remove_country_modifier = the_test_act
 			remove_country_modifier = superintendent_office
 			remove_country_modifier = the_popery_act
-			
+
 			add_country_modifier = {
 				name = "conversion_zeal"
 				duration = 3650
-			}			
-		
+			}
+
 		}
 	}
 	fraticelli = {
@@ -70,30 +70,30 @@ christian = {
 			tolerance_own = 1
 		}
 		hre_religion = yes
-		
-		
+
+
 		on_convert = {
 			change_religion = fraticelli
 			add_prestige = -100
-			
+
 			remove_country_modifier = the_test_act
 			remove_country_modifier = superintendent_office
 			remove_country_modifier = the_popery_act
-			
+
 			add_country_modifier = {
 				name = "conversion_zeal"
 				duration = 3650
-			}			
-		
+			}
+
 		}
-		
+
 		heretic = { BOGOMILIST WALDENSIAN HUSSITE LOLLARD SOCINIAN }
-		
+
 		papacy = {
 			papal_tag = FAP
 			election_cost = 5
 			seat_of_papacy = 118 # rome
-			
+
 			#Council of Trent Positions
 			harsh = {
 				relation_with_heretics = -20
@@ -110,14 +110,14 @@ christian = {
 				global_heretic_missionary_strength = -0.05
 				improve_relation_modifier = 0.25
 			}
-			
+
 			#Council of Trent Concessions
 			concessions = {
 				first_concession = {
 					harsh = {
 						relation_with_heretics = -20
 						global_heretic_missionary_strength  = 0.02
-					}	
+					}
 					concilatory = {
 						relation_with_heretics = 10
 						tolerance_heretic = 2
@@ -127,7 +127,7 @@ christian = {
 					harsh = {
 						relation_with_heretics = -20
 						institution_spread_from_true_faith = 0.30
-					}	
+					}
 					concilatory = {
 						relation_with_heretics = 10
 						global_institution_spread = 0.10
@@ -137,7 +137,7 @@ christian = {
 					harsh = {
 						relation_with_heretics = -20
 						manpower_in_true_faith_provinces  = 0.1
-					}	
+					}
 					concilatory = {
 						relation_with_heretics = 10
 						global_manpower_modifier = 0.05
@@ -147,14 +147,14 @@ christian = {
 					harsh = {
 						relation_with_heretics = -20
 						warscore_cost_vs_other_religion  = -0.10
-					}	
+					}
 					concilatory = {
 						relation_with_heretics = 10
 						curia_powers_cost = -0.10
 					}
 				}
 			}
-			
+
 			# Papal Actions below!
 			levy_church_tax = {
 				cost = 75
@@ -172,8 +172,8 @@ christian = {
 				}
 				ai_will_do = {
 					factor = 1
-				}				
-			}			
+				}
+			}
 			bless_monarch = {
 				cost = 40
 				potential = {
@@ -214,7 +214,7 @@ christian = {
 				ai_will_do = {
 					factor = 1
 				}
-			}	
+			}
 			local_saint = {
 				cost = 100
 				potential = {
@@ -257,7 +257,7 @@ christian = {
 						NOT = { num_of_loans = 1 }
 					}
 				}
-			}			
+			}
 			proclaim_holy_war = {
 				cost = 40
 				potential = {
@@ -281,7 +281,7 @@ christian = {
 						manpower_percentage = 0.5
 					}
 				}
-			}	
+			}
 			send_papal_legate = {
 				cost = 30
 				potential = {
@@ -301,7 +301,7 @@ christian = {
 				ai_will_do = {
 					factor = 1
 				}
-			}	
+			}
 			sanction_commercial_monopoly = {
 				cost = 75
 				potential = {
@@ -360,9 +360,9 @@ christian = {
 			advisor_cost = -0.1
 		}
 		heretic = { ZAMIKAELITES STEPHANITES EUSTATHIANS }
-		
+
 		fervor = yes
-		
+
 		misguided_heretic = yes		# Other christians hate them less
 	}
 	waldensian = {
@@ -376,29 +376,29 @@ christian = {
 			tolerance_heretic = 2
 			technology_cost = -0.1
 		}
-		
+
 		country_as_secondary = {
 			global_unrest = -1
 			technology_cost = -0.1
 		}
-		
+
 		hre_heretic_religion = yes
 		fervor = yes
-		
+
 		heretic = { BOGOMILIST FRATICELLI HUSSITE LOLLARD SOCINIAN }
-		
+
 		on_convert = {
 			change_religion = waldensian
 			add_prestige = -100
-			
+
 			remove_country_modifier = the_test_act
 			remove_country_modifier = superintendent_office
 			remove_country_modifier = the_popery_act
-			
+
 			add_country_modifier = {
 				name = "conversion_zeal"
 				duration = 3650
-			}			
+			}
 		}
 	}
 	lollard = {
@@ -419,24 +419,24 @@ christian = {
 			stability_cost_modifier = -0.2
 		}
 		hre_heretic_religion = yes
-		
+
 		fervor = yes
-		
+
 		heretic = { BOGOMILIST WALDENSIAN FRATICELLI HUSSITE SOCINIAN }
-		
+
 		on_convert = {
 			change_religion = lollard
 			add_prestige = -100
-			
+
 			remove_country_modifier = the_test_act
 			remove_country_modifier = superintendent_office
 			remove_country_modifier = the_popery_act
-			
+
 			add_country_modifier = {
 				name = "conversion_zeal"
 				duration = 3650
-			}			
-		
+			}
+
 		}
 	}
 
@@ -454,11 +454,11 @@ christian = {
 			global_tax_modifier = 0.25
 		}
 		heretic = { ZAMIKAELITES STEPHANITES EUSTATHIANS }
-		
+
 		misguided_heretic = yes		# Other christians hate them less
-		
+
 		holy_sites = { 358 1227 2313 1234 419 }
-		
+
 		blessings = {
 			legitimize_government
 			encourage_warriors_of_the_faith
@@ -474,7 +474,7 @@ christian = {
 			stability_cost_modifier = -0.1
 			land_morale = 0.1
 		}
-		 province = { 
+		 province = {
             local_missionary_strength = -0.02
             local_unrest = -1
         }
@@ -483,7 +483,7 @@ christian = {
 			tolerance_own = 1
 		}
 		heretic = { OLD_BELIEVER MOLOKAN DUKHOBOR KHLYST SKOPTSY ICONOCLAST }
-		
+
 		uses_church_power = yes				# Uses church power/aspect mechanics
 		aspects = {
 			organised_through_bishops_aspect
@@ -499,7 +499,7 @@ christian = {
 			allow_usury_aspect
 			translated_bibles_aspect
 		}
-		
+
 		misguided_heretic = yes		# Other christians hate them less
 	}
 	monothelite = {
@@ -516,19 +516,19 @@ christian = {
 			tolerance_own = 1
 			global_autonomy = -0.05
 		}
-		
+
 		heretic = { OLD_BELIEVER MOLOKAN DUKHOBOR KHLYST SKOPTSY ICONOCLAST }
-		
+
 		has_patriarchs = yes		# Uses patriarch authority
 		misguided_heretic = yes		# Other christians hate them less
-		
+
 		orthodox_icons = {
-		
-		
+
+
 			icon_michael = {
 				discipline = 0.05
 				manpower_recovery_speed = 0.1
-				
+
 				allow = {
 					always = yes
 				}
@@ -540,7 +540,7 @@ christian = {
 			icon_eleusa = {
 				global_unrest = -3
 				harsh_treatment_cost = -0.25
-				
+
 				allow = {
 					always = yes
 				}
@@ -552,7 +552,7 @@ christian = {
 			icon_pancreator = {
 				development_cost = -0.10
 				build_cost = -0.1
-				
+
 				allow = {
 					always = yes
 				}
@@ -560,7 +560,7 @@ christian = {
 					factor = 1
 				}
 			}
-	
+
 			icon_nicholas = {
 				improve_relation_modifier = 0.25
 				ae_impact = -0.1
@@ -582,8 +582,8 @@ christian = {
 					factor = 1
 				}
 			}
-			
-			
+
+
 		}
 	}
 
@@ -601,9 +601,9 @@ christian = {
 			raze_power_gain = 0.2
 			global_missionary_strength = 0.01
 		}
-		
+
 		heretic = { OLD_BELIEVER MOLOKAN DUKHOBOR KHLYST SKOPTSY }
-		
+
 		has_patriarchs = yes		# Uses patriarch authority
 		misguided_heretic = yes		# Other christians hate them less
 	}
@@ -622,17 +622,17 @@ christian = {
 			global_regiment_cost = -0.1
 		}
 		heretic = { OLD_BELIEVER MOLOKAN DUKHOBOR KHLYST SKOPTSY ICONOCLAST }
-		
+
 		has_patriarchs = yes		# Uses patriarch authority
 		misguided_heretic = yes		# Other christians hate them less
-		
+
 		orthodox_icons = {
-		
-		
+
+
 			icon_michael = {
 				discipline = 0.05
 				manpower_recovery_speed = 0.1
-				
+
 				allow = {
 					always = yes
 				}
@@ -644,7 +644,7 @@ christian = {
 			icon_eleusa = {
 				global_unrest = -3
 				harsh_treatment_cost = -0.25
-				
+
 				allow = {
 					always = yes
 				}
@@ -656,7 +656,7 @@ christian = {
 			icon_pancreator = {
 				development_cost = -0.10
 				build_cost = -0.1
-				
+
 				allow = {
 					always = yes
 				}
@@ -664,7 +664,7 @@ christian = {
 					factor = 1
 				}
 			}
-	
+
 			icon_nicholas = {
 				improve_relation_modifier = 0.25
 				ae_impact = -0.1
@@ -686,8 +686,8 @@ christian = {
 					factor = 1
 				}
 			}
-			
-			
+
+
 		}
 	}
 
@@ -709,7 +709,7 @@ muslim = {
 			heir_chance = 1.0
 		}
 		heretic = { BEKTASHI AHMADI YAZIDI }
-		
+
 		uses_piety = yes				# Uses piety mechanics
 	}
 	yazidi = {
@@ -730,7 +730,7 @@ muslim = {
 			advisor_pool = 1
 		}
 		heretic = { BEKTASHI AHMADI ZIKRI }
-		
+
 		has_patriarchs = yes		# Uses patriarch authority
 	}
 	kharijite = {
@@ -748,7 +748,7 @@ muslim = {
 			improve_relation_modifier = 0.1
 		}
 		heretic = { HARURI SUFRI NAJADAT AZRAQI }
-		
+
 		uses_piety = yes				# Uses piety mechanics
 	}
 	druze = {
@@ -767,7 +767,7 @@ muslim = {
 			dip_tech_cost_modifier = -0.05
 		}
 		heretic = { HURUFI ZAIDI }
-		
+
 		uses_piety = yes				# Uses piety mechanics
 	}
 	hurufi = {
@@ -785,7 +785,7 @@ muslim = {
 			stability_cost_modifier = -0.1
 		}
 		heretic = { DRUZE ZAIDI QARMATIAN }
-		
+
 		uses_piety = yes				# Uses piety mechanics
 	}
 	qarmatian = {
@@ -805,7 +805,7 @@ muslim = {
 			may_perform_slave_raid = yes
 		}
 		heretic = { DRUZE ZAIDI HURUFI }
-		
+
 		fervor = yes			# Uses fervor mechanics
 	}
 }
@@ -826,7 +826,7 @@ zoroastrian_group = {
 		}
 
 		holy_sites = { 421 4430 2223 441 2235 }
-		
+
 		blessings = {
 			blessing_yasna
 			blessing_haoma
@@ -834,7 +834,7 @@ zoroastrian_group = {
 			blessing_manthras
 			blessing_dakhma
 		}
-		
+
 		heretic = { MANICHEAN }
 	}
 	manichean = {
@@ -862,7 +862,7 @@ zoroastrian_group = {
 			global_tax_modifier = 0.1
 		}
 		heretic = { MAZDAKI }
-		
+
 		personal_deity = yes
 	}
 }
@@ -883,7 +883,7 @@ jewish_group = {
 		country_as_secondary = {
 			advisor_cost = -0.3
 		}
-		
+
 		heretic = { KARAITE }
 	}
 	karaite_faith = {
@@ -902,7 +902,7 @@ jewish_group = {
 			land_morale = 0.05
 			global_unrest = -1
 		}
-		
+
 		heretic = { SAMARITAN }
 	}
 }

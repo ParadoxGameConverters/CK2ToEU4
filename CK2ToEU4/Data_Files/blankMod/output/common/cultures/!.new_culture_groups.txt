@@ -3,7 +3,7 @@
 
 oghuz = {
 	# Pecheneg name pool used as default one
-	male_names = { 
+	male_names = {
 		Çelgil Aba Baitzas Balgor Batan Batas Bator Bayça Biçkili Bizel Boru Bula Giazis Ildey
 		Ipa Ipaos Kabuksin Karaca Kaydum Kegen Konel Korkutan Kortan Kostas Kourkoutai
 		Kuchug Kuerçi Kugel Kure Kürä Metiga Sol Suru Tatus Teber Temir Tyrach Yavdi Yazi Yeke
@@ -63,16 +63,16 @@ oghuz = {
 	karluk = { # Duplicate of Uzbek
 		primary = UZB
 		male_names = {
-			Abdul-Aziz Abdul-Karim Abdul-Mumin Abdul-Rahim Abdulla Abu Said Abu'l-Feiz Abu'l-Ghazi Abu'l-Khayr 
-			Abu'l-Mansur Agatay Alim Anusha Arab Muhammad Avanesh Bahadur Bakht Baqi Muhammad Budjuga Bureke 
-			Djuchi Dost Habash Hadji Hadji Muhammad Hassan Quli Haydar Imam Quli Ilbars Irdana Isfandiyar Isim 
-			Janibek Kal Khudayar Khudaydad Kochkunju Muhammad Muhammad Amin Muhammad Hakim Muhammad Rahim Nadir 
-			Muhammad Narbuta Navruz Ahmad Niyaz Pir Muhammad Sanjar Sevinch Shadi Shahmurad Shahrukh Shaykh 
-			Subhan Quli Sufyan Suleyman Tahir Timur Ubaydulla Umar Vali Vali Muhammad Yadgar Daniyal Haidar 
+			Abdul-Aziz Abdul-Karim Abdul-Mumin Abdul-Rahim Abdulla Abu Said Abu'l-Feiz Abu'l-Ghazi Abu'l-Khayr
+			Abu'l-Mansur Agatay Alim Anusha Arab Muhammad Avanesh Bahadur Bakht Baqi Muhammad Budjuga Bureke
+			Djuchi Dost Habash Hadji Hadji Muhammad Hassan Quli Haydar Imam Quli Ilbars Irdana Isfandiyar Isim
+			Janibek Kal Khudayar Khudaydad Kochkunju Muhammad Muhammad Amin Muhammad Hakim Muhammad Rahim Nadir
+			Muhammad Narbuta Navruz Ahmad Niyaz Pir Muhammad Sanjar Sevinch Shadi Shahmurad Shahrukh Shaykh
+			Subhan Quli Sufyan Suleyman Tahir Timur Ubaydulla Umar Vali Vali Muhammad Yadgar Daniyal Haidar
 			Iskandar
 		}
 		female_names = {
-			Temülen Börte Mandukhai Samar Zaufishan Mulan Aigiarn Borte Chabi Conchaka Doquez-khatum Goland Ho'elun Khultulun Kokachin Mandughai Oghul Qamish Orqina Sorghaghtani Beki Toregene 
+			Temülen Börte Mandukhai Samar Zaufishan Mulan Aigiarn Borte Chabi Conchaka Doquez-khatum Goland Ho'elun Khultulun Kokachin Mandughai Oghul Qamish Orqina Sorghaghtani Beki Toregene
 		}
 	}
 }
@@ -80,7 +80,7 @@ barbaro_germanic = {
 	graphical_culture = westerngfx
 
 	male_names = { Gunther Rolf }
-	
+
 	frankish = {
 		primary = FRA
 		male_names = {
@@ -178,36 +178,36 @@ barbaro_germanic = {
 		dynasty_names = { Aniano Ariari Arius Ataulph Atharid Baduila Cyrila Farnobio Feva Fretela Friderico Gaiseri Gundeharo Heldefred Hermangild Hernegliscu Hildebado Huml Hunimund Leuvibild Nidada Retemeri Rhima Saphrax Sueridu Sunnia Theoderi Tribigild Videric Vidimiro }
 	}
 	female_names = {
-		Adele Adelgunde Adelheid Adolfine Agatha Agnes Alexandra Alice Alina Aline Alma Alwina Alwine Amalia Amalie Amanda 
-		Amelie Andrea Angela Angelika Angelina Anika Anita Anja Anke Ann-Katrin Anna Anne Annegret Anneli Annelie Anneliese 
-		Annemarie Anni Annika Annina Anny Antje Antonia Astrid Augusta Auguste Barbara Bärbel Beate Beatrice Beatrix 
-		Bernadette Berta Bertha Bettina Bianca Bianka Birgit Brigitte Britta Brunhild Brünhild Brunhilde Brünhilde Cäcilia 
-		Cäcilie Caren Carina Carla Carmen Carolin Caroline Catarina Catharina Cathrin Catrin Cecilia Cecilie Celina Celine 
-		Charlotte Chiara Christa Christel Christiane Christina Christine Clara Claudia Constanze Cordula Corina Corinna 
-		Cornelia Dagmar Daniela Denise Desirée Désirée Diana Dietlind Dietlinde Dora Doris Dorothea Edda Edith Elena 
-		Eleonora Eleonore Elfriede Elisa Elisabeth Elise Elke Ella Ellen Elli Elly Elma Elsa Elsbeth Else Elvira Emelie 
-		Emely Emilia Emilie Emily Emma Emmeline Emmi Emmy Erdmute Erica Erika Erna Ester Esther Eugenie Eva Evelyn 
-		Fabienne Fanny Felicia Felicitas Felizia Felizitas Finja Finnja Fiona Flora Florentina Florentine Franziska Frauke 
-		Freya Frida Fridegunde Frieda Friedegund Friedegunde Friederike Gabriela Gabriele Genoveva Gerda Gerlind Gerlinde 
-		Gertraud Gertrud Gertrudis Gesine Gina Gisela Grete Gretel Grethe Gudrun Gunda Gundula Hanna Hannah Hanne Hannelore 
-		Hedwig Heide Heidemarie Heidi Heike Helena Helene Helga Helge Hella Helmina Helmine Henny Hermina Hermine Herta 
-		Hertha Hilda Hilde Hildegard Hulda Ida Ilse Ines Inga Inge Ingeborg Ingeburg Ingrid Irene Irina Iris Irma Irmela 
-		Irmelin Irmgard Isabel Isabell Isabella Isabelle Isolde Ivonne Jacqueline Jana Janina Janine Jaqueline Jasmin 
-		Jennifer Jessica Johanna Johanne Josefine Josephine Judith Jule Julia Juliane Jutta Kai Karen Karin Karina Karla 
-		Karolin Karoline Katarina Käte Katharina Käthe Kathrin Katja Katrin Kerstin Kim Kirsten Klara Konstanze Kristin 
-		Kristina Kunigunde Lara Larissa Laura Lea Lena Leni Leoni Leonie Leonore Liane Liesel Lieselotte Lili Lilli Lilly 
-		Lina Linda Lisa Liselotte Lore Lotte Louisa Louise Lucia Lucie Luisa Luise Lulu Luna Luzia Luzie Lydia Madeleine 
-		Madleen Madlen Madlene Magda Magdalena Magdalene Maike Maja Manuela Mareike Marga Margareta Margarete Margaretha 
-		Margarethe Margit Margot Margret Margrit Maria Marianne Marie Marie-Theres Marie-Therese Marina Marion Marleen 
-		Marlen Marlene Marlies Marlis Marta Martha Martina Mathilde Maya Mechthild Meike Melanie Melina Melissa 
-		Merle Meta Mia Michaela Michelle Minna Miriam Mirjam Mona Monica Monika Nadia Nadin Nadine Nadja Natali Natalie 
-		Natascha Nathalie Neele Nele Nicola Nicole Nina Noemi Nora Oda Olga Olivia Ottilie Patricia Patrizia Paula Paulina 
-		Pauline Petra Pia Rachel Rafaela Raffaela Rahel Ramona Raphaela Rebecca Rebekka Regina Renate Ricarda Rita Rolanda 
-		Ronja Rosa Rose Rosemarie Roswitha Ruth Sabina Sabine Sabrina Samantha Sandra Sara Sarah Saskia Selina Seraphina 
-		Seraphine Sibylle Sieglind Sieglinde Siglind Siglinde Sigrid Silke Silvia Simone Sina Sissi Sofia Sofie Sonja Sophia 
-		Sophie Stefanie Stella Stephanie Susanna Svenja Swenja Sybille Sylvia Tabea Tamara Tanja Tatjana Teresa Thekla 
-		Theres Theresa Therese Theresia Thirza Tina Tirza Traute Trude Ulrike Ursel Ursula Uta Ute Valentina Valerie Vanessa 
-		Vera Verena Verona Veronika Victoria Viktoria Walburg Walburga Waldtraud Waldtraut Walpurga Walpurgis Waltraud 
+		Adele Adelgunde Adelheid Adolfine Agatha Agnes Alexandra Alice Alina Aline Alma Alwina Alwine Amalia Amalie Amanda
+		Amelie Andrea Angela Angelika Angelina Anika Anita Anja Anke Ann-Katrin Anna Anne Annegret Anneli Annelie Anneliese
+		Annemarie Anni Annika Annina Anny Antje Antonia Astrid Augusta Auguste Barbara Bärbel Beate Beatrice Beatrix
+		Bernadette Berta Bertha Bettina Bianca Bianka Birgit Brigitte Britta Brunhild Brünhild Brunhilde Brünhilde Cäcilia
+		Cäcilie Caren Carina Carla Carmen Carolin Caroline Catarina Catharina Cathrin Catrin Cecilia Cecilie Celina Celine
+		Charlotte Chiara Christa Christel Christiane Christina Christine Clara Claudia Constanze Cordula Corina Corinna
+		Cornelia Dagmar Daniela Denise Desirée Désirée Diana Dietlind Dietlinde Dora Doris Dorothea Edda Edith Elena
+		Eleonora Eleonore Elfriede Elisa Elisabeth Elise Elke Ella Ellen Elli Elly Elma Elsa Elsbeth Else Elvira Emelie
+		Emely Emilia Emilie Emily Emma Emmeline Emmi Emmy Erdmute Erica Erika Erna Ester Esther Eugenie Eva Evelyn
+		Fabienne Fanny Felicia Felicitas Felizia Felizitas Finja Finnja Fiona Flora Florentina Florentine Franziska Frauke
+		Freya Frida Fridegunde Frieda Friedegund Friedegunde Friederike Gabriela Gabriele Genoveva Gerda Gerlind Gerlinde
+		Gertraud Gertrud Gertrudis Gesine Gina Gisela Grete Gretel Grethe Gudrun Gunda Gundula Hanna Hannah Hanne Hannelore
+		Hedwig Heide Heidemarie Heidi Heike Helena Helene Helga Helge Hella Helmina Helmine Henny Hermina Hermine Herta
+		Hertha Hilda Hilde Hildegard Hulda Ida Ilse Ines Inga Inge Ingeborg Ingeburg Ingrid Irene Irina Iris Irma Irmela
+		Irmelin Irmgard Isabel Isabell Isabella Isabelle Isolde Ivonne Jacqueline Jana Janina Janine Jaqueline Jasmin
+		Jennifer Jessica Johanna Johanne Josefine Josephine Judith Jule Julia Juliane Jutta Kai Karen Karin Karina Karla
+		Karolin Karoline Katarina Käte Katharina Käthe Kathrin Katja Katrin Kerstin Kim Kirsten Klara Konstanze Kristin
+		Kristina Kunigunde Lara Larissa Laura Lea Lena Leni Leoni Leonie Leonore Liane Liesel Lieselotte Lili Lilli Lilly
+		Lina Linda Lisa Liselotte Lore Lotte Louisa Louise Lucia Lucie Luisa Luise Lulu Luna Luzia Luzie Lydia Madeleine
+		Madleen Madlen Madlene Magda Magdalena Magdalene Maike Maja Manuela Mareike Marga Margareta Margarete Margaretha
+		Margarethe Margit Margot Margret Margrit Maria Marianne Marie Marie-Theres Marie-Therese Marina Marion Marleen
+		Marlen Marlene Marlies Marlis Marta Martha Martina Mathilde Maya Mechthild Meike Melanie Melina Melissa
+		Merle Meta Mia Michaela Michelle Minna Miriam Mirjam Mona Monica Monika Nadia Nadin Nadine Nadja Natali Natalie
+		Natascha Nathalie Neele Nele Nicola Nicole Nina Noemi Nora Oda Olga Olivia Ottilie Patricia Patrizia Paula Paulina
+		Pauline Petra Pia Rachel Rafaela Raffaela Rahel Ramona Raphaela Rebecca Rebekka Regina Renate Ricarda Rita Rolanda
+		Ronja Rosa Rose Rosemarie Roswitha Ruth Sabina Sabine Sabrina Samantha Sandra Sara Sarah Saskia Selina Seraphina
+		Seraphine Sibylle Sieglind Sieglinde Siglind Siglinde Sigrid Silke Silvia Simone Sina Sissi Sofia Sofie Sonja Sophia
+		Sophie Stefanie Stella Stephanie Susanna Svenja Swenja Sybille Sylvia Tabea Tamara Tanja Tatjana Teresa Thekla
+		Theres Theresa Therese Theresia Thirza Tina Tirza Traute Trude Ulrike Ursel Ursula Uta Ute Valentina Valerie Vanessa
+		Vera Verena Verona Veronika Victoria Viktoria Walburg Walburga Waldtraud Waldtraut Walpurga Walpurgis Waltraud
 		Waltraut Wanja Wibke Wiebke Wilhelmina Wilhelmine Wilma Xenia Yasmin Yvonne Zäzilia Zäzilie Zoe
 	}
 	dynasty_names = {
@@ -215,67 +215,67 @@ barbaro_germanic = {
 		"von Zweibrücken" "von Wittelsbach" "von Holstein" "von Hesse-Kassel" "von Holstein-Gottorp"
 		"von Pfalz-Neumarkt" "von Braunschweig-Lüneburg" "von Hannover" "von Wettin"
 		# CKII
-		"von Rügen" "von Diepholz" "von Silesia-Glogau" "von Bibra" "von Bodeck" 
-		"Boeselager" "Jaworski" "Brauchitsch" "von Bülow" 
-		"von Calw" "von Cham" "von Steutzlingen" "von Wetterau" "von Julichgau" 
-		"von Helffenstein" "von Venis" "von Kyburg" "von Arbon" "von Urach" "von Cilli" "von Utlede" 
-		"von Katzenelnbogen" "von Altena" "von der Marck" "von Hessen" "von Arnsberg" "von Bucheck" 
+		"von Rügen" "von Diepholz" "von Silesia-Glogau" "von Bibra" "von Bodeck"
+		"Boeselager" "Jaworski" "Brauchitsch" "von Bülow"
+		"von Calw" "von Cham" "von Steutzlingen" "von Wetterau" "von Julichgau"
+		"von Helffenstein" "von Venis" "von Kyburg" "von Arbon" "von Urach" "von Cilli" "von Utlede"
+		"von Katzenelnbogen" "von Altena" "von der Marck" "von Hessen" "von Arnsberg" "von Bucheck"
 		"Walter" "Grelle" "von Dolen" "von Liebnitz" "von Virneberg"
-		"Rübsamen" "von Bardewik" "Vorrade" "Warendorp" "Lüneburg" "Wittenborg" "von Klingenberg" 
-		"von Parchim" "von Kärnten" "von Rügen" "von Neuenburg" "von Werle" "von Mecklemburg" 
-		"von Wittenberg" "von Brandenburg" "von Glogau" "von Rendsburg" "von Pommern" 
-		"von Slesvig" "von Plain" "von Formbach" "von Wasserburg" 
+		"Rübsamen" "von Bardewik" "Vorrade" "Warendorp" "Lüneburg" "Wittenborg" "von Klingenberg"
+		"von Parchim" "von Kärnten" "von Rügen" "von Neuenburg" "von Werle" "von Mecklemburg"
+		"von Wittenberg" "von Brandenburg" "von Glogau" "von Rendsburg" "von Pommern"
+		"von Slesvig" "von Plain" "von Formbach" "von Wasserburg"
 		"von Lengenfeld" "von Eberstein" "von Heinsberg" "von Weimar"
-		"von Andechs" "von Sulzbach" "von Kleve" "von Versfleth" "von Wickerode" 
-		"von Winzenburg" "von Thüringen" "von Bogen" "von Meissen" "von Genf" 
-		"von Arstein" "von Veldenz" "von Landsberg" "von Franken" "von Babenberg" "von Berg" "von Hohenstauf" 
-		"von Saarbrucken" "von Puteledorg" "von Henneberg" "von Stade" "von Sommerchenberg" 
-		"von Kirchberg" "von Württemberg" "von Tübingen" "von Raabs" 
-		"von Heimbach" "von Nörvenich" "von Jülich" "von Metz" "von Limburg" 
-		"von Eppstein" "von Luxemburg" "von Hornes" "von Sachsen" 
+		"von Andechs" "von Sulzbach" "von Kleve" "von Versfleth" "von Wickerode"
+		"von Winzenburg" "von Thüringen" "von Bogen" "von Meissen" "von Genf"
+		"von Arstein" "von Veldenz" "von Landsberg" "von Franken" "von Babenberg" "von Berg" "von Hohenstauf"
+		"von Saarbrucken" "von Puteledorg" "von Henneberg" "von Stade" "von Sommerchenberg"
+		"von Kirchberg" "von Württemberg" "von Tübingen" "von Raabs"
+		"von Heimbach" "von Nörvenich" "von Jülich" "von Metz" "von Limburg"
+		"von Eppstein" "von Luxemburg" "von Hornes" "von Sachsen"
 		"von Beilstein" "von Eppenstein" "von Lusatia" "Orlamunde"
 		"von Hohenstaufen" "von Otakar" "Weimar" "von Tirol"
-		"von Haldensleben" "von Schweinfurt" "von Stad" "von Rheinfelden" 
-		"von Ringelheim" "de Luxembourg" "Hainaut" "von Lenzburg" "Prochaska" 
-		"von Boulogne" "von Nordheim" "von Egisheim" "Asperger" "Hunfriding" 
-		"Witte" "von Hagen" "von Mölln" "Runese" Pleskow 
+		"von Haldensleben" "von Schweinfurt" "von Stad" "von Rheinfelden"
+		"von Ringelheim" "de Luxembourg" "Hainaut" "von Lenzburg" "Prochaska"
+		"von Boulogne" "von Nordheim" "von Egisheim" "Asperger" "Hunfriding"
+		"Witte" "von Hagen" "von Mölln" "Runese" Pleskow
 		"von Supplingenburg" "von Plotzkau" "von Katlenburg" "von Goslar"
 		"von Wunstorf" "von Goltern" "von Wölpe" "von Nellenburg" "von Arnstein" "von Holte"
-		"von Wippra" "von der Mark" "von Diest" "von Rietberg" "von Löningen" "von Corvey" 
-		"von Steinfurt" "von Tecklenburg" "von Rüssel" "von Waldeck" "von Ravensberg" "von Weyhe" "von Hoya" 
-		"von Dachau" "von Bassenheim" "von Kerpen" "von Tunna" "von Salza" "von Malberg" "von Hohenlohe" 
-		"von Wüllersleben" "von Osterna" "von Sangershausen" "von Heldrungen" 
-		"von Orseln" "von Nauen" "Suerbeer" "von Lunen" 
-		"von Vechta" "Pernstein" "von Schwerin" "von Dorpat" "von Haseldorf" "von Vyshusen" "von Dolen" 
-		"von Friesack" "von Hildesheim" "von Lechsgmünd" "von Komburg" 
-		"von Stahleck" "von Ziegenhain" "von Dinslaken" "von Lambach" "von Pluyvoise" 
-		"von Scharfenberg" "von Leistenberg" "von Schwarzburg" "von Badewide" "von Wassel" 
-		"von Dassel" "von Greyerz" "von Grenchen" "von Abensberg" "von Grünberg" 
+		"von Wippra" "von der Mark" "von Diest" "von Rietberg" "von Löningen" "von Corvey"
+		"von Steinfurt" "von Tecklenburg" "von Rüssel" "von Waldeck" "von Ravensberg" "von Weyhe" "von Hoya"
+		"von Dachau" "von Bassenheim" "von Kerpen" "von Tunna" "von Salza" "von Malberg" "von Hohenlohe"
+		"von Wüllersleben" "von Osterna" "von Sangershausen" "von Heldrungen"
+		"von Orseln" "von Nauen" "Suerbeer" "von Lunen"
+		"von Vechta" "Pernstein" "von Schwerin" "von Dorpat" "von Haseldorf" "von Vyshusen" "von Dolen"
+		"von Friesack" "von Hildesheim" "von Lechsgmünd" "von Komburg"
+		"von Stahleck" "von Ziegenhain" "von Dinslaken" "von Lambach" "von Pluyvoise"
+		"von Scharfenberg" "von Leistenberg" "von Schwarzburg" "von Badewide" "von Wassel"
+		"von Dassel" "von Greyerz" "von Grenchen" "von Abensberg" "von Grünberg"
 		"von Lichtenberg" "von Hachberg" "von Wartenberg" "von Wolfach" "von Gudensberg"
-		"von Gerhausen" "von Signau" "von Groitzsch" "von Frickingen" "von Sigmaringen" "von Regensburg" 
+		"von Gerhausen" "von Signau" "von Groitzsch" "von Frickingen" "von Sigmaringen" "von Regensburg"
 		"von Lurngau" "von Leibrechtskirchen" "von Meran" "von Treven" "Gross" "Gualch" "Beck"
-		"zu Schwaben" "von Attems" "von Schweipünt" "von Saffenberg" "von Nörvenich" "von Querfurt" 
-		"von Mansfeld" "von Kärnten" "von Eschenloch" "von Naumburg" "von Schrapelnau" 
-		"von Magdeburg" "von Hardegg" "von Arneburg" "von Seeburg" "von Veldenz" "von Schmidtburg" 
-		"von Bamberg" "von Kyrburg" "von Baumberg" "von Stolzenberg" "von Altenbaumberg" "von Tyrol" 
-		"von Ortenburg" "von Wangen" "von Frontenhausen" "von Andechs" "von Eurasburg" "von Geroldseck" 
-		"von Bocksberg" "von Vinstingen" "von Schoenecken" "von Daun" "von Leiningen" 
-		"von Hohenfels" "von Hunolstein" "von Blankenheim" "von Salm" "von Falkenstein" "von Sponheim" 
-		"von Brunshorn" "von Stein" "von Bikkenbach" "von Heinsberg" "van Valkenburg" "von Sayn" 
-		"von Veringen" "von Gruningen" "von Eselsberg" "von Muhlhausen" "von Pfirt" 
-		"von Lövenstein" "von Landau" "von Tschudi" "von Glarus" "von Chalôns" "von Ratzeburg" 
-		"von Schlawe" "von Schwelz" "von Liebschau" "von der Lippe" "von Schauenburg" "von Rostock" 
-		"von Gustrow" "von Rendsburg" "von Segeberg" "von Neuhaus" "von Friedenthal" "von Rosenberg" 
-		"von Waldenstein" "von Altenburg" "von Pernstein" "von Monheim" "von Urslingen" 
-		"von Assel" "von Osnabrück" "von Münster" "von Kleve" "von Jülich" 
+		"zu Schwaben" "von Attems" "von Schweipünt" "von Saffenberg" "von Nörvenich" "von Querfurt"
+		"von Mansfeld" "von Kärnten" "von Eschenloch" "von Naumburg" "von Schrapelnau"
+		"von Magdeburg" "von Hardegg" "von Arneburg" "von Seeburg" "von Veldenz" "von Schmidtburg"
+		"von Bamberg" "von Kyrburg" "von Baumberg" "von Stolzenberg" "von Altenbaumberg" "von Tyrol"
+		"von Ortenburg" "von Wangen" "von Frontenhausen" "von Andechs" "von Eurasburg" "von Geroldseck"
+		"von Bocksberg" "von Vinstingen" "von Schoenecken" "von Daun" "von Leiningen"
+		"von Hohenfels" "von Hunolstein" "von Blankenheim" "von Salm" "von Falkenstein" "von Sponheim"
+		"von Brunshorn" "von Stein" "von Bikkenbach" "von Heinsberg" "van Valkenburg" "von Sayn"
+		"von Veringen" "von Gruningen" "von Eselsberg" "von Muhlhausen" "von Pfirt"
+		"von Lövenstein" "von Landau" "von Tschudi" "von Glarus" "von Chalôns" "von Ratzeburg"
+		"von Schlawe" "von Schwelz" "von Liebschau" "von der Lippe" "von Schauenburg" "von Rostock"
+		"von Gustrow" "von Rendsburg" "von Segeberg" "von Neuhaus" "von Friedenthal" "von Rosenberg"
+		"von Waldenstein" "von Altenburg" "von Pernstein" "von Monheim" "von Urslingen"
+		"von Assel" "von Osnabrück" "von Münster" "von Kleve" "von Jülich"
 		"von Andernach" "von Göttingen"
-		"von Pfalz" "von Baden" "von Nordgau" "von Metz" "von Sundgau" "von Bern" 
+		"von Pfalz" "von Baden" "von Nordgau" "von Metz" "von Sundgau" "von Bern"
 		"von Schwyz" "von Neuchatel" "von Aargau" "von Breisgau" "von Fürstenberg"
-		"von Württemberg" "von Franken" "von Thüringen" "von Weimar" "von Celle" 
-		"von Amsberg" "von Wolgast" "von Altmark" "von Anhalt" 
-		"von Plauen" "von Ansbach" "von Kempten" "von Arnim" "von Trent" 
-		"von Innsbruck" "von Lausitz" "von Stettin" 
-		"von Abensberg"  "von Berlichingen" "von Beetzen" 
+		"von Württemberg" "von Franken" "von Thüringen" "von Weimar" "von Celle"
+		"von Amsberg" "von Wolgast" "von Altmark" "von Anhalt"
+		"von Plauen" "von Ansbach" "von Kempten" "von Arnim" "von Trent"
+		"von Innsbruck" "von Lausitz" "von Stettin"
+		"von Abensberg"  "von Berlichingen" "von Beetzen"
 		"Sieghardinger" "von Walbeck"
 		#Prussian
 		"von Knorring" "von Creytzen" Sack "von Taube" "Wöhrmann"
@@ -330,7 +330,7 @@ roman_group = {
 			Histrus Carnus Catarus Catalus Secussis Lopsus
 		}
 	}
-	siculian = { 
+	siculian = {
 		dynasty_names = {
 			Abacaenus Abolla Aetna Agathyrnus Acrillae Ameselus Apollonius Assorus Brucoli Capizzi
 			Caronia Casmenae Catania Cefalus Chersonesus Comicianus Daedalius Drepanus Enna Entella
@@ -340,7 +340,7 @@ roman_group = {
 			Taormina Tarantus "Termini Imerese" Tindari
 		}
 	}
-	
+
 		male_names = { Acilius Aebutius Aelius Aemilius Albius Amatius Annaeus Anneius Annius Antonius Arrius
 		Artorius Asinius Atilius Atius Aurelius Autronius Caecilius Caedicius Caelius Calidius
 		Calpurnius Cassius Claudius Cloelius Cocceius Cominius Cornelius Coruncanius Curiatius
@@ -407,7 +407,7 @@ roman_group = {
 gallic_group = {
 	graphical_culture = westerngfx
 	# For the sake of simplicity, all the names are shared throughout the whole group
-	gallic = { 
+	gallic = {
 		dynasty_names = {
 			Abrincantuus Aeduus Ambivaretus Parisius Seno Agenisatis Agnutis Allobrogis Ambarrus
 			Ambiliatis Ambivarius Anagnutis Andecamulensis Andecavus Antobrox Arvernus Gabalus
@@ -434,7 +434,7 @@ gallic_group = {
 			Gaesatas Garumnus
 		}
 	}
-	celtic_pannonian = { 
+	celtic_pannonian = {
 		dynasty_names = {
 			Anartas Arabias Belgitis Boius Breucus Carnus Catubrinus Cornacas Cotinus Eraviscus
 			Helvetius Tigurinus Tougenus Verbigenus Rauracus Hercunias Latobicus Latobrigus
@@ -445,7 +445,7 @@ gallic_group = {
 			Ocondianus Rigosax Trocnas Gaezatorix Tolistobogius Trocmius
 		}
 	}
-	celtiberian = { 
+	celtiberian = {
 		dynasty_names = {
 			Allotrix Autrigo Astur Cismontanus Amacus Cabruagenigus Gigurrus Lanciensis Lougeus
 			Orniacus Superatius Susarrus Tiburus Zoelas Transmontanus Baeduniensis Brigaentinus
@@ -489,10 +489,10 @@ gallic_group = {
 			Turboletas Uracus Belendus
 		}
 	}
-	
+
 		male_names = {
-			Acco Addedomarus Adiatuanus Adminius Aiorix Ambicatos Andecombogius Aneroestes Ariovistus Arverus Arvirargus Atis Avitus 
-			Bellicianus Bellovesus Boduognatus Boio Boiorix Bolgios Brennus Bricussa Britomaris Brucetius Buite Cailtram Caractacus 
+			Acco Addedomarus Adiatuanus Adminius Aiorix Ambicatos Andecombogius Aneroestes Ariovistus Arverus Arvirargus Atis Avitus
+			Bellicianus Bellovesus Boduognatus Boio Boiorix Bolgios Brennus Bricussa Britomaris Brucetius Buite Cailtram Caractacus
 			Carvilius Cassivellaunus Cattulanus Cartorites Catugnatus Cavarinus Cavarus Celatus Cingetorix Coilus Commios Comux Concolitanus Correus Cottius Crixus
 			Cunobelinus Diviciacus Divico Donnus Drappes Dubnovellaunus Dumnacus Ducarius Duratios Dumnocoveros Dumnorix Elitovius Etitovius Epatticus
 			Galan Galba Guiderius Iacus Iccius Immanuentius Inamarcus Inammicus Indutiomarus Kimarcus Lucterius Lugotorix Lutarius Mallaius Mandubracius Marganus Mascelio
@@ -503,7 +503,7 @@ gallic_group = {
 			Aife Airmed Ancasta Banna Billica Boudica Bricta Cata Cartimandua Chiomara Damona Diseta Gwendolen Litavis Iamcilla Maeve Verica
 			Cingetessa Conna Catia Carssouna Cunovinna Illica Lovernisca Magunna Lucilia Oconea Ria Rosula Senica Sentica Sulicena
 			Vassura Vinoma Vorvena Urca Veloriga Velibia Totia Titocuna Velbutena Seniciana Senila Vrocata Exuperata Deiana Cunolava Cunsa Aucissa
-			Allauna Alatucca Aessicunia Bodicacia Britivenda Catissena Cantisena 
+			Allauna Alatucca Aessicunia Bodicacia Britivenda Catissena Cantisena
 		}
 		dynasty_names = {
 			Ambonus Ambona Ambonii Ambonid
@@ -536,18 +536,18 @@ gallic_group = {
 			Iccuius Iccuia Iccui Iccian
 			Galanus Galana Galanii Galanid
 		}
-	
+
 }
 punic_group = {
 	graphical_culture = westerngfx
 	phoenician = {
 		dynasty_names = {
-			Abbarid Adonibaalid Ahiromid Baalhannid Baalid Barcid Bostarid Chelbesid Eshbaalid Eugorid Hannid Hiramid Magoid Mattanid Metallid 
+			Abbarid Adonibaalid Ahiromid Baalhannid Baalid Barcid Bostarid Chelbesid Eshbaalid Eugorid Hannid Hiramid Magoid Mattanid Metallid
 			Milkiramid Philosirid
 		}
 		male_names = {
-			Abbar Abdmelqart Adonibaal Agbal Ahirom Azimilik Baal Baalhanno Bodashtart Bodmelqart Bomilcar Bostar Boulomenus Carthalo Chelbes 
-			Eshbaal Eugoras Germelqart Hamilcar Hannibal Hanno Hasdrubal Himilco Hiram Mago Maharbal Mattan Metallo Milkherem Milkiram 
+			Abbar Abdmelqart Adonibaal Agbal Ahirom Azimilik Baal Baalhanno Bodashtart Bodmelqart Bomilcar Bostar Boulomenus Carthalo Chelbes
+			Eshbaal Eugoras Germelqart Hamilcar Hannibal Hanno Hasdrubal Himilco Hiram Mago Maharbal Mattan Metallo Milkherem Milkiram
 			Paltibaal Philosir
 		}
 		female_names = {
@@ -555,10 +555,10 @@ punic_group = {
 		}
 	}
 	punic = {
-	
+
 		male_names = {
-			Abbar Abdmelqart Adonibaal Agbal Ahirom Azimilik Baal Baalhanno Bodashtart Bodo Bodmelqart Bomilcar Bostar Boulomenus Carthalo Chelbes 
-			Eshbaal Eugoras Germelqart Hamilcar Hannibal Hanno Hasdrubal Himilco Hiram Mago Maharbal Mattan Metallo Milkherem Milkiram 
+			Abbar Abdmelqart Adonibaal Agbal Ahirom Azimilik Baal Baalhanno Bodashtart Bodo Bodmelqart Bomilcar Bostar Boulomenus Carthalo Chelbes
+			Eshbaal Eugoras Germelqart Hamilcar Hannibal Hanno Hasdrubal Himilco Hiram Mago Maharbal Mattan Metallo Milkherem Milkiram
 			Paltibaal Philosir Boodes Bomical Gisgo Malchus Abdhamon Abibaal Abirami Ahumm Eshmounhilles Eshmouniaton Itthobaal
 			Ummashtart Melqartshama Batnoam Urumilki Yehomilk Yadamilk Baaliaton Barekbaal Gerbaal Gerimilki Khiletzbaal Tabnit Yutpan Zimrida
 			Danel Kanmi Maharbaal Milkpilles Melqartpilles Milkyaton Massinissa Hiempsal Juba
@@ -597,30 +597,30 @@ punic_group = {
 
 	hebrew = {
 		dynasty_names = {
-			Abiatarid Akabonid Amitid Amramid Boazid Dorid Dovid Eiranid Eleazid Heroid Honioid Hillelid Joazid Kahanid Nahumid Nirid Nogahid 
+			Abiatarid Akabonid Amitid Amramid Boazid Dorid Dovid Eiranid Eleazid Heroid Honioid Hillelid Joazid Kahanid Nahumid Nirid Nogahid
 			Oferid Omrid Pinchasid Raananid Shemidid Yairid
 		}
 			male_names = {
-				Abiatar Ahijah Akabon Alon Amit Amram Ananelus Ananias Aretas Aristobulus Azrikam Barak Baruch Belshazar Costobarus Deror Dori 
-			Eiran Eleazar Erotimus Ezra Hadasa Herod Hillel Hyrkanus Jannaeus Joazar Yosef Josiada Kahana Hodaviah Honio Meir Nahum 
-			Nathan Nehemiah Nikanor Nir Obadiah  Ofer Omri Pinchas Phannias Phasael Raanan Malichus Manasseh Nogah Shamgar Shammai 
+				Abiatar Ahijah Akabon Alon Amit Amram Ananelus Ananias Aretas Aristobulus Azrikam Barak Baruch Belshazar Costobarus Deror Dori
+			Eiran Eleazar Erotimus Ezra Hadasa Herod Hillel Hyrkanus Jannaeus Joazar Yosef Josiada Kahana Hodaviah Honio Meir Nahum
+			Nathan Nehemiah Nikanor Nir Obadiah  Ofer Omri Pinchas Phannias Phasael Raanan Malichus Manasseh Nogah Shamgar Shammai
 			Shaul Shemaiah Shemida Silas Simeon Sosa Talmon Tarfon Tovia Yair Yochanan Zadok
 		}
 		female_names = {
-			Adena Adi Adva Ahuva Alexandra Aliza Alte Arieh Asher Basia Boaz Chanah Cypros Danya Dara Dina Doris Dov Dvora Elisheva Esther 
-			Galia Galit Leah Liat Liora Machla Mariamne Marni Maya Meital Menahem Milka Naamah Nahal Nava Nissa Orah Orit Osher Rachel Raisa 
+			Adena Adi Adva Ahuva Alexandra Aliza Alte Arieh Asher Basia Boaz Chanah Cypros Danya Dara Dina Doris Dov Dvora Elisheva Esther
+			Galia Galit Leah Liat Liora Machla Mariamne Marni Maya Meital Menahem Milka Naamah Nahal Nava Nissa Orah Orit Osher Rachel Raisa
 			Rivka Salampsio Sarah Shayna Tamar Tirtza Yael Yocheved
 		}
 	}
 
-		
-	
+
+
 }
 dacian_group = {
 	graphical_culture = easterngfx
 	dacian = {
 		male_names = {
-			Bastiza Bikilis Blegissa Blaesus Blaikisa Brasus Burebista Comosicus Cothelas Cotiso Dablosa Dadas Dadazai Daizus Dapyx Dardiolai Danillo Decibalus Dida Denzibalus Diernais Dotouzi Duras 
+			Bastiza Bikilis Blegissa Blaesus Blaikisa Brasus Burebista Comosicus Cothelas Cotiso Dablosa Dadas Dadazai Daizus Dapyx Dardiolai Danillo Decibalus Dida Denzibalus Diernais Dotouzi Duras
 			Kaigiza Komozoi Moskon Mucapor Mucatra Natoporus Orola Petipor Pierporus Rhemaxos Rholes Rubobostes Rolouzis Rigozus Scoris Tiati Tarbus Tsiru Zinna Vezina Zoutoula
 		}
 		female_names = {
@@ -666,7 +666,7 @@ dacian_group = {
            	}
 
 	}
-	
+
 }
 pre_indo_european_group = {
 	graphical_culture = westerngfx
@@ -683,19 +683,19 @@ pre_indo_european_group = {
 			Lestrigo Licininus Longonensis Macrinus Opinus Subasanus
 			Sumbrus Tarabenus Tibulatus Titianus Venacinus Balar
 			Buduntinus Coracensis Giddilitanus Lucuidonensis Nurritanus
-			Perfuga Turritanus Uddadhaddaritanus Iliensis Iolaes 
+			Perfuga Turritanus Uddadhaddaritanus Iliensis Iolaes
 			Diagesbes Acconitis Aechilenensis Aesaronenses Alcitanus
 			Alticiensis Barbaricinus Barsanis Beronicenssi Bulgar
-			Campanus Caralitanus Carensis Celsitanus Corpicensis 
+			Campanus Caralitanus Carensis Celsitanus Corpicensis
 			Cunusitanus Euthychianus Fifensis Galillensis Hypsitanus
-			Lesitanus Maltamonensis Martensis Maurus Moddol 
+			Lesitanus Maltamonensis Martensis Maurus Moddol
 			Muthonensis Neapolitanus Noritanus Norensis Nurrensis
 			Paratus Patulcensis Patulcius Rubrensis Ruber Rubrinsis
-			Rucensis Salcitanus Sarrapitanus Scapitanus Semilitensis 
-			Siculensis Sossinatis Sulcitanus Uterinus Uthicensis 
+			Rucensis Salcitanus Sarrapitanus Scapitanus Semilitensis
+			Siculensis Sossinatis Sulcitanus Uterinus Uthicensis
 			Othocensis Valentinus Vitensis Numisiarus
 		}
-		
+
 	}
 	etrurian = {
 		primary = ETR
@@ -736,11 +736,11 @@ pre_indo_european_group = {
 		female_names = {
 			Prima Secunda Tertia Quarta Quinta Septa Septima Octava Nona Decima Undecima Duodecima
 		}
-	}	
+	}
 }
 equine_group = {
 	graphical_culture = westerngfx
-	
+
 	equine = {
 		primary = TRL
 		male_names = {
@@ -750,7 +750,7 @@ equine_group = {
 			Star Misty Spirit Lucky Honey Lady Rain Stormy Annie Willow Dreamer Midnight Twilight Buttermilk Silhouette "Lady Wonder" Rainbow Epona Denise Charisma
 		}
 		dynasty_names = {
-			Glitterhoof Sparklemane Moontail Opaleye Silvercoat Goldmuzzle 
+			Glitterhoof Sparklemane Moontail Opaleye Silvercoat Goldmuzzle
 		}
 	}
 }
