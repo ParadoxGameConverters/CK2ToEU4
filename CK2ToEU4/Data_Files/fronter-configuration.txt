@@ -1,5 +1,6 @@
 ﻿name = CK2ToEU4
 converterFolder = CK2ToEU4
+backendExePath = CK2ToEU4Converter
 displayName = CK2DISPLAYNAME
 sourceGame = CK2GAME
 targetGame = EU4GAME
