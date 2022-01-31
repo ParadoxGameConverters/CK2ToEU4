@@ -53,20 +53,32 @@ void mappers::LocalizationMapper::scrapeStream(std::istream& theStream)
 			continue;
 
 		auto sepLoc = line.find_first_of(';');
+		if (sepLoc == std::string::npos)
+			continue;
 		auto key = line.substr(0, sepLoc);
 		auto newLine = line.substr(sepLoc + 1, line.length());
 		sepLoc = newLine.find_first_of(';');
+		if (sepLoc == std::string::npos)
+			continue;
 		auto english = newLine.substr(0, sepLoc);
 		newLine = newLine.substr(sepLoc + 1, newLine.length());
 		sepLoc = newLine.find_first_of(';');
+		if (sepLoc == std::string::npos)
+			continue;
 		auto french = newLine.substr(0, sepLoc);
 		newLine = newLine.substr(sepLoc + 1, newLine.length());
 		sepLoc = newLine.find_first_of(';');
+		if (sepLoc == std::string::npos)
+			continue;
 		auto german = newLine.substr(0, sepLoc);
 		newLine = newLine.substr(sepLoc + 1, newLine.length());
 		sepLoc = newLine.find_first_of(';');
+		if (sepLoc == std::string::npos)
+			continue;
 		newLine = newLine.substr(sepLoc + 1, newLine.length());
 		sepLoc = newLine.find_first_of(';');
+		if (sepLoc == std::string::npos)
+			continue;
 		auto spanish = newLine.substr(0, sepLoc);
 
 		LocBlock newBlock;
@@ -74,7 +86,7 @@ void mappers::LocalizationMapper::scrapeStream(std::istream& theStream)
 		newBlock.french = french;
 		newBlock.german = german;
 		newBlock.spanish = spanish;
-		if (localizations.count(key))
+		if (localizations.contains(key))
 			localizations[key] = newBlock;
 		else
 			localizations.insert(std::pair(key, newBlock));
