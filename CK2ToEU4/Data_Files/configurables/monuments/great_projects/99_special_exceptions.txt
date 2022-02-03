@@ -13,8 +13,6 @@ dutch_polders = {
 	type = monument
 
 	build_trigger = {
-		#culture = dutch
-		province_is_or_accepts_culture = yes
 	}
 
 	on_built = {
@@ -24,13 +22,9 @@ dutch_polders = {
 	}
 
 	can_use_modifiers_trigger = {
-		#culture = dutch
-		province_is_or_accepts_culture = yes
 	}
 
 	can_upgrade_trigger = {
-		#culture = dutch
-		province_is_or_accepts_culture = yes
 	}
 
 	keep_trigger = {
@@ -68,6 +62,7 @@ dutch_polders = {
 		}
 		country_modifiers = {
 			global_trade_goods_size_modifier = 0.05
+			burghers_loyalty_modifier = 0.05
 		}
 		on_upgraded = {
 		}
@@ -88,7 +83,7 @@ dutch_polders = {
 		}
 		country_modifiers = {
 			global_trade_goods_size_modifier = 0.05
-			burghers_loyalty_modifier = 0.05
+			burghers_loyalty_modifier = 0.1
 		}
 		on_upgraded = {
 		}
@@ -109,7 +104,7 @@ dutch_polders = {
 		}
 		country_modifiers = {
 			global_trade_goods_size_modifier = 0.1
-			burghers_loyalty_modifier = 0.1
+			burghers_loyalty_modifier = 0.15
 		}
 		on_upgraded = {
 		}
@@ -128,8 +123,9 @@ spiral_minaret_samarra = {
 	type = monument
 
 	build_trigger = {
-		religion_group = muslim
-		has_owner_religion = yes
+		province_is_or_accepts_religion_group = {
+			religion_group = muslim
+		}
 	}
 
 	on_built = {
@@ -139,13 +135,15 @@ spiral_minaret_samarra = {
 	}
 
 	can_use_modifiers_trigger = {
-		religion_group = muslim
-		has_owner_religion = yes
+		province_is_or_accepts_religion_group = {
+			religion_group = muslim
+		}
 	}
 
 	can_upgrade_trigger = {
-		religion_group = muslim
-		has_owner_religion = yes
+		province_is_or_accepts_religion_group = {
+			religion_group = muslim
+		}
 	}
 
 	keep_trigger = {
@@ -222,7 +220,7 @@ spiral_minaret_samarra = {
 		country_modifiers = {
 			global_missionary_strength = 0.03
 			prestige = 1
-			church_loyalty_modifier = 0.2
+			church_loyalty_modifier = 0.15
 		}
 		on_upgraded = {
 		}

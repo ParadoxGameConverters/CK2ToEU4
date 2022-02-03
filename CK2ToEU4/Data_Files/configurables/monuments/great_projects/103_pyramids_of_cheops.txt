@@ -30,19 +30,16 @@ pyramid_of_cheops = {
 	#can we build it?
 	build_trigger = {
 		OR = {
-			AND = {
+			province_is_or_accepts_religion_group = {
 				religion_group = pagan
-				has_owner_religion = yes
 			}
 			AND = {
-				OR = {
-					culture_group = turko_semitic
-					culture = coptic
-				}
-				OR = {
-					has_owner_culture = yes
-					has_owner_accepted_culture = yes
-				}
+				culture_group = turko_semitic
+				province_is_or_accepts_culture = yes
+			}
+			AND = {
+				culture_group = coptic
+				province_is_or_accepts_culture = yes
 			}
 		}
 	}
@@ -60,19 +57,16 @@ pyramid_of_cheops = {
 	#can our country use it?
 	can_use_modifiers_trigger = {
 		OR = {
-			AND = {
+			province_is_or_accepts_religion_group = {
 				religion_group = pagan
-				has_owner_religion = yes
 			}
 			AND = {
-				OR = {
-					culture_group = turko_semitic
-					culture = coptic
-				}
-				OR = {
-					has_owner_culture = yes
-					has_owner_accepted_culture = yes
-				}
+				culture_group = turko_semitic
+				province_is_or_accepts_culture = yes
+			}
+			AND = {
+				culture_group = coptic
+				province_is_or_accepts_culture = yes
 			}
 		}
 	}
@@ -80,19 +74,16 @@ pyramid_of_cheops = {
 	#can our country upgrade it?
 	can_upgrade_trigger = {
 		OR = {
-			AND = {
+			province_is_or_accepts_religion_group = {
 				religion_group = pagan
-				has_owner_religion = yes
 			}
 			AND = {
-				OR = {
-					culture_group = turko_semitic
-					culture = coptic
-				}
-				OR = {
-					has_owner_culture = yes
-					has_owner_accepted_culture = yes
-				}
+				culture_group = turko_semitic
+				province_is_or_accepts_culture = yes
+			}
+			AND = {
+				culture_group = coptic
+				province_is_or_accepts_culture = yes
 			}
 		}
 	}
