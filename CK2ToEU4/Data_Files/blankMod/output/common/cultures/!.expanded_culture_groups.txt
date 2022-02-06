@@ -178,6 +178,41 @@ west_slavic = {
 	}
 }
 carpathian = {
+	aromanian = {
+		#primary = WAL
+		dynasty_names = {
+			"Basarab" "Danesti" "Draculesti"
+			Callimachi Ghica Cantacuzino Cantemiresti Racovita Caradja Sturdza 
+			Conachi Soutzos Golescu Vacarescu Mavrocordatos Craiovesti Hâjdau
+			Kogalniceanu Movilesti
+		}
+		male_names = {
+			Alexandru Radu Vlad Constantin Mihail Mircea George Grigore Mihnea Nicolae Besarab Vladislav Mattia 
+			Radu Ilias Scarlat Stefan Dan Alexandru Ilias Gabriel Ioan George Leon Moise Neagoie Besarab 
+			Leon Radu Mihnea Serban Simeon Teodosiu Vintila Vladut Milos Corneliu Flaviu Iuliu Octavian Sergiu 
+			Valeriu Petru Petrascu Radu 
+			Adrian Alexandru Alexander Anghel Angel Aron Bajan Balc Barbat Basarab Bogdan Bogdan Carol 
+			Ciprian Ciubar Claudiu
+			Corneliu Cornelius Costin Damjan Dan Dragos Dumitru Emerik Florin Franjo Francis Gavril 
+			Gheorghe George Grigore Gregory Iacob Gabriel
+			Iancu Ieremia Ilie Ioan John Iorghu Iosif Iuga Janos John Ladislau Latcu Laurentiu Laurence 
+			Litovoi Lucian Lucius Marin Marius
+			Mihai Milos Milosz Mircea Moise Nicolaie Petre Pirvu Radovan Radu Roman Sas Seneslav 
+			Sergiu Simion Simon
+			Stefan Stephen Stelian Teodor Theodore Tepes Tibor Tihomir Timotei Tudor Thierry Valentin 
+			Valentin Valeriu Vasile Basil Veaceslav
+			Victor Vilhelm William Vintila Vlad
+		}
+		female_names = {
+			Adelina Adriana Afina Alexandra Alexia Ana Anna Anastasia Anastasia Angela Arina Christina 
+			Christina Clara Clara Dana Ecatarina Catherine
+			Elena Helen Elisabeta Elisabeth Emilia Emily Eufroysina Euphrosyne Felicia Floarea Flora 
+			Ioana Ionela Irina Iulia Juliana Maria Maria Monica Iacoba
+			Natalia Olimpia Paraschiva Petra Roxana Ruxandra Smaranda Sophia Sophia Stana Stefana 
+			Stefania Stephania Teodora Rahela Flavia Cosmina
+			Tereza Teresa Vasilica Violeta Yolanda Voica Zina
+		}
+	}
 }
 east_slavic = {
 	ilmenian = {
@@ -236,6 +271,26 @@ baltic = {
 		Jucys Krupavicius Landsbergis Lozoraitis Merkys Paksas Paleckis Paulauskas Petrauskas Piskarkas
 		Požela Radvila Šabaniauskas Schatz Simonavicius Širvydas Šleževicius Semtona Snieckus Stauaitis
 		Straižys Stulginkis Švedas Terleckas Urbšys Vagnorius Valeška Voldemaras Žemaitis Zuokas }
+	}
+	aestian = {
+		primary = LIT
+		male_names = {
+			Algelgas Algibartas Algibutas Algigailus Algigirdas Algimantas Alginoras Algitawtas Algiwaldas Algiwiltas Daubartas Daubutas Daugailus Daugirdas Daulgas Daumantas Daunoras Dautawtas
+			Dauwaldas Dauwiltas Genbartas Genbutas Genelgas Gengailus Gengirdas Genmantas Genoras Gentawtas Genwaldas Genwiltas Girdbartas Girdbutas Girdmantas Girdnoras Girdwaldas Girdwiltas
+			Girtawtas Girdelgas Girdgailus Giwenbartas Giwenbutas Giwenelgas Giwengailus Giwengirdas Giwenmantas Giwenoras Giwentawtas Giwenwaldas Giwenwiltas Ljaubartas Ljaubutas Ljauelgas
+			Ljaugailus Ljaugirdas Ljaumantas Ljaunoras Ljautawtas Ljauwaldas Ljauwiltas Mantawtas Mantbartas Mantbutas Mantelgas Mantgailus Mantgirdas Mantnoras Mantwaldas Mantwiltas Minbartas
+			Minbutas Minelgas Mingailus Mingurdas Minmantas Minoras Mintawtas Minwaldas Minwiltas Skirbartas Skirbutas Skirelgas Skirgailus Skirgurdas Skirmantas Skirnoras Skirtawtas Skirwaldas
+			Skirwiltas Trijwaldas Waisbartas Waisbutas Waiselgas Waisgailus Waisgurdas Waismantas Waisnoras Waistawtas Waiswaldas Waiswiltas
+		}
+		female_names = {
+			Audra Austra Daina Dolja Gubja Laima Migla Rasa Saule Ugne
+		}
+		dynasty_names = { 
+			"Algelgeitis" "Algibarteitis" "Algimanteitis" "Alginoreitis" "Daumanteitis" "Dautawteitis" "Dauwaldeitis" "Dauwilteitis" "Genbuteitis" "Genmanteitis"
+			"Genmanteitis" "Genwilteitis" "Girdelgeitis" "Girdwilteitis" "Girtawteitis" "Giwenbuteitis" "Ljaubarteitis" "Ljauelgeitis" "Ljaugaileitis" "Ljaugirdeitis"
+			"Ljautawteitis" "Mantawteitis" "Mantwilteitis" "Minbarteitis" "Minbuteitis" "Minelgeitis" "Mingaileitis" "Minoreitis" "Skirbuteitis" "Skirmanteitis"
+			"Skirwilteitis" "Skirwaldeitis" "Trijwaldeitis" "Waisbarteitis" "Waiswaldeitis" "Waiswilteitis"
+			 }
 	}
 }
 byzantine = {
