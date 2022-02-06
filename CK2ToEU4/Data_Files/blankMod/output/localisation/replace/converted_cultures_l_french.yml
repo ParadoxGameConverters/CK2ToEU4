@@ -132,6 +132,12 @@
  gallic_group: "Continental Celtic"
  dacian_group: "Dace"
  pre_indo_european_group: "Pre-Indo-European"
+ cambrian: "Cambrian"
+ aromanian: "Aromanian"
+ romano_african: "Eifrican"
+ aestian: "Estyenne"
+ northern_romance: "Northern Romance"
+ afro_romance_group: "Afro-Romance"
 
  #Norse Culture Breaks
  elsinorian:0 "Elsinorian"
