@@ -728,6 +728,7 @@ jokhang_temple = {
 		country_modifiers = {
 			religious_unity = 0.05
 			missionary_maintenance_cost = -0.1
+			yearly_karma_decay = 0.01
 		}
 
 		#what effects happen when this tier is achieved
@@ -759,6 +760,7 @@ jokhang_temple = {
 			religious_unity = 0.10
 			global_missionary_strength = 0.01
 			missionary_maintenance_cost = -0.2
+			yearly_karma_decay = 0.025
 		}
 
 		#what effects happen when this tier is achieved
@@ -790,6 +792,7 @@ jokhang_temple = {
 			religious_unity = 0.25
 			global_missionary_strength = 0.02
 			missionary_maintenance_cost = -0.3
+			yearly_karma_decay = 0.05
 		}
 
 		#what effects happen when this tier is achieved
@@ -1505,6 +1508,9 @@ holy_city_jerusalem = {
 		country_modifiers = {
 			prestige = 0.1
 			global_heretic_missionary_strength = 0.01
+			monthly_fervor_increase = 0.25
+			church_power_modifier = 0.05
+			papal_influence = 0.25
 		}
 
 		#what effects happen when this tier is achieved
@@ -1536,6 +1542,9 @@ holy_city_jerusalem = {
 		country_modifiers = {
 			prestige = 0.25
 			global_heretic_missionary_strength = 0.02
+			monthly_fervor_increase = 0.5
+			church_power_modifier = 0.1
+			papal_influence = 0.5
 		}
 
 		#what effects happen when this tier is achieved
@@ -1568,6 +1577,9 @@ holy_city_jerusalem = {
 			prestige = 0.5
 			global_heretic_missionary_strength = 0.03
 			missionaries = 1
+			monthly_fervor_increase = 1
+			church_power_modifier = 0.15
+			papal_influence = 1
 		}
 
 		#what effects happen when this tier is achieved

@@ -2009,6 +2009,7 @@ erdene_zuu = {
 		country_modifiers = {
 			religious_unity = 0.1
 			church_loyalty_modifier = 0.05
+			yearly_karma_decay = 0.01
 		}
 		on_upgraded = {
 		}
@@ -2030,6 +2031,7 @@ erdene_zuu = {
 			horde_unity = 0.5
 			religious_unity = 0.2
 			church_loyalty_modifier = 0.1
+			yearly_karma_decay = 0.025
 		}
 		on_upgraded = {
 		}
@@ -2051,6 +2053,7 @@ erdene_zuu = {
 			horde_unity = 1
 			religious_unity = 0.3
 			church_loyalty_modifier = 0.15
+			yearly_karma_decay = 0.05
 		}
 		on_upgraded = {
 		}
@@ -2565,7 +2568,7 @@ winter_palace = {
 			factor = 1000
 		}
 		province_modifiers = {
-			institution_growth = 0.25
+			institution_growth = 3
 		}
 		area_modifier = {
 		}
@@ -2584,7 +2587,7 @@ winter_palace = {
 			factor = 2500
 		}
 		province_modifiers = {
-			institution_growth = 0.5
+			institution_growth = 6
 		}
 		area_modifier = {
 			local_institution_spread = 0.1
@@ -2606,7 +2609,7 @@ winter_palace = {
 			factor = 5000
 		}
 		province_modifiers = {
-			institution_growth = 1
+			institution_growth = 12
 		}
 		area_modifier = {
 			local_institution_spread = 0.25

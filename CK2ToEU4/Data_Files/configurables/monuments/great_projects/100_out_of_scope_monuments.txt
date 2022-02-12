@@ -4938,6 +4938,9 @@ gyeongbok_palace = {
 			culture = korean
 		}
 		province_is_or_accepts_culture = yes
+		province_is_or_accepts_religion = {
+			religion = confucianism
+		}	
 	}
 
 	on_built = {
@@ -4952,6 +4955,9 @@ gyeongbok_palace = {
 			culture = korean
 		}
 		province_is_or_accepts_culture = yes
+		province_is_or_accepts_religion = {
+			religion = confucianism
+		}	
 	}
 
 	can_upgrade_trigger = {
@@ -4960,6 +4966,9 @@ gyeongbok_palace = {
 			culture = korean
 		}
 		province_is_or_accepts_culture = yes
+		province_is_or_accepts_religion = {
+			religion = confucianism
+		}	
 	}
 
 	keep_trigger = {
