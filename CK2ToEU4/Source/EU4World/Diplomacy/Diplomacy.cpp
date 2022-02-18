@@ -26,11 +26,11 @@ void EU4::Diplomacy::registerKeys()
 void EU4::Diplomacy::importAgreements(const std::map<std::string, std::shared_ptr<Country>>& countries, const CK2::Diplomacy& diplomacy, date conversionDate)
 {
 	Log(LogLevel::Info) << "-> Explaining Diplomacy Like It's Five";
-	importVassals(countries);
+	importVassals(countries, conversionDate);
 	importTributaries(countries, diplomacy, conversionDate);
 }
 
-void EU4::Diplomacy::importVassals(const std::map<std::string, std::shared_ptr<Country>>& countries)
+void EU4::Diplomacy::importVassals(const std::map<std::string, std::shared_ptr<Country>>& countries, const date& conversionDate)
 {
 	// Vassalages are our own creation os we're pinging our countries alone.
 	for (const auto& country: countries)
@@ -45,7 +45,7 @@ void EU4::Diplomacy::importVassals(const std::map<std::string, std::shared_ptr<C
 			if (targetTag.second->getProvinces().empty())
 				continue;
 
-			auto newAgreement = std::make_shared<Agreement>(country.first, targetTag.first, "vassal", country.second->getConversionDate());
+			auto newAgreement = std::make_shared<Agreement>(country.first, targetTag.first, "vassal", conversionDate);
 			agreements.push_back(newAgreement);
 		}
 	}
