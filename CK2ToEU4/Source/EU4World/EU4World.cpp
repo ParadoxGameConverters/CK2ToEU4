@@ -109,7 +109,10 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 	Log(LogLevel::Progress) << "67 %";
 
 	// Vassalages and tributaries were also set in ck2 world but we have to transcribe those into EU4 agreements.
-	diplomacy.importAgreements(countries, sourceWorld.getDiplomacy(), sourceWorld.getConversionDate());
+	auto actualConversionDate = sourceWorld.getConversionDate();
+	if (theConfiguration.getStartDateOption() == Configuration::STARTDATE::EU)
+		actualConversionDate = date(1444, 11, 11);
+	diplomacy.importAgreements(countries, sourceWorld.getDiplomacy(), actualConversionDate);
 	Log(LogLevel::Progress) << "68 %";
 
 	// We're distributing permanent claims according to dejure distribution.
@@ -129,7 +132,7 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 	Log(LogLevel::Progress) << "71 %";
 
 	// China
-	adjustChina(sourceWorld);
+	adjustChina(sourceWorld, theConfiguration.getStartDateOption());
 	Log(LogLevel::Progress) << "72 %";
 
 	// Filter dead relationships
@@ -638,7 +641,7 @@ void EU4::World::africaQuestion()
 	}
 }
 
-void EU4::World::adjustChina(const CK2::World& sourceWorld)
+void EU4::World::adjustChina(const CK2::World& sourceWorld, const Configuration::STARTDATE& startDateOption)
 {
 	// Super Mongolia?
 	if (countries.count("MGE") && !countries.find("MGE")->second->getProvinces().empty() && countries.count("KHA"))
@@ -794,7 +797,10 @@ void EU4::World::adjustChina(const CK2::World& sourceWorld)
 		else
 			Log(LogLevel::Warning) << "Celestial emperor could not determine base culture!";
 		emperor.isSet = true;
-		ourChina->setConversionDate(sourceWorld.getConversionDate());
+		auto actualConversionDate = sourceWorld.getConversionDate();
+		if (startDateOption == Configuration::STARTDATE::EU)
+			actualConversionDate = date(1444, 11, 11);
+		ourChina->setConversionDate(actualConversionDate);
 		ourChina->clearHistoryLessons();
 		if (!emperor.culture.empty())
 			ourChina->addAcceptedCulture(emperor.culture);

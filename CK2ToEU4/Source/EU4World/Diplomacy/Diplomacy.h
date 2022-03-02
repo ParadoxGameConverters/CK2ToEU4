@@ -19,7 +19,7 @@ class Diplomacy: commonItems::parser
 
 	void addAgreement(std::shared_ptr<Agreement> agreement) { agreements.push_back(std::move(agreement)); }
 	void importAgreements(const std::map<std::string, std::shared_ptr<Country>>& countries, const CK2::Diplomacy& diplomacy, date conversionDate);
-	void importVassals(const std::map<std::string, std::shared_ptr<Country>>& countries);
+	void importVassals(const std::map<std::string, std::shared_ptr<Country>>& countries, const date& conversionDate);
 	void importTributaries(const std::map<std::string, std::shared_ptr<Country>>& countries, const CK2::Diplomacy& diplomacy, date conversionDate);
 	void updateTagsInAgreements(const std::string& oldTag, const std::string& newTag);
 	void deleteAgreementsWithTag(const std::string& deadTag);

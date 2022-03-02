@@ -72,7 +72,7 @@ class World
 	void alterProvinceDevelopment();
 	void distributeForts();
 	void verifyCapitals();
-	void adjustChina(const CK2::World& sourceWorld);
+	void adjustChina(const CK2::World& sourceWorld, const Configuration::STARTDATE& startDateOption);
 	void fixTengri();
 	void siberianQuestion(const Configuration& theConfiguration);
 	void distributeClaims(const Configuration& theConfiguration);
