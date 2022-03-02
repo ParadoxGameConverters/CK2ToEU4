@@ -1,2 +1,0 @@
-Current release: 1.0 Isauros - for CK2[3.3] and EU4[1.33]
-https://github.com/ParadoxGameConverters/CK2ToEU4/releases/download/1.0I/CK2ToEU4-1.0Isauros.zip
