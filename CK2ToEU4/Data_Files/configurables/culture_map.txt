@@ -131,6 +131,12 @@ link = { eu4 = tuscan ck2 = tuscan tech = western gfx = westerngfx } #Fallback
 link = { eu4 = venetian ck2 = venetian tech = western gfx = westerngfx } #Fallback
 link = { eu4 = maltese ck2 = sicilian_arabic tech = western gfx = westerngfx } #Fallback
 
+# I:R to CK2 Romance
+
+link = { eu4 = cambrian ck2 = cambrian tech = western gfx = westerngfx }
+link = { eu4 = aromanian ck2 = aromanian tech = eastern gfx = easterngfx }
+link = { eu4 = romano_african ck2 = romano_african tech = western gfx = westerngfx }
+
 # Old Italic
 
 link = { eu4 = sabellian ck2 = sabellian tech = western gfx = westerngfx }
@@ -247,6 +253,7 @@ link = { eu4 = meshchera ck2 = mari ck2 = meshchera tech = eastern gfx = inuitgf
 link = { eu4 = latvian ck2 = lettigallish tech = eastern gfx = easterngfx }
 link = { eu4 = lithuanian ck2 = lithuanian tech = eastern gfx = easterngfx }
 link = { eu4 = old_prussian ck2 = prussian tech = eastern gfx = easterngfx }
+link = { eu4 = aestian ck2 = aestian tech = eastern gfx = easterngfx }
 
 # Tatar
 link = { eu4 = astrakhani ck2 = mongol tech = nomad_group gfx = muslimgfx region = astrakhan_area region = lower_don_area region = lower_yik_area region = saratov_area }

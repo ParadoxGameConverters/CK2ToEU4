@@ -45,17 +45,6 @@ requiredFolder = {
 	searchPath = "Paradox Interactive\Europa Universalis IV\mod"
 }
 requiredFile = {
-	name = converterExe
-	displayName = EU4FILE
-	tooltip = EU4FILETIP
-	mandatory = true
-	outputtable = false
-	searchPathType = converterFolder
-	searchPath = "CK2ToEU4"
-	allowedExtension = "*.exe"
-	fileName = "CK2ToEU4Converter.exe"
-}
-requiredFile = {
 	name = SaveGame
 	displayName = CK2SAVE
 	tooltip = CK2SAVETIP
