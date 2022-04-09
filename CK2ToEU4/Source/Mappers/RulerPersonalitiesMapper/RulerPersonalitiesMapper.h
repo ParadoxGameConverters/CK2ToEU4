@@ -15,8 +15,9 @@ namespace mappers
 class RulerPersonalitiesMapper: commonItems::parser
 {
   public:
-	RulerPersonalitiesMapper();
-	explicit RulerPersonalitiesMapper(std::istream& theStream);
+	RulerPersonalitiesMapper() = default;
+	void initRulerPersonalitiesMapper(std::istream& theStream);
+	void initRulerPersonalitiesMapper(const std::string& path);
 
 	[[nodiscard]] std::set<std::string> evaluatePersonalities(const std::pair<int, std::shared_ptr<CK2::Character>>& theCharacter) const;
 	[[nodiscard]] const auto& getMappings() const { return theMappings; } // used for testing

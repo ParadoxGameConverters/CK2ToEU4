@@ -129,6 +129,12 @@ CK2::World::World(const Configuration& theConfiguration, const commonItems::Conv
 	Log(LogLevel::Progress) << "6 %";
 
 	// We must load initializers before the savegame.
+	// Do we have an override mod?
+	std::string overrideModPath;
+	for (const auto& mod: mods)
+		if (mod.name == "CleanSlate")
+			overrideModPath = "CleanSlate";
+	reformedReligionMapper.initReformedReligionMapper(overrideModPath);
 	loadDynasties(theConfiguration);
 	Log(LogLevel::Progress) << "7 %";
 

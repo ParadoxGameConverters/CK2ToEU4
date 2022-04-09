@@ -9,8 +9,9 @@ namespace mappers
 class GovernmentsMapper: commonItems::parser
 {
   public:
-	GovernmentsMapper();
-	explicit GovernmentsMapper(std::istream& theStream);
+	GovernmentsMapper() = default;
+	void initGovernmentsMapper(const std::string& path);
+	void initGovernmentsMapper(std::istream& theStream);
 
 	[[nodiscard]] std::optional<std::pair<std::string, std::string>> matchGovernment(const std::string& ck2Government, const std::string& ck2Title) const;
 

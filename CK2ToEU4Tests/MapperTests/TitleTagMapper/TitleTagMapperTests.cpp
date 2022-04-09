@@ -6,7 +6,8 @@ TEST(Mappers_TitleTagMapperTests, emptyMappingsDefaultToEmpty)
 {
 	std::stringstream input;
 
-	const mappers::TitleTagMapper theMapper(input);
+	mappers::TitleTagMapper theMapper;
+	theMapper.initTitleTagMapper(input);
 
 	ASSERT_TRUE(theMapper.getMappings().empty());
 	ASSERT_TRUE(theMapper.getRegisteredTitleTags().empty());
@@ -18,7 +19,8 @@ TEST(Mappers_TitleTagMapperTests, canLoadTitleTagLinks)
 	input << "link = { eu4 = TST ck2 = c_test capitals = { 1 2 } }\n";
 	input << "link = { eu4 = TST2 ck2 = c_test2 capitals = { 3 4 } }";
 
-	const mappers::TitleTagMapper theMapper(input);
+	mappers::TitleTagMapper theMapper;
+	theMapper.initTitleTagMapper(input);
 
 	ASSERT_EQ(theMapper.getMappings().size(), 2);
 }
@@ -29,7 +31,8 @@ TEST(Mappers_TitleTagMapperTests, canMatchTagsOnTitles)
 	input << "link = { eu4 = TST ck2 = c_test capitals = { 1 2 } }\n";
 	input << "link = { eu4 = TST2 ck2 = c_test2 capitals = { 3 4 } }";
 
-	mappers::TitleTagMapper theMapper(input);
+	mappers::TitleTagMapper theMapper;
+	theMapper.initTitleTagMapper(input);
 	const auto& match = theMapper.getTagForTitle("c_test2");
 
 	ASSERT_EQ(*match, "TST2");
@@ -41,7 +44,8 @@ TEST(Mappers_TitleTagMapperTests, canMatchTagsOnTitlesAndCapitals)
 	input << "link = { eu4 = TST ck2 = c_test capitals = { 1 2 } }\n";
 	input << "link = { eu4 = TST2 ck2 = c_test2 capitals = { 3 4 } }";
 
-	mappers::TitleTagMapper theMapper(input);
+	mappers::TitleTagMapper theMapper;
+	theMapper.initTitleTagMapper(input);
 	const auto& match = theMapper.getTagForTitle("c_test2", 3);
 
 	ASSERT_EQ(*match, "TST2");
@@ -53,7 +57,8 @@ TEST(Mappers_TitleTagMapperTests, canMatchTagsOnTitlesAndBaseTitles)
 	input << "link = { eu4 = TST ck2 = c_test capitals = { 1 2 } }\n";
 	input << "link = { eu4 = TST2 ck2 = c_test2 capitals = { 3 4 } }";
 
-	mappers::TitleTagMapper theMapper(input);
+	mappers::TitleTagMapper theMapper;
+	theMapper.initTitleTagMapper(input);
 	const auto& match = theMapper.getTagForTitle("c_dyn_34562", "c_test2", 0);
 
 	ASSERT_EQ(*match, "TST2");
@@ -65,7 +70,8 @@ TEST(Mappers_TitleTagMapperTests, canGenerateNewTagsForMismatches)
 	input << "link = { eu4 = TST ck2 = c_test capitals = { 1 2 } }\n";
 	input << "link = { eu4 = TST2 ck2 = c_test2 capitals = { 3 4 } }";
 
-	mappers::TitleTagMapper theMapper(input);
+	mappers::TitleTagMapper theMapper;
+	theMapper.initTitleTagMapper(input);
 	const auto& match = theMapper.getTagForTitle("c_dyn_34562", 0);
 	const auto& match2 = theMapper.getTagForTitle("c_dyn_345622", 0);
 	const auto& match3 = theMapper.getTagForTitle("c_dyn_3456233", 0);
@@ -81,7 +87,8 @@ TEST(Mappers_TitleTagMapperTests, canRegisterAllAccessedTitles)
 	input << "link = { eu4 = TST ck2 = c_test capitals = { 1 2 } }\n";
 	input << "link = { eu4 = TST2 ck2 = c_test2 capitals = { 3 4 } }";
 
-	mappers::TitleTagMapper theMapper(input);
+	mappers::TitleTagMapper theMapper;
+	theMapper.initTitleTagMapper(input);
 	const auto& match = theMapper.getTagForTitle("c_dyn_34562");
 	const auto& match2 = theMapper.getTagForTitle("c_dyn_345622");
 	const auto& match3 = theMapper.getTagForTitle("c_dyn_11", 2);
@@ -105,7 +112,8 @@ TEST(Mappers_TitleTagMapperTests, canMatchChineseTagsOnTitles)
 	input << "link = { eu4 = TST ck2 = yuan_china }\n";
 	input << "link = { eu4 = TST2 ck2 = han_china }";
 
-	mappers::TitleTagMapper theMapper(dummyInput, input);
+	mappers::TitleTagMapper theMapper;
+	theMapper.initTitleTagMapper(dummyInput, input);
 	const auto& match = theMapper.getChinaForTitle("han_china");
 
 	ASSERT_EQ(*match, "TST2");
@@ -118,7 +126,8 @@ TEST(Mappers_TitleTagMapperTests, failOnChinaMismatchWithoutFallback)
 	input << "link = { eu4 = TST ck2 = yuan_china }\n";
 	input << "link = { eu4 = TST2 ck2 = han_china }";
 
-	mappers::TitleTagMapper theMapper(dummyInput, input);
+	mappers::TitleTagMapper theMapper;
+	theMapper.initTitleTagMapper(dummyInput, input);
 	const auto& match = theMapper.getChinaForTitle("tin_china");
 
 	ASSERT_FALSE(match);
@@ -131,7 +140,8 @@ TEST(Mappers_TitleTagMapperTests, matchOnChinaMismatchThroughFallback)
 	input << "link = { eu4 = TST ck2 = yuan_china }\n";
 	input << "link = { eu4 = TST2 ck2 = han_china fallback = yes }";
 
-	mappers::TitleTagMapper theMapper(dummyInput, input);
+	mappers::TitleTagMapper theMapper;
+	theMapper.initTitleTagMapper(dummyInput, input);
 	const auto& match = theMapper.getChinaForTitle("tin_china");
 
 	ASSERT_EQ(*match, "TST2");

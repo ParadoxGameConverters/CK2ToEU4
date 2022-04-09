@@ -11,8 +11,9 @@ namespace mappers
 class ReligionMapper: commonItems::parser
 {
   public:
-	ReligionMapper();
-	explicit ReligionMapper(std::istream& theStream);
+	ReligionMapper() = default;
+	void initReligionMapper(std::istream& theStream);
+	void initReligionMapper(const std::string& path);
 
 	[[nodiscard]] std::optional<std::string> getEu4ReligionForCk2Religion(const std::string& ck2Religion) const;
 

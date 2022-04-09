@@ -3,18 +3,24 @@
 #include "Log.h"
 #include "ParserHelpers.h"
 
-mappers::CultureMapper::CultureMapper(std::istream& theStream)
+void mappers::CultureMapper::initCultureMapper(std::istream& theStream)
 {
 	registerKeys();
 	parseStream(theStream);
 	clearRegisteredKeywords();
 }
 
-mappers::CultureMapper::CultureMapper()
+void mappers::CultureMapper::initCultureMapper(const std::string& path)
 {
 	Log(LogLevel::Info) << "-> Parsing culture mappings.";
 	registerKeys();
-	parseFile("configurables/culture_map.txt");
+	std::string dirPath = "configurables";
+	if (!path.empty())
+	{
+		Log(LogLevel::Info) << "Culture Mapper override: " << path;
+		dirPath += "/" + path;
+	}
+	parseFile(dirPath + "/culture_map.txt");
 	clearRegisteredKeywords();
 	Log(LogLevel::Info) << "<> Loaded " << cultureMapRules.size() << " cultural links.";
 }
