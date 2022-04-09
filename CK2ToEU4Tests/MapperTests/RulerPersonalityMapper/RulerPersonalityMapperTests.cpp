@@ -6,7 +6,8 @@
 TEST(Mappers_RulerPersonalitiesMapperTests, mappingsDefaultToBlank)
 {
 	std::stringstream input;
-	const mappers::RulerPersonalitiesMapper mapper(input);
+	mappers::RulerPersonalitiesMapper mapper;
+	mapper.initRulerPersonalitiesMapper(input);
 
 	ASSERT_TRUE(mapper.getMappings().empty());
 }
@@ -17,7 +18,8 @@ TEST(Mappers_RulerPersonalitiesMapperTests, mappingsCanBeLoaded)
 	input << "personality = {}\n";
 	input << "personality2 = {}\n";
 	input << "personality3 = {}\n";
-	const mappers::RulerPersonalitiesMapper mapper(input);
+	mappers::RulerPersonalitiesMapper mapper;
+	mapper.initRulerPersonalitiesMapper(input);
 
 	ASSERT_FALSE(mapper.getMappings().empty());
 	ASSERT_EQ(mapper.getMappings().find("personality")->first, "personality");
@@ -31,7 +33,8 @@ TEST(Mappers_RulerPersonalitiesMapperTests, evaluationReturnsAlphabeticallyLastT
 	input << "z-personality = {}\n";
 	input << "a-personality2 = {}\n";
 	input << "p-personality3 = {}\n";
-	const mappers::RulerPersonalitiesMapper mapper(input);
+	mappers::RulerPersonalitiesMapper mapper;
+	mapper.initRulerPersonalitiesMapper(input);
 
 	std::stringstream charinput;
 	auto newCharacter = std::make_shared<CK2::Character>(charinput, 1);
@@ -48,7 +51,8 @@ TEST(Mappers_RulerPersonalitiesMapperTests, evaluationReturnsAlphabeticallyLastT
 TEST(Mappers_RulerPersonalitiesMapperTests, evaluationReturnsEmptyForNoRulesAndBlankCharacter)
 {
 	std::stringstream input;
-	const mappers::RulerPersonalitiesMapper mapper(input);
+	mappers::RulerPersonalitiesMapper mapper;
+	mapper.initRulerPersonalitiesMapper(input);
 
 	std::stringstream charinput;
 	auto newCharacter = std::make_shared<CK2::Character>(charinput, 1);
@@ -62,7 +66,8 @@ TEST(Mappers_RulerPersonalitiesMapperTests, evaluationReturnsEmptyForNoRulesAndB
 TEST(Mappers_RulerPersonalitiesMapperTests, evaluationReturnsEmptyForNoRulesAndLoadedCharacter)
 {
 	std::stringstream input;
-	const mappers::RulerPersonalitiesMapper mapper(input);
+	mappers::RulerPersonalitiesMapper mapper;
+	mapper.initRulerPersonalitiesMapper(input);
 
 	std::stringstream charinput;
 	auto newCharacter = std::make_shared<CK2::Character>(charinput, 1);
@@ -83,7 +88,8 @@ TEST(Mappers_RulerPersonalitiesMapperTests, evaluationReturnsTwoBestPersonalitie
 	input << "p-personality = { trait3 = 0}\n";
 	input << "k-personality = { trait3 = -50}\n";
 	input << "c-personality = { trait3 = 50}\n";
-	const mappers::RulerPersonalitiesMapper mapper(input);
+	mappers::RulerPersonalitiesMapper mapper;
+	mapper.initRulerPersonalitiesMapper(input);
 
 	std::stringstream charinput;
 	auto newCharacter = std::make_shared<CK2::Character>(charinput, 1);
