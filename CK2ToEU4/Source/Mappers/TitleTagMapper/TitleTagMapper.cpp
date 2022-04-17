@@ -4,26 +4,34 @@
 #include "ParserHelpers.h"
 #include <iomanip>
 
-mappers::TitleTagMapper::TitleTagMapper()
+void mappers::TitleTagMapper::initTitleTagMapper(const std::string& path)
 {
 	Log(LogLevel::Info) << "-> Parsing Tag mappings";
 	registerKeys();
-	parseFile("configurables/tag_mappings.txt");
+	std::string dirPath = "configurables";
+	if (!path.empty())
+	{
+		Log(LogLevel::Info) << "Tag Mapper override: " << path;
+		dirPath += "/" + path;
+	}
+	parseFile(dirPath + "/tag_mappings.txt");
 	clearRegisteredKeywords();
+
+	// not overriding chinese mappings as those are out of scope.
 	registerChineseKeys();
 	parseFile("configurables/chinese_tag_mappings.txt");
 	clearRegisteredKeywords();
 	Log(LogLevel::Info) << "<> " << theMappings.size() << " mappings and " << chineseMappings.size() << " Chinas loaded.";
 }
 
-mappers::TitleTagMapper::TitleTagMapper(std::istream& theStream)
+void mappers::TitleTagMapper::initTitleTagMapper(std::istream& theStream)
 {
 	registerKeys();
 	parseStream(theStream);
 	clearRegisteredKeywords();
 }
 
-mappers::TitleTagMapper::TitleTagMapper(std::istream& theStream, std::istream& chineseStream)
+void mappers::TitleTagMapper::initTitleTagMapper(std::istream& theStream, std::istream& chineseStream)
 {
 	registerKeys();
 	parseStream(theStream);

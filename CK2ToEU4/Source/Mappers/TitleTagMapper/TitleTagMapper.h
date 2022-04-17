@@ -9,9 +9,10 @@ namespace mappers
 class TitleTagMapper: commonItems::parser
 {
   public:
-	TitleTagMapper();
-	explicit TitleTagMapper(std::istream& theStream);										 // testing
-	explicit TitleTagMapper(std::istream& theStream, std::istream& chineseStream); // testing
+	TitleTagMapper() = default;
+	void initTitleTagMapper(const std::string& path);
+	void initTitleTagMapper(std::istream& theStream);										 // testing
+	void initTitleTagMapper(std::istream& theStream, std::istream& chineseStream); // testing
 	void registerTitle(const std::string& ck2title, const std::string& eu4tag);
 
 	std::optional<std::string> getTagForTitle(const std::string& ck2Title, const std::string& ck2BaseTitle, int eu4Capital);

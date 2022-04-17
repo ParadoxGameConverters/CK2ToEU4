@@ -1,0 +1,44 @@
+fertile_personality = { hedonist = 5 lustful = 3 strong = 1 eunuch = -99 celibate = -99 chaste = -99 }
+just_personality = { idolizer = 1 just = 3 charitable = 2 content = 1 arbitrary = -99 }
+righteous_personality = { honest = 3 humble = 2 just = 1 deceitful = -99 }
+tolerant_personality = { temperate = 3 trusting = 1 patient = 1 sympathy_christendom = 1 sympathy_indian = 1 sympathy_islam = 1 sympathy_judaism = 1 sympathy_pagans = 1 sympathy_zoroastrianism = 1 zealous = -99 }
+free_thinker_personality = { mystic = 5 cynical = 3 genius = 3 quick = 2 shrewd = 2 }
+calm_personality = { brooding = 1 patient = 3 shy = 2 content = 1 wroth = -99 }
+zealot_personality = { theologian = 5 zealous = 3 holy_warrior = 3 humble = 2 erudite = 1 crusader = 1 eagle_knight = 1 sun_warrior = 1 ukkos_hammer = 1 nyames_shield = 1 peruns_chosen = 1 hound_of_dievas = 1 ares_own = 1 skylord = 1 kanai = 1 cynical = -99 }
+pious_personality = { theologian = 5 humble = 3 charitable = 2 zealous = 1 cynical = -99 }
+lawgiver_personality = { diligent = 3 erudite = 2 just = 1 }
+midas_touched_personality = { midas_touched = 5 fortune_builder = 3 greedy = 2 }
+architectural_visionary_personality = { architect = 5 diligent = 2 }
+scholar_personality = { scholar = 5 physician = 5 erudite = 3 hafiz = 3 faqih = 3 shy = 2 humble = 1 }
+careful_personality = { shy = 3 temperate = 2 patient = 1 }
+entrepreneur_personality = { gardener = 5 diligent = 2 greedy = 1 }
+industrious_personality = { administrator = 5 diligent = 2 stubborn = 2 }
+expansionist_personality = { ambitious = 3 greedy = 2 }
+navigator_personality = { sea_king = 5 sea_queen = 5 viking = 5 ravager = 5 adventurer = 2 }
+well_connected_personality = { grey_eminence = 3 charismatic_negotiator = 2 gregarious = 2 proud = 1 }
+secretive_personality = { elusive_shadow = 4 intricate_webweaver = 3 deceitful = 3 envious = 2 cynical = 1 honest = -99 }
+intricate_web_weaver_personality = { elusive_shadow = 3 intricate_webweaver = 4 master_schemer = 5 paranoid = 3 deceitful = 2 }
+benevolent_personality = { kind = 3 charitable = 2 content = 1 cruel = -99 }
+charismatic_negotiator_personality = { grey_eminence = 3 charismatic_negotiator = 4 socializer = 5 gregarious = 2 kind = 1 just = 1 attractive = 1 playful = 1 }
+silver_tongue_personality = { grey_eminence = 3 charismatic_negotiator = 2 master_seducer = 5 master_seductress = 5 deceitful = 3 }
+bold_fighter_personality = { duelist = 5 wroth = 3 brave = 2 strong = 1 brawny = 1 }
+tactical_genius_personality = { strategist = 5 brilliant_strategist = 3 skilled_tactician = 3 patient = 3 cruel = 2 genius = 2 quick = 1 shrewd = 1 }
+fierce_negotiator_personality = { gregarious = 3 brave = 2 stubborn = 1 }
+conqueror_personality = { game_master = 5 ambitious = 3 stubborn = 2 cruel = 1 }
+strict_personality = { brilliant_strategist = 2 skilled_tactician = 3 unyielding_leader = 3 just = 3 zealous = 2 paranoid = 1 }
+inspiring_leader_personality = { hunter = 5 inspiring_leader = 6 strong = 1 brawny = 1 brave = 1 }
+martial_educator_personality = { organizer = 3 brilliant_strategist = 2 skilled_tactician = 2 patient = 2 stubborn = 1 }
+kind_hearted_personality = { affectionate = 1 kind = 3 trusting = 2 charitable = 1 cruel = -99 }
+infertile_personality = { eunuch = 5 celibate = 5 inbred = 5 chaste = 3 }
+embezzler_personality = { greedy = 3 slothful = 2 envious = 1 charitable = -99 }
+sinner_personality = { possessed = 3 cynical = 2 cannibal = 3 gluttonous = 1 lustful = 1 detached_priest = 1 bad_priest_aztec = 1 bad_priest_christian = 1 bad_priest_muslim = 1 bad_priest_norse = 1 bad_priest_tengri = 1 bad_priest_zoroastrian = 1 }
+greedy_personality = { greedy = 3 gluttonous = 2 arbitrary = 1 charitable = -99 }
+obsessive_perfectionist_personality = { conscientious = 1 fussy = 1 envious = 3 proud = 2 stubborn = 1 }
+drunkard_personality = { drunkard = 5 gluttonous = 3 }
+babbling_buffoon_personality = { possessed = 3 lunatic = 2 slow = 2 dull = 2 imbecile = 3 arbitrary = 1 lisp = 1 stutter = 1 }
+cruel_personality = { impaler = 5 haughty = 1 cruel = 3 wroth = 2 cannibal = 2 arbitrary = 1 misguided_warrior = 1 kind = -99 }
+naive_personality = { indolent = 1 trusting = 2 honest = 1 kind = 1 naive_appeaser = 1 imbecile = 4 slow = 1 dull = 1 }
+loose_lips_personality = { honest = 2 arbitrary = 1 possessed = 4 amateurish_plotter = 1 }
+malevolent_personality = { envious = 3 cruel = 2 paranoid = 1 kind = -99 }
+craven_personality = { craven = 3 shy = 2 slothful = 1 weak = 1 frail = 1 timid = 1 brave = -99 }
+immortal_personality = { immortal = 99 }

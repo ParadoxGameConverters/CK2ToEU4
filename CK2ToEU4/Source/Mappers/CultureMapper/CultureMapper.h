@@ -12,8 +12,9 @@ namespace mappers
 class CultureMapper: commonItems::parser
 {
   public:
-	CultureMapper();
-	explicit CultureMapper(std::istream& theStream);
+	CultureMapper() = default;
+	void initCultureMapper(const std::string& path);
+	void initCultureMapper(std::istream& theStream);
 
 	void loadRegionMapper(std::shared_ptr<RegionMapper> theRegionMapper);
 
