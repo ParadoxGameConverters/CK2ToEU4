@@ -63,7 +63,7 @@ christian = {
 
 		fervor = yes
 
-		misguided_heretic = yes		# Other christians hate them less
+		misguided_heretic = yes		# Other Christians hate them less
 	}
 }
 
