@@ -273,10 +273,10 @@ void EU4::World::outputLocalization(const Configuration& theConfiguration, bool 
 	{
 		for (const auto& locblock: country.second->getLocalizations())
 		{
-			english << " " << locblock.first << ": \"" << locblock.second.english << "\"\n";
-			french << " " << locblock.first << ": \"" << locblock.second.french << "\"\n";
-			spanish << " " << locblock.first << ": \"" << locblock.second.spanish << "\"\n";
-			german << " " << locblock.first << ": \"" << locblock.second.german << "\"\n";
+			english << " " << locblock.first << ": \"" << commonItems::convertWin1252ToUTF8(locblock.second.english) << "\"\n";
+			french << " " << locblock.first << ": \"" << commonItems::convertWin1252ToUTF8(locblock.second.french) << "\"\n";
+			spanish << " " << locblock.first << ": \"" << commonItems::convertWin1252ToUTF8(locblock.second.spanish) << "\"\n";
+			german << " " << locblock.first << ": \"" << commonItems::convertWin1252ToUTF8(locblock.second.german) << "\"\n";
 		}
 	}
 	english.close();
