@@ -29,8 +29,9 @@ notre_dame_cathedral = {
 
 	#can we build it?
 	build_trigger = {
-		religion_group = christian
-		has_owner_religion = yes
+		province_is_or_accepts_religion_group = {
+			religion_group = christian
+		}
 	}
 
 	#what to do when it's built
@@ -45,14 +46,16 @@ notre_dame_cathedral = {
 
 	#can our country use it?
 	can_use_modifiers_trigger = {
-		religion_group = christian
-		has_owner_religion = yes
+		province_is_or_accepts_religion_group = {
+			religion_group = christian
+		}
 	}
 
 	#can our country upgrade it?
 	can_upgrade_trigger = {
-		religion_group = christian
-		has_owner_religion = yes
+		province_is_or_accepts_religion_group = {
+			religion_group = christian
+		}
 	}
 
 	#can our country keep it or is it destroyed when we get hold of it?

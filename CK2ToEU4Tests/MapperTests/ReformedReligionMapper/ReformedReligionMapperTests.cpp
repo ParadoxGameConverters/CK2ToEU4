@@ -6,7 +6,8 @@ TEST(Mappers_ReformedReligionMapperTests, doesItCatchNothing)
 {
 	std::stringstream input;
 
-	mappers::ReformedReligionMapper theMapper(input);
+	mappers::ReformedReligionMapper theMapper;
+	theMapper.initReformedReligionMapper(input);
 
 	const auto& test = theMapper.getReligionEntries().size();
 	ASSERT_EQ(0, test);
@@ -17,7 +18,8 @@ TEST(Mappers_ReformedReligionMapperTests, doesItCatchAnything)
 	std::stringstream input;
 	input << "a_religion_reformed = {\n}";
 
-	mappers::ReformedReligionMapper theMapper(input);
+	mappers::ReformedReligionMapper theMapper;
+	theMapper.initReformedReligionMapper(input);
 
 	const auto& test = theMapper.getReligionEntries().size();
 	ASSERT_EQ(1, test);
@@ -30,7 +32,8 @@ TEST(Mappers_ReformedReligionMapperTests, doesItCatchMoreThanOne)
 	input << "a_new_religion_reformed = {\n}";
 	input << "a_newer_religion_reformed = {\n}";
 
-	mappers::ReformedReligionMapper theMapper(input);
+	mappers::ReformedReligionMapper theMapper;
+	theMapper.initReformedReligionMapper(input);
 
 	const auto& test = theMapper.getReligionEntries().size();
 	ASSERT_EQ(3, test);

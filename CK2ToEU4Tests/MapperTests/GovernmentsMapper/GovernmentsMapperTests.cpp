@@ -7,7 +7,8 @@ TEST(Mappers_GovernmentsMapperTests, nonMatchGivesEmptyOptional)
 	std::stringstream input;
 	input << "link = { gov = eu4Government ck2gov = ck2Government }";
 
-	const mappers::GovernmentsMapper theMapper(input);
+	mappers::GovernmentsMapper theMapper;
+	theMapper.initGovernmentsMapper(input);
 
 	ASSERT_FALSE(theMapper.matchGovernment("nonMatchingGovernment", "ck2title"));
 }
@@ -18,7 +19,8 @@ TEST(Mappers_GovernmentsMapperTests, eu4GovernmentCanBeFound)
 	std::stringstream input;
 	input << "link = { gov = eu4Government ck2gov = ck2Government }";
 
-	const mappers::GovernmentsMapper theMapper(input);
+	mappers::GovernmentsMapper theMapper;
+	theMapper.initGovernmentsMapper(input);
 	auto match = theMapper.matchGovernment("ck2Government", "ck2title");
 
 	ASSERT_EQ(match->first, "eu4Government");
@@ -30,7 +32,8 @@ TEST(Mappers_GovernmentsMapperTests, multipleCK2GovernmentsCanBeInARule)
 	std::stringstream input;
 	input << "link = { gov = eu4Government ck2gov = ck2Government ck2gov = ck2Government2 }";
 
-	const mappers::GovernmentsMapper theMapper(input);
+	mappers::GovernmentsMapper theMapper;
+	theMapper.initGovernmentsMapper(input);
 	auto match = theMapper.matchGovernment("ck2Government2", "ck2title");
 
 	ASSERT_EQ(match->first, "eu4Government");
@@ -42,7 +45,8 @@ TEST(Mappers_GovernmentsMapperTests, correctRuleMatches)
 	input << "link = { gov = eu4Government ck2gov = ck2Government }\n";
 	input << "link = { gov = eu4Government2 ck2gov = ck2Government2 }";
 
-	const mappers::GovernmentsMapper theMapper(input);
+	mappers::GovernmentsMapper theMapper;
+	theMapper.initGovernmentsMapper(input);
 	auto match = theMapper.matchGovernment("ck2Government2", "ck2title");
 
 	ASSERT_EQ(match->first, "eu4Government2");
@@ -54,7 +58,8 @@ TEST(Mappers_GovernmentsMapperTests, ck2TitleCanBeFound)
 	input << "link = { gov = eu4Government ck2gov = ck2Government }\n";
 	input << "link = { gov = eu4Government2 ck2gov = ck2Government2 ck2title = c_test }";
 
-	const mappers::GovernmentsMapper theMapper(input);
+	mappers::GovernmentsMapper theMapper;
+	theMapper.initGovernmentsMapper(input);
 	auto match = theMapper.matchGovernment("", "c_test");
 
 	ASSERT_EQ(match->first, "eu4Government2");
@@ -66,7 +71,8 @@ TEST(Mappers_GovernmentsMapperTests, ck2TitleTakesPriority)
 	input << "link = { gov = eu4Government ck2gov = ck2Government }\n";
 	input << "link = { gov = eu4Government2 ck2gov = ck2Government2 ck2title = c_test }";
 
-	const mappers::GovernmentsMapper theMapper(input);
+	mappers::GovernmentsMapper theMapper;
+	theMapper.initGovernmentsMapper(input);
 	auto match = theMapper.matchGovernment("ck2Government", "c_test");
 
 	ASSERT_EQ(match->first, "eu4Government2");
@@ -78,7 +84,8 @@ TEST(Mappers_GovernmentsMapperTests, reformIsReturnedIfExists)
 	input << "link = { gov = eu4Government ck2gov = ck2Government }\n";
 	input << "link = { gov = eu4Government2 ck2gov = ck2Government2 ck2title = c_test reform = papacy_reform }";
 
-	const mappers::GovernmentsMapper theMapper(input);
+	mappers::GovernmentsMapper theMapper;
+	theMapper.initGovernmentsMapper(input);
 	auto match = theMapper.matchGovernment("ck2Government", "c_test");
 
 	ASSERT_EQ(match->first, "eu4Government2");
@@ -91,7 +98,8 @@ TEST(Mappers_GovernmentsMapperTests, reformIsEmptyIfDoesNotExist)
 	input << "link = { gov = eu4Government ck2gov = ck2Government }\n";
 	input << "link = { gov = eu4Government2 ck2gov = ck2Government2 ck2title = c_test }";
 
-	const mappers::GovernmentsMapper theMapper(input);
+	mappers::GovernmentsMapper theMapper;
+	theMapper.initGovernmentsMapper(input);
 	auto match = theMapper.matchGovernment("ck2Government", "c_test");
 
 	ASSERT_TRUE(match->second.empty());

@@ -1,10 +1,10 @@
 # Version info
 
-version = "1.0H"
-name = "Habsburg"
+version = "1.0I"
+name = "Isauros"
 source = "CK2"
 target = "EU4"
 minSource = "3.3"
 maxSource = "3.3"
-minTarget = "1.32"
-maxTarget = "1.32"
+minTarget = "1.33"
+maxTarget = "1.33"

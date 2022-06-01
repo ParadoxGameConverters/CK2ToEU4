@@ -8,8 +8,9 @@ namespace mappers
 class ReformedReligionMapper: commonItems::parser
 {
   public:
-	ReformedReligionMapper();
-	explicit ReformedReligionMapper(std::istream& theStream);
+	ReformedReligionMapper() = default;
+	void initReformedReligionMapper(std::istream& theStream);
+	void initReformedReligionMapper(const std::string& path);
 
 	std::map<std::string, ReformedReligionMapping> getReligionEntries() { return religionEntries; };
 

@@ -1,2 +1,0 @@
-Current release: 1.0 Habsburg - for CK2[3.3] and EU4[1.32+]
-https://github.com/ParadoxGameConverters/CK2ToEU4/releases/download/1.0H/CK2ToEU4-1.0Habsburg.zip

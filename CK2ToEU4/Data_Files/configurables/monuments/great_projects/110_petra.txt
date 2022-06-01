@@ -34,10 +34,7 @@ petra = {
 				culture = al_suryah_arabic
 				culture = bedouin_arabic
 			}
-			OR = {
-				has_owner_culture = yes
-				has_owner_accepted_culture = yes
-			}
+			province_is_or_accepts_culture = yes
 		}
 	}
 
@@ -58,10 +55,7 @@ petra = {
 				culture = al_suryah_arabic
 				culture = bedouin_arabic
 			}
-			OR = {
-				has_owner_culture = yes
-				has_owner_accepted_culture = yes
-			}
+			province_is_or_accepts_culture = yes
 		}
 	}
 
@@ -72,10 +66,7 @@ petra = {
 				culture = al_suryah_arabic
 				culture = bedouin_arabic
 			}
-			OR = {
-				has_owner_culture = yes
-				has_owner_accepted_culture = yes
-			}
+			province_is_or_accepts_culture = yes
 		}
 	}
 

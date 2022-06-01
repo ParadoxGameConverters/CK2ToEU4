@@ -4,18 +4,23 @@
 #include "ParserHelpers.h"
 #include <iomanip>
 
-mappers::ReformedReligionMapper::ReformedReligionMapper()
+void mappers::ReformedReligionMapper::initReformedReligionMapper(const std::string& path)
 {
 	Log(LogLevel::Info) << "-> Parsing Reformed Religion mappings";
 	registerKeys();
-	parseFile("configurables/reformed_religions_mappings.txt");
-	parseFile("configurables/pagan_religions.txt");
+	std::string dirPath = "configurables";
+	if (!path.empty())
+	{
+		Log(LogLevel::Info) << "Reformed Religions Mapper override: " << path;
+		dirPath += "/" + path;
+	}
+	parseFile(dirPath + "/reformed_religions_mappings.txt");
+	parseFile(dirPath + "/pagan_religions.txt");
 	clearRegisteredKeywords();
-	Log(LogLevel::Info) << "<> "
-							  << " Religions mapped.";
+	Log(LogLevel::Info) << "<> " << religionEntries.size() << " religions mapped.";
 }
 
-mappers::ReformedReligionMapper::ReformedReligionMapper(std::istream& theStream)
+void mappers::ReformedReligionMapper::initReformedReligionMapper(std::istream& theStream)
 {
 	registerKeys();
 	parseStream(theStream);

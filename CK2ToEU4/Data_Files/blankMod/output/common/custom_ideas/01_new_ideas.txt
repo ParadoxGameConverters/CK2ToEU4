@@ -41,7 +41,6 @@ new_idea_mil_modifiers = {
 	custom_idea_female_generals = {
 		may_recruit_female_generals = yes
 		max_level = 1
-		level_cost_1 = 5
 		chance = {
 			factor = 0.1
 			modifier = {
