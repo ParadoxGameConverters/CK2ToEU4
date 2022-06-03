@@ -20,8 +20,15 @@ void mappers::MonumentsMapping::registerKeys()
 	});
 	registerKeyword("build_trigger", [this](std::istream& theStream) {
 		const BuildTriggerBuilder builder(theStream);
-		buildTrigger = "OR = {\n\t\t\t";
-		buildTrigger += builder.getBuildTrigger();
+		if (builder.getBuildTrigger().size() > 8)
+		{
+			buildTrigger = "OR = {\n\t\t\t";
+			buildTrigger += builder.getBuildTrigger();
+		}
+		else
+		{
+			buildTrigger = "\n";
+		}
 		cultural = builder.getCultural();
 		religious = builder.getReligious();
 	});
