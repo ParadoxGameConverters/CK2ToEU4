@@ -1269,7 +1269,7 @@ void EU4::Country::assignReforms(const std::shared_ptr<mappers::RegionMapper>& r
 		else
 		{
 			// Stateless Society
-			if (provinces.size() == 1 && paganReligions.contains(details.religion) && !details.religion.contains("reformed"))
+			if (provinces.size() == 1 && paganReligions.contains(details.religion) && !details.religion.find("reformed"))
 			{
 				details.reforms.clear();
 				details.reforms = {"stateless_society"};
