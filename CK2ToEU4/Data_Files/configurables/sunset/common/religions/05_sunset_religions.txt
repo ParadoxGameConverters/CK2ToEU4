@@ -13,9 +13,11 @@ pagan = {
 			loot_amount = 0.25
 		}
 		province = {
-			local_missionary_strength = 0.01
+			local_missionary_strength = 0.02 # Equivalent to European Pagans
 		}
 
+		ancestors = yes
+		
 		heretic = { BEAR_SPIRIT }
 	}
 	inti = {
@@ -30,12 +32,10 @@ pagan = {
 			tolerance_own = 1
 			global_autonomy = -0.05
 		}
-		province = {
-			local_missionary_strength = 0
-		}
 
 		authority = no
 		religious_reforms = no
+		personal_deity = yes
 
 		heretic = { INTI_HERETIC }
 	}
@@ -51,19 +51,16 @@ pagan = {
 			land_morale = 0.05
 			raze_power_gain = 0.2
 		}
-		province = {
-			local_missionary_strength = 0
-		}
 
 		doom = no
 		declare_war_in_regency = yes
 		religious_reforms = no
+		personal_deity = yes
 
 		heretic = { NAHUATL_HERETIC }
 	}
 
 	mesoamerican_religion = {
-		#color = { 76 25 178 }
 		color = { 127 25 178 }
 		icon = 19
 		country = {
@@ -75,11 +72,13 @@ pagan = {
 			advisor_pool = 1
 			stability_cost_modifier = -0.1
 		}
-		province = {
-			local_missionary_strength = 0
-		}
 
 		religious_reforms = no
+		holy_sites = { 842 846 2641 839 843 }
+
+		blessings = {
+
+		}
 
 		heretic = { MESOAMERICAN_HERETIC }
 	}
