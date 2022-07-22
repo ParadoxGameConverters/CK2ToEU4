@@ -43,4 +43,5 @@ Idhrendur			- Sanity Checks and Review
 Mysterious_Italy	- Data Files, Graphics
 Zemurin				- Programming, Testing
 
+Tiểu Ma Đạo Sĩ - Deities for Sunset Invasion scenario
  - AND ALL THE OTHERS WHO GAVE THEIR INPUT ON THE FORUM AND DISCORD -
