@@ -39,6 +39,7 @@ class Character: commonItems::parser
 	[[nodiscard]] const auto& getChildren() const { return children; }
 	[[nodiscard]] const auto& getHeir() const { return heir; }
 	[[nodiscard]] const auto& getPrimaryTitle() const { return primaryTitle; }
+	[[nodiscard]] const auto& getChangedPrimaryTitle() const { return changedPrimaryTitle; }
 	[[nodiscard]] const auto& getCapital() const { return capital; }
 	[[nodiscard]] const auto& getCapitalProvince() const { return capitalProvince; }
 	[[nodiscard]] const auto& getGovernment() const { return government; }
@@ -68,6 +69,7 @@ class Character: commonItems::parser
 	void setAdvisers(const std::map<int, std::shared_ptr<Character>>& newAdvisers) { advisers = newAdvisers; }
 	void setPrimaryTitle(std::shared_ptr<Title> theTitle) const { primaryTitle.second->setTitle(std::move(theTitle)); }
 	void setBaseTitle(std::shared_ptr<Title> theBaseTitle) const { primaryTitle.second->setBaseTitle(std::move(theBaseTitle)); }
+	void overridePrimaryTitle(const std::pair<std::string, std::shared_ptr<Title>>& theTitle) { changedPrimaryTitle = theTitle; }
 	void setCapitalBarony(std::shared_ptr<Barony> theCapitalBarony) { capital.second = std::move(theCapitalBarony); }
 	void insertCapitalProvince(const std::pair<int, std::shared_ptr<Province>>& theProvince) { capitalProvince = theProvince; }
 	void setTraits(const std::map<int, std::string>& theTraits) { traits = theTraits; }
@@ -106,6 +108,7 @@ class Character: commonItems::parser
 	std::pair<int, std::shared_ptr<Character>> heir;
 	std::map<int, std::shared_ptr<Character>> spouses;
 	std::pair<std::string, std::shared_ptr<Liege>> primaryTitle;
+	std::optional<std::pair<std::string, std::shared_ptr<Title>>> changedPrimaryTitle;
 	std::pair<std::string, std::shared_ptr<Barony>> capital;
 	std::pair<int, std::shared_ptr<Province>> capitalProvince;
 	std::map<std::string, bool> courtierNames; // A simple list of people's names and genders. True=male.

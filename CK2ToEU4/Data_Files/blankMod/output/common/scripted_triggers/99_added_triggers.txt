@@ -49,6 +49,7 @@ was_never_end_game_tag_trigger = {	#Country Scope
 			NOT = { was_tag = SOM }
 			NOT = { was_tag = RZI }
 			NOT = { was_tag = MAL }
+			NOT = { was_tag = GJN }
 			NOT = { tag = MUG }
 			NOT = { tag = TUR }
 			NOT = { tag = BYZ }
@@ -95,6 +96,7 @@ was_never_end_game_tag_trigger = {	#Country Scope
 			NOT = { tag = SOM }
 			NOT = { tag = RZI }
 			NOT = { tag = MAL }
+			NOT = { tag = GJN }
 		}
 	}
 }

@@ -1124,6 +1124,7 @@ void CK2::World::shatterHRE(const Configuration& theConfiguration) const
 				{
 					member.second->setHREEmperor();
 					emperorSet = true;
+					hreHolder.second->overridePrimaryTitle(member);
 					Log(LogLevel::Debug) << "HRE Emperor set via capital: " << member.first;
 					break;
 				}
@@ -1143,6 +1144,7 @@ void CK2::World::shatterHRE(const Configuration& theConfiguration) const
 					{
 						member.second->setHREEmperor();
 						emperorSet = true;
+						hreHolder.second->overridePrimaryTitle(member);
 						Log(LogLevel::Debug) << "HRE Emperor set via capital: " << member.first;
 						break;
 					}
@@ -1160,6 +1162,7 @@ void CK2::World::shatterHRE(const Configuration& theConfiguration) const
 				{
 					member.second->setHREEmperor();
 					emperorSet = true;
+					hreHolder.second->overridePrimaryTitle(member);
 					Log(LogLevel::Debug) << "HRE Emperor set via capital: " << member.first;
 					break;
 				}
@@ -1184,6 +1187,7 @@ void CK2::World::shatterHRE(const Configuration& theConfiguration) const
 			// we find will be flagged emperor.
 			member.second->setHREEmperor();
 			emperorSet = true;
+			hreHolder.second->overridePrimaryTitle(member);
 			Log(LogLevel::Debug) << "Emperor is " << member.first;
 		}
 		member.second->setInHRE();

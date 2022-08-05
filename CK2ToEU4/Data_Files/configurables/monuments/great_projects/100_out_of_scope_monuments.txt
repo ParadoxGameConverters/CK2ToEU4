@@ -1252,49 +1252,50 @@ mount_fuji = {
 	#can our country use it?
 	can_use_modifiers_trigger = {
 		OR = {
-		custom_trigger_tooltip = {
-			tooltip = mount_fuji_tt
-			OR = {		
-				AND = {
-					religion = shinto
-					has_owner_religion = yes
-				}
-				AND = {
-					religion = mahayana
-					has_owner_religion = yes
-				}
-				AND = {
-					OR = {
+			custom_trigger_tooltip = {
+				tooltip = mount_fuji_tt
+				OR = {		
+					AND = {
 						religion = shinto
 						has_owner_religion = yes
 					}
-					owner = { has_harmonized_with = shinto }
-				}
-				AND = {
-					owner = {
-						religion = tengri_pagan_reformed
-						secondary_religion = shinto
-					}
-					OR = {
-						religion = shinto
-						has_owner_religion = yes
-					}
-				}
-				AND = {
-					OR = {
+					AND = {
 						religion = mahayana
 						has_owner_religion = yes
 					}
-					owner = { has_harmonized_with = mahayana }
-				}
-				AND = {
-					owner = {
-						religion = tengri_pagan_reformed
-						secondary_religion = mahayana
+					AND = {
+						OR = {
+							religion = shinto
+							has_owner_religion = yes
+						}
+						owner = { has_harmonized_with = shinto }
 					}
-					OR = {
-						religion = mahayana
-						has_owner_religion = yes
+					AND = {
+						owner = {
+							religion = tengri_pagan_reformed
+							secondary_religion = shinto
+						}
+						OR = {
+							religion = shinto
+							has_owner_religion = yes
+						}
+					}
+					AND = {
+						OR = {
+							religion = mahayana
+							has_owner_religion = yes
+						}
+						owner = { has_harmonized_with = mahayana }
+					}
+					AND = {
+						owner = {
+							religion = tengri_pagan_reformed
+							secondary_religion = mahayana
+						}
+						OR = {
+							religion = mahayana
+							has_owner_religion = yes
+						}
 					}
 				}
 			}
@@ -1304,49 +1305,50 @@ mount_fuji = {
 	#can our country upgrade it?
 	can_upgrade_trigger = {
 		OR = {
-		custom_trigger_tooltip = {
-			tooltip = mount_fuji_tt
-			OR = {		
-				AND = {
-					religion = shinto
-					has_owner_religion = yes
-				}
-				AND = {
-					religion = mahayana
-					has_owner_religion = yes
-				}
-				AND = {
-					OR = {
+			custom_trigger_tooltip = {
+				tooltip = mount_fuji_tt
+				OR = {		
+					AND = {
 						religion = shinto
 						has_owner_religion = yes
 					}
-					owner = { has_harmonized_with = shinto }
-				}
-				AND = {
-					owner = {
-						religion = tengri_pagan_reformed
-						secondary_religion = shinto
-					}
-					OR = {
-						religion = shinto
-						has_owner_religion = yes
-					}
-				}
-				AND = {
-					OR = {
+					AND = {
 						religion = mahayana
 						has_owner_religion = yes
 					}
-					owner = { has_harmonized_with = mahayana }
-				}
-				AND = {
-					owner = {
-						religion = tengri_pagan_reformed
-						secondary_religion = mahayana
+					AND = {
+						OR = {
+							religion = shinto
+							has_owner_religion = yes
+						}
+						owner = { has_harmonized_with = shinto }
 					}
-					OR = {
-						religion = mahayana
-						has_owner_religion = yes
+					AND = {
+						owner = {
+							religion = tengri_pagan_reformed
+							secondary_religion = shinto
+						}
+						OR = {
+							religion = shinto
+							has_owner_religion = yes
+						}
+					}
+					AND = {
+						OR = {
+							religion = mahayana
+							has_owner_religion = yes
+						}
+						owner = { has_harmonized_with = mahayana }
+					}
+					AND = {
+						owner = {
+							religion = tengri_pagan_reformed
+							secondary_religion = mahayana
+						}
+						OR = {
+							religion = mahayana
+							has_owner_religion = yes
+						}
 					}
 				}
 			}

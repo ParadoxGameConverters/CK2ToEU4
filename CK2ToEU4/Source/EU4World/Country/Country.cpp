@@ -682,7 +682,8 @@ void EU4::Country::initializeRulers(const mappers::ReligionMapper& religionMappe
 	const auto& holder = title.second->getHolder().second;
 	// Are we the ruler's primary title? (if he has any)
 	// Potential PU's don't get monarchs. (and those apply for monarchies only)
-	if (!holder->getPrimaryTitle().first.empty() && title.first != holder->getPrimaryTitle().first && details.government == "monarchy")
+	if (!(holder->getChangedPrimaryTitle() && title.first == holder->getChangedPrimaryTitle()->first) && !holder->getPrimaryTitle().first.empty() &&
+		 title.first != holder->getPrimaryTitle().second->getTitle().first && details.government == "monarchy")
 		return;
 
 	// Determine regnalness.
@@ -958,7 +959,8 @@ void EU4::Country::assignReforms(const std::shared_ptr<mappers::RegionMapper>& r
 		}
 	}
 
-	// Muslims
+	// RELGIONS
+	//  Muslims
 	std::set<std::string> muslimReligions = {"sunni", "zikri", "yazidi", "ibadi", "kharijite", "shiite", "druze", "hurufi", "qarmatian"};
 	// Mazdans
 	std::set<std::string> mazdanReligions = {"zoroastrian", "mazdaki", "manichean", "khurmazta"};
@@ -999,6 +1001,27 @@ void EU4::Country::assignReforms(const std::shared_ptr<mappers::RegionMapper>& r
 		 "nahuatl",
 		 "mesoamerican_religion"};
 
+	// CULTURES
+	// Chinese Culture Group
+	std::set<std::string> chineseCultures = {"vietnamese_new",
+		 "korean_new",
+		 "tibetan_new",
+		 "altaic_new",
+		 "manchu_new",
+		 "chihan",
+		 "cantonese",
+		 "jin",
+		 "wu",
+		 "chimin",
+		 "hakka",
+		 "gan",
+		 "xiang",
+		 "sichuanese",
+		 "jianghuai",
+		 "xibei",
+		 "hubei",
+		 "zhongyuan",
+		 "shandong_culture"};
 	// Russian Cultures (Not all East Slavic)
 	std::set<std::string> russianCultures = {"ilmenian", "volhynian", "severian", "russian", "russian_culture", "novgorodian", "ryazanian"};
 	// Dravidian Culture Group
@@ -1074,6 +1097,13 @@ void EU4::Country::assignReforms(const std::shared_ptr<mappers::RegionMapper>& r
 			details.reforms.clear();
 			details.reforms = {"noble_elite_reform"};
 			isMerc = true;
+		}
+		// Chinese Warlord
+		else if (chineseCultures.count(details.primaryCulture) &&
+					(governmentType == "absolute" || actualHolder->getGovernment() == "chinese_imperial_government"))
+		{
+			details.reforms.clear();
+			details.reforms = {"chinese_warlord"};
 		}
 		else if (actualHolder->getGovernment() == "chinese_imperial_government" && details.religion == "confucianism")
 		{
@@ -1151,7 +1181,12 @@ void EU4::Country::assignReforms(const std::shared_ptr<mappers::RegionMapper>& r
 			details.government.clear();
 			details.government = "monarchy";
 			details.reforms.clear();
-			details.reforms = {"autocracy_reform"};
+			if (chineseCultures.count(details.primaryCulture))
+				details.reforms = {"chinese_warlord"};
+			else if (actualHolder->getReligion() == "confucianism")
+				details.reforms = {"confucian_bureaucracy"};
+			else
+				details.reforms = {"autocracy_reform"};
 		}
 		// Merchant Republic
 		else if (actualHolder->getGovernment() == "merchant_republic_government")
@@ -1233,8 +1268,18 @@ void EU4::Country::assignReforms(const std::shared_ptr<mappers::RegionMapper>& r
 		// Tribal Despotism, also the fallback
 		else
 		{
-			details.reforms.clear();
-			details.reforms = {"tribal_despotism"};
+			// Stateless Society
+			if (provinces.size() == 1 && paganReligions.contains(details.religion) && !details.religion.find("reformed"))
+			{
+				details.reforms.clear();
+				details.reforms = {"stateless_society"};
+			}
+			// Tribal Despotism, also the fallback
+			else
+			{
+				details.reforms.clear();
+				details.reforms = {"tribal_despotism"};
+			}
 		}
 	}
 	// THEOCRACIES
@@ -1272,6 +1317,13 @@ void EU4::Country::assignReforms(const std::shared_ptr<mappers::RegionMapper>& r
 	{
 		details.reforms.clear();
 		details.reforms = {"great_mongol_state_reform"};
+	}
+	// Shaka Regime (Renamed in converter)
+	else if ((details.primaryCulture == "prussian" || details.primaryCulture == "old_prussian") && details.government == "tribal" &&
+				!details.reforms.contains("tribal_confederacy"))
+	{
+		details.reforms.clear();
+		details.reforms = {"shaka_regime"};
 	}
 
 	// Mughal Diwan System is a LEVEL 2 REFORM
