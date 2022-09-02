@@ -136,6 +136,7 @@ link = { eu4 = maltese ck2 = sicilian_arabic tech = western gfx = westerngfx } #
 link = { eu4 = cambrian ck2 = cambrian tech = western gfx = westerngfx }
 link = { eu4 = aromanian ck2 = aromanian tech = eastern gfx = easterngfx }
 link = { eu4 = romano_african ck2 = romano_african tech = western gfx = westerngfx }
+link = { eu4 = palmyrene ck2 = palmyrene tech = western gfx = westerngfx }
 
 # Old Italic
 
@@ -210,6 +211,16 @@ link = { eu4 = hellenistic ck2 = hellenistic tech = eastern gfx = easterngfx }
 
 link = { eu4 = punic ck2 = carthaginian tech = muslim gfx = muslimgfx }
 link = { eu4 = phoenician ck2 = phoenician tech = muslim gfx = muslimgfx }
+link = { eu4 = taliaite ck2 = taliaite tech = muslim gfx = muslimgfx }
+link = { eu4 = mlachthi ck2 = mlachthi tech = muslim gfx = muslimgfx }
+link = { eu4 = ysthyalm ck2 = ysthyalm tech = muslim gfx = muslimgfx }
+link = { eu4 = liphocaneth ck2 = carthago_novan tech = muslim gfx = muslimgfx }
+link = { eu4 = pmpese ck2 = pmpese tech = muslim gfx = muslimgfx }
+link = { eu4 = epicrateian ck2 = epicrateian tech = muslim gfx = muslimgfx }
+link = { eu4 = ualonuth ck2 = pretan tech = muslim gfx = muslimgfx }
+link = { eu4 = sidonian ck2 = sidonian tech = muslim gfx = muslimgfx }
+link = { eu4 = sicorathi ck2 = ziqanmakom tech = muslim gfx = muslimgfx }
+link = { eu4 = sythchy ck2 = sythchy tech = muslim gfx = muslimgfx }
 
 # Celtic
 link = { eu4 = highland_scottish ck2 = irish tech = western gfx = westerngfx region = kingdom_of_the_isles_area region = highlands_area region = lowlands_area region = scottish_marches_area }
