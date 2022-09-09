@@ -151,9 +151,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\CK3toEU4\commonItems\ModLoader\ModFilesystem.cpp" />
-    <ClCompile Include="..\..\CK3toEU4\commonItems\ModLoader\ModLoader.cpp" />
-    <ClCompile Include="..\..\CK3toEU4\commonItems\ModLoader\ModParser.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Characters\Character.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Characters\Characters.cpp" />
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Characters\Domain.cpp" />
@@ -222,6 +219,9 @@
     <ClCompile Include="..\commonItems\GameVersion.cpp" />
     <ClCompile Include="..\commonItems\iconvlite.cpp" />
     <ClCompile Include="..\commonItems\Log.cpp" />
+    <ClCompile Include="..\commonItems\ModLoader\ModFilesystem.cpp" />
+    <ClCompile Include="..\commonItems\ModLoader\ModLoader.cpp" />
+    <ClCompile Include="..\commonItems\ModLoader\ModParser.cpp" />
     <ClCompile Include="..\commonItems\OSCommonLayer.cpp" />
     <ClCompile Include="..\commonItems\Parser.cpp" />
     <ClCompile Include="..\commonItems\ParserHelpers.cpp" />

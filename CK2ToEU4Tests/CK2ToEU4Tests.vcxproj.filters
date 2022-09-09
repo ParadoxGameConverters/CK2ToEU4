@@ -389,13 +389,13 @@
     <ClCompile Include="MapperTests\AfricanPassesMapper\AfricanPassesMappingTests.cpp">
       <Filter>MapperTests\AfricanPassesMapper</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\CK3toEU4\commonItems\ModLoader\ModFilesystem.cpp">
+    <ClCompile Include="..\commonItems\ModLoader\ModFilesystem.cpp">
       <Filter>ConverterFiles\commonItems\ModLoader</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\CK3toEU4\commonItems\ModLoader\ModLoader.cpp">
+    <ClCompile Include="..\commonItems\ModLoader\ModLoader.cpp">
       <Filter>ConverterFiles\commonItems\ModLoader</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\CK3toEU4\commonItems\ModLoader\ModParser.cpp">
+    <ClCompile Include="..\commonItems\ModLoader\ModParser.cpp">
       <Filter>ConverterFiles\commonItems\ModLoader</Filter>
     </ClCompile>
   </ItemGroup>
