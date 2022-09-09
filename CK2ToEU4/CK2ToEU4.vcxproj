@@ -302,6 +302,7 @@ call save_commit_id.bat
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\CK3toEU4\commonItems\ModLoader\ModFilesystem.cpp" />
     <ClCompile Include="..\commonItems\Color.cpp" />
     <ClCompile Include="..\commonItems\CommonFunctions.cpp" />
     <ClCompile Include="..\commonItems\ConvenientParser.cpp" />
@@ -401,6 +402,8 @@ call save_commit_id.bat
     <ClCompile Include="Source\Mappers\VassalSplitoffMapper\VassalSplitoffMapper.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\CK3toEU4\commonItems\ModLoader\Mod.h" />
+    <ClInclude Include="..\..\CK3toEU4\commonItems\ModLoader\ModFilesystem.h" />
     <ClInclude Include="..\commonItems\Color.h" />
     <ClInclude Include="..\commonItems\CommonFunctions.h" />
     <ClInclude Include="..\commonItems\ConvenientParser.h" />

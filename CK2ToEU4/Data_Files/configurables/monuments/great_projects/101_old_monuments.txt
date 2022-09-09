@@ -1705,7 +1705,13 @@ ellora_caves = {
 	type = monument
 
 	build_trigger = {
-		province_is_buddhist_or_accepts_buddhism = yes
+		OR = {
+			AND = {
+				religion_group = dharmic
+				has_owner_religion = yes
+			}
+			province_is_buddhist_or_accepts_buddhism = yes
+		}
 	}
 
 	on_built = {
@@ -1715,11 +1721,23 @@ ellora_caves = {
 	}
 
 	can_use_modifiers_trigger = {
-		province_is_buddhist_or_accepts_buddhism = yes
+		OR = {
+			AND = {
+				religion_group = dharmic
+				has_owner_religion = yes
+			}
+			province_is_buddhist_or_accepts_buddhism = yes
+		}
 	}
 
 	can_upgrade_trigger = {
-		province_is_buddhist_or_accepts_buddhism = yes
+		OR = {
+			AND = {
+				religion_group = dharmic
+				has_owner_religion = yes
+			}
+			province_is_buddhist_or_accepts_buddhism = yes
+		}
 	}
 
 	keep_trigger = {
@@ -1936,7 +1954,13 @@ hampi = {
 	type = monument
 
 	build_trigger = {
-		province_is_buddhist_or_accepts_buddhism = yes
+		OR = {
+			AND = {
+				religion_group = dharmic
+				has_owner_religion = yes
+			}
+			province_is_buddhist_or_accepts_buddhism = yes
+		}
 	}
 
 	on_built = {
@@ -1946,11 +1970,23 @@ hampi = {
 	}
 
 	can_use_modifiers_trigger = {
-		province_is_buddhist_or_accepts_buddhism = yes
+		OR = {
+			AND = {
+				religion_group = dharmic
+				has_owner_religion = yes
+			}
+			province_is_buddhist_or_accepts_buddhism = yes
+		}
 	}
 
 	can_upgrade_trigger = {
-		province_is_buddhist_or_accepts_buddhism = yes
+		OR = {
+			AND = {
+				religion_group = dharmic
+				has_owner_religion = yes
+			}
+			province_is_buddhist_or_accepts_buddhism = yes
+		}
 	}
 
 	keep_trigger = {
@@ -2612,3 +2648,223 @@ swayambhunath = {
 	}
 }
 
+harar_jugol = {
+	start = 1211 #Harer
+	date = 500.01.01
+	time = { months = 0	}
+	build_cost = 0
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+	starting_tier = 1
+	type = monument
+
+	build_trigger = {
+		province_is_or_accepts_religion_group = {
+			religion_group = muslim
+		}
+	}
+
+	on_built = {
+	}
+
+	on_destroyed = {
+	}
+
+	can_use_modifiers_trigger = {
+		province_is_or_accepts_religion_group = {
+			religion_group = muslim
+		}
+	}
+
+	can_upgrade_trigger = {
+		province_is_or_accepts_religion_group = {
+			religion_group = muslim
+		}
+	}
+
+	keep_trigger = {
+	}
+
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_1 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+		province_modifiers = {
+			institution_growth = 3
+		}
+		area_modifier = {
+		}
+		country_modifiers = {			
+			prestige_per_development_from_conversion = 0.1
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_2 = {
+		upgrade_time = {
+			months = 240
+		}
+		cost_to_upgrade = {
+			factor = 2500
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+			institution_growth = 3
+		}
+		country_modifiers = {
+			stability_cost_modifier = -0.1
+			prestige_per_development_from_conversion = 0.2
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_3 = {
+		upgrade_time = {
+			months = 480
+		}
+		cost_to_upgrade = {
+			factor = 5000
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+			institution_growth = 6
+		}
+		country_modifiers = {
+			stability_cost_modifier = -0.25
+			prestige_per_development_from_conversion = 0.3
+		}
+		on_upgraded = {
+			custom_tooltip = mechanic_allow_piety_switch_decision_yes
+		}
+	}
+}
+
+dujiangyan = {
+	start = 679 #Chengdu
+	date = 100.01.01
+	time = { months = 0	}
+	build_cost = 0
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+	starting_tier = 1
+	type = monument
+
+	build_trigger = {
+	}
+
+	on_built = {
+	}
+
+	on_destroyed = {
+	}
+
+	can_use_modifiers_trigger = {
+	}
+
+	can_upgrade_trigger = {
+	}
+
+	keep_trigger = {
+	}
+
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_1 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+		province_modifiers = {
+			development_cost_modifier = -0.05
+			local_governing_cost = -0.2
+		}
+		area_modifier = {
+			local_monthly_devastation = -0.05
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_2 = {
+		upgrade_time = {
+			months = 240
+		}
+		cost_to_upgrade = {
+			factor = 2500
+		}
+		province_modifiers = {
+			development_cost_modifier = -0.1
+			allowed_num_of_buildings = 1
+		}
+		area_modifier = {
+			local_governing_cost = -0.2
+		}
+		region_modifier = { 
+			local_monthly_devastation = -0.05
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_3 = {
+		upgrade_time = {
+			months = 480
+		}
+		cost_to_upgrade = {
+			factor = 5000
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+			development_cost_modifier = -0.1
+			allowed_num_of_buildings = 1
+			local_governing_cost = -0.4
+		}
+		country_modifiers = {
+			global_monthly_devastation = -0.05
+		}
+		on_upgraded = {
+		}
+	}
+}

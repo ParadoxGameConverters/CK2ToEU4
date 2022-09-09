@@ -22,7 +22,7 @@ link = { ck2 = d_iceland eu4 = ICE }
 link = { ck2 = d_karelia eu4 = KRL }
 link = { ck2 = c_east_karelia eu4 = KRL }
 link = { ck2 = d_livonia eu4 = LVA }
-link = { ck2 = d_lettigalians eu4 = LVA }
+link = { ck2 = d_lettigalians eu4 = LTG }
 link = { ck2 = d_zemigalians eu4 = LVA }
 link = { ck2 = k_norway eu4 = NOR }
 link = { ck2 = e_scandinavia eu4 = SCA }
