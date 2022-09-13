@@ -236,7 +236,7 @@ visby_city = {
 	build_cost = 0
 	can_be_moved = no
 	move_days_per_unit_distance = 10
-	starting_tier = 1
+	starting_tier = 0
 	type = monument
 
 	build_trigger = {
@@ -344,7 +344,7 @@ doges_palace = {
 	build_cost = 0
 	can_be_moved = no
 	move_days_per_unit_distance = 10
-	starting_tier = 2
+	starting_tier = 0
 	type = monument
 
 	build_trigger = {
@@ -557,7 +557,7 @@ kronborg = {
 	build_cost = 0
 	can_be_moved = no
 	move_days_per_unit_distance = 10
-	starting_tier = 1
+	starting_tier = 0
 	type = monument
 
 	build_trigger = {
@@ -671,7 +671,7 @@ bran_castle = {
 	build_cost = 0
 	can_be_moved = no
 	move_days_per_unit_distance = 10
-	starting_tier = 1
+	starting_tier = 0
 	type = monument
 
 	build_trigger = {
@@ -804,7 +804,7 @@ malbork_castle = {
 	build_cost = 0
 	can_be_moved = no
 	move_days_per_unit_distance = 10
-	starting_tier = 2
+	starting_tier = 0
 	type = monument
 
 	build_trigger = {
