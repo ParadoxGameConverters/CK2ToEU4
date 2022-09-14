@@ -35,7 +35,8 @@ link = { eu4 = bavarian ck2 = german tech = western gfx = westerngfx region = lo
 link = { eu4 = franconian ck2 = german tech = western gfx = westerngfx region = franconia_area region = upper_franconia_area }
 # Keep sudeten above prussian for silesia.
 link = { eu4 = sudeten ck2 = german tech = western gfx = westerngfx region = erzgebirge_area region = bohemia_area region = moravia_area region = lusatia_area region = silesia_area }
-link = { eu4 = prussian ck2 = german tech = western gfx = westerngfx region = mittelmark_area region = neumark_area region = hinter_pommern_area region = vorpommern_area region = mecklenburg_area region = poland_region region = poland_region region = baltic_region }
+link = { eu4 = prussian ck2 = german tech = western gfx = westerngfx region = mittelmark_area region = neumark_area region = hinter_pommern_area region = vorpommern_area region = mecklenburg_area region = poland_region region = poland_region }
+link = { eu4 = baltic_german ck2 = german tech = western gfx = westerngfx region = baltic_region }
 link = { eu4 = hessian ck2 = german tech = western gfx = westerngfx region = hesse_area region = lower_rhineland_area region = north_rhine_area } #Rhenish
 link = { eu4 = saxon ck2 = german tech = western gfx = westerngfx region = south_saxony_area region = thuringia_area region = northern_saxony_area }
 link = { eu4 = swabian ck2 = german tech = western gfx = westerngfx region = palatinate_area region = lower_swabia_area region = upper_swabia_area region = north_rhine_area }
@@ -252,7 +253,8 @@ link = { eu4 = lusitanian ck2 = lusitanian tech = western gfx = westerngfx }
 
 link = { eu4 = finnish ck2 = finnish tech = eastern gfx = westerngfx }
 link = { eu4 = sapmi ck2 = lappish tech = eastern gfx = inuitgfx }
-link = { eu4 = estonian ck2 = ugricbaltic ck2 = livonian tech = eastern gfx = inuitgfx }
+link = { eu4 = estonian ck2 = ugricbaltic tech = eastern gfx = inuitgfx }
+link = { eu4 = livonian ck2 = livonian tech = eastern gfx = inuitgfx }
 link = { eu4 = komi ck2 = komi tech = eastern gfx = inuitgfx }
 link = { eu4 = samoyed ck2 = samoyed tech = eastern gfx = inuitgfx }
 link = { eu4 = mordvin ck2 = mordvin tech = eastern gfx = inuitgfx }

@@ -1957,7 +1957,13 @@ erdene_zuu = {
 	type = monument
 
 	build_trigger = {
-		province_is_buddhist_or_accepts_buddhism = yes
+		OR = {
+			AND = {
+				religion = tengri_pagan_reformed
+				has_owner_religion = yes
+			}
+			province_is_buddhist_or_accepts_buddhism = yes
+		}
 	}
 
 	on_built = {
@@ -1967,11 +1973,23 @@ erdene_zuu = {
 	}
 
 	can_use_modifiers_trigger = {
-		province_is_buddhist_or_accepts_buddhism = yes
+		OR = {
+			AND = {
+				religion = tengri_pagan_reformed
+				has_owner_religion = yes
+			}
+			province_is_buddhist_or_accepts_buddhism = yes
+		}
 	}
 
 	can_upgrade_trigger = {
-		province_is_buddhist_or_accepts_buddhism = yes
+		OR = {
+			AND = {
+				religion = tengri_pagan_reformed
+				has_owner_religion = yes
+			}
+			province_is_buddhist_or_accepts_buddhism = yes
+		}
 	}
 
 	keep_trigger = {
@@ -2574,6 +2592,7 @@ winter_palace = {
 		}
 		country_modifiers = {
 			yearly_absolutism = 0.25
+			reform_progress_growth = 0.1
 		}
 		on_upgraded = {
 		}
@@ -2594,8 +2613,7 @@ winter_palace = {
 		}
 		country_modifiers = {
 			yearly_absolutism = 0.5
-			accept_vassalization_reasons = 15
-			diplomats = 1
+			reform_progress_growth = 0.15
 		}
 		on_upgraded = {
 		}
@@ -2616,8 +2634,7 @@ winter_palace = {
 		}
 		country_modifiers = {
 			yearly_absolutism = 0.5
-			accept_vassalization_reasons = 30
-			diplomats = 1
+			reform_progress_growth = 0.2
 		}
 		on_upgraded = {
 		}

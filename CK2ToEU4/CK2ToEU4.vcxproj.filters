@@ -288,6 +288,9 @@
     <ClCompile Include="Source\Mappers\AfricanPassesMapper\AfricanPassesMapping.cpp">
       <Filter>Mappers\AfricanPassesMapper</Filter>
     </ClCompile>
+    <ClCompile Include="..\commonItems\ModLoader\ModFilesystem.cpp">
+      <Filter>CommonItems\ModLoader</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CK2ToEU4Converter.h" />
@@ -569,6 +572,12 @@
     </ClInclude>
     <ClInclude Include="Source\Mappers\MonumentsMapper\MonumentsMapping.h">
       <Filter>Mappers\MonumentsMapper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\commonItems\ModLoader\Mod.h">
+      <Filter>CommonItems\ModLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="..\commonItems\ModLoader\ModFilesystem.h">
+      <Filter>CommonItems\ModLoader</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

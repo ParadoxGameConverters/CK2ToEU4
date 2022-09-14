@@ -389,6 +389,15 @@
     <ClCompile Include="MapperTests\AfricanPassesMapper\AfricanPassesMappingTests.cpp">
       <Filter>MapperTests\AfricanPassesMapper</Filter>
     </ClCompile>
+    <ClCompile Include="..\commonItems\ModLoader\ModFilesystem.cpp">
+      <Filter>ConverterFiles\commonItems\ModLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="..\commonItems\ModLoader\ModLoader.cpp">
+      <Filter>ConverterFiles\commonItems\ModLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="..\commonItems\ModLoader\ModParser.cpp">
+      <Filter>ConverterFiles\commonItems\ModLoader</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4WorldTests">
@@ -579,6 +588,9 @@
     </Filter>
     <Filter Include="MapperTests\AfricanPassesMapper">
       <UniqueIdentifier>{067100a0-6d77-4fb5-82b8-4b551ff181d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ConverterFiles\commonItems\ModLoader">
+      <UniqueIdentifier>{4c915ba6-9542-46dd-bfd1-ca04912b230f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
