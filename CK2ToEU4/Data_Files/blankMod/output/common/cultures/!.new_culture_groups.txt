@@ -4,17 +4,17 @@
 oghuz = {
 	# Pecheneg name pool used as default one
 	male_names = {
-		Çelgil Aba Baitzas Balgor Batan Batas Bator Bayça Biçkili Bizel Boru Bula Giazis Ildey
+		Ã‡elgil Aba Baitzas Balgor Batan Batas Bator BayÃ§a BiÃ§kili Bizel Boru Bula Giazis Ildey
 		Ipa Ipaos Kabuksin Karaca Kaydum Kegen Konel Korkutan Kortan Kostas Kourkoutai
-		Kuchug Kuerçi Kugel Kure Kürä Metiga Sol Suru Tatus Teber Temir Tyrach Yavdi Yazi Yeke
+		Kuchug KuerÃ§i Kugel Kure KÃ¼rÃ¤ Metiga Sol Suru Tatus Teber Temir Tyrach Yavdi Yazi Yeke
 	}
 	female_names = {
-		Çiçek Çilen Çiltanesi Özgul Özlem Akgul Asli Ayasun Ayten Bozçin Dilek Esin Gulçiçek Gulay Gunduz Gundes Gunes Ilkay Ipek Ipekel Irge
-		Karacik Mala Mutlu Peksen Samur Sarica Sati Sevilay Sevindik Sibel Sirin Sirma Songul Tekçe Tura Umay Usunbike Yasar Yeldem Yildiz
+		Ã‡iÃ§ek Ã‡ilen Ã‡iltanesi Ã–zgul Ã–zlem Akgul Asli Ayasun Ayten BozÃ§in Dilek Esin GulÃ§iÃ§ek Gulay Gunduz Gundes Gunes Ilkay Ipek Ipekel Irge
+		Karacik Mala Mutlu Peksen Samur Sarica Sati Sevilay Sevindik Sibel Sirin Sirma Songul TekÃ§e Tura Umay Usunbike Yasar Yeldem Yildiz
 	}
 	dynasty_names = {
-		Kankali Tzopon Paguman Belermen Thonuzoba Yüregir Beçenek Bügdüz Üçok Çavuldur
-		Bayandur Irtim Talmat Batas Alayuntlu Çepni Eymür Salgurlu Kankali
+		Kankali Tzopon Paguman Belermen Thonuzoba YÃ¼regir BeÃ§enek BÃ¼gdÃ¼z ÃœÃ§ok Ã‡avuldur
+		Bayandur Irtim Talmat Batas Alayuntlu Ã‡epni EymÃ¼r Salgurlu Kankali
 	}
 	pecheneg = {
 		primary = PTZ
@@ -26,17 +26,17 @@ oghuz = {
 		primary = BUL
 		male_names = {
 			Almish Alzek Anzi Apskhih Araslan Asparukh Balamber Bars Bataul Batbayan Batoya Batulia Bayan Belkermak Bezmer Boyan Bulger Buzan Chepa Chinialush Dengizikh
-			Dizeng Dometa Dristar Drong Dukum Ellak Elemag Ernakh Eskhakh Goleda Gostun Guar Hudbad Iani Irnek Isbul Islivan Isperikh Ispor Kälaç Kano Karan Karaton
+			Dizeng Dometa Dristar Drong Dukum Ellak Elemag Ernakh Eskhakh Goleda Gostun Guar Hudbad Iani Irnek Isbul Islivan Isperikh Ispor KÃ¤laÃ§ Kano Karan Karaton
 			Kardam Kharaton Khinialon Khudbard Kordil Kormesiy Kormisosh Kotrag Krovat Krum Kuber Kubrat Kurt Kutrigur Kuvrat Labertam Magotin Malamir Mugel Odolgan Okhsi
-			Okhsun Okors Omurtag Onegavon Organ Organa Ornag Oshi Ostro Pagan Pakhtiyar Paväl Praksa Rassate Rugila Sabin Sandil Sandilkh Sarkhan Sartäç Savin Sevar Shilki
-			Sondoke Tähtaman Tarasiy Taridin Tatra Telec Telerig Tervel Timër Timëreç
-			Timërpälat Tingiz Tiradin Tokhtaman Toktu Tsog Tsul Tuk Umor Uturgur Vakrim Venda
+			Okhsun Okors Omurtag Onegavon Organ Organa Ornag Oshi Ostro Pagan Pakhtiyar PavÃ¤l Praksa Rassate Rugila Sabin Sandil Sandilkh Sarkhan SartÃ¤Ã§ Savin Sevar Shilki
+			Sondoke TÃ¤htaman Tarasiy Taridin Tatra Telec Telerig Tervel TimÃ«r TimÃ«reÃ§
+			TimÃ«rpÃ¤lat Tingiz Tiradin Tokhtaman Toktu Tsog Tsul Tuk Umor Uturgur Vakrim Venda
 			Vetam Vinekh Yani
-			Yavantey Yençepi Yerneslu Yeçtirek Zabergan Zenti Tukiy Aydar Irkhan Batir
+			Yavantey YenÃ§epi Yerneslu YeÃ§tirek Zabergan Zenti Tukiy Aydar Irkhan Batir
 		}
 		dynasty_names = {
 			Vokil Altsikur Kashu Barskhan Barsil Balanjar Vokil Erdevulu Silkid Bilar Sabir Esegel Izgil Askil
-			Bersula Urazgilid Kalmagorid Klyuch Ureñ Mayna Yasach Utka Bezd Kurnal Mesha Kaban
+			Bersula Urazgilid Kalmagorid Klyuch UreÃ± Mayna Yasach Utka Bezd Kurnal Mesha Kaban
 			Oshnya Tolkish Izgar Sulcha Karmal
 		}
 	}
@@ -54,7 +54,7 @@ oghuz = {
 	khazar = {
 		primary = KAZ
 		male_names = {
-			Kozar Karadach Ziebel "Böri Shad" Irbis Khalga Kaban Busir Barjik Bihar Prisbit
+			Kozar Karadach Ziebel "BÃ¶ri Shad" Irbis Khalga Kaban Busir Barjik Bihar Prisbit
 			Baghatur Dyggvi Tarkhan Zachariah "Yazir Bulash" Chorpan Tarkhan "Alp Tarkhan"
 			Tar'mach Hazer Bulan Sabriel Obadiah Hezekiah Manasseh Chanukkah Isaac Zebulun
 			Manasseh Nisi Aaron Menahem Benjamin Joseph David Georgius Tzul Tzitzak
@@ -72,7 +72,7 @@ oghuz = {
 			Iskandar
 		}
 		female_names = {
-			Temülen Börte Mandukhai Samar Zaufishan Mulan Aigiarn Borte Chabi Conchaka Doquez-khatum Goland Ho'elun Khultulun Kokachin Mandughai Oghul Qamish Orqina Sorghaghtani Beki Toregene
+			TemÃ¼len BÃ¶rte Mandukhai Samar Zaufishan Mulan Aigiarn Borte Chabi Conchaka Doquez-khatum Goland Ho'elun Khultulun Kokachin Mandughai Oghul Qamish Orqina Sorghaghtani Beki Toregene
 		}
 	}
 }
@@ -180,11 +180,11 @@ barbaro_germanic = {
 	female_names = {
 		Adele Adelgunde Adelheid Adolfine Agatha Agnes Alexandra Alice Alina Aline Alma Alwina Alwine Amalia Amalie Amanda
 		Amelie Andrea Angela Angelika Angelina Anika Anita Anja Anke Ann-Katrin Anna Anne Annegret Anneli Annelie Anneliese
-		Annemarie Anni Annika Annina Anny Antje Antonia Astrid Augusta Auguste Barbara Bärbel Beate Beatrice Beatrix
-		Bernadette Berta Bertha Bettina Bianca Bianka Birgit Brigitte Britta Brunhild Brünhild Brunhilde Brünhilde Cäcilia
-		Cäcilie Caren Carina Carla Carmen Carolin Caroline Catarina Catharina Cathrin Catrin Cecilia Cecilie Celina Celine
+		Annemarie Anni Annika Annina Anny Antje Antonia Astrid Augusta Auguste Barbara BÃ¤rbel Beate Beatrice Beatrix
+		Bernadette Berta Bertha Bettina Bianca Bianka Birgit Brigitte Britta Brunhild BrÃ¼nhild Brunhilde BrÃ¼nhilde CÃ¤cilia
+		CÃ¤cilie Caren Carina Carla Carmen Carolin Caroline Catarina Catharina Cathrin Catrin Cecilia Cecilie Celina Celine
 		Charlotte Chiara Christa Christel Christiane Christina Christine Clara Claudia Constanze Cordula Corina Corinna
-		Cornelia Dagmar Daniela Denise Desirée Désirée Diana Dietlind Dietlinde Dora Doris Dorothea Edda Edith Elena
+		Cornelia Dagmar Daniela Denise DesirÃ©e DÃ©sirÃ©e Diana Dietlind Dietlinde Dora Doris Dorothea Edda Edith Elena
 		Eleonora Eleonore Elfriede Elisa Elisabeth Elise Elke Ella Ellen Elli Elly Elma Elsa Elsbeth Else Elvira Emelie
 		Emely Emilia Emilie Emily Emma Emmeline Emmi Emmy Erdmute Erica Erika Erna Ester Esther Eugenie Eva Evelyn
 		Fabienne Fanny Felicia Felicitas Felizia Felizitas Finja Finnja Fiona Flora Florentina Florentine Franziska Frauke
@@ -194,7 +194,7 @@ barbaro_germanic = {
 		Hertha Hilda Hilde Hildegard Hulda Ida Ilse Ines Inga Inge Ingeborg Ingeburg Ingrid Irene Irina Iris Irma Irmela
 		Irmelin Irmgard Isabel Isabell Isabella Isabelle Isolde Ivonne Jacqueline Jana Janina Janine Jaqueline Jasmin
 		Jennifer Jessica Johanna Johanne Josefine Josephine Judith Jule Julia Juliane Jutta Kai Karen Karin Karina Karla
-		Karolin Karoline Katarina Käte Katharina Käthe Kathrin Katja Katrin Kerstin Kim Kirsten Klara Konstanze Kristin
+		Karolin Karoline Katarina KÃ¤te Katharina KÃ¤the Kathrin Katja Katrin Kerstin Kim Kirsten Klara Konstanze Kristin
 		Kristina Kunigunde Lara Larissa Laura Lea Lena Leni Leoni Leonie Leonore Liane Liesel Lieselotte Lili Lilli Lilly
 		Lina Linda Lisa Liselotte Lore Lotte Louisa Louise Lucia Lucie Luisa Luise Lulu Luna Luzia Luzie Lydia Madeleine
 		Madleen Madlen Madlene Magda Magdalena Magdalene Maike Maja Manuela Mareike Marga Margareta Margarete Margaretha
@@ -208,54 +208,54 @@ barbaro_germanic = {
 		Sophie Stefanie Stella Stephanie Susanna Svenja Swenja Sybille Sylvia Tabea Tamara Tanja Tatjana Teresa Thekla
 		Theres Theresa Therese Theresia Thirza Tina Tirza Traute Trude Ulrike Ursel Ursula Uta Ute Valentina Valerie Vanessa
 		Vera Verena Verona Veronika Victoria Viktoria Walburg Walburga Waldtraud Waldtraut Walpurga Walpurgis Waltraud
-		Waltraut Wanja Wibke Wiebke Wilhelmina Wilhelmine Wilma Xenia Yasmin Yvonne Zäzilia Zäzilie Zoe
+		Waltraut Wanja Wibke Wiebke Wilhelmina Wilhelmine Wilma Xenia Yasmin Yvonne ZÃ¤zilia ZÃ¤zilie Zoe
 	}
 	dynasty_names = {
 		"von Oldenburg" "von Mecklenburg" "von Hohenzollern" "von Habsburg"
-		"von Zweibrücken" "von Wittelsbach" "von Holstein" "von Hesse-Kassel" "von Holstein-Gottorp"
-		"von Pfalz-Neumarkt" "von Braunschweig-Lüneburg" "von Hannover" "von Wettin"
+		"von ZweibrÃ¼cken" "von Wittelsbach" "von Holstein" "von Hesse-Kassel" "von Holstein-Gottorp"
+		"von Pfalz-Neumarkt" "von Braunschweig-LÃ¼neburg" "von Hannover" "von Wettin"
 		# CKII
-		"von Rügen" "von Diepholz" "von Silesia-Glogau" "von Bibra" "von Bodeck"
-		"Boeselager" "Jaworski" "Brauchitsch" "von Bülow"
+		"von RÃ¼gen" "von Diepholz" "von Silesia-Glogau" "von Bibra" "von Bodeck"
+		"Boeselager" "Jaworski" "Brauchitsch" "von BÃ¼low"
 		"von Calw" "von Cham" "von Steutzlingen" "von Wetterau" "von Julichgau"
 		"von Helffenstein" "von Venis" "von Kyburg" "von Arbon" "von Urach" "von Cilli" "von Utlede"
 		"von Katzenelnbogen" "von Altena" "von der Marck" "von Hessen" "von Arnsberg" "von Bucheck"
 		"Walter" "Grelle" "von Dolen" "von Liebnitz" "von Virneberg"
-		"Rübsamen" "von Bardewik" "Vorrade" "Warendorp" "Lüneburg" "Wittenborg" "von Klingenberg"
-		"von Parchim" "von Kärnten" "von Rügen" "von Neuenburg" "von Werle" "von Mecklemburg"
+		"RÃ¼bsamen" "von Bardewik" "Vorrade" "Warendorp" "LÃ¼neburg" "Wittenborg" "von Klingenberg"
+		"von Parchim" "von KÃ¤rnten" "von RÃ¼gen" "von Neuenburg" "von Werle" "von Mecklemburg"
 		"von Wittenberg" "von Brandenburg" "von Glogau" "von Rendsburg" "von Pommern"
 		"von Slesvig" "von Plain" "von Formbach" "von Wasserburg"
 		"von Lengenfeld" "von Eberstein" "von Heinsberg" "von Weimar"
 		"von Andechs" "von Sulzbach" "von Kleve" "von Versfleth" "von Wickerode"
-		"von Winzenburg" "von Thüringen" "von Bogen" "von Meissen" "von Genf"
+		"von Winzenburg" "von ThÃ¼ringen" "von Bogen" "von Meissen" "von Genf"
 		"von Arstein" "von Veldenz" "von Landsberg" "von Franken" "von Babenberg" "von Berg" "von Hohenstauf"
 		"von Saarbrucken" "von Puteledorg" "von Henneberg" "von Stade" "von Sommerchenberg"
-		"von Kirchberg" "von Württemberg" "von Tübingen" "von Raabs"
-		"von Heimbach" "von Nörvenich" "von Jülich" "von Metz" "von Limburg"
+		"von Kirchberg" "von WÃ¼rttemberg" "von TÃ¼bingen" "von Raabs"
+		"von Heimbach" "von NÃ¶rvenich" "von JÃ¼lich" "von Metz" "von Limburg"
 		"von Eppstein" "von Luxemburg" "von Hornes" "von Sachsen"
 		"von Beilstein" "von Eppenstein" "von Lusatia" "Orlamunde"
 		"von Hohenstaufen" "von Otakar" "Weimar" "von Tirol"
 		"von Haldensleben" "von Schweinfurt" "von Stad" "von Rheinfelden"
 		"von Ringelheim" "de Luxembourg" "Hainaut" "von Lenzburg" "Prochaska"
 		"von Boulogne" "von Nordheim" "von Egisheim" "Asperger" "Hunfriding"
-		"Witte" "von Hagen" "von Mölln" "Runese" Pleskow
+		"Witte" "von Hagen" "von MÃ¶lln" "Runese" Pleskow
 		"von Supplingenburg" "von Plotzkau" "von Katlenburg" "von Goslar"
-		"von Wunstorf" "von Goltern" "von Wölpe" "von Nellenburg" "von Arnstein" "von Holte"
-		"von Wippra" "von der Mark" "von Diest" "von Rietberg" "von Löningen" "von Corvey"
-		"von Steinfurt" "von Tecklenburg" "von Rüssel" "von Waldeck" "von Ravensberg" "von Weyhe" "von Hoya"
+		"von Wunstorf" "von Goltern" "von WÃ¶lpe" "von Nellenburg" "von Arnstein" "von Holte"
+		"von Wippra" "von der Mark" "von Diest" "von Rietberg" "von LÃ¶ningen" "von Corvey"
+		"von Steinfurt" "von Tecklenburg" "von RÃ¼ssel" "von Waldeck" "von Ravensberg" "von Weyhe" "von Hoya"
 		"von Dachau" "von Bassenheim" "von Kerpen" "von Tunna" "von Salza" "von Malberg" "von Hohenlohe"
-		"von Wüllersleben" "von Osterna" "von Sangershausen" "von Heldrungen"
+		"von WÃ¼llersleben" "von Osterna" "von Sangershausen" "von Heldrungen"
 		"von Orseln" "von Nauen" "Suerbeer" "von Lunen"
 		"von Vechta" "Pernstein" "von Schwerin" "von Dorpat" "von Haseldorf" "von Vyshusen" "von Dolen"
-		"von Friesack" "von Hildesheim" "von Lechsgmünd" "von Komburg"
+		"von Friesack" "von Hildesheim" "von LechsgmÃ¼nd" "von Komburg"
 		"von Stahleck" "von Ziegenhain" "von Dinslaken" "von Lambach" "von Pluyvoise"
 		"von Scharfenberg" "von Leistenberg" "von Schwarzburg" "von Badewide" "von Wassel"
-		"von Dassel" "von Greyerz" "von Grenchen" "von Abensberg" "von Grünberg"
+		"von Dassel" "von Greyerz" "von Grenchen" "von Abensberg" "von GrÃ¼nberg"
 		"von Lichtenberg" "von Hachberg" "von Wartenberg" "von Wolfach" "von Gudensberg"
 		"von Gerhausen" "von Signau" "von Groitzsch" "von Frickingen" "von Sigmaringen" "von Regensburg"
 		"von Lurngau" "von Leibrechtskirchen" "von Meran" "von Treven" "Gross" "Gualch" "Beck"
-		"zu Schwaben" "von Attems" "von Schweipünt" "von Saffenberg" "von Nörvenich" "von Querfurt"
-		"von Mansfeld" "von Kärnten" "von Eschenloch" "von Naumburg" "von Schrapelnau"
+		"zu Schwaben" "von Attems" "von SchweipÃ¼nt" "von Saffenberg" "von NÃ¶rvenich" "von Querfurt"
+		"von Mansfeld" "von KÃ¤rnten" "von Eschenloch" "von Naumburg" "von Schrapelnau"
 		"von Magdeburg" "von Hardegg" "von Arneburg" "von Seeburg" "von Veldenz" "von Schmidtburg"
 		"von Bamberg" "von Kyrburg" "von Baumberg" "von Stolzenberg" "von Altenbaumberg" "von Tyrol"
 		"von Ortenburg" "von Wangen" "von Frontenhausen" "von Andechs" "von Eurasburg" "von Geroldseck"
@@ -263,22 +263,22 @@ barbaro_germanic = {
 		"von Hohenfels" "von Hunolstein" "von Blankenheim" "von Salm" "von Falkenstein" "von Sponheim"
 		"von Brunshorn" "von Stein" "von Bikkenbach" "von Heinsberg" "van Valkenburg" "von Sayn"
 		"von Veringen" "von Gruningen" "von Eselsberg" "von Muhlhausen" "von Pfirt"
-		"von Lövenstein" "von Landau" "von Tschudi" "von Glarus" "von Chalôns" "von Ratzeburg"
+		"von LÃ¶venstein" "von Landau" "von Tschudi" "von Glarus" "von ChalÃ´ns" "von Ratzeburg"
 		"von Schlawe" "von Schwelz" "von Liebschau" "von der Lippe" "von Schauenburg" "von Rostock"
 		"von Gustrow" "von Rendsburg" "von Segeberg" "von Neuhaus" "von Friedenthal" "von Rosenberg"
 		"von Waldenstein" "von Altenburg" "von Pernstein" "von Monheim" "von Urslingen"
-		"von Assel" "von Osnabrück" "von Münster" "von Kleve" "von Jülich"
-		"von Andernach" "von Göttingen"
+		"von Assel" "von OsnabrÃ¼ck" "von MÃ¼nster" "von Kleve" "von JÃ¼lich"
+		"von Andernach" "von GÃ¶ttingen"
 		"von Pfalz" "von Baden" "von Nordgau" "von Metz" "von Sundgau" "von Bern"
-		"von Schwyz" "von Neuchatel" "von Aargau" "von Breisgau" "von Fürstenberg"
-		"von Württemberg" "von Franken" "von Thüringen" "von Weimar" "von Celle"
+		"von Schwyz" "von Neuchatel" "von Aargau" "von Breisgau" "von FÃ¼rstenberg"
+		"von WÃ¼rttemberg" "von Franken" "von ThÃ¼ringen" "von Weimar" "von Celle"
 		"von Amsberg" "von Wolgast" "von Altmark" "von Anhalt"
 		"von Plauen" "von Ansbach" "von Kempten" "von Arnim" "von Trent"
 		"von Innsbruck" "von Lausitz" "von Stettin"
 		"von Abensberg"  "von Berlichingen" "von Beetzen"
 		"Sieghardinger" "von Walbeck"
 		#Prussian
-		"von Knorring" "von Creytzen" Sack "von Taube" "Wöhrmann"
+		"von Knorring" "von Creytzen" Sack "von Taube" "WÃ¶hrmann"
 		#Rheinlaender
 		"von Keller" "von der Mark" "von Wittelsbach" "von Baden" "Rotberg"
 		#Hessian
@@ -1109,18 +1109,24 @@ pre_indo_european_group = {
 	etrurian = {
 		primary = ETR
 		dynasty_names = {
-			Acilu Acrate Apurthe Campane Ceice Cencu Creice Cesu Crespe Curces Cuthna Herma
-			Latini Nufre Nuste Palpe Papa Prezu Purce Senate Sepu Sinu Trepuni Trepu Tumu Tursikina
-			Venala Ventese Veru Zalle
+			Aemilia Antonia Atilia Atia Aufidia Aurelia Caecilia Calpurnia Cassia Claudia
+			Clodia Cornelia Domitia Fabia Flavia Fulvia Furia Gabinia Galeria Horatia Julia
+			Junia Licinia Livia Lucia Mamilia Manlia Maria Memmia Nigidia Octavia Papiria Plinia 
+			Postumia Pompeia Rabiria Quinctia Salvia Scribonia Sempronia Sertoria Silia Titia
+			Tullia Ulpia Valeria Vesuvia Vinicia Viridia Vitellia
 		}
 		male_names = {
-			Amtnie Amuni Anche Anthai Aninas Arunth Araz Arzni Arnth Autu Aule Cei Ceile Ceisi
-			Cire Cnaive Clate Cruthni Cuinte Cursni Fapi Felce Felsnas Fulu Hapre Hirumina Husi
-			Carcuna Carthasie Ceisie Cavie Larce Laris Larth Larthuza Laucie Lauche Lethei
-			Licine Lucer Mamurce Marce Murila Numna Pesna Petru Plikasnas Plute Presnte
-			Pumpu Puplie Cupe Ranazu Rasce Ruvfe Ruifre Sanchuna Scarpe Sethre Spitus Spurie Squrie
-			Tarchi Teitur Thefri Thucer Ticusna Tite Tlesna Tursikina Tusnute Uchsie Uchulni Usele
-			Vel Velchaie Velthur Venel Vetus Vipie
+			Appius Aulus Caelus Decimus Decius Drusus Faustus Gaius Gnaeus Lucius Mamercus Manius Marcus Mettius Numerius Publius Quintus Secundus 
+			Septimus Servius Sextus Spurius Tertius Titus Tiberius Titus Albinus Albus Agricola Agrippa Aratus Asina Auspex Balbus Barbatus 
+			Bibulus Brutus Bubo Buteo Caesar Calvus Calvinus Cato Catulus Cethegus Cicero Cinna Cotta Crispian Curio Dama Damasus Dentatus Dives 
+			Dolabella Donatus Draco Emeritus Eugenius Euphemius Falco Falx Felix Fimbria Flaccus Florus Fronto 
+			Gala Galerus Gemellus Gorgonius Gracchus Gracilis Habitus Herma Hilarius Horatius
+			Ignatius Iuba Labeo Laenas Lepidus Leptis Lentulus Libo Longinus Longus Lucan Lucullus Lupius
+			Macro Martialis Marullus Maximus Memmius Mercator Messalla Montanus Murena Mus Nasica Oceanus Octavianus Opis
+			Optatus Otho Paenula Pantera Pavo Peregrinus Pertinax Petronax Pictor Pilatus Polus Prisca Primus Procyon Pulcher 
+			Quarto Quiricus Regillus Remus Romanus Romulus Rufus Ruso Sabinus Salinator Scaevola Scipio Scrofa Seneca Senna 
+			Severus Sorex Statius Strabo Super Superbus Tacitus Tertulus Trebonius Tibullus Tullius Ursinus Ursus Valens Varro Varus 
+			Vergilius Viator Victor Vindex Virilis Vitalis Vitus Zeno Zoilus Zosimus
 		}
 		female_names = {
 			Prima Secunda Tertia Quarta Quinta Septa Septima Octava Nona Decima Undecima Duodecima
@@ -1179,7 +1185,7 @@ bear_group = {
 		male_names = { Nanuk Ursus Isbjorn Grrrowr Bjorn Grrgrrr Rawr Bams }
 		female_names = { Winona Wilhelmina Edwina Maggie Samantha Maddie Ellie Audrey Precious
 		Abby Bitsy Coco Millie Hannah Princess Polly Taffy Candy Penelope Bella Wilma Betty Betsy }
-		dynasty_names = { Beliy Medved Bjorn Rawrrorr Rrrrr Grrr Gyp Qoi Styrbjorn Blomstfjellet "Dancer" "Arctoidea" "Carnivora" "Shaggy" "Teddy" "Bera" "Baconi" "Cave" "Bär" "Den" "Teddy" "Fur" "Muncher" "Björnsson" "Threebear" "Sun" "Ursidae" "Carnivora" "Ide" "Brown" "Snout" "Cave" "Claw" "Ursidae" "Baconi" "Helarctos" "Threebear" "Growler" "Bär" "Sun" "Muncher" "Brown"
+		dynasty_names = { Beliy Medved Bjorn Rawrrorr Rrrrr Grrr Gyp Qoi Styrbjorn Blomstfjellet "Dancer" "Arctoidea" "Carnivora" "Shaggy" "Teddy" "Bera" "Baconi" "Cave" "BÃ¤r" "Den" "Teddy" "Fur" "Muncher" "BjÃ¶rnsson" "Threebear" "Sun" "Ursidae" "Carnivora" "Ide" "Brown" "Snout" "Cave" "Claw" "Ursidae" "Baconi" "Helarctos" "Threebear" "Growler" "BÃ¤r" "Sun" "Muncher" "Brown"
 		}
 	}
 }
@@ -1191,7 +1197,7 @@ hedgehog_group = {
 		}
 		female_names = { Bijou Blondie Gabby Ginger Goldie Gracie Hazel Izzy Kahlua Kenya Luna
 		Muffy Pandora Penny Pinky Piper Pixie "Powder Puff" Zen Zoe }
-		dynasty_names = { "Solisorex" "Eulipotyphla" "Talpidae" "Teja" "Scutisorex" "Crocidura" "Solisorex" "Surdisorex" "Teja" "Neohylomys" "Sylvisorex" "Atelerix" "Congosorex" "Neohylomys" "Hylomys" "Teja" "Paraechinus" "Mesechinus" "Surdisorex" "Scutisorex" "Teja" "Neohylomys" "Paraechinus" "Ruwenzorisorex" "Neohylomys" "Deinogalerix" "Chimarrogale" "Eulipotyphla" "Pholidocercus" "Crocidura" "Quill" "Neotetracus" "Echinosorex" "Solisorex" "Silvacola" "Podogymnura" "Erinaceus" "Diplomesodon" "Echinosorex" "Hylomys" "Hylomys" "Neotetracus" "Erinaceinae" "Surdisorex" "Scutisorex" "Prickles" "Hylomys" "Echinosorex" "Hylomys" "Crocidura" "Mesechinus" "Floof" "Floof" "Echinosorex" "Crocidura" "Silvacola" "Soricidae" "Myosorex" "Echinosorex" "Thorn" "Pholidocercus" "Prickles" "Teja" "Flesberg" "Königsberg" "Ragnit" "Königsberg" "Bahaduran"
+		dynasty_names = { "Solisorex" "Eulipotyphla" "Talpidae" "Teja" "Scutisorex" "Crocidura" "Solisorex" "Surdisorex" "Teja" "Neohylomys" "Sylvisorex" "Atelerix" "Congosorex" "Neohylomys" "Hylomys" "Teja" "Paraechinus" "Mesechinus" "Surdisorex" "Scutisorex" "Teja" "Neohylomys" "Paraechinus" "Ruwenzorisorex" "Neohylomys" "Deinogalerix" "Chimarrogale" "Eulipotyphla" "Pholidocercus" "Crocidura" "Quill" "Neotetracus" "Echinosorex" "Solisorex" "Silvacola" "Podogymnura" "Erinaceus" "Diplomesodon" "Echinosorex" "Hylomys" "Hylomys" "Neotetracus" "Erinaceinae" "Surdisorex" "Scutisorex" "Prickles" "Hylomys" "Echinosorex" "Hylomys" "Crocidura" "Mesechinus" "Floof" "Floof" "Echinosorex" "Crocidura" "Silvacola" "Soricidae" "Myosorex" "Echinosorex" "Thorn" "Pholidocercus" "Prickles" "Teja" "Flesberg" "KÃ¶nigsberg" "Ragnit" "KÃ¶nigsberg" "Bahaduran"
 		}
 	}
 }
@@ -1199,7 +1205,7 @@ duck_group = {
 	duck_culture = {
 		primary = TRL
 		male_names = { Daffy Quacker Huck Waddles Donald Dominic Whitewing Duckus Quackmire Eggbert Howard Scrooge Winghelm Ludwing Gladstone Cake Blunder Duck Quackers Pippi Face Grape Anaheim
-			Quackel Beaky Nottington Drake Mallard Hans Scrooge Darkwing Huey Dewey Louie Bolivar Mårten Maarten Cornelius Havbard Knase Kalle Arne Dylan Emelio Greg Paul
+			Quackel Beaky Nottington Drake Mallard Hans Scrooge Darkwing Huey Dewey Louie Bolivar MÃ¥rten Maarten Cornelius Havbard Knase Kalle Arne Dylan Emelio Greg Paul
 		}
 		female_names = { Holly Marigold Lily Harper Gabby Willow Jade Molly Penny Tulip
 		Peach Bella Jasmine Millie Zoey Gracie Dixie Lacey Sadie Lucy Daisy Daphne }
@@ -1267,7 +1273,7 @@ dragon_group = {
 			Vilholin Xanscilathampos Yiarni Yindoth Ylithargathril Ylveraasahlisar Zathrantramix
 			Zellenesterex Zormapalearath Zundaerazylym "Zz'Pzora"
 		}
-		dynasty_names = { "Kytrapan" "Vorcasymath" "Kytrapan" "Carrafyrt" "Noighyd" "of the Fires" "Grautarrein" "Grautarrein" "of the Sun" "of the Skies" "of the Moon" "Grautarrein" "of the Skies" "Rainbowscale" "Carrafyrt" "of the Moon" "of the Waters" "Noighyd" "Mc’scale" "Colichir" "Eorikamat" "Colichir" "Grautarrein" "Vorcasymath" "Rackart" "of the Skies" "Vorcasymath" "Vilisynther" "of the Moon" "Kosorrat" "of the Waters" "of the Waters" "Seserriff" "Noighyd" "of the Moon" "of the Fires" "Vilisynther" "Gemhide" "of the Waters" "Vilisynther" "Goldscale" "Mc’scale" "Colichir" "Kerokarvar" "Kerokarvar" "Dragaret" "Kerokarvar" "Kytrapan" "Rainbowscale" "Grautarrein" "of the Moon" "Vorcasymath" "of the Skies" "Grautarrein" "of the Moon" "Colichir" "Kerokarvar" "Eorikamat" "of the Earths" "Colichir" "Noighyd" "of the Earths" "of the Fires" "Mc’scale" "Dragaret" "Draokoran" "Vilisynther" "of the Stars" "Vorcasymath" "of the Fires" "Mc’scale" "Eorikamat" "Lipari" "Cefalú" "Mazara" "Caltabellotta" "Catania" "Latakiah" "Rabat"
+		dynasty_names = { "Kytrapan" "Vorcasymath" "Kytrapan" "Carrafyrt" "Noighyd" "of the Fires" "Grautarrein" "Grautarrein" "of the Sun" "of the Skies" "of the Moon" "Grautarrein" "of the Skies" "Rainbowscale" "Carrafyrt" "of the Moon" "of the Waters" "Noighyd" "McÂ’scale" "Colichir" "Eorikamat" "Colichir" "Grautarrein" "Vorcasymath" "Rackart" "of the Skies" "Vorcasymath" "Vilisynther" "of the Moon" "Kosorrat" "of the Waters" "of the Waters" "Seserriff" "Noighyd" "of the Moon" "of the Fires" "Vilisynther" "Gemhide" "of the Waters" "Vilisynther" "Goldscale" "McÂ’scale" "Colichir" "Kerokarvar" "Kerokarvar" "Dragaret" "Kerokarvar" "Kytrapan" "Rainbowscale" "Grautarrein" "of the Moon" "Vorcasymath" "of the Skies" "Grautarrein" "of the Moon" "Colichir" "Kerokarvar" "Eorikamat" "of the Earths" "Colichir" "Noighyd" "of the Earths" "of the Fires" "McÂ’scale" "Dragaret" "Draokoran" "Vilisynther" "of the Stars" "Vorcasymath" "of the Fires" "McÂ’scale" "Eorikamat" "Lipari" "CefalÃº" "Mazara" "Caltabellotta" "Catania" "Latakiah" "Rabat"
 		}
 	}
 }
@@ -1295,26 +1301,26 @@ northern_romance = {
 	cambrian = {
 		#primary = FRA
 		male_names = {
-			Abelârd Abelard Adam Adam Adelard Adalhard Ademar Alexandir Alexandir Alfonç Alphonç Amaury Amalric Anfroi Anquetil Anselm Anselm Armand Armand Arnâld Arnold Asclettin Aubrey Baldyin Baldyin
-			Birnard Birnard Birold Birtran Birtrand Beuyeç Blayye Blaiç Bohemond Botolf Botulf Brân Bran Briog Briog Bryt Brutus Clâminç Clemint Cynfael Cynfael Cynfarç Cynfarç Drogo Errand Eustache Eustace Faramond Florènç Firant Firdinand
-			Fulk Folke Fraunk Friry Gaillard Gaufrid Geoffroy Godfrey Gérard Girard Giraud Girald Girbirt Giryas Gilbirt Gilbirt
-			Godfriy Godfriy Goubirt Guy Guy Haimo Hamelin Hinri Hinry Hirbirt Hirbirt Hirman Hirman Hubirt Hugh Hugh Humbirt Humbirt Humphrey Ildebrando Hildebrand Jordân Jordan Joscelin Joscelin Justinânius
-			Lambirt Lambirt Laurènç Laurence Lançelin Lothaere Lothir Marçau Nigil Ordiric Osbirn Osmond Osyulf Osyyn Radolf Ralph Raynaud Rinhold Renaud Rinhold Ranulf Raymond Raymond Raynir Rainir
+			AbelÃ¢rd Abelard Adam Adam Adelard Adalhard Ademar Alexandir Alexandir AlfonÃ§ AlphonÃ§ Amaury Amalric Anfroi Anquetil Anselm Anselm Armand Armand ArnÃ¢ld Arnold Asclettin Aubrey Baldyin Baldyin
+			Birnard Birnard Birold Birtran Birtrand BeuyeÃ§ Blayye BlaiÃ§ Bohemond Botolf Botulf BrÃ¢n Bran Briog Briog Bryt Brutus ClÃ¢minÃ§ Clemint Cynfael Cynfael CynfarÃ§ CynfarÃ§ Drogo Errand Eustache Eustace Faramond FlorÃ¨nÃ§ Firant Firdinand
+			Fulk Folke Fraunk Friry Gaillard Gaufrid Geoffroy Godfrey GÃ©rard Girard Giraud Girald Girbirt Giryas Gilbirt Gilbirt
+			Godfriy Godfriy Goubirt Guy Guy Haimo Hamelin Hinri Hinry Hirbirt Hirbirt Hirman Hirman Hubirt Hugh Hugh Humbirt Humbirt Humphrey Ildebrando Hildebrand JordÃ¢n Jordan Joscelin Joscelin JustinÃ¢nius
+			Lambirt Lambirt LaurÃ¨nÃ§ Laurence LanÃ§elin Lothaere Lothir MarÃ§au Nigil Ordiric Osbirn Osmond Osyulf Osyyn Radolf Ralph Raynaud Rinhold Renaud Rinhold Ranulf Raymond Raymond Raynir Rainir
 			Rhufon Roman Richard Richard  Robirt Robirt Rogir Rogir Rolland Roscelin Sayir Sirlo Sirril Seyal Silyestir Silyestir Simon Simon Stifen Stiphen Tancred Tancredi Torf Tudur Turold Turquetil Turstin
-			Tybalt Theobald Yaliran Yaltir Yaltir Yilbirç Yilliam Yilliam Yicenç Yincent Ynyr Yortimer Yoteporiçis Yymund
+			Tybalt Theobald Yaliran Yaltir Yaltir YilbirÃ§ Yilliam Yilliam YicenÃ§ Yincent Ynyr Yortimer YoteporiÃ§is Yymund
 		}
 		female_names = {
-			Aeronyen Adelaide Adelaide Adele Adela Adelin Adeline Adelise Agnes Agnes Albirada Alienora Eleanor Aline Aliç Alice Alison Amburga Aubrey Ayeis Ayelina Ayelina Birengaria
-			Busilla Catrin Clarimond Clemenza Clementia Constânce Constance Cundo Dolça Douce Efa Egelina Eleanor Eleanor Elise Elizâbeth Elysande Emelenine Emma Emma Emonie Erembirga Ermyntrude
-			Ffelis Felicia Felicia Flandina Fredeçende Freçenda Freçenda Freçende Freçenda Geya Giselle Gisela Gohilde Griselda Gundred Gyen Gyen Gyladys Claudia Hadyis Heleyisa Hiria Hirleye Hirmessent Ermesinda Hirmine Hugolina
-			Ida Ida  Judit Judith Lesceline Llear Mabel Marie Maria Matheode Matilda Matilda Maud Matilda Mautild Matilda Maysant Millicent Muriella Onbrâyst Oriel Riçenda Ricârda
-			Rosalind Sança Sancha Seloya Siân Joan Stiphanie Stiphania Sibyl Sibylla Sibylla Sibylla Umfreda Yaldrade Yilmot Yolanda Yolanda Ysbail Yyon Yyonne
+			Aeronyen Adelaide Adelaide Adele Adela Adelin Adeline Adelise Agnes Agnes Albirada Alienora Eleanor Aline AliÃ§ Alice Alison Amburga Aubrey Ayeis Ayelina Ayelina Birengaria
+			Busilla Catrin Clarimond Clemenza Clementia ConstÃ¢nce Constance Cundo DolÃ§a Douce Efa Egelina Eleanor Eleanor Elise ElizÃ¢beth Elysande Emelenine Emma Emma Emonie Erembirga Ermyntrude
+			Ffelis Felicia Felicia Flandina FredeÃ§ende FreÃ§enda FreÃ§enda FreÃ§ende FreÃ§enda Geya Giselle Gisela Gohilde Griselda Gundred Gyen Gyen Gyladys Claudia Hadyis Heleyisa Hiria Hirleye Hirmessent Ermesinda Hirmine Hugolina
+			Ida Ida  Judit Judith Lesceline Llear Mabel Marie Maria Matheode Matilda Matilda Maud Matilda Mautild Matilda Maysant Millicent Muriella OnbrÃ¢yst Oriel RiÃ§enda RicÃ¢rda
+			Rosalind SanÃ§a Sancha Seloya SiÃ¢n Joan Stiphanie Stiphania Sibyl Sibylla Sibylla Sibylla Umfreda Yaldrade Yilmot Yolanda Yolanda Ysbail Yyon Yyonne
 		}
 		dynasty_names = {
-			"du Camulodunum" "di Maridunum" "Sçarponnis" "di Lindum" "d'Dyfid" 
-			"Constântis" "Plantaçinit" "Birtrând" "Pantilaen" "Saint-Gilliç" "Yalintinânus"
-			"d'Albion" "di Londinium" "Trençyal" "Constântis" "Merçadir" "Pinmân" "Rheçid" "Prydin" "Gyerthrynin"
-			"Ebroc" "di Aelii" "Saeyiris" "Marçinis" "Hadrianis" "Faeçi" "Yillonç" "Lipân" "Salyiç" "di Yoteporiçis"
+			"du Camulodunum" "di Maridunum" "SÃ§arponnis" "di Lindum" "d'Dyfid" 
+			"ConstÃ¢ntis" "PlantaÃ§init" "BirtrÃ¢nd" "Pantilaen" "Saint-GilliÃ§" "YalintinÃ¢nus"
+			"d'Albion" "di Londinium" "TrenÃ§yal" "ConstÃ¢ntis" "MerÃ§adir" "PinmÃ¢n" "RheÃ§id" "Prydin" "Gyerthrynin"
+			"Ebroc" "di Aelii" "Saeyiris" "MarÃ§inis" "Hadrianis" "FaeÃ§i" "YillonÃ§" "LipÃ¢n" "SalyiÃ§" "di YoteporiÃ§is"
 			"d'Protictoris" "di Ratae" "di Glivun" "di Aquaesolis" "d'Mamucium"
 		}
 	}
@@ -1324,33 +1330,33 @@ afro_romance_group = {
 	graphical_culture = westerngfx
 
 	romano_african = {
-		#primary = SAR
+		primary = TUN
 		male_names = {
-			Abisatu Adàmu Adam Adriànu Adrian Alaverru Oliver Albertu Albert Albu Alessandru Alexander
-			Alfonsu Alphonse Ambròsu Ambrose Andria Andrew Antine Constantine Antiogu Antòni Anthony Antoninu Antoninus
+			Abisatu AdÃ mu Adam AdriÃ nu Adrian Alaverru Oliver Albertu Albert Albu Alessandru Alexander
+			Alfonsu Alphonse AmbrÃ²su Ambrose Andria Andrew Antine Constantine Antiogu AntÃ²ni Anthony Antoninu Antoninus
 			Armannu Herman Arrammundu Raymond Arzoccu Austinu August Austu August Baldu Barisoni Barison Bartholumeu Bartolomeus
 			Barumini Barusone Barison Basili Basil Bassu Batkillu Benedettu Benedict Bernardu Bernard Bigenzu Bissente Vincent
-			Bonnannaro Bustianu Sebastian Carlus Charles Carule Charles Celestìnu Celestin Cipare Clementi Clement
-			Comita Comita Corona Corràdu Konrad Costantìnu Constantine Crabiele Gabriel Cristolu Christopher
+			Bonnannaro Bustianu Sebastian Carlus Charles Carule Charles CelestÃ¬nu Celestin Cipare Clementi Clement
+			Comita Comita Corona CorrÃ du Konrad CostantÃ¬nu Constantine Crabiele Gabriel Cristolu Christopher
 			Danelu Daniel Dominigu Dominic Egizu Enzu Henry Evisu Fabritziu Fabrice Floru Franku Francis Frevare Furadiza Furatu
-			Gabini Gabin Gabinu Gabin Gajetànu Caetan Gallu Gasparru Caspar Gavini Gitimel Giuanne John Giustinu Justin Giustu
-			Gonariu Gunnar Gòsamu Cosmo Gosantinu Constantine Grabrielle Gabriel Granuzu Gregoriu Gregory Guantine Constantine Guglielmu William
+			Gabini Gabin Gabinu Gabin GajetÃ nu Caetan Gallu Gasparru Caspar Gavini Gitimel Giuanne John Giustinu Justin Giustu
+			Gonariu Gunnar GÃ²samu Cosmo Gosantinu Constantine Grabrielle Gabriel Granuzu Gregoriu Gregory Guantine Constantine Guglielmu William
 			Iginu Ignatziu Ignatius Istevene Stephen Ittocorre Izocor Jacopu Jacob Jagu Jerone Jerome Jisepu Joseph Juanne Kipriane Kiprianu
 			Larentu Lawrence Leonardu Leonard Lisandru Alexander Loce Luca Lucas Lucia Lucas Lussuria Manfredu Manfred
 			Mankia Marcu Marcus Marianu Marius Massimilla Matia Matthias Mauru Mauro Mazeu Matthew Micheli Michael Migali Michael
 			Mikelli Michael Mugedi Murtina Martin Nigola Nicholas Nurake Okeri Olisae Orsocorre Orzocor Pagiti Pascale Pascal
 			Patriziu Patrick Paulu Paul Pedru Peter Pelegrine Perdu Peter Pirillu Ponzu Porcellu Porkinu Presnage Pretu Pupa
 			Rafiele Raphael Ramundu Raymond Robertu Robert Rodulfu Rudolf Sadurre Sadurru Salluri Saltaro Salusi Salusiu
-			Salvennor Samaritanu Samuèli Samuel Saragina Saraginu Sauina Serafinu Serbestianu Sebastian Serighe Setilo
+			Salvennor Samaritanu SamuÃ¨li Samuel Saragina Saraginu Sauina Serafinu Serbestianu Sebastian Serighe Setilo
 			Simione Simon Sisinni Tedore Theodore Thanthalu Thipircu Thomas Thomas Thurungone Tobias Tomasso Thomas
-			Torbinu Torbjörn Torchitoriu Trauessu Trogodori Uanios Ubertu Humbert Ugu Hugh Urieke Urse Urule
+			Torbinu TorbjÃ¶rn Torchitoriu Trauessu Trogodori Uanios Ubertu Humbert Ugu Hugh Urieke Urse Urule
 			Villanu Vivianu Zinga Zirominu Jerome
 		}
 		female_names = {
-			Adela Adela Adelàsia Adelasia Alaberta Albina Amira Amirasoia Angelìca Angelica Angiola Angela
+			Adela Adela AdelÃ sia Adelasia Alaberta Albina Amira Amirasoia AngelÃ¬ca Angelica Angiola Angela
 			Angioletta Angela Angiolina Angela Anna Anna Assunta Assunta Austina Augustine Barbara Barbara
-			Beatrìci Beatrice Benedetta Benedicta Bibiana Viviana Bina Bitoria Brigida Brigid Caderina Catherine
-			Cassia Catalina Catherine Catellina Catherine Cosima Cristìna Christina Diane Diana Dominiga Dominica
+			BeatrÃ¬ci Beatrice Benedetta Benedicta Bibiana Viviana Bina Bitoria Brigida Brigid Caderina Catherine
+			Cassia Catalina Catherine Catellina Catherine Cosima CristÃ¬na Christina Diane Diana Dominiga Dominica
 			Dorotea Dorothy Duminiga Dominica Elena Helen Elianora Eleanor Elisabetta Elizabeth Eva Fausta
 			Fidula Dominica Filumena Philomena Francesca Francesca Giorgia Giulia Julia Grazia Guisiana
 			Ippolita Ispella Elisabeth Jana Joan Joanna Joan Jorgia Joscla Lia Leah Lillia Lily Lina Lina
@@ -1388,53 +1394,53 @@ oriental_romance = {
 	palmyrene = {
 		#primary = SAR
 		male_names = {
-			Adaya Adišo Abraham Adàmu Adlai Adriànu Aggai Ahai Alaverru Aldertu Albu Alešandar
-			Alfonsu Amdròsu Andràyya Antine Antiogu Antòni Antaninu Dadayyus
+			Adaya AdiÂšo Abraham AdÃ mu Adlai AdriÃ nu Aggai Ahai Alaverru Aldertu Albu AleÂšandar
+			Alfonsu AmdrÃ²su AndrÃ yya Antine Antiogu AntÃ²ni Antaninu Dadayyus
 			Dadai Dadowai Dadwahi Dar Dar-Addu Dardu'shimin Dar-Nadha Dar-Talmai
 			Ermannu Arrammundu Arzo'qu Austinu Austu Daldu Darisoni Dartalumeu
-			Darumini Darusone Dašeli Dašu Datkillu Benedeya Bernardu Bigenzu Bišente
-			Bonnannaro Bustàyyanu Carlus Carule Celestìnu Cipare Clementi
-			Camita Corona Corràdu Costantìnu Cradàyyle Cristalu
-			Danelu Daminigu Emmanuel Enoš Ezekàyyl Egizu Enzu Evisu Fadri'qiu
-			Fàrdokhtu Fomà Giwargis Grwgari Floru Fran'qu Frevare Furadiza Furatu
-			Gadini Gadinu Gajetànu Gallu Gaisparru Gavini Gitimel Yiuanne Yiustinu Giustu
-			Gonariu Gòsamu Gosantinu Gradràyylle Granuzu Gregoriu Guantine Guglàyylmu
-			Iginu Ignatziu Istevene Itta'qorre Izo'qor Ya'qopu Yagu Yerone Yisepu Yuanne Kipràyyane Kipràyyanu
-			Lazare Larentu Leonardu Lišandru Lo'qe Lu'qa Lu'qàyya Lušuràyya Manfredu
-			Mankàyya Magna Makkikha Màluch Mà'na Màr'qu Maràyyanu Mašimilla Matàyya Mauru Mazeu Micheli Migali
-			Mikelli Mugedi Murtina Nehorai Ni'qola Niv Nun Nur Nuràke Okeri Olisàyy Orso'qorre Orzo'qor Pàgiti Paiš'qale
+			Darumini Darusone DaÂšeli DaÂšu Datkillu Benedeya Bernardu Bigenzu BiÂšente
+			Bonnannaro BustÃ yyanu Carlus Carule CelestÃ¬nu Cipare Clementi
+			Camita Corona CorrÃ du CostantÃ¬nu CradÃ yyle Cristalu
+			Danelu Daminigu Emmanuel EnoÂš EzekÃ yyl Egizu Enzu Evisu Fadri'qiu
+			FÃ rdokhtu FomÃ  Giwargis Grwgari Floru Fran'qu Frevare Furadiza Furatu
+			Gadini Gadinu GajetÃ nu Gallu Gaisparru Gavini Gitimel Yiuanne Yiustinu Giustu
+			Gonariu GÃ²samu Gosantinu GradrÃ yylle Granuzu Gregoriu Guantine GuglÃ yylmu
+			Iginu Ignatziu Istevene Itta'qorre Izo'qor Ya'qopu Yagu Yerone Yisepu Yuanne KiprÃ yyane KiprÃ yyanu
+			Lazare Larentu Leonardu LiÂšandru Lo'qe Lu'qa Lu'qÃ yya LuÂšurÃ yya Manfredu
+			MankÃ yya Magna Makkikha MÃ luch MÃ 'na MÃ r'qu MarÃ yyanu MaÂšimilla MatÃ yya Mauru Mazeu Micheli Migali
+			Mikelli Mugedi Murtina Nehorai Ni'qola Niv Nun Nur NurÃ ke Okeri OlisÃ yy Orso'qorre Orzo'qor PÃ giti PaiÂš'qale
 			Patriziu Paulu Pedru Petros Petuel Pelegrine Perdu Pirillu Ponzu Porcellu Porkinu Presnage Pretu Pupa
-			Qaligh Qàyyoma Rafàyyle Ramundu Rodertu Rodulfu Sadurre Sadurru Salluri Saltaro Saluše Salušeu
-			Salvennor Samaritanu Samuèli Saragina Saraginu Sauina Serafinu Serdestàyyanu Serighe Setilo
-			Šafer Šahdostu Šama Šamir Šammai Šemaàyyah Šem'on Sišenni Tedore Thanthalu Thipir'qu
-			Tam'ais Tavi Taviš Tevis Th'amhais Thurungone Tadais Tamašo
-			Tardinu Tarchitoriu Trauešu Trogodori Uanios Udertu Ugu Uràyyke Urse Urule Vaballathus
-			Villanu Vivàyyanu Zinga Yiraminu
+			Qaligh QÃ yyoma RafÃ yyle Ramundu Rodertu Rodulfu Sadurre Sadurru Salluri Saltaro SaluÂše SaluÂšeu
+			Salvennor Samaritanu SamuÃ¨li Saragina Saraginu Sauina Serafinu SerdestÃ yyanu Serighe Setilo
+			ÂŠafer ÂŠahdostu ÂŠama ÂŠamir ÂŠammai ÂŠemaÃ yyah ÂŠem'on SiÂšenni Tedore Thanthalu Thipir'qu
+			Tam'ais Tavi TaviÂš Tevis Th'amhais Thurungone Tadais TamaÂšo
+			Tardinu Tarchitoriu TraueÂšu Trogodori Uanios Udertu Ugu UrÃ yyke Urse Urule Vaballathus
+			Villanu VivÃ yyanu Zinga Yiraminu
 		}
 		female_names = {
-			Adva Alya Anena Anina Adela Adelàsàyya Aladerta Aldina Amira Amiraisoàyya Angelì'qa Angiola
-			Angioletta Angiolina Anna Ašunta Austina Bardura
-			Beatrì'qi Benedi'qta Bidàyyana Bina Bitaràyya Brigida Bustana
-			Chanina Chašena Chayuta China Chiyuta Caderina
-			Cašàyya Catalina Catellina Cošema Cristìna Dàyyane Daminiga
-			Dorotea Duminiga Elena Elàyyanora Elisadetta Eva Fausta
-			Fidula Filumena Fran'qeska Giorgàyya Giulàyya Grazàyya Guišeana
-			Ippolita Ispella Yana Yoanna Yorgàyya Yos'qla Làyya Lillàyya Lina
-			Lu'qàyya Luiša Luna Mar'qusa Mar'qarita Maràyya Maràyyanna Marisa Maura
-			Meliša Natalàyya Nidutta Nikita Nivata Nivatara Olimpàyya Padulesa Paola Pais'qa
-			Pais'qalina Pellegrina Petrenella Pla'qidàyya Pre'qiosa Preziosa Pupa Rita Rosa
-			Rosalàyya Rosaràyya Rošena Rošana Sadina Sada Sadah Samantha Sameah
-			Samee Sameea Samiya Samiyah Samiyya Sardinàyya Šedonàyya Šenispella
-			Stefanàyya Sudàyya Susanna Tadutha Taddy Tadetha
-			Taditha Tadea Talàyya Talàyyah Tedora Teresa Thaita Thana Than'qa
-			Valeràyya Vera Vivàyyane Zura Zenodàyya Zenodayya Zenobayya Zenobia Šeptimàyya
+			Adva Alya Anena Anina Adela AdelÃ sÃ yya Aladerta Aldina Amira AmiraisoÃ yya AngelÃ¬'qa Angiola
+			Angioletta Angiolina Anna AÂšunta Austina Bardura
+			BeatrÃ¬'qi Benedi'qta BidÃ yyana Bina BitarÃ yya Brigida Bustana
+			Chanina ChaÂšena Chayuta China Chiyuta Caderina
+			CaÂšÃ yya Catalina Catellina CoÂšema CristÃ¬na DÃ yyane Daminiga
+			Dorotea Duminiga Elena ElÃ yyanora Elisadetta Eva Fausta
+			Fidula Filumena Fran'qeska GiorgÃ yya GiulÃ yya GrazÃ yya GuiÂšeana
+			Ippolita Ispella Yana Yoanna YorgÃ yya Yos'qla LÃ yya LillÃ yya Lina
+			Lu'qÃ yya LuiÂša Luna Mar'qusa Mar'qarita MarÃ yya MarÃ yyanna Marisa Maura
+			MeliÂša NatalÃ yya Nidutta Nikita Nivata Nivatara OlimpÃ yya Padulesa Paola Pais'qa
+			Pais'qalina Pellegrina Petrenella Pla'qidÃ yya Pre'qiosa Preziosa Pupa Rita Rosa
+			RosalÃ yya RosarÃ yya RoÂšena RoÂšana Sadina Sada Sadah Samantha Sameah
+			Samee Sameea Samiya Samiyah Samiyya SardinÃ yya ÂŠedonÃ yya ÂŠenispella
+			StefanÃ yya SudÃ yya Susanna Tadutha Taddy Tadetha
+			Taditha Tadea TalÃ yya TalÃ yyah Tedora Teresa Thaita Thana Than'qa
+			ValerÃ yya Vera VivÃ yyane Zura ZenodÃ yya Zenodayya Zenobayya Zenobia ÂŠeptimÃ yya
 		}
 		dynasty_names = {
-			Arbilàyya "du La'qon" "du Gunayl" "du Callaris" Oristanu Sorrenais "d'Galluru" "d'Lo'qudoro" Zakho
-			"Salušeu du La'qon" "Torchitariu du Uqunayl" Samikka "du La'qon Zakho" "du Zakho" "Bais Serra"
-			"d'Caisteddu" "d'Santa Igàyya" "d'Patiollais" "d'Ogàyyaistra" "d'Torram" "d'Ballau" "d'Bosa" "d'Caddura"
-			"d'Paisadu" "d'Durgalu" "d'Calvu" "d'Sartena" Bukhtišu Qatwais Nimru Gazartu Odaenathus Septimius
-			Septimàyya 
+			ArbilÃ yya "du La'qon" "du Gunayl" "du Callaris" Oristanu Sorrenais "d'Galluru" "d'Lo'qudoro" Zakho
+			"SaluÂšeu du La'qon" "Torchitariu du Uqunayl" Samikka "du La'qon Zakho" "du Zakho" "Bais Serra"
+			"d'Caisteddu" "d'Santa IgÃ yya" "d'Patiollais" "d'OgÃ yyaistra" "d'Torram" "d'Ballau" "d'Bosa" "d'Caddura"
+			"d'Paisadu" "d'Durgalu" "d'Calvu" "d'Sartena" BukhtiÂšu Qatwais Nimru Gazartu Odaenathus Septimius
+			SeptimÃ yya 
 		}
 	}
 }
