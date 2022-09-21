@@ -515,6 +515,7 @@ link = { eu4 = magogic ck2 = ashkenazi ck2 = sephardi tech = nomad_group gfx = e
 link = { eu4 = yevanic ck2 = ashkenazi ck2 = sephardi tech = eastern gfx = easterngfx region = carpathia_region region = balkan_region region = anatolia_region }
 link = { eu4 = mizrahi ck2 = ashkenazi ck2 = sephardi tech = muslim gfx = muslimgfx region = persia_superregion region = arabia_region region = india_superregion }
 link = { eu4 = israeli ck2 = ashkenazi ck2 = sephardi tech = eastern gfx = easterngfx region = mashriq_region }
+link = { eu4 = beta_israeli ck2 = ashkenazi ck2 = sephardi tech = east_african gfx = africangfx region = horn_of_africa_region }
 link = { eu4 = misrayim ck2 = ashkenazi ck2 = sephardi tech = muslim gfx = muslimgfx region = egypt_region region = africa_superregion }
 link = { eu4 = zarphatic ck2 = ashkenazi ck2 = sephardi tech = eastern gfx = easterngfx region = france_region }
 link = { eu4 = laaz ck2 = ashkenazi ck2 = sephardi tech = eastern gfx = easterngfx region = italy_region }
