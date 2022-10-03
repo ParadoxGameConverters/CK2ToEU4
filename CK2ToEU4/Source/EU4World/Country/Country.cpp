@@ -687,14 +687,13 @@ void EU4::Country::initializeRulers(const mappers::ReligionMapper& religionMappe
 		return;
 
 	// Determine regnalness.
-	if (details.government != "republic" && !details.monarchNames.empty())
+	if (details.government != "republic" && !details.monarchNames.empty() && !holder->getName().empty())
 	{
 		auto const& theName = holder->getName();
 		std::string roman;
-		const auto& nameItr = details.monarchNames.find(theName);
-		if (nameItr != details.monarchNames.end())
+		if (details.monarchNames.contains(theName))
 		{
-			const auto regnal = nameItr->second.first;
+			auto regnal = details.monarchNames.at(theName).first;
 			if (regnal > 1)
 			{
 				roman = cardinalToRoman(regnal);
