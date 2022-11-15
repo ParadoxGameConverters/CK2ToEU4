@@ -27,6 +27,17 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 	rulerPersonalitiesMapper.initRulerPersonalitiesMapper(overrideModPath);
 	religionMapper.initReligionMapper(overrideModPath);
 	titleTagMapper.initTitleTagMapper(overrideModPath);
+	
+	std::string overrideModPath;
+	for (const auto& mod: sourceWorld.getMods())
+		if (mod.name == "Tianxia")
+			overrideModPath = "Tianxia";
+
+	cultureMapper.initCultureMapper(overrideModPath);
+	governmentsMapper.initGovernmentsMapper(overrideModPath);
+	rulerPersonalitiesMapper.initRulerPersonalitiesMapper(overrideModPath);
+	religionMapper.initReligionMapper(overrideModPath);
+	titleTagMapper.initTitleTagMapper(overrideModPath);
 
 	// Scraping localizations from CK2 so we may know proper names for our countries.
 	localizationMapper.scrapeLocalizations(theConfiguration, sourceWorld.getMods());
