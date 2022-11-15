@@ -138,6 +138,11 @@ CK2::World::World(const Configuration& theConfiguration, const commonItems::Conv
 	loadDynasties(theConfiguration);
 	Log(LogLevel::Progress) << "7 %";
 
+	std::string overrideModPath;
+	for (const auto& mod: mods)
+		if (mod.name == "Tianxia")
+			overrideModPath = "Tianxia";
+	reformedReligionMapper.initReformedReligionMapper(overrideModPath);
 	personalityScraper.scrapePersonalities(theConfiguration);
 	Log(LogLevel::Progress) << "8 %";
 
