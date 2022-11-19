@@ -6,6 +6,7 @@
 #include "../../CK2ToEU4/Source/CK2World/Titles/Title.h"
 #include "../../CK2ToEU4/Source/CK2World/Titles/Titles.h"
 #include "gtest/gtest.h"
+#include <gmock/gmock-matchers.h>
 #include <sstream>
 
 // Function linkProvinces depends on provinceTitleMapper which is untestable due to
@@ -113,17 +114,15 @@ TEST(CK2World_TitlesTests, holderLinkCannotBeSetThrowsWarning)
 	CK2::Characters characters(input2);
 
 	std::stringstream log;
-	auto stdOutBuf = std::cout.rdbuf();
+	std::streambuf* cout_buffer = std::cout.rdbuf();
 	std::cout.rdbuf(log.rdbuf());
 
 	titles.linkHolders(characters);
 
-	std::cout.rdbuf(stdOutBuf);
+	std::cout.rdbuf(cout_buffer);
 	auto stringLog = log.str();
-	auto newLine = stringLog.find_first_of('\n');
-	stringLog = stringLog.substr(0, newLine);
 
-	ASSERT_EQ(stringLog, " [WARNING] Holder ID: 34 has no definition!");
+	EXPECT_THAT(stringLog, testing::HasSubstr(R"([WARNING] Holder ID: 34 has no definition!)"));
 }
 
 TEST(CK2World_TitlesTests, previousHolderLinksDefaultsToNull)
@@ -217,10 +216,8 @@ TEST(CK2World_TitlesTests, liegePrimaryTitleLinkCannotBeSetThrowsWarning)
 
 	std::cout.rdbuf(stdOutBuf);
 	auto stringLog = log.str();
-	auto newLine = stringLog.find_first_of('\n');
-	stringLog = stringLog.substr(0, newLine);
 
-	ASSERT_EQ(stringLog, " [WARNING] Primary liege title ID: d_liege has no definition!");
+	EXPECT_THAT(stringLog, testing::HasSubstr(R"([WARNING] Primary liege title ID: d_liege has no definition!)"));
 }
 
 TEST(CK2World_TitlesTests, liegeBaseTitleLinkDefaultsToNull)
@@ -288,10 +285,8 @@ TEST(CK2World_TitlesTests, liegeBaseTitleLinkCannotBeSetThrowsWarning)
 
 	std::cout.rdbuf(stdOutBuf);
 	auto stringLog = log.str();
-	auto newLine = stringLog.find_first_of('\n');
-	stringLog = stringLog.substr(0, newLine);
 
-	ASSERT_EQ(stringLog, " [WARNING] Base liege title ID: d_something has no definition!");
+	EXPECT_THAT(stringLog, testing::HasSubstr(R"([WARNING] Base liege title ID: d_something has no definition!)"));
 }
 
 TEST(CK2World_TitlesTests, DJliegePrimaryTitleLinkDefaultsToNull)
@@ -345,10 +340,8 @@ TEST(CK2World_TitlesTests, DJliegePrimaryTitleLinkCannotBeSetThrowsWarning)
 
 	std::cout.rdbuf(stdOutBuf);
 	auto stringLog = log.str();
-	auto newLine = stringLog.find_first_of('\n');
-	stringLog = stringLog.substr(0, newLine);
 
-	ASSERT_EQ(stringLog, " [WARNING] Primary DJ liege title ID: d_liege has no definition!");
+	EXPECT_THAT(stringLog, testing::HasSubstr(R"([WARNING] Primary DJ liege title ID: d_liege has no definition!)"));
 }
 
 TEST(CK2World_TitlesTests, DJliegeBaseTitleLinkDefaultsToNull)
@@ -416,10 +409,8 @@ TEST(CK2World_TitlesTests, DJliegeBaseTitleLinkCannotBeSetThrowsWarning)
 
 	std::cout.rdbuf(stdOutBuf);
 	auto stringLog = log.str();
-	auto newLine = stringLog.find_first_of('\n');
-	stringLog = stringLog.substr(0, newLine);
 
-	ASSERT_EQ(stringLog, " [WARNING] Base DJ liege title ID: d_something has no definition!");
+	EXPECT_THAT(stringLog, testing::HasSubstr(R"([WARNING] Base DJ liege title ID: d_something has no definition!)"));
 }
 
 TEST(CK2World_TitlesTests, liegeVassalsDefaultToEmpty)
@@ -555,10 +546,8 @@ TEST(CK2World_TitlesTests, baseTitleLinkCannotBeSetThrowsWarning)
 
 	std::cout.rdbuf(stdOutBuf);
 	auto stringLog = log.str();
-	auto newLine = stringLog.find_first_of('\n');
-	stringLog = stringLog.substr(0, newLine);
 
-	ASSERT_EQ(stringLog, " [WARNING] Base title title ID: c_base has no definition!");
+	EXPECT_THAT(stringLog, testing::HasSubstr(R"([WARNING] Base title title ID: c_base has no definition!)"));
 }
 
 TEST(CK2World_TitlesTests, baseTitleBaseTitleLinkDefaultsToNull)
@@ -624,10 +613,8 @@ TEST(CK2World_TitlesTests, baseTitleBaseTitleLinkCannotBeSetThrowsWarning)
 
 	std::cout.rdbuf(stdOutBuf);
 	auto stringLog = log.str();
-	auto newLine = stringLog.find_first_of('\n');
-	stringLog = stringLog.substr(0, newLine);
 
-	ASSERT_EQ(stringLog, " [WARNING] Base title base title ID: c_base has no definition!");
+	EXPECT_THAT(stringLog, testing::HasSubstr(R"([WARNING] Base title base title ID: c_base has no definition!)"));
 }
 
 TEST(CK2World_TitlesTests, vassalsDefaultToEmpty)
