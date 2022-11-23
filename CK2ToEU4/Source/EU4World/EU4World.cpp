@@ -19,19 +19,10 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 	// Do we have an override mod?
 	std::string overrideModPath;
 	for (const auto& mod: sourceWorld.getMods())
-		if (mod.name == "CleanSlate")
-			overrideModPath = "CleanSlate";
-
-	cultureMapper.initCultureMapper(overrideModPath);
-	governmentsMapper.initGovernmentsMapper(overrideModPath);
-	rulerPersonalitiesMapper.initRulerPersonalitiesMapper(overrideModPath);
-	religionMapper.initReligionMapper(overrideModPath);
-	titleTagMapper.initTitleTagMapper(overrideModPath);
-	
-	std::string overrideModPath;
-	for (const auto& mod: sourceWorld.getMods())
-		if (mod.name == "Tianxia")
-			overrideModPath = "Tianxia";
+       	 if (mod.name == "CleanSlate")
+                    overrideModPath = "CleanSlate";
+       	 else if (mod.name == "Tianxia")
+                    overrideModPath = "Tianxia";
 
 	cultureMapper.initCultureMapper(overrideModPath);
 	governmentsMapper.initGovernmentsMapper(overrideModPath);
