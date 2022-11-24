@@ -612,7 +612,7 @@ link = { ck2 = k_khotan eu4 = KAS }
 link = { ck2 = c_yarkand eu4 = KAS }
 link = { ck2 = e_mongol_empire eu4 = MGE }
 link = { ck2 = k_mongolia eu4 = KHA }
-link = { ck2 = k_mongolia eu4 = CHH capitals = { 714 2118 2119 4684 } } # Kirghiz -> Chahar, This is done to prevent Kirghiz which uses the same title as Mongolia from converting to such.
+#link = { ck2 = k_mongolia eu4 = CHH capitals = { 714 2118 2119 4684 } } # Kirghiz -> Chahar, This is done to prevent Kirghiz which uses the same title as Mongolia from converting to such.
 
 #Tibet
 
@@ -1208,6 +1208,7 @@ link = { ck2 = c_sulu eu4 = SUL } # Sulu
 link = { ck2 = k_maynilla eu4 = MNA } # Manilla
 link = { ck2 = c_pangasinan eu4 = PGS } # Pangasinan
 link = { ck2 = k_taiwan eu4 = FRM } # Taiwan -> Tungning
+link = { capitals = { 1015 } eu4 = RYU } # Ryukyu
 
 #DongYi
 #link = { ck2 = e_japan eu4 = JAP } # Japan
