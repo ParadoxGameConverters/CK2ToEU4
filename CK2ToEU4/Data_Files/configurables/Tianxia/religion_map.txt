@@ -114,4 +114,4 @@ link = { eu4 = tengri_pagan_reformed ck2 = korean_pagan_reformed }
 link = { eu4 = shinto ck2 = ryukyuan_pagan_reformed ck2 = ainu_pagan_reformed ck2 = shinto }
 link = { eu4 = hindu ck2 = dayak_pagan_reformed }
 link = { eu4 = mahayana ck2 = viet_pagan_reformed }
-link = { eu4 = inti ck2 = inca_religion ck2 = inca_religion_reformed}
+link = { eu4 = inti ck2 = inca_religion ck2 = inca_religion_reformed }
