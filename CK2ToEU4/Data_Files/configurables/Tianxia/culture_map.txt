@@ -583,3 +583,21 @@ link = { eu4 = khmer ck2 = khmer tech = chinese gfx = asiangfx }
 link = { eu4 = mon ck2 = mon tech = chinese gfx = asiangfx } 
 link = { eu4 = vietnamese ck2 = viet tech = chinese gfx = asiangfx } 
 link = { eu4 = cham ck2 = cham tech = chinese gfx = asiangfx } 
+
+# Tai
+link = { eu4 = zhaung ck2 = thai region = china_superregion region = red_river_delta_area tech = chinese gfx = asiangfx }
+link = { eu4 = northern_thai ck2 = thai region = northern_thai_area region = north_laos_area tech = chinese gfx = asiangfx }
+link = { eu4 = central_thai ck2 = thai tech = chinese gfx = asiangfx } # Fallback
+link = { eu4 = lao ck2 = lao tech = chinese gfx = asiangfx } 
+link = { eu4 = shan ck2 = shan tech = chinese gfx = asiangfx } 
+
+# Nusantara
+link = { eu4 = malayan ck2 = malay tech = chinese gfx = asiangfx } 
+link = { eu4 = filipino ck2 = tagalog ck2 = andamanese tech = chinese gfx = asiangfx } 
+link = { eu4 = javanese ck2 = javanese tech = chinese gfx = asiangfx } 
+link = { eu4 = sumatran ck2 = minangkabau ck2 = batak tech = chinese gfx = asiangfx } 
+link = { eu4 = polynesian ck2 = taiwanese tech = polynesian_tech gfx = polynesiangfx } # Blame vanilla 
+link = { eu4 = acehnese ck2 = acehnese tech = chinese gfx = asiangfx } 
+link = { eu4 = bornean ck2 = dayak tech = chinese gfx = asiangfx }
+link = { eu4 = sulawesi ck2 = minahasan tech = chinese gfx = asiangfx }
+
