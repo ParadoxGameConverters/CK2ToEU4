@@ -107,11 +107,13 @@ link = { eu4 = confucianism ck2 = taoist ck2 = confucianism }
 # ---- SUPPORTED MODS -----
 
 # Tianxia
-link = { eu4 = animism ck2 = ainu_pagan ck2 = ryukyuan_pagan ck2 = dayak_pagan ck2 = melanesian_pagan_reformed ck2 = melanesian_pagan ck2 = sanamahi_pagan ck2 = sanamahi_pagan_reformed ck2 = viet_pagan }
+link = { eu4 = animism ck2 = ainu_pagan ck2 = ryukyuan_pagan ck2 = dayak_pagan ck2 = melanesian_pagan ck2 = sanamahi_pagan ck2 = viet_pagan ck2 = bai_pagan ck2 = yi_pagan ck2 = miao_pagan ck2 = zhuang_pagan ck2 = dusun_pagan ck2 = minahasan_pagan ck2 = taiwanese_pagan ck2 = maian_pagan ck2 = dayak_pagan ck2 = andamanese_pagan ck2 = bamar_pagan ck2 = tai_pagan ck2 = batak_pagan ck2 = minangkabau_pagan ck2 = sundanese_pagan }
+link = { eu4 = pagan_religion ck2 = melanesian_pagan_reformed ck2 = sanamahi_pagan_reformed ck2 = yi_pagan_reformed ck2 = miao_pagan_reformed ck2 = zhuang_pagan_reformed ck2 = dusun_pagan_reformed ck2 = minahasan_pagan_reformed ck2 = taiwanese_pagan_reformed ck2 = maian_pagan_reformed ck2 = dayak_pagan_reformed ck2 = andamanese_pagan_reformed ck2 = tai_pagan_reformed ck2 = batak_pagan_reformed ck2 = minangkabau_pagan_reformed ck2 = sundanese_pagan_reformed ck2 = kejawen } # Revise
 link = { eu4 = confucianism ck2 = chinese_pagan_reformed ck2 = chinese_pagan }
-link = { eu4 = tengri_pagan ck2 = korean_pagan }
-link = { eu4 = tengri_pagan_reformed ck2 = korean_pagan_reformed }
-link = { eu4 = shinto ck2 = ryukyuan_pagan_reformed ck2 = ainu_pagan_reformed ck2 = shinto }
+link = { eu4 = tengri_pagan ck2 = korean_pagan ck2 = nivkh_pagan ck2 = jurchen_pagan }
+link = { eu4 = tengri_pagan_reformed ck2 = korean_pagan_reformed ck2 = nivkh_pagan_reformed ck2 = jurchen_pagan_reformed }
+link = { eu4 = shinto ck2 = ryukyuan_pagan_reformed ck2 = ainu_pagan_reformed ck2 = shinto ck2 = shugendo ck2 = koshin }
 link = { eu4 = hindu ck2 = dayak_pagan_reformed }
 link = { eu4 = mahayana ck2 = viet_pagan_reformed }
+link = { eu4 = buddhism ck2 = bai_pagan_reformed ck2 = bamar_pagan_reformed }
 link = { eu4 = inti ck2 = inca_religion ck2 = inca_religion_reformed }
