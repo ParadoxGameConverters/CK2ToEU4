@@ -136,6 +136,13 @@ CK2::World::World(const Configuration& theConfiguration, const commonItems::Conv
 			overrideModPath = "CleanSlate";
 		else if (mod.name == "Tianxia: Silk Road Expansion")
 			overrideModPath = "Tianxia: Silk Road Expansion";
+	reformedReligionMapper.initReformedReligionMapper(overrideModPath);
+	loadDynasties(theConfiguration);
+	Log(LogLevel::Progress) << "7 %";
+
+	reformedReligionMapper.initReformedReligionMapper(overrideModPath);
+	personalityScraper.scrapePersonalities(theConfiguration);
+	Log(LogLevel::Progress) << "8 %";
 
 	auto gameState = std::istringstream(saveGame.gamestate);
 	parseStream(gameState);
