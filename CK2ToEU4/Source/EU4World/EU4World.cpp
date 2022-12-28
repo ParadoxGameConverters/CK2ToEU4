@@ -22,7 +22,7 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 		if (mod.name == "CleanSlate")
 			overrideModPath = "CleanSlate";
 		else if (mod.name == "Tianxia: Silk Road Expansion")
-			overrideModPath = "Tianxia: Silk Road Expansion";
+			overrideModPath = "Tianxia";
 
 	cultureMapper.initCultureMapper(overrideModPath);
 	governmentsMapper.initGovernmentsMapper(overrideModPath);
