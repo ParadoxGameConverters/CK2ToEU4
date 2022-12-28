@@ -560,7 +560,7 @@ link = { ck2 = c_diafunu eu4 = FUL }
 link = { ck2 = k_hausaland eu4 = HAU }
 link = { ck2 = d_hausaland eu4 = HAU }
 link = { ck2 = c_djenne eu4 = JNN }
-link = { ck2 = c_kano eu4 = ZZZ }
+#link = { ck2 = c_kano eu4 = ZZZ }
 link = { ck2 = e_kanem eu4 = KBO }
 link = { ck2 = k_kanem eu4 = KBO }
 link = { ck2 = d_bornu eu4 = KBO }
@@ -1160,11 +1160,23 @@ link = { capitals = { 4716 } eu4 = COB } # Coburg
 link = { ck2 = c_abomey eu4 = DAH } # Abomey -> Dahomey
 link = { ck2 = c_kaffa eu4 = KAF } # Kaffa
 link = { ck2 = k_oyo eu4 = OYO } # Oyo
+link = { ck2 = c_oyo eu4 = OYO } # Oyo
+link = { ck2 = d_zazzau eu4 = ZZZ } # Zazzau
+link = { ck2 = c_zazzau eu4 = ZZZ } # Zazzau
+link = { ck2 = k_bonoman eu4 = BON } # Bonoman
+link = { ck2 = d_bonoman eu4 = BON } # Bonoman
+link = { ck2 = c_bonoman eu4 = BON } # Bonoman
+link = { ck2 = d_kong eu4 = KNG } # Kong
+link = { ck2 = c_kong eu4 = KNG } # Kong
+link = { ck2 = c_mossi eu4 = MSI } # Mossi
+link = { ck2 = c_nupe eu4 = NUP } # Nupe
+link = { ck2 = c_janjiro eu4 = JJI } # Janjiro
+link = { ck2 = c_hadiya eu4 = HDY } # Hadiya
+link = { ck2 = d_hadiya eu4 = HDY } # Hadiya
+link = { ck2 = k_hadiya eu4 = HDY } # Hadiya
+link = { ck2 = c_ennarea eu4 = ENA } # Ennarea
 
-#Indochina
-link = { ck2 = e_khmer eu4 = KHM } # Khmer
-link = { ck2 = c_angkor eu4 = KHM } # Angkor -> Cambodia
-link = { ck2 = c_chiang_mai eu4 = LNA } # Lan Na
+#Burma 
 link = { ck2 = c_hsenwi eu4 = HSE } # Hsenwi
 link = { ck2 = c_hsipaw eu4 = HSI } # Hsipaw
 link = { ck2 = c_kale eu4 = KAL } # Kale
@@ -1172,18 +1184,34 @@ link = { ck2 = c_mong_nai eu4 = MNI } # Mong Nai
 link = { ck2 = c_mong_pai eu4 = MPA } # Mong Pai
 link = { ck2 = e_burma eu4 = TAU } # Burma -> Taungu
 link = { ck2 = c_taungoo eu4 = TAU } # Taungoo
-link = { ck2 = k_champa eu4 = CHA } # Champa
 link = { ck2 = k_ava eu4 = AVA } # Ava
 link = { ck2 = d_ava eu4 = AVA } # Ava
 link = { ck2 = c_ava eu4 = AVA } # Ava
 link = { ck2 = d_arakan eu4 = ARK } # Arakan
 link = { ck2 = d_mong_kawng eu4 = MKG } # Mong Kwang
 link = { ck2 = k_pegu eu4 = PEG } # Pegu 
+link = { ck2 = d_pegu eu4 = PEG } # Pegu 
+link = { ck2 = c_pegu eu4 = PEG } # Pegu 
+
+#Indochina
+link = { ck2 = e_khmer eu4 = KHM } # Khmer
+link = { ck2 = k_cambodia eu4 = KHM } # Cambodia -> Khmer
+link = { ck2 = c_angkor eu4 = KHM } # Angkor -> Cambodia
+link = { ck2 = c_chiang_mai eu4 = LNA } # Lan Na
+link = { ck2 = k_champa eu4 = CHA } # Champa
 link = { ck2 = e_vietnam eu4 = DAI } # Annam -> Dai Viet (due to de jure location)
 link = { ck2 = k_annam eu4 = DAI } # Annam -> Dai Viet (due to de jure location)
 link = { ck2 = k_shan eu4 = SST } # Shan
 link = { ck2 = d_shan eu4 = SST } # Shan
 link = { ck2 = c_kale eu4 = KAL } # Kale
+link = { ck2 = k_sukhothai eu4 = SUK } # Sukhothai
+link = { ck2 = d_sukhothai eu4 = SUK } # Sukhothai
+link = { ck2 = c_sukhothai eu4 = SUK } # Sukhothai
+link = { ck2 = k_lan_xang eu4 = LXA } # Lan Xang 
+link = { ck2 = d_luang_prabang eu4 = LUA } # Luang Prabang 
+link = { ck2 = c_luang_prabang eu4 = LUA } # Luang Prabang 
+link = { ck2 = d_wiang_jung eu4 = VIE } # Wiang Jung -> Vientiane
+link = { ck2 = c_wiang_jung eu4 = VIE } # Wiang Jung -> Vientiane
 
 #Nusantara
 link = { ck2 = c_bali eu4 = BLI } # Bali
@@ -1195,24 +1223,31 @@ link = { ck2 = c_melaka eu4 = MLC } # Malacca
 link = { ck2 = e_nusantara eu4 = MSA } # Nusantara -> Malaya
 link = { ck2 = k_malaya eu4 = MSA } # Malaya
 link = { ck2 = k_palembang eu4 = PLB } # Palembang
-#link = { ck2 = k_sulawesi eu4 = BNE } # Sulawesi -> Bone
+link = { ck2 = d_palembang eu4 = PLB } # Palembang
+link = { ck2 = c_palembang eu4 = PLB } # Palembang
+link = { ck2 = k_sulawesi eu4 = BNE } # Sulawesi -> Bone
 link = { ck2 = c_bone eu4 = BNE } #  Bone
 link = { ck2 = d_kalapa eu4 = SUN } # Sunda
 link = { ck2 = d_blambangan eu4 = BLM } # Blambangan
 link = { ck2 = c_blambangan eu4 = BLM } # Blambangan
 link = { ck2 = c_luwu eu4 = LUW } # Luwu
+link = { ck2 = c_pasai eu4 = PSA } # Pasai
+link = { ck2 = c_jambi eu4 = JMB } # Jambi
+link = { ck2 = c_sambas eu4 = SMB } # Sambas
 
 #Ma-i
+link = { ck2 = d_cebu eu4 = CEB } # Cebuano
 link = { ck2 = c_cebu eu4 = CEB } # Cebu
 link = { ck2 = c_sulu eu4 = SUL } # Sulu
 link = { ck2 = k_maynilla eu4 = MNA } # Manilla
 link = { ck2 = c_pangasinan eu4 = PGS } # Pangasinan
 link = { ck2 = k_taiwan eu4 = FRM } # Taiwan -> Tungning
 link = { capitals = { 1015 } eu4 = RYU } # Ryukyu
+link = { ck2 = c_tondo eu4 = TDO } # Tondo
 
-#DongYi
+# DongYi
 #link = { ck2 = e_japan eu4 = JAP } # Japan
-link = { ck2 = k_yamatai eu4 = JAP } # Japan
+#link = { ck2 = k_yamatai eu4 = JAP } # Japan
 link = { ck2 = k_chrysanthemum_throne eu4 = JAP } # Japan
 link = { ck2 = e_tawantinsuyu eu4 = INC } # Tawantinsuyu -> Inca
 link = { ck2 = k_yezo eu4 = ANU } # Yezo -> Ainu
@@ -1220,6 +1255,5 @@ link = { ck2 = e_korea eu4 = KOR } # Korea (not Joseon)
 
 # Tianxia proper
 link = { ck2 = e_mongol_china eu4 = YUA } # Yuan
-link = { ck2 = e_manchuria eu4 = GJN } # Great Jin
-link = { ck2 = k_jin eu4 = GJN } # (Great) Jin
+link = { ck2 = e_manchuria eu4 = QNG } # Manchuria -> Qing
 link = { ck2 = k_dali eu4 = CDL } # Dali

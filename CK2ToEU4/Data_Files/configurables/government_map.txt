@@ -80,8 +80,8 @@ link = { title = e_byzantium ck2gov = imperial_government gov = monarchy reform 
 # ---- SUPPORTED MODS ----- Tianxia
 link = { ck2gov = eastern_imperial_government gov = monarchy }
 link = { ck2gov = chinese_vassal_government gov = monarchy reform = confucian_bureaucracy }
-link = { ck2gov = japanese_imperial_government gov = monarchy reform = lithuanian_grand_empire reform = state_and_shrines_intertwined_reform } # Tenno will always be an emperor, Revise: Can one government be mapped to two reforms on seperate tiers?
-link = { ck2gov = japanese_bureaucracy_government gov = tribal reform = feudal_tribe }
+link = { ck2gov = japanese_imperial_government gov = monarchy reform = lithuanian_grand_empire } # Tenno will always be an emperor
+link = { ck2gov = japanese_bureaucracy_government gov = monarchy reform = indep_daimyo }
 link = { ck2gov = japanese_feudal_government gov = monarchy reform = indep_daimyo }
 link = { ck2gov = japanese_monastic_feudal_government gov = monarchy reform = feudal_theocracy }
 link = { ck2gov = divine_imperial_government gov = monarchy reform = livonian_theocratic_monarchy } # I don't know, what is a not-Tenno?
