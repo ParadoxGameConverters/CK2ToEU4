@@ -19,4 +19,9 @@ spriteTypes = {
 	}
 	#Petra, Hagia and Notre are in the base game
 
+	##Tianxia
+	spriteType = {
+		name = "GFX_great_project_jingu"
+		texturefile = "gfx//interface//great_projects//great_project_jingu.dds"
+	}
 	##Dynamic Monuments
