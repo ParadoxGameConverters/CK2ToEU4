@@ -80,7 +80,7 @@ link = { title = e_byzantium ck2gov = imperial_government gov = monarchy reform 
 # ---- SUPPORTED MODS ----- Tianxia
 link = { ck2gov = eastern_imperial_government gov = monarchy }
 link = { ck2gov = chinese_vassal_government gov = monarchy reform = confucian_bureaucracy }
-link = { ck2gov = japanese_imperial_government gov = monarchy reform = lithuanian_grand_empire } # Tenno will always be an emperor
+link = { ck2gov = japanese_imperial_government gov = monarchy reform = shogunate } # Tenno will use shogunate mechanics
 link = { ck2gov = japanese_bureaucracy_government gov = monarchy reform = indep_daimyo }
 link = { ck2gov = japanese_feudal_government gov = monarchy reform = indep_daimyo }
 link = { ck2gov = japanese_monastic_feudal_government gov = monarchy reform = feudal_theocracy }

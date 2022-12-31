@@ -34,49 +34,55 @@ grand_duchy_monarchy = {
 
 japanese_tenno = { # Tianxia; Should not affect base-game
     rank = {
-  	1 = PRINCEDOM
-        2 = KINGDOM
+    	1 = EMPIRE
+        2 = EMPIRE
         3 = EMPIRE
     }
 
     ruler_male = {
-        1 = PRINCE
-        2 = KING
+        1 = EMPEROR
+        2 = EMPEROR
         3 = EMPEROR        
     }
     
     ruler_female = {
-        1 = PRINCESS
-        2 = QUEEN
+        1 = EMPRESS
+        2 = EMPRESS
         3 = EMPRESS        
     }
     
     consort_male = {
-        1 = PRINCE
-        2 = KING
+        1 = EMPEROR
+        2 = EMPEROR
         3 = EMPEROR
     }
 
     consort_female = {
-        1 = PRINCESS
-        2 = QUEEN
+        1 = EMPRESS
+        2 = EMPRESS
         3 = EMPRESS  
     }
 
     heir_male = {
-        1 = HEIR
-        2 = HEIR
-        3 = HEIR
+        1 = PRINCE
+        2 = PRINCE
+        3 = PRINCE
     }
 
     heir_female = {
-        1 = HEIR_fem
-        2 = HEIR_fem
-        3 = HEIR_fem
+        1 = PRINCESS
+        2 = PRINCESS
+        3 = PRINCESS
     }
 
     trigger = {
         tag = JAP
-	has_reform = lithuanian_grand_empire
+        OR = {
+            has_reform = lithuanian_grand_empire
+            has_reform = shogunate
+            has_reform = daimyo
+            has_reform = indep_daimyo
+            has_reform = feudal_theocracy
+        }
     }
 }

@@ -7,7 +7,7 @@
 	link = { ck2 = 2353 eu4 = 4807 eu4 = 2740 eu4 = 4808 } # Borneo -> North Borneo, Yongtai, Sumatra
 	link = { ck2 = 1766 eu4 = 1796 eu4 = 1798 } # (Unknown) -> Central Africa, Imatong
 	link = { ck2 = 908 eu4 = 1779 } # (Unknown) -> Rub' al Khali
-	link = { ck2 = 1549 eu4 = 2334 } # Badiyat ash Sham Desert -> Blambangan
+	link = { ck2 = 1549 eu4 = 2334 } # (Unknown) -> Blambangan
 	link = { eu4 = 4156 } # NOTHING -> Caucasus
 	link = { eu4 = 4138 } # NOTHING -> Issyk-Kul
 	link = { ck2 = 901 ck2 = 1790 } # (Unknown), (Unknown) -> DROPPED
@@ -33,7 +33,7 @@
 	link = { ck2 = 1026 eu4 = 1889 } # Lake Leman -> Lake geneva
 	link = { ck2 = 971 eu4 = 1890 } # Bodensee -> Bodensee
 	link = { ck2 = 944 eu4 = 1327 } # Aral Sea -> Aral Sea
-	link = { ck2 = 1305 ck2 = 1580 ck2 = 1529 eu4 = 1653 eu4 = 4137 eu4 = 1654 } # MANY-TO-MANY: (Unknown), Lop Nor, Lake Baikal -> Lake Balchasj, Alakol, Lake Bajkal
+	link = { ck2 = 1305 ck2 = 1580 ck2 = 1529 eu4 = 1653 eu4 = 4137 eu4 = 1654 } # MANY-TO-MANY: (Unknown), Lake Lop Nor, Lake Baikal -> Lake Balchasj, Alakol, Lake Bajkal
 	link = { ck2 = 1058 ck2 = 1059 ck2 = 1060 ck2 = 1061 ck2 = 1063 ck2 = 1071 ck2 = 1070 ck2 = 1088 ck2 = 1093 ck2 = 1092 } # Danube1, Danube2, Danube3, Danube4, Danube6, Dnieper2, Dnieper1, Don1, Volga2, Volga1 -> DROPPED
 	link = { ck2 = 2096 ck2 = 2097 eu4 = 4358 } # Coast of Palapag, Coast of Bayombong -> Cuyo Archipelago
 	link = { ck2 = 2092 ck2 = 2093 eu4 = 1402 } # Surigao Strait, Leyte Gulf -> Philipine Sea
@@ -89,7 +89,7 @@
 	link = { ck2 = 2020 ck2 = 2021 eu4 = 1354 } # Coast of Blambangan, Coast of Bali -> Coast of Surabaya
 	link = { ck2 = 2018 ck2 = 2019 eu4 = 1353 } # Coast of Kawali, Coast of Pajang -> Coast of Java
 	link = { ck2 = 2015 ck2 = 2016 eu4 = 1352 } # Semangka Bay, Southern Sunda Strait -> Christmas Island
-	link = { ck2 = 2013 ck2 = 2014 eu4 = 1351 } # Almada, Huelva -> Nagchu
+	link = { ck2 = 2013 ck2 = 2014 eu4 = 1351 } # Almada, Huelva -> Coast of Sumatra
 	link = { ck2 = 2010 ck2 = 2011 eu4 = 1350 } # (Unknown), (Unknown) -> Coast of Atjeh
 	link = { ck2 = 1999 ck2 = 2002 ck2 = 2005 ck2 = 2004 ck2 = 2001 ck2 = 2000 ck2 = 2003 ck2 = 2006 ck2 = 2007 ck2 = 2008 ck2 = 2012 } # Nile, Akhmim, Paraetonium, Kharibta, Faiyum, Nile, Esna, Kolzum, Farafra, (Unknown), Egitanea -> DROPPED
 	link = { ck2 = 1673 ck2 = 1674 ck2 = 1105 ck2 = 1104 ck2 = 1091 ck2 = 1102 ck2 = 1099 ck2 = 1098 ck2 = 1097 ck2 = 1100 ck2 = 1101 ck2 = 1075 ck2 = 1074 ck2 = 1073 ck2 = 1077 ck2 = 1078 ck2 = 1082 ck2 = 1076 ck2 = 1072 ck2 = 1090 ck2 = 1089 ck2 = 1094 ck2 = 1084 ck2 = 1085 ck2 = 1083 ck2 = 1087 ck2 = 1081 ck2 = 1626 ck2 = 1079 ck2 = 1080 ck2 = 1106 ck2 = 1103 ck2 = 1095 ck2 = 1096 ck2 = 1628 ck2 = 1629 ck2 = 1630 ck2 = 1051 ck2 = 1052 ck2 = 1053 ck2 = 1054 ck2 = 1055 ck2 = 1627 ck2 = 1057 ck2 = 1056 ck2 = 1997 eu4 = 1447 } # Oka 4, Oka 5, Volga11, Oka3, Don4, Oka1, Volga8, Volga7, Volga6, Volga9, Volga10, Desna3, Desna2, Desna1, Dnyapro, Dnepr, Dwina, Dnipro, Dnieper3, Don3, Don2, Volga3, Svir, Volkhov, Neva, Lovat, Daugava2, Pripyat2, Pripyat, Daugava1, Volga12, Oka2, Volga4, Volga5, Kama, Votkinsk, Kama, Vistula1, Vistula2, Vistula3, Vistula4, Vistula5, Dniester3, Dniester2, Dniester1, Nile -> Coast of Pepper
@@ -155,8 +155,8 @@
 	link = { ck2 = 1011 ck2 = 1020 eu4 = 1294 } # Mediterranean Sea, Mediterranean Sea -> Gulf of Almeira
 	link = { ck2 = 954 eu4 = 1293 } # Strait of Gibraltar -> Straits of Gibraltar
 	link = { comment = "Atlantic" }
-	link = { ck2 = 953 eu4 = 1472 } # Coast of Morocco -> Jumla
-	link = { ck2 = 976 eu4 = 1471 } # Sea of Canarias -> Kurmanchal
+	link = { ck2 = 953 eu4 = 1472 } # Coast of Morocco -> Coast of Morocco
+	link = { ck2 = 976 eu4 = 1471 } # Sea of Canarias -> Canarian Sea
 	link = { ck2 = 981 eu4 = 1292 } # Golfo de Cadiz -> Gulf of Cadiz
 	link = { ck2 = 980 eu4 = 1291 } # Portugal Coast -> Lusitanian Sea
 	link = { ck2 = 991 eu4 = 1288 } # Galway Bay -> Celtic Sea
@@ -181,10 +181,10 @@
 	link = { ck2 = 989 ck2 = 988 eu4 = 1975 } # North Sea, North Sea -> Sea of Jutland
 	link = { ck2 = 990 eu4 = 1281 } # Sea of Shetland -> The North Sea
 	link = { ck2 = 960 eu4 = 1299 } # Faroya -> Shetland Straits
-	link = { ck2 = 982 ck2 = 1619 eu4 = 1477 } # Coast of Iceland, West Coast of Iceland -> Janakpur
-	link = { ck2 = 1618 eu4 = 1475 } # North Coast of Iceland -> Pokhara
-	link = { ck2 = 984 eu4 = 1476 } # North Atlantic -> Mangyul
-	link = { ck2 = 998 eu4 = 1473 eu4 = 1474 } # North Sea -> Doti, Lumbini
+	link = { ck2 = 982 ck2 = 1619 eu4 = 1477 } # Coast of Iceland, West Coast of Iceland -> Western Coast of Iceland
+	link = { ck2 = 1618 eu4 = 1475 } # North Coast of Iceland -> Icelandic Sea
+	link = { ck2 = 984 eu4 = 1476 } # North Atlantic -> Eastern Coast of Iceland
+	link = { ck2 = 998 eu4 = 1473 eu4 = 1474 } # North Sea -> Jan Mayen Sea, Spitzberg Sea
 	link = { ck2 = 964 eu4 = 1652 } # White Sea -> White Sea
 	link = { ck2 = 985 ck2 = 1846 ck2 = 1847 eu4 = 1263 } # North Atlantic, Murman Sea, Arctic Sea -> Barents Sea
 	link = { ck2 = 987 eu4 = 1265 eu4 = 1264 } # North Sea -> Northern Norwegian Sea, Lofoten Sea
@@ -768,11 +768,11 @@
 	link = { ck2 = 731 ck2 = 768 eu4 = 4297 } # Homs, Baalbek -> Homs
 	link = { ck2 = 732 ck2 = 765 eu4 = 1849 } # Hama, Archa -> Hama
 	link = { ck2 = 733 eu4 = 377 } # Aleppo -> Aleppo
-	link = { ck2 = 730 ck2 = 709 ck2 = 729 ck2 = 710 ck2 = 698 eu4 = 407 } # Palmyra, Asas, Tadmor, Al Bichri, Hasakah -> Ar Raqqa
+	link = { ck2 = 730 ck2 = 709 ck2 = 729 ck2 = 710 ck2 = 698 eu4 = 407 } # Palmyra, Asas, Tadmor, Al Bichri, Al Jazira -> Ar Raqqa
 	link = { ck2 = 734 eu4 = 2308 } # Aintab -> Lubuklinggau
 	link = { ck2 = 708 ck2 = 699 eu4 = 4292 } # Tell Bashir, Edessa -> Mardin
 	link = { ck2 = 649 eu4 = 408 } # Basra -> Basra
-	link = { ck2 = 655 ck2 = 654 eu4 = 4288 } # Kufa, Ain Said -> Shatt
+	link = { ck2 = 655 ck2 = 654 eu4 = 4288 } # Kufa, Rummah -> Shatt
 	link = { ck2 = 692 eu4 = 2311 } # Al Nadjaf -> Gunungmegang
 	link = { ck2 = 690 eu4 = 2312 } # Al Amarah -> Muara Enim
 	link = { ck2 = 693 ck2 = 696 eu4 = 410 eu4 = 4291 } # MANY-TO-MANY: Baghdad, Euphrates -> Baghdad, Qazaniya
@@ -782,7 +782,7 @@
 	link = { ck2 = 684 eu4 = 2309 } # Nisibin -> Bengkulu
 	link = { ck2 = 689 eu4 = 2209 eu4 = 4290 } # Ilam -> Yangtze River, Hoveyzeh
 	link = { ck2 = 687 eu4 = 415 eu4 = 4294 } # Kirkuk -> Kirkuk, Sulimaniyeh
-	link = { ck2 = 685 eu4 = 4293 } # Irbil -> Arbil
+	link = { ck2 = 685 eu4 = 4293 } # Oromieh -> Arbil
 	link = { ck2 = 697 eu4 = 411 } # Mosul -> Mosul
 	link = { ck2 = 701 ck2 = 683 eu4 = 4295 } # Taron, Amida -> Hisn Kayfa
 	link = { ck2 = 700 eu4 = 4296 } # Bira -> Bitlis
@@ -790,12 +790,12 @@
 	link = { ck2 = 717 eu4 = 4272 } # Al Jawf -> Al Jawf
 	link = { ck2 = 1536 eu4 = 4269 } # Khaybar -> Al Wajh
 	link = { ck2 = 721 eu4 = 383 } # Tabuk -> Tabuk
-	link = { ck2 = 720 eu4 = 2328 } # Al 'Ula -> Pajang
+	link = { ck2 = 720 eu4 = 2328 } # Hijaz -> Pajang
 	link = { ck2 = 718 eu4 = 384 } # Medina -> Medina
 	link = { ck2 = 864 ck2 = 1530 eu4 = 393 } # Hail, Dariya -> Jabal Shammar
 	link = { ck2 = 865 eu4 = 2338 eu4 = 4274 } # Rafha -> Taliwang, Sudayr
 	link = { ck2 = 650 eu4 = 2340 } # Kuwait -> Dompu
-	link = { ck2 = 651 eu4 = 394 } # Qatif -> El Catif
+	link = { ck2 = 651 eu4 = 394 } # Damman -> El Catif
 	link = { ck2 = 652 eu4 = 2347 } # Al Hasa -> Mamuju
 	link = { ck2 = 653 eu4 = 395 } # Bahrein -> Qatar
 	link = { ck2 = 1531 eu4 = 396 } # Uwal -> Bahrain
@@ -811,14 +811,14 @@
 	link = { ck2 = 859 eu4 = 4280 eu4 = 4281 } # Taizz -> Taiz, Dhamar
 	link = { ck2 = 858 eu4 = 388 eu4 = 387 } # Aden -> Aden, Mokha
 	link = { ck2 = 857 eu4 = 389 eu4 = 2345 } # Bayda -> Mukalla, Ampana
-	link = { ck2 = 1534 eu4 = 2343 } # al-Ahqaf -> Bone
+	link = { ck2 = 1534 eu4 = 2343 } # Al Ahqaf -> Bone
 	link = { ck2 = 856 eu4 = 4283 eu4 = 402 eu4 = 4284 } # Kathiri -> Shihr, Mahra, Al Ghayda
 	link = { ck2 = 1369 eu4 = 1099 } # Socotra -> Socotra
 	link = { ck2 = 866 ck2 = 855 eu4 = 401 eu4 = 2342 } # MANY-TO-MANY: Dhofar, Mahra -> Dhofar, Luwu
-	link = { ck2 = 867 eu4 = 2341 eu4 = 4287 } # Nizwa -> Mandar, Ibra
+	link = { ck2 = 867 eu4 = 2341 eu4 = 4287 } # Duqm -> Mandar, Ibra
 	link = { ck2 = 868 eu4 = 400 eu4 = 4286 } # Muscat -> Muscat, Sur
-	link = { ck2 = 869 eu4 = 4285 eu4 = 403 eu4 = 399 eu4 = 398 } # Suhár -> Baraimi Oasis, Nizwa, Suhar, Qawasim
-	link = { ck2 = 870 eu4 = 397 eu4 = 404 eu4 = 2333 } # Julfar -> Bani Yas, Liwa, Malang
+	link = { ck2 = 869 eu4 = 4285 eu4 = 403 eu4 = 399 eu4 = 398 } # Hajar -> Baraimi Oasis, Nizwa, Suhar, Qawasim
+	link = { ck2 = 870 eu4 = 397 eu4 = 404 eu4 = 2333 } # Dhu Zabi -> Bani Yas, Liwa, Malang
 	link = { comment = "# Abyssinia" }
 	link = { eu4 = 1899 } # NOTHING -> Tana lake
 	link = { ck2 = 794 eu4 = 1231 } # Aswan -> Aswan
@@ -1116,20 +1116,20 @@
 	link = { ck2 = 715 eu4 = 2212 eu4 = 4338 } # Zanjan-Abhar -> Yangtze River, Soltanieh
 	link = { ck2 = 658 eu4 = 414 eu4 = 4337 } # Hamadan -> Hamadan, Savah
 	link = { ck2 = 657 eu4 = 413 } # Luristan -> Lorestan
-	link = { ck2 = 656 eu4 = 4289 } # Sús -> Shushtar
+	link = { ck2 = 656 eu4 = 4289 } # Tigris -> Shushtar
 	link = { ck2 = 648 eu4 = 412 } # Khozistan -> Ahvaz
 	link = { ck2 = 647 eu4 = 4342 } # Avhaz -> Malamir
 	link = { ck2 = 646 eu4 = 429 } # Esfahan -> Isfahan
 	link = { ck2 = 659 eu4 = 2213 eu4 = 4335 } # Qom -> Yangtze River, Kashan
 	link = { ck2 = 663 eu4 = 428 eu4 = 2216 } # Rayy -> Rey, Yangtze River
 	link = { ck2 = 638 eu4 = 433 } # Yazd -> Dash-i-Lut
-	link = { ck2 = 636 eu4 = 4334 eu4 = 2222 } # Mafaza -> Tabas, Yellow River
+	link = { ck2 = 636 eu4 = 4334 eu4 = 2222 } # Lut -> Tabas, Yellow River
 	link = { ck2 = 635 eu4 = 427 eu4 = 2235 } # Qohistan -> Shahrud, Zazzau
 	link = { ck2 = 633 eu4 = 2214 } # Gurgan -> Yangtze River
 	link = { ck2 = 632 eu4 = 2236 } # Tus -> Igala
 	link = { ck2 = 634 eu4 = 4326 eu4 = 2221 } # Nishapur -> Nishapur, Yellow River
 	link = { ck2 = 906 eu4 = 436 eu4 = 4336 } # Birjand -> Birjand, Tus
-	link = { ck2 = 637 eu4 = 4327 } # Jabal Qufs -> Jask
+	link = { ck2 = 637 eu4 = 4327 } # Sistan -> Jask
 	link = { ck2 = 854 eu4 = 447 } # Zamindawar -> Kandahar
 	link = { ck2 = 1184 eu4 = 577 } # Kalat -> Quetta
 	link = { comment = "# Duchy of Sistan" }
@@ -1142,9 +1142,9 @@
 	link = { ck2 = 639 eu4 = 432 } # Kerman -> Kerman
 	link = { ck2 = 641 eu4 = 2999 eu4 = 431 } # Hormuz -> Moyejie, Hormuz
 	link = { comment = "# Duchy of Fars" }
-	link = { ck2 = 642 eu4 = 2223 eu4 = 2219 } # Darabjerd -> Yellow River, Yellow River
-	link = { ck2 = 643 eu4 = 4332 eu4 = 430 eu4 = 4331 eu4 = 4329 } # Dashtestan -> Siraf, Bushehr, Kazarun, Fasa
-	link = { ck2 = 645 eu4 = 2217 } # Arrajan -> Yellow River
+	link = { ck2 = 642 eu4 = 2223 eu4 = 2219 } # Ladistan -> Yellow River, Yellow River
+	link = { ck2 = 643 eu4 = 4332 eu4 = 430 eu4 = 4331 eu4 = 4329 } # Fars -> Siraf, Bushehr, Kazarun, Fasa
+	link = { ck2 = 645 eu4 = 2217 } # Hendjan -> Yellow River
 	link = { ck2 = 644 eu4 = 2218 eu4 = 4330 } # Shiraz -> Yellow River, Darab
 	link = { ck2 = 640 eu4 = 4345 eu4 = 2234 } # Sirjan -> Saidabad, Wukari
 	link = { ck2 = 691 eu4 = 4171 } # Istakhr -> Abarquh
@@ -1285,7 +1285,7 @@
 	link = { ck2 = 1899 eu4 = 1065 } # Abakan -> Kuznetsk
 	link = { ck2 = 1901 eu4 = 2443 eu4 = 2432 } # Kuznetsk -> Higo, Taipei
 	link = { comment = "# Duchy of Otuken" }
-	link = { ck2 = 1902 ck2 = 1903 ck2 = 1904 eu4 = 716 } # Eastern Sayan, Khovsgol, Egiin -> Jeddah
+	link = { ck2 = 1902 ck2 = 1903 ck2 = 1904 eu4 = 716 } # Eastern Sayan, Khovsgol, Egiin -> Tannu Tuva
 	link = { ck2 = 1462 eu4 = 1063 } # Gorgol -> Sayan
 	link = { ck2 = 1461 eu4 = 1060 } # Otuken -> Irkutsk
 	link = { comment = "# Duchy of Uvs" }
@@ -1294,7 +1294,7 @@
 	link = { ck2 = 1908 ck2 = 1459 eu4 = 718 } # Tsambagarav, Kyzyl -> Govi Altay
 	link = { comment = "# Duchy of Gobi Altay" }
 	link = { ck2 = 1911 ck2 = 1455 eu4 = 4680 } # Khasagt Khairkhan, Tsagaannuur -> East Zagast
-	link = { ck2 = 1909 ck2 = 1910 ck2 = 1517 eu4 = 4682 } # Khokh Serkh, Sutai, Dünkheger -> South Kobdo
+	link = { ck2 = 1909 ck2 = 1910 ck2 = 1517 eu4 = 4682 } # Khokh Serkh, Sutai, Dunkheger -> South Kobdo
 	link = { comment = "# Duchy of Ikh Bogd" }
 	link = { ck2 = 2742 ck2 = 2737 eu4 = 2153 } # Yong'an, Longyan -> Yamato Basin
 	link = { ck2 = 2751 ck2 = 2750 ck2 = 2749 eu4 = 2150 } # Quzhou, Lishui, Jinhua -> Coast of Tanchon
@@ -1316,14 +1316,14 @@
 	link = { ck2 = 2812 ck2 = 2817 eu4 = 4211 } # Bazhong, Kuizhou -> Dazhou
 	link = { ck2 = 2785 ck2 = 2784 ck2 = 2818 eu4 = 681 } # Enshi, Wufeng, Yichang -> Yichuan
 	link = { ck2 = 2773 ck2 = 2783 eu4 = 672 } # Dingcheng, Zhangjiajie -> Chenzhou
-	link = { eu4 = 2172 } # NOTHING -> Northern Sakhalin Strait
-	link = { ck2 = 2871 ck2 = 2868 eu4 = 682 } # Xinyang, Suizhou -> Hanyang
-	link = { ck2 = 2867 ck2 = 2870 eu4 = 4197 } # Hong'an, Huangchuan -> Huangzhou
-	link = { ck2 = 2853 ck2 = 2852 ck2 = 2854 eu4 = 686 } # Huangmei, Anqing, Huanggang -> Kurdistan
+	link = { ck2 = 2868 ck2 = 2867 eu4 = 682 } # Suizhou, Hong'an -> Hanyang
+	link = { ck2 = 2870 ck2 = 2871 eu4 = 4197 } # Huangchuan, Xinyang -> Huangzhou
+	link = { ck2 = 2853 ck2 = 2852 ck2 = 2854 eu4 = 686 } # Huangmei, Anqing, Huanggang -> Anqing
 	link = { ck2 = 2802 ck2 = 2806 ck2 = 2807 ck2 = 2786 ck2 = 2787 ck2 = 2813 eu4 = 680 } # Neijiang, Suining, Nanchong, Chongqing, Youyang, Kaizhou -> Shenquing
 	link = { ck2 = 2789 ck2 = 2788 eu4 = 4199 } # Yinjiang, Chishui -> Tongren
 	link = { ck2 = 2794 eu4 = 2168 } # Junlian -> Coast of Tokachi
-	link = { ck2 = 2834 ck2 = 2772 ck2 = 2820 ck2 = 2819 eu4 = 671 } # Tongcheng, Anxiang, Wuhan, Jiangling -> Changsha
+	link = { ck2 = 2819 eu4 = 2172 } # Jiangling -> Northern Sakhalin Strait
+	link = { ck2 = 2834 ck2 = 2772 ck2 = 2820 eu4 = 671 } # Tongcheng, Anxiang, Wuhan -> Changsha
 	link = { ck2 = 2832 ck2 = 2836 ck2 = 2837 ck2 = 2835 ck2 = 2831 ck2 = 2833 eu4 = 683 } # Hongcheng, Huangshi, Jiujiang, Xianning, Zhangshu, Xiushui -> Nanchang
 	link = { ck2 = 2771 ck2 = 2770 ck2 = 2227 eu4 = 2173 } # Yiyang, Yueyang, Dongting Lake -> Soya Strait
 	link = { ck2 = 2779 ck2 = 2781 ck2 = 2782 eu4 = 673 } # Tongren, Xiangxi, Anhua -> Bozhou
@@ -1337,8 +1337,8 @@
 	link = { ck2 = 2899 eu4 = 693 } # Taiyuan -> Sanguan
 	link = { ck2 = 2897 ck2 = 2896 eu4 = 694 } # Changzhi, Linfen -> Changzhi
 	link = { ck2 = 2860 ck2 = 2811 eu4 = 689 } # Longnan, Guangyuan -> Fengyuan
-	link = { ck2 = 2810 eu4 = 2169 } # Mianyang -> Coast of Shiribeshi
-	link = { ck2 = 2809 ck2 = 2805 ck2 = 2804 ck2 = 2808 eu4 = 679 } # Deyang, Chongzhou, Chengdu, Santai -> Sichuan Pendi
+	link = { ck2 = 2810 ck2 = 2808 eu4 = 2169 } # Mianyang, Santai -> Coast of Shiribeshi
+	link = { ck2 = 2809 ck2 = 2805 ck2 = 2804 eu4 = 679 } # Deyang, Chongzhou, Chengdu -> Sichuan Pendi
 	link = { ck2 = 2798 ck2 = 2800 ck2 = 2801 eu4 = 4212 } # Jianchang, Ya'an, Mianning -> Jiazhou
 	link = { ck2 = 2796 eu4 = 675 } # Zhaotong -> Liangshan
 	link = { ck2 = 2797 ck2 = 2661 ck2 = 2662 eu4 = 2748 } # Jinyang, Lijiang, Huichuan -> Shengzhou
@@ -1407,7 +1407,7 @@
 	link = { ck2 = 1919 ck2 = 1514 eu4 = 2191 eu4 = 4676 } # MANY-TO-MANY: Juyan, Ejin -> Mekong River, West Alxa
 	link = { comment = "# Duchy of Jiuquan" }
 	link = { ck2 = 2856 ck2 = 2857 eu4 = 2182 } # Ganzhou, Lanzhou -> Chao Praya River
-	link = { ck2 = 1448 ck2 = 1515 ck2 = 1408 ck2 = 1568 ck2 = 1513 eu4 = 708 } # Dunhuang, Yangguan, Anxi, Yumen, Jiuquan -> Gansu
+	link = { ck2 = 1448 ck2 = 1515 ck2 = 1408 ck2 = 1568 ck2 = 1513 eu4 = 708 } # Dunhuang, Yungguan, Anxi, Yumen, Jiuquan -> Gansu
 	link = { comment = "# Duchy of Perm" }
 	link = { ck2 = 1841 ck2 = 888 eu4 = 1962 } # Kolva, Komi -> Kudymkar
 	link = { ck2 = 1720 ck2 = 886 eu4 = 4266 } # Kudymkar, Perm -> Izhkar
@@ -1731,14 +1731,14 @@
 	link = { ck2 = 1416 eu4 = 2034 eu4 = 1946 } # Kolhapur -> Strait of Madura, Desh
 	link = { ck2 = 1360 eu4 = 1248 } # Maldives -> Maldives
 	link = { comment = "# China" }
-	link = { ck2 = 1445 eu4 = 712 } # Aksu -> Rahbah
+	link = { ck2 = 1445 eu4 = 712 } # Aksu -> Uighuristan
 	link = { ck2 = 1528 ck2 = 1444 eu4 = 2121 } # Kubera, Kucha -> Hangzhou Bay
 	link = { ck2 = 1521 ck2 = 1443 eu4 = 2192 } # Mingoi, Karashar -> Mekong River
 	link = { ck2 = 1440 eu4 = 710 } # Khotan -> Hotan
 	link = { ck2 = 1523 eu4 = 4693 } # Keriya -> Keriya
 	link = { ck2 = 1522 ck2 = 1441 eu4 = 711 } # Cadota, Cherchen -> Qarqan
-	link = { ck2 = 1442 ck2 = 1520 eu4 = 2123 } # Charkliq, Yüni -> East China Sea
-	link = { ck2 = 1519 eu4 = 707 } # Lop Nor -> Yumen
+	link = { ck2 = 1442 ck2 = 1520 eu4 = 2123 } # Charkliq, Yuni -> East China Sea
+	link = { ck2 = 1519 eu4 = 707 } # LopNor -> Yumen
 	link = { ck2 = 1572 eu4 = 706 } # Arjin -> Amdo
 	link = { ck2 = 1571 eu4 = 4204 } # Lenghu -> Anding
 	link = { ck2 = 3027 eu4 = 4673 eu4 = 4674 } # Balin -> East Xilin Gol, North Jirem
@@ -1748,7 +1748,7 @@
 	link = { ck2 = 3039 eu4 = 2747 eu4 = 702 } # Lizhou -> Yuezhou, Ulaanchab
 	link = { ck2 = 3038 eu4 = 4670 } # Yunnei -> West Khara Narin Ula
 	link = { ck2 = 3037 eu4 = 709 } # Tiande -> Ningxia
-	link = { ck2 = 2863 eu4 = 698 } # Zhongwei -> Hasakah
+	link = { ck2 = 2863 eu4 = 698 } # Zhongwei -> Guyuan
 	link = { ck2 = 2866 ck2 = 2865 ck2 = 2864 eu4 = 2179 } # Yuyang, Yan'an, Tongchuan -> Sea of Kamchatka
 	link = { ck2 = 1570 ck2 = 1569 ck2 = 1578 ck2 = 1502 eu4 = 2184 } # Qaidam, Delingha, Dulan, Fuqi -> Mekong River
 	link = { ck2 = 2697 eu4 = 699 } # Madoi -> Lanzhou
@@ -1776,7 +1776,7 @@
 	link = { ck2 = 1317 } # Brahmaputra -> DROPPED
 	link = { ck2 = 1446 eu4 = 4207 } # Kara Khoja -> Turpan
 	link = { ck2 = 1452 eu4 = 713 } # Beshbaliq -> Kuruk Tag
-	link = { ck2 = 1451 ck2 = 1449 eu4 = 715 } # Altay, Luntai -> Zanjan-Abhar
+	link = { ck2 = 1451 ck2 = 1449 eu4 = 715 } # Altay, Luntai -> Urumqi
 	link = { ck2 = 1450 eu4 = 4206 } # Kumul -> Balikul
 	link = { ck2 = 1518 ck2 = 1447 eu4 = 2122 } # Kumtag, Loulan -> Coast of Jeju
 	link = { ck2 = 1914 ck2 = 1915 ck2 = 1912 eu4 = 719 } # Tarvagatai, Terkhiin Tsagaan, Otgontenger -> Khangai
@@ -1791,13 +1791,13 @@
 	link = { ck2 = 2918 ck2 = 2917 eu4 = 4194 } # Qinhuangdao, Lingyuan -> Yongping
 	link = { ck2 = 2916 ck2 = 2915 eu4 = 1816 } # Kaiping, Chengde -> Hejian
 	link = { ck2 = 2914 eu4 = 695 } # Dadu -> Beijing
-	link = { ck2 = 2907 ck2 = 2908 eu4 = 691 } # Cangzhou, Binzhou -> Istakhr
+	link = { ck2 = 2907 ck2 = 2908 eu4 = 691 } # Cangzhou, Binzhou -> Jinan
 	link = { ck2 = 2909 eu4 = 2138 } # Haixing -> Seto Inland Sea
 	link = { ck2 = 2892 ck2 = 2890 ck2 = 2891 eu4 = 2139 } # Laizhou, Qingdao, Dengzhou -> Kii Channel
 	link = { ck2 = 2893 ck2 = 2895 ck2 = 2894 eu4 = 690 } # Qingzhou, Dongying, Zibo -> Shandong Bandao
 	link = { ck2 = 2889 ck2 = 2885 eu4 = 4196 } # Linyi, Suqian -> Haizhou
 	link = { ck2 = 2845 ck2 = 2846 ck2 = 2847 eu4 = 2142 } # Yancheng, Huai'an, Lianyungang -> Pacific Ocean
-	link = { ck2 = 2843 ck2 = 2844 eu4 = 685 } # Nantong, Guangling -> Irbil
+	link = { ck2 = 2843 ck2 = 2844 eu4 = 685 } # Nantong, Guangling -> Huai'an
 	link = { ck2 = 2842 eu4 = 2145 } # Zhenjiang -> Eastern Coast of Korea
 	link = { ck2 = 2756 ck2 = 2755 eu4 = 1822 } # Shanghai, Suzhou -> Shangai
 	link = { ck2 = 2754 ck2 = 2753 ck2 = 2752 eu4 = 684 } # Huzhou, Hangzhou, Chun'an -> Hangzhou
@@ -1808,7 +1808,7 @@
 	link = { ck2 = 2733 ck2 = 2734 ck2 = 2738 ck2 = 2735 eu4 = 1829 } # Xiamen, Quanzhou, Yongchun, Putian -> Xiamen
 	link = { ck2 = 2659 ck2 = 2660 eu4 = 663 } # Tuodong, Guangnan -> Wenshan
 	link = { ck2 = 2655 eu4 = 2165 } # Yinyuan -> Coast of Anbyeon
-	link = { ck2 = 2663 ck2 = 2664 eu4 = 662 } # Qujing, Qianxinan -> Alamut
+	link = { ck2 = 2663 ck2 = 2664 eu4 = 662 } # Qujing, Qianxinan -> Yunnan
 	link = { ck2 = 2653 ck2 = 2657 ck2 = 2658 ck2 = 2654 eu4 = 661 } # Yongchang, Dali, Elu, Yincheng -> Dali
 	link = { ck2 = 2651 ck2 = 2652 ck2 = 2656 eu4 = 2167 } # Gyalthang, Tengchong, Hechuan -> Pacific Ocean
 	link = { ck2 = 2761 ck2 = 2762 eu4 = 2158 } # Hezhou, Lianzhou -> Coast of Fusa
@@ -1823,7 +1823,7 @@
 	link = { ck2 = 2711 ck2 = 2715 ck2 = 2716 ck2 = 2712 eu4 = 2161 } # Lien, Sunning, Heng, Yulin -> Coast of Dewa
 	link = { ck2 = 2724 ck2 = 2725 ck2 = 2707 eu4 = 667 } # Guangzhou, Dongguan, Heunggung -> Guangzhou
 	link = { ck2 = 2706 eu4 = 668 } # Oumuhn -> Macau
-	link = { ck2 = 2705 ck2 = 2708 ck2 = 2723 eu4 = 665 } # Chibidao, Jiangmen, Zhaoqing -> Daylam
+	link = { ck2 = 2705 ck2 = 2708 ck2 = 2723 eu4 = 665 } # Chibidao, Jiangmen, Zhaoqing -> XXX
 	link = { ck2 = 2702 ck2 = 2703 ck2 = 2704 ck2 = 2709 eu4 = 2159 } # Lei, Zhanjiang, Maoming, Heshan -> Coast of Iwaki
 	link = { ck2 = 2701 eu4 = 666 } # Yazhou -> Hainan
 	link = { ck2 = 2700 ck2 = 2698 ck2 = 2699 eu4 = 2160 } # Qiongzhou, Zhenzhou, Wananzhou -> Coast of Echigo
@@ -1867,7 +1867,7 @@
 	link = { ck2 = 2990 eu4 = 731 } # Cheolli -> Ninguta
 	link = { ck2 = 2983 eu4 = 4201 } # Jangnyeong -> Jianzhou
 	link = { ck2 = 2986 eu4 = 2111 eu4 = 2110 } # Buyeo -> Strait of Taiwan, Coast of Jieyang
-	link = { ck2 = 3041 eu4 = 720 } # Onggud -> Al 'Ula
+	link = { ck2 = 3041 eu4 = 720 } # Onggud -> Dorno Govi
 	link = { ck2 = 3044 eu4 = 4221 } # Darkhan -> Dundgovi
 	link = { ck2 = 3043 eu4 = 721 } # Aermingli -> Dornod
 	link = { ck2 = 3048 ck2 = 3045 eu4 = 717 } # Keluren, Baruun-Urt -> Selenge
@@ -1876,7 +1876,7 @@
 	link = { ck2 = 3025 eu4 = 4203 } # Longhua -> Ju Ud
 	link = { ck2 = 2920 eu4 = 4672 } # Chaoyang -> North Ju Ud
 	link = { ck2 = 2921 eu4 = 4675 } # Fuxin -> Central Jirem
-	link = { ck2 = 3015 eu4 = 722 } # Ningchang -> Al 'Aqabah
+	link = { ck2 = 3015 eu4 = 722 } # Ningchang -> Chahar
 	link = { ck2 = 3017 eu4 = 2187 eu4 = 4202 } # Bucihan -> Mekong River, Taining
 	link = { ck2 = 3014 eu4 = 726 } # Xianping -> Liaodong
 	link = { ck2 = 3020 eu4 = 4218 } # Moergen -> Buteha
@@ -2049,7 +2049,7 @@
 	link = { ck2 = 2588 eu4 = 2376 eu4 = 605 } # Prey Nokor -> Miri, Prei Nokoi
 	link = { ck2 = 2577 eu4 = 2377 } # Oc Eo -> Limbang
 	link = { comment = "Pinoy and Formosa" }
-	link = { ck2 = 2412 ck2 = 2410 ck2 = 2411 ck2 = 2409 eu4 = 654 } # Palapag, Samar, Borongan, Guiuan -> Ain Said
+	link = { ck2 = 2412 ck2 = 2410 ck2 = 2411 ck2 = 2409 eu4 = 654 } # Palapag, Samar, Borongan, Guiuan -> Samar
 	link = { ck2 = 2398 ck2 = 2395 ck2 = 2397 ck2 = 2396 ck2 = 2406 eu4 = 2700 } # Nayup, Madja, Bamban, Panay, Masbate -> Qiongzhou
 	link = { ck2 = 2400 ck2 = 2399 eu4 = 4351 } # Buglas, Illongo -> Buglas
 	link = { ck2 = 2402 ck2 = 2401 eu4 = 4352 } # Eskaya, Cebu -> Cebu
@@ -2060,7 +2060,7 @@
 	link = { ck2 = 2423 ck2 = 2425 eu4 = 658 } # Bolo, Lallo -> Cagayan
 	link = { ck2 = 2420 ck2 = 2419 eu4 = 2698 } # Pangasinan, Bataan -> Zhenzhou
 	link = { ck2 = 2421 ck2 = 2418 eu4 = 2697 } # Bayombong, Tondo -> Madoi
-	link = { ck2 = 2417 eu4 = 656 } # Batangas -> Sús
+	link = { ck2 = 2417 eu4 = 656 } # Batangas -> Manila
 	link = { ck2 = 2416 eu4 = 4349 } # Malunay -> Laguna
 	link = { ck2 = 2413 ck2 = 2414 ck2 = 2415 eu4 = 2699 } # Sorsogon, Pili, Daet -> Wananzhou
 	link = { ck2 = 2407 ck2 = 2408 eu4 = 4350 } # Mansalay, Mamburao -> Mindoro
@@ -2072,7 +2072,7 @@
 	link = { ck2 = 2389 ck2 = 2390 ck2 = 2391 eu4 = 653 } # Himologan, Bukidnon, Malaybalay -> Tagoloan
 	link = { ck2 = 2386 ck2 = 2387 ck2 = 2385 eu4 = 4354 } # Kasambuwangaan, Bayug, Sung Lupa -> Zamboanga
 	link = { ck2 = 2382 eu4 = 4356 eu4 = 655 } # Palawan -> Taytay, Palawan
-	link = { ck2 = 2384 ck2 = 2383 eu4 = 651 } # Basilan, Sulu -> Qatif
+	link = { ck2 = 2384 ck2 = 2383 eu4 = 651 } # Basilan, Sulu -> Sulu
 	link = { comment = "Nusantara" }
 	link = { ck2 = 2273 ck2 = 2272 eu4 = 2685 } # Singkil, Gayo -> Bac Giang
 	link = { ck2 = 2280 ck2 = 2276 eu4 = 4811 } # Mandailing, Barus -> Barus
@@ -2127,19 +2127,19 @@
 	link = { ck2 = 2369 eu4 = 2711 } # Selamban -> Lien
 	link = { ck2 = 2370 eu4 = 2709 } # Tarakan -> Heshan
 	link = { ck2 = 2381 ck2 = 2380 eu4 = 2703 } # Tawao, Sandakan -> Zhanjiang
-	link = { ck2 = 2378 ck2 = 2379 eu4 = 637 } # Tambunan, Kota Marudu -> Jabal Qufs
-	link = { ck2 = 2377 eu4 = 636 } # Limbang -> Mafaza
+	link = { ck2 = 2378 ck2 = 2379 eu4 = 637 } # Tambunan, Kota Marudu -> Sabah
+	link = { ck2 = 2377 eu4 = 636 } # Limbang -> Brunei
 	link = { ck2 = 2376 eu4 = 4805 } # Miri -> East Sibu
 	link = { ck2 = 2374 eu4 = 4806 } # Kapit -> Inland Sarawak
 	link = { ck2 = 2373 ck2 = 2375 eu4 = 2704 } # Mukah, Bintulu -> Maoming
 	link = { ck2 = 2372 eu4 = 2705 } # Sarikei -> Chibidao
 	link = { ck2 = 2371 eu4 = 4804 } # Kuching -> West Kuching
 	link = { ck2 = 2354 ck2 = 2298 eu4 = 640 } # Sambas, Natuna -> Sukadane
-	link = { ck2 = 2344 ck2 = 2345 ck2 = 2346 eu4 = 643 } # Poso, Ampana, Luwuk -> Dashtestan
+	link = { ck2 = 2344 ck2 = 2345 ck2 = 2346 eu4 = 643 } # Poso, Ampana, Luwuk -> Pose
 	link = { ck2 = 2352 eu4 = 644 } # Manadou -> Menade
 	link = { ck2 = 2351 ck2 = 2350 eu4 = 2713 } # Hulontalangio, Pohuwato -> Rong
 	link = { ck2 = 2347 ck2 = 2348 ck2 = 2349 eu4 = 2714 } # Mamuju, Donggala, Buol -> Guixian
-	link = { ck2 = 2343 eu4 = 642 } # Bone -> Darabjerd
+	link = { ck2 = 2343 eu4 = 642 } # Bone -> Bone
 	link = { ck2 = 2342 eu4 = 2715 } # Luwu -> Sunning
 	link = { ck2 = 2341 eu4 = 4845 } # Mandar -> Mamuju
 	link = { ck2 = 2321 eu4 = 624 } # Banten -> Banten
