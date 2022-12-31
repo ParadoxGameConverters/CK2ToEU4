@@ -134,6 +134,8 @@ CK2::World::World(const Configuration& theConfiguration, const commonItems::Conv
 	for (const auto& mod: mods)
 		if (mod.name == "CleanSlate")
 			overrideModPath = "CleanSlate";
+		else if (mod.name == "Tianxia: Silk Road Expansion")
+			overrideModPath = "Tianxia";
 	reformedReligionMapper.initReformedReligionMapper(overrideModPath);
 	loadDynasties(theConfiguration);
 	Log(LogLevel::Progress) << "7 %";
