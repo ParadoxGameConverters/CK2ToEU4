@@ -1028,7 +1028,7 @@ country_decisions = {
 	}
 	
 
-	from_great_yuan_EXTRA = {
+	form_great_yuan_EXTRA = {
 		major = yes
 		potential = {
 			tag = YUA

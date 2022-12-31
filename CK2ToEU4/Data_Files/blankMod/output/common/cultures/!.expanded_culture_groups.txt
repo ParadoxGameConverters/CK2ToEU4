@@ -294,6 +294,9 @@ baltic = {
 	}
 }
 byzantine = {
+	bactrian = {
+		primary = TRS
+	}
 	anatolian = {
 		primary = BYZ
 	}

@@ -4,7 +4,9 @@
 #include "../../CK2ToEU4/Source/CK2World/Wonders/Wonder.h"
 #include "../../CK2ToEU4/Source/CK2World/Wonders/Wonders.h"
 #include "gtest/gtest.h"
+#include <gmock/gmock-matchers.h>
 #include <sstream>
+
 TEST(CK2World_ProvincesTests, provincesDefaultToEmpty)
 {
 	std::stringstream input;
@@ -111,10 +113,8 @@ TEST(CK2World_ProvincesTests, primarySettlementLinkCannotBeSetThrowsWarning)
 
 	std::cout.rdbuf(stdOutBuf);
 	auto stringLog = log.str();
-	auto newLine = stringLog.find_first_of('\n');
-	stringLog = stringLog.substr(0, newLine);
 
-	ASSERT_EQ(stringLog, " [WARNING] Primary barony ID: b_test is not in the province: 42 !");
+	EXPECT_THAT(stringLog, testing::HasSubstr(R"([WARNING] Primary barony ID: b_test is not in the province: 42 !)"));
 }
 
 TEST(CK2World_ProvincesTests, wonderCanBeLinked)
@@ -262,8 +262,6 @@ TEST(CK2World_ProvincesTests, BrokenLinkAttemptThrowsWarning)
 
 	std::cout.rdbuf(stdOutBuf);
 	auto stringLog = log.str();
-	auto newLine = stringLog.find_first_of('\n');
-	stringLog = stringLog.substr(0, newLine);
 
-	ASSERT_EQ(stringLog, " [WARNING] Wonder 9 is in province 43 which doesn't exist?");
+	EXPECT_THAT(stringLog, testing::HasSubstr(R"([WARNING] Wonder 9 is in province 43 which doesn't exist?)"));
 }
