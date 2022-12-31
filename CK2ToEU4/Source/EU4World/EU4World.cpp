@@ -53,7 +53,7 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 
 	// This is a valid province scraper. It looks at eu4 map data and notes which eu4 provinces are in fact valid.
 	// ... It's not used at all.
-	provinceMapper = std::make_unique<mappers::ProvinceMapper>(sourceWorld.getMods());
+	provinceMapper = std::make_unique<mappers::ProvinceMapper>(sourceWorld.getMods(), overrideModPath);
 	provinceMapper->determineValidProvinces(theConfiguration);
 	Log(LogLevel::Progress) << "54 %";
 
@@ -755,8 +755,6 @@ void EU4::World::adjustChina(const CK2::World& sourceWorld, const Configuration:
 	for (const auto& country: countries)
 	{
 		if (country.second->getTitle().first != "e_china_west_governor")
-		else if (mod.name == "Tianxia: Silk Road Expansion")
-			(country.second->getTitle().first != "e_china")
 			continue;
 		const auto& westernTag = country.first;
 		// Move our diplo to China

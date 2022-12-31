@@ -179,10 +179,11 @@ EU4::outMonument::outMonument(const Configuration& theConfiguration, const std::
 	// Wonders from Tianxia
 
 	if (premades.contains("wonder_temple_cemetery_confucius"))
-		commonItems::TryCopyFile("configurables/monuments/great_projects/113_temple_of_confucius.txt", // I know that these two aren't the same monument, but they are extremely close and related to one another
+		commonItems::TryCopyFile("configurables/monuments/great_projects/113_temple_of_confucius.txt", // I know that these two aren't the same monument, but they
+																																	  // are extremely close and related to one another
 			 "output/" + theConfiguration.getOutputName() + "/common/great_projects/113_temple_of_confucius.txt");
 	if (premades.contains("wonder_shinto_grand_shrine_ise"))
-		commonItems::TryCopyFile("configurables/monuments/great_projects/114_jingu.txt", 
+		commonItems::TryCopyFile("configurables/monuments/great_projects/114_jingu.txt",
 			 "output/" + theConfiguration.getOutputName() + "/common/great_projects/114_jingu.txt");
 	if (premades.contains("wonder_temple_buddhist_seokguram_bulguksa"))
 		commonItems::TryCopyFile("configurables/monuments/great_projects/115_bulguksa_temple.txt",
