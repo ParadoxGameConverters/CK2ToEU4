@@ -140,7 +140,6 @@ CK2::World::World(const Configuration& theConfiguration, const commonItems::Conv
 	loadDynasties(theConfiguration);
 	Log(LogLevel::Progress) << "7 %";
 
-	reformedReligionMapper.initReformedReligionMapper(overrideModPath);
 	personalityScraper.scrapePersonalities(theConfiguration);
 	Log(LogLevel::Progress) << "8 %";
 
