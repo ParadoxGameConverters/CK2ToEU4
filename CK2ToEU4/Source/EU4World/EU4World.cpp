@@ -754,7 +754,7 @@ void EU4::World::adjustChina(const CK2::World& sourceWorld, const Configuration:
 	// Find western protectorate if possible
 	for (const auto& country: countries)
 	{
-		if (country.second->getTitle().first != "e_china_west_governor")
+		if (country.second->getTitle().first != "e_china") // e_china_west_governor testing
 			continue;
 		const auto& westernTag = country.first;
 		// Move our diplo to China
