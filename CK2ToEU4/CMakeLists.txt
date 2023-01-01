@@ -13,10 +13,8 @@ add_compile_options("-pthread")
 add_link_options(-no-pie)
 
 include_directories("../commonItems")
-include_directories("../commonItems/ZipLib")
+include_directories("../commonItems/external/zip/src")
 include_directories("${PROJECT_SOURCE_DIR}")
-
-add_subdirectory(../commonItems/ZipLib [binary_dir])
 
 file(GLOB MAIN_SOURCES "${PROJECT_SOURCE_DIR}/*.cpp")
 file(GLOB CONFIGURATION_SOURCES "${PROJECT_SOURCE_DIR}/Configuration/*.cpp")
@@ -42,6 +40,7 @@ set(COMMON_SOURCES ${COMMON_SOURCES} "../commonItems/StringUtils.cpp")
 set(COMMON_SOURCES ${COMMON_SOURCES} "../commonItems/ModLoader/ModFilesystem.cpp")
 set(COMMON_SOURCES ${COMMON_SOURCES} "../commonItems/ModLoader/ModLoader.cpp")
 set(COMMON_SOURCES ${COMMON_SOURCES} "../commonItems/ModLoader/ModParser.cpp")
+set(COMMON_SOURCES ${COMMON_SOURCES} "../commonItems/external/zip/src/zip.c")
 
 add_executable(CK2ToEU4 
 	${MAIN_SOURCES}
@@ -54,7 +53,7 @@ add_executable(CK2ToEU4
 	${COMMON_SOURCES}
 )
 
-target_link_libraries(CK2ToEU4 LINK_PUBLIC ZIPLIB stdc++fs)
+target_link_libraries(CK2ToEU4 LINK_PUBLIC stdc++fs)
 
 add_custom_command(TARGET CK2ToEU4 POST_BUILD WORKING_DIRECTORY ${CMAKE_SOURCE_DIR} COMMAND git rev-parse HEAD > Release-Linux/commit_id.txt)
 add_custom_command(TARGET CK2ToEU4 POST_BUILD WORKING_DIRECTORY ${CMAKE_SOURCE_DIR} COMMAND chmod u+x Copy_Files.sh)

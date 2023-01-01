@@ -55,6 +55,8 @@ class World: commonItems::parser
 	void setExistentPremadeMonuments(std::set<std::string> premades) { existentPremadeMonuments = premades; }
 
   private:
+	void registerKeys(const commonItems::ConverterVersion& converterVersion);
+
 	bool uncompressSave(const std::string& saveGamePath);
 	void alterSunset(const Configuration& theConfiguration);
 	void verifySave(const std::string& saveGamePath);
