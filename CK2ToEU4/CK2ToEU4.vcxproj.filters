@@ -291,6 +291,9 @@
     <ClCompile Include="..\commonItems\ModLoader\ModFilesystem.cpp">
       <Filter>CommonItems\ModLoader</Filter>
     </ClCompile>
+    <ClCompile Include="..\commonItems\external\zip\src\zip.c">
+      <Filter>CommonItems\zip</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CK2ToEU4Converter.h" />
@@ -579,6 +582,12 @@
     <ClInclude Include="..\commonItems\ModLoader\ModFilesystem.h">
       <Filter>CommonItems\ModLoader</Filter>
     </ClInclude>
+    <ClInclude Include="..\commonItems\external\zip\src\miniz.h">
+      <Filter>CommonItems\zip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\commonItems\external\zip\src\zip.h">
+      <Filter>CommonItems\zip</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4World">
@@ -697,6 +706,9 @@
     </Filter>
     <Filter Include="Mappers\AfricanPassesMapper">
       <UniqueIdentifier>{09c3d3c6-cd15-43ce-a2e6-b82283dc756f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CommonItems\zip">
+      <UniqueIdentifier>{e951d800-1212-4a5d-a316-c56a2792bae8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
