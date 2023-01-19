@@ -25,3 +25,9 @@
 #Santa Maria Del Fiore, Built 1379, in-scope
 #Konark Sun Temple, Built 1250, in-scope
 #Ulm Minster, Built 1377, in-scope
+
+##Lions of the North
+#Falun copper mine, built 1000, in-scope
+#Kronborg, built 1420, in-scope
+#Visby city, built 800, in-scope
+#Trakai castle, built 1409, in-scope

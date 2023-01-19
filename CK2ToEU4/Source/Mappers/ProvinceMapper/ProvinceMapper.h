@@ -14,7 +14,7 @@ namespace mappers
 class ProvinceMapper: commonItems::parser
 {
   public:
-	explicit ProvinceMapper(const Mods& mods);
+	explicit ProvinceMapper(const Mods& mods, const std::string& overrideMod);
 	explicit ProvinceMapper(std::istream& theStream);
 
 	[[nodiscard]] std::vector<int> getCK2ProvinceNumbers(int eu4ProvinceNumber) const;

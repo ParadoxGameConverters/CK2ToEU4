@@ -20,3 +20,12 @@ k_maharastra_adj;Maharashtran;du Maharashtra;Maharastrisch;;Maharashtrí;;;;;;;;
 k_malwa_adj;Malwan;du Malwa;Malwisch;;Malwí;;;;;;;;x
 k_rajputana_adj;Rajputanan;du Rajputana;Rajputanisch;;Rajputaní;;;;;;;;x
 k_sindh_adj;Sindhi;du Sindh;Sindisch;;Sindhí;;;;;;;;x
+
+# Tianxia
+e_pacific_rim;Philippine;de Philippine;Philippiner;;Filipina;;;;;;;;x
+k_ava_adj;Ava;du Ava;Ava;;de Ava;;;;;;;;x
+k_balhae_adj;Bohai;Bohai;;Bohai;;;;;;;;x
+k_haripunjaya_adj;Hariphunchai;du Hariphunchai;Hariphunchai;;de Hariphunchai;;;;;;;;x
+k_java_adj;Javanese;Javanais;Javaner;;Javanesa;;;;;;;;x
+k_lavo_adj;Lopburi;du Lopburi;Lopburi;;de Lopburi;;;;;;;;x
+k_silla_adj;Silla;de Silla;Silla;;de Silla;;;;;;;;x

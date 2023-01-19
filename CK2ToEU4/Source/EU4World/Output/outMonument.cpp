@@ -176,6 +176,27 @@ EU4::outMonument::outMonument(const Configuration& theConfiguration, const std::
 	if (premades.contains("wonder_cathedral_notre_dame"))
 		commonItems::TryCopyFile("configurables/monuments/great_projects/112_notre_dames.txt",
 			 "output/" + theConfiguration.getOutputName() + "/common/great_projects/112_notre_dames.txt");
+	// Wonders from Tianxia
+
+	if (premades.contains("wonder_temple_cemetery_confucius"))
+		commonItems::TryCopyFile("configurables/monuments/great_projects/113_temple_of_confucius.txt", // I know that these two aren't the same monument, but they
+																																	  // are extremely close and related to one another
+			 "output/" + theConfiguration.getOutputName() + "/common/great_projects/113_temple_of_confucius.txt");
+	if (premades.contains("wonder_shinto_grand_shrine_ise"))
+		commonItems::TryCopyFile("configurables/monuments/great_projects/114_jingu.txt",
+			 "output/" + theConfiguration.getOutputName() + "/common/great_projects/114_jingu.txt");
+	if (premades.contains("wonder_temple_buddhist_seokguram_bulguksa"))
+		commonItems::TryCopyFile("configurables/monuments/great_projects/115_bulguksa_temple.txt",
+			 "output/" + theConfiguration.getOutputName() + "/common/great_projects/115_bulguksa_temple.txt");
+	if (premades.contains("wonder_temple_hindu_angkor_wat"))
+		commonItems::TryCopyFile("configurables/monuments/great_projects/116_angkor_wat.txt",
+			 "output/" + theConfiguration.getOutputName() + "/common/great_projects/116_angkor_wat.txt");
+	if (premades.contains("wonder_temple_buddhist_borobudur"))
+		commonItems::TryCopyFile("configurables/monuments/great_projects/117_borobudur_temple.txt",
+			 "output/" + theConfiguration.getOutputName() + "/common/great_projects/117.txt");
+	if (premades.contains("wonder_temple_buddhist_shwedagon"))
+		commonItems::TryCopyFile("configurables/monuments/great_projects/118_shwedagon_temple.txt",
+			 "output/" + theConfiguration.getOutputName() + "/common/great_projects/118_shwedagon_temple.txt");
 }
 
 const std::string EU4::outMonument::gfxType(const std::string& base)
@@ -224,6 +245,15 @@ const std::string EU4::outMonument::gfxType(const std::string& base)
 		return "great_project_pyramid_of_cheops.dds";
 	else if (base == "wonder_aztec_pyramid")
 		return "great_project_chichen_itza.dds";
+
+	// Generic from Tianxia
+	else if (base == "wonder_shinto_grand_shrine")
+		return "great_project_sankin_kotai_palaces.dds"; // Possibly a former location of Hie Shrine
+	else if (base == "wonder_temple_taoist")
+		return "great_project_erdene_zuu.dds"; // Should be replaced as soon as a good replacement can be found
+	else if (base == "wonder_temple_confucian")
+		return "great_project_temple_of_confucius.dds";
+
 
 	return "great_project_ait_benhaddou.dds"; // Fallback, just in case
 }
