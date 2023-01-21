@@ -1,0 +1,22 @@
+###Ignores & replaces preexisting religion traits; ignores & replaces all taboos
+###link = {
+#reform = a              ### What reforms did this religion have in CK3?                    ##OR
+#eu4religion = a         ### What religion is this in EU4?                                  ##OR
+#eu4religiongroup = b    ### What religion group did this religion belong to in EU4?        ##OR
+#traits = x              ### What religion traits will this religion have in Victoria 3?    ##AND
+#taboos = y              ### What taboos will pops of this religion have in Victoria 3?     ##AND
+#}
+
+link = { eu4religiongroup = pagan traits = animist }
+link = { reform = religion_peaceful traits = pacifist taboos = fish taboos = meat }
+link = { reform = religion_warlike reform = religion_relentless reform = religion_feature_tengri reform = religion_feature_aztec reform = religion_feature_norse traits = warmonger }
+link = { eu4religion = hellenic_pagan_reformed traits = gnostic }
+link = { reform = religion_astrology traits = gnostic }
+link = { reform = religion_equal reform = religion_feature_bon reform = religion_feature_celtic traits = feminist }
+link = { reform = religion_cosmopolitan reform = religion_syncretic reform = religion_feature_west_african reform = religion_feature_hellenic traits = tolerant }
+link = { eu4religion = kemetism traits = incestuous }
+link = { reform = religion_holy_family reform = religion_feature_zun traits = incestuous }
+link = { eu4religion = norse_pagan_reformed traits = trader }
+link = { reform = religion_seafaring reform = religion_feature_norse reform = religion_feature_slavic reform = religion_feature_aztec traits = trader }
+link = { reform = religion_meritocratic reform = religion_adventuring reform = religion_feature_norse  reform = religion_feature_bonreform = religion_feature_hellenic traits = meritocratic }
+link = { reform = religion_ritual_sacrifice reform = religion_feature_aztec traits = sacrificer }
