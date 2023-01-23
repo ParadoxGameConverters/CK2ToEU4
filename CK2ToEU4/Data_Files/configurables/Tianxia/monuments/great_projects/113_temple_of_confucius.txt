@@ -4,27 +4,27 @@
 temple_of_confucius = {
 	# province it starts in
 	start = 2140
-	
+
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
 	date = -477.01.01 #When his house was first known to be used as a temple
-	
+
 	#time to build
 	time = {
 		months = 0
 	}
-	
+
 	#how much to build one
 	build_cost = 0
-	
+
 	#can we move it?
 	can_be_moved = no
-	
+
 	#time to move the project one unit of distance, in days
 	move_days_per_unit_distance = 1
-	
+
 	#tier that the project starts at when first placed in the game (be that at game start or when built by a country as the game progresses)
 	starting_tier = 1
-	
+
 	#project type
 	type = monument
 
@@ -32,17 +32,17 @@ temple_of_confucius = {
 	build_trigger = {
 		province_is_or_accepts_religion = {
 			religion = confucianism
-		}	
+		}
 	}
 
 	#what to do when it's built
 	on_built = {
-		show_ambient_object = temple_of_confucius 
+		show_ambient_object = temple_of_confucius
 	}
-	
+
 	#what to do when it's destroyed
 	on_destroyed = {
-		hide_ambient_object = temple_of_confucius 
+		hide_ambient_object = temple_of_confucius
 	}
 
 	#can our country use it?
@@ -192,7 +192,7 @@ temple_of_confucius = {
 		}
 
 		#what effects happen when this tier is achieved
-		on_upgraded = {	
+		on_upgraded = {
 			owner = {
 				add_estate_loyalty = {
 					estate = estate_church

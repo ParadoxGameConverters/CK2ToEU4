@@ -1176,7 +1176,7 @@ link = { ck2 = d_hadiya eu4 = HDY } # Hadiya
 link = { ck2 = k_hadiya eu4 = HDY } # Hadiya
 link = { ck2 = c_ennarea eu4 = ENA } # Ennarea
 
-#Burma 
+#Burma
 link = { ck2 = c_hsenwi eu4 = HSE } # Hsenwi
 link = { ck2 = c_hsipaw eu4 = HSI } # Hsipaw
 link = { ck2 = c_kale eu4 = KAL } # Kale
@@ -1189,9 +1189,9 @@ link = { ck2 = d_ava eu4 = AVA } # Ava
 link = { ck2 = c_ava eu4 = AVA } # Ava
 link = { ck2 = d_arakan eu4 = ARK } # Arakan
 link = { ck2 = d_mong_kawng eu4 = MKG } # Mong Kwang
-link = { ck2 = k_pegu eu4 = PEG } # Pegu 
-link = { ck2 = d_pegu eu4 = PEG } # Pegu 
-link = { ck2 = c_pegu eu4 = PEG } # Pegu 
+link = { ck2 = k_pegu eu4 = PEG } # Pegu
+link = { ck2 = d_pegu eu4 = PEG } # Pegu
+link = { ck2 = c_pegu eu4 = PEG } # Pegu
 
 #Indochina
 link = { ck2 = e_khmer eu4 = KHM } # Khmer
@@ -1207,9 +1207,9 @@ link = { ck2 = c_kale eu4 = KAL } # Kale
 link = { ck2 = k_sukhothai eu4 = SUK } # Sukhothai
 link = { ck2 = d_sukhothai eu4 = SUK } # Sukhothai
 link = { ck2 = c_sukhothai eu4 = SUK } # Sukhothai
-link = { ck2 = k_lan_xang eu4 = LXA } # Lan Xang 
-link = { ck2 = d_luang_prabang eu4 = LUA } # Luang Prabang 
-link = { ck2 = c_luang_prabang eu4 = LUA } # Luang Prabang 
+link = { ck2 = k_lan_xang eu4 = LXA } # Lan Xang
+link = { ck2 = d_luang_prabang eu4 = LUA } # Luang Prabang
+link = { ck2 = c_luang_prabang eu4 = LUA } # Luang Prabang
 link = { ck2 = d_wiang_jung eu4 = VIE } # Wiang Jung -> Vientiane
 link = { ck2 = c_wiang_jung eu4 = VIE } # Wiang Jung -> Vientiane
 

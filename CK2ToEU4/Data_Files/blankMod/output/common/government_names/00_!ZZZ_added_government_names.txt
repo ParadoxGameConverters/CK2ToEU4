@@ -42,15 +42,15 @@ japanese_tenno = { # Tianxia; Should not affect base-game
     ruler_male = {
         1 = EMPEROR
         2 = EMPEROR
-        3 = EMPEROR        
+        3 = EMPEROR
     }
-    
+
     ruler_female = {
         1 = EMPRESS
         2 = EMPRESS
-        3 = EMPRESS        
+        3 = EMPRESS
     }
-    
+
     consort_male = {
         1 = EMPEROR
         2 = EMPEROR
@@ -60,7 +60,7 @@ japanese_tenno = { # Tianxia; Should not affect base-game
     consort_female = {
         1 = EMPRESS
         2 = EMPRESS
-        3 = EMPRESS  
+        3 = EMPRESS
     }
 
     heir_male = {

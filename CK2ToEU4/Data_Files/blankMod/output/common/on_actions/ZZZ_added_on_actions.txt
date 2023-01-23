@@ -505,7 +505,7 @@ on_country_released = {
 		add_government_reform = papacy_reform
 		adopt_reform_progress = FROM
 	}
-	
+
 	##### VANILLA
 	if = {
 		limit = { NOT = { is_year = 1445 } }

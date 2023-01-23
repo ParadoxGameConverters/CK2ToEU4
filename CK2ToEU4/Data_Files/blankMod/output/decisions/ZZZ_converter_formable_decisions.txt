@@ -577,7 +577,7 @@ country_decisions = {
 				}
 				change_government_to_monarchy = yes
 				if = {
-					limit = { 
+					limit = {
 						has_dlc = "Lions of the North"
 						has_country_flag = teu_prussian_path
 					}
@@ -593,7 +593,7 @@ country_decisions = {
 					is_revolutionary = no
 				}
 				if = {
-					limit = { 
+					limit = {
 						has_dlc = "Lions of the North"
 						has_country_flag = teu_prussian_path
 					}

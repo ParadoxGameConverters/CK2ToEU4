@@ -334,7 +334,7 @@ spy_ideas = {
 	bonus = {
 		rebel_support_efficiency = 0.50
 	}
-	
+
 	claim_fabrication = {
 		fabricate_claims_cost = -0.25
 		can_fabricate_for_vassals = yes
@@ -347,8 +347,8 @@ spy_ideas = {
 	efficient_spies = {
 		spy_offence = 0.5
 		siege_ability = 0.1
-	}	
-	
+	}
+
 	agent_training = {
 		diplomats = 1
 		advisor_cost = -0.10
@@ -357,7 +357,7 @@ spy_ideas = {
 	vetting = {
 		global_spy_defence = 0.33
 	}
-	
+
 	privateers = {
 		embargo_efficiency = 0.25
 		privateer_efficiency = 0.33
@@ -861,7 +861,7 @@ maritime_ideas = {
 
 	bonus = {
 		sea_repair = yes
-		movement_speed_in_fleet_modifier = 1 
+		movement_speed_in_fleet_modifier = 1
 	}
 
 	merchant_traditions = {

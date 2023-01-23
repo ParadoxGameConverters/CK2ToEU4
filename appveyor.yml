@@ -11,10 +11,10 @@ build_script:
 test_script:
 - ps: >-
     CK2ToEU4Tests\Release\CK2ToEU4Tests.exe --gtest_output=xml:tests.xml
-    
+
     $wc = New-Object 'System.Net.WebClient'
-    
-    $wc.UploadFile("https://ci.appveyor.com/api/testresults/junit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\tests.xml))    
+
+    $wc.UploadFile("https://ci.appveyor.com/api/testresults/junit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\tests.xml))
 artifacts:
 - path: Release
   name: CK2ToEU4-1.0Gildehusen

@@ -1192,7 +1192,7 @@ mount_fuji = {
 	build_trigger = {
 		custom_trigger_tooltip = {
 			tooltip = mount_fuji_tt
-			OR = {		
+			OR = {
 				AND = {
 					religion = shinto
 					has_owner_religion = yes
@@ -1254,7 +1254,7 @@ mount_fuji = {
 		OR = {
 			custom_trigger_tooltip = {
 				tooltip = mount_fuji_tt
-				OR = {		
+				OR = {
 					AND = {
 						religion = shinto
 						has_owner_religion = yes
@@ -1307,7 +1307,7 @@ mount_fuji = {
 		OR = {
 			custom_trigger_tooltip = {
 				tooltip = mount_fuji_tt
-				OR = {		
+				OR = {
 					AND = {
 						religion = shinto
 						has_owner_religion = yes
@@ -2615,7 +2615,7 @@ temple_of_confucius = {
 	build_trigger = {
 		province_is_or_accepts_religion = {
 			religion = confucianism
-		}	
+		}
 	}
 
 	#what to do when it's built
@@ -2632,14 +2632,14 @@ temple_of_confucius = {
 	can_use_modifiers_trigger = {
 		province_is_or_accepts_religion = {
 			religion = confucianism
-		}	
+		}
 	}
 
 	#can our country upgrade it?
 	can_upgrade_trigger = {
 		province_is_or_accepts_religion = {
 			religion = confucianism
-		}	
+		}
 	}
 
 	#can our country keep it or is it destroyed when we get hold of it?
@@ -4942,7 +4942,7 @@ gyeongbok_palace = {
 		province_is_or_accepts_culture = yes
 		province_is_or_accepts_religion = {
 			religion = confucianism
-		}	
+		}
 	}
 
 	on_built = {
@@ -4959,7 +4959,7 @@ gyeongbok_palace = {
 		province_is_or_accepts_culture = yes
 		province_is_or_accepts_religion = {
 			religion = confucianism
-		}	
+		}
 	}
 
 	can_upgrade_trigger = {
@@ -4970,7 +4970,7 @@ gyeongbok_palace = {
 		province_is_or_accepts_culture = yes
 		province_is_or_accepts_religion = {
 			religion = confucianism
-		}	
+		}
 	}
 
 	keep_trigger = {
@@ -5051,7 +5051,7 @@ gyeongbok_palace = {
 		country_modifiers = {
 			advisor_cost = -0.2
 			monarch_admin_power = 2
-			global_autonomy = -0.1	
+			global_autonomy = -0.1
 		}
 		on_upgraded = {
 		}

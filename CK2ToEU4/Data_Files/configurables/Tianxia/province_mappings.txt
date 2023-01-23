@@ -478,7 +478,7 @@
 	link = { ck2 = 79 eu4 = 96 } # Zeeland -> Zeeland
 	link = { ck2 = 76 eu4 = 90 eu4 = 4769 } # Yperen -> Vlaanderen, Lille
 	link = { ck2 = 78 ck2 = 93 eu4 = 1865 } # Brugge, Gent -> Ghent
-	link = { ck2 = 94 eu4 = 91 eu4 = 1866 } # Hainaut -> Hainault, Namur 
+	link = { ck2 = 94 eu4 = 91 eu4 = 1866 } # Hainaut -> Hainault, Namur
 	link = { ck2 = 117 eu4 = 92 eu4 = 1744 eu4 = 2974 } # Brabant -> Brabant, Antwerpen, Wonsan
 	link = { ck2 = 80 eu4 = 4383 } # Holland -> Haag
 	link = { ck2 = 81 eu4 = 97 } # Westfriesland -> Holland

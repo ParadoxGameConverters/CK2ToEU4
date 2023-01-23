@@ -42,7 +42,7 @@ set(COMMON_SOURCES ${COMMON_SOURCES} "../commonItems/ModLoader/ModLoader.cpp")
 set(COMMON_SOURCES ${COMMON_SOURCES} "../commonItems/ModLoader/ModParser.cpp")
 set(COMMON_SOURCES ${COMMON_SOURCES} "../commonItems/external/zip/src/zip.c")
 
-add_executable(CK2ToEU4 
+add_executable(CK2ToEU4
 	${MAIN_SOURCES}
 	${CONFIGURATION_SOURCES}
 	${CK2WORLD_SOURCES}

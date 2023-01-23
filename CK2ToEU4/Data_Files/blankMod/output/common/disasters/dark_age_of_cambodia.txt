@@ -7,16 +7,16 @@ dark_age_of_cambodia = {
 		normal_or_historical_nations = yes
 		tag = KHM
 	}
-	
+
 	can_start = {
 		has_any_disaster = no
 	}
-	
-	can_stop = { 
+
+	can_stop = {
 		has_any_disaster = yes
 	}
-	
-	
+
+
 	progress = {
 		modifier = {
 			factor = 100
@@ -24,19 +24,19 @@ dark_age_of_cambodia = {
 			NOT = { government_rank = 3 }
 		}
 	}
-	
+
 	can_end = {
 		mission_completed = mnd_khm_resurgence
 	}
-	
+
 
 	modifier = {
 		all_power_cost = 0.25
 	}
-	
+
 	on_start = khmer.1
 	on_end = khmer.2
-	
+
 	on_monthly = {
 		events = {
 		}

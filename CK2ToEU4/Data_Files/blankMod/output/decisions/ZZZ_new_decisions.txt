@@ -1026,7 +1026,7 @@ country_decisions = {
 			}
 		}
 	}
-	
+
 
 	form_great_yuan_EXTRA = {
 		major = yes
@@ -1072,7 +1072,7 @@ country_decisions = {
 		allow = {
 			is_free_or_tributary_trigger = yes
 			OR = {
-				primary_culture = altaic_new 
+				primary_culture = altaic_new
 				culture_group = altaic
 			}
 			is_at_war = no
@@ -1141,11 +1141,11 @@ country_decisions = {
 			}
 			723 = {
 				change_province_name = Xanadu
-				rename_capital = Xanadu 
+				rename_capital = Xanadu
 			}
 			2136 = {
 				change_province_name = Zhongdu
-				rename_capital = Zhongdu 
+				rename_capital = Zhongdu
 			}
 			china_superregion = {
 				limit = {

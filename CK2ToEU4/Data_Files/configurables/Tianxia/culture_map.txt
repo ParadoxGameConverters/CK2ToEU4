@@ -552,7 +552,7 @@ link = { eu4 = kaifeng ck2 = kaifeng tech = chinese gfx = asiangfx }
 # Tibeto-Burman
 link = { eu4 = tangut ck2 = nakhi ck2 = qiang tech = chinese gfx = asiangfx }
 link = { eu4 = yi ck2 = yi tech = chinese gfx = asiangfx }
-link = { eu4 = burmese ck2 = bamar tech = chinese gfx = asiangfx } 
+link = { eu4 = burmese ck2 = bamar tech = chinese gfx = asiangfx }
 
 # Han
 link = { eu4 = hubei ck2 = han region = huguang_area tech = chinese gfx = asiangfx }
@@ -581,40 +581,40 @@ link = { eu4 = miao ck2 = miao ck2 = yao ck2 = she tech = chinese gfx = asiangfx
 # Japan
 link = { eu4 = togoku ck2 = yamato ck2 = japanese ck2 = wako region = hokkaido_area region = hokuriku_area region = kanto_area region = eastern_kanto_area region = eastern_chubu_area region = thohoku_area region = sakhalin_area tech = chinese gfx = asiangfx }
 link = { eu4 = japanese ck2 = yamato ck2 = japanese ck2 = wako region = chubu_area region = kinai_area region = shikoku_area region = sanindo_area region = saigoku_area tech = chinese gfx = asiangfx }
-link = { eu4 = kyushuan ck2 = yamato ck2 = japanese ck2 = wako region = northern_kyushu region = kyushu_area tech = chinese gfx = asiangfx } 
+link = { eu4 = kyushuan ck2 = yamato ck2 = japanese ck2 = wako region = northern_kyushu region = kyushu_area tech = chinese gfx = asiangfx }
 link = { eu4 = kyushuan ck2 = yamato ck2 = japanese ck2 = wako tech = chinese gfx = asiangfx } # Fallback
 link = { eu4 = kyushuan ck2 = ryukyuan tech = chinese gfx = asiangfx }
-link = { eu4 = ainu ck2 = emishi ck2 = ainu tech = chinese gfx = inuitgfx } 
+link = { eu4 = ainu ck2 = emishi ck2 = ainu tech = chinese gfx = inuitgfx }
 
 # Northern
-link = { eu4 = korean ck2 = korean ck2 = jeju tech = chinese gfx = chinesegfx } 
+link = { eu4 = korean ck2 = korean ck2 = jeju tech = chinese gfx = chinesegfx }
 link = { eu4 = buryat ck2 = buryat tech = nomad_group gfx = inuitgfx }
-link = { eu4 = nivkh ck2 = nivkh tech = nomad_group gfx = inuitgfx } 
+link = { eu4 = nivkh ck2 = nivkh tech = nomad_group gfx = inuitgfx }
 
 # Tai-Kadai
 link = { eu4 = zhaung ck2 = zhuang ck2 = dong ck2 = hlai tech = chinese gfx = asiangfx }
 link = { eu4 = northern_thai ck2 = thai region = northern_thai_area region = north_laos_area region = china_superregion region = red_river_delta_area tech = chinese gfx = asiangfx }
 link = { eu4 = central_thai ck2 = thai tech = chinese gfx = asiangfx } # Fallback
-link = { eu4 = lao ck2 = lao tech = chinese gfx = asiangfx } 
-link = { eu4 = shan ck2 = shan tech = chinese gfx = asiangfx } 
+link = { eu4 = lao ck2 = lao tech = chinese gfx = asiangfx }
+link = { eu4 = shan ck2 = shan tech = chinese gfx = asiangfx }
 
 # Austroasiatic
-link = { eu4 = vietnamese ck2 = viet tech = chinese gfx = asiangfx } 
-link = { eu4 = khmer ck2 = khmer tech = chinese gfx = asiangfx } 
-link = { eu4 = mon ck2 = mon tech = chinese gfx = asiangfx } 
+link = { eu4 = vietnamese ck2 = viet tech = chinese gfx = asiangfx }
+link = { eu4 = khmer ck2 = khmer tech = chinese gfx = asiangfx }
+link = { eu4 = mon ck2 = mon tech = chinese gfx = asiangfx }
 
 # Nusantaran
-link = { eu4 = cham ck2 = cham tech = chinese gfx = asiangfx } 
-link = { eu4 = malayan ck2 = malay tech = chinese gfx = asiangfx } 
-link = { eu4 = sumatran ck2 = minangkabau ck2 = batak tech = chinese gfx = asiangfx } 
-link = { eu4 = acehnese ck2 = acehnese ck2 = samudran tech = chinese gfx = asiangfx } 
-link = { eu4 = javanese ck2 = javanese tech = chinese gfx = asiangfx } 
+link = { eu4 = cham ck2 = cham tech = chinese gfx = asiangfx }
+link = { eu4 = malayan ck2 = malay tech = chinese gfx = asiangfx }
+link = { eu4 = sumatran ck2 = minangkabau ck2 = batak tech = chinese gfx = asiangfx }
+link = { eu4 = acehnese ck2 = acehnese ck2 = samudran tech = chinese gfx = asiangfx }
+link = { eu4 = javanese ck2 = javanese tech = chinese gfx = asiangfx }
 link = { eu4 = sundanese ck2 = sundanese tech = chinese gfx = asiangfx }
 link = { eu4 = nusa_tenggara ck2 = balinese tech = chinese gfx = asiangfx }
 link = { eu4 = bornean ck2 = dayak ck2 = banjar ck2 = dusun tech = chinese gfx = asiangfx }
 link = { eu4 = sulawesi ck2 = minahasan ck2 = buginese tech = chinese gfx = asiangfx }
-link = { eu4 = filipino ck2 = tagalog ck2 = andamanese ck2 = cebuan tech = chinese gfx = asiangfx } 
-link = { eu4 = polynesian ck2 = taiwanese tech = polynesian_tech gfx = polynesiangfx } # Blame vanilla 
+link = { eu4 = filipino ck2 = tagalog ck2 = andamanese ck2 = cebuan tech = chinese gfx = asiangfx }
+link = { eu4 = polynesian ck2 = taiwanese tech = polynesian_tech gfx = polynesiangfx } # Blame vanilla
 link = { eu4 = moluccan ck2 = papuan tech = chinese gfx = asiangfx } # I know, I know, but Papuan is not related to Central Nusantara.
 
 # Sunset Invasion

@@ -653,7 +653,7 @@ punic_group = {
 		}
 
 	}
-	
+
 	mlachthi = {
 
 		male_names = {
@@ -694,7 +694,7 @@ punic_group = {
 		}
 
 	}
-	
+
 	ysthyalm = {
 
 		male_names = {
@@ -735,7 +735,7 @@ punic_group = {
 		}
 
 	}
-	
+
 	liphocaneth = { #Carthago Novan
 
 		male_names = {
@@ -776,7 +776,7 @@ punic_group = {
 		}
 
 	}
-	
+
 	pmpese = {
 
 		male_names = {
@@ -817,7 +817,7 @@ punic_group = {
 		}
 
 	}
-	
+
 	epicrateian = {
 
 		male_names = {
@@ -858,7 +858,7 @@ punic_group = {
 		}
 
 	}
-	
+
 	ualonuth = { #Baratanac
 
 		male_names = {
@@ -899,7 +899,7 @@ punic_group = {
 		}
 
 	}
-	
+
 	sidonian = {
 
 		male_names = {
@@ -940,7 +940,7 @@ punic_group = {
 		}
 
 	}
-	
+
 	sicorathi = { #Ziqanmakom
 
 		male_names = {
@@ -981,7 +981,7 @@ punic_group = {
 		}
 
 	}
-	
+
 	sythchy = {
 
 		male_names = {
@@ -1311,7 +1311,7 @@ northern_romance = {
 			Rosalind Sança Sancha Seloya Siân Joan Stiphanie Stiphania Sibyl Sibylla Sibylla Sibylla Umfreda Yaldrade Yilmot Yolanda Yolanda Ysbail Yyon Yyonne
 		}
 		dynasty_names = {
-			"du Camulodunum" "di Maridunum" "Sçarponnis" "di Lindum" "d'Dyfid" 
+			"du Camulodunum" "di Maridunum" "Sçarponnis" "di Lindum" "d'Dyfid"
 			"Constântis" "Plantaçinit" "Birtrând" "Pantilaen" "Saint-Gilliç" "Yalintinânus"
 			"d'Albion" "di Londinium" "Trençyal" "Constântis" "Merçadir" "Pinmân" "Rheçid" "Prydin" "Gyerthrynin"
 			"Ebroc" "di Aelii" "Saeyiris" "Marçinis" "Hadrianis" "Faeçi" "Yillonç" "Lipân" "Salyiç" "di Yoteporiçis"
@@ -1362,17 +1362,17 @@ afro_romance_group = {
 			Valeria Vera Viviane Vivana Zura
 		}
 		dynasty_names = {
-			"de' Medici" "di Savoia" "d'Este" Farnese Visconti Sforza Gonzaga "d'Ivrea" Orsini 
-			Colonna Caetani Ruspoli Aldobrandini Borghese Odescalchi Serlupi Crescenzi Massimo Patrizi Naro Montoro 
-			Theodoli Senni Ricci Rocchi Datti Pietromarchi Tuccimei Mazzetti 
+			"de' Medici" "di Savoia" "d'Este" Farnese Visconti Sforza Gonzaga "d'Ivrea" Orsini
+			Colonna Caetani Ruspoli Aldobrandini Borghese Odescalchi Serlupi Crescenzi Massimo Patrizi Naro Montoro
+			Theodoli Senni Ricci Rocchi Datti Pietromarchi Tuccimei Mazzetti
 			"di Monferrato" "Dandolo" "Spinola" "Ventimiglia" "de Sabran" "di Crivelli" "Montferrato"
-			"d'Arborea" "di Saluzzo" "Contarini" "di Cremona" "Scannabecchi" "di Lucca" 
+			"d'Arborea" "di Saluzzo" "Contarini" "di Cremona" "Scannabecchi" "di Lucca"
 			"de Candia" "Gozzadini" "Ghisi" "Zen" "Tocco" "di Biandrate" "Ariosti" "Pepoli"
-			"Borri" "Caccianemici" "del Balzo" Fortebraccio "di Ponzone" "Rangoni" "Zaccaria" "Zorzi" 
+			"Borri" "Caccianemici" "del Balzo" Fortebraccio "di Ponzone" "Rangoni" "Zaccaria" "Zorzi"
 			"di Castello" "Allucingolli" "di Conti" "di Squillache" "da Romano" "degli Ubaldini"
 			"Cybo" "Pallavicini" "Adorno" "Campofregoso" "Bentivoglio" "Tiepolo" "Gradenigo" "Borromeo"
-			"Capponi" "Castracani" "Cenci" "Grimaldi" "Colleoni" 
-			"Concini" "Obertenghi" "Crispo" "Dandolo" "Fieschi" "Gattilusio" "Bandinelli" "Serra" "Sfondrati" 
+			"Capponi" "Castracani" "Cenci" "Grimaldi" "Colleoni"
+			"Concini" "Obertenghi" "Crispo" "Dandolo" "Fieschi" "Gattilusio" "Bandinelli" "Serra" "Sfondrati"
 			"Doria" "di Morra" "Savelli" "Mancini" "da Correggio"
 			"Condulmer" "Moneta" "Parentucelli" "Valente" "Ziani" "Strozzi" "Sturzo" "di Piombino" "Monaldeschi"
 			"Sommaripa" "Borgia" "Orseolo" "Antelminelli" "Beccaria" "de Bonacolsi"
@@ -1434,7 +1434,7 @@ oriental_romance = {
 			"Salušeu du La'qon" "Torchitariu du Uqunayl" Samikka "du La'qon Zakho" "du Zakho" "Bais Serra"
 			"d'Caisteddu" "d'Santa Igàyya" "d'Patiollais" "d'Ogàyyaistra" "d'Torram" "d'Ballau" "d'Bosa" "d'Caddura"
 			"d'Paisadu" "d'Durgalu" "d'Calvu" "d'Sartena" Bukhtišu Qatwais Nimru Gazartu Odaenathus Septimius
-			Septimàyya 
+			Septimàyya
 		}
 	}
 }

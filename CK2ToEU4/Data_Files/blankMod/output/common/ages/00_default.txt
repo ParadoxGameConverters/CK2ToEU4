@@ -42,10 +42,10 @@ age_of_discovery = {
 			total_development = 100
 
 		}
-		
-		
-		
-	
+
+
+
+
 		obj_5_centers_of_trade = {
 			calc_true_if = {
 				all_owned_province = {

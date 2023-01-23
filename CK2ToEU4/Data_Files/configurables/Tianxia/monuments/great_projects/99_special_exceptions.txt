@@ -287,8 +287,8 @@ visby_city = {
 		}
 		area_modifier = {
 		}
-		country_modifiers = {		
-			privateer_efficiency = 0.2	
+		country_modifiers = {
+			privateer_efficiency = 0.2
 		}
 		on_upgraded = {
 		}
@@ -307,7 +307,7 @@ visby_city = {
 		}
 		area_modifier = {
 		}
-		country_modifiers = {		
+		country_modifiers = {
 			privateer_efficiency = 0.33
 			global_own_trade_power = 0.15
 		}
@@ -328,7 +328,7 @@ visby_city = {
 		}
 		area_modifier = {
 		}
-		country_modifiers = {		
+		country_modifiers = {
 			privateer_efficiency = 0.5
 			global_own_trade_power = 0.25
 		}
@@ -395,7 +395,7 @@ doges_palace = {
 		}
 		country_modifiers = {
 			reform_progress_growth = 0.1
-			republican_tradition = 0.1 
+			republican_tradition = 0.1
 		}
 		on_upgraded = {
 		}
@@ -414,7 +414,7 @@ doges_palace = {
 		}
 		country_modifiers = {
 			reform_progress_growth = 0.2
-			republican_tradition = 0.25 
+			republican_tradition = 0.25
 			prestige = 0.5
 		}
 		on_upgraded = {
@@ -434,7 +434,7 @@ doges_palace = {
 		}
 		country_modifiers = {
 			reform_progress_growth = 0.3
-			republican_tradition = 0.5 
+			republican_tradition = 0.5
 			prestige = 1
 		}
 		on_upgraded = {
@@ -501,7 +501,7 @@ falun_copper_mine = {
 			local_build_cost = -0.05
 			local_build_time = -0.05
 		}
-		country_modifiers = {			
+		country_modifiers = {
 		}
 		on_upgraded = {
 		}

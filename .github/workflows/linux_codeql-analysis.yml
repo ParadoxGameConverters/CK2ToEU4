@@ -36,12 +36,12 @@ jobs:
       uses: github/codeql-action/init@v2
       with:
         languages: ${{ matrix.language }}
-        
+
     - name: Clean Release folder
       run: |
        rm -rf Release/
        mkdir Release
-   
+
     - name: Build solution
       run: |
        chmod u+x build_linux.sh
@@ -49,10 +49,10 @@ jobs:
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
-      
+
     - name: Cleanup
       uses: colpal/actions-clean@v1
-      if: always() # To ensure this step runs even when earlier steps fail      
+      if: always() # To ensure this step runs even when earlier steps fail
 
   analyze:
     name: Analyze Foreign
@@ -80,7 +80,7 @@ jobs:
       uses: github/codeql-action/init@v2
       with:
         languages: ${{ matrix.language }}
-       
+
     - name: Build solution
       run: |
        sudo apt-get update
@@ -101,7 +101,7 @@ jobs:
        export CXX=/usr/bin/g++-11
        # Check versions of gcc, g++ and cmake
        gcc -v && g++ -v && cmake --version
-       # Run your build commands next       
+       # Run your build commands next
        chmod u+x build_linux_foreign.sh
        ./build_linux_foreign.sh
 

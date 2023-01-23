@@ -2714,7 +2714,7 @@ harar_jugol = {
 		}
 		area_modifier = {
 		}
-		country_modifiers = {			
+		country_modifiers = {
 			prestige_per_development_from_conversion = 0.1
 		}
 		on_upgraded = {
@@ -2840,7 +2840,7 @@ dujiangyan = {
 		area_modifier = {
 			local_governing_cost = -0.2
 		}
-		region_modifier = { 
+		region_modifier = {
 			local_monthly_devastation = -0.05
 		}
 		on_upgraded = {
