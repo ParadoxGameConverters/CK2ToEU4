@@ -1,8 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="..\googletest\googletest\src\gtest-all.cc" />
-    <ClCompile Include="..\googletest\googletest\src\gtest_main.cc" />
     <ClCompile Include="..\commonItems\Log.cpp">
       <Filter>ConverterFiles\commonItems</Filter>
     </ClCompile>
@@ -13,7 +11,6 @@
       <Filter>ConverterFiles\commonItems</Filter>
     </ClCompile>
     <ClCompile Include="ConfigurationTests.cpp" />
-    <ClCompile Include="..\googletest\googlemock\src\gmock-all.cc" />
     <ClCompile Include="..\commonItems\Date.cpp">
       <Filter>ConverterFiles\commonItems</Filter>
     </ClCompile>
@@ -401,6 +398,9 @@
     <ClCompile Include="..\commonItems\external\zip\src\zip.c">
       <Filter>ConverterFiles\commonItems\zip</Filter>
     </ClCompile>
+    <ClCompile Include="..\commonItems\external\googletest\googlemock\src\gmock-all.cc" />
+    <ClCompile Include="..\commonItems\external\googletest\googletest\src\gtest-all.cc" />
+    <ClCompile Include="..\commonItems\external\googletest\googletest\src\gtest_main.cc" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4WorldTests">
