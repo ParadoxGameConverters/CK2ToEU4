@@ -17,15 +17,15 @@ link = { eu4 = slavic_pagan ck2 = slavic_pagan }
 link = { eu4 = slavic_pagan_reformed ck2 = slavic_pagan_reformed }
 link = { eu4 = shamanism ck2 = west_african_pagan ck2 = dravidian_pagan_reformed ck2 = dravidian_pagan ck2 = central_african_pagan_reformed ck2 = central_african_pagan ck2 = gurzil ck2 = msoura_pagan ck2 = east_african_pagan }
 link = { eu4 = west_african_pagan_reformed ck2 = west_african_pagan_reformed ck2 = east_african_pagan_reformed  }
-link = { eu4 = hellenic_pagan ck2 = hellenic_pagan ck2 = illyran_pagan ck2 = mastimani }
-link = { eu4 = hellenic_pagan_reformed ck2 = hellenic_pagan_reformed ck2 = illyran_pagan_reformed ck2 = neoplatonist }
+link = { eu4 = hellenic_pagan ck2 = hellenic_pagan ck2 = illyran_pagan ck2 = mastimani ck2 = titan_pagan }
+link = { eu4 = hellenic_pagan_reformed ck2 = hellenic_pagan_reformed ck2 = illyran_pagan_reformed ck2 = neoplatonist ck2 = promethean_pagan }
 link = { eu4 = zun_pagan ck2 = zun_pagan ck2 = african_solar_pagan ck2 = latin_solar_pagan ck2 = mandulis_pagan }
 link = { eu4 = zun_pagan_reformed ck2 = zun_pagan_reformed ck2 = african_solar_pagan_reformed ck2 = latin_solar_pagan_reformed ck2 = mithraic_pagan ck2 = aten_pagan }
 link = { eu4 = bon ck2 = bon ck2 = root_west_pagan }
 link = { eu4 = bon_reformed ck2 = bon_reformed ck2 = root_west_pagan_reformed }
 
 link = { eu4 = druidic_pagan ck2 = druidic ck2 = celtic_pagan }
-link = { eu4 = druidic_pagan_reformed ck2 = druidic_reformed ck2 = celtic_pagan_reformed }
+link = { eu4 = druidic_pagan_reformed ck2 = druidic_reformed ck2 = celtic_pagan_reformed ck2 = britannic_pagan }
 link = { eu4 = iberian_pagan ck2 = iberian ck2 = vasconic_pagan }
 link = { eu4 = iberian_pagan_reformed ck2 = iberian_reformed ck2 = vasconic_pagan_reformed }
 link = { eu4 = megalithic_pagan ck2 = megalithic }
@@ -49,7 +49,7 @@ link = { eu4 = zalmoxian_pagan_reformed ck2 = zalmoxian_reformed ck2 = dacian_pa
 link = { eu4 = ritualistic_pagan ck2 = ritualistic }
 link = { eu4 = ritualistic_pagan_reformed ck2 = ritualistic_reformed }
 
-link = { eu4 = kemetism ck2 = egyptian ck2 = egyptian_pagan }
+link = { eu4 = kemetism ck2 = egyptian ck2 = egyptian_pagan ck2 = egyptian_pagan_reformed }
 
 link = { eu4 = nahuatl ck2 = aztec ck2 = aztec_reformed }
 
@@ -94,7 +94,7 @@ link = { eu4 = hurufi ck2 = hurufi }
 link = { eu4 = qarmatian ck2 = qarmatian ck2 = qadariyya }
 
 # Judaism
-link = { eu4 = jewish ck2 = jewish ck2 = psilanthropism ck2 = ebionites ck2 = melchisedechianism }
+link = { eu4 = jewish ck2 = jewish ck2 = psilanthropism ck2 = ebionites ck2 = melchisedechianism ck2 = chasidish }
 link = { eu4 = samaritan_faith ck2 = samaritan }
 link = { eu4 = karaite_faith ck2 = karaite }
 
