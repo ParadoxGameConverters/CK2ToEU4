@@ -28,8 +28,7 @@ jobs:
     run: |
        cd $Env:GITHUB_WORKSPACE/..
        git submodule update --init --recursive commonItems       
-       git -c submodule."googletest".update=none \
-           -c submodule."external/googletest".update=none \
+       git -c submodule."external/googletest".update=none \
            -c submodule."external/zip".update=none \
            submodule update --init --recursive Fronter
 
@@ -68,8 +67,7 @@ jobs:
     run: |
        cd $Env:GITHUB_WORKSPACE/..
        git submodule update --init --recursive commonItems       
-       git -c submodule."googletest".update=none \
-           -c submodule."external/googletest".update=none \
+       git -c submodule."external/googletest".update=none \
            -c submodule."external/zip".update=none \
            submodule update --init --recursive Fronter
 
