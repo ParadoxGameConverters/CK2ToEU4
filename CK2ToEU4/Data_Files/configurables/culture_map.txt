@@ -248,6 +248,13 @@ link = { eu4 = belgae ck2 = belgae tech = western gfx = westerngfx }
 link = { eu4 = celtic_pannonian ck2 = celtic_pannonian tech = western gfx = westerngfx }
 link = { eu4 = celtiberian ck2 = celtiberian tech = western gfx = westerngfx }
 link = { eu4 = lusitanian ck2 = lusitanian tech = western gfx = westerngfx }
+link = { eu4 = lepontic ck2 = gaulish tech = western gfx = westerngfx region = romandie_area region = switzerland_area region = tirol_area region = carinthia_area region = italy_region }
+link = { eu4 = belgae ck2 = gaulish tech = western gfx = westerngfx region = picardy_area region = low_countries_region region = north_german_region region = south_german_region region = scandinavia_region }
+link = { eu4 = gallic ck2 = gaulish tech = western gfx = westerngfx region = basque_country region = france_region }
+link = { eu4 = celtic_pannonian ck2 = gaulish tech = western gfx = westerngfx region = eastern_europe_superregion region = persia_superregion region = near_east_superregion }
+link = { eu4 = lusitanian ck2 = gaulish tech = western gfx = westerngfx region = extremadura_area region = asturias_area region = leon_area region = alentejo_area region = beieras_area region = galicia_area region = macaronesia_area }
+link = { eu4 = celtiberian ck2 = gaulish tech = western gfx = westerngfx region = iberia_region region = maghreb_region region = sahel_region }
+link = { eu4 = gallic ck2 = gaulish tech = western gfx = westerngfx } #Fallback
 
 # Finno-Ugric
 
