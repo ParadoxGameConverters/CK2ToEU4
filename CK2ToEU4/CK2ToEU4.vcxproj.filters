@@ -3,24 +3,6 @@
   <ItemGroup>
     <ClCompile Include="Source\CK2ToEU4Converter.cpp" />
     <ClCompile Include="Source\main.cpp" />
-    <ClCompile Include="..\commonItems\Date.cpp">
-      <Filter>CommonItems</Filter>
-    </ClCompile>
-    <ClCompile Include="..\commonItems\Log.cpp">
-      <Filter>CommonItems</Filter>
-    </ClCompile>
-    <ClCompile Include="..\commonItems\ParserHelpers.cpp">
-      <Filter>CommonItems</Filter>
-    </ClCompile>
-    <ClCompile Include="..\commonItems\WinUtils.cpp">
-      <Filter>CommonItems</Filter>
-    </ClCompile>
-    <ClCompile Include="..\commonItems\StringUtils.cpp">
-      <Filter>CommonItems</Filter>
-    </ClCompile>
-    <ClCompile Include="..\commonItems\iconvlite.cpp">
-      <Filter>CommonItems</Filter>
-    </ClCompile>
     <ClCompile Include="Source\CK2World\World.cpp">
       <Filter>CK2World</Filter>
     </ClCompile>
@@ -204,18 +186,6 @@
     <ClCompile Include="Source\Mappers\ShatterEmpiresMapper\ShatterEmpiresMapper.cpp">
       <Filter>Mappers\ShatterEmpiresMapper</Filter>
     </ClCompile>
-    <ClCompile Include="..\commonItems\CommonFunctions.cpp">
-      <Filter>CommonItems</Filter>
-    </ClCompile>
-    <ClCompile Include="..\commonItems\GameVersion.cpp">
-      <Filter>CommonItems</Filter>
-    </ClCompile>
-    <ClCompile Include="..\commonItems\OSCommonLayer.cpp">
-      <Filter>CommonItems</Filter>
-    </ClCompile>
-    <ClCompile Include="..\commonItems\Parser.cpp">
-      <Filter>CommonItems</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Mappers\PrimaryTagMapper\PrimaryTagMapper.cpp">
       <Filter>Mappers\PrimaryTagMapper</Filter>
     </ClCompile>
@@ -227,9 +197,6 @@
     </ClCompile>
     <ClCompile Include="Source\Mappers\DevWeightsMapper\DevWeightsMapper.cpp">
       <Filter>Mappers\DevWeightsMapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\commonItems\Color.cpp">
-      <Filter>CommonItems</Filter>
     </ClCompile>
     <ClCompile Include="Source\CK2World\Religions\Religions.cpp">
       <Filter>CK2World\Religions</Filter>
@@ -264,20 +231,8 @@
     <ClCompile Include="Source\CK2World\Wonders\ConstructionHistory.cpp">
       <Filter>CK2World\Wonders</Filter>
     </ClCompile>
-    <ClCompile Include="..\commonItems\ConvenientParser.cpp">
-      <Filter>CommonItems</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Mappers\MonumentsMapper\BuildTriggerBuilder.cpp">
       <Filter>Mappers\MonumentsMapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\commonItems\ConverterVersion.cpp">
-      <Filter>CommonItems</Filter>
-    </ClCompile>
-    <ClCompile Include="..\commonItems\ModLoader\ModLoader.cpp">
-      <Filter>CommonItems\ModLoader</Filter>
-    </ClCompile>
-    <ClCompile Include="..\commonItems\ModLoader\ModParser.cpp">
-      <Filter>CommonItems\ModLoader</Filter>
     </ClCompile>
     <ClCompile Include="Source\Mappers\VassalSplitoffMapper\VassalSplitoffMapper.cpp">
       <Filter>Mappers\VassalSplitoffMapper</Filter>
@@ -288,33 +243,9 @@
     <ClCompile Include="Source\Mappers\AfricanPassesMapper\AfricanPassesMapping.cpp">
       <Filter>Mappers\AfricanPassesMapper</Filter>
     </ClCompile>
-    <ClCompile Include="..\commonItems\ModLoader\ModFilesystem.cpp">
-      <Filter>CommonItems\ModLoader</Filter>
-    </ClCompile>
-    <ClCompile Include="..\commonItems\external\zip\src\zip.c">
-      <Filter>CommonItems\zip</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CK2ToEU4Converter.h" />
-    <ClInclude Include="..\commonItems\Date.h">
-      <Filter>CommonItems</Filter>
-    </ClInclude>
-    <ClInclude Include="..\commonItems\Log.h">
-      <Filter>CommonItems</Filter>
-    </ClInclude>
-    <ClInclude Include="..\commonItems\OSCompatibilityLayer.h">
-      <Filter>CommonItems</Filter>
-    </ClInclude>
-    <ClInclude Include="..\commonItems\ParserHelpers.h">
-      <Filter>CommonItems</Filter>
-    </ClInclude>
-    <ClInclude Include="..\commonItems\StringUtils.h">
-      <Filter>CommonItems</Filter>
-    </ClInclude>
-    <ClInclude Include="..\commonItems\iconvlite.h">
-      <Filter>CommonItems</Filter>
-    </ClInclude>
     <ClInclude Include="Source\CK2World\World.h">
       <Filter>CK2World</Filter>
     </ClInclude>
@@ -495,15 +426,6 @@
     <ClInclude Include="Source\Mappers\ShatterEmpiresMapper\ShatterEmpiresMapper.h">
       <Filter>Mappers\ShatterEmpiresMapper</Filter>
     </ClInclude>
-    <ClInclude Include="..\commonItems\CommonFunctions.h">
-      <Filter>CommonItems</Filter>
-    </ClInclude>
-    <ClInclude Include="..\commonItems\GameVersion.h">
-      <Filter>CommonItems</Filter>
-    </ClInclude>
-    <ClInclude Include="..\commonItems\Parser.h">
-      <Filter>CommonItems</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Mappers\PrimaryTagMapper\PrimaryTagMapper.h">
       <Filter>Mappers\PrimaryTagMapper</Filter>
     </ClInclude>
@@ -515,9 +437,6 @@
     </ClInclude>
     <ClInclude Include="Source\Mappers\DevWeightsMapper\DevWeightsMapper.h">
       <Filter>Mappers\DevWeightsMapper</Filter>
-    </ClInclude>
-    <ClInclude Include="..\commonItems\Color.h">
-      <Filter>CommonItems</Filter>
     </ClInclude>
     <ClInclude Include="Source\CK2World\Religions\Religions.h">
       <Filter>CK2World\Religions</Filter>
@@ -546,18 +465,6 @@
     <ClInclude Include="Source\CK2World\Wonders\ConstructionHistory.h">
       <Filter>CK2World\Wonders</Filter>
     </ClInclude>
-    <ClInclude Include="..\commonItems\ConvenientParser.h">
-      <Filter>CommonItems</Filter>
-    </ClInclude>
-    <ClInclude Include="..\commonItems\ConverterVersion.h">
-      <Filter>CommonItems</Filter>
-    </ClInclude>
-    <ClInclude Include="..\commonItems\ModLoader\ModLoader.h">
-      <Filter>CommonItems\ModLoader</Filter>
-    </ClInclude>
-    <ClInclude Include="..\commonItems\ModLoader\ModParser.h">
-      <Filter>CommonItems\ModLoader</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Mappers\VassalSplitoffMapper\VassalSplitoffMapper.h">
       <Filter>Mappers\VassalSplitoffMapper</Filter>
     </ClInclude>
@@ -576,18 +483,6 @@
     <ClInclude Include="Source\Mappers\MonumentsMapper\MonumentsMapping.h">
       <Filter>Mappers\MonumentsMapper</Filter>
     </ClInclude>
-    <ClInclude Include="..\commonItems\ModLoader\Mod.h">
-      <Filter>CommonItems\ModLoader</Filter>
-    </ClInclude>
-    <ClInclude Include="..\commonItems\ModLoader\ModFilesystem.h">
-      <Filter>CommonItems\ModLoader</Filter>
-    </ClInclude>
-    <ClInclude Include="..\commonItems\external\zip\src\miniz.h">
-      <Filter>CommonItems\zip</Filter>
-    </ClInclude>
-    <ClInclude Include="..\commonItems\external\zip\src\zip.h">
-      <Filter>CommonItems\zip</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4World">
@@ -595,9 +490,6 @@
     </Filter>
     <Filter Include="Mappers">
       <UniqueIdentifier>{bf826ab7-8ea4-4e55-9e01-15ed547a428e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="CommonItems">
-      <UniqueIdentifier>{92d9302b-67c1-46ea-9493-b56e75598574}</UniqueIdentifier>
     </Filter>
     <Filter Include="CK2World">
       <UniqueIdentifier>{a0c46cb3-3d7e-4148-9e87-15482ee7f5aa}</UniqueIdentifier>
@@ -698,17 +590,11 @@
     <Filter Include="Mappers\MonumentsMapper">
       <UniqueIdentifier>{5f30ec84-1dc7-47a6-b1a6-0732bca69802}</UniqueIdentifier>
     </Filter>
-    <Filter Include="CommonItems\ModLoader">
-      <UniqueIdentifier>{674155bf-ba63-464a-8631-7efb46f5d116}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Mappers\VassalSplitoffMapper">
       <UniqueIdentifier>{c6c0c961-5b04-4a70-96cf-d568ab51989a}</UniqueIdentifier>
     </Filter>
     <Filter Include="Mappers\AfricanPassesMapper">
       <UniqueIdentifier>{09c3d3c6-cd15-43ce-a2e6-b82283dc756f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="CommonItems\zip">
-      <UniqueIdentifier>{e951d800-1212-4a5d-a316-c56a2792bae8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

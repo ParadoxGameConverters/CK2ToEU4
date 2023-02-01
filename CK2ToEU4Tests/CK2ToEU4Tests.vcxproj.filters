@@ -1,25 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="..\googletest\googletest\src\gtest-all.cc" />
-    <ClCompile Include="..\googletest\googletest\src\gtest_main.cc" />
-    <ClCompile Include="..\commonItems\Log.cpp">
-      <Filter>ConverterFiles\commonItems</Filter>
-    </ClCompile>
-    <ClCompile Include="..\commonItems\ParserHelpers.cpp">
-      <Filter>ConverterFiles\commonItems</Filter>
-    </ClCompile>
-    <ClCompile Include="..\commonItems\WinUtils.cpp">
-      <Filter>ConverterFiles\commonItems</Filter>
-    </ClCompile>
     <ClCompile Include="ConfigurationTests.cpp" />
-    <ClCompile Include="..\googletest\googlemock\src\gmock-all.cc" />
-    <ClCompile Include="..\commonItems\Date.cpp">
-      <Filter>ConverterFiles\commonItems</Filter>
-    </ClCompile>
-    <ClCompile Include="..\commonItems\iconvlite.cpp">
-      <Filter>ConverterFiles\commonItems</Filter>
-    </ClCompile>
     <ClCompile Include="..\CK2ToEU4\Source\Configuration\Configuration.cpp">
       <Filter>ConverterFiles\Configuration</Filter>
     </ClCompile>
@@ -275,21 +257,6 @@
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\ShatterEmpiresMapper\ShatterEmpiresMapper.cpp">
       <Filter>ConverterFiles\Mappers\ShatterEmpiresMapper</Filter>
     </ClCompile>
-    <ClCompile Include="..\commonItems\CommonFunctions.cpp">
-      <Filter>ConverterFiles\commonItems</Filter>
-    </ClCompile>
-    <ClCompile Include="..\commonItems\GameVersion.cpp">
-      <Filter>ConverterFiles\commonItems</Filter>
-    </ClCompile>
-    <ClCompile Include="..\commonItems\OSCommonLayer.cpp">
-      <Filter>ConverterFiles\commonItems</Filter>
-    </ClCompile>
-    <ClCompile Include="..\commonItems\Parser.cpp">
-      <Filter>ConverterFiles\commonItems</Filter>
-    </ClCompile>
-    <ClCompile Include="..\commonItems\StringUtils.cpp">
-      <Filter>ConverterFiles\commonItems</Filter>
-    </ClCompile>
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\PrimaryTagMapper\PrimaryTagCulture.cpp">
       <Filter>ConverterFiles\Mappers\PrimaryTagMapper</Filter>
     </ClCompile>
@@ -313,9 +280,6 @@
     </ClCompile>
     <ClCompile Include="MapperTests\DevWeightsMapper\DevWeightsMapperTests.cpp">
       <Filter>MapperTests\DevWeightsMapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\commonItems\Color.cpp">
-      <Filter>ConverterFiles\commonItems</Filter>
     </ClCompile>
     <ClCompile Include="MapperTests\ReformedReligionMapper\ReformedReligionMapperTests.cpp">
       <Filter>MapperTests\ReformedReligionMapper</Filter>
@@ -365,9 +329,6 @@
     <ClCompile Include="..\CK2ToEU4\Source\CK2World\Wonders\ConstructionHistory.cpp">
       <Filter>ConverterFiles\CK2World\Wonders</Filter>
     </ClCompile>
-    <ClCompile Include="..\commonItems\ConvenientParser.cpp">
-      <Filter>ConverterFiles\commonItems</Filter>
-    </ClCompile>
     <ClCompile Include="..\CK2ToEU4\Source\Mappers\MonumentsMapper\BuildTriggerBuilder.cpp">
       <Filter>ConverterFiles\Mappers\MonumentsMapper</Filter>
     </ClCompile>
@@ -389,18 +350,9 @@
     <ClCompile Include="MapperTests\AfricanPassesMapper\AfricanPassesMappingTests.cpp">
       <Filter>MapperTests\AfricanPassesMapper</Filter>
     </ClCompile>
-    <ClCompile Include="..\commonItems\ModLoader\ModFilesystem.cpp">
-      <Filter>ConverterFiles\commonItems\ModLoader</Filter>
-    </ClCompile>
-    <ClCompile Include="..\commonItems\ModLoader\ModLoader.cpp">
-      <Filter>ConverterFiles\commonItems\ModLoader</Filter>
-    </ClCompile>
-    <ClCompile Include="..\commonItems\ModLoader\ModParser.cpp">
-      <Filter>ConverterFiles\commonItems\ModLoader</Filter>
-    </ClCompile>
-    <ClCompile Include="..\commonItems\external\zip\src\zip.c">
-      <Filter>ConverterFiles\commonItems\zip</Filter>
-    </ClCompile>
+    <ClCompile Include="..\commonItems\external\googletest\googlemock\src\gmock-all.cc" />
+    <ClCompile Include="..\commonItems\external\googletest\googletest\src\gtest-all.cc" />
+    <ClCompile Include="..\commonItems\external\googletest\googletest\src\gtest_main.cc" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="EU4WorldTests">
@@ -408,9 +360,6 @@
     </Filter>
     <Filter Include="ConverterFiles">
       <UniqueIdentifier>{15d90f21-825c-4b5c-8541-ce76f1fb3bf3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ConverterFiles\commonItems">
-      <UniqueIdentifier>{b062b06f-cfb6-4a7c-8d34-14615884b65b}</UniqueIdentifier>
     </Filter>
     <Filter Include="ConverterFiles\EU4World">
       <UniqueIdentifier>{4b1804e5-f7ad-47d2-ad23-ff9402369723}</UniqueIdentifier>
@@ -591,12 +540,6 @@
     </Filter>
     <Filter Include="MapperTests\AfricanPassesMapper">
       <UniqueIdentifier>{067100a0-6d77-4fb5-82b8-4b551ff181d0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ConverterFiles\commonItems\ModLoader">
-      <UniqueIdentifier>{4c915ba6-9542-46dd-bfd1-ca04912b230f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ConverterFiles\commonItems\zip">
-      <UniqueIdentifier>{2507018c-ec64-4647-8be1-93c8a7e1a034}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
