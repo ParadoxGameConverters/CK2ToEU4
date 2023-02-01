@@ -448,6 +448,7 @@ link = { ck2 = k_candar eu4 = CND }
 link = { ck2 = k_iraq eu4 = IRQ }
 link = { ck2 = k_karaman eu4 = KAR }
 link = { ck2 = k_syria eu4 = SYR }
+link = { ck2 = k_aramea eu4 = SYR }
 link = { ck2 = d_syria eu4 = SYR }
 link = { ck2 = d_damascus eu4 = SYR }
 link = { ck2 = d_palmyra eu4 = SYR }
@@ -1099,6 +1100,7 @@ link = { ck2 = k_africa eu4 = TUN } # Tunis
 link = { ck2 = k_kafsid eu4 = TUN } # Tunis
 
 # Middle East
+link = { ck2 = e_greater_egypt eu4 = EGY } # Egypt
 link = { ck2 = e_egypt eu4 = EGY } # Egypt
 link = { ck2 = k_fatimids eu4 = EGY } # Egypt
 
@@ -1118,6 +1120,8 @@ link = { ck2 = d_tabarestan eu4 = TAB } # Mazandaran
 link = { ck2 = c_sistan eu4 = SIS } # Sistan
 link = { ck2 = k_sistan eu4 = SIS } # Sistan
 link = { ck2 = k_mavarannahr eu4 = TRS } # Transoxiana
+link = { ck2 = e_assyria eu4 = ASY }  # Assyria
+link = { ck2 = e_babylon eu4 = ASY }  # Assyria
 link = { ck2 = k_mesopotamia eu4 = ASY } # Assyria
 
 # Russia
