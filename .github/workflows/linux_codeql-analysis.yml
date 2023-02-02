@@ -41,8 +41,12 @@ jobs:
         
     - name: Build solution
       run: |
-       chmod u+x build_linux.sh
-       ./build_linux.sh
+       cmake -H. -Bbuild && cmake --build ./build --target CK2ToEU4Converter ConverterFrontend CK2ToEU4Tests -- -j40
+
+    - name: Run Tests
+      run: |
+       cd test/Release-Linux
+       ./CK2ToEU4Tests
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
@@ -90,11 +94,12 @@ jobs:
       
     - name: Build solution
       run: |
-       # Link gcc-11 and g++-11 to their standard commands
-       sudo ln -s /usr/bin/gcc-11 /usr/local/bin/gcc
-       sudo ln -s /usr/bin/g++-11 /usr/local/bin/g++
-       chmod u+x build_linux_foreign.sh
-       ./build_linux_foreign.sh
+       cmake -H. -Bbuild && cmake --build ./build --target CK2ToEU4Converter ConverterFrontend CK2ToEU4Tests -- -j5
+
+    - name: Run Tests
+      run: |
+       cd test/Release-Linux
+       ./CK2ToEU4Tests
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
