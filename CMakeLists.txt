@@ -86,8 +86,7 @@ file(GLOB MAPPER_SOURCES "${CONVERTER_SOURCE_DIR}/Mappers/*/*.cpp")
 file(GLOB EU4WORLD_SOURCES "${CONVERTER_SOURCE_DIR}/EU4World/*.cpp")
 file(GLOB EU4WORLD_SUBDIR_SOURCES "${CONVERTER_SOURCE_DIR}/EU4World/*/*.cpp")
 
-add_executable(CK2ToEU4Converter
-	${MAIN_SOURCES}
+add_library(CK2ToEU4lib
 	${CONFIGURATION_SOURCES}
 	${CK2WORLD_SOURCES}
 	${CK2WORLD_SUBDIR_SOURCES}
@@ -95,12 +94,18 @@ add_executable(CK2ToEU4Converter
 	${EU4WORLD_SOURCES}
 	${EU4WORLD_SUBDIR_SOURCES}
 )
+target_precompile_headers(CK2ToEU4lib PUBLIC ${PCH_SOURCES})
+target_link_libraries(CK2ToEU4lib LINK_PUBLIC CommonItems)
+
+add_executable(CK2ToEU4Converter
+	${MAIN_SOURCES}
+)
 set_target_properties(CK2ToEU4Converter
     PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY ${CONVERTER_OUTPUT_DIRECTORY}
 )
-target_precompile_headers(CK2ToEU4Converter PUBLIC ${PCH_SOURCES})
-target_link_libraries(CK2ToEU4Converter LINK_PUBLIC CommonItems)
+target_precompile_headers(CK2ToEU4Converter REUSE_FROM CK2ToEU4lib)
+target_link_libraries(CK2ToEU4Converter LINK_PUBLIC CommonItems CK2ToEU4lib)
 
 ### FRONTER ###
 
@@ -162,12 +167,6 @@ add_executable(
 	${TEST_SUB_SOURCES}
 	${TEST_SUB_SUB_SOURCES}
 	${GTEST_SOURCES}
-	${CONFIGURATION_SOURCES}
-	${CK2WORLD_SOURCES}
-	${CK2WORLD_SUBDIR_SOURCES}
-	${MAPPER_SOURCES}
-	${EU4WORLD_SOURCES}
-	${EU4WORLD_SUBDIR_SOURCES}
 )
 
 set_target_properties(CK2ToEU4Tests
@@ -175,5 +174,5 @@ set_target_properties(CK2ToEU4Tests
     RUNTIME_OUTPUT_DIRECTORY ${TEST_OUTPUT_DIRECTORY}
 )
 
-target_precompile_headers(CK2ToEU4Tests REUSE_FROM CK2ToEU4Converter)
-target_link_libraries(CK2ToEU4Tests LINK_PUBLIC CommonItems)
+target_precompile_headers(CK2ToEU4Tests REUSE_FROM CK2ToEU4lib)
+target_link_libraries(CK2ToEU4Tests LINK_PUBLIC CommonItems CK2ToEU4lib)
