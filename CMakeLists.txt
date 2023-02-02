@@ -174,6 +174,6 @@ set_target_properties(CK2ToEU4Tests
     PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY ${TEST_OUTPUT_DIRECTORY}
 )
-#target_precompile_headers(CK2ToEU4Tests PUBLIC ${PCH_SOURCES})
+
 target_precompile_headers(CK2ToEU4Tests REUSE_FROM CK2ToEU4Converter)
 target_link_libraries(CK2ToEU4Tests LINK_PUBLIC CommonItems)
