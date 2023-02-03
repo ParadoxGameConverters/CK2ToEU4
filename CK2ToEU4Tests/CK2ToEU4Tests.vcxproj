@@ -46,9 +46,8 @@
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <GenerateDebugInformation>false</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>CK2ToEU4lib.lib;CommonItems.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>pch.lib;CK2ToEU4lib.lib;CommonItems.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

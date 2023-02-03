@@ -47,9 +47,8 @@
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <GenerateDebugInformation>false</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>CommonItems.lib;CK2ToEU4lib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>pch.lib;CommonItems.lib;CK2ToEU4lib.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>call Copy_Files.bat
