@@ -2,9 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="ConfigurationTests.cpp" />
-    <ClCompile Include="..\CK2ToEU4\Source\Configuration\Configuration.cpp">
-      <Filter>ConverterFiles\Configuration</Filter>
-    </ClCompile>
     <ClCompile Include="CK2WorldTests\Provinces\BaronyTests.cpp">
       <Filter>CK2WorldTests\Provinces</Filter>
     </ClCompile>
@@ -20,21 +17,6 @@
     <ClCompile Include="CK2WorldTests\Characters\CharacterTests.cpp">
       <Filter>CK2WorldTests\Characters</Filter>
     </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Provinces\Barony.cpp">
-      <Filter>ConverterFiles\CK2World\Provinces</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Provinces\Province.cpp">
-      <Filter>ConverterFiles\CK2World\Provinces</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Provinces\Provinces.cpp">
-      <Filter>ConverterFiles\CK2World\Provinces</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Characters\Character.cpp">
-      <Filter>ConverterFiles\CK2World\Characters</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Characters\Characters.cpp">
-      <Filter>ConverterFiles\CK2World\Characters</Filter>
-    </ClCompile>
     <ClCompile Include="CK2WorldTests\Titles\LiegeTests.cpp">
       <Filter>CK2WorldTests\Titles</Filter>
     </ClCompile>
@@ -44,44 +26,17 @@
     <ClCompile Include="CK2WorldTests\Titles\TitleTests.cpp">
       <Filter>CK2WorldTests\Titles</Filter>
     </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Titles\Liege.cpp">
-      <Filter>ConverterFiles\CK2World\Titles</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Titles\Title.cpp">
-      <Filter>ConverterFiles\CK2World\Titles</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Titles\Titles.cpp">
-      <Filter>ConverterFiles\CK2World\Titles</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Dynasties\Dynasties.cpp">
-      <Filter>ConverterFiles\CK2World\Dynasties</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Dynasties\Dynasty.cpp">
-      <Filter>ConverterFiles\CK2World\Dynasties</Filter>
-    </ClCompile>
     <ClCompile Include="CK2WorldTests\Dynasties\DynastiesTests.cpp">
       <Filter>CK2WorldTests\Dynasties</Filter>
     </ClCompile>
     <ClCompile Include="CK2WorldTests\Dynasties\DynastyTests.cpp">
       <Filter>CK2WorldTests\Dynasties</Filter>
     </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Characters\Domain.cpp">
-      <Filter>ConverterFiles\CK2World\Characters</Filter>
-    </ClCompile>
     <ClCompile Include="CK2WorldTests\Characters\DomainTests.cpp">
       <Filter>CK2WorldTests\Characters</Filter>
     </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\Mappers\ProvinceTitleMapper\ProvinceTitleGrabber.cpp">
-      <Filter>ConverterFiles\Mappers\ProvinceTitleMapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\Mappers\ProvinceTitleMapper\ProvinceTitleMapper.cpp">
-      <Filter>ConverterFiles\Mappers\ProvinceTitleMapper</Filter>
-    </ClCompile>
     <ClCompile Include="MapperTests\IAmHreMapper\IAmHreMapperTests.cpp">
       <Filter>MapperTests\IAmHreMapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\Mappers\IAmHreMapper\IAmHreMapper.cpp">
-      <Filter>ConverterFiles\Mappers\IAmHreMapper</Filter>
     </ClCompile>
     <ClCompile Include="MapperTests\ProvinceMapper\ProvinceMapperTests.cpp">
       <Filter>MapperTests\ProvinceMapper</Filter>
@@ -92,26 +47,11 @@
     <ClCompile Include="MapperTests\ProvinceMapper\ProvinceMappingTests.cpp">
       <Filter>MapperTests\ProvinceMapper</Filter>
     </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\Mappers\ProvinceMapper\ProvinceMapper.cpp">
-      <Filter>ConverterFiles\Mappers\ProvinceMapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\Mappers\ProvinceMapper\ProvinceMapping.cpp">
-      <Filter>ConverterFiles\Mappers\ProvinceMapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\Mappers\ProvinceMapper\ProvinceMappingsVersion.cpp">
-      <Filter>ConverterFiles\Mappers\ProvinceMapper</Filter>
-    </ClCompile>
     <ClCompile Include="MapperTests\TitleTagMapper\TitleTagMapperTests.cpp">
       <Filter>MapperTests\TitleTagMapper</Filter>
     </ClCompile>
     <ClCompile Include="MapperTests\TitleTagMapper\TitleTagMappingTests.cpp">
       <Filter>MapperTests\TitleTagMapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\Mappers\TitleTagMapper\TitleTagMapper.cpp">
-      <Filter>ConverterFiles\Mappers\TitleTagMapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\Mappers\TitleTagMapper\TitleTagMapping.cpp">
-      <Filter>ConverterFiles\Mappers\TitleTagMapper</Filter>
     </ClCompile>
     <ClCompile Include="MapperTests\ReligionMapper\ReligionMapperTests.cpp">
       <Filter>MapperTests\ReligionMapper</Filter>
@@ -119,32 +59,8 @@
     <ClCompile Include="MapperTests\ReligionMapper\ReligionMappingTests.cpp">
       <Filter>MapperTests\ReligionMapper</Filter>
     </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\Mappers\ReligionMapper\ReligionMapper.cpp">
-      <Filter>ConverterFiles\Mappers\ReligionMapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\Mappers\ReligionMapper\ReligionMapping.cpp">
-      <Filter>ConverterFiles\Mappers\ReligionMapper</Filter>
-    </ClCompile>
     <ClCompile Include="MapperTests\RegionMapper\RegionMapperTests.cpp">
       <Filter>MapperTests\RegionMapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\Mappers\RegionMapper\Area.cpp">
-      <Filter>ConverterFiles\Mappers\RegionMapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\Mappers\RegionMapper\Region.cpp">
-      <Filter>ConverterFiles\Mappers\RegionMapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\Mappers\RegionMapper\RegionMapper.cpp">
-      <Filter>ConverterFiles\Mappers\RegionMapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\Mappers\RegionMapper\SuperRegion.cpp">
-      <Filter>ConverterFiles\Mappers\RegionMapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\Mappers\CultureMapper\CultureMapper.cpp">
-      <Filter>ConverterFiles\Mappers\CultureMapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\Mappers\CultureMapper\CultureMappingRule.cpp">
-      <Filter>ConverterFiles\Mappers\CultureMapper</Filter>
     </ClCompile>
     <ClCompile Include="MapperTests\CultureMapper\CultureMapperTests.cpp">
       <Filter>MapperTests\CultureMapper</Filter>
@@ -158,12 +74,6 @@
     <ClCompile Include="MapperTests\GovernmentsMapper\GovernmentsMappingTests.cpp">
       <Filter>MapperTests\GovernmentsMapper</Filter>
     </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\Mappers\GovernmentsMapper\GovernmentsMapper.cpp">
-      <Filter>ConverterFiles\Mappers\GovernmentsMapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\Mappers\GovernmentsMapper\GovernmentsMapping.cpp">
-      <Filter>ConverterFiles\Mappers\GovernmentsMapper</Filter>
-    </ClCompile>
     <ClCompile Include="MapperTests\RegionMapper\AreaTests.cpp">
       <Filter>MapperTests\RegionMapper</Filter>
     </ClCompile>
@@ -173,17 +83,8 @@
     <ClCompile Include="MapperTests\RegionMapper\SuperRegionTests.cpp">
       <Filter>MapperTests\RegionMapper</Filter>
     </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\Mappers\PersonalityScraper\PersonalityScraper.cpp">
-      <Filter>ConverterFiles\Mappers\PersonalityScraper</Filter>
-    </ClCompile>
     <ClCompile Include="MapperTests\PersonalityScraper\PersonalityScraperTests.cpp">
       <Filter>MapperTests\PersonalityScraper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\Mappers\RulerPersonalitiesMapper\RulerPersonalitiesMapper.cpp">
-      <Filter>ConverterFiles\Mappers\RulerPersonalitiesMapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\Mappers\RulerPersonalitiesMapper\RulerPersonalitiesMapping.cpp">
-      <Filter>ConverterFiles\Mappers\RulerPersonalitiesMapper</Filter>
     </ClCompile>
     <ClCompile Include="MapperTests\RulerPersonalityMapper\RulerPersonalitiesMappingTests.cpp">
       <Filter>MapperTests\RulerPersonalitiesMapper</Filter>
@@ -197,41 +98,14 @@
     <ClCompile Include="CK2WorldTests\Wonders\WonderTests.cpp">
       <Filter>CK2WorldTests\Wonders</Filter>
     </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Wonders\Wonder.cpp">
-      <Filter>ConverterFiles\CK2World\Wonders</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Wonders\Wonders.cpp">
-      <Filter>ConverterFiles\CK2World\Wonders</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Offmaps\Offmap.cpp">
-      <Filter>ConverterFiles\CK2World\Offmaps</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Offmaps\Offmaps.cpp">
-      <Filter>ConverterFiles\CK2World\Offmaps</Filter>
-    </ClCompile>
     <ClCompile Include="CK2WorldTests\Offmaps\OffmapsTests.cpp">
       <Filter>CK2WorldTests\Offmaps</Filter>
     </ClCompile>
     <ClCompile Include="CK2WorldTests\Offmaps\OffmapTests.cpp">
       <Filter>CK2WorldTests\Offmaps</Filter>
     </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Dynasties\CoatOfArms.cpp">
-      <Filter>ConverterFiles\CK2World\Dynasties</Filter>
-    </ClCompile>
     <ClCompile Include="CK2WorldTests\Dynasties\CoatOfArmsTests.cpp">
       <Filter>CK2WorldTests\Dynasties</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Relations\AllRelations.cpp">
-      <Filter>ConverterFiles\CK2World\Relations</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Relations\Relation.cpp">
-      <Filter>ConverterFiles\CK2World\Relations</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Relations\Relations.cpp">
-      <Filter>ConverterFiles\CK2World\Relations</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Relations\Tributary.cpp">
-      <Filter>ConverterFiles\CK2World\Relations</Filter>
     </ClCompile>
     <ClCompile Include="CK2WorldTests\Relations\AllRelationsTests.cpp">
       <Filter>CK2WorldTests\Relations</Filter>
@@ -245,26 +119,11 @@
     <ClCompile Include="CK2WorldTests\Relations\TributaryTests.cpp">
       <Filter>CK2WorldTests\Relations</Filter>
     </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Vars\Vars.cpp">
-      <Filter>ConverterFiles\CK2World\Vars</Filter>
-    </ClCompile>
     <ClCompile Include="CK2WorldTests\Vars\VarsTests.cpp">
       <Filter>CK2WorldTests\Vars</Filter>
     </ClCompile>
     <ClCompile Include="MapperTests\ShatterEmpiresMapper\ShatterEmpiresMapperTests.cpp">
       <Filter>MapperTests\ShatterEmpiresMapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\Mappers\ShatterEmpiresMapper\ShatterEmpiresMapper.cpp">
-      <Filter>ConverterFiles\Mappers\ShatterEmpiresMapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\Mappers\PrimaryTagMapper\PrimaryTagCulture.cpp">
-      <Filter>ConverterFiles\Mappers\PrimaryTagMapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\Mappers\PrimaryTagMapper\PrimaryTagCultureGroup.cpp">
-      <Filter>ConverterFiles\Mappers\PrimaryTagMapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\Mappers\PrimaryTagMapper\PrimaryTagMapper.cpp">
-      <Filter>ConverterFiles\Mappers\PrimaryTagMapper</Filter>
     </ClCompile>
     <ClCompile Include="MapperTests\PrimaryTagMapper\PrimaryTagCultureGroupTests.cpp">
       <Filter>MapperTests\PrimaryTagMapper</Filter>
@@ -275,9 +134,6 @@
     <ClCompile Include="MapperTests\PrimaryTagMapper\PrimaryTagMapperTests.cpp">
       <Filter>MapperTests\PrimaryTagMapper</Filter>
     </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\Mappers\DevWeightsMapper\DevWeightsMapper.cpp">
-      <Filter>ConverterFiles\Mappers\DevWeightsMapper</Filter>
-    </ClCompile>
     <ClCompile Include="MapperTests\DevWeightsMapper\DevWeightsMapperTests.cpp">
       <Filter>MapperTests\DevWeightsMapper</Filter>
     </ClCompile>
@@ -287,26 +143,11 @@
     <ClCompile Include="MapperTests\ReformedReligionMapper\ReformedReligionMappingTests.cpp">
       <Filter>MapperTests\ReformedReligionMapper</Filter>
     </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\Mappers\ReformedReligionMapper\ReformedReligionMapper.cpp">
-      <Filter>ConverterFiles\Mappers\ReformedReligionMapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\Mappers\ReformedReligionMapper\ReformedReligionMapping.cpp">
-      <Filter>ConverterFiles\Mappers\ReformedReligionMapper</Filter>
-    </ClCompile>
     <ClCompile Include="CK2WorldTests\Religions\ReligionsTests.cpp">
       <Filter>CK2WorldTests\Religions</Filter>
     </ClCompile>
     <ClCompile Include="CK2WorldTests\Religions\ReligionTests.cpp">
       <Filter>CK2WorldTests\Religions</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Religions\Religion.cpp">
-      <Filter>ConverterFiles\CK2World\Religions</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Religions\Religions.cpp">
-      <Filter>ConverterFiles\CK2World\Religions</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Flags\Flags.cpp">
-      <Filter>ConverterFiles\CK2World\Flags</Filter>
     </ClCompile>
     <ClCompile Include="CK2WorldTests\Flags\FlagsTests.cpp">
       <Filter>CK2WorldTests\Flags</Filter>
@@ -317,32 +158,8 @@
     <ClCompile Include="MapperTests\MonumentsMapper\MonumentsMappingTests.cpp">
       <Filter>MapperTests\MonumentsMapper</Filter>
     </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\Mappers\MonumentsMapper\MonumentsMapper.cpp">
-      <Filter>ConverterFiles\Mappers\MonumentsMapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\Mappers\MonumentsMapper\MonumentsMapping.cpp">
-      <Filter>ConverterFiles\Mappers\MonumentsMapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\Mappers\MonumentsMapper\InternalModifiers.cpp">
-      <Filter>ConverterFiles\Mappers\MonumentsMapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Wonders\ConstructionHistory.cpp">
-      <Filter>ConverterFiles\CK2World\Wonders</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\Mappers\MonumentsMapper\BuildTriggerBuilder.cpp">
-      <Filter>ConverterFiles\Mappers\MonumentsMapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\Mappers\VassalSplitoffMapper\VassalSplitoffMapper.cpp">
-      <Filter>ConverterFiles\Mappers\VassalSplitoffMapper</Filter>
-    </ClCompile>
     <ClCompile Include="MapperTests\VassalSplitoffMapper\VassalSplitoffMapperTests.cpp">
       <Filter>MapperTests\VassalSplitoffMapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\Mappers\AfricanPassesMapper\AfricanPassesMapper.cpp">
-      <Filter>ConverterFiles\Mappers\AfricanPassesMapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\CK2ToEU4\Source\Mappers\AfricanPassesMapper\AfricanPassesMapping.cpp">
-      <Filter>ConverterFiles\Mappers\AfricanPassesMapper</Filter>
     </ClCompile>
     <ClCompile Include="MapperTests\AfricanPassesMapper\AfricanPassesMapperTests.cpp">
       <Filter>MapperTests\AfricanPassesMapper</Filter>
@@ -358,12 +175,6 @@
     <Filter Include="EU4WorldTests">
       <UniqueIdentifier>{69d5d957-cedc-4e54-ac00-35b57710b4a9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ConverterFiles">
-      <UniqueIdentifier>{15d90f21-825c-4b5c-8541-ce76f1fb3bf3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ConverterFiles\EU4World">
-      <UniqueIdentifier>{4b1804e5-f7ad-47d2-ad23-ff9402369723}</UniqueIdentifier>
-    </Filter>
     <Filter Include="MapperTests">
       <UniqueIdentifier>{464b88af-654c-465b-a04b-5006c936bb45}</UniqueIdentifier>
     </Filter>
@@ -373,74 +184,32 @@
     <Filter Include="CK2WorldTests">
       <UniqueIdentifier>{fbc73b64-cbe6-4376-a79e-dc1da7f57eba}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ConverterFiles\Configuration">
-      <UniqueIdentifier>{730a8d2d-4c6d-4968-9d41-f6f7a97f8fe5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ConverterFiles\Mappers">
-      <UniqueIdentifier>{ca465e81-ccf4-4cd2-a836-5944e84a40af}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ConverterFiles\CK2World">
-      <UniqueIdentifier>{e38cf41f-c863-4ffd-8b4a-54af80f25231}</UniqueIdentifier>
-    </Filter>
     <Filter Include="CK2WorldTests\Provinces">
       <UniqueIdentifier>{2a382b13-cbb9-417a-8433-dfab04721424}</UniqueIdentifier>
     </Filter>
     <Filter Include="CK2WorldTests\Characters">
       <UniqueIdentifier>{b5e1f506-d040-45c6-acad-deeaf4e4bc20}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ConverterFiles\CK2World\Provinces">
-      <UniqueIdentifier>{2874dd60-acf6-472c-9adf-a0b52e4a0cf8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ConverterFiles\CK2World\Characters">
-      <UniqueIdentifier>{84cab1eb-0b73-4f9e-96cb-779302be85b4}</UniqueIdentifier>
-    </Filter>
     <Filter Include="CK2WorldTests\Titles">
       <UniqueIdentifier>{5541e47a-1b68-417c-9168-76c809bbab1f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ConverterFiles\CK2World\Titles">
-      <UniqueIdentifier>{4e5b60f0-fccf-4a32-b61a-8007282924e9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ConverterFiles\CK2World\Dynasties">
-      <UniqueIdentifier>{a747beb4-a111-4bd1-92c0-1a8aaae00cef}</UniqueIdentifier>
     </Filter>
     <Filter Include="CK2WorldTests\Dynasties">
       <UniqueIdentifier>{d7473ea1-8a50-402c-a780-204347bf64a4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ConverterFiles\Mappers\ProvinceTitleMapper">
-      <UniqueIdentifier>{16621f5e-c915-4932-aaf5-bff8e45f2e5e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="MapperTests\IAmHreMapper">
       <UniqueIdentifier>{3e5e074d-94fe-4c10-8baf-f1276c630a6a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ConverterFiles\Mappers\IAmHreMapper">
-      <UniqueIdentifier>{d2c156bb-e2da-4758-8d12-ca6b7e69f94c}</UniqueIdentifier>
     </Filter>
     <Filter Include="MapperTests\ProvinceMapper">
       <UniqueIdentifier>{90a90850-b9a7-409f-91a8-327aa01377f2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ConverterFiles\Mappers\ProvinceMapper">
-      <UniqueIdentifier>{67f5721d-52a2-4304-8ea7-0c98fa357bba}</UniqueIdentifier>
-    </Filter>
     <Filter Include="MapperTests\TitleTagMapper">
       <UniqueIdentifier>{5371ff3b-a0ad-4b2a-8cd0-3878b3c3eba5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ConverterFiles\Mappers\TitleTagMapper">
-      <UniqueIdentifier>{86b08ad6-1320-43d5-9717-f8eb0664a779}</UniqueIdentifier>
     </Filter>
     <Filter Include="MapperTests\ReligionMapper">
       <UniqueIdentifier>{eb7740a8-f983-4717-ab3a-8d420a7b7d9f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ConverterFiles\Mappers\ReligionMapper">
-      <UniqueIdentifier>{c6d01849-12c9-45bf-8c84-cc457146154c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="MapperTests\RegionMapper">
       <UniqueIdentifier>{b6b83d5c-38a6-498b-8466-025f1891ad17}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ConverterFiles\Mappers\RegionMapper">
-      <UniqueIdentifier>{c8233783-26f5-48ba-93f0-e3ebdeaef7a5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ConverterFiles\Mappers\CultureMapper">
-      <UniqueIdentifier>{be2ce5f1-918c-4c01-9ef9-f89db7ceda30}</UniqueIdentifier>
     </Filter>
     <Filter Include="MapperTests\CultureMapper">
       <UniqueIdentifier>{fb23fbeb-dcd7-46a1-a1a8-4258ec3c7a6c}</UniqueIdentifier>
@@ -448,17 +217,8 @@
     <Filter Include="MapperTests\GovernmentsMapper">
       <UniqueIdentifier>{b3a26783-5c9f-48ee-99b0-5ff734f67b47}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ConverterFiles\Mappers\GovernmentsMapper">
-      <UniqueIdentifier>{a6387908-1035-46d9-8bf7-52cceba744b7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ConverterFiles\Mappers\PersonalityScraper">
-      <UniqueIdentifier>{b2cf2dfb-a0f7-468d-aed7-c3f4a1560c53}</UniqueIdentifier>
-    </Filter>
     <Filter Include="MapperTests\PersonalityScraper">
       <UniqueIdentifier>{38de7e48-1701-439b-9bca-40937890c2da}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ConverterFiles\Mappers\RulerPersonalitiesMapper">
-      <UniqueIdentifier>{121d5fa5-fcd8-4400-a220-b29fd6845aac}</UniqueIdentifier>
     </Filter>
     <Filter Include="MapperTests\RulerPersonalitiesMapper">
       <UniqueIdentifier>{53312d70-a300-4eac-b4c1-e377db2af167}</UniqueIdentifier>
@@ -466,23 +226,11 @@
     <Filter Include="CK2WorldTests\Wonders">
       <UniqueIdentifier>{c857b662-d2b0-4e75-b03f-a1ef80d9c3c8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ConverterFiles\CK2World\Wonders">
-      <UniqueIdentifier>{619dfc7b-e3bd-40fb-b35b-d68844286196}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ConverterFiles\CK2World\Offmaps">
-      <UniqueIdentifier>{3f6bdc7e-61be-4f55-babd-ed73ddaa83fb}</UniqueIdentifier>
-    </Filter>
     <Filter Include="CK2WorldTests\Offmaps">
       <UniqueIdentifier>{2ea84252-c232-4c4e-9a44-4a9c8fb5df22}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ConverterFiles\CK2World\Relations">
-      <UniqueIdentifier>{9bfad4eb-b2c3-4ff5-9f17-9317a90dd95e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="CK2WorldTests\Relations">
       <UniqueIdentifier>{88ba946c-7cdd-4ccf-a89b-4f63b79b0e54}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ConverterFiles\CK2World\Vars">
-      <UniqueIdentifier>{99681682-1905-4a45-a28f-2583de7ee15e}</UniqueIdentifier>
     </Filter>
     <Filter Include="CK2WorldTests\Vars">
       <UniqueIdentifier>{b604c980-2da7-4198-9dda-18c74ef2e7aa}</UniqueIdentifier>
@@ -490,17 +238,8 @@
     <Filter Include="MapperTests\ShatterEmpiresMapper">
       <UniqueIdentifier>{21f132a1-0718-4848-86b7-e644963f2d61}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ConverterFiles\Mappers\ShatterEmpiresMapper">
-      <UniqueIdentifier>{7d41d767-a731-4ae3-b94e-06aee8b1dcef}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ConverterFiles\Mappers\PrimaryTagMapper">
-      <UniqueIdentifier>{ece70144-0534-424d-b3c2-4438be8b6660}</UniqueIdentifier>
-    </Filter>
     <Filter Include="MapperTests\PrimaryTagMapper">
       <UniqueIdentifier>{9ca0ce05-0567-4eb9-89e5-9269c3a889d6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ConverterFiles\Mappers\DevWeightsMapper">
-      <UniqueIdentifier>{96af05a3-9ace-4a8a-921d-0c68d82e1937}</UniqueIdentifier>
     </Filter>
     <Filter Include="MapperTests\DevWeightsMapper">
       <UniqueIdentifier>{2750d4bb-3f35-4f1e-b213-6924e7f7d597}</UniqueIdentifier>
@@ -508,35 +247,17 @@
     <Filter Include="MapperTests\ReformedReligionMapper">
       <UniqueIdentifier>{b7c3c639-2894-4bcc-99c2-37a08023c266}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ConverterFiles\Mappers\ReformedReligionMapper">
-      <UniqueIdentifier>{bc618096-9e02-47b4-899d-57ba95c3d03f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="CK2WorldTests\Religions">
       <UniqueIdentifier>{6b1e1252-f165-4761-a8c2-9f7c77becf4f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ConverterFiles\CK2World\Religions">
-      <UniqueIdentifier>{431d1a8a-58c4-4b5f-9b2d-a11dacfe178b}</UniqueIdentifier>
     </Filter>
     <Filter Include="CK2WorldTests\Flags">
       <UniqueIdentifier>{aa58ab20-dba7-4fb7-aa01-ea150eb1786a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ConverterFiles\CK2World\Flags">
-      <UniqueIdentifier>{f5da847b-a34b-4c1d-a211-65aa708821b7}</UniqueIdentifier>
-    </Filter>
     <Filter Include="MapperTests\MonumentsMapper">
       <UniqueIdentifier>{e6c5bb3d-8fb4-4078-81df-8842da795bd3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ConverterFiles\Mappers\MonumentsMapper">
-      <UniqueIdentifier>{96103e92-e230-4de8-8984-befcc31e61c8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="MapperTests\VassalSplitoffMapper">
       <UniqueIdentifier>{408e16e5-81d1-43c7-aaaa-459a98682c67}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ConverterFiles\Mappers\VassalSplitoffMapper">
-      <UniqueIdentifier>{a90751ed-45be-40e4-9bdb-9b4595aaac52}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ConverterFiles\Mappers\AfricanPassesMapper">
-      <UniqueIdentifier>{0a350567-ee60-4804-b901-4812f616406c}</UniqueIdentifier>
     </Filter>
     <Filter Include="MapperTests\AfricanPassesMapper">
       <UniqueIdentifier>{067100a0-6d77-4fb5-82b8-4b551ff181d0}</UniqueIdentifier>

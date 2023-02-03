@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Characters\Character.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Characters\Characters.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Characters\Domain.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Dynasties\CoatOfArms.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Dynasties\Dynasties.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Dynasties\Dynasty.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Flags\Flags.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Offmaps\Offmap.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Offmaps\Offmaps.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Provinces\Barony.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Provinces\Province.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Provinces\Provinces.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Relations\AllRelations.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Relations\Relation.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Relations\Relations.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Relations\Tributary.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Religions\Religion.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Religions\Religions.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Titles\Liege.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Titles\Title.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Titles\Titles.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Vars\Vars.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Wonders\ConstructionHistory.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Wonders\Wonder.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\Wonders\Wonders.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\CK2World\World.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Configuration\Configuration.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\EU4World\Country\Country.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\EU4World\Country\CountryDetails.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\EU4World\Country\MonarchNames.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\EU4World\Diplomacy\Agreement.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\EU4World\Diplomacy\Diplomacy.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\EU4World\EU4World.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\EU4World\Output\outAgreement.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\EU4World\Output\outCountry.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\EU4World\Output\outModFile.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\EU4World\Output\outMonument.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\EU4World\Output\outProvince.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\EU4World\Output\outReligion.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\EU4World\Output\outWorld.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\EU4World\Province\EU4Province.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\EU4World\Province\ProvinceDetails.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\EU4World\Province\ProvinceModifier.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\AfricanPassesMapper\AfricanPassesMapper.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\AfricanPassesMapper\AfricanPassesMapping.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\ColorScraper\ColorScraper.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\CultureMapper\CultureMapper.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\CultureMapper\CultureMappingRule.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\DevWeightsMapper\DevWeightsMapper.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\GovernmentsMapper\GovernmentsMapper.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\GovernmentsMapper\GovernmentsMapping.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\IAmHreMapper\IAmHreMapper.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\LocalizationMapper\LocalizationMapper.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\MonumentsMapper\BuildTriggerBuilder.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\MonumentsMapper\InternalModifiers.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\MonumentsMapper\MonumentsMapper.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\MonumentsMapper\MonumentsMapping.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\PersonalityScraper\PersonalityScraper.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\PrimaryTagMapper\PrimaryTagCulture.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\PrimaryTagMapper\PrimaryTagCultureGroup.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\PrimaryTagMapper\PrimaryTagMapper.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\ProvinceMapper\ProvinceMapper.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\ProvinceMapper\ProvinceMapping.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\ProvinceMapper\ProvinceMappingsVersion.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\ProvinceTitleMapper\ProvinceTitleGrabber.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\ProvinceTitleMapper\ProvinceTitleMapper.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\ReformedReligionMapper\ReformedReligionMapper.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\ReformedReligionMapper\ReformedReligionMapping.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\RegionMapper\Area.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\RegionMapper\Region.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\RegionMapper\RegionMapper.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\RegionMapper\SuperRegion.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\ReligionMapper\ReligionMapper.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\ReligionMapper\ReligionMapping.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\RulerPersonalitiesMapper\RulerPersonalitiesMapper.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\RulerPersonalitiesMapper\RulerPersonalitiesMapping.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\ShatterEmpiresMapper\ShatterEmpiresMapper.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\TitleTagMapper\TitleTagMapper.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\TitleTagMapper\TitleTagMapping.cpp" />
+    <ClCompile Include="..\CK2ToEU4\Source\Mappers\VassalSplitoffMapper\VassalSplitoffMapper.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\CK2ToEU4\Source\CK2World\Characters\Character.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\CK2World\Characters\Characters.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\CK2World\Characters\Domain.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\CK2World\Dynasties\CoatOfArms.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\CK2World\Dynasties\Dynasties.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\CK2World\Dynasties\Dynasty.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\CK2World\Flags\Flags.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\CK2World\Offmaps\Offmap.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\CK2World\Offmaps\Offmaps.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\CK2World\Provinces\Barony.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\CK2World\Provinces\Province.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\CK2World\Provinces\Provinces.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\CK2World\Relations\AllRelations.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\CK2World\Relations\Relation.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\CK2World\Relations\Relations.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\CK2World\Relations\Tributary.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\CK2World\Religions\Religion.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\CK2World\Religions\Religions.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\CK2World\Titles\Liege.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\CK2World\Titles\Title.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\CK2World\Titles\Titles.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\CK2World\Vars\Vars.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\CK2World\Wonders\ConstructionHistory.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\CK2World\Wonders\Wonder.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\CK2World\Wonders\Wonders.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\CK2World\World.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\Configuration\Configuration.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\EU4World\Country\Country.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\EU4World\Country\CountryDetails.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\EU4World\Country\MonarchNames.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\EU4World\Diplomacy\Agreement.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\EU4World\Diplomacy\Diplomacy.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\EU4World\EU4World.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\EU4World\Output\outAgreement.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\EU4World\Output\outCountry.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\EU4World\Output\outModFile.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\EU4World\Output\outMonument.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\EU4World\Output\outProvince.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\EU4World\Output\outReligion.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\EU4World\Province\EU4Province.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\EU4World\Province\ProvinceDetails.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\EU4World\Province\ProvinceModifier.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\Mappers\AfricanPassesMapper\AfricanPassesMapper.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\Mappers\AfricanPassesMapper\AfricanPassesMapping.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\Mappers\ColorScraper\ColorScraper.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\Mappers\CultureMapper\CultureMapper.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\Mappers\CultureMapper\CultureMappingRule.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\Mappers\DevWeightsMapper\DevWeightsMapper.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\Mappers\GovernmentsMapper\GovernmentsMapper.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\Mappers\GovernmentsMapper\GovernmentsMapping.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\Mappers\IAmHreMapper\IAmHreMapper.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\Mappers\LocalizationMapper\LocalizationMapper.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\Mappers\MonumentsMapper\BuildTriggerBuilder.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\Mappers\MonumentsMapper\InternalModifiers.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\Mappers\MonumentsMapper\MonumentsMapper.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\Mappers\MonumentsMapper\MonumentsMapping.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\Mappers\PersonalityScraper\PersonalityScraper.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\Mappers\PrimaryTagMapper\PrimaryTagCulture.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\Mappers\PrimaryTagMapper\PrimaryTagCultureGroup.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\Mappers\PrimaryTagMapper\PrimaryTagMapper.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\Mappers\ProvinceMapper\ProvinceMapper.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\Mappers\ProvinceMapper\ProvinceMapping.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\Mappers\ProvinceMapper\ProvinceMappingsVersion.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\Mappers\ProvinceTitleMapper\ProvinceTitleGrabber.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\Mappers\ProvinceTitleMapper\ProvinceTitleMapper.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\Mappers\ReformedReligionMapper\ReformedReligionMapper.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\Mappers\ReformedReligionMapper\ReformedReligionMapping.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\Mappers\RegionMapper\Area.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\Mappers\RegionMapper\Region.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\Mappers\RegionMapper\RegionMapper.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\Mappers\RegionMapper\SuperRegion.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\Mappers\ReligionMapper\ReligionMapper.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\Mappers\ReligionMapper\ReligionMapping.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\Mappers\RulerPersonalitiesMapper\RulerPersonalitiesMapper.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\Mappers\RulerPersonalitiesMapper\RulerPersonalitiesMapping.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\Mappers\ShatterEmpiresMapper\ShatterEmpiresMapper.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\Mappers\TitleTagMapper\TitleTagMapper.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\Mappers\TitleTagMapper\TitleTagMapping.h" />
+    <ClInclude Include="..\CK2ToEU4\Source\Mappers\VassalSplitoffMapper\VassalSplitoffMapper.h" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{0c1ccdb1-f2c8-4c4d-b97d-f379a11b4fce}</ProjectGuid>
+    <RootNamespace>CK2ToEU4lib</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)lib\</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <DebugInformationFormat>OldStyle</DebugInformationFormat>
+      <PrecompiledHeaderOutputFile>$(SolutionDir)lib\pch.pch</PrecompiledHeaderOutputFile>
+      <ProgramDataBaseFileName>$(SolutionDir)lib\common.pdb</ProgramDataBaseFileName>
+      <ForcedIncludeFiles>pch.h</ForcedIncludeFiles>
+      <AdditionalIncludeDirectories>$(SolutionDir)commonItems;$(SolutionDir)commonItems\external\zip\src;$(SolutionDir)commonItems\pch;$(SolutionDir)lib</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>pch.lib</AdditionalDependencies>
+    </Lib>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
