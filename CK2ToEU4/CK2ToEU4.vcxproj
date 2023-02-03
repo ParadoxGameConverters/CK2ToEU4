@@ -31,6 +31,7 @@
 	</BOOST_INCLUDE>
     <TargetName>CK2ToEU4Converter</TargetName>
     <OutDir>$(SolutionDir)$(Configuration)\$(ProjectName)\</OutDir>
+    <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -49,6 +50,7 @@
       <SubSystem>Console</SubSystem>
       <AdditionalLibraryDirectories>$(SolutionDir)lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>pch.lib;CommonItems.lib;CK2ToEU4lib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IncrementalLinkDatabaseFile>$(SolutionDir)lib\$(TargetName).ilk</IncrementalLinkDatabaseFile>
     </Link>
     <PostBuildEvent>
       <Command>call Copy_Files.bat
