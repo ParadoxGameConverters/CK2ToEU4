@@ -7,6 +7,8 @@ cp Data_Files/ReadMe.txt ../Release-Linux/Docs/
 cp Data_Files/FAQ.txt ../Release-Linux/Docs/
 cp Data_Files/after_converting.txt ../Release-Linux/Docs/
 cp Data_Files/license.txt ../Release-Linux/Docs/
+cp Data_Files/log.txt ../Release-Linux/CK2ToEU4/
+cp Data_Files/configuration-example.txt ../Release-Linux/CK2ToEU4/
 
 # Copy Fronter configuration
 rm -rf ../Release-Linux/Configuration
@@ -25,5 +27,5 @@ rm -rf ../Release-Linux/CK2ToEU4/configurables
 cp -r Data_Files/configurables ../Release-Linux/CK2ToEU4/
 
 # Copy blankmod
-rm -rf ../Release-Linux/blankMod
+rm -rf ../Release-Linux/CK2ToEU4/blankMod
 cp -r Data_Files/blankMod ../Release-Linux/CK2ToEU4/
