@@ -1,5 +1,4 @@
 #!/bin/bash
 
-rm -rf Release-Linux &&
 cmake -H. -Bbuild &&
-cmake --build build -- -j3
+cmake --build build -- -j5
