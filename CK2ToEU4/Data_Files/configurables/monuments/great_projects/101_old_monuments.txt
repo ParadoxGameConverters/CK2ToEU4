@@ -2816,7 +2816,7 @@ dujiangyan = {
 			factor = 1000
 		}
 		province_modifiers = {
-			development_cost_modifier = -0.05
+			local_development_cost_modifier = -0.05
 			local_governing_cost = -0.2
 		}
 		area_modifier = {
@@ -2834,7 +2834,7 @@ dujiangyan = {
 			factor = 2500
 		}
 		province_modifiers = {
-			development_cost_modifier = -0.1
+			local_development_cost_modifier = -0.1
 			allowed_num_of_buildings = 1
 		}
 		area_modifier = {
@@ -2857,7 +2857,7 @@ dujiangyan = {
 		province_modifiers = {
 		}
 		area_modifier = {
-			development_cost_modifier = -0.1
+			local_development_cost_modifier = -0.1
 			allowed_num_of_buildings = 1
 			local_governing_cost = -0.4
 		}
@@ -2865,6 +2865,120 @@ dujiangyan = {
 			global_monthly_devastation = -0.05
 		}
 		on_upgraded = {
+		}
+	}
+}
+
+divrigi_hospital_mosque = {
+	start = 4310 #Divrigi
+	date = 879.11.04
+	time = { months = 0	}
+	build_cost = 0
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+	starting_tier = 1
+	type = monument
+
+	build_trigger = {
+	}
+
+	on_built = {
+	}
+
+	on_destroyed = {
+	}
+
+	can_use_modifiers_trigger = {
+	}
+
+	can_upgrade_trigger = {
+	}
+
+	keep_trigger = {
+	}
+
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_1 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+		province_modifiers = {
+			
+		}
+		area_modifier = {
+			
+		}
+		country_modifiers = {
+			reinforce_speed = 0.1
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_2 = {
+		upgrade_time = {
+			months = 240
+		}
+		cost_to_upgrade = {
+			factor = 2500
+		}
+		province_modifiers = {
+			
+		}
+		area_modifier = {
+			
+		}
+		region_modifier = { 
+			
+		}
+		country_modifiers = {
+			monthly_piety_accelerator = 0.001
+			innovativeness_gain = 0.2
+			reinforce_speed = 0.1
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_3 = {
+		upgrade_time = {
+			months = 480
+		}
+		cost_to_upgrade = {
+			factor = 5000
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+			
+		}
+		country_modifiers = {
+			monthly_piety_accelerator = 0.001
+			innovativeness_gain = 0.33
+			reinforce_speed = 0.25
+		}
+		on_upgraded = {
+			custom_tooltip = fewer_plagues_tt
+			owner = { set_country_flag = has_competent_doctors }
 		}
 	}
 }
