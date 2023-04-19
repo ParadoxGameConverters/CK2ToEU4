@@ -7,8 +7,11 @@ odin =
 	horde_unity = 0.1
 	core_creation = -0.10
 
-	allow = { religion = norse_pagan }
+	potential = { religion = norse_pagan }
 	sprite = 7
+	trigger = {}
+	effect = {}
+	removed_effect = {}
 
 	ai_will_do = {
 		factor = 1
@@ -28,8 +31,11 @@ freya =
 	global_manpower_modifier = 0.1
 	global_tax_modifier = 0.1
 
-	allow = { religion = norse_pagan }
+	potential = { religion = norse_pagan }
 	sprite = 8
+	trigger = {}
+	effect = {}
+	removed_effect = {}
 
 	ai_will_do = {
 		factor = 1
@@ -49,8 +55,11 @@ tor =
 	leader_land_shock = 1
 	defensiveness = 0.1
 
-	allow = { religion = norse_pagan }
+	potential = { religion = norse_pagan }
 	sprite = 9
+	trigger = {}
+	effect = {}
+	removed_effect = {}
 
 	ai_will_do = {
 		factor = 1
@@ -82,8 +91,11 @@ tyr =
 	global_sailors_modifier = 0.10
 	discipline = 0.05
 
-	allow = { religion = norse_pagan }
+	potential = { religion = norse_pagan }
 	sprite = 10
+	trigger = {}
+	effect = {}
+	removed_effect = {}
 
 	ai_will_do = {
 		factor = 1
@@ -103,7 +115,7 @@ njord =
 	trade_efficiency = 0.1
 	global_trade_goods_size_modifier = 0.1
 
-	allow = { religion = norse_pagan }
+	potential = { religion = norse_pagan }
 	sprite = 11
 
 	ai_will_do = {
@@ -129,7 +141,7 @@ snotra =
 	technology_cost = -0.05
 	build_cost = -0.1
 
-	allow = { religion = norse_pagan }
+	potential = { religion = norse_pagan }
 	sprite = 12
 
 	ai_will_do = {
