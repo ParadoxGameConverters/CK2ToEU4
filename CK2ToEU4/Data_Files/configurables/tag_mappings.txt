@@ -79,6 +79,7 @@ link = { ck2 = d_transylvania eu4 = TRA }
 link = { ck2 = k_ottoman eu4 = TUR }
 link = { ck2 = k_dacia eu4 = WAL }
 link = { ck2 = d_wallachia eu4 = WAL }
+link = { ck2 = e_latin_empire eu4 = LAE }
 
 # British Isles
 
