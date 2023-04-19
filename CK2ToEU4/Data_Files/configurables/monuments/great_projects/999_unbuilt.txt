@@ -31,3 +31,9 @@
 #Kronborg, built 1420, in-scope
 #Visby city, built 800, in-scope
 #Trakai castle, built 1409, in-scope
+
+##Domination
+# palace_of_the_popes, build 1335, in-scope
+# edinburgh_castle, built 1050, in-scope
+# aljaferia_palace, built 1035, in-scope
+# st_basil_cathedral, built 1444, in-scope
