@@ -1028,8 +1028,19 @@ country_decisions = {
 	}
 	
 
-	from_great_yuan_EXTRA = {
+	form_great_yuan_EXTRA = {
 		major = yes
+		potential = {
+			tag = YUA
+			NOT = { has_country_flag = formed_yuan_flag } # For Yuan at game start
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 8
+				}
+			}
+		}
 		provinces_to_highlight = {
 			OR = {
 				province_id = 723 #Xilin Gol

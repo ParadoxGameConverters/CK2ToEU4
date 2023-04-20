@@ -10,22 +10,30 @@
 #include <stdexcept>
 namespace fs = std::filesystem;
 
-mappers::ProvinceMapper::ProvinceMapper(const Mods& mods)
+mappers::ProvinceMapper::ProvinceMapper(const Mods& mods, const std::string& overrideMod)
 {
 	Log(LogLevel::Info) << "-> Parsing province mappings";
 	registerKeys();
 
-	auto loadedProvinces = false;
-	for (const auto& mod: mods)
-		if (commonItems::DoesFileExist("configurables/" + mod.name + "_province_mappings.txt"))
-		{
-			Log(LogLevel::Info) << ">> Loading Province Mappings for " << mod.name;
-			parseFile("configurables/" + mod.name + "_province_mappings.txt");
-			loadedProvinces = true;
-			break;
-		}
-	if (!loadedProvinces)
-		parseFile("configurables/province_mappings.txt");
+	if (overrideMod.empty())
+	{
+		auto loadedProvinces = false;
+		for (const auto& mod: mods)
+			if (commonItems::DoesFileExist("configurables/" + mod.name + "_province_mappings.txt"))
+			{
+				Log(LogLevel::Info) << ">> Loading Province Mappings for " << mod.name;
+				parseFile("configurables/" + mod.name + "_province_mappings.txt");
+				loadedProvinces = true;
+				break;
+			}
+		if (!loadedProvinces)
+			parseFile("configurables/province_mappings.txt");
+	}
+	else
+	{
+		Log(LogLevel::Info) << ">> Loading Province Mappings for " << overrideMod;
+		parseFile("configurables/" + overrideMod + "/province_mappings.txt");
+	}
 
 	clearRegisteredKeywords();
 	createMappings();

@@ -1,9 +1,11 @@
 .vs
 packages
 Release/
+Release-Tests/
 ReleaseIntermediate/
 Release-Linux/
 Debug/
+Debug-Tests/
 DebugIntermediate/
 Analysis
 AnalysisIntermediate
@@ -21,3 +23,5 @@ CK2ToEU4Tests/CK2ToEU4Tests.vcxproj.user
 .gitmodules
 tests.xml
 *bz2
+lib/
+build/

@@ -322,7 +322,7 @@ christian = {
 		}
 		country = {
 			development_cost = -0.1
-			innovativeness_gain = 0.5
+			technology_cost = -0.05
 		}
 
 		country_as_secondary = {
@@ -337,6 +337,11 @@ christian = {
 			dissolve_monasteries_aspect
 			monopoly_aspect
 			stability_aspect
+			innovativeness_aspect
+			expel_heretics_aspect
+			diplomats_of_the_reformation_aspect
+			icons_of_the_church_aspect
+			spread_the_book_of_common_prayer
 		}
 		aspects_name = ANGLICAN_ASPECTS
 
@@ -415,6 +420,9 @@ christian = {
 			individual_creeds_aspect
 			allow_usury_aspect
 			translated_bibles_aspect
+			justified_religious_war_aspect
+			war_preaches_aspect
+			head_of_the_church_aspect
 		}
 		aspects_name = PROTESTANT_ASPECTS
 
@@ -668,6 +676,11 @@ christian = {
 				allow = {
 					always = yes
 				}
+
+				visible = {
+					always = yes
+				}
+
 				ai_will_do = {
 					factor = 0.05
 					modifier = {
@@ -688,6 +701,11 @@ christian = {
 				allow = {
 					always = yes
 				}
+
+				visible = {
+					always = yes
+				}
+
 				ai_will_do = {
 					factor = 0.02
 					modifier = {
@@ -720,6 +738,11 @@ christian = {
 				allow = {
 					always = yes
 				}
+
+				visible = {
+					always = yes
+				}
+
 				ai_will_do = {
 					factor = 0
 				}
@@ -731,6 +754,11 @@ christian = {
 				allow = {
 					always = yes
 				}
+
+				visible = {
+					always = yes
+				}
+
 				ai_will_do = {
 					factor = 0.1
 				}
@@ -742,6 +770,11 @@ christian = {
 				allow = {
 					always = yes
 				}
+
+				visible = {
+					always = yes
+				}
+
 				ai_will_do = {
 					factor = 0.02
 					modifier = {
@@ -779,7 +812,7 @@ christian = {
 		color = { 178 38 76 }
 		icon = 14
 		country = {
-			defensiveness = 0.1
+			defensiveness = 0.15
 			tolerance_own = 1
 		}
 		country_as_secondary = {
@@ -1443,7 +1476,7 @@ eastern = {
 			buddhism #Theravada
 		}
 		country = {
-			tolerance_heretic = 1
+			tolerance_heretic = 2
 			land_morale = 0.05
 		}
 		country_as_secondary = {
@@ -1517,7 +1550,7 @@ eastern = {
 		icon = 10
 		country = {
 			land_morale = 0.1
-			tolerance_heathen = 1
+			tolerance_heretic = 2
 		}
 		province = {
 			local_missionary_strength = -0.02
@@ -2253,12 +2286,12 @@ pagan = {
 		color = { 64 115 115 }
 		icon = 18
 		country = {
-			tolerance_own = 1
+			tolerance_own = 2
 			global_autonomy = -0.05
 		}
 
 		country_as_secondary = {
-			tolerance_own = 1
+			tolerance_own = 2
 			global_autonomy = -0.05
 		}
 
@@ -2440,7 +2473,7 @@ jewish_group = {
 					limit = {
 						has_church_aspect = judaism_simchat_torah_aspect
 					}
-					change_government_reform_progress = 20
+					change_government_reform_progress = 25
 					add_legitimacy_equivalent = {
 						amount = 5
 						republican_tradition = 5
@@ -2458,6 +2491,21 @@ jewish_group = {
 					}
 					add_years_of_income = 0.3
 					add_inflation = -1
+				}
+				if = {
+					limit = {
+						has_government_attribute = loyalty_from_celebration
+					}
+					add_estate_loyalty = {
+						estate = estate_church
+						loyalty = 20
+					}
+				}
+				hidden_effect = {
+					if = {
+						limit = { NOT = { has_country_flag = has_celebrated_festival } }
+						set_country_flag = has_celebrated_festival
+					}
 				}
 			}
 			ai_will_do = {

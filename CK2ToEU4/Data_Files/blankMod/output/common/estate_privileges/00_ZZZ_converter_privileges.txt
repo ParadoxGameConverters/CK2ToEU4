@@ -1,6 +1,7 @@
 estate_church_papal_emissary = {
 	icon = privilege_send_emissary_to_pope
 	max_absolutism = -5
+	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 1 } }
 	loyalty = 0.05
 	influence = 0.05
 	is_valid = {
@@ -24,6 +25,14 @@ estate_church_papal_emissary = {
 	benefits = {
 		papal_influence = 1
 	}
+	conditional_modifier = {
+		trigger = { has_government_mechanic = russian_modernization_mechanic }
+		modifier = { monthly_russian_modernization = -0.03 }
+	}
+	#conditional_modifier = {
+	#	trigger = { has_government_mechanic = ottoman_decadence_mechanic }
+	#	modifier = { monthly_ottoman_decadence = 0.02 }
+	#}
 	ai_will_do = {
 		factor = 10
 		modifier = {
@@ -69,7 +78,17 @@ estate_church_papal_emissary = {
 estate_church_clerical_ministers = {
 	icon = privilege_recruit_minister
 	max_absolutism = -5
+	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 1 } }	
 	influence = 0.10
+	on_granted = {
+		if = {
+			limit = { has_estate_privilege = estate_church_freedom_of_interpretation }
+			remove_estate_privilege = estate_church_freedom_of_interpretation
+		}
+		else = {
+			custom_tooltip = has_no_effects_on_granted
+		}
+	}
 	conditional_modifier = {
 		trigger = {
 			if = {
@@ -87,12 +106,6 @@ estate_church_clerical_ministers = {
 			}
 			if = {
 				limit = {
-					has_dlc = "Origins"
-				}
-				NOT = { religion = jewish }
-			}
-			if = {
-				limit = {
 					has_dlc = "Wealth of Nations"
 				}
 				uses_fervor = no #Reformed/Messalian/Waldensian/Lollard/Qarmatian
@@ -101,10 +114,11 @@ estate_church_clerical_ministers = {
 				limit = {
 					has_dlc = "Cradle of Civilization"
 				}
-				NOT = {
-					religion_group = muslim
+				NOT = { 
+					religion_group = muslim 
 					NOT = { religion = qarmatian }
 					NOT = { religion = yazidi }
+					uses_piety = yes
 				}
 			}
 			if = {
@@ -119,6 +133,13 @@ estate_church_clerical_ministers = {
 				}
 				uses_patriarch_authority = no #Orthodox/Monothelite/Iconoclast/Paulician/Yazidi
 			}
+			if = {
+				limit = {
+					has_dlc = "Origins"
+				}
+				NOT = { religion = jewish }
+			}
+			NOT = { religion = anglican }
 		}
 		modifier = {
 			missionary_maintenance_cost = -0.2
@@ -130,7 +151,7 @@ estate_church_clerical_ministers = {
 			uses_karma = yes #Buddhism/Vajrayana/Mahayana/Bon/Reformed Bon
 		}
 		modifier = {
-			yearly_karma_decay = 0.005
+			yearly_karma_decay = 0.05
 		}
 	}
 	conditional_modifier = {
@@ -175,6 +196,7 @@ estate_church_clerical_ministers = {
 			religion_group = muslim
 			NOT = { religion = qarmatian }
 			NOT = { religion = yazidi }
+			uses_piety = yes
 		}
 		modifier = {
 			monthly_piety = 0.001
@@ -198,10 +220,34 @@ estate_church_clerical_ministers = {
 			yearly_patriarch_authority = 0.005
 		}
 	}
+	conditional_modifier = {
+		trigger = {
+			religion = anglican
+		}
+		modifier = {
+			church_power_modifier = 0.1
+		}
+	}
+	conditional_modifier = {
+		trigger = {
+			has_government_attribute = clerical_ministers_tech_buff
+		}
+		modifier = {
+			technology_cost = -0.05
+		}
+	}
 	penalties = {
 	}
 	benefits = {
 	}
+	conditional_modifier = {
+		trigger = { has_government_mechanic = russian_modernization_mechanic }
+		modifier = { monthly_russian_modernization = -0.03 }
+	}
+	#conditional_modifier = {
+	#	trigger = { has_government_mechanic = ottoman_decadence_mechanic }
+	#	modifier = { monthly_ottoman_decadence = 0.02 }
+	#}
 	ai_will_do = {
 		factor = 10
 		modifier = {

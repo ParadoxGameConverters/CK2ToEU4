@@ -1,26 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
-    <ProjectConfiguration Include="Debug|Win32">
-      <Configuration>Debug</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Debug|x64">
-      <Configuration>Debug</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Release-NoCopies|Win32">
-      <Configuration>Release-NoCopies</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Release-NoCopies|x64">
-      <Configuration>Release-NoCopies</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|Win32">
-      <Configuration>Release</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
     <ProjectConfiguration Include="Release|x64">
       <Configuration>Release</Configuration>
       <Platform>x64</Platform>
@@ -33,206 +13,44 @@
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <UseDebugLibraries>true</UseDebugLibraries>
-    <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v143</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <UseDebugLibraries>true</UseDebugLibraries>
-    <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v143</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <UseDebugLibraries>false</UseDebugLibraries>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
-    <PlatformToolset>v143</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
-  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-NoCopies|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <UseDebugLibraries>false</UseDebugLibraries>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
-    <PlatformToolset>v141_xp</PlatformToolset>
-    <CharacterSet>NotSet</CharacterSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-NoCopies|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <UseDebugLibraries>false</UseDebugLibraries>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
-    <PlatformToolset>v141_xp</PlatformToolset>
-    <CharacterSet>NotSet</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release-NoCopies|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release-NoCopies|x64'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LinkIncremental>true</LinkIncremental>
-    <IntDir>$(SolutionDir)\DebugIntermediate\</IntDir>
-    <IncludePath>$(IncludePath)</IncludePath>
-    <OutDir>$(ProjectDir)\..\$(Configuration)\CK2ToEU4\</OutDir>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <RunCodeAnalysis>true</RunCodeAnalysis>
-    <OutDir>$(SolutionDir)$(Configuration)\$(ProjectName)\</OutDir>
-    <TargetName>CK2ToEU4Converter</TargetName>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <LinkIncremental>false</LinkIncremental>
-    <IntDir>$(SolutionDir)\ReleaseIntermediate\</IntDir>
-    <BOOST_INCLUDE Condition=" '$(BOOST_INCLUDE)' == '' ">
-		H:\Projects\Development\Boost\boost_1_57_0
-	</BOOST_INCLUDE>
-    <IncludePath>$(UniversalCRT_IncludePath);$(IncludePath)</IncludePath>
-    <TargetName>CK2ToEU4Converter</TargetName>
-    <ExecutablePath>$(ExecutablePath)</ExecutablePath>
-    <ReferencePath>$(ReferencePath)</ReferencePath>
-    <LibraryPath>$(LibraryPath)</LibraryPath>
-    <LibraryWPath>$(LibraryWPath)</LibraryWPath>
-    <SourcePath>$(SourcePath)</SourcePath>
-    <ExcludePath>$(ExcludePath)</ExcludePath>
-    <OutDir>$(ProjectDir)\..\$(Configuration)\CK2ToEU4\</OutDir>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
-  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <RunCodeAnalysis>true</RunCodeAnalysis>
     <BOOST_INCLUDE Condition=" '$(BOOST_INCLUDE)' == '' ">
 		H:\Projects\Development\Boost\boost_1_57_0
 	</BOOST_INCLUDE>
     <TargetName>CK2ToEU4Converter</TargetName>
     <OutDir>$(SolutionDir)$(Configuration)\$(ProjectName)\</OutDir>
+    <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-NoCopies|Win32'">
-    <LinkIncremental>false</LinkIncremental>
-    <IntDir>$(SolutionDir)\ReleaseIntermediate\</IntDir>
-    <BOOST_INCLUDE Condition=" '$(BOOST_INCLUDE)' == '' ">
-		H:\Projects\Development\Boost\boost_1_57_0
-	</BOOST_INCLUDE>
-    <IncludePath>$(UniversalCRT_IncludePath);$(BOOST_INCLUDE);$(VCInstallDir)include;$(WindowsSdkDir)include;../commonItems</IncludePath>
-    <TargetName>CK2ToEU4Converter</TargetName>
-    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
-    <OutDir>$(SolutionDir)$(Configuration)\CK2ToEU4</OutDir>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-NoCopies|x64'">
-    <BOOST_INCLUDE Condition=" '$(BOOST_INCLUDE)' == '' ">
-		H:\Projects\Development\Boost\boost_1_57_0
-	</BOOST_INCLUDE>
-    <IncludePath>$(UniversalCRT_IncludePath);$(BOOST_INCLUDE);$(VCInstallDir)include;$(WindowsSdkDir)include;../commonItems</IncludePath>
-    <TargetName>CK2ToEU4Converter</TargetName>
-    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
-    <LinkIncremental>false</LinkIncremental>
-  </PropertyGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <ClCompile>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\commonItems;..\ZipLib;$(WindowsSDK_IncludePath)</AdditionalIncludeDirectories>
-      <LanguageStandard>stdcpp17</LanguageStandard>
-    </ClCompile>
-    <Link>
-      <SubSystem>Console</SubSystem>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-    </Link>
-    <PostBuildEvent>
-      <Command>Copy_Files_Debug.bat</Command>
-    </PostBuildEvent>
-    <PostBuildEvent>
-      <Message>Copying Data Files</Message>
-    </PostBuildEvent>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <ClCompile>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
-      <PreprocessorDefinitions>WIN32;_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;_DEBUG;_CONSOLE;_SILENCE_CXX20_U8PATH_DEPRECATION_WARNING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\commonItems;..\ZipLib</AdditionalIncludeDirectories>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-    </ClCompile>
-    <Link>
-      <SubSystem>Console</SubSystem>
-    </Link>
-    <PostBuildEvent>
-      <Command>Copy_Files_Debug.bat</Command>
-    </PostBuildEvent>
-    <PostBuildEvent>
-      <Message>Copying Data Files To Debug</Message>
-    </PostBuildEvent>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>MaxSpeed</Optimization>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;NDEBUG;_CONSOLE;_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\commonItems;..\ZipLib;$(WindowsSDK_IncludePath)</AdditionalIncludeDirectories>
-      <LanguageStandard>stdcpp17</LanguageStandard>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
-      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
-    </ClCompile>
-    <Link>
-      <SubSystem>Console</SubSystem>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <LargeAddressAware>true</LargeAddressAware>
-    </Link>
-    <PostBuildEvent>
-      <Command>Copy_Files.bat</Command>
-    </PostBuildEvent>
-    <PostBuildEvent>
-      <Message>Copying Data Files</Message>
-    </PostBuildEvent>
-  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <PreprocessorDefinitions>WIN32;_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;NDEBUG;_CONSOLE;_SILENCE_CXX20_U8PATH_DEPRECATION_WARNING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\commonItems;..\commonItems\ZipLib</AdditionalIncludeDirectories>
-      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <AdditionalIncludeDirectories>$(SolutionDir)commonItems;$(SolutionDir)commonItems\external\zip\src;$(SolutionDir)commonItems\pch;$(SolutionDir)lib</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat>OldStyle</DebugInformationFormat>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(SolutionDir)lib\pch.pch</PrecompiledHeaderOutputFile>
+      <ProgramDataBaseFileName>$(SolutionDir)lib\common.pdb</ProgramDataBaseFileName>
+      <ForcedIncludeFiles>pch.h</ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>$(SolutionDir)$(Platform)\$(Configuration)\bzip2.lib;$(SolutionDir)$(Platform)\$(Configuration)\lzma.lib;$(SolutionDir)$(Platform)\$(Configuration)\ZipLib.lib;$(SolutionDir)$(Platform)\$(Configuration)\zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>pch.lib;CommonItems.lib;CK2ToEU4lib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IncrementalLinkDatabaseFile>$(SolutionDir)lib\$(TargetName).ilk</IncrementalLinkDatabaseFile>
     </Link>
     <PostBuildEvent>
       <Command>call Copy_Files.bat
@@ -243,258 +61,12 @@ call save_commit_id.bat
       <Message>Copying Data Files</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release-NoCopies|Win32'">
-    <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
-      <Optimization>MaxSpeed</Optimization>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(BOOST_INCLUDE);$(WindowsSDK_IncludePath)</AdditionalIncludeDirectories>
-      <LanguageStandard>stdcpp17</LanguageStandard>
-    </ClCompile>
-    <Link>
-      <SubSystem>Console</SubSystem>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(BOOST_LIB);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-    </Link>
-    <PostBuildEvent>
-      <Command>
-      </Command>
-    </PostBuildEvent>
-    <PostBuildEvent>
-      <Message>
-      </Message>
-    </PostBuildEvent>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release-NoCopies|x64'">
-    <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
-      <Optimization>MaxSpeed</Optimization>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(BOOST_INCLUDE);$(WindowsSDK_IncludePath)</AdditionalIncludeDirectories>
-      <LanguageStandard>stdcpp17</LanguageStandard>
-    </ClCompile>
-    <Link>
-      <SubSystem>Console</SubSystem>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(BOOST_LIB);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-    </Link>
-    <PostBuildEvent>
-      <Command>
-      </Command>
-    </PostBuildEvent>
-    <PostBuildEvent>
-      <Message>
-      </Message>
-    </PostBuildEvent>
-  </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\commonItems\Color.cpp" />
-    <ClCompile Include="..\commonItems\CommonFunctions.cpp" />
-    <ClCompile Include="..\commonItems\ConvenientParser.cpp" />
-    <ClCompile Include="..\commonItems\ConverterVersion.cpp" />
-    <ClCompile Include="..\commonItems\Date.cpp" />
-    <ClCompile Include="..\commonItems\GameVersion.cpp" />
-    <ClCompile Include="..\commonItems\iconvlite.cpp" />
-    <ClCompile Include="..\commonItems\Log.cpp" />
-    <ClCompile Include="..\commonItems\ModLoader\ModLoader.cpp" />
-    <ClCompile Include="..\commonItems\ModLoader\ModParser.cpp" />
-    <ClCompile Include="..\commonItems\OSCommonLayer.cpp" />
-    <ClCompile Include="..\commonItems\Parser.cpp" />
-    <ClCompile Include="..\commonItems\ParserHelpers.cpp" />
-    <ClCompile Include="..\commonItems\StringUtils.cpp" />
-    <ClCompile Include="..\commonItems\WinUtils.cpp" />
-    <ClCompile Include="Source\CK2World\Characters\Character.cpp" />
-    <ClCompile Include="Source\CK2World\Characters\Characters.cpp" />
-    <ClCompile Include="Source\CK2World\Characters\Domain.cpp" />
-    <ClCompile Include="Source\CK2World\Dynasties\CoatOfArms.cpp" />
-    <ClCompile Include="Source\CK2World\Dynasties\Dynasties.cpp" />
-    <ClCompile Include="Source\CK2World\Dynasties\Dynasty.cpp" />
-    <ClCompile Include="Source\CK2World\Flags\Flags.cpp" />
-    <ClCompile Include="Source\CK2World\Offmaps\Offmap.cpp" />
-    <ClCompile Include="Source\CK2World\Offmaps\Offmaps.cpp" />
-    <ClCompile Include="Source\CK2World\Provinces\Barony.cpp" />
-    <ClCompile Include="Source\CK2World\Provinces\Province.cpp" />
-    <ClCompile Include="Source\CK2World\Provinces\Provinces.cpp" />
-    <ClCompile Include="Source\CK2World\Relations\AllRelations.cpp" />
-    <ClCompile Include="Source\CK2World\Relations\Relation.cpp" />
-    <ClCompile Include="Source\CK2World\Relations\Relations.cpp" />
-    <ClCompile Include="Source\CK2World\Relations\Tributary.cpp" />
-    <ClCompile Include="Source\CK2World\Religions\Religion.cpp" />
-    <ClCompile Include="Source\CK2World\Religions\Religions.cpp" />
-    <ClCompile Include="Source\CK2World\Titles\Liege.cpp" />
-    <ClCompile Include="Source\CK2World\Titles\Title.cpp" />
-    <ClCompile Include="Source\CK2World\Titles\Titles.cpp" />
-    <ClCompile Include="Source\CK2World\Vars\Vars.cpp" />
-    <ClCompile Include="Source\CK2World\Wonders\ConstructionHistory.cpp" />
-    <ClCompile Include="Source\CK2World\Wonders\Wonder.cpp" />
-    <ClCompile Include="Source\CK2World\Wonders\Wonders.cpp" />
-    <ClCompile Include="Source\CK2World\World.cpp" />
     <ClCompile Include="Source\CK2ToEU4Converter.cpp" />
-    <ClCompile Include="Source\Configuration\Configuration.cpp" />
-    <ClCompile Include="Source\EU4World\Country\Country.cpp" />
-    <ClCompile Include="Source\EU4World\Country\CountryDetails.cpp" />
-    <ClCompile Include="Source\EU4World\Country\MonarchNames.cpp" />
-    <ClCompile Include="Source\EU4World\Diplomacy\Agreement.cpp" />
-    <ClCompile Include="Source\EU4World\Diplomacy\Diplomacy.cpp" />
-    <ClCompile Include="Source\EU4World\EU4World.cpp" />
-    <ClCompile Include="Source\EU4World\Output\outAgreement.cpp" />
-    <ClCompile Include="Source\EU4World\Output\outCountry.cpp" />
-    <ClCompile Include="Source\EU4World\Output\outModFile.cpp" />
-    <ClCompile Include="Source\EU4World\Output\outMonument.cpp" />
-    <ClCompile Include="Source\EU4World\Output\outProvince.cpp" />
-    <ClCompile Include="Source\EU4World\Output\outReligion.cpp" />
-    <ClCompile Include="Source\EU4World\Output\outWorld.cpp" />
-    <ClCompile Include="Source\EU4World\Province\EU4Province.cpp" />
-    <ClCompile Include="Source\EU4World\Province\ProvinceDetails.cpp" />
-    <ClCompile Include="Source\EU4World\Province\ProvinceModifier.cpp" />
     <ClCompile Include="Source\main.cpp" />
-    <ClCompile Include="Source\Mappers\AfricanPassesMapper\AfricanPassesMapper.cpp" />
-    <ClCompile Include="Source\Mappers\AfricanPassesMapper\AfricanPassesMapping.cpp" />
-    <ClCompile Include="Source\Mappers\ColorScraper\ColorScraper.cpp" />
-    <ClCompile Include="Source\Mappers\CultureMapper\CultureMapper.cpp" />
-    <ClCompile Include="Source\Mappers\CultureMapper\CultureMappingRule.cpp" />
-    <ClCompile Include="Source\Mappers\DevWeightsMapper\DevWeightsMapper.cpp" />
-    <ClCompile Include="Source\Mappers\GovernmentsMapper\GovernmentsMapper.cpp" />
-    <ClCompile Include="Source\Mappers\GovernmentsMapper\GovernmentsMapping.cpp" />
-    <ClCompile Include="Source\Mappers\IAmHreMapper\IAmHreMapper.cpp" />
-    <ClCompile Include="Source\Mappers\LocalizationMapper\LocalizationMapper.cpp" />
-    <ClCompile Include="Source\Mappers\MonumentsMapper\BuildTriggerBuilder.cpp" />
-    <ClCompile Include="Source\Mappers\MonumentsMapper\InternalModifiers.cpp" />
-    <ClCompile Include="Source\Mappers\MonumentsMapper\MonumentsMapper.cpp" />
-    <ClCompile Include="Source\Mappers\MonumentsMapper\MonumentsMapping.cpp" />
-    <ClCompile Include="Source\Mappers\PersonalityScraper\PersonalityScraper.cpp" />
-    <ClCompile Include="Source\Mappers\PrimaryTagMapper\PrimaryTagCultureGroup.cpp" />
-    <ClCompile Include="Source\Mappers\PrimaryTagMapper\PrimaryTagMapper.cpp" />
-    <ClCompile Include="Source\Mappers\PrimaryTagMapper\PrimaryTagCulture.cpp" />
-    <ClCompile Include="Source\Mappers\ProvinceMapper\ProvinceMapper.cpp" />
-    <ClCompile Include="Source\Mappers\ProvinceMapper\ProvinceMapping.cpp" />
-    <ClCompile Include="Source\Mappers\ProvinceMapper\ProvinceMappingsVersion.cpp" />
-    <ClCompile Include="Source\Mappers\ProvinceTitleMapper\ProvinceTitleGrabber.cpp" />
-    <ClCompile Include="Source\Mappers\ProvinceTitleMapper\ProvinceTitleMapper.cpp" />
-    <ClCompile Include="Source\Mappers\ReformedReligionMapper\ReformedReligionMapper.cpp" />
-    <ClCompile Include="Source\Mappers\ReformedReligionMapper\ReformedReligionMapping.cpp" />
-    <ClCompile Include="Source\Mappers\RegionMapper\Area.cpp" />
-    <ClCompile Include="Source\Mappers\RegionMapper\Region.cpp" />
-    <ClCompile Include="Source\Mappers\RegionMapper\RegionMapper.cpp" />
-    <ClCompile Include="Source\Mappers\RegionMapper\SuperRegion.cpp" />
-    <ClCompile Include="Source\Mappers\ReligionMapper\ReligionMapper.cpp" />
-    <ClCompile Include="Source\Mappers\ReligionMapper\ReligionMapping.cpp" />
-    <ClCompile Include="Source\Mappers\RulerPersonalitiesMapper\RulerPersonalitiesMapper.cpp" />
-    <ClCompile Include="Source\Mappers\RulerPersonalitiesMapper\RulerPersonalitiesMapping.cpp" />
-    <ClCompile Include="Source\Mappers\ShatterEmpiresMapper\ShatterEmpiresMapper.cpp" />
-    <ClCompile Include="Source\Mappers\TitleTagMapper\TitleTagMapper.cpp" />
-    <ClCompile Include="Source\Mappers\TitleTagMapper\TitleTagMapping.cpp" />
-    <ClCompile Include="Source\Mappers\VassalSplitoffMapper\VassalSplitoffMapper.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\commonItems\Color.h" />
-    <ClInclude Include="..\commonItems\CommonFunctions.h" />
-    <ClInclude Include="..\commonItems\ConvenientParser.h" />
-    <ClInclude Include="..\commonItems\ConverterVersion.h" />
-    <ClInclude Include="..\commonItems\Date.h" />
-    <ClInclude Include="..\commonItems\GameVersion.h" />
-    <ClInclude Include="..\commonItems\iconvlite.h" />
-    <ClInclude Include="..\commonItems\Log.h" />
-    <ClInclude Include="..\commonItems\ModLoader\ModLoader.h" />
-    <ClInclude Include="..\commonItems\ModLoader\ModParser.h" />
-    <ClInclude Include="..\commonItems\OSCompatibilityLayer.h" />
-    <ClInclude Include="..\commonItems\Parser.h" />
-    <ClInclude Include="..\commonItems\ParserHelpers.h" />
-    <ClInclude Include="..\commonItems\StringUtils.h" />
-    <ClInclude Include="Source\CK2World\Characters\Character.h" />
-    <ClInclude Include="Source\CK2World\Characters\Characters.h" />
-    <ClInclude Include="Source\CK2World\Characters\Domain.h" />
-    <ClInclude Include="Source\CK2World\Dynasties\CoatOfArms.h" />
-    <ClInclude Include="Source\CK2World\Dynasties\Dynasties.h" />
-    <ClInclude Include="Source\CK2World\Dynasties\Dynasty.h" />
-    <ClInclude Include="Source\CK2World\Flags\Flags.h" />
-    <ClInclude Include="Source\CK2World\Offmaps\Offmap.h" />
-    <ClInclude Include="Source\CK2World\Offmaps\Offmaps.h" />
-    <ClInclude Include="Source\CK2World\Provinces\Barony.h" />
-    <ClInclude Include="Source\CK2World\Provinces\Province.h" />
-    <ClInclude Include="Source\CK2World\Provinces\Provinces.h" />
-    <ClInclude Include="Source\CK2World\Relations\AllRelations.h" />
-    <ClInclude Include="Source\CK2World\Relations\Relation.h" />
-    <ClInclude Include="Source\CK2World\Relations\Relations.h" />
-    <ClInclude Include="Source\CK2World\Relations\Tributary.h" />
-    <ClInclude Include="Source\CK2World\Religions\Religion.h" />
-    <ClInclude Include="Source\CK2World\Religions\Religions.h" />
-    <ClInclude Include="Source\CK2World\Titles\Liege.h" />
-    <ClInclude Include="Source\CK2World\Titles\Title.h" />
-    <ClInclude Include="Source\CK2World\Titles\Titles.h" />
-    <ClInclude Include="Source\CK2World\Vars\Vars.h" />
-    <ClInclude Include="Source\CK2World\Wonders\ConstructionHistory.h" />
-    <ClInclude Include="Source\CK2World\Wonders\Wonder.h" />
-    <ClInclude Include="Source\CK2World\Wonders\Wonders.h" />
-    <ClInclude Include="Source\CK2World\World.h" />
     <ClInclude Include="Source\CK2ToEU4Converter.h" />
-    <ClInclude Include="Source\Configuration\Configuration.h" />
-    <ClInclude Include="Source\EU4World\Country\Country.h" />
-    <ClInclude Include="Source\EU4World\Country\CountryDetails.h" />
-    <ClInclude Include="Source\EU4World\Country\MonarchNames.h" />
-    <ClInclude Include="Source\EU4World\Diplomacy\Agreement.h" />
-    <ClInclude Include="Source\EU4World\Diplomacy\Diplomacy.h" />
-    <ClInclude Include="Source\EU4World\EU4World.h" />
-    <ClInclude Include="Source\EU4World\Output\outAgreement.h" />
-    <ClInclude Include="Source\EU4World\Output\outMonument.h" />
-    <ClInclude Include="Source\EU4World\Output\outProvince.h" />
-    <ClInclude Include="Source\EU4World\Output\outCountry.h" />
-    <ClInclude Include="Source\EU4World\Output\outModFile.h" />
-    <ClInclude Include="Source\EU4World\Output\outReligion.h" />
-    <ClInclude Include="Source\EU4World\Province\EU4Province.h" />
-    <ClInclude Include="Source\EU4World\Province\ProvinceDetails.h" />
-    <ClInclude Include="Source\EU4World\Province\ProvinceModifier.h" />
-    <ClInclude Include="Source\Mappers\AfricanPassesMapper\AfricanPassesMapper.h" />
-    <ClInclude Include="Source\Mappers\AfricanPassesMapper\AfricanPassesMapping.h" />
-    <ClInclude Include="Source\Mappers\ColorScraper\ColorScraper.h" />
-    <ClInclude Include="Source\Mappers\CultureMapper\CultureMapper.h" />
-    <ClInclude Include="Source\Mappers\CultureMapper\CultureMappingRule.h" />
-    <ClInclude Include="Source\Mappers\DevWeightsMapper\DevWeightsMapper.h" />
-    <ClInclude Include="Source\Mappers\GovernmentsMapper\GovernmentsMapper.h" />
-    <ClInclude Include="Source\Mappers\GovernmentsMapper\GovernmentsMapping.h" />
-    <ClInclude Include="Source\Mappers\IAmHreMapper\IAmHreMapper.h" />
-    <ClInclude Include="Source\Mappers\LocalizationMapper\LocalizationMapper.h" />
-    <ClInclude Include="Source\Mappers\MonumentsMapper\BuildTriggerBuilder.h" />
-    <ClInclude Include="Source\Mappers\MonumentsMapper\InternalModifiers.h" />
-    <ClInclude Include="Source\Mappers\MonumentsMapper\MonumentsMapper.h" />
-    <ClInclude Include="Source\Mappers\MonumentsMapper\MonumentsMapping.h" />
-    <ClInclude Include="Source\Mappers\PersonalityScraper\PersonalityScraper.h" />
-    <ClInclude Include="Source\Mappers\PrimaryTagMapper\PrimaryTagCultureGroup.h" />
-    <ClInclude Include="Source\Mappers\PrimaryTagMapper\PrimaryTagMapper.h" />
-    <ClInclude Include="Source\Mappers\PrimaryTagMapper\PrimaryTagCulture.h" />
-    <ClInclude Include="Source\Mappers\ProvinceMapper\ProvinceMapper.h" />
-    <ClInclude Include="Source\Mappers\ProvinceMapper\ProvinceMapping.h" />
-    <ClInclude Include="Source\Mappers\ProvinceMapper\ProvinceMappingsVersion.h" />
-    <ClInclude Include="Source\Mappers\ProvinceTitleMapper\ProvinceTitleGrabber.h" />
-    <ClInclude Include="Source\Mappers\ProvinceTitleMapper\ProvinceTitleMapper.h" />
-    <ClInclude Include="Source\Mappers\ReformedReligionMapper\ReformedReligionMapper.h" />
-    <ClInclude Include="Source\Mappers\ReformedReligionMapper\ReformedReligionMapping.h" />
-    <ClInclude Include="Source\Mappers\RegionMapper\Area.h" />
-    <ClInclude Include="Source\Mappers\RegionMapper\Region.h" />
-    <ClInclude Include="Source\Mappers\RegionMapper\RegionMapper.h" />
-    <ClInclude Include="Source\Mappers\RegionMapper\SuperRegion.h" />
-    <ClInclude Include="Source\Mappers\ReligionMapper\ReligionMapper.h" />
-    <ClInclude Include="Source\Mappers\ReligionMapper\ReligionMapping.h" />
-    <ClInclude Include="Source\Mappers\RulerPersonalitiesMapper\RulerPersonalitiesMapper.h" />
-    <ClInclude Include="Source\Mappers\RulerPersonalitiesMapper\RulerPersonalitiesMapping.h" />
-    <ClInclude Include="Source\Mappers\ShatterEmpiresMapper\ShatterEmpiresMapper.h" />
-    <ClInclude Include="Source\Mappers\TitleTagMapper\TitleTagMapper.h" />
-    <ClInclude Include="Source\Mappers\TitleTagMapper\TitleTagMapping.h" />
-    <ClInclude Include="Source\Mappers\VassalSplitoffMapper\VassalSplitoffMapper.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

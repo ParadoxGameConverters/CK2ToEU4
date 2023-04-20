@@ -15,11 +15,13 @@ germanic = {
 }
 scandinavian = {
 	norse = {
+		province = { local_has_carolean = yes }
 		primary = SCA
 		dynasty_names = { Arnórsson Ásgeirsson Benediktsson Bjarnasen Björnsson Eggers Eldjárn Hafstein Hansen
 		Hermannsson Johánesson Jónsson Magnússon Stefánsson Steinthosson Thórdarson Thórhallson Thorláksson Thurs }
 	}
 	elsinorian = {
+		province = { local_has_carolean = yes }
 		primary = DAN
 		dynasty_names = {
 			Arnórsson Ásgeirsson Benediktsson Bjarnasen Björnsson Eggers Eldjárn Hafstein Hansen
@@ -56,7 +58,9 @@ latin = {
 	}
 }
 iberian	= {
+	province = { local_has_tercio = yes }
 	iberic = {
+		province = { local_has_caravel = yes local_has_galleon = yes }
 		primary = NAV
 		dynasty_names = {
 			"de Navarra" "de Beaumont" "de Lerín" "de Monteagudo" Escors
@@ -83,6 +87,7 @@ iberian	= {
 		}
 	}
 	turdetanian = {
+		province = { local_has_caravel = yes local_has_galleon = yes }
 		primary = NAV
 		dynasty_names = {
 			"de Navarra" "de Beaumont" "de Lerín" "de Monteagudo" Escors
@@ -154,26 +159,6 @@ south_slavic = {
 			Çeku Dine Dragoti Dukagiini Dushku Evangjeli Feza Hoxha Islami Kadare
 			Koculi Konica Konushevci Kosturi Kota Logoreci Merlika-Kruja Mitrovica Mula Noli
 			"Pashë Përmeti" "Pashë Tepelena" "Pashë Toptani" Poga "Qemal Bej" Shahini Skiroi Thaçi Troja Xoxe
-		}
-	}
-}
-west_slavic = {
-	graphical_culture = easterngfx
-	slovak = {
-		primary = SLO
-		male_names = {
-			Matej Jan Lukas Stefan Pavol Peter Juraj Jozef Marek Daniel Moric Samuel Martin Ondrej Anton Karol
-			Hugolín Tomas Ludovít Viliam Mikulas Ignac Jaroslav Jaromir Miroslav Drahoslav Svatopluk Mojmir
-			Dobroslav Radoslav Radomír Kazimír Vlastimil Vitazoslav Blahoslav Svetozar Bonifac Vratislav
-			Vladislav Vladimir Cyril Konstantin Metod Bohuslav Drahomir Prokop Jergus Tichomir Bartolomej
-			Luboslav Lubomir Levoslav Stanislav
-		}
-		female_names = {
-			Maria Anna Alzbeta Ludmila Eva Jaroslava Jarmila Amalia Margareta Hana
-		}
-		dynasty_names = {
-			Stibor Bel Kollar Podmanický Hatnanský Pongrac Bosniak Veseléni Zichy Turzo Andráši
-			Zapolský Palfi Cáki Balaša Báthory
 		}
 	}
 }
@@ -294,6 +279,9 @@ baltic = {
 	}
 }
 byzantine = {
+	bactrian = {
+		primary = TRS
+	}
 	anatolian = {
 		primary = BYZ
 	}
@@ -896,6 +884,8 @@ east_asian = {
 korean_g = {
 }
 japanese_g = {
+	country = { has_samurai = yes }
+	province = { local_has_samurai = yes }
 }
 tibetan_group = {
 	tangut = {

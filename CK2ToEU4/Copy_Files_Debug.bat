@@ -2,8 +2,6 @@ echo on
 rem Copy converter data files
 copy "Data_Files\log.txt" "..\Debug\CK2ToEU4\"
 copy "Data_Files\configuration-example.txt" "..\Debug\CK2ToEU4\"
-copy "Resources\msvcp140_codecvt_ids.dll" "..\Debug\CK2ToEU4\"
-copy "Resources\vcruntime140_1.dll" "..\Debug\CK2ToEU4\"
 
 mkdir "..\Debug\Configuration"
 copy "Data_Files\fronter-configuration.txt" "..\Debug\Configuration\"

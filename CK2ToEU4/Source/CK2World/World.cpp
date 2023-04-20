@@ -12,7 +12,7 @@
 #include "Religions/Religions.h"
 #include "Titles/Liege.h"
 #include "Titles/Title.h"
-#include <ZipFile.h>
+#include "zip.h"
 #include <cmath>
 #include <filesystem>
 #include <fstream>
@@ -21,88 +21,7 @@ namespace fs = std::filesystem;
 CK2::World::World(const Configuration& theConfiguration, const commonItems::ConverterVersion& converterVersion)
 {
 	Log(LogLevel::Info) << "*** Hello CK2, Deus Vult! ***";
-	registerKeyword("CK2txt", [](const std::string& unused, std::istream& theStream) {
-	});
-	registerKeyword("date", [this](const std::string& unused, std::istream& theStream) {
-		const commonItems::singleString dateString(theStream);
-		endDate = date(dateString.getString());
-	});
-	registerKeyword("start_date", [this](const std::string& unused, std::istream& theStream) {
-		const commonItems::singleString startDateString(theStream);
-		startDate = date(startDateString.getString());
-	});
-	registerKeyword("flags", [this](const std::string& unused, std::istream& theStream) {
-		Log(LogLevel::Info) << "-> Loading Flags";
-		flags = Flags(theStream);
-		Log(LogLevel::Info) << ">> Loaded " << flags.getFlags().size() << " Global Flags.";
-	});
-	registerKeyword("version", [this, converterVersion](const std::string& unused, std::istream& theStream) {
-		const commonItems::singleString versionString(theStream);
-		CK2Version = GameVersion(versionString.getString());
-		Log(LogLevel::Info) << "<> Savegame version: " << versionString.getString();
-
-		if (converterVersion.getMinSource() > CK2Version)
-		{
-			Log(LogLevel::Error) << "Converter requires a minimum save from v" << converterVersion.getMinSource().toShortString();
-			throw std::runtime_error("Savegame vs converter version mismatch!");
-		}
-		if (!converterVersion.getMaxSource().isLargerishThan(CK2Version))
-		{
-			Log(LogLevel::Error) << "Converter requires a maximum save from v" << converterVersion.getMaxSource().toShortString();
-			throw std::runtime_error("Savegame vs converter version mismatch!");
-		}
-	});
-	registerKeyword("provinces", [this](const std::string& unused, std::istream& theStream) {
-		Log(LogLevel::Info) << "-> Loading Provinces";
-		provinces = Provinces(theStream);
-		Log(LogLevel::Info) << ">> Loaded " << provinces.getProvinces().size() << " provinces.";
-	});
-	registerKeyword("character", [this](const std::string& unused, std::istream& theStream) {
-		Log(LogLevel::Info) << "-> Loading Characters";
-		characters = Characters(theStream);
-		Log(LogLevel::Info) << ">> Loaded " << characters.getCharacters().size() << " characters.";
-	});
-	registerKeyword("title", [this](const std::string& unused, std::istream& theStream) {
-		Log(LogLevel::Info) << "-> Loading Titles";
-		titles = Titles(theStream);
-		Log(LogLevel::Info) << ">> Loaded " << titles.getTitles().size() << " titles.";
-	});
-	registerKeyword("religion", [this](const std::string& unused, std::istream& theStream) {
-		Log(LogLevel::Info) << "-> Loading Religions";
-		religions = Religions(theStream);
-		Log(LogLevel::Info) << ">> Loaded " << religions.getReformedReligion().size() << " Reformed Religions.";
-	});
-	registerKeyword("dynasties", [this](const std::string& unused, std::istream& theStream) {
-		Log(LogLevel::Info) << "-> Loading Dynasties";
-		dynasties.loadDynasties(theStream);
-		Log(LogLevel::Info) << ">> Loaded " << dynasties.getDynasties().size() << " dynasties.";
-	});
-	registerKeyword("wonder", [this](const std::string& unused, std::istream& theStream) {
-		Log(LogLevel::Info) << "-> Loading Wonders";
-		wonders = Wonders(theStream);
-		Log(LogLevel::Info) << ">> Loaded " << wonders.getWonders().size() << " wonders.";
-	});
-	registerKeyword("offmap_powers", [this](const std::string& unused, std::istream& theStream) {
-		Log(LogLevel::Info) << "-> Loading Offmaps";
-		offmaps = Offmaps(theStream);
-		Log(LogLevel::Info) << ">> Loaded " << offmaps.getOffmaps().size() << " offmaps.";
-	});
-	registerKeyword("dyn_title", [this](const std::string& unused, std::istream& theStream) {
-		const auto dynTitle = Liege(theStream);
-		dynamicTitles.insert(std::pair(dynTitle.getTitle().first, dynTitle));
-	});
-	registerKeyword("relation", [this](const std::string& unused, std::istream& theStream) {
-		Log(LogLevel::Info) << "-> Loading Diplomacy";
-		diplomacy = Diplomacy(theStream);
-		Log(LogLevel::Info) << ">> Loaded " << diplomacy.getDiplomacy().size() << " personal diplomacies.";
-	});
-	registerKeyword("vars", [this](const std::string& unused, std::istream& theStream) {
-		Log(LogLevel::Info) << "-> Loading Variables";
-		vars = Vars(theStream);
-		Log(LogLevel::Info) << ">> Loaded " << vars.getVars().size() << " global variables.";
-	});
-
-	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
+	registerKeys(converterVersion);
 	Log(LogLevel::Progress) << "4 %";
 
 	Log(LogLevel::Info) << "-> Verifying CK2 save.";
@@ -134,6 +53,8 @@ CK2::World::World(const Configuration& theConfiguration, const commonItems::Conv
 	for (const auto& mod: mods)
 		if (mod.name == "CleanSlate")
 			overrideModPath = "CleanSlate";
+		else if (mod.name == "Tianxia: Silk Road Expansion")
+			overrideModPath = "Tianxia";
 	reformedReligionMapper.initReformedReligionMapper(overrideModPath);
 	loadDynasties(theConfiguration);
 	Log(LogLevel::Progress) << "7 %";
@@ -261,6 +182,92 @@ CK2::World::World(const Configuration& theConfiguration, const commonItems::Conv
 	alterSunset(theConfiguration);
 	Log(LogLevel::Info) << "*** Good-bye CK2, rest in peace. ***";
 	Log(LogLevel::Progress) << "47 %";
+}
+
+void CK2::World::registerKeys(const commonItems::ConverterVersion& converterVersion)
+{
+	registerKeyword("CK2txt", [](const std::string& unused, std::istream& theStream) {
+	});
+	registerKeyword("date", [this](const std::string& unused, std::istream& theStream) {
+		const commonItems::singleString dateString(theStream);
+		endDate = date(dateString.getString());
+	});
+	registerKeyword("start_date", [this](const std::string& unused, std::istream& theStream) {
+		const commonItems::singleString startDateString(theStream);
+		startDate = date(startDateString.getString());
+	});
+	registerKeyword("flags", [this](const std::string& unused, std::istream& theStream) {
+		Log(LogLevel::Info) << "-> Loading Flags";
+		flags = Flags(theStream);
+		Log(LogLevel::Info) << ">> Loaded " << flags.getFlags().size() << " Global Flags.";
+	});
+	registerKeyword("version", [this, converterVersion](const std::string& unused, std::istream& theStream) {
+		const commonItems::singleString versionString(theStream);
+		CK2Version = GameVersion(versionString.getString());
+		Log(LogLevel::Info) << "<> Savegame version: " << versionString.getString();
+
+		if (converterVersion.getMinSource() > CK2Version)
+		{
+			Log(LogLevel::Error) << "Converter requires a minimum save from v" << converterVersion.getMinSource().toShortString();
+			throw std::runtime_error("Savegame vs converter version mismatch!");
+		}
+		if (!converterVersion.getMaxSource().isLargerishThan(CK2Version))
+		{
+			Log(LogLevel::Error) << "Converter requires a maximum save from v" << converterVersion.getMaxSource().toShortString();
+			throw std::runtime_error("Savegame vs converter version mismatch!");
+		}
+	});
+	registerKeyword("provinces", [this](const std::string& unused, std::istream& theStream) {
+		Log(LogLevel::Info) << "-> Loading Provinces";
+		provinces = Provinces(theStream);
+		Log(LogLevel::Info) << ">> Loaded " << provinces.getProvinces().size() << " provinces.";
+	});
+	registerKeyword("character", [this](const std::string& unused, std::istream& theStream) {
+		Log(LogLevel::Info) << "-> Loading Characters";
+		characters = Characters(theStream);
+		Log(LogLevel::Info) << ">> Loaded " << characters.getCharacters().size() << " characters.";
+	});
+	registerKeyword("title", [this](const std::string& unused, std::istream& theStream) {
+		Log(LogLevel::Info) << "-> Loading Titles";
+		titles = Titles(theStream);
+		Log(LogLevel::Info) << ">> Loaded " << titles.getTitles().size() << " titles.";
+	});
+	registerKeyword("religion", [this](const std::string& unused, std::istream& theStream) {
+		Log(LogLevel::Info) << "-> Loading Religions";
+		religions = Religions(theStream);
+		Log(LogLevel::Info) << ">> Loaded " << religions.getReformedReligion().size() << " Reformed Religions.";
+	});
+	registerKeyword("dynasties", [this](const std::string& unused, std::istream& theStream) {
+		Log(LogLevel::Info) << "-> Loading Dynasties";
+		dynasties.loadDynasties(theStream);
+		Log(LogLevel::Info) << ">> Loaded " << dynasties.getDynasties().size() << " dynasties.";
+	});
+	registerKeyword("wonder", [this](const std::string& unused, std::istream& theStream) {
+		Log(LogLevel::Info) << "-> Loading Wonders";
+		wonders = Wonders(theStream);
+		Log(LogLevel::Info) << ">> Loaded " << wonders.getWonders().size() << " wonders.";
+	});
+	registerKeyword("offmap_powers", [this](const std::string& unused, std::istream& theStream) {
+		Log(LogLevel::Info) << "-> Loading Offmaps";
+		offmaps = Offmaps(theStream);
+		Log(LogLevel::Info) << ">> Loaded " << offmaps.getOffmaps().size() << " offmaps.";
+	});
+	registerKeyword("dyn_title", [this](const std::string& unused, std::istream& theStream) {
+		const auto dynTitle = Liege(theStream);
+		dynamicTitles.insert(std::pair(dynTitle.getTitle().first, dynTitle));
+	});
+	registerKeyword("relation", [this](const std::string& unused, std::istream& theStream) {
+		Log(LogLevel::Info) << "-> Loading Diplomacy";
+		diplomacy = Diplomacy(theStream);
+		Log(LogLevel::Info) << ">> Loaded " << diplomacy.getDiplomacy().size() << " personal diplomacies.";
+	});
+	registerKeyword("vars", [this](const std::string& unused, std::istream& theStream) {
+		Log(LogLevel::Info) << "-> Loading Variables";
+		vars = Vars(theStream);
+		Log(LogLevel::Info) << ">> Loaded " << vars.getVars().size() << " global variables.";
+	});
+
+	registerRegex(commonItems::catchallRegex, commonItems::ignoreItem);
 }
 
 void CK2::World::loadDynasties(const Configuration& theConfiguration)
@@ -744,28 +751,40 @@ void CK2::World::verifySave(const std::string& saveGamePath)
 
 bool CK2::World::uncompressSave(const std::string& saveGamePath)
 {
-	auto savefile = ZipFile::Open(saveGamePath);
-	if (!savefile)
-		return false;
-	for (size_t entryNum = 0; entryNum < savefile->GetEntriesCount(); ++entryNum)
+	zip_t* zip = zip_open(saveGamePath.c_str(), 0, 'r');
+	const auto n = zip_entries_total(zip);
+	for (auto i = 0; i < n; ++i)
 	{
-		const auto& entry = savefile->GetEntry(static_cast<int>(entryNum));
-		const auto& name = entry->GetName();
-		if (name == "meta")
+		zip_entry_openbyindex(zip, i);
 		{
-			Log(LogLevel::Info) << ">> Uncompressing metadata";
-			saveGame.metadata = std::string{std::istreambuf_iterator<char>(*entry->GetDecompressionStream()), std::istreambuf_iterator<char>()};
+			const char* name = zip_entry_name(zip);
+			if (std::string(name) == "meta")
+			{
+				Log(LogLevel::Info) << ">> Uncompressing metadata";
+				void* meta = nullptr;
+				size_t metaSize;
+				zip_entry_read(zip, &meta, &metaSize);
+				char* chtMeta = static_cast<char*>(meta);
+				saveGame.metadata = std::string(chtMeta);
+			}
+			else if (getExtension(std::string(name)) == "ck2")
+			{
+				Log(LogLevel::Info) << ">> Uncompressing gamestate";
+				void* ck2 = nullptr;
+				size_t ck2Size;
+				zip_entry_read(zip, &ck2, &ck2Size);
+				char* chrCk2 = static_cast<char*>(ck2);
+				saveGame.gamestate = std::string(chrCk2);
+			}
+			else
+			{
+				throw std::runtime_error("Unrecognized savegame structure! What is this file: " + std::string(name) + "?");
+			}
 		}
-		else if (getExtension(saveGamePath) == "ck2")
-		{
-			Log(LogLevel::Info) << ">> Uncompressing gamestate";
-			saveGame.gamestate = std::string{std::istreambuf_iterator<char>(*entry->GetDecompressionStream()), std::istreambuf_iterator<char>()};
-		}
-		else
-		{
-			throw std::runtime_error("Unrecognized savegame structure! What is this file: " + name);
-		}
+		zip_entry_close(zip);
 	}
+	zip_close(zip);
+
 	return true;
 }
 
