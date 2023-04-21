@@ -53,6 +53,8 @@ link = { eu4 = kemetism ck2 = egyptian ck2 = egyptian_pagan ck2 = egyptian_pagan
 
 link = { eu4 = nahuatl ck2 = aztec ck2 = aztec_reformed }
 
+link = { eu4 = mesoamerican_religion ck2 = mayan_pagan ck2 = mayan_reformed }
+
 link = { eu4 = animism ck2 = sanamahi_reformed ck2 = sanamahi }
 
 # Zoroastrianism

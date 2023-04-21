@@ -138,6 +138,16 @@ link = { eu4 = cambrian ck2 = cambrian tech = western gfx = westerngfx }
 link = { eu4 = aromanian ck2 = aromanian tech = eastern gfx = easterngfx }
 link = { eu4 = romano_african ck2 = romano_african tech = western gfx = westerngfx }
 link = { eu4 = palmyrene ck2 = palmyrene tech = western gfx = westerngfx }
+link = { eu4 = laessin ck2 = laessin tech = western gfx = westerngfx }
+link = { eu4 = rhogian ck2 = rhogian tech = eastern gfx = easterngfx }
+link = { eu4 = antonian ck2 = antonian tech = eastern gfx = easterngfx }
+link = { eu4 = romanoindian ck2 = romanoindian ck2 = indoroman tech = eastern gfx = westerngfx }
+link = { eu4 = bazramani ck2 = bazramani tech = eastern gfx = easterngfx }
+link = { eu4 = azdi ck2 = azdi tech = eastern gfx = easterngfx }
+link = { eu4 = nilan ck2 = nilan tech = eastern gfx = easterngfx }
+link = { eu4 = montanan ck2 = montanan tech = eastern gfx = easterngfx }
+link = { eu4 = olbian ck2 = olbian tech = eastern gfx = easterngfx }
+link = { eu4 = chadian ck2 = chadian tech = eastern gfx = easterngfx }
 
 # Old Italic
 
@@ -189,6 +199,18 @@ link = { eu4 = seleucian ck2 = greek ck2 = tsakonian tech = eastern gfx = wester
 link = { eu4 = tylosi ck2 = greek ck2 = tsakonian tech = eastern gfx = westerngfx region = arabia_region }
 link = { eu4 = yavana ck2 = greek ck2 = tsakonian tech = eastern gfx = westerngfx region = india_superregion }
 link = { eu4 = greek ck2 = greek ck2 = tsakonian tech = eastern gfx = easterngfx }
+link = { eu4 = bactrian ck2 = bactrian tech = eastern gfx = easterngfx }
+link = { eu4 = empurian ck2 = empurian tech = eastern gfx = westerngfx }
+link = { eu4 = histrian ck2 = histrian tech = eastern gfx = westerngfx }
+link = { eu4 = kyrenaikan ck2 = cyrenaican tech = eastern gfx = westerngfx }
+link = { eu4 = magnagreek ck2 = magnagreek tech = eastern gfx = westerngfx }
+link = { eu4 = messalian ck2 = massalian tech = eastern gfx = westerngfx }
+link = { eu4 = ptolemaic ck2 = ptolemaic tech = eastern gfx = westerngfx }
+link = { eu4 = leucaethiopian ck2 = leucaethiopian tech = eastern gfx = westerngfx }
+link = { eu4 = pulian ck2 = pulian tech = eastern gfx = westerngfx }
+link = { eu4 = seleucian ck2 = seleucian tech = eastern gfx = westerngfx }
+link = { eu4 = tylosi ck2 = tylosi tech = eastern gfx = westerngfx }
+link = { eu4 = yavana ck2 = indogreek tech = eastern gfx = westerngfx }
 link = { eu4 = circassian ck2 = alan tech = eastern gfx = easterngfx region = circassia_area } #Circassian is needed for Mamluk Government type, so let's try to make it happen
 link = { eu4 = circassian ck2 = georgian tech = eastern gfx = easterngfx region = circassia_area }
 link = { eu4 = circassian ck2 = assyrian tech = eastern gfx = easterngfx region = circassia_area }
@@ -248,6 +270,7 @@ link = { eu4 = belgae ck2 = belgae tech = western gfx = westerngfx }
 link = { eu4 = celtic_pannonian ck2 = celtic_pannonian tech = western gfx = westerngfx }
 link = { eu4 = celtiberian ck2 = celtiberian tech = western gfx = westerngfx }
 link = { eu4 = lusitanian ck2 = lusitanian tech = western gfx = westerngfx }
+link = { eu4 = galatian_celtic ck2 = galatian tech = western gfx = westerngfx }
 link = { eu4 = lepontic ck2 = gaulish tech = western gfx = westerngfx region = romandie_area region = switzerland_area region = tirol_area region = carinthia_area region = italy_region }
 link = { eu4 = belgae ck2 = gaulish tech = western gfx = westerngfx region = picardy_area region = low_countries_region region = north_german_region region = south_german_region region = scandinavia_region }
 link = { eu4 = gallic ck2 = gaulish tech = western gfx = westerngfx region = basque_country region = france_region }
@@ -352,6 +375,7 @@ link = { eu4 = ruthenian ck2 = russian tech = eastern gfx = easterngfx region = 
 link = { eu4 = russian ck2 = russian tech = eastern gfx = easterngfx region = russia_region region = ural_region } #Muscovite
 link = { eu4 = kishinyov ck2 = russian tech = eastern gfx = easterngfx region = carpathia_region region = poland_region }
 link = { eu4 = russian_culture ck2 = russian tech = eastern gfx = easterngfx } #Fallback
+link = { eu4 = protoslavic ck2 = protoslavic tech = eastern gfx = easterngfx }
 
 # Russian (Historical Immersion Project - SWMH)
 link = { eu4 = karelian ck2 = karelian ck2 = vepsian tech = eastern gfx = easterngfx } #Fallback
@@ -472,6 +496,11 @@ link = { eu4 = ikisatekatl ck2 = nahuatl tech = high_american gfx = southamerica
 link = { eu4 = kapotsautekatl ck2 = nahuatl tech = high_american gfx = southamericagfx region = africa_superregion region = southern_africa_superregion }
 link = { eu4 = elpantekatl ck2 = nahuatl tech = high_american gfx = southamericagfx region = india_superregion }
 link = { eu4 = aztek ck2 = nahuatl tech = high_american gfx = southamericagfx }
+
+# Mayan - From I:R's Sunset Invasion mod
+link = { eu4 = euro_mayan ck2 = mayan tech = high_american gfx = southamericagfx }
+link = { eu4 = euro_olmec ck2 = olmec tech = high_american gfx = southamericagfx }
+link = { eu4 = euro_tol ck2 = tol tech = high_american gfx = southamericagfx }
 
 
 # Aryan Indian
