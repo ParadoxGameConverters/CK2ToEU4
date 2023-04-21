@@ -198,6 +198,41 @@ carpathian = {
 			Tereza Teresa Vasilica Violeta Yolanda Voica Zina
 		}
 	}
+	olbian = {
+		#primary = WAL
+		dynasty_names = {
+			"Basarab" "Danesti" "Draculesti"
+			Callimachi Ghica Cantacuzino Cantemiresti Racovita Caradja Sturdza 
+			Conachi Soutzos Golescu Vacarescu Mavrocordatos Craiovesti Hâjdau
+			Kogalniceanu Movilesti
+		}
+		male_names = {
+			Alexandru Radu Vlad Constantin Mihail Mircea George Grigore Mihnea Nicolae Besarab Vladislav Mattia 
+			Radu Ilias Scarlat Stefan Dan Alexandru Ilias Gabriel Ioan George Leon Moise Neagoie Besarab 
+			Leon Radu Mihnea Serban Simeon Teodosiu Vintila Vladut Milos Corneliu Flaviu Iuliu Octavian Sergiu 
+			Valeriu Petru Petrascu Radu 
+			Adrian Alexandru Alexander Anghel Angel Aron Bajan Balc Barbat Basarab Bogdan Bogdan Carol 
+			Ciprian Ciubar Claudiu
+			Corneliu Cornelius Costin Damjan Dan Dragos Dumitru Emerik Florin Franjo Francis Gavril 
+			Gheorghe George Grigore Gregory Iacob Gabriel
+			Iancu Ieremia Ilie Ioan John Iorghu Iosif Iuga Janos John Ladislau Latcu Laurentiu Laurence 
+			Litovoi Lucian Lucius Marin Marius
+			Mihai Milos Milosz Mircea Moise Nicolaie Petre Pirvu Radovan Radu Roman Sas Seneslav 
+			Sergiu Simion Simon
+			Stefan Stephen Stelian Teodor Theodore Tepes Tibor Tihomir Timotei Tudor Thierry Valentin 
+			Valentin Valeriu Vasile Basil Veaceslav
+			Victor Vilhelm William Vintila Vlad
+		}
+		female_names = {
+			Adelina Adriana Afina Alexandra Alexia Ana Anna Anastasia Anastasia Angela Arina Christina 
+			Christina Clara Clara Dana Ecatarina Catherine
+			Elena Helen Elisabeta Elisabeth Emilia Emily Eufroysina Euphrosyne Felicia Floarea Flora 
+			Ioana Ionela Irina Iulia Juliana Maria Maria Monica Iacoba
+			Natalia Olimpia Paraschiva Petra Roxana Ruxandra Smaranda Sophia Sophia Stana Stefana 
+			Stefania Stephania Teodora Rahela Flavia Cosmina
+			Tereza Teresa Vasilica Violeta Yolanda Voica Zina
+		}
+	}
 }
 east_slavic = {
 	ilmenian = {
@@ -239,6 +274,26 @@ east_slavic = {
 				Kolchak Kuropatkin Lazarev Makarov Men'shikov Nakhimov Nebogatov
 				Nikolayevich Ostrovskiy Pavlov Putyatin Romanov Rozhestvenskiy Skobelev
 				Shuvalov Surkov Tukhachevskiy Yegorov Yudenich Vorontsov Voroshilov Zavoyko }
+	}
+	protoslavic = {
+		primary = RUS
+		male_names = {
+			Algelgas Algibartas Algibutas Algigailus Algigirdas Algimantas Alginoras Algitawtas Algiwaldas Algiwiltas Daubartas Daubutas Daugailus Daugirdas Daulgas Daumantas Daunoras Dautawtas
+			Dauwaldas Dauwiltas Genbartas Genbutas Genelgas Gengailus Gengirdas Genmantas Genoras Gentawtas Genwaldas Genwiltas Girdbartas Girdbutas Girdmantas Girdnoras Girdwaldas Girdwiltas
+			Girtawtas Girdelgas Girdgailus Giwenbartas Giwenbutas Giwenelgas Giwengailus Giwengirdas Giwenmantas Giwenoras Giwentawtas Giwenwaldas Giwenwiltas Ljaubartas Ljaubutas Ljauelgas
+			Ljaugailus Ljaugirdas Ljaumantas Ljaunoras Ljautawtas Ljauwaldas Ljauwiltas Mantawtas Mantbartas Mantbutas Mantelgas Mantgailus Mantgirdas Mantnoras Mantwaldas Mantwiltas Minbartas
+			Minbutas Minelgas Mingailus Mingurdas Minmantas Minoras Mintawtas Minwaldas Minwiltas Skirbartas Skirbutas Skirelgas Skirgailus Skirgurdas Skirmantas Skirnoras Skirtawtas Skirwaldas
+			Skirwiltas Trijwaldas Waisbartas Waisbutas Waiselgas Waisgailus Waisgurdas Waismantas Waisnoras Waistawtas Waiswaldas Waiswiltas
+		}
+		female_names = {
+			Audra Austra Daina Dolja Gubja Laima Migla Rasa Saule Ugne
+		}
+		dynasty_names = { 
+			"Algelgeitis" "Algibarteitis" "Algimanteitis" "Alginoreitis" "Daumanteitis" "Dautawteitis" "Dauwaldeitis" "Dauwilteitis" "Genbuteitis" "Genmanteitis"
+			"Genmanteitis" "Genwilteitis" "Girdelgeitis" "Girdwilteitis" "Girtawteitis" "Giwenbuteitis" "Ljaubarteitis" "Ljauelgeitis" "Ljaugaileitis" "Ljaugirdeitis"
+			"Ljautawteitis" "Mantawteitis" "Mantwilteitis" "Minbarteitis" "Minbuteitis" "Minelgeitis" "Mingaileitis" "Minoreitis" "Skirbuteitis" "Skirmanteitis"
+			"Skirwilteitis" "Skirwaldeitis" "Trijwaldeitis" "Waisbarteitis" "Waiswaldeitis" "Waiswilteitis"
+			 }
 	}
 }
 baltic = {
@@ -836,6 +891,57 @@ central_american = {
 aridoamerican = {
 }
 maya = {
+	euro_mayan = {
+		primary = MAY
+		dynasty_names = {
+			Ahkinxoc Ahmetakkukul Ahmok Ahnakukpech Ahpop-Achi Arana Bakan Balam Bor Canek Chaob Chiam Hnuyg Kayom Kíin Kukumatz 
+			Mochcouoh Nachancan Nohochacyum Pacal "Quitze Balam" Tecunuman Vataki Yumcaax Zotz
+		}
+		male_names = {
+			"Can Ek" "Balam Quitze" "Kan Boar" "Yax Kuk Mok" "Ah Can" "Vahxaqui Caam" "Ah Cacao" "Cham Bahlun" 
+			"Pacal Balam" "Yaxum Balam" "Butz Chan" "Chaan Muan" "Yax Pac" "Ahpop-Achi" "Kan Bahlun Mo" Cocom 
+			Pacal Ahmok Arana Bakan Bor Cocaib Cocoja Conache Cotuja Gucamatz Hnuyg Kayom Kukumatz 
+			Mochcouoh Nohochacyum Oxib Queh Tecunuman Tutul Xiu Tziquin Vataki Yumcaaz Zotz Ahkinxok "Cu Ix" 
+			Ahmik Anoki Chogan Dasan Elki Honon Jacy Len
+		}
+		female_names = {
+			Sacnite Adsila Aiyana Ayasha Ayita Bly Dena Halona Kimi Magena Nayeli Kisa Eme
+		}
+	} 
+	euro_olmec = {
+		primary = YOK
+		dynasty_names = {
+			Ahkinxoc Ahmetakkukul Ahmok Ahnakukpech Ahpop-Achi Arana Bakan Balam Bor Canek Chaob Chiam Hnuyg Kayom Kíin Kukumatz 
+			Mochcouoh Nachancan Nohochacyum Pacal "Quitze Balam" Tecunuman Vataki Yumcaax Zotz
+		}
+		male_names = {
+			"Can Ek" "Balam Quitze" "Kan Boar" "Yax Kuk Mok" "Ah Can" "Vahxaqui Caam" "Ah Cacao" "Cham Bahlun" 
+			"Pacal Balam" "Yaxum Balam" "Butz Chan" "Chaan Muan" "Yax Pac" "Ahpop-Achi" "Kan Bahlun Mo" Cocom 
+			Pacal Ahmok Arana Bakan Bor Cocaib Cocoja Conache Cotuja Gucamatz Hnuyg Kayom Kukumatz 
+			Mochcouoh Nohochacyum Oxib Queh Tecunuman Tutul Xiu Tziquin Vataki Yumcaaz Zotz Ahkinxok "Cu Ix" 
+			Ahmik Anoki Chogan Dasan Elki Honon Jacy Len
+		}
+		female_names = {
+			Sacnite Adsila Aiyana Ayasha Ayita Bly Dena Halona Kimi Magena Nayeli Kisa Eme
+		}
+	}
+	euro_tol = {
+		primary = MAY
+		dynasty_names = {
+			Ahkinxoc Ahmetakkukul Ahmok Ahnakukpech Ahpop-Achi Arana Bakan Balam Bor Canek Chaob Chiam Hnuyg Kayom Kíin Kukumatz 
+			Mochcouoh Nachancan Nohochacyum Pacal "Quitze Balam" Tecunuman Vataki Yumcaax Zotz
+		}
+		male_names = {
+			"Can Ek" "Balam Quitze" "Kan Boar" "Yax Kuk Mok" "Ah Can" "Vahxaqui Caam" "Ah Cacao" "Cham Bahlun" 
+			"Pacal Balam" "Yaxum Balam" "Butz Chan" "Chaan Muan" "Yax Pac" "Ahpop-Achi" "Kan Bahlun Mo" Cocom 
+			Pacal Ahmok Arana Bakan Bor Cocaib Cocoja Conache Cotuja Gucamatz Hnuyg Kayom Kukumatz 
+			Mochcouoh Nohochacyum Oxib Queh Tecunuman Tutul Xiu Tziquin Vataki Yumcaaz Zotz Ahkinxok "Cu Ix" 
+			Ahmik Anoki Chogan Dasan Elki Honon Jacy Len
+		}
+		female_names = {
+			Sacnite Adsila Aiyana Ayasha Ayita Bly Dena Halona Kimi Magena Nayeli Kisa Eme
+		}
+	}
 }
 otomanguean = {
 }
