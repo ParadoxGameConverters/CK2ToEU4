@@ -8,9 +8,10 @@ autoGenerateModsFrom = CK2DocDirectory
 
 enableUpdateChecker = true
 checkForUpdatesOnStartup = true
-latestGitHubConverterReleaseUrl = "https://github.com/ParadoxGameConverters/CK2ToEU4/releases/download/windows_development_build/CK2ToEU4-latest-win-x64.zip"
+latestGitHubConverterReleaseUrl = "https://github.com/ParadoxGameConverters/CK2ToEU4/releases/"
 converterReleaseForumThread = "https://forum.paradoxplaza.com/forum/threads/ck2-to-eu4-converter-release-thread.1377860/"
 pagesCommitIdUrl = "https://paradoxgameconverters.com/commit_ids/CK2ToEU4.txt"
+overwritePlayset = true
 
 requiredFolder = {
 	name = CK2directory

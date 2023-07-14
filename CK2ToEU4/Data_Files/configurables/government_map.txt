@@ -3,7 +3,7 @@
 # You can mix and match as you prefer.
 
 # General
-link = { gov = monarchy ck2gov = feudal_government ck2gov = muslim_government ck2gov = roman_imperial_government ck2gov = confucian_bureaucracy ck2gov = chinese_imperial_government ck2gov = theocratic_feudal_government }
+link = { gov = monarchy ck2gov = feudal_government ck2gov = muslim_government ck2gov = roman_imperial_government ck2gov = confucian_bureaucracy ck2gov = chinese_imperial_government ck2gov = theocratic_feudal_government ck2gov = indoroman_imperial_government }
 link = { gov = theocracy ck2gov = theocracy_government ck2gov = order_government }
 link = { gov = republic ck2gov = republic_government ck2gov = merchant_republic_government }
 link = { gov = tribal ck2gov = tribal_government ck2gov = nomadic_government }

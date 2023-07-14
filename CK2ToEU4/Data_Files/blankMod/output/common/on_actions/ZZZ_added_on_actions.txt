@@ -30,7 +30,9 @@ on_startup = {
 	events = {
 		muslim_school_events.20 #Pick School
 		flavor_got.1 #Event for Gotland to select their mission tree
-	#flavor_fra.15000 #Make the French Revolution happen if starting in 1789
+		flavor_mng.42 #Event for the starting situation of the Ming 
+		#flavor_fra.15000 #Make the French Revolution happen if starting in 1789
+		flavor_mos.1 #Event regarding the Tatar Yoke
 	}
 	if = {
 		limit = {
@@ -74,6 +76,94 @@ on_startup = {
 		}
 		AYU = {
 			set_country_flag = ayu_monarch_flag
+		}
+	}
+	#if = {
+	#	limit = {
+	#		OR = {
+	#			primary_culture = norse
+	#			AND = {
+	#				culture_group = scandinavian
+	#				religion = norse_pagan_reformed
+	#			}
+	#		}
+	#		NOT = { has_idea_group = norse_ideas }
+	#		is_playing_custom_nation = no
+	#	}
+	#	country_event = { id = ideagroups.1 } #Swap Ideas
+	#}
+	if = {
+		limit = { 
+			has_dlc = "Domination" 
+			tag = FRA 
+			NOT = { is_year = 1445 } 
+		}
+		country_event = { id = flavor_fra.206 }
+	}
+	if = {
+		limit = {
+			NOT = { has_global_flag = end_of_the_tatar_yoke }
+			owns = 466
+			is_year = 1480
+		}
+		set_global_flag = end_of_the_tatar_yoke
+	}
+	if = {
+		limit = {
+			OR = {
+				has_country_modifier = rise_of_the_ottomans
+				has_country_modifier = zenith_of_the_ottomans
+				has_country_modifier = twilight_of_the_ottomans
+				has_country_modifier = decline_of_the_ottomans
+			}
+		}
+		remove_country_modifier = rise_of_the_ottomans
+		remove_country_modifier = zenith_of_the_ottomans
+		remove_country_modifier = twilight_of_the_ottomans
+		remove_country_modifier = decline_of_the_ottomans
+	}
+	if = {
+		limit = {
+			has_government_mechanic = ottoman_decadence_mechanic
+			current_age = age_of_discovery
+		}
+		add_country_modifier = {
+			name = rise_of_the_ottomans
+			duration = -1
+			desc = until_end_of_age_desc
+		}
+	}
+	if = {
+		limit = {
+			has_government_mechanic = ottoman_decadence_mechanic
+			current_age = age_of_reformation
+		}
+		add_country_modifier = {
+			name = zenith_of_the_ottomans
+			duration = -1
+			desc = until_end_of_age_desc
+		}
+	}
+	if = {
+		limit = {
+			has_government_mechanic = ottoman_decadence_mechanic
+			current_age = age_of_absolutism
+		}
+		add_country_modifier = {
+			name = twilight_of_the_ottomans
+			duration = -1
+			desc = until_end_of_age_desc
+		}
+	}
+	if = {
+		limit = {
+			has_government_mechanic = ottoman_decadence_mechanic
+			current_age = age_of_revolutions
+		}
+		add_country_modifier = {
+			name = decline_of_the_ottomans
+			duration = -1
+			desc = until_end_of_age_desc
 		}
 	}
 
@@ -258,8 +348,9 @@ on_startup = {
 
 #Scripted effect for Extra Fetishist cult mechanics.
 on_battle_lost_country = {
+	on_battle_ended_effect = yes
 	#VANILLA
-	battle_cult_spreading_effect = yes #Scripted effect for fetishist cult mechanics.
+	#battle_cult_spreading_effect = yes #Scripted effect for fetishist cult mechanics.
 	random_events = {
 		90 = 0
 		10 = friendship_events.1 #Historical Friendship Broken
@@ -271,7 +362,8 @@ on_battle_lost_country = {
 on_province_owner_change = {
 	######### VANILLA
 	events = {
-		japan.1
+		japan.1			#Fall of the current Shogun
+		flavor_tur.207	#Victory over the Knights
 	}
 
 	on_province_owner_change_government_effect = yes
@@ -293,7 +385,6 @@ on_province_owner_change = {
 		remove_province_modifier = sufi_shrine
 	}
 	on_province_owner_change_estate_privileges_effect = yes
-	judaism_on_province_change_religion_or_change_owner_effect = yes
 	imperial_modifiers_on_province_change_culture_or_change_owner_effect = yes
 
 	if = {
@@ -365,6 +456,12 @@ on_province_owner_change = {
 			has_province_modifier = son_fetishism_as_secondary_religion_province
 		}
 		remove_province_modifier = son_fetishism_as_secondary_religion_province
+	}
+	if = { 
+		limit = { 
+			owner = { NOT = { has_reform = jap_gokaido_reform } }
+		}
+		remove_province_modifier = jap_gokaido_modifier
 	}
 
 	###########  MODDED
@@ -439,6 +536,17 @@ on_five_year_pulse_4 = {
 on_create_vassal = {
 	#### VANILLA
 	on_religion_change_estate_privileges_effect = yes
+	if = {
+		limit = {
+			has_dlc = "Emperor"
+			FROM = {
+				is_revolutionary = yes
+			}
+		}
+		change_government = republic
+		add_government_reform = junior_revolutionary_republic_reform
+		set_country_flag = had_revolution
+	}
 	if = {
 		limit = {
 			tag = PAP

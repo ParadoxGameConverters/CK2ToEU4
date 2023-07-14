@@ -337,18 +337,6 @@ void EU4::World::outputHistoryProvinces(const Configuration& theConfiguration, c
 	if (isLeviathanDLCPresent)
 	{
 		commonItems::TryCreateFolder("output/" + theConfiguration.getOutputName() + "/common/great_projects/");
-		commonItems::TryCopyFile("configurables/monuments/great_projects/01_monuments.txt",
-			 "output/" + theConfiguration.getOutputName() + "/common/great_projects/01_monuments.txt");
-		commonItems::TryCopyFile("configurables/monuments/great_projects/100_out_of_scope_monuments.txt",
-			 "output/" + theConfiguration.getOutputName() + "/common/great_projects/100_out_of_scope_monuments.txt");
-		commonItems::TryCopyFile("configurables/monuments/great_projects/101_old_monuments.txt",
-			 "output/" + theConfiguration.getOutputName() + "/common/great_projects/101_old_monuments.txt");
-		commonItems::TryCopyFile("configurables/monuments/great_projects/102_unbuilt_at_game_start.txt",
-			 "output/" + theConfiguration.getOutputName() + "/common/great_projects/102_unbuilt_at_game_start.txt");
-		commonItems::TryCopyFile("configurables/monuments/great_projects/!00_converted_monuments.txt",
-			 "output/" + theConfiguration.getOutputName() + "/common/great_projects/!00_converted_monuments.txt");
-		commonItems::TryCopyFile("configurables/monuments/great_projects/99_special_exceptions.txt",
-			 "output/" + theConfiguration.getOutputName() + "/common/great_projects/99_special_exceptions.txt");
 		commonItems::TryCopyFile("configurables/monuments/gfx/zzz_converted_monuments.gfx",
 			 "output/" + theConfiguration.getOutputName() + "/interface/zzz_converted_monuments.gfx");
 		auto fileNames = commonItems::GetAllFilesInFolder("configurables/monuments/localisation/");
