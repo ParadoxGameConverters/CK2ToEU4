@@ -87,6 +87,9 @@ class World
 	[[nodiscard]] std::optional<std::pair<int, std::shared_ptr<CK2::Province>>> determineProvinceSource(const std::vector<int>& ck2ProvinceNumbers,
 		 const CK2::World& sourceWorld) const;
 
+	bool tianxia = false;
+	bool cleanslate = false;
+
 	std::string emperorTag;
 	std::string celestialEmperorTag;
 	std::string actualHRETag;
