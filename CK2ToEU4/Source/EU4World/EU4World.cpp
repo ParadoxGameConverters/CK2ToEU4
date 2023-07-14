@@ -754,7 +754,7 @@ void EU4::World::adjustChina(const CK2::World& sourceWorld, const Configuration:
 	// Find western protectorate if possible
 	for (const auto& country: countries)
 	{
-		if "Tianxia" { if country.second->getTitle().first != "e_china" }
+		if "Tianxia" then { if country.second->getTitle().first != "e_china" }
 		else if (country.second->getTitle().first != "e_china_west_governor")
 			continue;
 		const auto& westernTag = country.first;
