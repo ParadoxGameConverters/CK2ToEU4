@@ -20,9 +20,15 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 	std::string overrideModPath;
 	for (const auto& mod: sourceWorld.getMods())
 		if (mod.name == "CleanSlate")
+		{
 			overrideModPath = "CleanSlate";
+			cleanslate = true;
+		}
 		else if (mod.name == "Tianxia: Silk Road Expansion")
+		{
 			overrideModPath = "Tianxia";
+			tianxia = true;
+		}
 
 	cultureMapper.initCultureMapper(overrideModPath);
 	governmentsMapper.initGovernmentsMapper(overrideModPath);
@@ -754,8 +760,15 @@ void EU4::World::adjustChina(const CK2::World& sourceWorld, const Configuration:
 	// Find western protectorate if possible
 	for (const auto& country: countries)
 	{
-		if (country.second->getTitle().first != "e_china_west_governor")
+		if (tianxia)
+		{
+			if (country.second->getTitle().first != "e_china")
+				continue;
+		}
+		else if (country.second->getTitle().first != "e_china_west_governor")
+		{
 			continue;
+		}
 		const auto& westernTag = country.first;
 		// Move our diplo to China
 		diplomacy.updateTagsInAgreements(westernTag, ourChinaTag);
