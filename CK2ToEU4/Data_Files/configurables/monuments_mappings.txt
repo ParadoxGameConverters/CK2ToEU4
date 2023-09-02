@@ -336,7 +336,7 @@ upgrade_vineyard = {
 }
 upgrade_historical_mural = {
 	country_modifiers = {
-		prestige_decay = { 0 -0.01 -0.025 -0.05 }
+		prestige_decay = { 0 -0.005 -0.0075 -0.01 }
 	}
 }
 upgrade_road_tolls = {
@@ -508,7 +508,7 @@ upgrade_decorations = {
 }
 upgrade_choir_rooms = {
 	country_modifiers = {
-		prestige_decay = { 0 -0.01 -0.025 -0.05 }
+		prestige_decay = { 0 -0.005 -0.0075 -0.01 }
 	}
 }
 upgrade_school_synagogue = {
@@ -757,7 +757,7 @@ upgrade_unmarked_tombs  = {
 }
 upgrade_quadriga_statue  = {
 	country_modifiers = {
-		prestige_decay = { 0 -0.01 -0.025 -0.05 }
+		prestige_decay = { 0 -0.005 -0.0075 -0.01 }
 	}
 }
 upgrade_keeper_of_the_dead = {
