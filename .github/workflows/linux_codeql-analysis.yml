@@ -24,7 +24,7 @@ jobs:
 
     steps:
     - name: "Cloning repo"
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: "Cloning selective submodules"
       run: |
@@ -65,7 +65,7 @@ jobs:
 
     steps:
     - name: "Cloning repo"
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: "Cloning selective submodules"
       run: |
