@@ -10,8 +10,6 @@
 link = { eu4religiongroup = pagan traits = animist }
 link = { reform = religion_peaceful traits = pacifist taboos = fish taboos = meat }
 link = { reform = religion_warlike reform = religion_relentless reform = religion_feature_tengri reform = religion_feature_aztec reform = religion_feature_norse traits = warmonger }
-link = { eu4religion = hellenic_pagan_reformed traits = gnostic }
-link = { reform = religion_astrology traits = gnostic }
 link = { reform = religion_equal reform = religion_feature_bon reform = religion_feature_celtic traits = feminist }
 link = { reform = religion_cosmopolitan reform = religion_syncretic reform = religion_feature_west_african reform = religion_feature_hellenic traits = tolerant }
 link = { eu4religion = kemetism traits = incestuous }
