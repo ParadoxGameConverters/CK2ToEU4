@@ -43,4 +43,8 @@ Idhrendur			- Sanity Checks and Review
 Mysterious_Italy	- Data Files, Graphics
 Zemurin				- Programming, Testing
 
+Special thanks to the Imperator:Invictus mod for allowing the converter to use its descriptions for converted Invictus religions. It can be found either on Steam or on the Paradox Mods Website.
+Imperator:Invictus Steam Link: https://steamcommunity.com/sharedfiles/filedetails/?id=2532715348/
+Imperator:Invictus Paradox Mods Link: https://mods.paradoxplaza.com/mods/27170/Any
+
  - AND ALL THE OTHERS WHO GAVE THEIR INPUT ON THE FORUM AND DISCORD -
