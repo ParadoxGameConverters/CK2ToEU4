@@ -1255,5 +1255,4 @@ link = { ck2 = e_korea eu4 = KOR } # Korea (not Joseon)
 
 # Tianxia proper
 link = { ck2 = e_mongol_china eu4 = YUA } # Yuan
-link = { ck2 = e_manchuria eu4 = QNG } # Manchuria -> Qing
 link = { ck2 = k_dali eu4 = CDL } # Dali

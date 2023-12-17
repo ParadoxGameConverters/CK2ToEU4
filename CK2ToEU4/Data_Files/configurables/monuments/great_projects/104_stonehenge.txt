@@ -37,6 +37,7 @@ stonehenge = {
 				OR = {
 					culture_group = british
 					culture_group = gaelic
+					culture = anglois
 				}
 				province_is_or_accepts_culture = yes
 			}
@@ -63,6 +64,7 @@ stonehenge = {
 				OR = {
 					culture_group = british
 					culture_group = gaelic
+					culture = anglois
 				}
 				province_is_or_accepts_culture = yes
 			}
@@ -79,6 +81,7 @@ stonehenge = {
 				OR = {
 					culture_group = british
 					culture_group = gaelic
+					culture = anglois
 				}
 				province_is_or_accepts_culture = yes
 			}

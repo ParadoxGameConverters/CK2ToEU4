@@ -24,7 +24,7 @@ jobs:
 
     steps:
     - name: "Cloning repo"
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: "Cloning selective submodules"
       run: |
@@ -33,7 +33,7 @@ jobs:
            submodule update --init --recursive Fronter
 
     - name: Initialize CodeQL
-      uses: github/codeql-action/init@v2
+      uses: github/codeql-action/init@v3
       with:
         languages: ${{ matrix.language }}
         
@@ -47,7 +47,7 @@ jobs:
        ./CK2ToEU4Tests
 
     - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v2
+      uses: github/codeql-action/analyze@v3
       
     - name: Cleanup
       uses: colpal/actions-clean@v1
@@ -65,7 +65,7 @@ jobs:
 
     steps:
     - name: "Cloning repo"
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: "Cloning selective submodules"
       run: |
@@ -74,7 +74,7 @@ jobs:
            submodule update --init --recursive Fronter
 
     - name: Initialize CodeQL
-      uses: github/codeql-action/init@v2
+      uses: github/codeql-action/init@v3
       with:
         languages: ${{ matrix.language }}
        
@@ -98,4 +98,4 @@ jobs:
        ./CK2ToEU4Tests
 
     - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v2
+      uses: github/codeql-action/analyze@v3

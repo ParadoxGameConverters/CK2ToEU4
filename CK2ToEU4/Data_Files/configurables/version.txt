@@ -1,10 +1,10 @@
 # Version info
 
-version = "1.0L"
-name = "de Leon"
+version = "1.0M"
+name = "of Mercia"
 source = "CK2"
 target = "EU4"
 minSource = "3.3"
 maxSource = "3.3"
-minTarget = "1.35"
-maxTarget = "1.35"
+minTarget = "1.36"
+maxTarget = "1.36"

@@ -1,0 +1,374 @@
+0.0.0 = {
+	link = { ck2 = 2482 ck2 = 2481 eu4 = 1021 } # Izumi, Settsu -> Settsu
+	link = { ck2 = 333 eu4 = 118 } # Roma -> Roma
+	link = { ck2 = 458 eu4 = 130 } # Istria -> Istria
+	link = { ck2 = 356 eu4 = 112 } # Venezia -> Venezia
+	link = { ck2 = 334 eu4 = 121 } # Napoli -> Napoli
+	link = { ck2 = 851 eu4 = 4732 } # Capua -> Terracina
+	link = { ck2 = 170 eu4 = 1750 } # Denia -> Alicante
+	link = { ck2 = 847 eu4 = 1110 } # Tharasset -> Rio de Oro
+	link = { ck2 = 845 eu4 = 345 eu4 = 2470 } # Anti-Atlas -> Safi, Mimasaka
+	link = { ck2 = 844 eu4 = 4564 eu4 = 2469 } # Massat -> Anfa, Bizen
+	link = { ck2 = 842 eu4 = 4563 eu4 = 342 } # Infa -> Sale, Toubkhal
+	link = { ck2 = 841 eu4 = 334 } # Tangiers -> Tangiers
+	link = { ck2 = 838 eu4 = 335 } # El Rif -> Mellila
+	link = { ck2 = 839 eu4 = 1751 eu4 = 4561 } # Cebta -> Ceuta, Tetouan
+	link = { ck2 = 846 eu4 = 347 } # Ifni -> Ifni
+	link = { ck2 = 1974 eu4 = 1748 } # Jaen -> La Mancha
+	link = { ck2 = 179 eu4 = 4547 } # Almansa -> Albacete
+	link = { ck2 = 169 eu4 = 221 } # Murcia -> Murcia
+	link = { ck2 = 168 eu4 = 222 } # Almeria -> Almería
+	link = { ck2 = 180 eu4 = 223 } # Granada -> Granada
+	link = { ck2 = 167 eu4 = 4546 } # Malaga -> Malaga
+	link = { ck2 = 166 eu4 = 226 eu4 = 1749 } # Algeciras -> Gibraltar, Cadiz
+	link = { ck2 = 171 eu4 = 220 eu4 = 4549 } # Valencia -> València, Xativa
+	link = { ck2 = 172 eu4 = 4550 } # Castellon -> Castellon
+	link = { ck2 = 173 eu4 = 2988 } # Tarragona -> Maohil
+	link = { ck2 = 204 eu4 = 213 } # Barcelona -> Barcelona
+	link = { ck2 = 205 eu4 = 212 } # Empuries -> Girona
+	link = { ck2 = 206 ck2 = 203 eu4 = 2987 } # Urgell, Lleida -> Su
+	link = { ck2 = 174 ck2 = 175 eu4 = 2990 } # Albarracin, Calatayud -> Cheolli
+	link = { ck2 = 202 eu4 = 4557 eu4 = 214 } # Zaragoza -> Lleida, Zaragoza
+	link = { ck2 = 207 eu4 = 211 } # Alto Aragon -> Pirineo
+	link = { ck2 = 152 eu4 = 210 } # Navarra -> Navarra
+	link = { ck2 = 153 eu4 = 209 } # Viscaya -> Vizcaya
+	link = { ck2 = 154 eu4 = 1745 } # Asturias de Santillana -> Cantabria
+	link = { ck2 = 155 eu4 = 207 } # Asturias de Oviedo -> Asturias
+	link = { ck2 = 156 eu4 = 206 } # Coruna -> Galicia
+	link = { ck2 = 1976 eu4 = 4558 eu4 = 4554 } # Lugo -> Orense, Lugo
+	link = { ck2 = 157 eu4 = 4555 } # Santiago -> Vigo
+	link = { ck2 = 159 eu4 = 4556 eu4 = 1851 } # Coimbra -> Aviero, Ribatejo
+	link = { ck2 = 187 eu4 = 228 } # Castelo Branco -> Beira
+	link = { ck2 = 188 eu4 = 232 } # Braganza -> Bragança
+	link = { ck2 = 158 eu4 = 231 } # Porto -> Porto
+	link = { ck2 = 185 ck2 = 186 eu4 = 4150 } # Mertola, Evora -> Évora
+	link = { ck2 = 161 eu4 = 4787 } # Alcacer do Sal -> Ribatejo
+	link = { ck2 = 160 eu4 = 367 eu4 = 227 } # Lisboa -> The Azores, Lisboa
+	link = { ck2 = 163 ck2 = 162 eu4 = 230 eu4 = 368 eu4 = 229 } # MANY-TO-MANY: Faro, Silves -> Algarve, Madeira, Beja
+	link = { ck2 = 335 ck2 = 849 eu4 = 4734 eu4 = 366 eu4 = 4565 } # MANY-TO-MANY: Benevento, Canarias -> Avellino, The Canarias, Tenerife
+	link = { ck2 = 348 eu4 = 2985 } # Foggia -> Yongcheon
+	link = { ck2 = 346 ck2 = 347 eu4 = 1933 } # Bari, Apulia -> Bari
+	link = { ck2 = 336 ck2 = 935 eu4 = 2983 } # Salerno, Amalfi -> Jangnyeong
+	link = { ck2 = 344 eu4 = 1934 } # Taranto -> Lucania
+	link = { ck2 = 337 eu4 = 2984 } # Consenza -> Shingdei
+	link = { ck2 = 345 eu4 = 122 } # Lecce -> Apulia
+	link = { ck2 = 1712 ck2 = 338 eu4 = 123 } # Catanzaro, Reggio -> Calabria
+	link = { ck2 = 826 eu4 = 4559 } # Menorca -> Minorca
+	link = { ck2 = 827 eu4 = 4560 eu4 = 333 } # Mallorca -> Ibiza, The Baleares
+	link = { ck2 = 1577 ck2 = 324 eu4 = 1247 } # Cinarca, Corsica -> Corsica
+	link = { ck2 = 1576 ck2 = 1574 eu4 = 127 } # Torres, Gallura -> Sardinia
+	link = { ck2 = 325 eu4 = 4735 } # Arborea -> Arborea
+	link = { ck2 = 326 ck2 = 1560 eu4 = 2986 } # Cagliari, Ogliastra -> Buyeo
+	link = { ck2 = 339 eu4 = 124 } # Messina -> Messina
+	link = { ck2 = 343 eu4 = 2982 } # Siracusa -> Ryongwa
+	link = { ck2 = 342 eu4 = 4737 } # Agrigento -> Girgenti
+	link = { ck2 = 340 eu4 = 125 } # Palermo -> Palermo
+	link = { ck2 = 341 eu4 = 4736 } # Trapani -> Trapani
+	link = { ck2 = 812 eu4 = 126 } # Malta -> Malta
+	link = { ck2 = 2442 eu4 = 4180 } # Hyuga -> Hyuga
+	link = { ck2 = 2441 ck2 = 2440 ck2 = 2439 eu4 = 1012 } # Satsuma, Osumi, Tane -> Satsuma
+	link = { ck2 = 2443 eu4 = 4181 } # Higo -> Higo
+	link = { ck2 = 2447 eu4 = 1014 } # Bungo -> Bungo
+	link = { ck2 = 2445 ck2 = 2446 ck2 = 2444 eu4 = 4182 } # Hizen, Chikugo, Goto -> Hizen
+	link = { ck2 = 2449 ck2 = 2448 eu4 = 1818 } # Chikuzen, Buzen -> Chikuzen
+	link = { ck2 = 2470 ck2 = 2469 ck2 = 2468 eu4 = 4184 } # Mimasaka, Bizen, Bitchu -> Bizen
+	link = { ck2 = 2471 eu4 = 1019 } # Harima -> Harima
+	link = { ck2 = 2466 ck2 = 2467 eu4 = 1825 } # Aki, Bingo -> Aki
+	link = { ck2 = 2478 ck2 = 2477 eu4 = 1830 } # Tajima, Inaba -> Tajima
+	link = { ck2 = 2474 ck2 = 2476 ck2 = 2475 eu4 = 1018 } # Izumo, Hoki, Oki -> Izumo
+	link = { ck2 = 2473 eu4 = 4183 } # Iwami -> Iwami
+	link = { ck2 = 2464 ck2 = 2465 eu4 = 1017 } # Nagato, Suo -> Suo
+	link = { ck2 = 2488 ck2 = 2485 ck2 = 2501 eu4 = 1020 } # Iga, Yamashiro, Omi -> Kyoto
+	link = { ck2 = 2479 ck2 = 2480 eu4 = 4185 } # Tango, Tamba -> Tango
+	link = { ck2 = 2511 ck2 = 2510 eu4 = 1023 } # Echizen, Wakasa -> Echizen
+	link = { ck2 = 2505 ck2 = 2504 eu4 = 4188 } # Shinano, Suwa -> Shinano
+	link = { ck2 = 2503 ck2 = 2502 eu4 = 1835 } # Hida, Mino -> Mino
+	link = { ck2 = 2514 ck2 = 2513 ck2 = 2512 eu4 = 1837 } # Etchu, Noto, Kaga -> Etchu
+	link = { ck2 = 2515 ck2 = 2517 ck2 = 2516 eu4 = 1024 } # Sado, Niigata, Kubiki -> Echigo
+	link = { ck2 = 2457 ck2 = 2456 ck2 = 2455 eu4 = 4186 } # Uma, Iyo, Uwa -> Iyo
+	link = { ck2 = 2454 ck2 = 2453 ck2 = 2452 eu4 = 1819 } # Murotsu, Tosa, Hata -> Tosa
+	link = { ck2 = 2460 ck2 = 2459 ck2 = 2458 eu4 = 1820 } # Awaji, Awa, Sanuki -> Awa
+	link = { ck2 = 2484 ck2 = 2483 eu4 = 1832 } # Yamato, Kawatchi -> Yamato
+	link = { ck2 = 2462 ck2 = 2461 eu4 = 4187 } # Kumano, Kii -> Kii
+	link = { ck2 = 2487 ck2 = 2486 ck2 = 2463 eu4 = 4359 } # Ise, Shima, Muro -> Ise
+	link = { ck2 = 2489 eu4 = 1030 } # Owari -> Owari
+	link = { ck2 = 2490 eu4 = 4360 } # Mikawa -> Mikawa
+	link = { ck2 = 2492 ck2 = 2491 eu4 = 1839 } # Suruga, Totomi -> Totomi
+	link = { ck2 = 2493 eu4 = 1029 } # Kai -> Kai
+	link = { ck2 = 2506 eu4 = 1843 } # Kozuke -> Kozuke
+	link = { ck2 = 2496 eu4 = 1028 } # Musashi -> Musashi
+	link = { ck2 = 2495 ck2 = 2494 eu4 = 4189 } # Sagami, Izu -> Sagami
+	link = { ck2 = 2499 ck2 = 2498 ck2 = 2497 eu4 = 4190 } # Shimosa, Kazusa, Bonshu -> Shimousa
+	link = { ck2 = 2500 eu4 = 1027 } # Hitachi -> Hitachi
+	link = { ck2 = 2507 eu4 = 4191 } # Shimotsuke -> Shimotsuke
+	link = { ck2 = 2509 ck2 = 2508 eu4 = 1026 } # Iwaki, Iwashiro -> Mutsu
+	link = { ck2 = 2518 eu4 = 1025 } # Uzen -> Dewa
+	link = { ck2 = 2521 ck2 = 2520 eu4 = 4192 } # Agita, Ugo -> Ugo
+	link = { ck2 = 2524 ck2 = 2523 ck2 = 2522 ck2 = 2519 eu4 = 4131 } # Tsugaru, Rikuo, Rikutyu, Rikuzen -> Nanbu
+	link = { ck2 = 388 eu4 = 1776 } # Karelen -> Karelia
+	link = { ck2 = 1602 eu4 = 32 } # Sortavala -> Kexholm
+	link = { ck2 = 392 eu4 = 30 } # Kexholm -> Viborg
+	link = { ck2 = 1607 ck2 = 383 eu4 = 29 } # Laukaa, Tavasts -> Tavastland
+	link = { ck2 = 1601 eu4 = 4152 } # Kajaani -> Enare
+	link = { ck2 = 1605 ck2 = 390 eu4 = 31 } # Kuopio, Savolaks -> Savolax
+	link = { ck2 = 1599 eu4 = 4124 } # Joensuu -> Kexholm
+	link = { ck2 = 1606 ck2 = 381 eu4 = 28 } # Siuntio, Nyland -> Nyland
+	link = { ck2 = 291 eu4 = 1930 } # Aland -> Åland
+	link = { ck2 = 382 eu4 = 27 } # Finland -> Finland
+	link = { ck2 = 384 eu4 = 4123 } # Satakunta -> Birkaland
+	link = { ck2 = 1600 ck2 = 385 eu4 = 19 } # Oulu, Osterbotten -> Österbotten
+	link = { ck2 = 386 eu4 = 4113 } # Kemi -> Uleaborg
+	link = { ck2 = 1604 eu4 = 4151 } # Rovaniemi -> Kuusamo
+	link = { ck2 = 387 ck2 = 850 eu4 = 1777 } # Kola, Kandalax -> Kola
+	link = { ck2 = 2573 eu4 = 609 } # Angkor -> Siem Reap
+	link = { ck2 = 2346 ck2 = 2345 ck2 = 2344 eu4 = 643 } # Luwuk, Ampana, Poso -> Pose
+	link = { ck2 = 2343 eu4 = 642 } # Bone -> Bone
+	link = { ck2 = 2342 eu4 = 2715 } # Luwu -> Sunning
+	link = { ck2 = 1360 eu4 = 1248 } # Maldives -> Maldives
+	link = { ck2 = 2702 ck2 = 2703 eu4 = 2159 } # Lei, Zhanjiang -> Coast of Iwaki
+	link = { ck2 = 2706 eu4 = 668 } # Oumuhn -> Macau
+	link = { ck2 = 2537 eu4 = 4815 } # Temasek -> Singapura
+	link = { ck2 = 2297 eu4 = 2686 } # Batam -> Quang Ninh
+	link = { ck2 = 2299 eu4 = 659 } # Lingga -> Riau
+	link = { ck2 = 2304 eu4 = 2678 } # Bangka -> Son La
+	link = { ck2 = 2303 eu4 = 2679 } # Belitung -> Dien Bien
+	link = { ck2 = 2321 eu4 = 624 } # Banten -> Banten
+	link = { ck2 = 2322 eu4 = 630 } # Kalapa -> Sunda
+	link = { ck2 = 2323 eu4 = 4790 eu4 = 2687 } # Sukabumi -> West Java, Lang Son
+	link = { ck2 = 2325 eu4 = 625 } # Kawali -> Priangan
+	link = { ck2 = 2324 eu4 = 2688 } # Cirebon -> Bac Kan
+	link = { ck2 = 2326 eu4 = 4792 eu4 = 2689 } # Kendal -> East Kendal, Cao Bang
+	link = { ck2 = 2327 eu4 = 626 } # Karta -> Mataram
+	link = { ck2 = 2328 eu4 = 2690 } # Pajang -> Ha Giang
+	link = { ck2 = 2331 eu4 = 629 } # Demak -> Demak
+	link = { ck2 = 2330 eu4 = 4793 } # Kediri -> South Demak
+	link = { ck2 = 2329 eu4 = 2691 } # Vanagiri -> Kediri
+	link = { ck2 = 2333 eu4 = 4794 } # Malang -> East Kediri
+	link = { ck2 = 2332 eu4 = 628 } # Trowulan -> Surabaya
+	link = { ck2 = 2352 eu4 = 644 } # Manadou -> Menade
+	link = { ck2 = 2351 ck2 = 2350 eu4 = 2713 } # Hulontalangio, Pohuwato -> Rong
+	link = { ck2 = 2348 ck2 = 2349 eu4 = 2714 } # Donggala, Buol -> Guixian
+	link = { ck2 = 2341 ck2 = 2347 eu4 = 4845 } # Mandar, Mamuju -> Mamuju
+	link = { ck2 = 2334 eu4 = 627 } # Blambangan -> Blambangan
+	link = { ck2 = 2335 eu4 = 2692 } # Madura -> Madura
+	link = { ck2 = 2336 eu4 = 631 } # Bali -> Bali-Lombok
+	link = { ck2 = 2337 eu4 = 2693 } # Lombok -> Garze
+	link = { ck2 = 2338 ck2 = 2339 ck2 = 2340 eu4 = 632 } # Taliwang, Sumbawa, Dompu -> Sumbawa
+	link = { ck2 = 1369 eu4 = 1099 } # Socotra -> Socotra
+	link = { ck2 = 1533 eu4 = 4282 eu4 = 391 } # Najran -> Sahda, Najran
+	link = { ck2 = 1535 eu4 = 2346 eu4 = 4278 } # Tihama -> Luwuk, Qunfudhah
+	link = { ck2 = 1531 eu4 = 396 } # Uwal -> Bahrain
+	link = { ck2 = 653 eu4 = 395 eu4 = 2333 } # Bahrein -> Qatar, Malang
+	link = { ck2 = 870 eu4 = 398 eu4 = 397 } # Dhu Zabi -> Qawasim, Bani Yas
+	link = { ck2 = 869 eu4 = 399 eu4 = 4285 eu4 = 403 } # Hajar -> Suhar, Baraimi Oasis, Nizwa
+	link = { ck2 = 868 eu4 = 4286 eu4 = 400 } # Muscat -> Sur, Muscat
+	link = { ck2 = 867 eu4 = 2341 eu4 = 4287 } # Duqm -> Mandar, Ibra
+	link = { ck2 = 866 eu4 = 2342 } # Dhofar -> Luwu
+	link = { ck2 = 855 eu4 = 4284 eu4 = 401 } # Mahra -> Al Ghayda, Dhofar
+	link = { ck2 = 856 eu4 = 4283 eu4 = 402 } # Kathiri -> Shihr, Mahra
+	link = { ck2 = 1534 eu4 = 2343 } # Al Ahqaf -> Bone
+	link = { ck2 = 857 eu4 = 2345 eu4 = 389 } # Bayda -> Ampana, Mukalla
+	link = { ck2 = 860 eu4 = 390 eu4 = 2344 } # Sanaa -> Sana'a, Poso
+	link = { ck2 = 859 eu4 = 4280 eu4 = 4281 } # Taizz -> Taiz, Dhamar
+	link = { ck2 = 858 eu4 = 388 eu4 = 387 } # Aden -> Aden, Mokha
+	link = { ck2 = 1532 eu4 = 4279 } # Zabid -> Zabid
+	link = { ck2 = 2581 eu4 = 4839 } # Ubon Ratchathani -> Ubon
+	link = { ck2 = 2605 ck2 = 2606 eu4 = 1844 } # Xiangkhouang, Hua Phan -> Xiankhouang
+	link = { ck2 = 2607 ck2 = 2603 ck2 = 2604 eu4 = 614 } # Sayabouly, Wiang Jun, Xaisomboun -> Vientiane
+	link = { ck2 = 2610 ck2 = 2608 eu4 = 615 } # Muang Xay, Luang Prabang -> Luang Prabang
+	link = { ck2 = 2612 eu4 = 4837 } # Phongsali -> Muang Ngoi
+	link = { ck2 = 2611 ck2 = 2609 eu4 = 2381 } # Luang Namtha, Bokeo -> Tawao
+	link = { ck2 = 2601 ck2 = 2602 eu4 = 611 } # Khammouan, Bolikhamsai -> Thakhek
+	link = { ck2 = 2600 eu4 = 2382 } # Savannakhet -> Palawan
+	link = { ck2 = 2599 eu4 = 4840 } # Salavan -> Salavan
+	link = { ck2 = 2596 eu4 = 608 } # Pakxe -> Champassak
+	link = { ck2 = 2671 eu4 = 1022 } # Indrapura -> Amaravati
+	link = { ck2 = 2670 eu4 = 4822 } # Amaravati -> Amaravati
+	link = { ck2 = 2668 ck2 = 2669 eu4 = 607 } # Vijaya, Binh Dinh -> Vijaya
+	link = { ck2 = 2667 eu4 = 2374 } # Kauthara -> Kapit
+	link = { ck2 = 2666 eu4 = 606 } # Panduranga -> Panduranga
+	link = { ck2 = 2575 eu4 = 4826 } # Koh Kong -> Kampot
+	link = { ck2 = 2576 eu4 = 604 } # Angkor Borei -> Udong
+	link = { ck2 = 2574 eu4 = 4825 } # Pursat -> Pursat
+	link = { ck2 = 2579 eu4 = 4827 } # Sambor Prei Kuk -> Kampom Pous Thom
+	link = { ck2 = 2589 ck2 = 2590 eu4 = 2380 } # Vyadhapura, Vat Nokor -> Sandakan
+	link = { ck2 = 2591 eu4 = 4829 } # Binh Long -> Raung Dapey
+	link = { ck2 = 2592 ck2 = 2594 eu4 = 2378 } # Kratie, Mondulkiri -> Tambunan
+	link = { ck2 = 2593 ck2 = 2595 eu4 = 1823 } # Stung Treng, Ratanakiri -> Stung Treng
+	link = { ck2 = 2580 eu4 = 4828 } # Preah Vihear -> Preah Vihear
+	link = { ck2 = 2572 ck2 = 2578 eu4 = 2379 } # Battambang, Banteay Meanchey -> Kota Marudu
+	link = { ck2 = 2588 eu4 = 605 eu4 = 2376 } # Prey Nokor -> Prei Nokoi, Miri
+	link = { ck2 = 2577 eu4 = 2377 } # Oc Eo -> Limbang
+	link = { ck2 = 2451 eu4 = 4651 } # Tsushima -> Tsushima
+	link = { ck2 = 2947 eu4 = 2741 } # Jeju -> Nanping
+	link = { ck2 = 2433 ck2 = 2434 ck2 = 2438 ck2 = 2437 ck2 = 2436 ck2 = 2435 eu4 = 1015 } # Yaeyama, Miyakojima, Amami, Hokuzan, Chuzan, Nanzan -> Okinawa
+	link = { ck2 = 2428 ck2 = 2429 ck2 = 2430 eu4 = 2155 } # Penghu, Changua, Hai'an -> Sea of Japan
+	link = { ck2 = 2427 ck2 = 2426 eu4 = 738 } # Tainan, Taitung -> Taiwan
+	link = { ck2 = 2432 ck2 = 2431 eu4 = 2154 } # Taipei, Taichung -> Coast of Echizen
+	link = { ck2 = 2701 eu4 = 666 } # Yazhou -> Hainan
+	link = { ck2 = 2700 ck2 = 2699 ck2 = 2698 eu4 = 2160 } # Qiongzhou, Wananzhou, Zhenzhou -> Coast of Echigo
+	link = { ck2 = 2242 eu4 = 1140 } # Abomey -> Abomey
+	link = { ck2 = 2246 eu4 = 2252 } # Lobi -> Guinea
+	link = { ck2 = 2248 eu4 = 1125 } # Kong -> Worodugu
+	link = { ck2 = 1758 eu4 = 2253 } # Bobo Dyulasso -> Gambela
+	link = { ck2 = 925 eu4 = 2249 eu4 = 2250 eu4 = 1124 } # Mali -> Bagoe, Futa Jallon, Wasuju
+	link = { ck2 = 2249 eu4 = 1122 } # Bagoe -> Konian
+	link = { ck2 = 1754 eu4 = 2268 } # Songhay -> Lamuri
+	link = { ck2 = 914 eu4 = 1133 } # Gao -> Gao
+	link = { ck2 = 1755 eu4 = 1142 } # Dendi -> Dendi
+	link = { ck2 = 1747 eu4 = 2279 } # Daura -> Batu
+	link = { ck2 = 1746 eu4 = 1155 } # Kano -> Kano
+	link = { ck2 = 1738 eu4 = 2274 } # Air -> Peureulak
+	link = { ck2 = 1753 eu4 = 2270 } # Dyamare -> Lamun
+	link = { ck2 = 1752 eu4 = 2278 } # Kebbi -> Nias
+	link = { ck2 = 1750 eu4 = 1150 } # Zamfara -> Zamfara
+	link = { ck2 = 1751 eu4 = 1149 } # Katsina -> Katsina
+	link = { ck2 = 1741 eu4 = 2287 eu4 = 2286 } # Makari -> Tapanuli, Bahal
+	link = { ck2 = 1745 eu4 = 1161 eu4 = 2281 } # Bauchi -> Bauchi, Asahan
+	link = { ck2 = 1742 eu4 = 1160 eu4 = 2285 } # Kagha -> Bornu, Panai
+	link = { ck2 = 2264 eu4 = 1206 } # Qardho -> Mayertern
+	link = { ck2 = 2263 eu4 = 2792 } # Togdheer -> Anshun
+	link = { ck2 = 2261 eu4 = 1210 } # Dawaro -> Ifat
+	link = { ck2 = 2259 eu4 = 1218 } # Sidamo -> Kefa
+	link = { ck2 = 2254 eu4 = 2757 } # Kaffa -> Hechi
+	link = { ck2 = 2257 eu4 = 2756 } # Welayta -> Shanghai
+	link = { ck2 = 876 eu4 = 2787 } # Akordat -> Youyang
+	link = { ck2 = 1414 eu4 = 4409 } # Kotthasara -> Trincomale
+	link = { ck2 = 1279 eu4 = 4407 } # Rohana -> Ruhunu
+	link = { ck2 = 1215 eu4 = 572 } # Dakhina Desa -> Kotte
+	link = { ck2 = 3003 ck2 = 3004 ck2 = 3005 eu4 = 1033 } # Sumari, Poronay, Orokot -> Sakhalin
+	link = { ck2 = 2532 eu4 = 1032 } # Chupka -> Kurils
+	link = { ck2 = 2531 ck2 = 2530 eu4 = 1852 } # Nimuoro, Tokapusi -> Tokachi
+	link = { ck2 = 2534 ck2 = 2536 ck2 = 2535 eu4 = 1031 } # Teso, Soya, Mopet -> Kamikawa
+	link = { ck2 = 2527 ck2 = 2528 ck2 = 2529 eu4 = 1847 } # Usoro, Sar, Peniunkur -> Shiribeshi
+	link = { ck2 = 2525 ck2 = 2526 eu4 = 4193 } # Horepasi, Ioci -> Oshima
+	link = { ck2 = 2266 ck2 = 2267 eu4 = 574 } # Andamans, Nicobar -> The Andamans
+	link = { ck2 = 1195 eu4 = 4408 eu4 = 2099 } # Phiti -> Salavata, Northern Coast of Panay
+	link = { ck2 = 1194 eu4 = 2100 } # Nagadipa -> Sibuyan Sea
+	link = { ck2 = 1437 eu4 = 2766 } # Tigrinya -> Hengzhou
+	link = { ck2 = 884 eu4 = 1213 } # Antalo -> Shoa
+	link = { ck2 = 2260 eu4 = 2761 } # Arsi -> Hezhou
+	link = { ck2 = 2258 eu4 = 2760 } # Hadiya -> Wuzhou
+	link = { ck2 = 2256 eu4 = 4158 } # Janjilo -> Janjero
+	link = { ck2 = 2253 eu4 = 2759 } # Gambela -> Guizhou
+	link = { ck2 = 2255 eu4 = 2758 } # Ennarea -> Liuzhou
+	link = { ck2 = 1379 eu4 = 2764 eu4 = 2768 } # Asaita -> Nandan, Yuanzhou
+	link = { ck2 = 873 eu4 = 1211 eu4 = 2773 } # Harer -> Harer, Dingcheng
+	link = { ck2 = 881 eu4 = 2763 eu4 = 2770 } # Asosa -> Chenzhou, Yueyang
+	link = { ck2 = 1428 eu4 = 2762 } # Damot -> Lianzhou
+	link = { ck2 = 885 eu4 = 2772 } # Matamma -> Anxiang
+	link = { eu4 = 2771 } # NOTHING -> Yiyang
+	link = { ck2 = 883 eu4 = 1224 } # Gondar -> Gonder
+	link = { ck2 = 1280 eu4 = 1223 } # Gojjam -> Gojjam
+	link = { ck2 = 882 eu4 = 2791 } # Ankober -> Juzhou
+	link = { ck2 = 1343 eu4 = 1230 } # Massawa -> Massawa
+	link = { ck2 = 1373 eu4 = 2765 } # Assab -> Yongzhou
+	link = { ck2 = 2262 eu4 = 1208 } # Degehabur -> Haud
+	link = { ck2 = 1344 eu4 = 1212 eu4 = 2793 } # Zeila -> Zeila, Zunyi
+	link = { ck2 = 872 eu4 = 1209 eu4 = 2790 eu4 = 2789 eu4 = 2786 } # Berbera -> Berbera, Yuqing, Yinjiang, Chongqing
+	link = { ck2 = 2265 eu4 = 2024 eu4 = 2784 eu4 = 2778 } # Garoowe -> Northern Coast of Sumbawa, Wufeng, Chengbu
+	link = { ck2 = 871 eu4 = 2788 } # Busaso -> Chishui
+	link = { ck2 = 874 eu4 = 1215 } # Tadjoura -> Tajura
+	link = { ck2 = 1771 eu4 = 774 } # Ennedi -> Al Junaynah
+	link = { ck2 = 1769 eu4 = 2288 } # Fitri -> Agam
+	link = { ck2 = 1770 eu4 = 2932 } # Wadai -> Gaeseong
+	link = { ck2 = 1725 eu4 = 2472 } # Suf -> MISSING PROV
+	link = { ck2 = 1724 eu4 = 2450 } # Nalut -> Iki
+	link = { ck2 = 1723 eu4 = 4567 } # Nafusa -> Sabha
+	link = { ck2 = 1722 eu4 = 2449 } # Tadjrift -> Chikuzen
+	link = { ck2 = 1731 eu4 = 2474 } # Zawila -> Izumo
+	link = { ck2 = 1730 eu4 = 2448 } # Murzuk -> Buzen
+	link = { ck2 = 1732 eu4 = 2475 } # Djado -> Oki
+	link = { ck2 = 1735 eu4 = 2277 } # Bilma -> Simeulue
+	link = { ck2 = 1737 eu4 = 2282 eu4 = 1156 eu4 = 2275 } # Fachi -> Siberut, Damagaram, Aru
+	link = { ck2 = 1736 eu4 = 2284 } # Manan -> Pagai
+	link = { ck2 = 1744 eu4 = 2280 eu4 = 2283 } # Munio -> Mandailing, Sipura
+	link = { ck2 = 1743 eu4 = 1157 } # Bornu -> Damasak
+	link = { ck2 = 1740 eu4 = 1159 } # Masseniya -> Bagirmi
+	link = { ck2 = 1739 eu4 = 1158 } # Djimi -> Kanem
+	link = { ck2 = 1748 eu4 = 1148 } # Gobir -> Gobir
+	link = { ck2 = 2235 eu4 = 1154 eu4 = 1153 } # Zazzau -> Zazzau, Pindinga
+	link = { ck2 = 2239 eu4 = 2292 } # Mossi -> Pelalawan
+	link = { ck2 = 2237 eu4 = 1145 eu4 = 2293 } # Nupe -> Nupe, Kuantan Singingi
+	link = { ck2 = 2233 eu4 = 1249 } # Yola -> Yola
+	link = { ck2 = 2234 eu4 = 1162 eu4 = 1152 } # Wukari -> Wukari, Idah
+	link = { ck2 = 2236 eu4 = 1146 } # Igala -> Ife
+	link = { ck2 = 2238 eu4 = 1144 eu4 = 2291 } # Oyo -> Oyo, Bengkalis
+	link = { ck2 = 2241 eu4 = 2295 } # Atakora -> Pesisir Selatan
+	link = { ck2 = 1756 eu4 = 2264 eu4 = 2265 } # Kurumba -> Qardho, Garoowe
+	link = { ck2 = 1757 eu4 = 1135 eu4 = 2263 } # Yatenga -> Yatenga, Togdheer
+	link = { ck2 = 1759 eu4 = 1137 eu4 = 2266 } # Wagadougou -> Wagadugi, Andamans
+	link = { ck2 = 911 eu4 = 1132 eu4 = 2262 } # Timbuktu -> Timbuktu, Degehabur
+	link = { ck2 = 915 eu4 = 1134 eu4 = 2261 eu4 = 2259 } # Djenne -> Jenne, Dawaro, Sidamo
+	link = { ck2 = 2240 eu4 = 1143 } # Borgu -> Borgu
+	link = { ck2 = 2243 eu4 = 2267 } # Tenkodogo -> Nicobar
+	link = { ck2 = 2244 eu4 = 2256 } # Dagbon -> Janjilo
+	link = { ck2 = 2245 eu4 = 1138 } # Kumasi -> Kumasi
+	link = { ck2 = 2247 eu4 = 2254 } # Bonoman -> Kaffa
+	link = { ck2 = 928 eu4 = 1136 } # Gurma -> Gurma
+	link = { ck2 = 926 eu4 = 1120 eu4 = 2238 eu4 = 1114 } # Bambuk -> Bambuk, Oyo, Gabu
+	link = { ck2 = 1761 eu4 = 1121 } # Bure -> Bure
+	link = { ck2 = 2250 eu4 = 1117 } # Futa Jallon -> Futa Jallon
+	link = { ck2 = 2251 eu4 = 2241 } # Beafada -> Atakora
+	link = { ck2 = 36 eu4 = 369 } # Orkney -> Orkney
+	link = { ck2 = 34 eu4 = 1978 } # Shetland -> Shetlands
+	link = { ck2 = 33 eu4 = 1979 } # Faereyar -> Färöarnax
+	link = { ck2 = 52 ck2 = 56 eu4 = 246 } # Northumberland, Durham -> Northumberland
+	link = { ck2 = 66 ck2 = 17 ck2 = 30 eu4 = 240 } # Shrewsbury, Hereford, Worcester -> Shrewsbury
+	link = { ck2 = 62 eu4 = 4376 } # Leicester -> Leicester
+	link = { ck2 = 1943 eu4 = 245 } # Yoredale -> Yorkshire
+	link = { ck2 = 1942 eu4 = 4785 } # Leeds -> Sheffield
+	link = { ck2 = 1952 eu4 = 4379 } # Westmeath -> Middlands
+	link = { ck2 = 8 ck2 = 1955 eu4 = 4119 } # Breifne, Hy-Many -> Sligo
+	link = { ck2 = 13 eu4 = 375 } # Thomond -> Munster
+	link = { ck2 = 15 ck2 = 12 eu4 = 4118 } # Ormond, Ossory -> Desmond
+	link = { ck2 = 1953 eu4 = 4377 } # Leix -> Ormond
+	link = { ck2 = 10 eu4 = 4120 } # Kildare -> Kildare
+	link = { ck2 = 11 ck2 = 1951 eu4 = 373 } # Dublin, Meath -> Meath
+	link = { ck2 = 16 eu4 = 374 } # Leinster -> Leinster
+	link = { ck2 = 14 ck2 = 1938 eu4 = 4378 } # Desmond, Iarmond -> Kinsale
+	link = { ck2 = 9 ck2 = 1954 eu4 = 376 } # Connacht, Ui Fiachrach -> Connaught
+	link = { ck2 = 3 eu4 = 4380 } # Tyrconnell -> Donegal
+	link = { ck2 = 4 ck2 = 7 eu4 = 372 } # Tyrone, Oriel -> Tyrone
+	link = { ck2 = 5 eu4 = 4121 } # Ulster -> Ulster
+	link = { ck2 = 67 eu4 = 4372 } # Warwick -> Coventry
+	link = { ck2 = 63 eu4 = 1861 } # Derby -> Derby
+	link = { ck2 = 22 eu4 = 237 } # Oxford -> Oxfordshire
+	link = { ck2 = 68 eu4 = 4370 } # Northampton -> Cambridgeshire
+	link = { ck2 = 61 eu4 = 243 } # Lincoln -> Lincoln
+	link = { ck2 = 1941 eu4 = 4367 } # Hull -> Hull
+	link = { ck2 = 57 eu4 = 4368 } # York -> Scarborough
+	link = { ck2 = 59 eu4 = 4375 } # Chester -> Chester
+	link = { ck2 = 58 eu4 = 244 } # Lancaster -> Lancashire
+	link = { ck2 = 53 ck2 = 55 eu4 = 247 } # Cumberland, Westmorland -> Cumbria
+	link = { ck2 = 32 ck2 = 69 eu4 = 236 } # Middlesex, Bedford -> London
+	link = { ck2 = 71 ck2 = 70 eu4 = 1860 } # Suffolk, Norfolk -> Norfolk
+	link = { ck2 = 72 eu4 = 238 } # Essex -> Essex
+	link = { ck2 = 1944 ck2 = 21 eu4 = 239 } # Bath, Gloucester -> Gloucestershire
+	link = { ck2 = 73 eu4 = 235 } # Kent -> Kent
+	link = { ck2 = 25 ck2 = 24 eu4 = 4371 } # Sussex, Surrey -> Sussex
+	link = { ck2 = 26 ck2 = 23 ck2 = 1950 eu4 = 234 } # Winchester, Wiltshire, Wight -> Wessex
+	link = { ck2 = 27 eu4 = 4374 } # Dorset -> Dorset
+	link = { ck2 = 28 eu4 = 4130 } # Somerset -> Somerset
+	link = { ck2 = 29 eu4 = 4373 } # Devon -> Devon
+	link = { ck2 = 31 eu4 = 233 } # Cornwall -> Cornwall
+	link = { ck2 = 65 ck2 = 1947 eu4 = 4366 } # Powys, Builth -> Montgomery
+	link = { ck2 = 1946 ck2 = 19 ck2 = 20 ck2 = 1945 eu4 = 241 } # Gower, Glamorgan, Gwent, Brycheiniog -> Glamorgan
+	link = { ck2 = 1948 ck2 = 18 eu4 = 4369 } # Ceredigion, Dyfed -> Carmarthen
+	link = { ck2 = 1949 ck2 = 64 ck2 = 60 eu4 = 242 } # Angseley, Gwynedd, Perfeddwlad -> Gwynedd
+	link = { ck2 = 54 eu4 = 4365 } # Isle of Man -> Mann
+	link = { ck2 = 41 ck2 = 43 eu4 = 251 } # Buchan, Gowrie -> Aberdeen
+	link = { ck2 = 44 eu4 = 250 } # Atholl -> Perth
+	link = { ck2 = 42 ck2 = 46 ck2 = 48 eu4 = 248 } # Strathearn, Fife, Lothian -> Lothian
+	link = { ck2 = 51 eu4 = 4361 } # Dunbar -> East March
+	link = { ck2 = 38 eu4 = 4362 } # Teviotdale -> West March
+	link = { ck2 = 47 ck2 = 49 ck2 = 50 eu4 = 249 } # Clydesdale, Carrick, Galloway -> Ayrshire
+	link = { ck2 = 1939 eu4 = 4364 } # Iona -> Inner Hebrides
+	link = { ck2 = 45 eu4 = 4363 } # Argyll -> Argyll
+	link = { ck2 = 40 eu4 = 252 } # Moray -> Inverness
+	link = { ck2 = 35 eu4 = 253 } # Innse Gall -> Outer Hebrides
+	link = { ck2 = 37 ck2 = 39 eu4 = 4110 } # Caithness, Ross -> Sutherland
+	link = { ck2 = 1616 ck2 = 2 eu4 = 371 } # Nordlendingafjordungur, Austisland -> Akureyri
+	link = { ck2 = 1 ck2 = 1617 eu4 = 370 } # Vestisland, Sunnlendingafjordungur -> Reykjavik
+	link = { ck2 = 2180 eu4 = 1804 } # Greenland -> Greenland
+}

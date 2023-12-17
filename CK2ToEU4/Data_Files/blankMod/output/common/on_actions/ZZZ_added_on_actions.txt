@@ -1,30 +1,11 @@
 #Check for reformed religions in a "HISTORICAL" start
 on_startup = {
 	########### VANILLA
-	if = {
-		limit = {
-			current_age = age_of_discovery
-		}
-		LXA = {
-			if = {
-				limit = {
-					NOT = { has_country_flag = lxa_loyalty_flag }
-				}
-				add_estate_loyalty = {
-					estate = estate_church
-					loyalty = -10
-				}
-				set_country_flag = lxa_loyalty_flag
-			}
-		}
-	}
 	emperor = {
 		save_global_event_target_as = Emperor
 	}
 	if = {
-		limit = {
-			is_emperor_of_china = yes
-		}
+		limit = { is_emperor_of_china = yes }
 		save_global_event_target_as = EmperorOfChina
 	}
 	events = {
@@ -33,140 +14,126 @@ on_startup = {
 		flavor_mng.42 #Event for the starting situation of the Ming 
 		#flavor_fra.15000 #Make the French Revolution happen if starting in 1789
 		flavor_mos.1 #Event regarding the Tatar Yoke
+		flavor_fra.206 # Setup the general for missions
+		flavor_geo.1 # Disaster info
+		flavor_mam.111 # Mamluks-Syria relations
 	}
-	if = {
-		limit = {
-			has_dlc = "Cradle of Civilization"
-			has_country_modifier = tur_janissary
-		}
-		remove_country_modifier = tur_janissary
-	}
+	on_startup_effect = yes
+	on_startup_dlc_cleanup_effect = yes
 	initialize_schools_effect = yes #This is only used here but is used for readability of on_action file.
+}
 
-	if = {
-		limit = {
-			NOT = { has_country_flag = new_flavour_bav_13_has_been_triggered }
-			OR = {
-				tag = UBV
-				tag = LBV
-				tag = ING
-			}
-		}
-		set_country_flag = new_flavour_bav_13_has_been_triggered
-		country_event = { id = new_flavour_bav.13 days = 90 } #better not to allow almost instant DOWs
+# country
+on_religion_change = {
+	on_religion_change_effect = yes
+	on_religion_change_estate_privileges_effect = yes
+	judaism_on_religion_change_effect = yes
+	events = {
+		muslim_school_events.20 #Pick School
+		propagate_religion_events.7 #Propagated Country is now Muslim
 	}
-	if = {
-		limit = {
-			tag = FRA
-			started_in = 1789.7.14
-			NOT = { is_year = 1790 }
-			NOT = { has_disaster = french_revolution }
-		}
-		add_disaster_progress = {
-			value = 100
-			disaster = french_revolution
-		}
-	}
-	if = {
-		limit = {
-			exists = SUK
-		}
-		SUK = {
-			set_ruler_flag = suk_monarch_flag
-		}
-		AYU = {
-			set_country_flag = ayu_monarch_flag
-		}
-	}
-	#if = {
-	#	limit = {
-	#		OR = {
-	#			primary_culture = norse
-	#			AND = {
-	#				culture_group = scandinavian
-	#				religion = norse_pagan_reformed
-	#			}
-	#		}
-	#		NOT = { has_idea_group = norse_ideas }
-	#		is_playing_custom_nation = no
-	#	}
-	#	country_event = { id = ideagroups.1 } #Swap Ideas
-	#}
-	if = {
-		limit = { 
-			has_dlc = "Domination" 
-			tag = FRA 
-			NOT = { is_year = 1445 } 
-		}
-		country_event = { id = flavor_fra.206 }
-	}
-	if = {
-		limit = {
-			NOT = { has_global_flag = end_of_the_tatar_yoke }
-			owns = 466
-			is_year = 1480
-		}
-		set_global_flag = end_of_the_tatar_yoke
-	}
-	if = {
-		limit = {
-			OR = {
-				has_country_modifier = rise_of_the_ottomans
-				has_country_modifier = zenith_of_the_ottomans
-				has_country_modifier = twilight_of_the_ottomans
-				has_country_modifier = decline_of_the_ottomans
-			}
-		}
-		remove_country_modifier = rise_of_the_ottomans
-		remove_country_modifier = zenith_of_the_ottomans
-		remove_country_modifier = twilight_of_the_ottomans
-		remove_country_modifier = decline_of_the_ottomans
-	}
-	if = {
-		limit = {
-			has_government_mechanic = ottoman_decadence_mechanic
-			current_age = age_of_discovery
-		}
-		add_country_modifier = {
-			name = rise_of_the_ottomans
-			duration = -1
-			desc = until_end_of_age_desc
-		}
-	}
-	if = {
-		limit = {
-			has_government_mechanic = ottoman_decadence_mechanic
-			current_age = age_of_reformation
-		}
-		add_country_modifier = {
-			name = zenith_of_the_ottomans
-			duration = -1
-			desc = until_end_of_age_desc
-		}
-	}
-	if = {
-		limit = {
-			has_government_mechanic = ottoman_decadence_mechanic
-			current_age = age_of_absolutism
-		}
-		add_country_modifier = {
-			name = twilight_of_the_ottomans
-			duration = -1
-			desc = until_end_of_age_desc
-		}
-	}
-	if = {
-		limit = {
-			has_government_mechanic = ottoman_decadence_mechanic
-			current_age = age_of_revolutions
-		}
-		add_country_modifier = {
-			name = decline_of_the_ottomans
-			duration = -1
-			desc = until_end_of_age_desc
-		}
-	}
+}
 
+# country.
+on_secondary_religion_change = {
+	# Done from code: add_prestige = -50 (Define: CHANGE_SECONDARY_PRESTIGE_HIT)
+	on_secondary_religion_change_estate_privileges_effect = yes
+	every_owned_province = {
+		limit = { has_province_modifier = tengri_monastic_order }
+		remove_province_modifier = tengri_monastic_order
+	}
+	every_owned_province = {
+		limit = { has_province_modifier = tengri_shiite_settled_in_capital }
+		remove_province_modifier = tengri_shiite_settled_in_capital
+	}
+	every_owned_province = {
+		limit = { has_province_modifier = tengri_insincere_leadership }
+		remove_province_modifier = tengri_insincere_leadership
+	}
+	every_owned_province = {
+		limit = { has_province_modifier = tengri_religious_influx }
+		remove_province_modifier = tengri_religious_influx
+	}
+	every_owned_province = {
+		limit = { has_province_modifier = tengri_ruler_questioned }
+		remove_province_modifier = tengri_ruler_questioned
+	}
+	every_owned_province = {
+		limit = { has_province_modifier = tengri_strengthened_local_clans }
+		remove_province_modifier = tengri_strengthened_local_clans
+	}
+	every_owned_province = {
+		limit = { has_province_modifier = tengri_growing_cities }
+		remove_province_modifier = tengri_growing_cities
+	}
+	every_owned_province = {
+		limit = { has_province_modifier = tengri_christian_mission }
+		remove_province_modifier = tengri_christian_mission
+	}
+	every_owned_province = {
+		limit = { has_province_modifier = tengri_unchristian_values }
+		remove_province_modifier = tengri_unchristian_values
+	}
+	every_owned_province = {
+		limit = { has_province_modifier = tengri_monastic_order }
+		remove_province_modifier = tengri_monastic_order
+	}
+	every_owned_province = {
+		limit = { has_province_modifier = hindufication }
+		remove_province_modifier = hindufication
+	}
+	every_owned_province = {
+		limit = { has_province_modifier = tengri_influx_of_monks }
+		remove_province_modifier = tengri_influx_of_monks
+	}
+	every_owned_province = {
+		limit = { has_province_modifier = tengri_abandoning_the_old_ways }
+		remove_province_modifier = tengri_abandoning_the_old_ways
+	}
+	remove_country_modifier = tengri_devout_muslim
+	remove_country_modifier = tengri_confucian_elites_alienated
+	remove_country_modifier = tengri_confucian_titles
+	remove_country_modifier = tengri_traditionalists_strengthened
+	remove_country_modifier = tengri_confucian_nobles
+	remove_country_modifier = tengri_pali_legal_traditions
+	remove_country_modifier = tengri_religious_pilgrimages
+	remove_country_modifier = tengri_monks_in_capital
+	remove_country_modifier = tengri_influx_of_monks
+	remove_country_modifier = tengri_shiite_immigration
+	remove_country_modifier = support_of_the_khojas
+	remove_country_modifier = black_shamanism_modifier
+	remove_country_modifier = tengri_animist_pantheon
+	remove_country_modifier = zoroastrian_traders
+	remove_country_modifier = spread_of_tengri_tea_ceremony
+	remove_country_modifier = tengri_tea_ceremony
+	remove_country_modifier = tengri_japanese_swordsmithing
+	remove_country_modifier = tengri_bow_and_arrow_defended
+	remove_country_modifier = tengri_support_of_shamans
+	remove_country_modifier = tengri_hindu_conflict
+	remove_country_modifier = tengri_hindu_syncretism
+	remove_country_modifier = tengri_devout_christian_ruler
+	remove_country_modifier = tengri_personal_confessor
+	remove_country_modifier = tengri_confucian_administrators
+	remove_country_modifier = tengri_traditional_elites_alienated
+	remove_country_modifier = tengri_jihad
+	remove_country_modifier = tengri_stood_up_for_yassa
+	remove_country_modifier = tengri_sufi_teacher
+	remove_country_modifier = tengri_qadi
+	remove_country_modifier = tengri_religious_influx
+	remove_country_modifier = tengri_ibadi_scholars
+	remove_country_modifier = tengri_clergy_conflicts
+	remove_country_modifier = tengri_shamans_spurned
+	clr_country_flag = khojas_established
+	clr_country_flag = tengri_christian_devout_court
+	clr_ruler_flag = tengri_muslim_ruler_questioned
+	if = {
+		limit = {
+			check_variable = { which = khojas_retained value = 1 }
+		}
+		set_variable = {
+			which = khojas_retained value = 0
+		}
+	}
 	############MODDED
 	if = {
 		limit = { NOT = { has_global_flag = ZZZ_enhanced_random_world } }
@@ -349,10 +316,23 @@ on_startup = {
 #Scripted effect for Extra Fetishist cult mechanics.
 on_battle_lost_country = {
 	#VANILLA
-	#battle_cult_spreading_effect = yes #Scripted effect for fetishist cult mechanics.
+	on_battle_ended_effect = yes
+	battle_cult_spreading_effect = yes #Scripted effect for fetishist cult mechanics.
 	random_events = {
 		90 = 0
 		10 = friendship_events.1 #Historical Friendship Broken
+	}
+	if = {
+		limit = { 
+			OR = {
+				is_or_was_tag = { tag = QAR }
+				is_or_was_tag = { tag = AKK }
+			}
+			FROM = {
+				tag = TUR
+			}
+		}
+		set_country_flag = turkoman_hasnt_lost_battle_to_ottomans
 	}
 	#MODDED
 	ZZZ_enhanced_converter_battle_cult_spreading_effect = yes
@@ -364,7 +344,6 @@ on_province_owner_change = {
 		japan.1			#Fall of the current Shogun
 		flavor_tur.207	#Victory over the Knights
 	}
-
 	on_province_owner_change_government_effect = yes
 
 	if = {
@@ -385,14 +364,14 @@ on_province_owner_change = {
 	}
 	on_province_owner_change_estate_privileges_effect = yes
 	imperial_modifiers_on_province_change_culture_or_change_owner_effect = yes
-
+	
 	if = {
 		limit = {
 			region = indo_china_region
 			has_building = farm_estate
 			trade_goods = grain
 			owner = {
-				has_mission = mnd_khm_irrigation
+				has_mission = mnd_khm_irrigation 
 				NOT = {
 					OR = {
 						has_estate = estate_vaisyas
@@ -420,6 +399,16 @@ on_province_owner_change = {
 			duration = -1
 		}
 	}
+	
+	if = {
+		limit = {
+			province_id = 379
+			owner = {
+				NOT = { religion = jewish }
+			}
+		}
+		remove_country_modifier = third_temple_country_modifier
+	}
 	if = {
 		limit = {
 			owner = {
@@ -433,16 +422,6 @@ on_province_owner_change = {
 			duration = -1
 			desc = son_fetishism_as_secondary_religion_province_desc
 		}
-	}
-
-	if = {
-		limit = {
-			province_id = 379
-			owner = {
-				NOT = { religion = jewish }
-			}
-		}
-		remove_country_modifier = third_temple_country_modifier
 	}
 	else_if = {
 		limit = {
@@ -462,7 +441,32 @@ on_province_owner_change = {
 		}
 		remove_province_modifier = jap_gokaido_modifier
 	}
-
+	if = {
+		limit = { 
+			owner = { 
+				has_government_attribute = more_15_manpower_in_heathen_provinces
+			}
+			NOT ={ religion_group = owner }
+			NOT = { has_province_modifier = ottoman_siyasah_tax_reform_manpower }
+		}
+		add_province_modifier = {
+			name = ottoman_siyasah_tax_reform_manpower
+			duration = -1
+		}
+	}
+	if = {
+		limit = { 
+			owner = { 
+				has_government_attribute = more_15_manpower_in_heathen_provinces
+			}
+			NOT ={ religion_group = owner }
+			NOT = { has_province_modifier = ottoman_siyasah_tax_reform_manpower }
+		}
+		add_province_modifier = {
+			name = ottoman_siyasah_tax_reform_manpower
+			duration = -1
+		}
+	}
 	###########  MODDED
 	if = {
 		limit = {
