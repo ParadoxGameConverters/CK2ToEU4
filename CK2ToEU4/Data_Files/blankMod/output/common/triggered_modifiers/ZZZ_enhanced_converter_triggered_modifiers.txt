@@ -10,6 +10,23 @@ ZZZ_enhanced_unreformed_religion = {
 			religion = hellenic_pagan
 			religion = zun_pagan
 			religion = bon
+			religion = canaanite_pagan
+			religion = druidic_pagan
+			religion = sumerian_pagan
+			religion = cybelene_pagan
+			religion = zalmoxian_pagan
+			religion = arabic_pagan
+			religion = khaldic_pagan
+			religion = armazic_pagan
+			religion = iberian_pagan
+			religion = heptadic_pagan
+			religion = megalithic_pagan
+			religion = ritualistic_pagan
+			religion = illyric_pagan
+			religion = waaqi_pagan
+			religion = marite_pagan
+			religion = nuragic_pagan
+			religion = bamar_pagan
 		}
 	}
 

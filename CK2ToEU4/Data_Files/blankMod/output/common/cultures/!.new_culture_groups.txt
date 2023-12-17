@@ -177,6 +177,46 @@ barbaro_germanic = {
 		male_names = { Agriwulfa Aspar Ataulfo Bigeli Braga Brandila Cannabao Colias Fastida Feletheo Galindo Gerung Heldebaldo Hermenigildo Hrodrigo Hunigild Ibba Inna Modare Naulabato Rausimodo Recaredo Rodolfo Sigisvulto Theodemer Theudi Valaravans Veduco Viliaro Visimar }
 		dynasty_names = { Aniano Ariari Arius Ataulph Atharid Baduila Cyrila Farnobio Feva Fretela Friderico Gaiseri Gundeharo Heldefred Hermangild Hernegliscu Hildebado Huml Hunimund Leuvibild Nidada Retemeri Rhima Saphrax Sueridu Sunnia Theoderi Tribigild Videric Vidimiro }
 	}
+	wigazan = {
+		male_names = { Adoric Agriulfum Anila Argiovit Ariamir Audeca Becilla Chararici Commund Eboric Ermaric Framta Frumari Garding Gomedei Heremigari Hermeric Hildemir Ilderic Malaric Maldras Massila Miro Neufila Nitigisi Pantard Rechiari Rechila Rechimund Remismund Remisol Rodomiro Sunila Theudomir Uittimer Veremund }
+		dynasty_names = { Adler Adrabaecampi Baemoi Batin Daimler Dengler Eberle Elser Ensselin Groner Hegelin Heinkelin Holderelin Idanha Kepler Kiesinger Laemmle Lugo Marcomanni Naristi Ourense Racatria Rommelin Sudini Suiones Tui Viseu Wekerle }
+	}
+	anglo_suebi = {
+		male_names = { 
+			Ædekisor Ædikrik Ægimadüs Ægriulfum Ælamirond Ælgæsster Ænila Ænsuaror Ærgorvitüs Æriamir Ærosinda Æudeka
+			Badamundüs Bædemariüs Bædereidik Bætariüs Baudemirond Bekilla Berteirond Bonesindüs Boniza Kagildik Kartemirond
+			Scharæeriki Kommundüs Krodemirond Dagareidüs Daildüs Damirond Dokemirond Donazariüs Donegildüs Dulkemirüs Eborik
+			Egenor Eimirond Eirigu Eisindüs Eldegotüs Eldesindüs Elperiko Engomirond Ensædüs Ermarik Evosindik Fagildüs
+			Felmirond Fræenk Fræemuldik Freidikædüs Froatingüs Fromildüs Frumeirond Gardingüs Gaudesindik Gomeidei
+			Gomulfüs Gresumarüs Gudesteüs Gumariüs Gundivædik Guntato Gunterotis Heremigar Hermerik Hespanisko Hildemir
+			Hilderik Hunisko Hunisküs Lödegæssti Löderigüs Lödulfüs Lövædik Lodemirond Magitüs Mæareidüs Mæarik Mædræss
+			Markosendüs Mæsssilan Mervigiüs Mirond Moderidik Nandariküs Nantildik Neufila Nitigis Notariüs Odamirond Odemundüs
+			Oderiküs Onemirond Onoriküs Osdulfüs Osoriko Ostromirüs Otuædik Pabregildüs Pantard Pantinüs Pappinüs Peideræegildu
+			Pennor Peipinüs Provareidik Küdesendik Küdulfüs Kuidemirond Kuideriküs Ragimirond Ragolfüs Rakeriküs Randinüs
+			Randuariüs Ranisklüs Reschiar Reschila Refulfo Reirigüs Remismund Remisol Renderiküs Rischard Rischimund Rodikmiro
+			Roelindüs Romanisko Romarigüs Sagatüs Saxomero Segomirüs Sentariüs Seskutüs Sisulfüs Spanariüs Spoderigo Suavariüs
+			Sunila Töbæd Tödereidüs Thödemar Todegogia Træssmiræe Træssoldi Tumtuldik Uittimer Veneidaror Veremund
+			Vermudik Viamundüs Vidrædüs Villisendik Vistremirond Zamariüs Zendæssindik Görg Günther Yakob
+			Vældemar Otto Peter Fillipp Vilhelm Volfgæeng Volfræm Yohann
+			Gotfried Steffæen Mærtin Lübert Alæerik Lüdikolf
+		}
+		female_names = {
+			Ækilo Æilo Ælatrudia Æliverga Æliverta Ænieidrudia Ænsetrudia Æstriverga Bagina Berina Kenabrida Kisilo Dadilo Dagadruida
+			Desteilli Donadildi Drüsilla Ebræegundia Ebrildi Eldegundia Emilo Entrudi Ermeidrudia Ermildi Espælo Fakæo Fagilo Fakuilo
+			Fræeidegundia Fræemilli Fremosilli Frogildi Froilo Frolor Fronosili Frumildi Frunilo Gelviræe Genlo Godikigia Goldrerona Græenilo
+			Guandilo Gundiverga Gunteidrudia Ildiverga Kindiverga Lælina Liuvilo Mansuaræe Margilli Mirosinda Penefreida Penetrudia
+			Ragesenda Randilo Raniverta Rekerona Rekesenda Rekesuinda Rezeveræe Rikuilo Rudilo Sabegoto Senuita Sindiverga
+			Sisilli Sisiverta Sitividis Sontrilli Sparuildi Stodildi Süvisko Tankuilli Teiderona Tenildi Tödevirga Tödiverta Tödikriga
+			Teudilöva Teksilli Træektuilli Træssavaræe Træssmiræe Træsstivigia Vergina Viskaverga Visterlo Vistræevaræe Vistrildi Zanina
+			Ursüla Vilhelmina Volfhilde Hemma Hildeberg Bæerta Karlötte
+			Kæetharin Meschildi Ilisæebeth Freidræeka
+		}
+		dynasty_names = { Adler Adrabaecampi Baemoi Batin Daimler Dengler Eberle Elser Ensselin Groner Hegelin Heinkelin Holderelin Idanha Kepler Kiesinger Laemmle Lugo Marcomanni Naristi Ourense Racatria Rommelin Sudini Suiones Tui Viseu Wekerle }
+	}
+	indo_germanic = {
+		male_names = { Adoric Agriulfum Anila Argiovit Ariamir Audeca Becilla Chararici Commund Eboric Ermaric Framta Frumari Garding Gomedei Heremigari Hermeric Hildemir Ilderic Malaric Maldras Massila Miro Neufila Nitigisi Pantard Rechiari Rechila Rechimund Remismund Remisol Rodomiro Sunila Theudomir Uittimer Veremund }
+		dynasty_names = { Adler Adrabaecampi Baemoi Batin Daimler Dengler Eberle Elser Ensselin Groner Hegelin Heinkelin Holderelin Idanha Kepler Kiesinger Laemmle Lugo Marcomanni Naristi Ourense Racatria Rommelin Sudini Suiones Tui Viseu Wekerle }
+	}
 	female_names = {
 		Adele Adelgunde Adelheid Adolfine Agatha Agnes Alexandra Alice Alina Aline Alma Alwina Alwine Amalia Amalie Amanda
 		Amelie Andrea Angela Angelika Angelina Anika Anita Anja Anke Ann-Katrin Anna Anne Annegret Anneli Annelie Anneliese
@@ -434,6 +474,19 @@ gallic_group = {
 			Gaesatas Garumnus
 		}
 	}
+	atrebatian = {
+		dynasty_names = {
+			Abrincantuus Aeduus Ambivaretus Parisius Seno Agenisatis Agnutis Allobrogis Ambarrus
+			Ambiliatis Ambivarius Anagnutis Andecamulensis Andecavus Antobrox Arvernus Gabalus
+			Armoricanus Arvius Atacinus Atesuus Aulercus Brannovix Cenomanus Diablins Eburovix
+			Sagius Baiocassis Bebryx Bipedimuus Biturix Cubus Viviscus Cadurcus Caeresus Cambolectris
+			Carnus Chalbicus Corisopitus Curiosolitas Edenas Eleuterius Elycox Epomanduus Esuvius
+			Helvius Lemovix Lexovius Lingo Mandubius Medullus Namnetis Nantuatis Nitiobrox Osismius
+			Petrocorius Redo Rutenus Santo Sedunus Segusiavus Segovellaunus Sequanus Tornas Tricassis
+			Triviatius Tronis Turo Uberus Vellavus Verager Verodunus Venellus Venetus Viducassis
+			Gaesatas Garumnus
+		}
+	}
 	celtic_pannonian = {
 		dynasty_names = {
 			Anartas Arabias Belgitis Boius Breucus Carnus Catubrinus Cornacas Cotinus Eraviscus
@@ -500,6 +553,67 @@ gallic_group = {
 			Petrocorius Redo Rutenus Santo Sedunus Segusiavus Segovellaunus Sequanus Tornas Tricassis
 			Triviatius Tronis Turo Uberus Vellavus Verager Verodunus Venellus Venetus Viducassis
 			Gaesatas Garumnus
+		}
+	}
+	plashurii = {
+		dynasty_names = {
+			Abrincantuus Aeduus Ambivaretus Parisius Seno Agenisatis Agnutis Allobrogis Ambarrus
+			Ambiliatis Ambivarius Anagnutis Andecamulensis Andecavus Antobrox Arvernus Gabalus
+			Armoricanus Arvius Atacinus Atesuus Aulercus Brannovix Cenomanus Diablins Eburovix
+			Sagius Baiocassis Bebryx Bipedimuus Biturix Cubus Viviscus Cadurcus Caeresus Cambolectris
+			Carnus Chalbicus Corisopitus Curiosolitas Edenas Eleuterius Elycox Epomanduus Esuvius
+			Helvius Lemovix Lexovius Lingo Mandubius Medullus Namnetis Nantuatis Nitiobrox Osismius
+			Petrocorius Redo Rutenus Santo Sedunus Segusiavus Segovellaunus Sequanus Tornas Tricassis
+			Triviatius Tronis Turo Uberus Vellavus Verager Verodunus Venellus Venetus Viducassis
+			Gaesatas Garumnus
+		}
+	}
+	
+	ghasettian = {
+		dynasty_names = {
+			Anartas Arabias Belgitis Boius Breucus Carnus Catubrinus Cornacas Cotinus Eraviscus
+			Helvetius Tigurinus Tougenus Verbigenus Rauracus Hercunias Latobicus Latobrigus
+			Scordiscus Celegerus Dindarus Serdus Serrapillus Serres Tricornensis
+			Noricus Tauriscus Variscus Alaunus Ambidravus Ambilicus Ambisons Nariscus Sevax
+			Teuriscius Varcianus Vindelicus Brigantius Catenas Consuanetas Estio Leunus Licas
+			Rucinas Venno Volcas Arecomicus Tectosax Volcianus Aigosax Dagutenus Inovantenus
+			Ocondianus Rigosax Trocnas Gaezatorix Tolistobogius Trocmius
+		}
+	}
+	
+	betwani = {
+		dynasty_names = {
+			Anartas Arabias Belgitis Boius Breucus Carnus Catubrinus Cornacas Cotinus Eraviscus
+			Helvetius Tigurinus Tougenus Verbigenus Rauracus Hercunias Latobicus Latobrigus
+			Scordiscus Celegerus Dindarus Serdus Serrapillus Serres Tricornensis
+			Noricus Tauriscus Variscus Alaunus Ambidravus Ambilicus Ambisons Nariscus Sevax
+			Teuriscius Varcianus Vindelicus Brigantius Catenas Consuanetas Estio Leunus Licas
+			Rucinas Venno Volcas Arecomicus Tectosax Volcianus Aigosax Dagutenus Inovantenus
+			Ocondianus Rigosax Trocnas Gaezatorix Tolistobogius Trocmius
+		}
+	}
+	
+	vinetan = {
+		dynasty_names = {
+			Anartas Arabias Belgitis Boius Breucus Carnus Catubrinus Cornacas Cotinus Eraviscus
+			Helvetius Tigurinus Tougenus Verbigenus Rauracus Hercunias Latobicus Latobrigus
+			Scordiscus Celegerus Dindarus Serdus Serrapillus Serres Tricornensis
+			Noricus Tauriscus Variscus Alaunus Ambidravus Ambilicus Ambisons Nariscus Sevax
+			Teuriscius Varcianus Vindelicus Brigantius Catenas Consuanetas Estio Leunus Licas
+			Rucinas Venno Volcas Arecomicus Tectosax Volcianus Aigosax Dagutenus Inovantenus
+			Ocondianus Rigosax Trocnas Gaezatorix Tolistobogius Trocmius
+		}
+	}
+	
+	cenabian = {
+		dynasty_names = {
+			Anartas Arabias Belgitis Boius Breucus Carnus Catubrinus Cornacas Cotinus Eraviscus
+			Helvetius Tigurinus Tougenus Verbigenus Rauracus Hercunias Latobicus Latobrigus
+			Scordiscus Celegerus Dindarus Serdus Serrapillus Serres Tricornensis
+			Noricus Tauriscus Variscus Alaunus Ambidravus Ambilicus Ambisons Nariscus Sevax
+			Teuriscius Varcianus Vindelicus Brigantius Catenas Consuanetas Estio Leunus Licas
+			Rucinas Venno Volcas Arecomicus Tectosax Volcianus Aigosax Dagutenus Inovantenus
+			Ocondianus Rigosax Trocnas Gaezatorix Tolistobogius Trocmius
 		}
 	}
 
@@ -1141,6 +1255,27 @@ pre_indo_european_group = {
 	}
 
 	rhaetian = {
+		dynasty_names = {
+			Acilu Acrate Apurthe Campane Ceice Cencu Creice Cesu Crespe Curces Cuthna Herma
+			Latini Nufre Nuste Palpe Papa Prezu Purce Senate Sepu Sinu Trepuni Trepu Tumu Tursikina
+			Venala Ventese Veru Zalle
+		}
+		male_names = {
+			Amtnie Amuni Anche Anthai Aninas Arunth Araz Arzni Arnth Autu Aule Cei Ceile Ceisi
+			Cire Cnaive Clate Cruthni Cuinte Cursni Fapi Felce Felsnas Fulu Hapre Hirumina Husi
+			Carcuna Carthasie Ceisie Cavie Larce Laris Larth Larthuza Laucie Lauche Lethei
+			Licine Lucer Mamurce Marce Murila Numna Pesna Petru Plikasnas Plute Presnte
+			Pumpu Puplie Cupe Ranazu Rasce Ruvfe Ruifre Sanchuna Scarpe Sethre Spitus Spurie Squrie
+			Tarchi Teitur Thefri Thucer Ticusna Tite Tlesna Tursikina Tusnute Uchsie Uchulni Usele
+			Vel Velchaie Velthur Venel Vetus Vipie
+		}
+		female_names = {
+			Prima Secunda Tertia Quarta Quinta Septa Septima Octava Nona Decima Undecima Duodecima
+		}
+	}
+	
+	rasnan = {
+		primary = ETR
 		dynasty_names = {
 			Acilu Acrate Apurthe Campane Ceice Cencu Creice Cesu Crespe Curces Cuthna Herma
 			Latini Nufre Nuste Palpe Papa Prezu Purce Senate Sepu Sinu Trepuni Trepu Tumu Tursikina
@@ -1897,4 +2032,115 @@ oriental_romance = {
 			Septimàyya 
 		}
 	}
+}
+
+eastern_etrurian = {
+	male_names = {
+		Amtnie Amuni Anche Anthai Aninas Arunth Araz Arzni Arnth Autu Aule Cei Ceile Ceisi
+		Cire Cnaive Clate Cruthni Cuinte Cursni Fapi Felce Felsnas Fulu Hapre Hirumina Husi
+		Carcuna Carthasie Ceisie Cavie Larce Laris Larth Larthuza Laucie Lauche Lethei
+		Licine Lucer Mamurce Marce Murila Numna Pesna Petru Plikasnas Plute Presnte
+		Pumpu Puplie Cupe Ranazu Rasce Ruvfe Ruifre Sanchuna Scarpe Sethre Spitus Spurie Squrie
+		Tarchi Teitur Thefri Thucer Ticusna Tite Tlesna Tursikina Tusnute Uchsie Uchulni Usele
+		Vel Velchaie Velthur Venel Vetus Vipie
+	}
+	female_names = {
+		Prima Secunda Tertia Quarta Quinta Septa Septima Octava Nona Decima Undecima Duodecima
+	}
+	dynasty_names = {
+		Acilu Acrate Apurthe Campane Ceice Cencu Creice Cesu Crespe Curces Cuthna Herma
+		Latini Nufre Nuste Palpe Papa Prezu Purce Senate Sepu Sinu Trepuni Trepu Tumu Tursikina
+		Venala Ventese Veru Zalle
+	}
+
+	lemnian = { }
+	mutnian = { }
+	lanistian = { }
+	fasenian = { }
+}
+
+western_etrurian = {
+	male_names = {
+		Amtnie Amuni Anche Anthai Aninas Arunth Araz Arzni Arnth Autu Aule Cei Ceile Ceisi
+		Cire Cnaive Clate Cruthni Cuinte Cursni Fapi Felce Felsnas Fulu Hapre Hirumina Husi
+		Carcuna Carthasie Ceisie Cavie Larce Laris Larth Larthuza Laucie Lauche Lethei
+		Licine Lucer Mamurce Marce Murila Numna Pesna Petru Plikasnas Plute Presnte
+		Pumpu Puplie Cupe Ranazu Rasce Ruvfe Ruifre Sanchuna Scarpe Sethre Spitus Spurie Squrie
+		Tarchi Teitur Thefri Thucer Ticusna Tite Tlesna Tursikina Tusnute Uchsie Uchulni Usele
+		Vel Velchaie Velthur Venel Vetus Vipie
+	}
+	female_names = {
+		Prima Secunda Tertia Quarta Quinta Septa Septima Octava Nona Decima Undecima Duodecima
+	}
+	dynasty_names = {
+		Acilu Acrate Apurthe Campane Ceice Cencu Creice Cesu Crespe Curces Cuthna Herma
+		Latini Nufre Nuste Palpe Papa Prezu Purce Senate Sepu Sinu Trepuni Trepu Tumu Tursikina
+		Venala Ventese Veru Zalle
+	}
+
+	qutumi = { }
+	tulari = { }
+	karthazian = { }
+}
+
+northern_etrurian = {
+	male_names = {
+		Amtnie Amuni Anche Anthai Aninas Arunth Araz Arzni Arnth Autu Aule Cei Ceile Ceisi
+		Cire Cnaive Clate Cruthni Cuinte Cursni Fapi Felce Felsnas Fulu Hapre Hirumina Husi
+		Carcuna Carthasie Ceisie Cavie Larce Laris Larth Larthuza Laucie Lauche Lethei
+		Licine Lucer Mamurce Marce Murila Numna Pesna Petru Plikasnas Plute Presnte
+		Pumpu Puplie Cupe Ranazu Rasce Ruvfe Ruifre Sanchuna Scarpe Sethre Spitus Spurie Squrie
+		Tarchi Teitur Thefri Thucer Ticusna Tite Tlesna Tursikina Tusnute Uchsie Uchulni Usele
+		Vel Velchaie Velthur Venel Vetus Vipie
+	}
+	female_names = {
+		Prima Secunda Tertia Quarta Quinta Septa Septima Octava Nona Decima Undecima Duodecima
+	}
+	dynasty_names = {
+		Acilu Acrate Apurthe Campane Ceice Cencu Creice Cesu Crespe Curces Cuthna Herma
+		Latini Nufre Nuste Palpe Papa Prezu Purce Senate Sepu Sinu Trepuni Trepu Tumu Tursikina
+		Venala Ventese Veru Zalle
+	}
+
+	nerian = { }
+	falan = { }
+	sazlei = { }
+}
+
+atlanto_slavic = {
+	vinolan = {
+		male_names = {
+			Awgust Alojs Abraham Albin Bogumil Bjedrich Bjarnat Cyril Derwan Fryco Frido Filip
+			Handrij Jan Jurij Jakub Jozef Joachim Korla Kito Kristalub Krescan Michal Mikolaj Mato Mercin
+			Matej Marko Miliduch Miklaws Nathanael Petr Pawol Pomgajbog Stanislaw Salomon
+			Wjaclaw Wylem
+		}
+		female_names = {
+			Bogna Benedikta Hanka Inga Irmgard Jewa Lubina Ludmila Marja Marta Marjana Pawlina Róza Sofija
+		}
+		dynasty_names = {
+			Brosk "z Barenstamma" Buk Bronisz Czornak Cyzh Dejka "z Friedenfelsa"
+			Glowan Jakobica Klosopolski Kucank Leska Langa Mosak Muslik Mercink Miczka
+			Parczewski Prätorius Pjekar Rhenisz Rizo Rychtar Swora Stempel Smoler
+			Woski Wirt Zejler
+		}
+	}
+	olovian = {
+		male_names = {
+			Awgust Alojs Abraham Albin Bogumil Bjedrich Bjarnat Cyril Derwan Fryco Frido Filip
+			Handrij Jan Jurij Jakub Jozef Joachim Korla Kito Kristalub Krescan Michal Mikolaj Mato Mercin
+			Matej Marko Miliduch Miklaws Nathanael Petr Pawol Pomgajbog Stanislaw Salomon
+			Wjaclaw Wylem
+		}
+		female_names = {
+			Bogna Benedikta Hanka Inga Irmgard Jewa Lubina Ludmila Marja Marta Marjana Pawlina Róza Sofija
+		}
+		dynasty_names = {
+			Brosk "z Barenstamma" Buk Bronisz Czornak Cyzh Dejka "z Friedenfelsa"
+			Glowan Jakobica Klosopolski Kucank Leska Langa Mosak Muslik Mercink Miczka
+			Parczewski Prätorius Pjekar Rhenisz Rizo Rychtar Swora Stempel Smoler
+			Woski Wirt Zejler
+		}
+	}
+
 }

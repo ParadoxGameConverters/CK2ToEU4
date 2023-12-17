@@ -162,6 +162,25 @@ south_slavic = {
 		}
 	}
 }
+west_slavic = {
+	strombian = {
+		male_names = {
+			Awgust Alojs Abraham Albin Bogumil Bjedrich Bjarnat Cyril Derwan Fryco Frido Filip
+			Handrij Jan Jurij Jakub Jozef Joachim Korla Kito Kristalub Krescan Michal Mikolaj Mato Mercin
+			Matej Marko Miliduch Miklaws Nathanael Petr Pawol Pomgajbog Stanislaw Salomon
+			Wjaclaw Wylem
+		}
+		female_names = {
+			Bogna Benedikta Hanka Inga Irmgard Jewa Lubina Ludmila Marja Marta Marjana Pawlina Róza Sofija
+		}
+		dynasty_names = {
+			Brosk "z Barenstamma" Buk Bronisz Czornak Cyzh Dejka "z Friedenfelsa"
+			Glowan Jakobica Klosopolski Kucank Leska Langa Mosak Muslik Mercink Miczka
+			Parczewski Prätorius Pjekar Rhenisz Rizo Rychtar Swora Stempel Smoler
+			Woski Wirt Zejler
+		}
+	}
+}
 carpathian = {
 	aromanian = {
 		#primary = WAL
@@ -295,10 +314,38 @@ east_slavic = {
 			"Skirwilteitis" "Skirwaldeitis" "Trijwaldeitis" "Waisbarteitis" "Waiswaldeitis" "Waiswilteitis"
 			 }
 	}
+	berzanian = {
+		dynasty_names = { Aleksseyev Antonov Azarov Badanov Brusilov Budonnyy Chibisov Denikin
+				Dragomirov Frolov Golivin Grishin Gurko Ivanov Konev Konstantinov Kornilov
+				Kolchak Kuropatkin Lazarev Makarov Men'shikov Nakhimov Nebogatov
+				Nikolayevich Ostrovskiy Pavlov Putyatin Romanov Rozhestvenskiy Skobelev
+				Shuvalov Surkov Tukhachevskiy Yegorov Yudenich Vorontsov Voroshilov Zavoyko }
+	}
+	vapian = {
+		dynasty_names = { Aleksseyev Antonov Azarov Badanov Brusilov Budonnyy Chibisov Denikin
+				Dragomirov Frolov Golivin Grishin Gurko Ivanov Konev Konstantinov Kornilov
+				Kolchak Kuropatkin Lazarev Makarov Men'shikov Nakhimov Nebogatov
+				Nikolayevich Ostrovskiy Pavlov Putyatin Romanov Rozhestvenskiy Skobelev
+				Shuvalov Surkov Tukhachevskiy Yegorov Yudenich Vorontsov Voroshilov Zavoyko }
+	}
 }
 baltic = {
 	old_prussian = {
 		primary = PRU
+		male_names = {
+			Alvydas Arelis Auctune Bajoras Beidras Budo Dagonis Ekkelis Galindas Galindo Gauronas Gerdautas Glande Golding
+			Jauguttis Karatas Klukis Kugis Milzas Nomedas Prusas Sergonis Ulinniks Ulitis
+		}
+		female_names = {
+			Betten Dagas Gelennis Gerkus Grasus Gulbis Mila Milyuns Weslikan Ziedas
+		}
+		dynasty_names = { Adamkus Almenas Avizienis Baltrušaitis Brazauskas Basanavicius Birutis Brazdžiunas Buga Ciurlionis
+		Danauskas Daukantas Dobkevicius Dubeneckis Dvarionas Galdikas Grinius Griškevicius Ivanauskas Jablonskis
+		Jucys Krupavicius Landsbergis Lozoraitis Merkys Paksas Paleckis Paulauskas Petrauskas Piskarkas
+		Požela Radvila Šabaniauskas Schatz Simonavicius Širvydas Šleževicius Semtona Snieckus Stauaitis
+		Straižys Stulginkis Švedas Terleckas Urbšys Vagnorius Valeška Voldemaras Žemaitis Zuokas }
+	}
+	zvejian = {
 		male_names = {
 			Alvydas Arelis Auctune Bajoras Beidras Budo Dagonis Ekkelis Galindas Galindo Gauronas Gerdautas Glande Golding
 			Jauguttis Karatas Klukis Kugis Milzas Nomedas Prusas Sergonis Ulinniks Ulitis
@@ -466,6 +513,61 @@ caucasian = {
 	alan = {
 		primary = GEO
 		dynasty_names = { Andiyev Ashuraliyev Basiev Bazayev Bestayev Chibirov Din Dudarova Dzhanayev Fadzayev Farniev Gabulov Gassiev Gazyumov Guriev Khapov Khetagurov Kokoity Kusov Nyxas Pagayev Pliyeva Sanakoyev Tibilov Tokaty Torchinov Toshinori Valiyev Zangiev Zazirov }
+	}
+	scythian = {
+		dynasty_names = {
+			Abeacid Galatid Madyid Palacid Partatid
+		}
+		male_names = {
+			Abeacus Apsyrtos Arpharnes Askhkadar Atheas Galat Kuluk Madyes Oltak Palacus Partatua Skilurus Skunxa Spadines Tasius Zanticus Respendial
+		}
+		female_names = {
+			Amage Ghadani Opoin Polemakratia
+		}
+	}
+	sarmatian = {
+		dynasty_names = {
+			Abeacid Galatid Madyid Palacid Partatid
+		}
+		male_names = {
+			Abeacus Apsyrtos Arpharnes Askhkadar Atheas Galat Kuluk Madyes Oltak Palacus Partatua Skilurus Skunxa Spadines Tasius Zanticus Respendial
+		}
+		female_names = {
+			Amage Ghadani Opoin Polemakratia
+		}
+	}
+	iazyges = {
+		dynasty_names = {
+			Abeacid Galatid Madyid Palacid Partatid
+		}
+		male_names = {
+			Abeacus Apsyrtos Arpharnes Askhkadar Atheas Galat Kuluk Madyes Oltak Palacus Partatua Skilurus Skunxa Spadines Tasius Zanticus Respendial
+		}
+		female_names = {
+			Amage Ghadani Opoin Polemakratia
+		}
+	}
+	nemedian = {
+		dynasty_names = {
+			Abeacid Galatid Madyid Palacid Partatid
+		}
+		male_names = {
+			Abeacus Apsyrtos Arpharnes Askhkadar Atheas Galat Kuluk Madyes Oltak Palacus Partatua Skilurus Skunxa Spadines Tasius Zanticus Respendial
+		}
+		female_names = {
+			Amage Ghadani Opoin Polemakratia
+		}
+	}
+	cimmerian = {
+		dynasty_names = {
+			Abeacid Galatid Madyid Palacid Partatid
+		}
+		male_names = {
+			Abeacus Apsyrtos Arpharnes Askhkadar Atheas Galat Kuluk Madyes Oltak Palacus Partatua Skilurus Skunxa Spadines Tasius Zanticus Respendial
+		}
+		female_names = {
+			Amage Ghadani Opoin Polemakratia
+		}
 	}
 	assyrian = {
 		primary = ASY
@@ -670,6 +772,40 @@ iranian = {
 	}
 	tajik = {
 		primary = TRS
+	}
+	elamite = {
+	}
+	parthian = {
+		dynasty_names = {
+			Aramid Arid Arkhid Asinid Arsacid Deiocid Menid Pacorid Savacid Vardanid
+		}
+		male_names = {
+			Abdagas Ara Aram Aramu Arbaces Ardashir Argishti Ariovast Arkha Armin Arsaces Arsames Artabanus Artabazus Artasyras Artavazd 
+			Artaxias Aryanes Asheri Asina Ashina Astashpa Astyages Atamaita Aturpat Bagayash Bayad Chosroes Cyaxares Cyrus Darius Deioces 
+			Evagoras Fravarti Gaumata Gobryas Gotarzes Haldita Hidarnes Hydarnes Manchihr Mardonius Martiya Mazaces Megabyzus Menua Nambed 
+			Napad Orodes Orxines Osroes Oxydates Pacorus Peucestas Phraates Phraortes Rusa 	Sames Sarduri Sarsamas Savaces Shapur Sinatruces 
+			Tigraios Tigranes Tiridates Umamaita Upadarma Vahbarz Vardanes Vologases Vonones Xerxes
+		}
+		female_names = {
+			Amestris Amytis Anzaza Artazostre Artystone Atossa Barsine Damaspia Mandane Parmys Parysatis Phaedymia Rinu Stateira Vashti
+		}
+	}
+	indo_parthian = {
+		dynasty_names = {
+			Aramid Arid Arkhid Asinid Arsacid Deiocid Menid Pacorid Savacid Vardanid
+		}
+		male_names = {
+			Abdagas Ara Aram Aramu Arbaces Ardashir Argishti Ariovast Arkha Armin Arsaces Arsames Artabanus Artabazus Artasyras Artavazd 
+			Artaxias Aryanes Asheri Asina Ashina Astashpa Astyages Atamaita Aturpat Bagayash Bayad Chosroes Cyaxares Cyrus Darius Deioces 
+			Evagoras Fravarti Gaumata Gobryas Gotarzes Haldita Hidarnes Hydarnes Manchihr Mardonius Martiya Mazaces Megabyzus Menua Nambed 
+			Napad Orodes Orxines Osroes Oxydates Pacorus Peucestas Phraates Phraortes Rusa 	Sames Sarduri Sarsamas Savaces Shapur Sinatruces 
+			Tigraios Tigranes Tiridates Umamaita Upadarma Vahbarz Vardanes Vologases Vonones Xerxes
+		}
+		female_names = {
+			Amestris Amytis Anzaza Artazostre Artystone Atossa Barsine Damaspia Mandane Parmys Parysatis Phaedymia Rinu Stateira Vashti
+		}
+	}
+	indo_scythian = {
 	}
 }
 altaic = {
@@ -1014,6 +1150,7 @@ thai_group = {
 southeastasian_group = {
 }
 burman = {
+	pyu = { }
 }
 pacific = {
 }
@@ -1024,6 +1161,21 @@ eastern_aryan = {
 hindusthani = {
 }
 western_aryan = {
+	neo_mitanni = {
+		male_names = {
+			Artatama Artashumara Atal-s'en Biridaswa Kikkuli Kirta Mattiwaza Parattarna Parsatatar S'atar-mat Sattawaza
+			Shaushtatar Shuttarna Tehiptilla Tis'ata Tushrata Priyamazdha Priyashva Indrauta
+		}
+		female_names = {
+			Gilukhepa Tadukhepa Ashrata Ishanata Kiya Kheba Shaushtatara Gilukhipa Nubtishera Tadukhipa Shuwatta Tashmisha
+			Lakashima Vashuda Ananta Saravashai Paravata Duraga
+		}
+		dynasty_names = {
+			Chawda Bhil Kathi Maitraka Varahas Calukya Solanki Sankhyavat Jhuti Kahlon Nagra Utpala Karkota Jewlia Kacchapaghata
+			Vagada Gujar Burdak Chhinda Panwar Bargujar Guhilot Dahiya Ghanshani Lohi Notanni "Washukanni Kadamba" Gaitonde
+			Ruddha Sinda Nandelid Satadhanva Katyuri Kangra
+		}
+	}
 }
 dravidian = {
 }

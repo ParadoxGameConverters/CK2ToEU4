@@ -290,6 +290,8 @@ ZZZ_enhanced_converter_battle_cult_spreading_effect = {
 				OR = {
 					religion = west_african_pagan
 					religion = west_african_pagan_reformed
+					religion = waaqi_pagan
+					religion = waaqi_pagan_reformed
 				}
 				NOT = { has_unlocked_cult = waaq_cult }
 			}
@@ -309,6 +311,8 @@ ZZZ_enhanced_converter_battle_cult_spreading_effect = {
 				OR = {
 					religion = west_african_pagan
 					religion = west_african_pagan_reformed
+					religion = waaqi_pagan
+					religion = waaqi_pagan_reformed
 				}
 				has_unlocked_cult = waaq_cult
 			}
@@ -477,7 +481,10 @@ ZZZ_enhanced_converter_battle_cult_spreading_effect = {
 			}
 			FROM = {
 				OR = {
-					religion_group = dharmic
+					AND = {
+						religion_group = dharmic
+						NOT = { religion = ajivika }
+					}
 					has_unlocked_cult = dharmic_cult
 				}
 			}
@@ -496,7 +503,10 @@ ZZZ_enhanced_converter_battle_cult_spreading_effect = {
 			ROOT = {
 				OR = {
 					has_unlocked_cult = dharmic_cult
-					religion_group = dharmic
+					AND = {
+						religion_group = dharmic
+						NOT = { religion = ajivika }
+					}
 				}
 			}
 		}
@@ -1030,6 +1040,207 @@ ZZZ_enhanced_converter_battle_cult_spreading_effect = {
 			}
 		}
 		FROM = { country_event = { id = ZZZ_enhanced_fetishist.12 } }
+	}
+	#Illyric Thracian Horsemen Cult
+	if = {
+		limit = {
+			ROOT = {
+				OR = {
+					religion = illyric_pagan_pagan
+					religion = illyric_pagan_reformed
+				}
+				NOT = { has_unlocked_cult = illyric_horseman_cult }
+			}
+			FROM = {
+				OR = {
+					culture = thracian
+					#religion = zalmoxian_pagan
+					#religion = zalmoxian_pagan_reformed
+					has_unlocked_cult = illyric_horseman_cult
+				}
+			}
+		}
+		ROOT = { country_event = { id = ZZZ_enhanced_religion.19 } }
+	}
+	if = {
+		limit = {
+			FROM = {
+				OR = {
+					religion = illyric_pagan
+					religion = illyric_pagan_reformed
+				}
+				NOT = { has_unlocked_cult = illyric_horseman_cult }
+			}
+			ROOT = {
+				OR = {
+					culture = thracian
+					#religion = zalmoxian_pagan
+					#religion = zalmoxian_pagan_reformed
+					has_unlocked_cult = illyric_horseman_cult
+				}
+			}
+		}
+		FROM = { country_event = { id = ZZZ_enhanced_religion.19 } }
+	}
+	#Canaanite Cult
+	if = {
+		limit = {
+			ROOT = {
+				OR = {
+					religion = shamanism
+					religion = west_african_pagan
+					religion = west_african_pagan_reformed
+				}
+				NOT = { has_unlocked_cult = canaanite_cult }
+			}
+			FROM = {
+				OR = {
+					religion = canaanite_pagan
+					religion = canaanite_pagan_reformed
+					has_unlocked_cult = canaanite_cult
+				}
+			}
+		}
+		ROOT = { country_event = { id = ZZZ_enhanced_fetishist.900 } }
+	}
+	if = {
+		limit = {
+			FROM = {
+				OR = {
+					religion = shamanism
+					religion = west_african_pagan
+					religion = west_african_pagan_reformed
+				}
+				NOT = { has_unlocked_cult = canaanite_cult }
+			}
+			ROOT = {
+				OR = {
+					religion = canaanite_pagan
+					religion = canaanite_pagan_reformed
+					has_unlocked_cult = canaanite_cult
+				}
+			}
+		}
+		FROM = { country_event = { id = ZZZ_enhanced_fetishist.900 } }
+	}
+	#Kemetism Cult
+	if = {
+		limit = {
+			ROOT = {
+				OR = {
+					religion = shamanism
+					religion = west_african_pagan
+					religion = west_african_pagan_reformed
+				}
+				NOT = { has_unlocked_cult = kemetism_cult }
+			}
+			FROM = {
+				OR = {
+					religion = kemetism
+					has_unlocked_cult = kemetism_cult
+				}
+			}
+		}
+		ROOT = { country_event = { id = ZZZ_enhanced_fetishist.901 } }
+	}
+	if = {
+		limit = {
+			FROM = {
+				OR = {
+					religion = shamanism
+					religion = west_african_pagan
+					religion = west_african_pagan_reformed
+				}
+				NOT = { has_unlocked_cult = kemetism_cult }
+			}
+			ROOT = {
+				OR = {
+					religion = kemetism
+					has_unlocked_cult = kemetism_cult
+				}
+			}
+		}
+		FROM = { country_event = { id = ZZZ_enhanced_fetishist.901 } }
+	}
+	#Druidic Cult
+	if = {
+		limit = {
+			ROOT = {
+				OR = {
+					religion = shamanism
+					religion = west_african_pagan
+					religion = west_african_pagan_reformed
+				}
+				NOT = { has_unlocked_cult = druidic_cult }
+			}
+			FROM = {
+				OR = {
+					religion = druidic_pagan
+					religion = druidic_pagan_reformed
+					has_unlocked_cult = druidic_cult
+				}
+			}
+		}
+		ROOT = { country_event = { id = ZZZ_enhanced_fetishist.902 } }
+	}
+	if = {
+		limit = {
+			FROM = {
+				OR = {
+					religion = shamanism
+					religion = west_african_pagan
+					religion = west_african_pagan_reformed
+				}
+				NOT = { has_unlocked_cult = druidic_cult }
+			}
+			ROOT = {
+				OR = {
+					religion = druidic_pagan
+					religion = druidic_pagan_reformed
+					has_unlocked_cult = druidic_cult
+				}
+			}
+		}
+		FROM = { country_event = { id = ZZZ_enhanced_fetishist.902 } }
+	}
+	#Ajivika Cult
+	if = {
+		limit = {
+			ROOT = {
+				OR = {
+					religion = shamanism
+					religion = west_african_pagan
+					religion = west_african_pagan_reformed
+				}
+				NOT = { has_unlocked_cult = ajivika_cult }
+			}
+			FROM = {
+				OR = {
+					religion = ajivika
+					has_unlocked_cult = ajivika_cult
+				}
+			}
+		}
+		ROOT = { country_event = { id = ZZZ_enhanced_fetishist.903 } }
+	}
+	if = {
+		limit = {
+			FROM = {
+				OR = {
+					religion = shamanism
+					religion = west_african_pagan
+					religion = west_african_pagan_reformed
+				}
+				NOT = { has_unlocked_cult = ajivika_cult }
+			}
+			ROOT = {
+				OR = {
+					religion = ajivika
+					has_unlocked_cult = ajivika_cult
+				}
+			}
+		}
+		FROM = { country_event = { id = ZZZ_enhanced_fetishist.903 } }
 	}
 
 }
