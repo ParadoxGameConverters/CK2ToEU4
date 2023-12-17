@@ -1064,3 +1064,27 @@ country_event = {
 		add_devotion = 1
 	}
 }
+
+#Illyric
+#Discovering Thracian Horseman cult
+country_event = {
+	id = ZZZ_enhanced_religion.19
+	title = ZZZ_enhanced_religion.19.t
+	desc = ZZZ_enhanced_religion.19.d
+	picture = TRIBES_MEETING_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_dlc = "Rights of Man"
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = ZZZ_enhanced_religion.19.a
+		unlock_cult = illyric_horseman_cult
+	}
+}

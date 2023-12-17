@@ -865,6 +865,30 @@ zoroastrian_group = {
 
 		personal_deity = yes
 	}
+	mithraic = {
+		icon = 168
+		color = { 0.68 0.87 0.18 }
+		country = {
+			legitimacy = 1
+			production_efficiency = 0.05
+		}
+		country_as_secondary = {
+			legitimacy = 1
+			production_efficiency = 0.10
+		}
+		holy_sites = { 2212 4430 2223 441 4336 }
+
+		blessings = {
+			blessing_yasna
+			blessing_haoma
+			blessing_navjote
+			blessing_manthras
+			blessing_dakhma
+		}
+		heretic = { MAZDAKI }
+
+		#personal_deity = yes
+	}
 }
 
 jewish_group = {

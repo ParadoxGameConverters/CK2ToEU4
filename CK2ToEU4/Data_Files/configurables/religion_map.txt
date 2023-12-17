@@ -48,6 +48,16 @@ link = { eu4 = zalmoxian_pagan ck2 = zalmoxian ck2 = dacian_pagan }
 link = { eu4 = zalmoxian_pagan_reformed ck2 = zalmoxian_reformed ck2 = dacian_pagan_reformed }
 link = { eu4 = ritualistic_pagan ck2 = ritualistic }
 link = { eu4 = ritualistic_pagan_reformed ck2 = ritualistic_reformed }
+link = { eu4 = illyric_pagan_reformed ck2 = illyric_reformed }
+link = { eu4 = illyric_pagan ck2 = illyric }
+link = { eu4 = marite_pagan_reformed ck2 = marite_reformed }
+link = { eu4 = marite_pagan ck2 = marite }
+link = { eu4 = nuragic_pagan_reformed ck2 = nuragic_reformed }
+link = { eu4 = nuragic_pagan ck2 = nuragic }
+link = { eu4 = bamar_pagan_reformed ck2 = bamar_pagan_reformed }
+link = { eu4 = bamar_pagan ck2 = bamar_pagan }
+link = { eu4 = waaqi_pagan_reformed ck2 = waaqi_reformed }
+link = { eu4 = waaqi_pagan ck2 = waaqi }
 
 link = { eu4 = kemetism ck2 = egyptian ck2 = egyptian_pagan ck2 = egyptian_pagan_reformed }
 
@@ -63,6 +73,7 @@ link = { eu4 = zoroastrian ck2 = zoroastrian ck2 = zurvanist }
 link = { eu4 = mazdaki ck2 = mazdaki ck2 = khurramite }
 link = { eu4 = manichean ck2 = manichean ck2 = mandaean ck2 = priscillianism ck2 = mandean }
 link = { eu4 = khurmazta ck2 = khurmazta ck2 = hephtal_religion }
+link = { eu4 = mithraic ck2 = mithraic }
 
 # Christianity
 
@@ -103,7 +114,8 @@ link = { eu4 = karaite_faith ck2 = karaite }
 # Indian
 link = { eu4 = vajrayana ck2 = buddhist }
 link = { eu4 = hinduism ck2 = hindu }
-link = { eu4 = jain ck2 = jain ck2 = ajivika }
+link = { eu4 = jain ck2 = jain }
+link = { eu4 = ajivika ck2 = ajivika }
 link = { eu4 = confucianism ck2 = taoist ck2 = confucianism }
 
 # ---- SUPPORTED MODS -----

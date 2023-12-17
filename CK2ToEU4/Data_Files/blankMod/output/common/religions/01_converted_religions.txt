@@ -87,4 +87,19 @@ dharmic = {
 
 		heretic = { TERAPANTHA }
 	}
+	
+	ajivika = {
+		icon = 163
+		color = { 0.1 0.6 0.0 }
+		country = {
+			tolerance_own = -1
+			production_efficiency = 0.10
+		}
+		country_as_secondary = {
+			tolerance_own = -1
+			ae_impact = -0.1
+		}
+
+		heretic = { TERAPANTHA }
+	}
 }
