@@ -960,8 +960,9 @@ exploration_ideas = {
 		treasure_fleet_income = 0.25
 	}
 
-	ai_will_do = {
+	ai_will_do = { # Modified so that the continent with the Renaissance will colonize
 		factor = 0.75
+		## Who will never take it?
 		modifier = {
 			factor = 0
 			is_colonial_nation = yes
@@ -984,14 +985,24 @@ exploration_ideas = {
 		}
 		modifier = {
 			factor = 0
+			NOT = { is_year = 1590 } # Let's give the initial colonizers a chance, is also around the year when Japan began their own colonial ventures
+			NOT = {
+			any_owned_province = {
+				is_state = yes
+				any_province = {
+					has_province_modifier = "birthplace_of_the_renaissance"
+					continent = PREV
+				}
+			}
+		}
+		modifier = {
+			factor = 0
 			is_emperor_of_china = yes
-			NOT = { is_year = 1575 } # Let's give the Europeans a chance
+			NOT = { is_year = 1575 } # Let's give others a chance, unless China birthed the renaissance themselves
 			NOT = {
 				any_owned_province = {
-					any_province = {
-						has_province_modifier = "birthplace_of_the_renaissance"
-						continent = PREV
-					}
+					is_state = yes
+					has_province_modifier = "birthplace_of_the_renaissance"
 				}
 			}
 		}
@@ -1005,38 +1016,7 @@ exploration_ideas = {
 				}
 			}
 		}
-		modifier = {
-			factor = 0.1
-			NOT = { num_of_ports = 3 }
-			NOT = {
-				any_owned_province = {
-					is_in_capital_area = yes
-					has_empty_adjacent_province = yes
-				}
-			}
-		}
-		modifier = {
-			factor = 0.1
-			NOT = { is_year = 1600 } # Let's give the initial colonizers a chance
-			NOT = {
-				any_owned_province = {
-					is_state = yes
-					any_province = {
-						has_province_modifier = "birthplace_of_the_renaissance"
-						continent = PREV
-					}
-				}
-			}
-		}
-		modifier = {
-			factor = 0.01
-			is_year = 1650
-		}
-		modifier = {
-			factor = 0.1
-			NOT = { has_institution = renaissance }
-			NOT = { is_year = 1490 }
-		}
+		##Analogues
 		modifier = { # One Super Aggressive Colonizer (Portugal Analogue)
 			factor = 50
 			num_of_ports = 6
@@ -1178,6 +1158,7 @@ exploration_ideas = {
 				}
 			}
 		}
+		##Special cases
 		modifier = {
 			factor = 10
 			technology_group = high_american
@@ -1188,6 +1169,17 @@ exploration_ideas = {
 			technology_group = polynesian
 			num_of_ports = 3
 			has_institution = new_world_i
+		}
+		##Generic Modifiers
+		modifier = {
+			factor = 0.1
+			NOT = { num_of_ports = 3 }
+			NOT = {
+				any_owned_province = {
+					is_in_capital_area = yes
+					has_empty_adjacent_province = yes
+				}
+			}
 		}
 		modifier = {
 			factor = 2.0

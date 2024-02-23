@@ -29,7 +29,7 @@ link = { eu4 = norse ck2 = norse tech = western gfx = westerngfx } #PLEASE KEEP 
 link = { eu4 = icelandic ck2 = icelandic tech = western gfx = westerngfx } #Fallback
 
 # German: the split
-link = { eu4 = alsatian ck2 = german tech = western gfx = westerngfx region = upper_rhineland_area region = alsace_area region = lorraine_area region = brittany_area region = normandy_area region = lorraine_area region = picardy_area region = champagne_area region = ile_de_france_area region = loire_area region = bourgogne_area region = west_burgundy_area region = poitou_area region = orleans_area }
+link = { eu4 = alsatian ck2 = german tech = western gfx = westerngfx region = alsace_area region = lorraine_area region = brittany_area region = normandy_area region = lorraine_area region = picardy_area region = champagne_area region = ile_de_france_area region = loire_area region = bourgogne_area region = west_burgundy_area region = poitou_area region = orleans_area }
 link = { eu4 = austrian ck2 = german tech = western gfx = westerngfx region = austria_proper_area region = inner_austria_area region = tirol_area region = carinthia_area region = italy_region region = carpathia_region region = balkan_region }
 link = { eu4 = bavarian ck2 = german tech = western gfx = westerngfx region = lower_bavaria_area region = upper_bavaria_area region = east_bavaria_area }
 link = { eu4 = franconian ck2 = german tech = western gfx = westerngfx region = franconia_area region = upper_franconia_area }
@@ -39,7 +39,7 @@ link = { eu4 = prussian ck2 = german tech = western gfx = westerngfx region = mi
 link = { eu4 = baltic_german ck2 = german tech = western gfx = westerngfx region = baltic_region }
 link = { eu4 = hessian ck2 = german tech = western gfx = westerngfx region = hesse_area region = lower_rhineland_area region = north_rhine_area } #Rhenish
 link = { eu4 = saxon ck2 = german tech = western gfx = westerngfx region = south_saxony_area region = thuringia_area region = northern_saxony_area }
-link = { eu4 = swabian ck2 = german tech = western gfx = westerngfx region = palatinate_area region = lower_swabia_area region = upper_swabia_area region = north_rhine_area }
+link = { eu4 = swabian ck2 = german tech = western gfx = westerngfx region = palatinate_area region = upper_rhineland_area region = lower_swabia_area region = upper_swabia_area region = north_rhine_area }
 link = { eu4 = swiss ck2 = german tech = western gfx = westerngfx region = switzerland_area region = romandie_area region = provence_area region = guyenne_area region = languedoc_area region = massif_central_area region = savoy_dauphine_area region = pyrenees_area }
 link = { eu4 = flemish ck2 = german tech = western gfx = westerngfx region = low_countries_region }
 link = { eu4 = lower_saxon ck2 = german tech = western gfx = westerngfx province = 4773 province = 57 province = 1758 province = 4141 province = 54 province = 4771 region = holstein_area region = lower_saxony_area } # Lower Saxon
@@ -66,12 +66,23 @@ link = { eu4 = bavarian ck2 = bavarian tech = western gfx = westerngfx }
 
 link = { eu4 = frankish ck2 = old_frankish ck2 = low_frankish tech = western gfx = westerngfx }
 link = { eu4 = cornish ck2 = english ck2 = anglo_saxon ck2 = breton ck2 = saxon ck2 = anglonorse tech = western gfx = westerngfx province = 233 province = 4373 }
+link = { eu4 = welsh ck2 = english ck2 = anglo_saxon ck2 = breton ck2 = saxon ck2 = anglonorse tech = western gfx = westerngfx region = wales_area }
 link = { eu4 = english ck2 = english tech = western gfx = westerngfx }
-link = { eu4 = anglo_saxon ck2 = saxon ck2 = anglonorse tech = western gfx = westerngfx }
 link = { eu4 = frisian ck2 = dutch tech = western gfx = westerngfx region = weser_area region = frisia_area }
 link = { eu4 = flemish ck2 = dutch tech = western gfx = westerngfx region = wallonia_area region = flanders_area }
 link = { eu4 = frisian ck2 = frisian tech = western gfx = westerngfx }
 link = { eu4 = dutch ck2 = dutch tech = western gfx = westerngfx }
+
+## Splitting Anglo-Saxon
+link = { eu4 = northumbrian ck2 = anglo_saxon ck2 = saxon ck2 = anglonorse tech = western gfx = westerngfx region = yorkshire_area region = scottish_marches_area region = lowlands_area region = highlands_area region = kingdom_of_the_isles_area }
+link = { eu4 = mercian ck2 = anglo_saxon ck2 = saxon ck2 = anglonorse tech = western gfx = westerngfx region = east_midlands_area region = west_midlands_area }
+link = { eu4 = wessexian ck2 = anglo_saxon ck2 = saxon ck2 = anglonorse tech = western gfx = westerngfx region = wessex_area }
+link = { eu4 = wessexian ck2 = west_saxon ck2 = kentish tech = western gfx = westerngfx }
+link = { eu4 = essexian ck2 = anglo_saxon ck2 = saxon ck2 = anglonorse tech = western gfx = westerngfx region = home_counties_area }
+link = { eu4 = east_anglian ck2 = anglo_saxon ck2 = saxon ck2 = anglonorse tech = western gfx = westerngfx region = east_anglia_area }
+link = { eu4 = east_anglian ck2 = east_anglian tech = western gfx = westerngfx }
+link = { eu4 = ecgfrithian ck2 = anglo_saxon ck2 = saxon ck2 = anglonorse tech = western gfx = westerngfx region = munster_area region = connacht_area region = leinster_area region = ulster_area }
+link = { eu4 = anglo_saxon ck2 = anglo_saxon ck2 = saxon ck2 = anglonorse tech = western gfx = westerngfx } # Fallback
 
 # West Germanic (Historical Immersion Project - SWMH)
 
@@ -189,6 +200,7 @@ link = { eu4 = armenian ck2 = armenian tech = eastern gfx = easterngfx }
 link = { eu4 = goths ck2 = greek ck2 = tsakonian tech = eastern gfx = easterngfx region = crimea_region region = ruthenia_region region = lower_yik_area }
 link = { eu4 = bactrian ck2 = greek ck2 = tsakonian tech = eastern gfx = easterngfx region = khorasan_region region = central_asia_region }
 link = { eu4 = pontic_greek ck2 = greek ck2 = tsakonian tech = eastern gfx = easterngfx region = caucasia_region region = erzurum_area province = 2304 province = 4315 province = 329 }
+link = { eu4 = greek ck2 = greek ck2 = tsakonian region = aegean_archipelago_area tech = eastern gfx = easterngfx } #Aegean Islands should be Greek
 link = { eu4 = anatolian ck2 = greek ck2 = tsakonian tech = eastern gfx = easterngfx region = anatolia_region province = 4298 province = 4292 }
 link = { eu4 = empurian ck2 = greek ck2 = tsakonian tech = eastern gfx = westerngfx region = iberia_region }
 link = { eu4 = histrian ck2 = greek ck2 = tsakonian tech = eastern gfx = westerngfx region = carpathia_region region = poland_region province = 4706 }
@@ -301,7 +313,7 @@ link = { eu4 = finnish ck2 = finnish tech = eastern gfx = westerngfx }
 link = { eu4 = sapmi ck2 = lappish tech = eastern gfx = inuitgfx }
 link = { eu4 = estonian ck2 = ugricbaltic tech = eastern gfx = inuitgfx }
 link = { eu4 = livonian ck2 = livonian tech = eastern gfx = inuitgfx }
-link = { eu4 = komi ck2 = komi tech = eastern gfx = inuitgfx }
+link = { eu4 = uralic ck2 = komi tech = eastern gfx = inuitgfx }
 link = { eu4 = samoyed ck2 = samoyed tech = eastern gfx = inuitgfx }
 link = { eu4 = mordvin ck2 = mordvin tech = eastern gfx = inuitgfx }
 link = { eu4 = ostyaki ck2 = khanty tech = eastern gfx = inuitgfx }
@@ -368,7 +380,7 @@ link = { eu4 = omani_culture ck2 = bedouin_arabic tech = muslim gfx = muslimgfx 
 link = { eu4 = yemeni_culture ck2 = bedouin_arabic tech = muslim gfx = muslimgfx region = asir_area region = tihama_al_yemen_area region = upper_yemen_area region = yemen_area }
 link = { eu4 = al_misr_arabic ck2 = bedouin_arabic tech = muslim gfx = muslimgfx region = egypt_region region = lower_nubia_area region = dongola_area region = upper_nubia_area region = red_sea_coast_area }
 link = { eu4 = bedouin_arabic ck2 = bedouin_arabic tech = muslim gfx = muslimgfx }
-link = { eu4 = algerian ck2 = maghreb_arabic ck2 = bedouin_arabic tech = muslim gfx = muslimgfx region = algiers_area region = hautes_plaines_area region = kabylia_area region = ouled_nail_area }
+link = { eu4 = algerian ck2 = maghreb_arabic ck2 = bedouin_arabic tech = muslim gfx = muslimgfx region = algiers_area region = hautes_plaines_area region = kabylia_area region = ouled_nail_area region = barbary_coast_area }
 link = { eu4 = moroccan ck2 = maghreb_arabic ck2 = bedouin_arabic tech = muslim gfx = muslimgfx region = northern_morocco_area region = tafilalt_area region = sus_area region = marrekesh_area region = western_morocco_area region = southern_morocco_area }
 link = { eu4 = tunisian ck2 = maghreb_arabic ck2 = bedouin_arabic tech = muslim gfx = muslimgfx region = tunisia_area region = djerba_area }
 link = { eu4 = berber ck2 = maghreb_arabic ck2 = berber ck2 = sanhaja ck2 = canarian tech = muslim gfx = muslimgfx }
