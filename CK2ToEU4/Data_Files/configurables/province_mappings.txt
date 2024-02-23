@@ -904,7 +904,7 @@
 	link = { ck2 = 1764 eu4 = 2243 } # Diafunu -> Termes
 	link = { ck2 = 926 eu4 = 1120 } # Bambuk -> Bambuk
 	link = { ck2 = 1760 eu4 = 2248 } # Kiri -> Do
-	link = { ck2 = 1761 eu4 = 1121 } # Bure -> Bure
+	link = { ck2 = 1761 eu4 = 1121 eu4 = 1114 eu4 = 1117 eu4 = 2238 } # Bure -> Bure, Gabu, Futa Jallon, Kantor
 	link = { ck2 = 1758 eu4 = 2252 } # Bobo Dyulasso -> Lobi
 	link = { ck2 = 1759 eu4 = 1137 eu4 = 2267 } # Wagadougou -> Wagadugu, Tenkodogo
 	link = { ck2 = 1757 eu4 = 1135 eu4 = 2266 } # Yatenga -> Yatenga, Bilanga

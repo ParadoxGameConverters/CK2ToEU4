@@ -214,6 +214,14 @@
  miklagardrian:0 "Miklagardrian"
  serklandic:0 "Serklandic"
  romsborgian:0 "Romsborgian"
+ 
+ #Anglo-Saxon Culture Breaks
+ northumbrian:0 "Northumbrian"
+ mercian:0 "Mercian"
+ wessexian:0 "Wessexian"
+ essexian:0 "Essexian"
+ east_anglian:0 "East Anglian"
+ ecgfrithian:0 "Ecgfrithian"
 
  #SI culture breaks
  pixantekatl:0 "Pixantekatl"
