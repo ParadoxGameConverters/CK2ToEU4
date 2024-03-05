@@ -296,7 +296,7 @@ link = { eu4 = lusitanian ck2 = lusitanian tech = western gfx = westerngfx }
 link = { eu4 = galatian_celtic ck2 = galatian tech = western gfx = westerngfx }
 link = { eu4 = plashurii ck2 = plashurii tech = western gfx = westerngfx }
 link = { eu4 = ghasettian ck2 = ghasettian tech = western gfx = westerngfx }
-link = { eu4 = betwani ck2 = betwani = western gfx = westerngfx }
+link = { eu4 = betwani ck2 = betwani tech = western gfx = westerngfx }
 link = { eu4 = vinetan ck2 = vinetan tech = western gfx = westerngfx }
 link = { eu4 = cenabian ck2 = cenabian tech = western gfx = westerngfx }
 link = { eu4 = lepontic ck2 = gaulish tech = western gfx = westerngfx region = romandie_area region = switzerland_area region = tirol_area region = carinthia_area region = italy_region }
