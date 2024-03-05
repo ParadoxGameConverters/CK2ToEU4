@@ -1674,7 +1674,7 @@ kamchatkan_g = {
 }
 tartar = {
 }
-lost_cultures_group = {
+lost_cultures_group = { #cultures present elsewhere have been deleted.
 	atlantean = {
 		primary = ATL
 	}
@@ -1684,44 +1684,17 @@ lost_cultures_group = {
 	athenian = {
 		primary = OAT
 	}
-	old_egyptian = {
-		primary = KEM
-	}
-	roman = {
-		primary = ROM #Already in the game
-	}
 	jan_mayenese = {
 		primary = JMN #Already in the game
 	}
 	pruthenian = {
 		primary = PRT
 	}
-	phoenician = {
-		primary = PHN
-	}
 	scanian = {
 		primary = SCN
 	}
-	anglosaxon = {
-		primary = EGL
-	}
-	babylonian = {
-		primary = BBY
-	}
-	etrurian = {
-		primary = ETL
-	}
-	parthian = {
-		primary = PRA
-	}
 	aramaic = {
 		primary = OSR
-	}
-	hebrew = {
-		primary = JUD
-	}
-	scythian = {
-		primary = SCY
 	}
 }
 
