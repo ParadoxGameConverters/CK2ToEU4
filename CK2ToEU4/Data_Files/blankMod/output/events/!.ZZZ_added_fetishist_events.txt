@@ -375,7 +375,7 @@ country_event = {
 					}
 				}
 				ROOT = {
-					country_event = { ZZZ_enhanced_religion.19 }
+					country_event = { id = ZZZ_enhanced_religion.19 }
 				}
 			}
 			if = {
@@ -926,7 +926,7 @@ country_event = {
 					}
 				}
 				ROOT = {
-					country_event = { ZZZ_enhanced_religion.19 }
+					country_event = { id = ZZZ_enhanced_religion.19 }
 				}
 			}
 			if = {
@@ -1044,7 +1044,7 @@ country_event = {
 				}
 				AND = {
 					religion_group = pagan #Yes, it is possible to get two cults for the price of one
-					NOT = { has_owner_religion = yes }
+					has_owner_religion = no
 					ROOT = { NOT = { has_unlocked_cult = pagan_cult } }
 				}
 			}
