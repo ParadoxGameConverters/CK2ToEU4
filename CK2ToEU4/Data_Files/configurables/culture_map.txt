@@ -92,6 +92,7 @@ link = { eu4 = cornish ck2 = cornish tech = western gfx = westerngfx } #Fallback
 
 link = { eu4 = gothic ck2 = gothic tech = western gfx = westerngfx }
 link = { eu4 = vandal ck2 = vandal tech = western gfx = westerngfx }
+link = { eu4 = old_burgundian ck2 = old_burgundian tech = western gfx = westerngfx }
 
 # Latin
 link = { eu4 = burgundian ck2 = frankish tech = western gfx = westerngfx region = bourgogne_area region = romandie_area region = switzerland_area }
@@ -243,13 +244,16 @@ link = { eu4 = isaurian ck2 = isaurian tech = eastern gfx = easterngfx }
 link = { eu4 = paphlagonian ck2 = paphlagonian tech = eastern gfx = easterngfx }
 link = { eu4 = cilician ck2 = cilician tech = eastern gfx = easterngfx }
 link = { eu4 = babylonian ck2 = babylonian ck2 = chaldean tech = eastern gfx = easterngfx }
+link = { eu4 = cardukoi ck2 = cardukoi tech = eastern gfx = easterngfx }
 link = { eu4 = dagestani ck2 = caucasian_albanian tech = eastern gfx = easterngfx }
+link = { eu4 = caspian ck2 = caspian tech = eastern gfx = easterngfx }
 link = { eu4 = hellenistic ck2 = hellenistic tech = eastern gfx = easterngfx }
 link = { eu4 = scythian ck2 = royal_scythian tech = eastern gfx = easterngfx }
 link = { eu4 = sarmatian ck2 = sarmatian tech = eastern gfx = easterngfx }
 link = { eu4 = iazyges ck2 = iazyges tech = eastern gfx = easterngfx }
 link = { eu4 = nemedian ck2 = nemedian tech = eastern gfx = easterngfx }
 link = { eu4 = cimmerian ck2 = cimmerian tech = eastern gfx = easterngfx }
+link = { eu4 = yarkamii ck2 = yarkamii tech = eastern gfx = easterngfx }
 
 
 # Punic
@@ -362,6 +366,8 @@ link = { eu4 = khitan ck2 = khitan ck2 = tuyuhun tech = nomad_group gfx = asiang
 link = { eu4 = sogdian ck2 = sogdian ck2 = khalaj tech = nomad_group gfx = asiangfx }
 link = { eu4 = tocharian ck2 = tocharian tech = chinese gfx = asiangfx }
 link = { eu4 = manchu ck2 = jurchen ck2 = mohe tech = chinese gfx = asiangfx }
+link = { eu4 = hunnic ck2 = hunnic tech = nomad_group gfx = asiangfx }
+link = { eu4 = hephthalite ck2 = huna tech = nomad_group gfx = asiangfx }
 
 # Altaic (Historical Immersion Project - SWMH)
 link = { eu4 = turkmeni ck2 = turkmen ck2 = oghuz tech = nomad_group gfx = muslimgfx } #Fallback
@@ -566,6 +572,11 @@ link = { eu4 = rajput ck2 = rajput tech = indian gfx = indiangfx }
 link = { eu4 = sindhi ck2 = sindhi tech = indian gfx = indiangfx }
 link = { eu4 = marathi ck2 = marathi tech = indian gfx = indiangfx }
 link = { eu4 = sinhala ck2 = sinhala tech = indian gfx = indiangfx }
+
+# Aryan Divergence
+link = { eu4 = dom ck2 = dom tech = indian gfx = indiangfx }
+link = { eu4 = lom ck2 = lom tech = indian gfx = indiangfx }
+link = { eu4 = ghagar ck2 = ghagar tech = indian gfx = indiangfx }
 
 
 # Dravidian Indian

@@ -866,7 +866,7 @@ caucasian = {
 			Abeacid Galatid Madyid Palacid Partatid
 		}
 		male_names = {
-			Abeacus Apsyrtos Arpharnes Askhkadar Atheas Galat Kuluk Madyes Oltak Palacus Partatua Skilurus Skunxa Spadines Tasius Zanticus Respendial
+			Abeacus Apsyrtos Arpharnes Askhkadar Atheas Galat Kuluk Madyes Oltak Palacus Partatua Skilurus Skunxa Spadines Tasius Zanticus Respendial Nemed
 		}
 		female_names = {
 			Amage Ghadani Opoin Polemakratia
@@ -883,6 +883,31 @@ caucasian = {
 			Amage Ghadani Opoin Polemakratia
 		}
 	}
+	yarkamii = {
+		dynasty_names = {
+			Abeacid Galatid Madyid Palacid Partatid Yarkam Kausika Agarid Lyam Ytarim
+		}
+		male_names = {
+			Abeacus Apsyrtos Arpharnes Askhkadar Atheas Galat Kuluk Madyes Oltak Palacus Partatua Skilurus Skunxa Spadines Tasius Zanticus Respendia
+			Ytarim Lyam Naradeve Candre Nandake Maisês Gôdigasos Phadious Spithamês Omrasmakos Amôspados Danarasmakos Pharnakiôn Ouarzbalos Iôdesmagos Maldras
+		}
+		female_names = {
+			Amage Ghadani Opoin Polemakratia Vasisthe Areagne Apama
+		}
+	}
+	caspian = {
+		dynasty_names = {
+			Abeghean Amatuni Andzevatsi Artsruni Bagean Bznuni Dimaksean Ensayatsi Gabeghean Gntuni Gnunid Habuzhean Hashteank Hawnuni Kajberuni Kamsarakan Koghean
+			Mamikonean Manawazean Mandakuni Paluni Oroduni Eruanduni Orontid Ropsean
+		}
+		male_names = {
+			Smbat Khachik Ashot Arsham Zariadres Hamazasp Vardan Artawazd Mzez Eruand Orontes Mithranes Kherkhes Khozrid Sames Arshames Trdat Tigran Zareh Artashes
+			Arshak Vagharsh Khosrow Varazdat Vasak Ashusha Varazvaghan Hmayeak Vahan Sahak Zarmihr Nikhor
+		}
+		female_names = {
+			Tigranuhi Vanuhi Mihrana Asatera Ariazate Aka Ghadana Erato Zarmandukht Pharantzem Mahbanu Zenobia Satenik
+		}
+	}
 	assyrian = {
 		primary = ASY
 		dynasty_names = { Ahmadi Algafari Assadi Homsi Nasser }
@@ -892,6 +917,17 @@ caucasian = {
 		dynasty_names = { Thinis Memphis Abydos Herakleopolis Thebes Itjtawy Avaris Bubastis Sais }
 	}
 	babylonian = {
+		dynasty_names = {
+			Amorite Sealand Larsa Kassite
+		}
+		male_names = {
+			Naplanum Emisum Samium Zabaia Gungunum Abisare Sumuel "Nur-Adad" "Sin-Iddinam" "Sin-Eribam" "Sin-Iqisham" "Silli-Adad" "Warad-Sin" "Rim-Sin" Hammurabi "Samsu-iluna" "Su-abu" "Sumu-la-El" "Sabum" "Apil-Sin" "Sin-muballit" Abieshu "Ammi-ditana" "Samsu-Ditana" Ammisaduqa Gandas Agum Kastiliasu "Abi-Rattas" Hurbazum Ulamburiash Karaindash "Enlil-nadin-ahi" Gulkishar
+		}
+		female_names = {
+			Nana Allatu Belit Zirrabanit Tiamat
+		}
+	}
+	cardukoi = {
 		dynasty_names = {
 			Amorite Sealand Larsa Kassite
 		}

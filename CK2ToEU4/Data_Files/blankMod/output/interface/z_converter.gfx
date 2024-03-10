@@ -4,14 +4,14 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_icon_religion"
 		texturefile = "gfx/interface/icon_religion.tga"
-		noOfFrames = 168
+		noOfFrames = 170
 		norefcount = yes
 	}
 
 	spriteType = {
 		name = "GFX_icon_religion_small"
 		texturefile = "gfx/interface/icon_religion_small.tga"
-		noOfFrames = 168
+		noOfFrames = 170
 		loadType = "INGAME"
 	}
 
@@ -19,13 +19,13 @@ spriteTypes = {
 		name = "GFX_religion_icon_strip"
 		texturefile = "gfx/interface/icon_religion_small.dds"
 		transparencecheck = yes
-		noOfFrames = 168
+		noOfFrames = 170
 	}
 
 	spriteType = {
 		name = "GFX_province_view_religion"
 		texturefile = "gfx/interface/province_view_religion.tga"
-		noOfFrames = 168
+		noOfFrames = 170
 		loadType = "INGAME"
 		allwaystransparent = yes
 	}
@@ -33,7 +33,7 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_country_icon_religion"
 		texturefile = "gfx//interface//country_icon_religion.dds"
-		noOfFrames = 168
+		noOfFrames = 170
 	}
 
 	#Religious Strips

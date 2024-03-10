@@ -77,6 +77,7 @@
  nuragic_pagan_religion_desc:0 "Nuragic is a belief that stretches back to the Bronze Age of Corsica and Sardinia. Filled with cults of animals and wells, most central to Nuragic belief is the Henotheistic belief in a Father God known by many names, including Sardo, Sid Addir, and more."
  bamar_pagan_religion_desc:0 "Nats are spirits worshipped by the peoples who live along the Irrawaddy River, whom were influenced by Buddhist and Hindu personalities. Nats take the form of saints, people who have died violently, and village guardians."
  mithraic_religion_desc: "The religion of the Medians focusses primarily on the god Mithra rather than Ahura Mazda. It is the direct descendant of the ancient pre-Zoroastrian beliefs of Persia."
+ hurrian_pagan_religion_desc:0 "The Hurrians worshiped a great number of gods derived from various different cultures of the Near East. The main gods in the Hurrian pantheon were Teshub, the mighty weather god, and his wife Hebat, the mother goddess. A special class of figures venerated by the Hurrians were so-called Sarrena, deified kings and heroes."
 
  ##Religious Rebels
  jain_demand_desc: "The religious rebels fight for the $RELIGION$ religion. They demand that we recognize its supremacy or at the very least cease our efforts to convert them and let them worship in peace."
@@ -370,6 +371,12 @@
  bamar_pagan_rebels_name:0 "$RELIGION$ Zealots"
  bamar_pagan_rebels_desc:0 "Religious fanatics tend to rise up in provinces controlled by nations of a different faith. They seek to spread their faith and smite all unbelievers."
  bamar_pagan_rebels_army:0 "$RELIGION$ Army"
+ hurrian_pagan_rebels_demand:0 "Convert $COUNTRYNAME$"
+ hurrian_pagan_rebels_demand_desc:0 "The religious rebels fight for the $RELIGION$ religion. They demand that we recognize its supremacy or at the very least cease our efforts to convert them and let them worship in peace."
+ hurrian_pagan_rebels_title:0 "Religious"
+ hurrian_pagan_rebels_name:0 "$RELIGION$ Zealots"
+ hurrian_pagan_rebels_desc:0 "Religious fanatics tend to rise up in provinces controlled by nations of a different faith. They seek to spread their faith and smite all unbelievers."
+ hurrian_pagan_rebels_army:0 "$RELIGION$ Army"
  ajivika_rebels_demand:0 "Convert $COUNTRYNAME$"
  ajivika_rebels_demand_desc:0 "The religious rebels fight for the $RELIGION$ religion. They demand that we recognize its supremacy or at the very least cease our efforts to convert them and let them worship in peace."
  ajivika_rebels_title:0 "Religious"
@@ -485,6 +492,12 @@
  bamar_pagan_reformed_rebels_name:0 "$RELIGION$ Zealots"
  bamar_pagan_reformed_rebels_desc:0 "Religious fanatics tend to rise up in provinces controlled by nations of a different faith. They seek to spread their faith and smite all unbelievers."
  bamar_pagan_reformed_rebels_army:0 "$RELIGION$ Army"
+ hurrian_pagan_reformed_rebels_demand:0 "Convert $COUNTRYNAME$"
+ hurrian_pagan_reformed_rebels_demand_desc:0 "The religious rebels fight for the $RELIGION$ religion. They demand that we recognize its supremacy or at the very least cease our efforts to convert them and let them worship in peace."
+ hurrian_pagan_reformed_rebels_title:0 "Religious"
+ hurrian_pagan_reformed_rebels_name:0 "$RELIGION$ Zealots"
+ hurrian_pagan_reformed_rebels_desc:0 "Religious fanatics tend to rise up in provinces controlled by nations of a different faith. They seek to spread their faith and smite all unbelievers."
+ hurrian_pagan_reformed_rebels_army:0 "$RELIGION$ Army"
 
  ##Fetishist Cults
  west_african_pagan_reformed_cult:0 "Eldership"
