@@ -204,7 +204,17 @@
  western_etrurian: "Western Etrurian"
  northern_etrurian: "Northern Etrurian"
  atlanto_slavic: "Atlanto-Slavic"
-
+ yarkamii:0 "Yarkamii"
+ caspian:0 "Caspian"
+ cardukoi:0 "Karduchoi"
+ dom:0 "Dom"
+ lom:0 "Lom"
+ ghagar:0 "Ghagar"
+ old_burgundian:0 "Old Burgundian"
+ dom_group: "Dom"
+ hunnic:0 "Hunnic"
+ hephthalite:0 "Hephthalite"
+ 
  #Norse Culture Breaks
  elsinorian:0 "Elsinorian"
  ruotsish:0 "Ruotsish"

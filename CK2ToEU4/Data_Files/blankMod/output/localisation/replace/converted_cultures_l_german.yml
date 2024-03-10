@@ -204,6 +204,16 @@
  western_etrurian: "Westetruscisch"
  northern_etrurian: "Nordetruscisch"
  atlanto_slavic: "Atlantischslavisch"
+ yarkamii:0 "Yarkamisch"
+ caspian:0 "Kaspisch"
+ cardukoi:0 "Karduchisch"
+ dom:0 "Domisch"
+ lom:0 "Lomisch"
+ ghagar:0 "Ghagarisch"
+ old_burgundian:0 "Altburgundisch"
+ dom_group: "Domisch"
+ hunnic:0 "Hunnisch"
+ hephthalite:0 "Hephthalit"
 
  #Norse Culture Breaks
  elsinorian:0 "Helsingörisch"

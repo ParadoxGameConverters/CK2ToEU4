@@ -75,6 +75,17 @@ oghuz = {
 			Temülen Börte Mandukhai Samar Zaufishan Mulan Aigiarn Borte Chabi Conchaka Doquez-khatum Goland Ho'elun Khultulun Kokachin Mandughai Oghul Qamish Orqina Sorghaghtani Beki Toregene
 		}
 	}
+	hunnic = {
+		male_names = {
+			Alp Balamber Uldin Charaton Attila Bleda Octar Ruga Rugila Ellak Ellac Dengizich Ernak Chelchel Aetla Ardaric Hunor Magor Mundo Edeko Hunoulph Odoacer Ediko Askoum
+			Kursich Basich
+		}
+	}
+	hephthalite = {
+		male_names = {
+			Akhshunwar Ebodalo Haru Hwade-gang Javukha Khingila Kidara Kun-khi Mehama Meyam Mihirakula Napki Sartu Shengil Toramana
+		}
+	}
 }
 barbaro_germanic = {
 	graphical_culture = westerngfx
@@ -174,6 +185,10 @@ barbaro_germanic = {
 		dynasty_names = { Aniano Ariari Arius Ataulph Atharid Baduila Cyrila Farnobio Feva Fretela Friderico Gaiseri Gundeharo Heldefred Hermangild Hernegliscu Hildebado Huml Hunimund Leuvibild Nidada Retemeri Rhima Saphrax Sueridu Sunnia Theoderi Tribigild Videric Vidimiro }
 	}
 	vandal = {
+		male_names = { Agriwulfa Aspar Ataulfo Bigeli Braga Brandila Cannabao Colias Fastida Feletheo Galindo Gerung Heldebaldo Hermenigildo Hrodrigo Hunigild Ibba Inna Modare Naulabato Rausimodo Recaredo Rodolfo Sigisvulto Theodemer Theudi Valaravans Veduco Viliaro Visimar }
+		dynasty_names = { Aniano Ariari Arius Ataulph Atharid Baduila Cyrila Farnobio Feva Fretela Friderico Gaiseri Gundeharo Heldefred Hermangild Hernegliscu Hildebado Huml Hunimund Leuvibild Nidada Retemeri Rhima Saphrax Sueridu Sunnia Theoderi Tribigild Videric Vidimiro }
+	}
+	old_burgundian = {
 		male_names = { Agriwulfa Aspar Ataulfo Bigeli Braga Brandila Cannabao Colias Fastida Feletheo Galindo Gerung Heldebaldo Hermenigildo Hrodrigo Hunigild Ibba Inna Modare Naulabato Rausimodo Recaredo Rodolfo Sigisvulto Theodemer Theudi Valaravans Veduco Viliaro Visimar }
 		dynasty_names = { Aniano Ariari Arius Ataulph Atharid Baduila Cyrila Farnobio Feva Fretela Friderico Gaiseri Gundeharo Heldefred Hermangild Hernegliscu Hildebado Huml Hunimund Leuvibild Nidada Retemeri Rhima Saphrax Sueridu Sunnia Theoderi Tribigild Videric Vidimiro }
 	}
@@ -2140,6 +2155,144 @@ atlanto_slavic = {
 			Glowan Jakobica Klosopolski Kucank Leska Langa Mosak Muslik Mercink Miczka
 			Parczewski Prätorius Pjekar Rhenisz Rizo Rychtar Swora Stempel Smoler
 			Woski Wirt Zejler
+		}
+	}
+
+}
+
+dom_group = {
+	dom = {
+		dynasty_names = {
+			"Muzaffarid" "Ahmad Shahi" "Vadher" "Babi" "Rawal" "Jadeja" "Calukya" "Bhil" "Kathi"
+		}
+		male_names = {
+			Zafar Muhammad Mubarak Ahmad Dawud Mahmud Muzaffar Bahadur Sardar Tatar Fath Khalil Sikandar Nasir Amarji 
+			Bhenji Hamirji Bhav Natwar Sidhraj Rajsinhji Fulad Abdul
+			Abhayapala Acharya Ahila Ajairaja Jayaraja Ajayapala Ajay-Singh Alhana Allat Amarangeya 
+			Ambra-Prasad Amritapala Anahilla Ari-Singh Arjunavarman Arnoraja Asaraja Asvapala Balaprasada 
+			Baliraja Bhatarka Bhert-Patt Bhima Bhima Bhimadeva Bhima Bhim-Singh Bhuvan-Singh Bhoja Bhoo-Chand 
+			Chachiga Chamundaraja Chandanaraja Chandraraja Chaud-Singh Dadda Dambarisimha Deopali-Deo Devapala 
+			Dharapatta Dharasena Dharmapala Dhruvasena Dinakarn Dronasinha Dungar-Singh Durlabharaja Gajasimha 
+			Gopala Gopendraka Gopendraraja Gopendraraja Gopendraraja Govinda Govindaraja Govindapala 
+			Govindaraja Govindaraja Govindaraja Guhasena Guvaka Govindaraja Hammira Hammir-Singh Hanspal 
+			Hariraja Harischandra Hemachandra Jagadeva Jaitrasimha Jaitrasimha Jaitra-Singh Jaitrasimha 
+			Jaitugideva Jasapala Jaskarn Jayapala Jayaraja Jayaraja Jayasimha Jayasimha Jay-Singh Jayasimha 
+			Jay-Singh-Deo Jayat-Singh Jayasimha Jayavarman Jayshikari Jendraraja Jojalla Kalbhoj Kanhadadeva 
+			Karandeva Karnadeva Karan-Singh Karnadeva Karnadeva Katudeva Katukaraja Keerti-Verma Kirtivarman 
+			Kelhana Kharagraha Khuman Kirtipala Kirtivarman Kirtivarman Kumarapala Kshemraja Xemraja 
+			Kshem-Singh Kshetra-Singh Kumar-Singh Lakhanapala Lakhshaman-Singh Lakshmana Lakshmanadeva 
+			Lakshmanadeva Lakshmanadeva Lakshmivarman Lavanyakarna Lunavarman Luntiga Madanapala Mahap Mahayak 
+			Mahendra Mahendrapala Mahendrapala Mahendra Mahipala Mahlakadeva Maladeva Manavasimha Mathan-Singh 
+			Mattat Mihira Mulraja Nagabhata Nagarjuna Nagraja Naradeva Narapati Naravarman Naravarman 
+			Naravarmandeva Naravarman Narayanapala Nar-Verma Naravarman Narwahan Nayapala Padam-Singh 
+			Prahladana Pratapa Prithvipal Prithviraja Prithivipala Prithviraja Prithviraja Prithviraja Purnpala 
+			Rahap Rajapala Rajyapala Ramabhadra Ramapala Ratan-Singh Ratnapala Rayapala Rudrapala Sahajapala 
+			Sahanapala Samanta Samanta Samant-Singh Samanta Samantasimha Samanta Samarasimha Samarasimha 
+			Samar-Singh Samarasimha Shakti-Kumar Shaliwahan Shuchi-Verma Shurapala Siladitya Sindhuraja 
+			Singhraja Sinha Sinhad-Deo Siyaka Sohiya Someshwara Subhatavarman Suratrana Tejasimha Tejasimha 
+			Tej-Singh Tejasimha Trailokyavarman Tribhuvanapala Trilochanpala Udayaditya Udayasimha Udayavarman 
+			Upendra Vagbhata Vahadiasimha Vairisimha Vairisimha Vairsingh Vairisimha Vajradeva Vakapati Vakpati 
+			Vakpati Vakpati Vakpatiraja Vakpati Valhana Valhanadeva Valhanadeva Valhanadeva Vallabharaja 
+			Vanraja Vapyata Vasudeva Vatsaraja Vigrahapala Vigraharaja Vigraharaja Vigrharaja Vigraharaja 
+			Vijada-Dasasyandana Vijai-Singh Vikramaditya Vinaykpala Vindhyavarman Virama Viradeva Viranarayana 
+			Virsinh-Deo Viryarama Xemraja Xemraja Yasovarman Yograj
+		}
+		female_names = {
+			Fatima Ahmadi Mumtaz
+			Annaladevi Bauladevi Bhuyikadevi Candrabhattarikadevi Chachinidevi Dehanagadevi Delhanadevi 
+			Desaladevi Hariyadevi Laxmidevi Madhavi Mahalakshmi Mahidevi Manaladevi Mayanalladevi Namalladevi 
+			Padmaladevi Padmini Prasadhanadevi Pratha Rasaladevi Rudaladevi Rudrani Rupadevi Samyukta Sidhawa 
+			Somalladevi Suhava Sundaridevi Tihunaka Udayamati
+		}
+	}
+	
+	lom = {
+		dynasty_names = {
+			"Muzaffarid" "Ahmad Shahi" "Vadher" "Babi" "Rawal" "Jadeja" "Calukya" "Bhil" "Kathi"
+		}
+		male_names = {
+			Zafar Muhammad Mubarak Ahmad Dawud Mahmud Muzaffar Bahadur Sardar Tatar Fath Khalil Sikandar Nasir Amarji 
+			Bhenji Hamirji Bhav Natwar Sidhraj Rajsinhji Fulad Abdul
+			Abhayapala Acharya Ahila Ajairaja Jayaraja Ajayapala Ajay-Singh Alhana Allat Amarangeya 
+			Ambra-Prasad Amritapala Anahilla Ari-Singh Arjunavarman Arnoraja Asaraja Asvapala Balaprasada 
+			Baliraja Bhatarka Bhert-Patt Bhima Bhima Bhimadeva Bhima Bhim-Singh Bhuvan-Singh Bhoja Bhoo-Chand 
+			Chachiga Chamundaraja Chandanaraja Chandraraja Chaud-Singh Dadda Dambarisimha Deopali-Deo Devapala 
+			Dharapatta Dharasena Dharmapala Dhruvasena Dinakarn Dronasinha Dungar-Singh Durlabharaja Gajasimha 
+			Gopala Gopendraka Gopendraraja Gopendraraja Gopendraraja Govinda Govindaraja Govindapala 
+			Govindaraja Govindaraja Govindaraja Guhasena Guvaka Govindaraja Hammira Hammir-Singh Hanspal 
+			Hariraja Harischandra Hemachandra Jagadeva Jaitrasimha Jaitrasimha Jaitra-Singh Jaitrasimha 
+			Jaitugideva Jasapala Jaskarn Jayapala Jayaraja Jayaraja Jayasimha Jayasimha Jay-Singh Jayasimha 
+			Jay-Singh-Deo Jayat-Singh Jayasimha Jayavarman Jayshikari Jendraraja Jojalla Kalbhoj Kanhadadeva 
+			Karandeva Karnadeva Karan-Singh Karnadeva Karnadeva Katudeva Katukaraja Keerti-Verma Kirtivarman 
+			Kelhana Kharagraha Khuman Kirtipala Kirtivarman Kirtivarman Kumarapala Kshemraja Xemraja 
+			Kshem-Singh Kshetra-Singh Kumar-Singh Lakhanapala Lakhshaman-Singh Lakshmana Lakshmanadeva 
+			Lakshmanadeva Lakshmanadeva Lakshmivarman Lavanyakarna Lunavarman Luntiga Madanapala Mahap Mahayak 
+			Mahendra Mahendrapala Mahendrapala Mahendra Mahipala Mahlakadeva Maladeva Manavasimha Mathan-Singh 
+			Mattat Mihira Mulraja Nagabhata Nagarjuna Nagraja Naradeva Narapati Naravarman Naravarman 
+			Naravarmandeva Naravarman Narayanapala Nar-Verma Naravarman Narwahan Nayapala Padam-Singh 
+			Prahladana Pratapa Prithvipal Prithviraja Prithivipala Prithviraja Prithviraja Prithviraja Purnpala 
+			Rahap Rajapala Rajyapala Ramabhadra Ramapala Ratan-Singh Ratnapala Rayapala Rudrapala Sahajapala 
+			Sahanapala Samanta Samanta Samant-Singh Samanta Samantasimha Samanta Samarasimha Samarasimha 
+			Samar-Singh Samarasimha Shakti-Kumar Shaliwahan Shuchi-Verma Shurapala Siladitya Sindhuraja 
+			Singhraja Sinha Sinhad-Deo Siyaka Sohiya Someshwara Subhatavarman Suratrana Tejasimha Tejasimha 
+			Tej-Singh Tejasimha Trailokyavarman Tribhuvanapala Trilochanpala Udayaditya Udayasimha Udayavarman 
+			Upendra Vagbhata Vahadiasimha Vairisimha Vairisimha Vairsingh Vairisimha Vajradeva Vakapati Vakpati 
+			Vakpati Vakpati Vakpatiraja Vakpati Valhana Valhanadeva Valhanadeva Valhanadeva Vallabharaja 
+			Vanraja Vapyata Vasudeva Vatsaraja Vigrahapala Vigraharaja Vigraharaja Vigrharaja Vigraharaja 
+			Vijada-Dasasyandana Vijai-Singh Vikramaditya Vinaykpala Vindhyavarman Virama Viradeva Viranarayana 
+			Virsinh-Deo Viryarama Xemraja Xemraja Yasovarman Yograj
+		}
+		female_names = {
+			Fatima Ahmadi Mumtaz
+			Annaladevi Bauladevi Bhuyikadevi Candrabhattarikadevi Chachinidevi Dehanagadevi Delhanadevi 
+			Desaladevi Hariyadevi Laxmidevi Madhavi Mahalakshmi Mahidevi Manaladevi Mayanalladevi Namalladevi 
+			Padmaladevi Padmini Prasadhanadevi Pratha Rasaladevi Rudaladevi Rudrani Rupadevi Samyukta Sidhawa 
+			Somalladevi Suhava Sundaridevi Tihunaka Udayamati
+		}
+	}
+	
+	ghagar = {
+		dynasty_names = {
+			"Muzaffarid" "Ahmad Shahi" "Vadher" "Babi" "Rawal" "Jadeja" "Calukya" "Bhil" "Kathi"
+		}
+		male_names = {
+			Zafar Muhammad Mubarak Ahmad Dawud Mahmud Muzaffar Bahadur Sardar Tatar Fath Khalil Sikandar Nasir Amarji 
+			Bhenji Hamirji Bhav Natwar Sidhraj Rajsinhji Fulad Abdul
+			Abhayapala Acharya Ahila Ajairaja Jayaraja Ajayapala Ajay-Singh Alhana Allat Amarangeya 
+			Ambra-Prasad Amritapala Anahilla Ari-Singh Arjunavarman Arnoraja Asaraja Asvapala Balaprasada 
+			Baliraja Bhatarka Bhert-Patt Bhima Bhima Bhimadeva Bhima Bhim-Singh Bhuvan-Singh Bhoja Bhoo-Chand 
+			Chachiga Chamundaraja Chandanaraja Chandraraja Chaud-Singh Dadda Dambarisimha Deopali-Deo Devapala 
+			Dharapatta Dharasena Dharmapala Dhruvasena Dinakarn Dronasinha Dungar-Singh Durlabharaja Gajasimha 
+			Gopala Gopendraka Gopendraraja Gopendraraja Gopendraraja Govinda Govindaraja Govindapala 
+			Govindaraja Govindaraja Govindaraja Guhasena Guvaka Govindaraja Hammira Hammir-Singh Hanspal 
+			Hariraja Harischandra Hemachandra Jagadeva Jaitrasimha Jaitrasimha Jaitra-Singh Jaitrasimha 
+			Jaitugideva Jasapala Jaskarn Jayapala Jayaraja Jayaraja Jayasimha Jayasimha Jay-Singh Jayasimha 
+			Jay-Singh-Deo Jayat-Singh Jayasimha Jayavarman Jayshikari Jendraraja Jojalla Kalbhoj Kanhadadeva 
+			Karandeva Karnadeva Karan-Singh Karnadeva Karnadeva Katudeva Katukaraja Keerti-Verma Kirtivarman 
+			Kelhana Kharagraha Khuman Kirtipala Kirtivarman Kirtivarman Kumarapala Kshemraja Xemraja 
+			Kshem-Singh Kshetra-Singh Kumar-Singh Lakhanapala Lakhshaman-Singh Lakshmana Lakshmanadeva 
+			Lakshmanadeva Lakshmanadeva Lakshmivarman Lavanyakarna Lunavarman Luntiga Madanapala Mahap Mahayak 
+			Mahendra Mahendrapala Mahendrapala Mahendra Mahipala Mahlakadeva Maladeva Manavasimha Mathan-Singh 
+			Mattat Mihira Mulraja Nagabhata Nagarjuna Nagraja Naradeva Narapati Naravarman Naravarman 
+			Naravarmandeva Naravarman Narayanapala Nar-Verma Naravarman Narwahan Nayapala Padam-Singh 
+			Prahladana Pratapa Prithvipal Prithviraja Prithivipala Prithviraja Prithviraja Prithviraja Purnpala 
+			Rahap Rajapala Rajyapala Ramabhadra Ramapala Ratan-Singh Ratnapala Rayapala Rudrapala Sahajapala 
+			Sahanapala Samanta Samanta Samant-Singh Samanta Samantasimha Samanta Samarasimha Samarasimha 
+			Samar-Singh Samarasimha Shakti-Kumar Shaliwahan Shuchi-Verma Shurapala Siladitya Sindhuraja 
+			Singhraja Sinha Sinhad-Deo Siyaka Sohiya Someshwara Subhatavarman Suratrana Tejasimha Tejasimha 
+			Tej-Singh Tejasimha Trailokyavarman Tribhuvanapala Trilochanpala Udayaditya Udayasimha Udayavarman 
+			Upendra Vagbhata Vahadiasimha Vairisimha Vairisimha Vairsingh Vairisimha Vajradeva Vakapati Vakpati 
+			Vakpati Vakpati Vakpatiraja Vakpati Valhana Valhanadeva Valhanadeva Valhanadeva Vallabharaja 
+			Vanraja Vapyata Vasudeva Vatsaraja Vigrahapala Vigraharaja Vigraharaja Vigrharaja Vigraharaja 
+			Vijada-Dasasyandana Vijai-Singh Vikramaditya Vinaykpala Vindhyavarman Virama Viradeva Viranarayana 
+			Virsinh-Deo Viryarama Xemraja Xemraja Yasovarman Yograj
+		}
+		female_names = {
+			Fatima Ahmadi Mumtaz
+			Annaladevi Bauladevi Bhuyikadevi Candrabhattarikadevi Chachinidevi Dehanagadevi Delhanadevi 
+			Desaladevi Hariyadevi Laxmidevi Madhavi Mahalakshmi Mahidevi Manaladevi Mayanalladevi Namalladevi 
+			Padmaladevi Padmini Prasadhanadevi Pratha Rasaladevi Rudaladevi Rudrani Rupadevi Samyukta Sidhawa 
+			Somalladevi Suhava Sundaridevi Tihunaka Udayamati
 		}
 	}
 
