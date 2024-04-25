@@ -313,6 +313,7 @@ link = { eu4 = gallic ck2 = gaulish tech = western gfx = westerngfx } #Fallback
 
 # Finno-Ugric
 
+link = { eu4 = karelian ck2 = finnish tech = eastern gfx = westerngfx region = karelia_area }
 link = { eu4 = finnish ck2 = finnish tech = eastern gfx = westerngfx }
 link = { eu4 = sapmi ck2 = lappish tech = eastern gfx = inuitgfx }
 link = { eu4 = estonian ck2 = ugricbaltic tech = eastern gfx = inuitgfx }
@@ -404,7 +405,7 @@ link = { eu4 = moroccan ck2 = masmuda ck2 = zanata tech = muslim gfx = muslimgfx
 # Russian: the split
 
 link = { eu4 = byelorussian ck2 = russian tech = eastern gfx = easterngfx region = baltic_region region = minsk_area region = white_ruthenia_area }
-link = { eu4 = karelian ck2 = russian tech = eastern gfx = easterngfx region = karelia_area }
+#link = { eu4 = karelian ck2 = russian tech = eastern gfx = easterngfx region = karelia_area }
 link = { eu4 = novgorodian ck2 = russian tech = eastern gfx = easterngfx region = novgorod_area region = pskov_area region = beloozero_area }
 link = { eu4 = ryazanian ck2 = russian tech = eastern gfx = easterngfx region = smolensk_area region = ryazan_area region = oka_area }
 link = { eu4 = ruthenian ck2 = russian tech = eastern gfx = easterngfx region = ruthenia_region region = crimea_region }
