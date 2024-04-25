@@ -410,7 +410,8 @@ link = { eu4 = novgorodian ck2 = russian tech = eastern gfx = easterngfx region 
 link = { eu4 = ryazanian ck2 = russian tech = eastern gfx = easterngfx region = smolensk_area region = ryazan_area region = oka_area }
 link = { eu4 = ruthenian ck2 = russian tech = eastern gfx = easterngfx region = ruthenia_region region = crimea_region }
 link = { eu4 = russian ck2 = russian tech = eastern gfx = easterngfx region = russia_region region = ural_region } #Muscovite
-link = { eu4 = kishinyov ck2 = russian tech = eastern gfx = easterngfx region = carpathia_region region = poland_region }
+link = { eu4 = kishinyov ck2 = russian tech = eastern gfx = easterngfx region = carpathia_region }
+link = { eu4 = red_ruthenian ck2 = russian tech = eastern gfx = easterngfx region = poland_region }
 link = { eu4 = russian_culture ck2 = russian tech = eastern gfx = easterngfx } #Fallback
 link = { eu4 = protoslavic ck2 = protoslavic tech = eastern gfx = easterngfx }
 
