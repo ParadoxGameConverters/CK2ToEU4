@@ -3,27 +3,27 @@
 stonehenge = {
 	# province it starts in
 	start = 234
-
+	
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
 	date = -2500.01.01
-
+	
 	#time to build
 	time = {
 		months = 0
 	}
-
+	
 	#how much to build one
 	build_cost = 0
-
+	
 	#can we move it?
 	can_be_moved = yes
-
+	
 	#time to move the project one unit of distance, in days
 	move_days_per_unit_distance = 2
-
+	
 	#tier that the project starts at when first placed in the game (be that at game start or when built by a country as the game progresses)
 	starting_tier = 0
-
+	
 	#project type
 	type = monument
 
@@ -34,10 +34,14 @@ stonehenge = {
 				religion_group = pagan
 			}
 			AND = {
+				culture = roman
+				province_is_or_accepts_culture = yes
+			}
+			AND = {
 				OR = {
+					culture = anglois
 					culture_group = british
 					culture_group = gaelic
-					culture = anglois
 				}
 				province_is_or_accepts_culture = yes
 			}
@@ -48,7 +52,7 @@ stonehenge = {
 	on_built = {
 		show_ambient_object = stonehenge
 	}
-
+	
 	#what to do when it's destroyed
 	on_destroyed = {
 		hide_ambient_object = stonehenge
@@ -61,14 +65,18 @@ stonehenge = {
 				religion_group = pagan
 			}
 			AND = {
+				culture = roman
+				province_is_or_accepts_culture = yes
+			}
+			AND = {
 				OR = {
+					culture = anglois
 					culture_group = british
 					culture_group = gaelic
-					culture = anglois
 				}
 				province_is_or_accepts_culture = yes
 			}
-		}
+		}	
 	}
 
 	#can our country upgrade it?
@@ -78,10 +86,14 @@ stonehenge = {
 				religion_group = pagan
 			}
 			AND = {
+				culture = roman
+				province_is_or_accepts_culture = yes
+			}
+			AND = {
 				OR = {
+					culture = anglois
 					culture_group = british
 					culture_group = gaelic
-					culture = anglois
 				}
 				province_is_or_accepts_culture = yes
 			}
@@ -143,7 +155,7 @@ stonehenge = {
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
 			tolerance_heretic = 0.5
-			tolerance_heathen = 0.5
+			tolerance_heathen = 0.5	
 		}
 
 		#what effects happen when this tier is achieved
@@ -159,7 +171,7 @@ stonehenge = {
 
 		#cost to upgrade to this level (0 for tier 0)
 		cost_to_upgrade = {
-			factor = 3500
+			factor = 2500
 		}
 
 		#what modifiers are added to the province when we have this project here on this tier
@@ -173,7 +185,7 @@ stonehenge = {
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
 			tolerance_heretic = 0.5
-			tolerance_heathen = 0.5
+			tolerance_heathen = 0.5	
 			stability_cost_modifier = -0.1
 		}
 
@@ -190,7 +202,7 @@ stonehenge = {
 
 		#cost to upgrade to this level (0 for tier 0)
 		cost_to_upgrade = {
-			factor = 7000
+			factor = 5000
 		}
 
 		#what modifiers are added to the province when we have this project here on this tier
@@ -204,9 +216,24 @@ stonehenge = {
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
 			tolerance_heretic = 1
-			tolerance_heathen = 1
+			tolerance_heathen = 1						
 			stability_cost_modifier = -0.25
 			global_missionary_strength = 0.01
+		}
+		
+		conditional_modifier = {
+			trigger = {
+				custom_trigger_tooltip = {
+					tooltip = COMPLETED_SPECIAL_MISSION_THAT_UNLOCKS_GREAT_PROJECT
+					owner = {
+						has_country_flag = sunset_unlock_stonehenge_conditional_modifier_flag
+					}
+				}
+			}
+			modifier = {
+				tolerance_own = 2
+				same_religion_advisor_cost = -0.15
+			}
 		}
 
 		#what effects happen when this tier is achieved

@@ -45,13 +45,13 @@ jobs:
     - name: "Prepare release"
       run: |
         cd "C:\Program Files\7-Zip\"
-        .\7z.exe a $Env:GITHUB_WORKSPACE\CK2ToEU4-1.0Mercia-win-x64.zip $Env:GITHUB_WORKSPACE\Release\*
-        cp $Env:GITHUB_WORKSPACE\CK2ToEU4-1.0Mercia-win-x64.zip $Env:GITHUB_WORKSPACE\CK2ToEU4-latest-win-x64.zip
+        .\7z.exe a $Env:GITHUB_WORKSPACE\CK2ToEU4-1.0Navarra-win-x64.zip $Env:GITHUB_WORKSPACE\Release\*
+        cp $Env:GITHUB_WORKSPACE\CK2ToEU4-1.0Navarra-win-x64.zip $Env:GITHUB_WORKSPACE\CK2ToEU4-latest-win-x64.zip
               
     - name: "Prepare installer"
       run: |
         c:\"Program Files (x86)\Inno Setup 6\iscc" CK2ToEU4-Installer.iss
-        cp $Env:GITHUB_WORKSPACE\Output\CK2ToEU4-latest-win-x64.exe $Env:GITHUB_WORKSPACE\Output\CK2ToEU4-1.0Mercia-win-x64.exe
+        cp $Env:GITHUB_WORKSPACE\Output\CK2ToEU4-latest-win-x64.exe $Env:GITHUB_WORKSPACE\Output\CK2ToEU4-1.0Navarra-win-x64.exe
        
     - name: "Upload binaries to release"
       if: ${{ github.event_name == 'push' }}
@@ -61,7 +61,7 @@ jobs:
         allowUpdates: true
         omitBodyDuringUpdate: true
         omitNameDuringUpdate: true
-        artifacts: CK2ToEU4-1.0Mercia-win-x64.zip, Output\CK2ToEU4-1.0Mercia-win-x64.exe
+        artifacts: CK2ToEU4-1.0Navarra-win-x64.zip, Output\CK2ToEU4-1.0Navarra-win-x64.exe
         token: ${{ secrets.API_TOKEN_GITHUB }}
         
     - name: "Upload binaries to archive"
@@ -72,7 +72,7 @@ jobs:
         allowUpdates: true
         omitBodyDuringUpdate: true
         omitNameDuringUpdate: true
-        artifacts: CK2ToEU4-1.0Mercia-win-x64.zip, CK2ToEU4-latest-win-x64.zip, Output\CK2ToEU4-1.0Mercia-win-x64.exe, Output\CK2ToEU4-latest-win-x64.exe
+        artifacts: CK2ToEU4-1.0Navarra-win-x64.zip, CK2ToEU4-latest-win-x64.zip, Output\CK2ToEU4-1.0Navarra-win-x64.exe, Output\CK2ToEU4-latest-win-x64.exe
         token: ${{ secrets.API_TOKEN_GITHUB }}
         
     - name: "Cleanup"
