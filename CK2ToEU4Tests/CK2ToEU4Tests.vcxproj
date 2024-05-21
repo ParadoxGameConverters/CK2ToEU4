@@ -35,7 +35,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <PreprocessorDefinitions>_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;NDEBUG;_CONSOLE;_SILENCE_CXX20_U8PATH_DEPRECATION_WARNING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
       <AdditionalIncludeDirectories>$(SolutionDir)commonItems;$(SolutionDir)commonItems\external\zip\src;$(SolutionDir)commonItems\external\googletest\googlemock\include;$(SolutionDir)commonItems\external\googletest\googlemock;$(SolutionDir)commonItems\external\googletest\googletest\include;$(SolutionDir)commonItems\external\googletest\googletest;$(SolutionDir)CK2ToEU4\Source;$(SolutionDir)lib;$(SolutionDir)commonItems\pch</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <DebugInformationFormat>OldStyle</DebugInformationFormat>
