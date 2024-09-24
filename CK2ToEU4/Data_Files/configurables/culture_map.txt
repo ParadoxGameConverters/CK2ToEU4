@@ -313,7 +313,7 @@ link = { eu4 = gallic ck2 = gaulish tech = western gfx = westerngfx } #Fallback
 
 # Finno-Ugric
 
-link = { eu4 = karelian ck2 = finnish tech = eastern gfx = westerngfx region = karelia_area }
+link = { eu4 = karelian ck2 = finnish tech = eastern gfx = westerngfx region = russia_region }
 link = { eu4 = finnish ck2 = finnish tech = eastern gfx = westerngfx }
 link = { eu4 = sapmi ck2 = lappish tech = eastern gfx = inuitgfx }
 link = { eu4 = estonian ck2 = ugricbaltic tech = eastern gfx = inuitgfx }
@@ -323,6 +323,9 @@ link = { eu4 = samoyed ck2 = samoyed tech = eastern gfx = inuitgfx }
 link = { eu4 = mordvin ck2 = mordvin tech = eastern gfx = inuitgfx }
 link = { eu4 = ostyaki ck2 = khanty tech = eastern gfx = inuitgfx }
 link = { eu4 = meshchera ck2 = mari ck2 = meshchera tech = eastern gfx = inuitgfx }
+
+# Finno-Ugric (Historical Immersion Project - SWMH)
+link = { eu4 = karelian ck2 = karelian ck2 = vepsian tech = eastern gfx = easterngfx } #Fallback
 
 # Baltic
 
@@ -404,19 +407,15 @@ link = { eu4 = moroccan ck2 = masmuda ck2 = zanata tech = muslim gfx = muslimgfx
 
 # Russian: the split
 
-link = { eu4 = byelorussian ck2 = russian tech = eastern gfx = easterngfx region = baltic_region region = minsk_area region = white_ruthenia_area }
-#link = { eu4 = karelian ck2 = russian tech = eastern gfx = easterngfx region = karelia_area }
-link = { eu4 = novgorodian ck2 = russian tech = eastern gfx = easterngfx region = novgorod_area region = pskov_area region = beloozero_area }
+link = { eu4 = byelorussian ck2 = russian tech = eastern gfx = easterngfx region = lithuania_area region = pripyat_area region = minsk_area region = white_ruthenia_area }
+# link = { eu4 = karelian ck2 = russian tech = eastern gfx = easterngfx region = karelia_area } #Pre-"Lions of the North" mapping
+link = { eu4 = novgorodian ck2 = russian tech = eastern gfx = easterngfx region = karelia_area region = novgorod_area region = pskov_area region = beloozero_area }
 link = { eu4 = ryazanian ck2 = russian tech = eastern gfx = easterngfx region = smolensk_area region = ryazan_area region = oka_area }
 link = { eu4 = ruthenian ck2 = russian tech = eastern gfx = easterngfx region = ruthenia_region region = crimea_region }
 link = { eu4 = russian ck2 = russian tech = eastern gfx = easterngfx region = russia_region region = ural_region } #Muscovite
-link = { eu4 = kishinyov ck2 = russian tech = eastern gfx = easterngfx region = carpathia_region }
-link = { eu4 = red_ruthenian ck2 = russian tech = eastern gfx = easterngfx region = poland_region }
+link = { eu4 = kishinyov ck2 = russian tech = eastern gfx = easterngfx region = carpathia_region region = poland_region }
 link = { eu4 = russian_culture ck2 = russian tech = eastern gfx = easterngfx } #Fallback
 link = { eu4 = protoslavic ck2 = protoslavic tech = eastern gfx = easterngfx }
-
-# Russian (Historical Immersion Project - SWMH)
-link = { eu4 = karelian ck2 = karelian ck2 = vepsian tech = eastern gfx = easterngfx } #Fallback
 
 # East Slavic
 
