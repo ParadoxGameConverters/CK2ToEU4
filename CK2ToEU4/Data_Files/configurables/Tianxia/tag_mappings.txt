@@ -227,7 +227,7 @@ link = { ck2 = d_mecklemburg eu4 = MKL }
 link = { ck2 = c_mecklemburg eu4 = MKL }
 link = { ck2 = d_munster_germany eu4 = MUN }
 link = { ck2 = c_munster eu4 = MUN }
-link = { ck2 = k_moravia eu4 = MVA }
+link = { ck2 = k_moravia eu4 = GMA } # Great Moravia
 link = { ck2 = d_moravia eu4 = MVA }
 link = { ck2 = c_nurnberg eu4 = NUM }
 link = { ck2 = d_nordgau eu4 = NUM }
@@ -899,7 +899,7 @@ link = { ck2 = c_corfu eu4 = CEP } # Corfu
 link = { ck2 = k_candia eu4 = CRT } # Crete
 link = { ck2 = d_dalmatian_islands eu4 = DAL } # Dalmatia
 link = { ck2 = d_hum eu4 = HRZ } # Herzegovina
-link = { ck2 = e_carpathia eu4 = HUN } # Hungary
+link = { ck2 = e_carpathia eu4 = AUH } # Carpathia => Austria-Hungary
 link = { ck2 = k_moldau eu4 = MOL } # Moldavia
 link = { ck2 = d_dioclea eu4 = MON } # Montenegro
 link = { ck2 = k_ragusa eu4 = RAG } # Ragusa

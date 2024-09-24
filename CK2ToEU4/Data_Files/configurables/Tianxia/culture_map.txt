@@ -78,6 +78,7 @@ link = { eu4 = cornish ck2 = cornish tech = western gfx = westerngfx } #Fallback
 
 link = { eu4 = gothic ck2 = gothic tech = western gfx = westerngfx }
 link = { eu4 = vandal ck2 = vandal tech = western gfx = westerngfx }
+link = { eu4 = old_burgundian ck2 = old_burgundian tech = western gfx = westerngfx }
 
 # Latin
 link = { eu4 = burgundian ck2 = frankish tech = western gfx = westerngfx region = bourgogne_area region = romandie_area region = switzerland_area }
@@ -104,7 +105,7 @@ link = { eu4 = wenedyk ck2 = roman tech = western gfx = easterngfx region = russ
 link = { eu4 = britannian ck2 = roman tech = western gfx = westerngfx region = british_isles_region }
 link = { eu4 = hyperborean ck2 = roman tech = western gfx = inuitgfx region = scandinavia_region }
 link = { eu4 = carthaginian ck2 = roman tech = western gfx = africangfx region = sahel_region region = niger_region region = guinea_region } #I need to come up with a better Black-Roman culture
-link = { eu4 = roman ck2 = roman tech = western gfx = westerngfx } #Fallback
+#link = { eu4 = roman ck2 = roman tech = western gfx = westerngfx } #Fallback
 # Missing: Indian, Mongolia, China, West Siberia
 
 # Italian: the split
@@ -227,8 +228,11 @@ link = { eu4 = isaurian ck2 = isaurian tech = eastern gfx = easterngfx }
 link = { eu4 = paphlagonian ck2 = paphlagonian tech = eastern gfx = easterngfx }
 link = { eu4 = cilician ck2 = cilician tech = eastern gfx = easterngfx }
 link = { eu4 = babylonian ck2 = babylonian tech = eastern gfx = easterngfx }
+link = { eu4 = cardukoi ck2 = cardukoi tech = eastern gfx = easterngfx }
 link = { eu4 = dagestani ck2 = caucasian_albanian tech = eastern gfx = easterngfx }
+link = { eu4 = caspian ck2 = caspian tech = eastern gfx = easterngfx }
 link = { eu4 = hellenistic ck2 = hellenistic tech = eastern gfx = easterngfx }
+link = { eu4 = yarkamii ck2 = yarkamii tech = eastern gfx = easterngfx }
 
 # Punic
 
@@ -326,6 +330,8 @@ link = { eu4 = khitan ck2 = khitan tech = nomad_group gfx = asiangfx }
 link = { eu4 = sogdian ck2 = sogdian ck2 = khalaj tech = nomad_group gfx = asiangfx }
 link = { eu4 = tocharian ck2 = tocharian tech = chinese gfx = asiangfx }
 link = { eu4 = manchu ck2 = jurchen tech = nomad_group gfx = asiangfx }
+link = { eu4 = hunnic ck2 = hunnic tech = nomad_group gfx = asiangfx }
+link = { eu4 = hephthalite ck2 = huna tech = nomad_group gfx = asiangfx }
 
 # Altaic (Historical Immersion Project - SWMH)
 link = { eu4 = turkmeni ck2 = turkmen ck2 = oghuz tech = nomad_group gfx = muslimgfx } #Fallback
@@ -517,6 +523,10 @@ link = { eu4 = sindhi ck2 = sindhi tech = indian gfx = indiangfx }
 link = { eu4 = marathi ck2 = marathi tech = indian gfx = indiangfx }
 link = { eu4 = sinhala ck2 = sinhala tech = indian gfx = indiangfx }
 
+# Aryan Divergence
+link = { eu4 = dom ck2 = dom tech = indian gfx = indiangfx }
+link = { eu4 = lom ck2 = lom tech = indian gfx = indiangfx }
+link = { eu4 = ghagar ck2 = ghagar tech = indian gfx = indiangfx }
 
 # Dravidian Indian
 
@@ -564,10 +574,78 @@ link = { eu4 = red_panda ck2 = red_panda tech = eastern gfx = easterngfx }
 
 # ---- SUPPORTED MODS ----- Tianxia
 
-# Kaifeng
-link = { eu4 = knaanic ck2 = ashkenazi ck2 = sephardi tech = eastern gfx = easterngfx region = poland_region region = baltic_region region = russia_region region = ruthenia_region region = crimea_region }
-link = { eu4 = magogic ck2 = ashkenazi ck2 = sephardi tech = nomad_group gfx = easterngfx region = ural_region region = west_siberia_region region = central_asia_region region = caucasia_region }
-link = { eu4 = yevanic ck2 = ashkenazi ck2 = sephardi tech = eastern gfx = easterngfx region = carpathia_region region = balkan_region region = anatolia_region }
+# Altaic
+link = { eu4 = buryat ck2 = buryat tech = nomad_group gfx = inuitgfx }
+
+# Andamanese
+#link = { eu4 = andamanese ck2 = andamanese tech = chinese gfx = aboriginalgfx } # CTBM
+
+# Andean
+link = { eu4 = inca ck2 = quechua tech = high_american gfx = southamericagfx } # Fallback
+
+# Bornean
+link = { eu4 = bornean ck2 = dayak ck2 = banjar ck2 = dusun tech = chinese gfx = asiangfx }
+
+# Burmese
+link = { eu4 = yi ck2 = yi tech = chinese gfx = asiangfx }
+link = { eu4 = burmese ck2 = bamar tech = chinese gfx = asiangfx } 
+link = { eu4 = pyu ck2 = pyu tech = chinese gfx = asiangfx } 
+link = { eu4 = chin ck2 = chin tech = chinese gfx = asiangfx } 
+link = { eu4 = karen ck2 = kayin tech = chinese gfx = asiangfx } 
+link = { eu4 = arakanese ck2 = rakhine tech = chinese gfx = asiangfx } 
+
+# Byzantine (Lost Culture)
+link = { eu4 = atlantean ck2 = atlantean tech = high_american gfx = western }
+
+# Cham 
+link = { eu4 = cham ck2 = cham tech = chinese gfx = asiangfx } 
+
+# Chinese
+#link = { eu4 = nanyang ck2 = han ck2 = yue ck2 = min ck2 = tujia ck2 = xiang ck2 = gan ck2 = hakka ck2 = bashu tech = chinese gfx = asiangfx region = malaya_region region = indonesia_region } #CTBM
+#link = { eu4 = sangley ck2 = han ck2 = yue ck2 = min ck2 = tujia ck2 = xiang ck2 = gan ck2 = hakka ck2 = bashu tech = chinese gfx = asiangfx region = moluccas_region } #CTBM
+#link = { eu4 = hoa ck2 = han ck2 = yue ck2 = min ck2 = tujia ck2 = xiang ck2 = gan ck2 = hakka ck2 = bashu tech = chinese gfx = asiangfx region = vietnam_area region = champa_area region = tay_nguyen_area region = red_river_delta_area } #CTBM
+#link = { eu4 = kat_chen ck2 = han ck2 = yue ck2 = min ck2 = tujia ck2 = xiang ck2 = gan ck2 = hakka ck2 = bashu tech = chinese gfx = asiangfx region = cambodia_area region = mekong_area region = angkor_area } #CTBM
+#link = { eu4 = tianzhu ck2 = han ck2 = yue ck2 = min ck2 = tujia ck2 = xiang ck2 = gan ck2 = hakka ck2 = bashu tech = chinese gfx = asiangfx region = india_superregion } #CTBM
+#link = { eu4 = fulin ck2 = han ck2 = yue ck2 = min ck2 = tujia ck2 = xiang ck2 = gan ck2 = hakka ck2 = bashu tech = chinese gfx = asiangfx region = anatolia_region region = balkan_region } #CTBM
+#link = { eu4 = neo_qin ck2 = han ck2 = yue ck2 = min ck2 = tujia ck2 = xiang ck2 = gan ck2 = hakka ck2 = bashu tech = chinese gfx = asiangfx region = italy_region } #CTBM
+#link = { eu4 = faguoren ck2 = han ck2 = yue ck2 = min ck2 = tujia ck2 = xiang ck2 = gan ck2 = hakka ck2 = bashu tech = chinese gfx = asiangfx region = france_region } #CTBM
+#link = { eu4 = yingguoren ck2 = han ck2 = yue ck2 = min ck2 = tujia ck2 = xiang ck2 = gan ck2 = hakka ck2 = bashu tech = chinese gfx = asiangfx region = british_isles_region } #CTBM
+#link = { eu4 = srirachan ck2 = han ck2 = yue ck2 = min ck2 = tujia ck2 = xiang ck2 = gan ck2 = hakka ck2 = bashu tech = chinese gfx = asiangfx region = indo_china_region } #CTBM, spicy!
+#link = { eu4 = kokang ck2 = han ck2 = yue ck2 = min ck2 = tujia ck2 = xiang ck2 = gan ck2 = hakka ck2 = bashu tech = chinese gfx = asiangfx region = karenni_area region = shan_hill_area } #CTBM
+#link = { eu4 = tayoke ck2 = han ck2 = yue ck2 = min ck2 = tujia ck2 = xiang ck2 = gan ck2 = hakka ck2 = bashu tech = chinese gfx = asiangfx region = burma_region } #CTBM
+#link = { eu4 = hwagyo ck2 = han ck2 = yue ck2 = min ck2 = tujia ck2 = xiang ck2 = gan ck2 = hakka ck2 = bashu tech = chinese gfx = asiangfx region = korea_region } #CTBM
+#link = { eu4 = fusang ck2 = han ck2 = yue ck2 = min ck2 = tujia ck2 = xiang ck2 = gan ck2 = hakka ck2 = bashu tech = chinese gfx = asiangfx region = hokkaido_area region = thohoku_area } 
+#link = { eu4 = niwu ck2 = han ck2 = yue ck2 = min ck2 = tujia ck2 = xiang ck2 = gan ck2 = hakka ck2 = bashu tech = chinese gfx = asiangfx region = japan_region } #CTBM, archime, insert physics problem!
+#link = { eu4 = taiwanese ck2 = han ck2 = yue ck2 = min ck2 = tujia ck2 = xiang ck2 = gan ck2 = hakka ck2 = bashu tech = chinese gfx = asiangfx region = taiwan_area } #CTBM
+#link = { eu4 = deguoren ck2 = han ck2 = yue ck2 = min ck2 = tujia ck2 = xiang ck2 = gan ck2 = hakka ck2 = bashu tech = chinese gfx = asiangfx region = north_german_region region = south_german_region region = low_countries_region } #CTBM
+#link = { eu4 = ruomu ck2 = han ck2 = yue ck2 = min ck2 = tujia ck2 = xiang ck2 = gan ck2 = hakka ck2 = bashu tech = chinese gfx = asiangfx region = africa_superregion region = egypt_region } #CTBM
+
+link = { eu4 = hubei ck2 = han region = huguang_area tech = chinese gfx = asiangfx }
+link = { eu4 = jianghuai ck2 = han region = jiangsu_area region = south_jiangsu_area region = south_anhui_area tech = chinese gfx = asiangfx }
+link = { eu4 = zhongyuan ck2 = han region = north_henan_area region = henan_area region = anhui_area tech = chinese gfx = asiangfx }
+link = { eu4 = jin ck2 = han region = shanxi_area region = shaanxi_area tech = chinese gfx = asiangfx }
+link = { eu4 = shandong_culture ck2 = han region = far_east_superregion region = shandong_area tech = chinese gfx = asiangfx }
+link = { eu4 = chihan ck2 = han region = hebei_area region = south_hebei_area region = mongolia_region region = manchuria_region tech = chinese gfx = asiangfx }
+link = { eu4 = gan ck2 = han region = south_china_region tech = chinese gfx = asiangfx }
+link = { eu4 = xibei ck2 = han region = north_china_region tech = chinese gfx = asiangfx }
+link = { eu4 = xibei ck2 = han tech = chinese gfx = asiangfx } # Fallback
+
+link = { eu4 = cantonese ck2 = yue ck2 = tanka tech = chinese gfx = asiangfx }
+link = { eu4 = wu ck2 = wu tech = chinese gfx = asiangfx }
+link = { eu4 = chimin ck2 = min tech = chinese gfx = asiangfx }
+link = { eu4 = xiang ck2 = tujia ck2 = xia tech = chinese gfx = asiangfx }
+link = { eu4 = gan ck2 = gan tech = chinese gfx = asiangfx }
+link = { eu4 = hakka ck2 = hakka tech = chinese gfx = asiangfx }
+link = { eu4 = sichuanese ck2 = bashu tech = chinese gfx = asiangfx }
+link = { eu4 = bai ck2 = bai tech = chinese gfx = asiangfx }
+
+# Hmong-Mien
+link = { eu4 = miao ck2 = miao ck2 = yao ck2 = she tech = chinese gfx = asiangfx }
+
+# Israelite (Kaifeng)
+link = { eu4 = knaanic ck2 = kaifeng tech = eastern gfx = easterngfx region = poland_region region = baltic_region region = russia_region region = ruthenia_region region = crimea_region }
+link = { eu4 = magogic ck2 = kaifeng tech = nomad_group gfx = easterngfx region = ural_region region = west_siberia_region region = central_asia_region region = caucasia_region }
+link = { eu4 = yevanic ck2 = kaifeng tech = eastern gfx = easterngfx region = carpathia_region region = balkan_region region = anatolia_region }
 link = { eu4 = mizrahi ck2 = kaifeng tech = muslim gfx = muslimgfx region = persia_superregion region = arabia_region region = india_superregion }
 link = { eu4 = israeli ck2 = kaifeng tech = eastern gfx = easterngfx region = mashriq_region }
 link = { eu4 = misrayim ck2 = kaifeng  tech = muslim gfx = muslimgfx region = egypt_region region = africa_superregion }
@@ -578,76 +656,90 @@ link = { eu4 = ashkenazi ck2 = kaifeng tech = western gfx = westerngfx region = 
 link = { eu4 = sephardi ck2 = kaifeng tech = eastern gfx = easterngfx region = iberia_region }
 link = { eu4 = kaifeng ck2 = kaifeng tech = chinese gfx = asiangfx }
 
-# Tibeto-Burman
-link = { eu4 = tangut ck2 = nakhi ck2 = qiang tech = chinese gfx = asiangfx }
-link = { eu4 = yi ck2 = yi tech = chinese gfx = asiangfx }
-link = { eu4 = burmese ck2 = bamar tech = chinese gfx = asiangfx } 
+# Japonic
+#link = { eu4 = takasago ck2 = yamato ck2 = japanese ck2 = wako ck2 = ryukyuan tech = chinese gfx = asiangfx region = taiwan_area } #CTBM
+#link = { eu4 = etsunan ck2 = yamato ck2 = japanese ck2 = wako ck2 = ryukyuan tech = chinese gfx = asiangfx region = vietnam_area region = champa_area region = tay_nguyen_area region = red_river_delta_area } #CTBM
+#link = { eu4 = eikokujin ck2 = yamato ck2 = japanese ck2 = wako ck2 = ryukyuan tech = chinese gfx = asiangfx region = british_isles_region } #CTBM
+#link = { eu4 = futsu ck2 = yamato ck2 = japanese ck2 = wako ck2 = ryukyuan tech = chinese gfx = asiangfx region = france_region } #CTBM
+#link = { eu4 = dokukokujin ck2 = yamato ck2 = japanese ck2 = wako ck2 = ryukyuan tech = chinese gfx = asiangfx region = north_german_region region = south_german_region region = low_countries_region } #CTBM
 
-# Han
-link = { eu4 = hubei ck2 = han region = huguang_area tech = chinese gfx = asiangfx }
-link = { eu4 = jianghuai ck2 = han region = jiangsu_area region = south_jiangsu_area region = south_anhui_area tech = chinese gfx = asiangfx }
-link = { eu4 = zhongyuan ck2 = han region = north_henan_area region = henan_area region = anhui_area tech = chinese gfx = asiangfx }
-link = { eu4 = jin ck2 = han region = shanxi_area region = shaanxi_area tech = chinese gfx = asiangfx }
-link = { eu4 = hakka ck2 = han region = east_indies_superregion tech = chinese gfx = asiangfx }
-link = { eu4 = shandong_culture ck2 = han region = far_east_superregion region = shandong_area tech = chinese gfx = asiangfx }
-link = { eu4 = chihan ck2 = han region = hebei_area region = south_hebei_area region = mongolia_region tech = chinese gfx = asiangfx }
-link = { eu4 = gan ck2 = han region = south_china_region tech = chinese gfx = asiangfx }
-link = { eu4 = xibei ck2 = han region = north_china_region tech = chinese gfx = asiangfx }
-link = { eu4 = xibei ck2 = han tech = chinese gfx = asiangfx } # Fallback
-
-# China
-link = { eu4 = cantonese ck2 = yue tech = chinese gfx = asiangfx }
-link = { eu4 = wu ck2 = wu tech = chinese gfx = asiangfx }
-link = { eu4 = chimin ck2 = min tech = chinese gfx = asiangfx }
-link = { eu4 = xiang ck2 = tujia ck2 = xia tech = chinese gfx = asiangfx }
-link = { eu4 = gan ck2 = gan tech = chinese gfx = asiangfx }
-link = { eu4 = hakka ck2 = hakka tech = chinese gfx = asiangfx }
-link = { eu4 = sichuanese ck2 = bashu tech = chinese gfx = asiangfx }
-link = { eu4 = bai ck2 = bai tech = chinese gfx = asiangfx }
-link = { eu4 = miao ck2 = tanka tech = chinese gfx = asiangfx } # I don't know, the Tanka are quite unique
-link = { eu4 = miao ck2 = miao ck2 = yao ck2 = she tech = chinese gfx = asiangfx }
-
-# Japan
 link = { eu4 = togoku ck2 = yamato ck2 = japanese ck2 = wako region = hokkaido_area region = hokuriku_area region = kanto_area region = eastern_kanto_area region = eastern_chubu_area region = thohoku_area region = sakhalin_area tech = chinese gfx = asiangfx }
 link = { eu4 = japanese ck2 = yamato ck2 = japanese ck2 = wako region = chubu_area region = kinai_area region = shikoku_area region = sanindo_area region = saigoku_area tech = chinese gfx = asiangfx }
 link = { eu4 = kyushuan ck2 = yamato ck2 = japanese ck2 = wako region = northern_kyushu region = kyushu_area tech = chinese gfx = asiangfx } 
 link = { eu4 = kyushuan ck2 = yamato ck2 = japanese ck2 = wako tech = chinese gfx = asiangfx } # Fallback
 link = { eu4 = kyushuan ck2 = ryukyuan tech = chinese gfx = asiangfx }
+
+#link = { eu4 = utaricise ck2 = emishi ck2 = ainu tech = chinese gfx = inuitgfx region = east_indies_superregion } #CTBM, Botania!
+
 link = { eu4 = ainu ck2 = emishi ck2 = ainu tech = chinese gfx = inuitgfx } 
 
-# Northern
-link = { eu4 = korean ck2 = korean ck2 = jeju tech = chinese gfx = chinesegfx } 
-link = { eu4 = buryat ck2 = buryat tech = nomad_group gfx = inuitgfx }
-link = { eu4 = nivkh ck2 = nivkh tech = nomad_group gfx = inuitgfx } 
-
-# Tai-Kadai
-link = { eu4 = zhaung ck2 = zhuang ck2 = dong ck2 = hlai tech = chinese gfx = asiangfx }
-link = { eu4 = northern_thai ck2 = thai region = northern_thai_area region = north_laos_area region = china_superregion region = red_river_delta_area tech = chinese gfx = asiangfx }
-link = { eu4 = central_thai ck2 = thai tech = chinese gfx = asiangfx } # Fallback
-link = { eu4 = lao ck2 = lao tech = chinese gfx = asiangfx } 
-link = { eu4 = shan ck2 = shan tech = chinese gfx = asiangfx } 
-
-# Austroasiatic
-link = { eu4 = vietnamese ck2 = viet tech = chinese gfx = asiangfx } 
-link = { eu4 = khmer ck2 = khmer tech = chinese gfx = asiangfx } 
-link = { eu4 = mon ck2 = mon tech = chinese gfx = asiangfx } 
-
-# Nusantaran
-link = { eu4 = cham ck2 = cham tech = chinese gfx = asiangfx } 
-link = { eu4 = malayan ck2 = malay tech = chinese gfx = asiangfx } 
-link = { eu4 = sumatran ck2 = minangkabau ck2 = batak tech = chinese gfx = asiangfx } 
-link = { eu4 = acehnese ck2 = acehnese ck2 = samudran tech = chinese gfx = asiangfx } 
+# Javanese
 link = { eu4 = javanese ck2 = javanese tech = chinese gfx = asiangfx } 
 link = { eu4 = sundanese ck2 = sundanese tech = chinese gfx = asiangfx }
 link = { eu4 = nusa_tenggara ck2 = balinese tech = chinese gfx = asiangfx }
-link = { eu4 = bornean ck2 = dayak ck2 = banjar ck2 = dusun tech = chinese gfx = asiangfx }
-link = { eu4 = sulawesi ck2 = minahasan ck2 = buginese tech = chinese gfx = asiangfx }
-link = { eu4 = filipino ck2 = tagalog ck2 = andamanese ck2 = cebuan tech = chinese gfx = asiangfx } 
-link = { eu4 = polynesian ck2 = taiwanese tech = polynesian_tech gfx = polynesiangfx } # Blame vanilla 
+
+# Korean
+link = { eu4 = korean ck2 = korean ck2 = jeju tech = chinese gfx = chinesegfx } 
+
+# Ma-i
+link = { eu4 = filipino ck2 = tagalog ck2 = cebuan tech = chinese gfx = asiangfx }
+
+# Malay
+link = { eu4 = malayan ck2 = malay tech = chinese gfx = asiangfx } 
+link = { eu4 = sumatran ck2 = minangkabau ck2 = batak tech = chinese gfx = asiangfx } 
+link = { eu4 = acehnese ck2 = acehnese ck2 = samudran tech = chinese gfx = asiangfx } 
+
+# Mekong 
+#link = { eu4 = palaungic ck2 = wa tech = chinese gfx = asiangfx } #CTBM
+#link = { eu4 = khmu ck2 = katu ck2 = khmu tech = chinese gfx = asiangfx } #CTBM
+#link = { eu4 = bahnar ck2 = bahnar tech = chinese gfx = asiangfx } #CTBM
+
+# Mon-Khmer
+link = { eu4 = khmer ck2 = khmer tech = chinese gfx = asiangfx } 
+link = { eu4 = mon ck2 = mon tech = chinese gfx = asiangfx } 
+
+# Paleosiberian
+link = { eu4 = nivkh ck2 = nivkh tech = nomad_group gfx = inuitgfx } 
+
+# Papuan 
 link = { eu4 = moluccan ck2 = papuan tech = chinese gfx = asiangfx } # I know, I know, but Papuan is not related to Central Nusantara.
 
-# Sunset Invasion
-link = { eu4 = inca ck2 = quechua tech = high_american gfx = southamericagfx }
+# Rauic
+link = { eu4 = zhaung ck2 = zhuang ck2 = dong tech = chinese gfx = asiangfx }
+link = { eu4 = hainanese ck2 = hlai tech = chinese gfx = asiangfx } # CTBM
 
-# Africa
+# Sulawesi
+link = { eu4 = sulawesi ck2 = minahasan ck2 = buginese tech = chinese gfx = asiangfx }
+
+# Tai-Kadai
+#link = { eu4 = dai ck2 = dai tech = chinese gfx = asiangfx } #CTBM
+link = { eu4 = central_thai ck2 = thai tech = chinese gfx = asiangfx }
+link = { eu4 = northern_thai ck2 = lanna tech = chinese gfx = asiangfx }
+link = { eu4 = lao ck2 = lao tech = chinese gfx = asiangfx } 
+link = { eu4 = shan ck2 = shan tech = chinese gfx = asiangfx } 
+#link = { eu4 = dambro ck2 = paktai tech = chinese gfx = asiangfx } #CTBM
+
+# Taiwanese
+#link = { eu4 = formosan ck2 = taiwanese tech = polynesian_tech gfx = polynesiangfx } #CTBM
+
+# Tibetan
+link = { eu4 = qiang ck2 = qiang tech = chinese gfx = asiangfx } #CTBM
+link = { eu4 = kachin ck2 = nakhi tech = chinese gfx = asiangfx } 
+
+# Vietic
+#link = { eu4 = gin ck2 = viet tech = chinese gfx = asiangfx region = china_superregion } #CTBM, don't get too tipsy
+#link = { eu4 = kat_yuon ck2 = viet tech = chinese gfx = asiangfx region = cambodia_area region = angkor_area } #CTBM
+#link = { eu4 = nhat_ban ck2 = viet tech = chinese gfx = asiangfx region = japan_region } #CTBM
+#link = { eu4 = trieu_tien ck2 = viet tech = chinese gfx = asiangfx region = korea_region } #CTBM
+#link = { eu4 = thuc ck2 = viet tech = chinese gfx = asiangfx region = north_german_region region = south_german_region region = low_countries_region } #CTBM
+#link = { eu4 = phap ck2 = viet tech = chinese gfx = asiangfx region = france_region } #CTBM
+#link = { eu4 = anh ck2 = viet tech = chinese gfx = asiangfx region = british_isles_region } #CTBM
+link = { eu4 = vietnamese ck2 = viet tech = chinese gfx = asiangfx } 
+ 
+# West African
 link = { eu4 = yorumba ck2 = yoruba tech = sub_saharan gfx = africangfx }
+
+# Roman divergences
+#link = { eu4 = sinian ck2 = roman tech = western gfx = easterngfx region = mongolia_region region = tibet_region region = china_superregion } #CTBM
+#link = { eu4 = thermae ck2 = roman tech = western gfx = easterngfx region = mongolia_region region = tibet_region region = japan_region } #CTBM, All baths lead to Rome
+link = { eu4 = roman ck2 = roman tech = western gfx = westerngfx } #Fallback
