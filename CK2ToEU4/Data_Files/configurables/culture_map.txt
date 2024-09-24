@@ -407,7 +407,7 @@ link = { eu4 = moroccan ck2 = masmuda ck2 = zanata tech = muslim gfx = muslimgfx
 
 # Russian: the split
 
-link = { eu4 = byelorussian ck2 = russian tech = eastern gfx = easterngfx region = lithuania_area region = pripyat_area region = minsk_area region = white_ruthenia_area }
+link = { eu4 = byelorussian ck2 = russian tech = eastern gfx = easterngfx region = baltic_region region = pripyat_area region = minsk_area region = white_ruthenia_area }
 # link = { eu4 = karelian ck2 = russian tech = eastern gfx = easterngfx region = karelia_area } #Pre-"Lions of the North" mapping
 link = { eu4 = novgorodian ck2 = russian tech = eastern gfx = easterngfx region = karelia_area region = novgorod_area region = pskov_area region = beloozero_area }
 link = { eu4 = ryazanian ck2 = russian tech = eastern gfx = easterngfx region = smolensk_area region = ryazan_area region = oka_area }
