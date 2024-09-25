@@ -147,6 +147,7 @@
  bamar_pagan_religion_desc:0 "Los nats son espíritus adorados por los pueblos que viven a lo largo del río Irrawaddy, quienes fueron influenciados por personalidades budistas e hindúes. Los nats toman la forma de santos, personas que han muerto violentamente y guardianes de la aldea."
  mithraic_religion_desc: "La religión de los medianos se centra principalmente en el dios Mitra en lugar de Ahura Mazda. Es el descendiente directo de las antiguas creencias prezoroástricas de Persia."
  hurrian_pagan_religion_desc:0 "Los hurritas adoraban a un gran número de dioses derivados de diversas culturas del Cercano Oriente. Los principales dioses del panteón hurrita eran Teshub, el poderoso dios del tiempo, y su esposa Hebat, la diosa madre. Una clase especial de figuras veneradas por los hurritas eran las llamadas Sarrena, reyes y héroes deificados."
+ hattian_pagan_religion_desc:0 "La religión Hatti es una religión verdaderamente antigua, cuyos elementos se originaron hace miles de años durante la Edad de Piedra. Los fieles Hatti están en sintonía con los ciclos naturales de las estaciones y la Tierra misma: preparan y sirven ofrendas y libaciones a la Diosa Madre para mantener los campos fértiles y evitar que las calamidades celestiales abrumen la tierra."
 
  pagan_religion_rebels_title: "Religioso"
  pagan_religion_rebels_name: "Fanáticos de $RELIGION$"
@@ -390,6 +391,12 @@
  hurrian_pagan_rebels_name:0 "Fanáticos de $RELIGION$"
  hurrian_pagan_rebels_desc:0 "Los fanáticos religiosos suelen aparecer en provincias controladas por naciones que practican una creencia diferente. Buscan propagar su fe y sofocar a todos los infieles."
  hurrian_pagan_rebels_army:0 "Ejército $RELIGION$"
+ hattian_pagan_rebels_demand:0 "Convertir a $COUNTRYNAME$"
+ hattian_pagan_rebels_demand_desc:0 "Los rebeldes religiosos combaten por la religión $RELIGION$. Exigen que reconozcamos su supremacía o que, al menos, cesemos nuestros intentos de convertirlos y los dejemos practicar su culto en paz."
+ hattian_pagan_rebels_title:0 "Religioso"
+ hattian_pagan_rebels_name:0 "Fanáticos de $RELIGION$"
+ hattian_pagan_rebels_desc:0 "Los fanáticos religiosos suelen aparecer en provincias controladas por naciones que practican una creencia diferente. Buscan propagar su fe y sofocar a todos los infieles."
+ hattian_pagan_rebels_army:0 "Ejército $RELIGION$"
  ajivika_rebels_demand:0 "Convertir a $COUNTRYNAME$"
  ajivika_rebels_demand_desc:0 "Los rebeldes religiosos combaten por la religión $RELIGION$. Exigen que reconozcamos su supremacía o que, al menos, cesemos nuestros intentos de convertirlos y los dejemos practicar su culto en paz."
  ajivika_rebels_title:0 "Religioso"
@@ -511,6 +518,12 @@
  hurrian_pagan_reformed_rebels_name:0 "Fanáticos de $RELIGION$"
  hurrian_pagan_reformed_rebels_desc:0 "Los fanáticos religiosos suelen aparecer en provincias controladas por naciones que practican una creencia diferente. Buscan propagar su fe y sofocar a todos los infieles."
  hurrian_pagan_reformed_rebels_army:0 "Ejército $RELIGION$"
+ hattian_pagan_reformed_rebels_demand:0 "Convertir a $COUNTRYNAME$"
+ hattian_pagan_reformed_rebels_demand_desc:0 "Los rebeldes religiosos combaten por la religión $RELIGION$. Exigen que reconozcamos su supremacía o que, al menos, cesemos nuestros intentos de convertirlos y los dejemos practicar su culto en paz."
+ hattian_pagan_reformed_rebels_title:0 "Religioso"
+ hattian_pagan_reformed_rebels_name:0 "Fanáticos de $RELIGION$"
+ hattian_pagan_reformed_rebels_desc:0 "Los fanáticos religiosos suelen aparecer en provincias controladas por naciones que practican una creencia diferente. Buscan propagar su fe y sofocar a todos los infieles."
+ hattian_pagan_reformed_rebels_army:0 "Ejército $RELIGION$"
 
   ##Fetishist Cults
  west_african_pagan_reformed_cult:0 "Anciano"

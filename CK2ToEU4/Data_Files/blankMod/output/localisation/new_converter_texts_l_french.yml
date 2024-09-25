@@ -146,6 +146,7 @@
  bamar_pagan_religion_desc:0 "Les Nats sont des esprits vénérés par les peuples qui vivent le long du fleuve Irrawaddy et qui ont été influencés par des personnalités bouddhistes et hindoues. Les Nats prennent la forme de saints, de personnes mortes violemment et de gardiens de village."
  mithraic_religion_desc : "La religion des Mèdes se concentre principalement sur le dieu Mithra plutôt que sur Ahura Mazda. Elle est le descendant direct des anciennes croyances pré-zoroastriennes de la Perse."
  hurrian_pagan_religion_desc:0 "Les Hourrites adoraient un grand nombre de dieux issus de diverses cultures du Proche-Orient. Les principaux dieux du panthéon hourrite étaient Teshub, le puissant dieu du temps, et son épouse Hébat, la déesse mère. Une classe spéciale de personnages vénérés par les Hourrites était celle appelée Sarrena, des rois et des héros déifiés."
+ hattian_pagan_religion_desc:0 "La religion hattienne est une religion très ancienne, dont les éléments sont apparus il y a des milliers d'années, à l'âge de pierre. Les fidèles hattiens sont en phase avec les cycles naturels des saisons et de la Terre elle-même : des offrandes et des libations sont préparées et servies à la Déesse Mère afin de maintenir la fertilité des champs et d'empêcher les calamités célestes de submerger la terre."
 
  pagan_religion_rebels_title: "Dévots"
  pagan_religion_rebels_name: "Fanatiques $RELIGION$s"
@@ -389,6 +390,12 @@
  hurrian_pagan_rebels_name:0 "Fanatiques $RELIGION$s"
  hurrian_pagan_rebels_desc:0 "Ces fanatiques religieux ont tendance à se soulever dans les provinces contrôlées par des nations de confession différente. Ils cherchent à répandre leur foi et s'en prennent à tous les infidèles."
  hurrian_pagan_rebels_army:0 "Armée $RELIGION$"
+ hattian_pagan_rebels_demand:0 "Conversion de $COUNTRYNAME$"
+ hattian_pagan_rebels_demand_desc:0 "Ces fanatiques religieux combattent au nom de la foi $RELIGION$. Ils exigent que nous reconnaissions sa suprématie, ou à tout le moins que nous cessions tout effort de conversion à leur encontre et les laissions pratiquer leur religion en paix."
+ hattian_pagan_rebels_title:0 "Dévots"
+ hattian_pagan_rebels_name:0 "Fanatiques $RELIGION$s"
+ hattian_pagan_rebels_desc:0 "Ces fanatiques religieux ont tendance à se soulever dans les provinces contrôlées par des nations de confession différente. Ils cherchent à répandre leur foi et s'en prennent à tous les infidèles."
+ hattian_pagan_rebels_army:0 "Armée $RELIGION$"
  ajivika_rebels_demand:0 "Conversion de $COUNTRYNAME$"
  ajivika_rebels_demand_desc:0 "Ces fanatiques religieux combattent au nom de la foi $RELIGION$. Ils exigent que nous reconnaissions sa suprématie, ou à tout le moins que nous cessions tout effort de conversion à leur encontre et les laissions pratiquer leur religion en paix."
  ajivika_rebels_title:0 "Dévots"
@@ -510,6 +517,12 @@
  hurrian_pagan_reformed_rebels_name:0 "Fanatiques $RELIGION$s"
  hurrian_pagan_reformed_rebels_desc:0 "Ces fanatiques religieux ont tendance à se soulever dans les provinces contrôlées par des nations de confession différente. Ils cherchent à répandre leur foi et s'en prennent à tous les infidèles."
  hurrian_pagan_reformed_rebels_army:0 "Armée $RELIGION$"
+ hattian_pagan_reformed_rebels_demand:0 "Conversion de $COUNTRYNAME$"
+ hattian_pagan_reformed_rebels_demand_desc:0 "Ces fanatiques religieux combattent au nom de la foi $RELIGION$. Ils exigent que nous reconnaissions sa suprématie, ou à tout le moins que nous cessions tout effort de conversion à leur encontre et les laissions pratiquer leur religion en paix."
+ hattian_pagan_reformed_rebels_title:0 "Dévots"
+ hattian_pagan_reformed_rebels_name:0 "Fanatiques $RELIGION$s"
+ hattian_pagan_reformed_rebels_desc:0 "Ces fanatiques religieux ont tendance à se soulever dans les provinces contrôlées par des nations de confession différente. Ils cherchent à répandre leur foi et s'en prennent à tous les infidèles."
+ hattian_pagan_reformed_rebels_army:0 "Armée $RELIGION$"
 
  ##Fetishist Cults
  west_african_pagan_reformed_cult:0 "Eldership"

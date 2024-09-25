@@ -270,6 +270,7 @@ link = { eu4 = ualonuth ck2 = pretan tech = muslim gfx = muslimgfx }
 link = { eu4 = sidonian ck2 = sidonian tech = muslim gfx = muslimgfx }
 link = { eu4 = sicorathi ck2 = ziqanmakom tech = muslim gfx = muslimgfx }
 link = { eu4 = sythchy ck2 = sythchy tech = muslim gfx = muslimgfx }
+link = { eu4 = neo_hyksos ck2 = neo_hyksos tech = muslim gfx = muslimgfx }
 
 # Celtic
 link = { eu4 = highland_scottish ck2 = irish tech = western gfx = westerngfx region = kingdom_of_the_isles_area region = highlands_area region = lowlands_area region = scottish_marches_area }

@@ -28,6 +28,7 @@ ZZZ_enhanced_unreformed_religion = {
 			religion = nuragic_pagan
 			religion = bamar_pagan
 			religion = hurrian_pagan
+			religion = hattian_pagan
 		}
 	}
 
