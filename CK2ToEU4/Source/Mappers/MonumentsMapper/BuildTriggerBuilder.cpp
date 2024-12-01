@@ -15,12 +15,12 @@ void mappers::BuildTriggerBuilder::registerKeys()
 	registerKeyword("religious_groups", [this](std::istream& theStream) {
 		const auto& groups = commonItems::getStrings(theStream);
 		for (auto& group: groups)
-			buildTrigger += "AND = {\n\t\t\t\treligion_group = " + group + "\n\t\t\t\thas_owner_religion = yes\n\t\t\t}\n\t\t";
+			buildTrigger += "AND = {\n\t\t\t\treligion_group = " + group + "\n\t\t\t\tprovince_is_or_accepts_religion_group = yes\n\t\t\t}\n\t\t";
 	});
 	registerKeyword("cultural_groups", [this](std::istream& theStream) {
 		const auto& groups = commonItems::getStrings(theStream);
 		for (auto& group: groups)
-			buildTrigger += "AND = {\n\t\t\t\tculture_group = " + group + "\n\t\t\t\thas_owner_culture = yes\n\t\t\t}\n\t\t";
+			buildTrigger += "AND = {\n\t\t\t\tculture_group = " + group + "\n\t\t\t\tprovince_is_or_accepts_culture = yes\n\t\t\t}\n\t\t";
 	});
 	registerKeyword("cultural", [this](std::istream& theStream) {
 		cultural = commonItems::getString(theStream) == "yes";
