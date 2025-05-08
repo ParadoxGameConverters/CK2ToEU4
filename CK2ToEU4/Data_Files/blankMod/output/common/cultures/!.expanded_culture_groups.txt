@@ -822,79 +822,12 @@ byzantine = {
  			Frataraka Frataraka Frataraka Frataraka
 		}
 	}
+	coptic = { #Moved here due to historic Greek influence on Coptic
+		primary = EGY
+		dynasty_names = { Thinis Memphis Abydos Herakleopolis Thebes Itjtawy Avaris Bubastis Sais }
+	}
 }
 caucasian = {
-	alan = {
-		primary = GEO
-		dynasty_names = { Andiyev Ashuraliyev Basiev Bazayev Bestayev Chibirov Din Dudarova Dzhanayev Fadzayev Farniev Gabulov Gassiev Gazyumov Guriev Khapov Khetagurov Kokoity Kusov Nyxas Pagayev Pliyeva Sanakoyev Tibilov Tokaty Torchinov Toshinori Valiyev Zangiev Zazirov }
-	}
-	scythian = {
-		dynasty_names = {
-			Abeacid Galatid Madyid Palacid Partatid
-		}
-		male_names = {
-			Abeacus Apsyrtos Arpharnes Askhkadar Atheas Galat Kuluk Madyes Oltak Palacus Partatua Skilurus Skunxa Spadines Tasius Zanticus Respendial
-		}
-		female_names = {
-			Amage Ghadani Opoin Polemakratia
-		}
-	}
-	sarmatian = {
-		dynasty_names = {
-			Abeacid Galatid Madyid Palacid Partatid
-		}
-		male_names = {
-			Abeacus Apsyrtos Arpharnes Askhkadar Atheas Galat Kuluk Madyes Oltak Palacus Partatua Skilurus Skunxa Spadines Tasius Zanticus Respendial
-		}
-		female_names = {
-			Amage Ghadani Opoin Polemakratia
-		}
-	}
-	iazyges = {
-		dynasty_names = {
-			Abeacid Galatid Madyid Palacid Partatid
-		}
-		male_names = {
-			Abeacus Apsyrtos Arpharnes Askhkadar Atheas Galat Kuluk Madyes Oltak Palacus Partatua Skilurus Skunxa Spadines Tasius Zanticus Respendial
-		}
-		female_names = {
-			Amage Ghadani Opoin Polemakratia
-		}
-	}
-	nemedian = {
-		dynasty_names = {
-			Abeacid Galatid Madyid Palacid Partatid
-		}
-		male_names = {
-			Abeacus Apsyrtos Arpharnes Askhkadar Atheas Galat Kuluk Madyes Oltak Palacus Partatua Skilurus Skunxa Spadines Tasius Zanticus Respendial Nemed
-		}
-		female_names = {
-			Amage Ghadani Opoin Polemakratia
-		}
-	}
-	cimmerian = {
-		dynasty_names = {
-			Abeacid Galatid Madyid Palacid Partatid
-		}
-		male_names = {
-			Abeacus Apsyrtos Arpharnes Askhkadar Atheas Galat Kuluk Madyes Oltak Palacus Partatua Skilurus Skunxa Spadines Tasius Zanticus Respendial
-		}
-		female_names = {
-			Amage Ghadani Opoin Polemakratia
-		}
-	}
-	yarkamii = {
-		dynasty_names = {
-			Abeacid Galatid Madyid Palacid Partatid Yarkam Kausika Agarid Lyam Ytarim
-		}
-		male_names = {
-			Abeacus Apsyrtos Arpharnes Askhkadar Atheas Galat Kuluk Madyes Oltak Palacus Partatua Skilurus Skunxa Spadines Tasius Zanticus Respendia
-			Ytarim Lyam Naradeve Candre Nandake Maisês Gôdigasos Phadious Spithamês Omrasmakos Amôspados Danarasmakos Pharnakiôn Ouarzbalos Iôdesmagos Maldras
-		}
-		female_names = {
-			Amage Ghadani Opoin Polemakratia Vasisthe Areagne Apama
-		}
-	}
 	caspian = {
 		dynasty_names = {
 			Abeghean Amatuni Andzevatsi Artsruni Bagean Bznuni Dimaksean Ensayatsi Gabeghean Gntuni Gnunid Habuzhean Hashteank Hawnuni Kajberuni Kamsarakan Koghean
@@ -906,165 +839,6 @@ caucasian = {
 		}
 		female_names = {
 			Tigranuhi Vanuhi Mihrana Asatera Ariazate Aka Ghadana Erato Zarmandukht Pharantzem Mahbanu Zenobia Satenik
-		}
-	}
-	assyrian = {
-		primary = ASY
-		dynasty_names = { Ahmadi Algafari Assadi Homsi Nasser }
-	}
-	coptic = {
-		primary = EGY
-		dynasty_names = { Thinis Memphis Abydos Herakleopolis Thebes Itjtawy Avaris Bubastis Sais }
-	}
-	babylonian = {
-		dynasty_names = {
-			Amorite Sealand Larsa Kassite
-		}
-		male_names = {
-			Naplanum Emisum Samium Zabaia Gungunum Abisare Sumuel "Nur-Adad" "Sin-Iddinam" "Sin-Eribam" "Sin-Iqisham" "Silli-Adad" "Warad-Sin" "Rim-Sin" Hammurabi "Samsu-iluna" "Su-abu" "Sumu-la-El" "Sabum" "Apil-Sin" "Sin-muballit" Abieshu "Ammi-ditana" "Samsu-Ditana" Ammisaduqa Gandas Agum Kastiliasu "Abi-Rattas" Hurbazum Ulamburiash Karaindash "Enlil-nadin-ahi" Gulkishar
-		}
-		female_names = {
-			Nana Allatu Belit Zirrabanit Tiamat
-		}
-	}
-	cardukoi = {
-		dynasty_names = {
-			Amorite Sealand Larsa Kassite
-		}
-		male_names = {
-			Naplanum Emisum Samium Zabaia Gungunum Abisare Sumuel "Nur-Adad" "Sin-Iddinam" "Sin-Eribam" "Sin-Iqisham" "Silli-Adad" "Warad-Sin" "Rim-Sin" Hammurabi "Samsu-iluna" "Su-abu" "Sumu-la-El" "Sabum" "Apil-Sin" "Sin-muballit" Abieshu "Ammi-ditana" "Samsu-Ditana" Ammisaduqa Gandas Agum Kastiliasu "Abi-Rattas" Hurbazum Ulamburiash Karaindash "Enlil-nadin-ahi" Gulkishar
-		}
-		female_names = {
-			Nana Allatu Belit Zirrabanit Tiamat
-		}
-	}
-	lycian = {
-		male_names = {
-			Morzios Gaizatorix Pylaemenes Mithridates Datames Ariobarzanes Ariamnes Ariarathes Croesus Gyges Ardys Sadyattes Atys Adrastus Gordias Midas
-			Hecatomnus Hyssaldomus Mausolus Idrieus Pixodarus Lygdamis Kybernis Kuprilli
-			Arppakhu Arbinas Kheriga Kherei Abistamenes Syennesis Appuasu Oromedon
-			Zipoetes Bas Ziaelas Prusias Arcathias Xiphares Darius
-		}
-		female_names = {
-			Nysa Aryenis Ada Glaphyra Pythodorida Etazeta Drypetina Orsabaris Hypsicratea
-		}
-		dynasty_names = {
- 			Aramid Aramid Aramids Aramid
- 			Arid Arid Arids Arid
- 			Arkhid Arkhid Arkhids Arkhid
- 			Asinid Asinid Asinids Asinid
- 			Arsacid Arsacid Arsacids Arsacid
- 			Deiocid Deiocid Deiocids Deiocid
- 			Menid Menid Menids Menid
- 			Pacorid Pacorid Pacorids Pacorid
- 			Savacid Savacid Savacids Savacid
- 			Vardanid Vardanid Vardanids Vardanid
- 			Suren Suren Surenids Surenid
- 			Karin Karin Karinids Karinid
- 			Gaumatid Gaumatid Gaumatids Gaumatid
- 			Gobryasid Gobryasid Gobryasids Gobryasid
- 			Hydarnid Hydarnid Hydarnids Hydarnid
- 			Smerdid Smerdid Smerdids Smerdid
- 			Vivanid Vivanid Vivanids Vivanid
- 			Xerxid Xerxid Xerxids Xerxid
- 			Abadanid Abadanid Abadanids Abadanid
- 			Orontid Orontid Orontids Orontid
- 			Atropatid Atropatid Atropatids Atropatid
- 			Mithridatid Mithridatid Mithridatids Mithridatid
- 			Artiaxid Artiaxid Artiaxids Artiaxid
- 			Sassanid Sassanid Sassanids Sassanid
- 			Mihranid Mihranid Mihranids Mihranid
- 			Chosroid Chosroid Chosroids Chosroid
- 			Artashid Artashid Artashids Artashid
- 			Bagabignid Bagabignid Bagabignids Bagabignid
- 			Cambysid Cambysid Cambysids Cambysid
- 			Frataraka Frataraka Frataraka Frataraka
-		}
-	}
-	isaurian = {
-		male_names = {
-			Morzios Gaizatorix Pylaemenes Mithridates Datames Ariobarzanes Ariamnes Ariarathes Croesus Gyges Ardys Sadyattes Atys Adrastus Gordias Midas
-			Hecatomnus Hyssaldomus Mausolus Idrieus Pixodarus Lygdamis Kybernis Kuprilli
-			Arppakhu Arbinas Kheriga Kherei Abistamenes Syennesis Appuasu Oromedon
-			Zipoetes Bas Ziaelas Prusias Arcathias Xiphares Darius
-		}
-		female_names = {
-			Nysa Aryenis Ada Glaphyra Pythodorida Etazeta Drypetina Orsabaris Hypsicratea
-		}
-		dynasty_names = {
- 			Aramid Aramid Aramids Aramid
- 			Arid Arid Arids Arid
- 			Arkhid Arkhid Arkhids Arkhid
- 			Asinid Asinid Asinids Asinid
- 			Arsacid Arsacid Arsacids Arsacid
- 			Deiocid Deiocid Deiocids Deiocid
- 			Menid Menid Menids Menid
- 			Pacorid Pacorid Pacorids Pacorid
- 			Savacid Savacid Savacids Savacid
- 			Vardanid Vardanid Vardanids Vardanid
- 			Suren Suren Surenids Surenid
- 			Karin Karin Karinids Karinid
- 			Gaumatid Gaumatid Gaumatids Gaumatid
- 			Gobryasid Gobryasid Gobryasids Gobryasid
- 			Hydarnid Hydarnid Hydarnids Hydarnid
- 			Smerdid Smerdid Smerdids Smerdid
- 			Vivanid Vivanid Vivanids Vivanid
- 			Xerxid Xerxid Xerxids Xerxid
- 			Abadanid Abadanid Abadanids Abadanid
- 			Orontid Orontid Orontids Orontid
- 			Atropatid Atropatid Atropatids Atropatid
- 			Mithridatid Mithridatid Mithridatids Mithridatid
- 			Artiaxid Artiaxid Artiaxids Artiaxid
- 			Sassanid Sassanid Sassanids Sassanid
- 			Mihranid Mihranid Mihranids Mihranid
- 			Chosroid Chosroid Chosroids Chosroid
- 			Artashid Artashid Artashids Artashid
- 			Bagabignid Bagabignid Bagabignids Bagabignid
- 			Cambysid Cambysid Cambysids Cambysid
- 			Frataraka Frataraka Frataraka Frataraka
-		}
-	}
-	paphlagonian = {
-		male_names = {
-			Morzios Gaizatorix Pylaemenes Mithridates Datames Ariobarzanes Ariamnes Ariarathes Croesus Gyges Ardys Sadyattes Atys Adrastus Gordias Midas
-			Hecatomnus Hyssaldomus Mausolus Idrieus Pixodarus Lygdamis Kybernis Kuprilli
-			Arppakhu Arbinas Kheriga Kherei Abistamenes Syennesis Appuasu Oromedon
-			Zipoetes Bas Ziaelas Prusias Arcathias Xiphares Darius
-		}
-		female_names = {
-			Nysa Aryenis Ada Glaphyra Pythodorida Etazeta Drypetina Orsabaris Hypsicratea
-		}
-		dynasty_names = {
- 			Aramid Aramid Aramids Aramid
- 			Arid Arid Arids Arid
- 			Arkhid Arkhid Arkhids Arkhid
- 			Asinid Asinid Asinids Asinid
- 			Arsacid Arsacid Arsacids Arsacid
- 			Deiocid Deiocid Deiocids Deiocid
- 			Menid Menid Menids Menid
- 			Pacorid Pacorid Pacorids Pacorid
- 			Savacid Savacid Savacids Savacid
- 			Vardanid Vardanid Vardanids Vardanid
- 			Suren Suren Surenids Surenid
- 			Karin Karin Karinids Karinid
- 			Gaumatid Gaumatid Gaumatids Gaumatid
- 			Gobryasid Gobryasid Gobryasids Gobryasid
- 			Hydarnid Hydarnid Hydarnids Hydarnid
- 			Smerdid Smerdid Smerdids Smerdid
- 			Vivanid Vivanid Vivanids Vivanid
- 			Xerxid Xerxid Xerxids Xerxid
- 			Abadanid Abadanid Abadanids Abadanid
- 			Orontid Orontid Orontids Orontid
- 			Atropatid Atropatid Atropatids Atropatid
- 			Mithridatid Mithridatid Mithridatids Mithridatid
- 			Artiaxid Artiaxid Artiaxids Artiaxid
- 			Sassanid Sassanid Sassanids Sassanid
- 			Mihranid Mihranid Mihranids Mihranid
- 			Chosroid Chosroid Chosroids Chosroid
- 			Artashid Artashid Artashids Artashid
- 			Bagabignid Bagabignid Bagabignids Bagabignid
- 			Cambysid Cambysid Cambysids Cambysid
- 			Frataraka Frataraka Frataraka Frataraka
 		}
 	}
 }
@@ -1650,6 +1424,102 @@ sudanese = {
 		dynasty_names = { Wattara Toure Salim-Suwari Drame Saghanughu }
 	}
 	old_egyptian = {
+		primary = EGY
+		male_names = {
+			Amyrteos Ankhmachis Anemhor Aratos Arganos Charias Djedhor Ezena Horemakhet Isocrates Khabbabash Leonippus Lydiadas Manetho Massiva
+ 			Nakhthoreb Naravas Nefaarud Neferibre Nesisti Nicias Nicodemus Oezalces Oxyntas Pedubast Peneus Perdiccas Philocrates
+			Philotheos Polyperchon Psherenamun Psherenptah Psammuthes Ptolemy Theocritus Therapon Timoleon Xanthos Xenon Zeteres Zosimus Ahmes
+			Ahmose Alarus Amasus Ameny Bakenrenef Cleomenes Euclid Harsiotef Henut Ibi Khabash Lagus Nectanebo Kheperkare Neferkare Nehi Osorkon Pami
+			Petubastis Teos
+		}
+		female_names = {
+			Agape Agathoclea Amanishabheto Antigone Apame Apollonia Aristomache Artemisia Aspacia Athenais Berenice Charis Cleopatra Cynna
+			Demetria Elpis Eirene Eudocia Eunice Euphemia Eurydice Euthalia Hypatia Nysa Oenanthe Olympia Phila Phile Sostrate Stratonice Thais
+			Theophila Thetima Thessaloniki Thorakis Timo Arsinoe Lysandra Kiya Qelhata
+		}
+		dynasty_names = {
+			Ahmid Ahmid Ahmid Ahmid
+			Galestus Galestid Galestid Galestid
+			Kenamus Kenamid Kenamid Kenamid
+			Naravid Naravid Naravid Naravid
+			Penamus Penamid Penamid Penamid
+			Senuid Senuid Senuid Senuid
+			Setnid Setnid Setnid Setnid
+			Arganid Arganid Arganid Arganid
+			Psammid Psammid Psammid Psammid
+			Philothid Philothid Philothid Philothid
+			Timolid Timolid Timolid Timolid
+			Zosid Zosid Zosid Zosid
+			Phileid Phileid Phileid Phileid
+			Nicodemid Nicodemid Nicodemid Nicodemid
+			Nefarid Nefarid Nefarid Nefarid
+			Bastid Bastid Bastid Bastid
+			Xeneid Xeneid Xeneid Xeneid
+			Naravid Naravid Naravid Naravid
+			Ezanid Ezanid Ezanid Ezanid
+			Ahmid Ahmid Ahmid Ahmid
+			Alarus Alara Alarid Alarid
+			Harsiotes Harsiotes Harsiotid Harsiotid
+			Henus Hena Henid Henid
+			Ibus Iba Ibid Ibid
+			Khabbash Khabbash Khabbashid Khabbashid
+			Amasus Amasa Amasid Amasid
+			Nectanebo Nectanebo Nectanebid Nectanebid
+			Petubast Petubast Petubastes Petubastid
+			Djedhid Djedhid Djedhid Djedhid
+			Tachys Tachya Tachyes Tachyid
+			Mago Mago Mago Magid
+		}
+	}
+	per_sheklesh = { #Egyptian Italy
+		primary = EGY
+		male_names = {
+			Amyrteos Ankhmachis Anemhor Aratos Arganos Charias Djedhor Ezena Horemakhet Isocrates Khabbabash Leonippus Lydiadas Manetho Massiva
+ 			Nakhthoreb Naravas Nefaarud Neferibre Nesisti Nicias Nicodemus Oezalces Oxyntas Pedubast Peneus Perdiccas Philocrates
+			Philotheos Polyperchon Psherenamun Psherenptah Psammuthes Ptolemy Theocritus Therapon Timoleon Xanthos Xenon Zeteres Zosimus Ahmes
+			Ahmose Alarus Amasus Ameny Bakenrenef Cleomenes Euclid Harsiotef Henut Ibi Khabash Lagus Nectanebo Kheperkare Neferkare Nehi Osorkon Pami
+			Petubastis Teos
+		}
+		female_names = {
+			Agape Agathoclea Amanishabheto Antigone Apame Apollonia Aristomache Artemisia Aspacia Athenais Berenice Charis Cleopatra Cynna
+			Demetria Elpis Eirene Eudocia Eunice Euphemia Eurydice Euthalia Hypatia Nysa Oenanthe Olympia Phila Phile Sostrate Stratonice Thais
+			Theophila Thetima Thessaloniki Thorakis Timo Arsinoe Lysandra Kiya Qelhata
+		}
+		dynasty_names = {
+			Ahmid Ahmid Ahmid Ahmid
+			Galestus Galestid Galestid Galestid
+			Kenamus Kenamid Kenamid Kenamid
+			Naravid Naravid Naravid Naravid
+			Penamus Penamid Penamid Penamid
+			Senuid Senuid Senuid Senuid
+			Setnid Setnid Setnid Setnid
+			Arganid Arganid Arganid Arganid
+			Psammid Psammid Psammid Psammid
+			Philothid Philothid Philothid Philothid
+			Timolid Timolid Timolid Timolid
+			Zosid Zosid Zosid Zosid
+			Phileid Phileid Phileid Phileid
+			Nicodemid Nicodemid Nicodemid Nicodemid
+			Nefarid Nefarid Nefarid Nefarid
+			Bastid Bastid Bastid Bastid
+			Xeneid Xeneid Xeneid Xeneid
+			Naravid Naravid Naravid Naravid
+			Ezanid Ezanid Ezanid Ezanid
+			Ahmid Ahmid Ahmid Ahmid
+			Alarus Alara Alarid Alarid
+			Harsiotes Harsiotes Harsiotid Harsiotid
+			Henus Hena Henid Henid
+			Ibus Iba Ibid Ibid
+			Khabbash Khabbash Khabbashid Khabbashid
+			Amasus Amasa Amasid Amasid
+			Nectanebo Nectanebo Nectanebid Nectanebid
+			Petubast Petubast Petubastes Petubastid
+			Djedhid Djedhid Djedhid Djedhid
+			Tachys Tachya Tachyes Tachyid
+			Mago Mago Mago Magid
+		}
+	}
+	niwt_ipt = {
 		primary = EGY
 		male_names = {
 			Amyrteos Ankhmachis Anemhor Aratos Arganos Charias Djedhor Ezena Horemakhet Isocrates Khabbabash Leonippus Lydiadas Manetho Massiva

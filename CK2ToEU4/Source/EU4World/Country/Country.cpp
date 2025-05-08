@@ -1076,18 +1076,18 @@ void EU4::Country::assignReforms(const std::shared_ptr<mappers::RegionMapper>& r
 		if (title.second->getSuccessionLaw() == "feudal_elective" && tag != "ROM" && tag != "HRE" && tag != "BYZ")
 		{
 			details.reforms.clear();
-			details.reforms = {"elective_monarchy"};
+			details.reforms = {"elective_monarchy_reform"};
 		}
 		// Weird Edge Cases
 		else if (title.second->getSuccessionLaw() == "byzantine_elective" && (title.first.find("e_roman_empire") || title.first.find("e_byzantium")))
 		{
 			details.reforms.clear();
-			details.reforms = {"autocracy_reform"};
+			details.reforms = {"byzantine_autocracy_reform"};
 		}
 		else if (title.second->getSuccessionLaw() == "byzantine_elective" && !title.first.find("e_"))
 		{
 			details.reforms.clear();
-			details.reforms = {"feudalism_reform"};
+			details.reforms = {"autocracy_reform"};
 		}
 		else if (title.second->getSuccessionLaw() == "open_elective") // Should only be applicable to Mercenary Companies
 		{

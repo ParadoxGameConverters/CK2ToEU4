@@ -194,6 +194,9 @@ link = { eu4 = nuragic ck2 = nuragic tech = western gfx = westerngfx }
 link = { eu4 = rhaetian ck2 = rhaetian tech = western gfx = westerngfx }
 link = { eu4 = iberic ck2 = iberic tech = western gfx = westerngfx }
 link = { eu4 = turdetanian ck2 = turdetanian tech = western gfx = westerngfx }
+link = { eu4 = pelasgian ck2 = pelasgian tech = eastern gfx = easterngfx }
+link = { eu4 = minoan ck2 = minoan tech = eastern gfx = easterngfx }
+link = { eu4 = cycladic ck2 = cycladic tech = eastern gfx = easterngfx }
 
 # Byzantine
 
@@ -233,27 +236,40 @@ link = { eu4 = circassian ck2 = assyrian tech = eastern gfx = easterngfx region 
 link = { eu4 = circassian ck2 = coptic tech = eastern gfx = easterngfx region = circassia_area }
 link = { eu4 = circassian ck2 = circassian tech = eastern gfx = easterngfx }
 link = { eu4 = dagestani ck2 = georgian tech = eastern gfx = easterngfx region = dagestan_area }
-link = { eu4 = alan ck2 = alan ck2 = caucasian_avar ck2 = kasogi tech = eastern gfx = easterngfx }
 link = { eu4 = georgian ck2 = georgian ck2 = udi tech = eastern gfx = easterngfx }
-link = { eu4 = assyrian ck2 = assyrian ck2 = aramean tech = eastern gfx = easterngfx }
 link = { eu4 = goths ck2 = crimean_gothic tech = eastern gfx = easterngfx }
 link = { eu4 = coptic ck2 = coptic tech = eastern gfx = easterngfx }
-link = { eu4 = lycian ck2 = lycian tech = eastern gfx = easterngfx }
-link = { eu4 = phrygian ck2 = phrygian tech = eastern gfx = easterngfx }
-link = { eu4 = isaurian ck2 = isaurian tech = eastern gfx = easterngfx }
-link = { eu4 = paphlagonian ck2 = paphlagonian tech = eastern gfx = easterngfx }
-link = { eu4 = cilician ck2 = cilician tech = eastern gfx = easterngfx }
-link = { eu4 = babylonian ck2 = babylonian ck2 = chaldean tech = eastern gfx = easterngfx }
-link = { eu4 = cardukoi ck2 = cardukoi tech = eastern gfx = easterngfx }
 link = { eu4 = dagestani ck2 = caucasian_albanian tech = eastern gfx = easterngfx }
 link = { eu4 = caspian ck2 = caspian tech = eastern gfx = easterngfx }
 link = { eu4 = hellenistic ck2 = hellenistic tech = eastern gfx = easterngfx }
+
+#Mesopotamian
+link = { eu4 = assyrian ck2 = assyrian ck2 = aramean tech = eastern gfx = easterngfx }
+link = { eu4 = babylonian ck2 = babylonian ck2 = chaldean tech = eastern gfx = easterngfx }
+link = { eu4 = cardukoi ck2 = cardukoi tech = eastern gfx = easterngfx }
+link = { eu4 = sumerian ck2 = sumerian_culture tech = eastern gfx = easterngfx }
+link = { eu4 = eblaite ck2 = eblaite tech = eastern gfx = easterngfx }
+
+# Scytho-Sarmatian
+link = { eu4 = alan ck2 = alan ck2 = caucasian_avar ck2 = kasogi tech = eastern gfx = easterngfx }
 link = { eu4 = scythian ck2 = royal_scythian tech = eastern gfx = easterngfx }
 link = { eu4 = sarmatian ck2 = sarmatian tech = eastern gfx = easterngfx }
 link = { eu4 = iazyges ck2 = iazyges tech = eastern gfx = easterngfx }
 link = { eu4 = nemedian ck2 = nemedian tech = eastern gfx = easterngfx }
 link = { eu4 = cimmerian ck2 = cimmerian tech = eastern gfx = easterngfx }
 link = { eu4 = yarkamii ck2 = yarkamii tech = eastern gfx = easterngfx }
+
+# Old Anatolian
+link = { eu4 = lycian ck2 = lycian tech = eastern gfx = easterngfx }
+link = { eu4 = phrygian ck2 = phrygian tech = eastern gfx = easterngfx }
+link = { eu4 = isaurian ck2 = isaurian tech = eastern gfx = easterngfx }
+link = { eu4 = paphlagonian ck2 = paphlagonian tech = eastern gfx = easterngfx }
+link = { eu4 = cilician ck2 = cilician tech = eastern gfx = easterngfx }
+link = { eu4 = trojan ck2 = trojan tech = eastern gfx = easterngfx }
+link = { eu4 = kizzuwatnan ck2 = kizzuwatnan tech = eastern gfx = easterngfx }
+
+# Pre-Anatolian
+link = { eu4 = hatti ck2 = hatti_culture tech = eastern gfx = easterngfx }
 
 
 # Punic
@@ -270,6 +286,15 @@ link = { eu4 = ualonuth ck2 = pretan tech = muslim gfx = muslimgfx }
 link = { eu4 = sidonian ck2 = sidonian tech = muslim gfx = muslimgfx }
 link = { eu4 = sicorathi ck2 = ziqanmakom tech = muslim gfx = muslimgfx }
 link = { eu4 = sythchy ck2 = sythchy tech = muslim gfx = muslimgfx }
+link = { eu4 = neo_hyksos ck2 = neo_hyksos tech = muslim gfx = muslimgfx }
+
+# Ancient Semitic
+link = { eu4 = alasiyan ck2 = alasiyan tech = muslim gfx = muslimgfx }
+link = { eu4 = ugaritic ck2 = ugaritic tech = muslim gfx = muslimgfx }
+
+# Hurrian
+link = { eu4 = hurrian_culture ck2 = hurrian_culture tech = muslim gfx = muslimgfx }
+link = { eu4 = gutian ck2 = gutian tech = muslim gfx = muslimgfx }
 
 # Celtic
 link = { eu4 = highland_scottish ck2 = irish tech = western gfx = westerngfx region = kingdom_of_the_isles_area region = highlands_area region = lowlands_area region = scottish_marches_area }
@@ -313,6 +338,7 @@ link = { eu4 = gallic ck2 = gaulish tech = western gfx = westerngfx } #Fallback
 
 # Finno-Ugric
 
+link = { eu4 = karelian ck2 = finnish tech = eastern gfx = westerngfx region = russia_region }
 link = { eu4 = finnish ck2 = finnish tech = eastern gfx = westerngfx }
 link = { eu4 = sapmi ck2 = lappish tech = eastern gfx = inuitgfx }
 link = { eu4 = estonian ck2 = ugricbaltic tech = eastern gfx = inuitgfx }
@@ -322,6 +348,9 @@ link = { eu4 = samoyed ck2 = samoyed tech = eastern gfx = inuitgfx }
 link = { eu4 = mordvin ck2 = mordvin tech = eastern gfx = inuitgfx }
 link = { eu4 = ostyaki ck2 = khanty tech = eastern gfx = inuitgfx }
 link = { eu4 = meshchera ck2 = mari ck2 = meshchera tech = eastern gfx = inuitgfx }
+
+# Finno-Ugric (Historical Immersion Project - SWMH)
+link = { eu4 = karelian ck2 = karelian ck2 = vepsian tech = eastern gfx = easterngfx } #Fallback
 
 # Baltic
 
@@ -403,18 +432,15 @@ link = { eu4 = moroccan ck2 = masmuda ck2 = zanata tech = muslim gfx = muslimgfx
 
 # Russian: the split
 
-link = { eu4 = byelorussian ck2 = russian tech = eastern gfx = easterngfx region = baltic_region region = minsk_area region = white_ruthenia_area }
-link = { eu4 = karelian ck2 = russian tech = eastern gfx = easterngfx region = karelia_area }
-link = { eu4 = novgorodian ck2 = russian tech = eastern gfx = easterngfx region = novgorod_area region = pskov_area region = beloozero_area }
+link = { eu4 = byelorussian ck2 = russian tech = eastern gfx = easterngfx region = baltic_region region = pripyat_area region = minsk_area region = white_ruthenia_area }
+# link = { eu4 = karelian ck2 = russian tech = eastern gfx = easterngfx region = karelia_area } #Pre-"Lions of the North" mapping
+link = { eu4 = novgorodian ck2 = russian tech = eastern gfx = easterngfx region = karelia_area region = novgorod_area region = pskov_area region = beloozero_area region = arkhangelsk_area region = north_karelia region = pomor_area }
 link = { eu4 = ryazanian ck2 = russian tech = eastern gfx = easterngfx region = smolensk_area region = ryazan_area region = oka_area }
 link = { eu4 = ruthenian ck2 = russian tech = eastern gfx = easterngfx region = ruthenia_region region = crimea_region }
 link = { eu4 = russian ck2 = russian tech = eastern gfx = easterngfx region = russia_region region = ural_region } #Muscovite
 link = { eu4 = kishinyov ck2 = russian tech = eastern gfx = easterngfx region = carpathia_region region = poland_region }
 link = { eu4 = russian_culture ck2 = russian tech = eastern gfx = easterngfx } #Fallback
 link = { eu4 = protoslavic ck2 = protoslavic tech = eastern gfx = easterngfx }
-
-# Russian (Historical Immersion Project - SWMH)
-link = { eu4 = karelian ck2 = karelian ck2 = vepsian tech = eastern gfx = easterngfx } #Fallback
 
 # East Slavic
 
@@ -499,6 +525,8 @@ link = { eu4 = amhara ck2 = ethiopian ck2 = falashim tech = east_african gfx = a
 link = { eu4 = somali ck2 = somali tech = east_african gfx = africangfx }
 link = { eu4 = daju ck2 = daju tech = east_african gfx = africangfx }
 link = { eu4 = old_egyptian ck2 = ancient_egyptian ck2 = egyptian_coptic tech = eastern gfx = easterngfx }
+link = { eu4 = per_sheklesh ck2 = per_sheklesh tech = eastern gfx = easterngfx }
+link = { eu4 = niwt_ipt ck2 = niwt_ipt tech = eastern gfx = easterngfx }
 
 # East African (Historical Immersion Project - SWMH)
 link = { eu4 = afar ck2 = afar tech = east_african gfx = africangfx } #Fallback

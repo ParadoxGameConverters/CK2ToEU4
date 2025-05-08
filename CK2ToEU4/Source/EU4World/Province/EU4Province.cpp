@@ -26,7 +26,8 @@ void EU4::Province::initializeFromCK2(std::shared_ptr<CK2::Province> origProvinc
 	 const mappers::ReligionMapper& religionMapper)
 {
 	srcProvince = std::move(origProvince);
-	details.discoveredBy = {"eastern", "western", "muslim", "ottoman", "indian", "nomad_group", "MGE"}; // hardcoding for now.
+	details.discoveredBy =
+		 {"eastern", "western", "muslim", "ottoman", "indian", "nomad_group", "east_african", "sub_saharan", "chinese", "MGE"}; // hardcoding for now.
 
 	// If we're initializing this from CK2 provinces, then having an owner or being a wasteland/sea is a given -
 	// there are no uncolonized provinces in CK2.

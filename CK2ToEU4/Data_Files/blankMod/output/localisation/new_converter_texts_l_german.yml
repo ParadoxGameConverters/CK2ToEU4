@@ -146,6 +146,7 @@
  bamar_pagan_religion_desc:0 "Nats sind Geister, die von den Menschen verehrt werden, die entlang des Irrawaddy-Flusses leben und von buddhistischen und hinduistischen Persönlichkeiten beeinflusst wurden. Nats haben die Gestalt von Heiligen, Menschen, die gewaltsam ums Leben gekommen sind, und Dorfwächtern."
  mithraic_religion_desc: "Die Religion der Medianer konzentriert sich in erster Linie auf den Gott Mithra und nicht auf Ahura Mazda. Sie ist der direkte Nachkomme des alten vorzoroastrischen Glaubens Persiens."
  hurrian_pagan_religion_desc:0 "Die Hurriter verehrten eine große Anzahl von Göttern, die aus verschiedenen Kulturen des Nahen Ostens stammten. Die Hauptgötter im hurritischen Pantheon waren Teshub, der mächtige Wettergott, und seine Frau Hebat, die Muttergöttin. Eine besondere Klasse von Figuren, die von den Hurritern verehrt wurden, waren die sogenannten Sarrena, vergöttlichte Könige und Helden."
+ hattian_pagan_religion_desc:0 "Elemente der hattischen Religion sind ein wahrhaft alter Glaube, der vor Tausenden von Jahren in der Steinzeit entstand. Die gläubigen Hatti sind im Einklang mit den natürlichen Zyklen der Jahreszeiten und der Erde selbst: Opfergaben und Trankopfer werden zubereitet und der Muttergöttin dargeboten, um die Felder fruchtbar zu halten und zu verhindern, dass himmlische Katastrophen das Land überwältigen."
 
  pagan_religion_rebels_title: "Religiöse"
  pagan_religion_rebels_name: "$RELIGION$-Fanatiker"
@@ -389,6 +390,12 @@
  hurrian_pagan_rebels_name:0 "$RELIGION$-Fanatiker"
  hurrian_pagan_rebels_desc:0 "Religiöse Fanatiker neigen dazu, sich in Provinzen zu erheben, die von Nationen eines anderen Glaubens kontrolliert werden. Sie versuchen, ihren Glauben zu verbreiten und alle Ungläubigen zu quälen."
  hurrian_pagan_rebels_army:0 "$RELIGION$-Armee"
+ hattian_pagan_rebels_demand:0 "$COUNTRYNAME$ konvertieren"
+ hattian_pagan_rebels_demand_desc:0 "Die religiösen Rebellen kämpfen für den $RELIGION$. Sie verlangen, dass wir ihre Vormachtstellung anerkennen oder wenigstens unsere Konvertierungsversuche einstellen, so dass sie ihren Glauben in Frieden ausüben können."
+ hattian_pagan_rebels_title:0 "Religiöse"
+ hattian_pagan_rebels_name:0 "$RELIGION$-Fanatiker"
+ hattian_pagan_rebels_desc:0 "Religiöse Fanatiker neigen dazu, sich in Provinzen zu erheben, die von Nationen eines anderen Glaubens kontrolliert werden. Sie versuchen, ihren Glauben zu verbreiten und alle Ungläubigen zu quälen."
+ hattian_pagan_rebels_army:0 "$RELIGION$-Armee"
  ajivika_rebels_demand:0 "$COUNTRYNAME$ konvertieren"
  ajivika_rebels_demand_desc:0 "Die religiösen Rebellen kämpfen für den $RELIGION$. Sie verlangen, dass wir ihre Vormachtstellung anerkennen oder wenigstens unsere Konvertierungsversuche einstellen, so dass sie ihren Glauben in Frieden ausüben können."
  ajivika_rebels_title:0 "Religiöse"
@@ -510,6 +517,12 @@
  hurrian_pagan_reformed_rebels_name:0 "$RELIGION$-Fanatiker"
  hurrian_pagan_reformed_rebels_desc:0 "Religiöse Fanatiker neigen dazu, sich in Provinzen zu erheben, die von Nationen eines anderen Glaubens kontrolliert werden. Sie versuchen, ihren Glauben zu verbreiten und alle Ungläubigen zu quälen."
  hurrian_pagan_reformed_rebels_army:0 "$RELIGION$-Armee"
+ hattian_pagan_reformed_rebels_demand:0 "$COUNTRYNAME$ konvertieren"
+ hattian_pagan_reformed_rebels_demand_desc:0 "Die religiösen Rebellen kämpfen für den $RELIGION$. Sie verlangen, dass wir ihre Vormachtstellung anerkennen oder wenigstens unsere Konvertierungsversuche einstellen, so dass sie ihren Glauben in Frieden ausüben können."
+ hattian_pagan_reformed_rebels_title:0 "Religiöse"
+ hattian_pagan_reformed_rebels_name:0 "$RELIGION$-Fanatiker"
+ hattian_pagan_reformed_rebels_desc:0 "Religiöse Fanatiker neigen dazu, sich in Provinzen zu erheben, die von Nationen eines anderen Glaubens kontrolliert werden. Sie versuchen, ihren Glauben zu verbreiten und alle Ungläubigen zu quälen."
+ hattian_pagan_reformed_rebels_army:0 "$RELIGION$-Armee"
 
 
  ##Fetishist Cults

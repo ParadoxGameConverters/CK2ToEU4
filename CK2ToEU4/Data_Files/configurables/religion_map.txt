@@ -60,6 +60,8 @@ link = { eu4 = waaqi_pagan_reformed ck2 = waaqi_reformed }
 link = { eu4 = waaqi_pagan ck2 = waaqi }
 link = { eu4 = hurrian_pagan_reformed ck2 = hurrian_reformed }
 link = { eu4 = hurrian_pagan ck2 = hurrian }
+link = { eu4 = hattian_pagan_reformed ck2 = hattian_reformed }
+link = { eu4 = hattian_pagan ck2 = hattian }
 
 link = { eu4 = kemetism ck2 = egyptian ck2 = egyptian_pagan ck2 = egyptian_pagan_reformed }
 

@@ -47,4 +47,6 @@ Special thanks to the Imperator:Invictus mod for allowing the converter to use i
 Imperator:Invictus Steam Link: https://steamcommunity.com/sharedfiles/filedetails/?id=2532715348/
 Imperator:Invictus Paradox Mods Link: https://mods.paradoxplaza.com/mods/27170/Any
 
+Special thanks to the Bronze Age:Reborn mod for allowing the converter to use its namelists for Bronze Age cultures. It can be found on Steam: https://steamcommunity.com/sharedfiles/filedetails/?id=2448788091
+
  - AND ALL THE OTHERS WHO GAVE THEIR INPUT ON THE FORUM AND DISCORD -

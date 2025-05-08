@@ -186,7 +186,7 @@ wonder_amphitheater = {
 		can_be_moved = no
 	}
 	build_trigger = {
-		cultural_groups = { lost_cultures_group byzantine latin }
+		cultural_groups = { lost_cultures_group byzantine latin roman_group }
 		religious_groups = { pagan }
 	}
 	country_modifiers = {
