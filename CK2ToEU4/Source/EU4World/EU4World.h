@@ -35,9 +35,9 @@ class World
 
   private:
 	// void loadRegions(const Configuration& theConfiguration); waiting on geography.
-	void importVanillaCountries(const std::string& eu4Path, bool invasion);
-	void loadCountriesFromSource(std::istream& theStream, const std::string& sourcePath, bool isVanillaSource);
-	void importVanillaProvinces(const std::string& eu4Path, bool invasion);
+	void importVanillaCountries(const std::filesystem::path& eu4Path, bool invasion);
+	void loadCountriesFromSource(std::istream& theStream, const std::filesystem::path& sourcePath, bool isVanillaSource);
+	void importVanillaProvinces(const std::filesystem::path& eu4Path, bool invasion);
 	void importCK2Countries(Configuration::STARTDATE startDateOption, const CK2::World& sourceWorld);
 	void importCK2Country(const std::pair<std::string, std::shared_ptr<CK2::Title>>& title,
 		 Configuration::STARTDATE startDateOption,
@@ -49,7 +49,7 @@ class World
 	void outputCommonCountriesFile(const Configuration& theConfiguration) const;
 	void outputHistoryCountries(const Configuration& theConfiguration) const;
 	void outputHistoryProvinces(const Configuration& theConfiguration, const std::set<std::string>& premades, const bool& isLeviathanDLCPresent) const;
-	void outputInvasionExtras(const Configuration& theConfiguration, bool invasion) const;
+	void outputInvasionExtras(const Configuration& theConfiguration) const;
 	void outputCommonCountries(const Configuration& theConfiguration) const;
 	void outputLocalization(const Configuration& theConfiguration, bool invasion, bool greekReformation) const;
 	void verifyReligionsAndCultures();

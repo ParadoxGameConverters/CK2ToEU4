@@ -13,26 +13,24 @@
 #include "../Province/EU4Province.h"
 #include "CommonFunctions.h"
 #include "Log.h"
-#include <cmath>
 
-EU4::Country::Country(std::string theTag, const std::string& filePath): tag(std::move(theTag))
+EU4::Country::Country(std::string theTag, const std::filesystem::path& filePath): tag(std::move(theTag))
 {
 	// Load from a country file, if one exists. Otherwise rely on defaults.
-	const auto startPos = filePath.find("/countries");
-	commonCountryFile = filePath.substr(startPos + 1, filePath.length() - startPos);
+	const auto startPos = filePath.filename().string().find("countries");
+	commonCountryFile = std::filesystem::path("countries" / filePath.filename());
 	details = CountryDetails(filePath);
 
 	// We also must set a dummy history filepath for those countries that don't actually have a history file.
-	const auto lastslash = filePath.find_last_of('/');
-	const auto rawname = filePath.substr(lastslash + 1, filePath.length());
+	const auto rawname = filePath.filename();
 
-	historyCountryFile = "history/countries/" + tag + " - " + rawname;
+	historyCountryFile = std::filesystem::path("history/countries") / (tag + " - " + rawname.string());
 }
 
-void EU4::Country::loadHistory(const std::string& filePath)
+void EU4::Country::loadHistory(const std::filesystem::path& filePath)
 {
-	const auto startPos = filePath.find("/history");
-	historyCountryFile = filePath.substr(startPos + 1, filePath.length() - startPos);
+	const auto startPos = filePath.string().find("/history");
+	historyCountryFile = std::filesystem::path(filePath.string().substr(startPos + 1, filePath.string().length() - startPos));
 	details.parseHistory(filePath);
 }
 
@@ -56,9 +54,9 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	title.first = theTitle->getName();
 	title.second = std::move(theTitle);
 	if (commonCountryFile.empty())
-		commonCountryFile = "countries/" + title.first + ".txt";
+		commonCountryFile = std::filesystem::path("countries/" + title.first + ".txt");
 	if (historyCountryFile.empty())
-		historyCountryFile = "history/countries/" + tag + " - " + title.first + ".txt";
+		historyCountryFile = std::filesystem::path("history/countries/" + tag + " - " + title.first + ".txt");
 
 	const auto& actualHolder = title.second->getHolder().second;
 	if (actualHolder->getDynasty().first)

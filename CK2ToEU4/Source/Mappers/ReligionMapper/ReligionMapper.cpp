@@ -11,7 +11,7 @@ void mappers::ReligionMapper::initReligionMapper(const std::filesystem::path& pa
 	std::filesystem::path dirPath = "configurables";
 	if (!path.empty())
 	{
-		Log(LogLevel::Info) << "Religion Mapper override: " << path;
+		Log(LogLevel::Info) << "Religion Mapper override: " << path.string();
 		dirPath = dirPath / path;
 	}
 	parseFile(dirPath / "religion_map.txt");

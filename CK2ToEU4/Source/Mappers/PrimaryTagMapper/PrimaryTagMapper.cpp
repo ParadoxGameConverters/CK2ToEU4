@@ -2,7 +2,6 @@
 #include "CommonRegexes.h"
 #include "Log.h"
 #include "OSCompatibilityLayer.h"
-#include "ParserHelpers.h"
 #include "PrimaryTagCultureGroup.h"
 
 void mappers::PrimaryTagMapper::loadPrimaryTags(const Configuration& theConfiguration)
@@ -10,10 +9,10 @@ void mappers::PrimaryTagMapper::loadPrimaryTags(const Configuration& theConfigur
 	Log(LogLevel::Info) << "-> Sifting Through EU4 Cultures";
 	registerKeys();
 
-	for (const auto& filename: commonItems::GetAllFilesInFolder("blankMod/output/common/cultures/"))
-		parseFile("blankMod/output/common/cultures/" + filename);
-	for (const auto& filename: commonItems::GetAllFilesInFolder(theConfiguration.getEU4Path() + "/common/cultures/"))
-		parseFile(theConfiguration.getEU4Path() + "/common/cultures/" + filename);
+	for (const auto& filename: commonItems::GetAllFilesInFolder(std::filesystem::path("blankMod/output/common/cultures")))
+		parseFile("blankMod/output/common/cultures" / filename);
+	for (const auto& filename: commonItems::GetAllFilesInFolder(theConfiguration.getEU4Path() / "common/cultures"))
+		parseFile(theConfiguration.getEU4Path() / "common/cultures" / filename);
 
 	clearRegisteredKeywords();
 	Log(LogLevel::Info) << "<> " << cultureTags.size() << " culture tags located.";

@@ -78,7 +78,7 @@ TEST(CK2ToEU4_ConfigurationTests, OutputNameDefaultsToSaveGameWithNoOutputName)
 
 	const Configuration testConfiguration(input);
 
-	EXPECT_EQ(testConfiguration.getOutputName(), "autosave");
+	EXPECT_EQ(testConfiguration.getOutputName().string(), "autosave");
 }
 
 TEST(CK2ToEU4_ConfigurationTests, OutputNameResistantToMixedSlashes)
@@ -87,7 +87,7 @@ TEST(CK2ToEU4_ConfigurationTests, OutputNameResistantToMixedSlashes)
 	input << "SaveGame = \"C:\\CK2Path/save games/autosave.ck2\"";
 	const Configuration testConfiguration(input);
 
-	EXPECT_EQ(testConfiguration.getOutputName(), "autosave");
+	EXPECT_EQ(testConfiguration.getOutputName().string(), "autosave");
 }
 
 TEST(CK2ToEU4_ConfigurationTests, OutputNameReplacesSpacesAndMinuses)
@@ -97,7 +97,7 @@ TEST(CK2ToEU4_ConfigurationTests, OutputNameReplacesSpacesAndMinuses)
 
 	const Configuration testConfiguration(input);
 
-	EXPECT_EQ(testConfiguration.getOutputName(), "autosav_____._second_e");
+	EXPECT_EQ(testConfiguration.getOutputName().string(), "autosav_____._second_e");
 }
 
 TEST(CK2ToEU4_ConfigurationTests, OutputNameDefaultsToSaveGame)
@@ -108,7 +108,7 @@ TEST(CK2ToEU4_ConfigurationTests, OutputNameDefaultsToSaveGame)
 
 	const Configuration testConfiguration(input);
 
-	EXPECT_EQ(testConfiguration.getOutputName(), "autosave");
+	EXPECT_EQ(testConfiguration.getOutputName().string(), "autosave");
 }
 
 TEST(CK2ToEU4_ConfigurationTests, OutputNameCanBeSet)

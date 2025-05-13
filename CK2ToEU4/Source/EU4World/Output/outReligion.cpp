@@ -5,7 +5,7 @@ EU4::outReligion::outReligion(const Configuration& theConfiguration,
 	 std::vector<mappers::ReformedReligionMapping> unreligionReforms,
 	 std::vector<mappers::ReformedReligionMapping> religionReforms)
 {
-	std::ofstream unReformedReligions("configurables/reformation/dynamicPagans/03_converter_unreformed_religions.txt");
+	std::ofstream unReformedReligions(std::filesystem::path("configurables/reformation/dynamicPagans/03_converter_unreformed_religions.txt"));
 	if (!unReformedReligions.is_open())
 		throw std::runtime_error("Could not create custom unreformed religions file!");
 
@@ -24,7 +24,7 @@ EU4::outReligion::outReligion(const Configuration& theConfiguration,
 	unReformedReligions << "\n}";
 	unReformedReligions.close();
 
-	std::ofstream reformedReligions("configurables/reformation/dynamicPagans/04_custom_reformed_religions.txt");
+	std::ofstream reformedReligions(std::filesystem::path("configurables/reformation/dynamicPagans/04_custom_reformed_religions.txt"));
 	if (!reformedReligions.is_open())
 		throw std::runtime_error("Could not create custom reformed religions file!");
 
@@ -43,7 +43,8 @@ EU4::outReligion::outReligion(const Configuration& theConfiguration,
 	reformedReligions << "\n}";
 	reformedReligions.close();
 
-	auto files = commonItems::GetAllFilesInFolder("configurables/reformation/dynamicPagans/");
+	auto files = commonItems::GetAllFilesInFolder(std::filesystem::path("configurables/reformation/dynamicPagans/"));
 	for (const auto& file: files)
-		commonItems::TryCopyFile("configurables/reformation/dynamicPagans/" + file, "output/" + theConfiguration.getOutputName() + "/common/religions/" + file);
+		std::filesystem::copy_file("configurables/reformation/dynamicPagans" / file.filename(),
+			 "output" / theConfiguration.getOutputName() / "common/religions" / file.filename());
 }

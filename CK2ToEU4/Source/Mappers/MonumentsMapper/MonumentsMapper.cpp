@@ -1,7 +1,6 @@
 #include "MonumentsMapper.h"
 #include "CommonRegexes.h"
 #include "Log.h"
-#include "ParserHelpers.h"
 #include <iomanip>
 #include <set>
 
@@ -9,7 +8,7 @@ mappers::MonumentsMapper::MonumentsMapper()
 {
 	Log(LogLevel::Info) << "-> Parsing Monuments mappings";
 	registerKeys();
-	parseFile("configurables/monuments_mappings.txt");
+	parseFile(std::filesystem::path("configurables/monuments_mappings.txt"));
 	clearRegisteredKeywords();
 	Log(LogLevel::Info) << "<> " << wonders.size() << " Monuments mapped.";
 }
