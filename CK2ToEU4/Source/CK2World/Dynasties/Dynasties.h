@@ -11,8 +11,8 @@ class Dynasties: commonItems::parser
 	Dynasties() = default;
 	explicit Dynasties(std::istream& theStream); // For testing
 
-	void loadDynasties(const std::string& thePath);
-	void underLoadDynasties(const std::string& thePath);
+	void loadDynasties(const std::filesystem::path& thePath);
+	void underLoadDynasties(const std::filesystem::path& thePath);
 	void loadDynasties(std::istream& theStream);
 
 	[[nodiscard]] const auto& getDynasties() const { return dynasties; }

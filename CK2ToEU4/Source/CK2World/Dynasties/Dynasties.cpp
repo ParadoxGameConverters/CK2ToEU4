@@ -1,7 +1,6 @@
 #include "Dynasties.h"
 #include "CommonRegexes.h"
 #include "Dynasty.h"
-#include "Log.h"
 #include "ParserHelpers.h"
 
 CK2::Dynasties::Dynasties(std::istream& theStream)
@@ -11,14 +10,14 @@ CK2::Dynasties::Dynasties(std::istream& theStream)
 	clearRegisteredKeywords();
 }
 
-void CK2::Dynasties::loadDynasties(const std::string& thePath)
+void CK2::Dynasties::loadDynasties(const std::filesystem::path& thePath)
 {
 	registerKeys();
 	parseFile(thePath);
 	clearRegisteredKeywords();
 }
 
-void CK2::Dynasties::underLoadDynasties(const std::string& thePath)
+void CK2::Dynasties::underLoadDynasties(const std::filesystem::path& thePath)
 {
 	registerUnderKeys();
 	parseFile(thePath);

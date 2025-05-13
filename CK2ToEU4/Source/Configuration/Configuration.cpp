@@ -11,7 +11,7 @@ Configuration::Configuration(const commonItems::ConverterVersion& converterVersi
 {
 	Log(LogLevel::Info) << "Reading configuration file";
 	registerKeys();
-	parseFile("configuration.txt");
+	parseFile(std::filesystem::path("configuration.txt"));
 	clearRegisteredKeywords();
 	setOutputName();
 	verifyCK2Path();
@@ -119,43 +119,46 @@ void Configuration::registerKeys()
 void Configuration::verifyCK2Path() const
 {
 	if (!commonItems::DoesFolderExist(CK2Path))
-		throw std::runtime_error(CK2Path + " does not exist!");
-	if (!commonItems::DoesFileExist(CK2Path + "/CK2game.exe") && !commonItems::DoesFileExist(CK2Path + "/CK2game") &&
-		 !commonItems::DoesFileExist(CK2Path + "/ck2"))
-		throw std::runtime_error(CK2Path + " does not contain Crusader Kings 2!");
-	if (!commonItems::DoesFileExist(CK2Path + "/map/positions.txt"))
-		throw std::runtime_error(CK2Path + " does not appear to be a valid CK2 install!");
+		throw std::runtime_error(CK2Path.string() + " does not exist!");
+	if (!commonItems::DoesFileExist(CK2Path / "CK2game.exe") && !commonItems::DoesFileExist(CK2Path / "CK2game") && !commonItems::DoesFileExist(CK2Path / "ck2"))
+		throw std::runtime_error(CK2Path.string() + " does not contain Crusader Kings 2!");
+	if (!commonItems::DoesFileExist(CK2Path / "map/positions.txt"))
+		throw std::runtime_error(CK2Path.string() + " does not appear to be a valid CK2 install!");
 	Log(LogLevel::Info) << "\tCK2 install path is " << CK2Path;
 }
 
 void Configuration::verifyEU4Path() const
 {
 	if (!commonItems::DoesFolderExist(EU4Path))
-		throw std::runtime_error(EU4Path + " does not exist!");
-	if (!commonItems::DoesFileExist(EU4Path + "/eu4.exe") && !commonItems::DoesFileExist(EU4Path + "/eu4"))
-		throw std::runtime_error(EU4Path + " does not contain Europa Universalis 4!");
-	if (!commonItems::DoesFileExist(EU4Path + "/map/positions.txt"))
-		throw std::runtime_error(EU4Path + " does not appear to be a valid EU4 install!");
+		throw std::runtime_error(EU4Path.string() + " does not exist!");
+	if (!commonItems::DoesFileExist(EU4Path / "eu4.exe") && !commonItems::DoesFileExist(EU4Path / "eu4"))
+		throw std::runtime_error(EU4Path.string() + " does not contain Europa Universalis 4!");
+	if (!commonItems::DoesFileExist(EU4Path / "map/positions.txt"))
+		throw std::runtime_error(EU4Path.string() + " does not appear to be a valid EU4 install!");
 	Log(LogLevel::Info) << "\tEU4 install path is " << EU4Path;
 }
 
 void Configuration::setOutputName()
 {
+	std::string outputNameString;
 	if (outputName.empty())
 	{
-		outputName = trimPath(SaveGamePath);
+		outputName = SaveGamePath.filename().stem().string();
 	}
-	outputName = trimExtension(outputName);
-	outputName = replaceCharacter(outputName, '-');
-	outputName = replaceCharacter(outputName, ' ');
+	else
+	{
+		outputNameString = outputName.string();
+	}
+	outputNameString = replaceCharacter(outputNameString, '-');
+	outputNameString = replaceCharacter(outputNameString, ' ');
 
-	outputName = commonItems::normalizeUTF8Path(outputName);
-	Log(LogLevel::Info) << "Using output name " << outputName;
+	outputName = commonItems::normalizeUTF8Path(outputNameString);
+	Log(LogLevel::Info) << "Using output name " << outputName.string();
 }
 
 void Configuration::verifyCK2Version(const commonItems::ConverterVersion& converterVersion) const
 {
-	const auto CK2Version = GameVersion::extractVersionFromChangeLog(CK2Path + "/ChangeLog.txt");
+	const auto CK2Version = GameVersion::extractVersionFromChangeLog(CK2Path / "ChangeLog.txt");
 	if (!CK2Version)
 	{
 		Log(LogLevel::Error) << "CK2 version could not be determined, proceeding blind!";
@@ -180,7 +183,7 @@ void Configuration::verifyCK2Version(const commonItems::ConverterVersion& conver
 
 void Configuration::verifyEU4Version(const commonItems::ConverterVersion& converterVersion) const
 {
-	const auto EU4Version = GameVersion::extractVersionFromLauncher(EU4Path + "/launcher-settings.json");
+	const auto EU4Version = GameVersion::extractVersionFromLauncher(EU4Path / "launcher-settings.json");
 	if (!EU4Version)
 	{
 		Log(LogLevel::Error) << "EU4 version could not be determined, proceeding blind!";
