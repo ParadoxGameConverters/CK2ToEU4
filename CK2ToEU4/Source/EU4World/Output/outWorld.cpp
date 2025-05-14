@@ -326,7 +326,7 @@ void EU4::World::outputCommonCountriesFile(const Configuration& theConfiguration
 		if (specialCountryTags.count(country.first))
 			continue; // Not outputting specials.
 		if (country.first != "REB")
-			output << country.first << " = \"" << country.second->getCommonCountryFile().string() << "\"\n";
+			output << country.first << " = \"countries/" << country.second->getCommonCountryFile().string() << "\"\n";
 	}
 	output << "\n";
 	output.close();
@@ -348,8 +348,7 @@ void EU4::World::outputHistoryProvinces(const Configuration& theConfiguration, c
 	{
 		Log(LogLevel::Debug) << "p" << province.first;
 		std::ofstream output("output" / theConfiguration.getOutputName() / province.second->getHistoryCountryFile());
-		Log(LogLevel::Debug) << " writing to output/" + theConfiguration.getOutputName().string() +
-											 "/" + province.second->getHistoryCountryFile().string();
+		Log(LogLevel::Debug) << " writing to output/" + theConfiguration.getOutputName().string() + "/" + province.second->getHistoryCountryFile().string();
 		if (!output.is_open())
 			throw std::runtime_error("Could not create country history file: output/" + theConfiguration.getOutputName().string() + "/" +
 											 province.second->getHistoryCountryFile().string());
@@ -375,9 +374,9 @@ void EU4::World::outputHistoryCountries(const Configuration& theConfiguration) c
 {
 	for (const auto& country: countries)
 	{
-		std::ofstream output("output" / theConfiguration.getOutputName() / country.second->getHistoryCountryFile());
+		std::ofstream output("output" / theConfiguration.getOutputName() / "history/countries" / country.second->getHistoryCountryFile());
 		if (!output.is_open())
-			throw std::runtime_error("Could not create country history file: output/" + theConfiguration.getOutputName().string() + "/" +
+			throw std::runtime_error("Could not create country history file: output/" + theConfiguration.getOutputName().string() + "/history/countries/" +
 											 country.second->getHistoryCountryFile().string());
 		output << *country.second;
 		output.close();

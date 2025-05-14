@@ -17,21 +17,21 @@
 EU4::Country::Country(std::string theTag, const std::filesystem::path& filePath): tag(std::move(theTag))
 {
 	// Load from a country file, if one exists. Otherwise rely on defaults.
-	const auto startPos = filePath.filename().string().find("countries");
-	commonCountryFile = std::filesystem::path("countries" / filePath.filename());
+	commonCountryFile = filePath.filename();
 	details = CountryDetails(filePath);
 
 	// We also must set a dummy history filepath for those countries that don't actually have a history file.
 	const auto rawname = filePath.filename();
 
-	historyCountryFile = std::filesystem::path("history/countries") / (tag + " - " + rawname.string());
+	historyCountryFile = std::filesystem::path(tag + " - " + rawname.string());
 }
 
 void EU4::Country::loadHistory(const std::filesystem::path& filePath)
 {
-	const auto startPos = filePath.string().find("/history");
-	historyCountryFile = std::filesystem::path(filePath.string().substr(startPos + 1, filePath.string().length() - startPos));
+	historyCountryFile = filePath.filename();
+	Log(LogLevel::Debug) << tag << " parsing history: " << filePath.string();
 	details.parseHistory(filePath);
+	Log(LogLevel::Debug) << tag << " history lessons: " << details.historyLessons.size();
 }
 
 void EU4::Country::initializeFromTitle(std::string theTag,
@@ -54,9 +54,9 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	title.first = theTitle->getName();
 	title.second = std::move(theTitle);
 	if (commonCountryFile.empty())
-		commonCountryFile = std::filesystem::path("countries/" + title.first + ".txt");
+		commonCountryFile = std::filesystem::path(title.first + ".txt");
 	if (historyCountryFile.empty())
-		historyCountryFile = std::filesystem::path("history/countries/" + tag + " - " + title.first + ".txt");
+		historyCountryFile = std::filesystem::path(tag + " - " + title.first + ".txt");
 
 	const auto& actualHolder = title.second->getHolder().second;
 	if (actualHolder->getDynasty().first)

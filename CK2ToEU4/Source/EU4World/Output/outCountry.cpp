@@ -131,8 +131,10 @@ std::ostream& EU4::operator<<(std::ostream& output, const Country& country)
 	}
 
 	// this is done only for countries without a title - vanilla tags where we're regurgitating history ad verbatim, also Sunset Invasion Countries
+	Log(LogLevel::Debug) << country.tag << " his less empty: " << country.details.historyLessons.empty();
 	if ((country.getTitle().first.empty() || country.isSunsetCountry()) && !country.details.historyLessons.empty())
 	{
+		Log(LogLevel::Debug) << country.tag << " dumping history lessons: " << country.details.historyLessons.size();
 		for (const auto& historyLesson: country.details.historyLessons)
 		{
 			output << historyLesson.first << historyLesson.second << "\n";
