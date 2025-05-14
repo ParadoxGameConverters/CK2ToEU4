@@ -74,37 +74,52 @@ TEST(CK2ToEU4_ConfigurationTests, SaveGamePathCanBeSet)
 TEST(CK2ToEU4_ConfigurationTests, OutputNameDefaultsToSaveGameWithNoOutputName)
 {
 	std::stringstream input;
+#ifdef _MSC_BUILD
 	input << "SaveGame = \"C:\\CK2Path\\save games\\autosave.ck2\"";
+#else
+	input << "SaveGame = \"/CK2Path/save games/autosave.ck2\"";
+#endif
 
 	const Configuration testConfiguration(input);
-
-	EXPECT_EQ(testConfiguration.getOutputName().string(), "autosave");
+	EXPECT_EQ(testConfiguration.getOutputName(), "autosave");
 }
 
 TEST(CK2ToEU4_ConfigurationTests, OutputNameResistantToMixedSlashes)
 {
 	std::stringstream input;
+#ifdef _MSC_BUILD
 	input << "SaveGame = \"C:\\CK2Path/save games/autosave.ck2\"";
+#else
+	input << "SaveGame = \"/CK2Path/save games/autosave.ck2\""; // Not testing on linux where backslash is legitimate filename character.
+#endif
 	const Configuration testConfiguration(input);
 
-	EXPECT_EQ(testConfiguration.getOutputName().string(), "autosave");
+	EXPECT_EQ(testConfiguration.getOutputName(), "autosave");
 }
 
 TEST(CK2ToEU4_ConfigurationTests, OutputNameReplacesSpacesAndMinuses)
 {
 	std::stringstream input;
+#ifdef _MSC_BUILD
 	input << "SaveGame = \"C:\\CK2Path\\save games\\autosav - - . second e.ck2\"";
+#else
+	input << "SaveGame = \"/CK2Path/save games/autosav - - . second e.ck2\"";
+#endif
 
 	const Configuration testConfiguration(input);
 
-	EXPECT_EQ(testConfiguration.getOutputName().string(), "autosav_____._second_e");
+	EXPECT_EQ(testConfiguration.getOutputName(), "autosav_____._second_e");
 }
 
 TEST(CK2ToEU4_ConfigurationTests, OutputNameDefaultsToSaveGame)
 {
 	std::stringstream input;
 	input << "output_name = \"\"\n";
+#ifdef _MSC_BUILD
 	input << "SaveGame = \"C:\\CK2Path\\save games\\autosave.ck2\"";
+#else
+	input << "SaveGame = \"/CK2Path/save games/autosave.ck2\"";
+#endif
 
 	const Configuration testConfiguration(input);
 
