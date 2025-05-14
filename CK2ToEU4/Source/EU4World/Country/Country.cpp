@@ -29,9 +29,7 @@ EU4::Country::Country(std::string theTag, const std::filesystem::path& filePath)
 void EU4::Country::loadHistory(const std::filesystem::path& filePath)
 {
 	historyCountryFile = filePath.filename();
-	Log(LogLevel::Debug) << tag << " parsing history: " << filePath.string();
 	details.parseHistory(filePath);
-	Log(LogLevel::Debug) << tag << " history lessons: " << details.historyLessons.size();
 }
 
 void EU4::Country::initializeFromTitle(std::string theTag,

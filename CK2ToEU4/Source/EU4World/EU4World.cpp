@@ -1539,9 +1539,9 @@ void EU4::World::importVanillaProvinces(const std::filesystem::path& eu4Path, bo
 	auto fileNames = commonItems::GetAllFilesInFolder(eu4Path / "history/provinces");
 	for (const auto& fileName: fileNames)
 	{
-		if (fileName.string().find(".txt") == std::string::npos)
+		if (fileName.extension() != ".txt")
 			continue;
-		if (fileName.string().starts_with('~'))
+		if (fileName.filename().string().starts_with('~'))
 			continue;
 		try
 		{
@@ -1566,7 +1566,7 @@ void EU4::World::importVanillaProvinces(const std::filesystem::path& eu4Path, bo
 		fileNames = commonItems::GetAllFilesInFolder(std::filesystem::path("configurables/sunset/history/provinces"));
 		for (const auto& fileName: fileNames)
 		{
-			if (fileName.string().find(".txt") == std::string::npos)
+			if (fileName.extension() != ".txt")
 				continue;
 			auto id = std::stoi(fileName.string());
 			const auto& provinceItr = provinces.find(id);

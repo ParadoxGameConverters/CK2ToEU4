@@ -2,7 +2,6 @@
 #include "../../Configuration/Configuration.h"
 #include "../EU4World.h"
 #include "Log.h"
-#include "ModLoader/ModLoader.h"
 #include "OSCompatibilityLayer.h"
 #include "outCountry.h"
 #include "outMonument.h"
@@ -346,9 +345,7 @@ void EU4::World::outputHistoryProvinces(const Configuration& theConfiguration, c
 	}
 	for (const auto& province: provinces)
 	{
-		Log(LogLevel::Debug) << "p" << province.first;
 		std::ofstream output("output" / theConfiguration.getOutputName() / province.second->getHistoryCountryFile());
-		Log(LogLevel::Debug) << " writing to output/" + theConfiguration.getOutputName().string() + "/" + province.second->getHistoryCountryFile().string();
 		if (!output.is_open())
 			throw std::runtime_error("Could not create country history file: output/" + theConfiguration.getOutputName().string() + "/" +
 											 province.second->getHistoryCountryFile().string());
@@ -387,9 +384,9 @@ void EU4::World::outputCommonCountries(const Configuration& theConfiguration) co
 {
 	for (const auto& country: countries)
 	{
-		std::ofstream output("output" / theConfiguration.getOutputName() / "common" / country.second->getCommonCountryFile());
+		std::ofstream output("output" / theConfiguration.getOutputName() / "common/countries" / country.second->getCommonCountryFile());
 		if (!output.is_open())
-			throw std::runtime_error("Could not create country common file: output/" + theConfiguration.getOutputName().string() + "/common/" +
+			throw std::runtime_error("Could not create country common file: output/" + theConfiguration.getOutputName().string() + "/common/countries/" +
 											 country.second->getCommonCountryFile().string());
 		country.second->outputCommons(output);
 		output.close();
