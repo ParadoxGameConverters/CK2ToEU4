@@ -13,7 +13,7 @@
 #include "../Province/EU4Province.h"
 #include "CommonFunctions.h"
 #include "Log.h"
-#include "cmath"
+#include <cmath>
 
 EU4::Country::Country(std::string theTag, const std::filesystem::path& filePath): tag(std::move(theTag)), commonCountryFile(filePath.filename())
 {
