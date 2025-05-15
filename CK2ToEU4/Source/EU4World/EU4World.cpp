@@ -231,7 +231,7 @@ void EU4::World::scrapeColors(const Configuration& theConfiguration, const CK2::
 	auto fileNames = commonItems::GetAllFilesInFolder(theConfiguration.getCK2Path() / "common/landed_titles");
 	for (const auto& file: fileNames)
 	{
-		if (file.string().find(".txt") == std::string::npos)
+		if (file.extension() != ".txt")
 			continue;
 		colorScraper.scrapeColors(theConfiguration.getCK2Path() / "common/landed_titles" / file);
 	}
