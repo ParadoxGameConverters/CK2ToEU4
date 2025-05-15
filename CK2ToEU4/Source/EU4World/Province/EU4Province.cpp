@@ -7,10 +7,10 @@
 #include "../../Mappers/ReligionMapper/ReligionMapper.h"
 #include "../Country/Country.h"
 
-EU4::Province::Province(int id, const std::filesystem::path& filePath): provID(id)
+EU4::Province::Province(int id, const std::filesystem::path& filePath):
+	 provID(id), historyProvincesFile(std::filesystem::path("history/provinces" / filePath.filename()))
 {
 	// Load from a country file, if one exists. Otherwise rely on defaults.
-	historyProvincesFile = std::filesystem::path("history/provinces" / filePath.filename());
 	details = ProvinceDetails(filePath);
 }
 

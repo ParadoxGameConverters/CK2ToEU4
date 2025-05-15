@@ -178,7 +178,7 @@ void EU4::World::outputFlags(const Configuration& theConfiguration, const CK2::W
 	{
 		if (commonItems::DoesFolderExist(mod.path / "gfx/flags"))
 		{
-			Log(LogLevel::Info) << "\t>> Found some flags over in [" << mod.name << "]: " << mod.path << "/gfx/flags/";
+			Log(LogLevel::Info) << "\t>> Found some flags over in [" << mod.name << "]: " << (mod.path / "gfx/flags").string();
 			fileNames = commonItems::GetAllFilesInFolder(mod.path / "gfx/flags");
 			for (const auto& file: fileNames)
 				sourceFlagSources[file].insert(mod.path / "gfx/flags" / file);

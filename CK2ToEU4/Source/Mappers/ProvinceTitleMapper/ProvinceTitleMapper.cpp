@@ -31,7 +31,7 @@ void mappers::ProvinceTitleMapper::updateProvinces(const std::filesystem::path& 
 {
 	for (const auto& provinceFilename: commonItems::GetAllFilesInFolder(path / "history/provinces"))
 	{
-		if (provinceFilename.extension() != "txt")
+		if (provinceFilename.extension() != ".txt")
 			continue;
 		auto newProvince = ProvinceTitleGrabber(path / "history/provinces" / provinceFilename);
 		if (!newProvince.getID() || newProvince.getTitle().empty())

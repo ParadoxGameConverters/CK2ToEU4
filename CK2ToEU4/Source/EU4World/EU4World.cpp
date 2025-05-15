@@ -239,7 +239,7 @@ void EU4::World::scrapeColors(const Configuration& theConfiguration, const CK2::
 	{
 		fileNames = commonItems::GetAllFilesInFolder(mod.path / "common/landed_titles");
 		if (!fileNames.empty())
-			Log(LogLevel::Info) << "\t>> Found some colors in [" << mod.name << "]: " << mod.path;
+			Log(LogLevel::Info) << "\t>> Found some colors in [" << mod.name << "]: " << mod.path.string();
 		for (const auto& file: fileNames)
 		{
 			if (file.extension() != ".txt")

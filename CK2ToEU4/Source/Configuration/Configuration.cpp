@@ -34,7 +34,7 @@ void Configuration::registerKeys()
 	registerKeyword("SaveGame", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleString path(theStream);
 		SaveGamePath = std::filesystem::path(path.getString());
-		Log(LogLevel::Info) << "Save Game set to: " << SaveGamePath;
+		Log(LogLevel::Info) << "Save Game set to: " << SaveGamePath.string();
 	});
 	registerKeyword("CK2directory", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleString path(theStream);
@@ -127,7 +127,7 @@ void Configuration::verifyCK2Path() const
 		throw std::runtime_error(CK2Path.string() + " does not contain Crusader Kings 2!");
 	if (!commonItems::DoesFileExist(CK2Path / "map/positions.txt"))
 		throw std::runtime_error(CK2Path.string() + " does not appear to be a valid CK2 install!");
-	Log(LogLevel::Info) << "\tCK2 install path is " << CK2Path;
+	Log(LogLevel::Info) << "\tCK2 install path is " << CK2Path.string();
 }
 
 void Configuration::verifyEU4Path() const
@@ -138,7 +138,7 @@ void Configuration::verifyEU4Path() const
 		throw std::runtime_error(EU4Path.string() + " does not contain Europa Universalis 4!");
 	if (!commonItems::DoesFileExist(EU4Path / "map/positions.txt"))
 		throw std::runtime_error(EU4Path.string() + " does not appear to be a valid EU4 install!");
-	Log(LogLevel::Info) << "\tEU4 install path is " << EU4Path;
+	Log(LogLevel::Info) << "\tEU4 install path is " << EU4Path.string();
 }
 
 void Configuration::setOutputName()

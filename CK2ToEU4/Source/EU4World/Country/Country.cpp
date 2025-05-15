@@ -15,10 +15,9 @@
 #include "Log.h"
 #include "cmath"
 
-EU4::Country::Country(std::string theTag, const std::filesystem::path& filePath): tag(std::move(theTag))
+EU4::Country::Country(std::string theTag, const std::filesystem::path& filePath): tag(std::move(theTag)), commonCountryFile(filePath.filename())
 {
 	// Load from a country file, if one exists. Otherwise rely on defaults.
-	commonCountryFile = filePath.filename();
 	details = CountryDetails(filePath);
 
 	// We also must set a dummy history filepath for those countries that don't actually have a history file.
