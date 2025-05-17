@@ -13,7 +13,7 @@ class CultureMapper: commonItems::parser
 {
   public:
 	CultureMapper() = default;
-	void initCultureMapper(const std::string& path);
+	void initCultureMapper(const std::filesystem::path& path);
 	void initCultureMapper(std::istream& theStream);
 
 	void loadRegionMapper(std::shared_ptr<RegionMapper> theRegionMapper);

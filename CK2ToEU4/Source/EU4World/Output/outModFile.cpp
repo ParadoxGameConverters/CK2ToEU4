@@ -1,10 +1,9 @@
 #include "outModFile.h"
-#include <ostream>
 
 std::ostream& EU4::operator<<(std::ostream& output, const ModFile& modFile)
 {
-	output << "name = \"Converted - " << modFile.outname << "\"\n";
-	output << "path = \"mod/" << modFile.outname << "\"\n";
+	output << "name = \"Converted - " << modFile.outname.string() << "\"\n";
+	output << "path = \"mod/" << modFile.outname.string() << "\"\n";
 	output << "normal_or_historical_nations = yes\n";
 	output << "supported_version = \"v" << modFile.version.toWildCard() << "\"\n";
 	output << "replace_path = \"history/countries/\"\n";

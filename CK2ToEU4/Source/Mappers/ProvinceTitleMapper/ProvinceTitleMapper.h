@@ -15,8 +15,8 @@ class ProvinceTitleMapper
 {
   public:
 	ProvinceTitleMapper() = default;
-	void loadProvinces(const std::string& CK2Path);
-	void updateProvinces(const std::string& path);
+	void loadProvinces(const std::filesystem::path& CK2Path);
+	void updateProvinces(const std::filesystem::path& path);
 
 	[[nodiscard]] const auto& getProvinceTitles() const { return provinceTitles; }
 	[[nodiscard]] const auto& getOrigProvinceTitles() const { return origProvinceTitles; }

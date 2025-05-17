@@ -17,7 +17,7 @@ class RulerPersonalitiesMapper: commonItems::parser
   public:
 	RulerPersonalitiesMapper() = default;
 	void initRulerPersonalitiesMapper(std::istream& theStream);
-	void initRulerPersonalitiesMapper(const std::string& path);
+	void initRulerPersonalitiesMapper(const std::filesystem::path& path);
 
 	[[nodiscard]] std::set<std::string> evaluatePersonalities(const std::pair<int, std::shared_ptr<CK2::Character>>& theCharacter) const;
 	[[nodiscard]] const auto& getMappings() const { return theMappings; } // used for testing

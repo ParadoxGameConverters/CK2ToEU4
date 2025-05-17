@@ -1,25 +1,24 @@
 #include "ProvinceTitleGrabber.h"
-#include "CommonFunctions.h"
 #include "CommonRegexes.h"
 #include "OSCompatibilityLayer.h"
 #include "ParserHelpers.h"
 
-mappers::ProvinceTitleGrabber::ProvinceTitleGrabber(const std::string& provincePath)
+mappers::ProvinceTitleGrabber::ProvinceTitleGrabber(const std::filesystem::path& provincePath)
 {
 	if (!commonItems::DoesFileExist(provincePath))
-		throw std::runtime_error(provincePath + " does not exist?");
+		throw std::runtime_error(provincePath.string() + " does not exist?");
 	registerKeys();
 	parseFile(provincePath);
 	clearRegisteredKeywords();
 
-	const auto path = trimPath(provincePath);
+	const auto path = provincePath.stem();
 	try
 	{
-		provID = std::stoi(path);
+		provID = std::stoi(path.string());
 	}
 	catch (std::exception& e)
 	{
-		Log(LogLevel::Warning) << "Province filename " << provincePath << " is not a valid name, skipping this province: " << e.what();
+		Log(LogLevel::Warning) << "Province filename " << provincePath.string() << " is not a valid name, skipping this province: " << e.what();
 	}
 }
 

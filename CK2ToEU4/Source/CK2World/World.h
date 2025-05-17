@@ -57,9 +57,9 @@ class World: commonItems::parser
   private:
 	void registerKeys(const commonItems::ConverterVersion& converterVersion);
 
-	bool uncompressSave(const std::string& saveGamePath);
+	bool uncompressSave(const std::filesystem::path& saveGamePath);
 	void alterSunset(const Configuration& theConfiguration);
-	void verifySave(const std::string& saveGamePath);
+	void verifySave(const std::filesystem::path& saveGamePath);
 	void filterIndependentTitles();
 	void mergeIndependentBaronies() const;
 	void congregateProvinces();

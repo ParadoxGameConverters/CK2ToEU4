@@ -10,7 +10,7 @@ class ReformedReligionMapper: commonItems::parser
   public:
 	ReformedReligionMapper() = default;
 	void initReformedReligionMapper(std::istream& theStream);
-	void initReformedReligionMapper(const std::string& path);
+	void initReformedReligionMapper(const std::filesystem::path& path);
 
 	std::map<std::string, ReformedReligionMapping> getReligionEntries() { return religionEntries; };
 

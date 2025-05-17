@@ -4,17 +4,17 @@
 #include "ParserHelpers.h"
 #include "ReligionMapping.h"
 
-void mappers::ReligionMapper::initReligionMapper(const std::string& path)
+void mappers::ReligionMapper::initReligionMapper(const std::filesystem::path& path)
 {
 	Log(LogLevel::Info) << "-> Parsing religion mappings.";
 	registerKeys();
-	std::string dirPath = "configurables";
+	std::filesystem::path dirPath = "configurables";
 	if (!path.empty())
 	{
-		Log(LogLevel::Info) << "Religion Mapper override: " << path;
-		dirPath += "/" + path;
+		Log(LogLevel::Info) << "Religion Mapper override: " << path.string();
+		dirPath = dirPath / path;
 	}
-	parseFile(dirPath + "/religion_map.txt");
+	parseFile(dirPath / "religion_map.txt");
 	clearRegisteredKeywords();
 	Log(LogLevel::Info) << "<> Loaded " << ck2ToEu4ReligionMap.size() << " religious links.";
 }
