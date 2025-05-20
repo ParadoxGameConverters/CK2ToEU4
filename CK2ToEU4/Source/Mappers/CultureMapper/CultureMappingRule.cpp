@@ -76,6 +76,10 @@ std::optional<std::string> mappers::CultureMappingRule::cultureMatch(const std::
 		if (!provinces.count(eu4Province))
 			return std::nullopt;
 
+	// For a blank province check, ignore region entries.
+	if (eu4Province == 0 && (!provinces.empty() || !regions.empty()))
+		return std::nullopt;
+
 	// This is a regions check, that checks if a provided province is within that region.
 	if (eu4Province && !regions.empty())
 	{

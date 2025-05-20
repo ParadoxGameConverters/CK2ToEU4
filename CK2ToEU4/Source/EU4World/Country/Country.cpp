@@ -656,7 +656,7 @@ void EU4::Country::initializeAdvisers(const mappers::ReligionMapper& religionMap
 			newAdviser.culture = details.monarch.culture; // taking a shortcut.
 		else
 		{
-			const auto& cultureMatch = cultureMapper.cultureMatch(adviser.second->getCulture(), newAdviser.religion, 0, tag);
+			const auto& cultureMatch = cultureMapper.cultureMatch(adviser.second->getCulture(), newAdviser.religion, details.capital, tag);
 			if (cultureMatch)
 				newAdviser.culture = *cultureMatch;
 		}
@@ -744,7 +744,7 @@ void EU4::Country::initializeRulers(const mappers::ReligionMapper& religionMappe
 				details.queen.culture = details.monarch.culture; // taking a shortcut.
 			else
 			{
-				const auto& cultureMatch = cultureMapper.cultureMatch(spouse.second->getCulture(), details.queen.religion, 0, tag);
+				const auto& cultureMatch = cultureMapper.cultureMatch(spouse.second->getCulture(), details.queen.religion, details.capital, tag);
 				if (cultureMatch)
 					details.queen.culture = *cultureMatch;
 			}
@@ -797,7 +797,7 @@ void EU4::Country::initializeRulers(const mappers::ReligionMapper& religionMappe
 			details.heir.culture = details.monarch.culture; // taking a shortcut.
 		else
 		{
-			const auto& cultureMatch = cultureMapper.cultureMatch(heir.second->getCulture(), details.heir.religion, 0, tag);
+			const auto& cultureMatch = cultureMapper.cultureMatch(heir.second->getCulture(), details.heir.religion, details.capital, tag);
 			if (cultureMatch)
 				details.heir.culture = *cultureMatch;
 		}
