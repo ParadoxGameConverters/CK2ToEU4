@@ -81,7 +81,7 @@ TEST(Mappers_CultureMapperTests, cultureMatchesWithOwnerTag)
 	mappers::CultureMapper culMapper;
 	culMapper.initCultureMapper(input);
 
-	ASSERT_EQ(*culMapper.cultureMatch("test", "", 0, "TAG"), "culture");
+	ASSERT_EQ(*culMapper.cultureMatch("test", "", 4, "TAG"), "culture");
 }
 
 TEST(Mappers_CultureMapperTests, cultureFailsWithWrongTag)
