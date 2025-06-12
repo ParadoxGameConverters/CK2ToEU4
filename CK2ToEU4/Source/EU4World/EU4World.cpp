@@ -19,15 +19,15 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 	// Do we have an override mod?
 	std::string overrideModPath;
 	for (const auto& mod: sourceWorld.getMods())
-		if (mod.name == "CleanSlate")
-		{
-			overrideModPath = "CleanSlate";
-			cleanslate = true;
-		}
-		else if (mod.name == "Tianxia: Silk Road Expansion")
+		if (mod.name == "Tianxia: Silk Road Expansion")
 		{
 			overrideModPath = "Tianxia";
 			tianxia = true;
+		}
+		else if (mod.name == "CleanSlate")
+		{
+			overrideModPath = "CleanSlate";
+			cleanslate = true;
 		}
 
 	cultureMapper.initCultureMapper(overrideModPath);
