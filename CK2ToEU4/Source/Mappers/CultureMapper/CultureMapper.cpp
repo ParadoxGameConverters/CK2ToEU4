@@ -10,17 +10,17 @@ void mappers::CultureMapper::initCultureMapper(std::istream& theStream)
 	clearRegisteredKeywords();
 }
 
-void mappers::CultureMapper::initCultureMapper(const std::string& path)
+void mappers::CultureMapper::initCultureMapper(const std::filesystem::path& path)
 {
 	Log(LogLevel::Info) << "-> Parsing culture mappings.";
 	registerKeys();
-	std::string dirPath = "configurables";
+	std::filesystem::path dirPath = "configurables";
 	if (!path.empty())
 	{
-		Log(LogLevel::Info) << "Culture Mapper override: " << path;
-		dirPath += "/" + path;
+		Log(LogLevel::Info) << "Culture Mapper override: " << path.string();
+		dirPath = dirPath / path;
 	}
-	parseFile(dirPath + "/culture_map.txt");
+	parseFile(dirPath / "culture_map.txt");
 	clearRegisteredKeywords();
 	Log(LogLevel::Info) << "<> Loaded " << cultureMapRules.size() << " cultural links.";
 }

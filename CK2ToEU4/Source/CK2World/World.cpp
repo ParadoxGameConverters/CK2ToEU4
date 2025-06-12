@@ -30,11 +30,11 @@ CK2::World::World(const Configuration& theConfiguration, const commonItems::Conv
 	Log(LogLevel::Info) << "-> Importing CK2 save.";
 	if (!saveGame.compressed)
 	{
-		std::ifstream inBinary(fs::u8path(theConfiguration.getSaveGamePath()), std::ios::binary);
+		std::ifstream inBinary(theConfiguration.getSaveGamePath(), std::ios::binary);
 		if (!inBinary.is_open())
 		{
-			Log(LogLevel::Error) << "Could not open " << theConfiguration.getSaveGamePath() << " for parsing.";
-			throw std::runtime_error("Could not open " + theConfiguration.getSaveGamePath() + " for parsing.");
+			Log(LogLevel::Error) << "Could not open " << theConfiguration.getSaveGamePath().string() << " for parsing.";
+			throw std::runtime_error("Could not open " + theConfiguration.getSaveGamePath().string() + " for parsing.");
 		}
 		std::stringstream inStream;
 		inStream << inBinary.rdbuf();
@@ -102,7 +102,7 @@ CK2::World::World(const Configuration& theConfiguration, const commonItems::Conv
 	provinces.linkPrimarySettlements();
 	Log(LogLevel::Progress) << "19 %";
 	Log(LogLevel::Info) << "-- Linking Provinces With Wonders";
-	leviathanDLC = commonItems::DoesFileExist(theConfiguration.getEU4Path() + "/dlc/dlc106_leviathan/dlc106.dlc");
+	leviathanDLC = commonItems::DoesFileExist(theConfiguration.getEU4Path() / "dlc/dlc106_leviathan/dlc106.dlc");
 	if (isLeviathanDLCPresent())
 		setExistentPremadeMonuments(provinces.linkMonuments(wonders, characters));
 	else
@@ -272,18 +272,18 @@ void CK2::World::registerKeys(const commonItems::ConverterVersion& converterVers
 
 void CK2::World::loadDynasties(const Configuration& theConfiguration)
 {
-	auto fileNames = commonItems::GetAllFilesInFolder(theConfiguration.getCK2Path() + "/common/dynasties/");
+	auto fileNames = commonItems::GetAllFilesInFolder(theConfiguration.getCK2Path() / "common/dynasties");
 	for (const auto& file: fileNames)
-		dynasties.loadDynasties(theConfiguration.getCK2Path() + "/common/dynasties/" + file);
+		dynasties.loadDynasties(theConfiguration.getCK2Path() / "common/dynasties" / file);
 	for (const auto& mod: mods)
 	{
-		fileNames = commonItems::GetAllFilesInFolder(mod.path + "/common/dynasties/");
+		fileNames = commonItems::GetAllFilesInFolder(mod.path / "common/dynasties");
 		for (const auto& file: fileNames)
 		{
-			if (file.find(".txt") == std::string::npos)
+			if (file.extension() != ".txt")
 				continue;
-			Log(LogLevel::Info) << "\t>> Loading additional dynasties from [" << mod.name << "]: " << mod.path + "/common/dynasties/" + file;
-			dynasties.loadDynasties(mod.path + "/common/dynasties/" + file);
+			Log(LogLevel::Info) << "\t>> Loading additional dynasties from [" << mod.name << "]: " << mod.path.string() + "/common/dynasties/" + file.string();
+			dynasties.loadDynasties(mod.path / "common/dynasties" / file);
 		}
 	}
 }
@@ -296,9 +296,9 @@ void CK2::World::loadProvinces(const Configuration& theConfiguration)
 
 	for (const auto& mod: mods)
 	{
-		if (commonItems::DoesFolderExist(mod.path + "/history/provinces/"))
+		if (commonItems::DoesFolderExist(mod.path / "history/provinces"))
 		{
-			Log(LogLevel::Info) << "\t>> Loading additional provinces from [" << mod.name << "]: " << mod.path + "/history/provinces/";
+			Log(LogLevel::Info) << "\t>> Loading additional provinces from [" << mod.name << "]: " << mod.path.string() + "/history/provinces/";
 			provinceTitleMapper.updateProvinces(mod.path);
 		}
 	}
@@ -732,9 +732,9 @@ void CK2::World::splitVassals(const Configuration& theConfiguration)
 }
 
 
-void CK2::World::verifySave(const std::string& saveGamePath)
+void CK2::World::verifySave(const std::filesystem::path& saveGamePath)
 {
-	std::ifstream saveFile(fs::u8path(saveGamePath));
+	std::ifstream saveFile(saveGamePath);
 	if (!saveFile.is_open())
 		throw std::runtime_error("Could not open save! Exiting!");
 
@@ -749,9 +749,9 @@ void CK2::World::verifySave(const std::string& saveGamePath)
 	saveFile.close();
 }
 
-bool CK2::World::uncompressSave(const std::string& saveGamePath)
+bool CK2::World::uncompressSave(const std::filesystem::path& saveGamePath)
 {
-	zip_t* zip = zip_open(saveGamePath.c_str(), 0, 'r');
+	zip_t* zip = zip_open(saveGamePath.string().c_str(), 0, 'r');
 	const auto n = zip_entries_total(zip);
 	for (auto i = 0; i < n; ++i)
 	{
@@ -767,7 +767,7 @@ bool CK2::World::uncompressSave(const std::string& saveGamePath)
 				char* chtMeta = static_cast<char*>(meta);
 				saveGame.metadata = std::string(chtMeta);
 			}
-			else if (getExtension(std::string(name)) == "ck2")
+			else if (std::filesystem::path(name).extension() == ".ck2")
 			{
 				Log(LogLevel::Info) << ">> Uncompressing gamestate";
 				void* ck2 = nullptr;

@@ -15,24 +15,20 @@
 #include "Log.h"
 #include <cmath>
 
-EU4::Country::Country(std::string theTag, const std::string& filePath): tag(std::move(theTag))
+EU4::Country::Country(std::string theTag, const std::filesystem::path& filePath): tag(std::move(theTag)), commonCountryFile(filePath.filename())
 {
 	// Load from a country file, if one exists. Otherwise rely on defaults.
-	const auto startPos = filePath.find("/countries");
-	commonCountryFile = filePath.substr(startPos + 1, filePath.length() - startPos);
 	details = CountryDetails(filePath);
 
 	// We also must set a dummy history filepath for those countries that don't actually have a history file.
-	const auto lastslash = filePath.find_last_of('/');
-	const auto rawname = filePath.substr(lastslash + 1, filePath.length());
+	const auto rawname = filePath.filename();
 
-	historyCountryFile = "history/countries/" + tag + " - " + rawname;
+	historyCountryFile = std::filesystem::path(tag + " - " + rawname.string());
 }
 
-void EU4::Country::loadHistory(const std::string& filePath)
+void EU4::Country::loadHistory(const std::filesystem::path& filePath)
 {
-	const auto startPos = filePath.find("/history");
-	historyCountryFile = filePath.substr(startPos + 1, filePath.length() - startPos);
+	historyCountryFile = filePath.filename();
 	details.parseHistory(filePath);
 }
 
@@ -56,9 +52,9 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	title.first = theTitle->getName();
 	title.second = std::move(theTitle);
 	if (commonCountryFile.empty())
-		commonCountryFile = "countries/" + title.first + ".txt";
+		commonCountryFile = std::filesystem::path(title.first + ".txt");
 	if (historyCountryFile.empty())
-		historyCountryFile = "history/countries/" + tag + " - " + title.first + ".txt";
+		historyCountryFile = std::filesystem::path(tag + " - " + title.first + ".txt");
 
 	const auto& actualHolder = title.second->getHolder().second;
 	if (actualHolder->getDynasty().first)
@@ -660,7 +656,7 @@ void EU4::Country::initializeAdvisers(const mappers::ReligionMapper& religionMap
 			newAdviser.culture = details.monarch.culture; // taking a shortcut.
 		else
 		{
-			const auto& cultureMatch = cultureMapper.cultureMatch(adviser.second->getCulture(), newAdviser.religion, 0, tag);
+			const auto& cultureMatch = cultureMapper.cultureMatch(adviser.second->getCulture(), newAdviser.religion, details.capital, tag);
 			if (cultureMatch)
 				newAdviser.culture = *cultureMatch;
 		}
@@ -748,7 +744,7 @@ void EU4::Country::initializeRulers(const mappers::ReligionMapper& religionMappe
 				details.queen.culture = details.monarch.culture; // taking a shortcut.
 			else
 			{
-				const auto& cultureMatch = cultureMapper.cultureMatch(spouse.second->getCulture(), details.queen.religion, 0, tag);
+				const auto& cultureMatch = cultureMapper.cultureMatch(spouse.second->getCulture(), details.queen.religion, details.capital, tag);
 				if (cultureMatch)
 					details.queen.culture = *cultureMatch;
 			}
@@ -801,7 +797,7 @@ void EU4::Country::initializeRulers(const mappers::ReligionMapper& religionMappe
 			details.heir.culture = details.monarch.culture; // taking a shortcut.
 		else
 		{
-			const auto& cultureMatch = cultureMapper.cultureMatch(heir.second->getCulture(), details.heir.religion, 0, tag);
+			const auto& cultureMatch = cultureMapper.cultureMatch(heir.second->getCulture(), details.heir.religion, details.capital, tag);
 			if (cultureMatch)
 				details.heir.culture = *cultureMatch;
 		}

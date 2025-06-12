@@ -27,8 +27,8 @@ class Country
   public:
 	Country() = default;
 
-	Country(std::string theTag, const std::string& filePath);
-	void loadHistory(const std::string& filePath);
+	Country(std::string theTag, const std::filesystem::path& filePath);
+	void loadHistory(const std::filesystem::path& filePath);
 	void initializeFromTitle(std::string theTag,
 		 std::shared_ptr<CK2::Title> theTitle,
 		 const mappers::GovernmentsMapper& governmentsMapper,
@@ -83,7 +83,7 @@ class Country
 
 	void registerProvince(std::pair<int, std::shared_ptr<Province>> theProvince) { provinces.insert(std::move(theProvince)); }
 	void setPrimaryCulture(const std::string& culture);
-	void addAcceptedCulture(const std::string& culture) { details.acceptedCultures.emplace(culture); };
+	void addAcceptedCulture(const std::string& culture) { details.acceptedCultures.emplace(culture); }
 	void setAcceptedCultures();
 	void setMajorityReligion(const std::string& religion);
 	void setReligion(const std::string& religion);
@@ -113,8 +113,8 @@ class Country
 		 const date& theConversionDate) const; // Uses bookmark date to shift dates if required.
 
 	std::string tag;
-	std::string commonCountryFile;
-	std::string historyCountryFile;
+	std::filesystem::path commonCountryFile;
+	std::filesystem::path historyCountryFile;
 	date conversionDate; // for dating the monarchs in history file.
 	CountryDetails details;
 

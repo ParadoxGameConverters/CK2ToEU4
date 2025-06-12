@@ -19,20 +19,20 @@ mappers::ProvinceMapper::ProvinceMapper(const Mods& mods, const std::string& ove
 	{
 		auto loadedProvinces = false;
 		for (const auto& mod: mods)
-			if (commonItems::DoesFileExist("configurables/" + mod.name + "_province_mappings.txt"))
+			if (commonItems::DoesFileExist(std::filesystem::path("configurables") / (mod.name + "_province_mappings.txt")))
 			{
 				Log(LogLevel::Info) << ">> Loading Province Mappings for " << mod.name;
-				parseFile("configurables/" + mod.name + "_province_mappings.txt");
+				parseFile(std::filesystem::path("configurables") / (mod.name + "_province_mappings.txt"));
 				loadedProvinces = true;
 				break;
 			}
 		if (!loadedProvinces)
-			parseFile("configurables/province_mappings.txt");
+			parseFile(std::filesystem::path("configurables/province_mappings.txt"));
 	}
 	else
 	{
 		Log(LogLevel::Info) << ">> Loading Province Mappings for " << overrideMod;
-		parseFile("configurables/" + overrideMod + "/province_mappings.txt");
+		parseFile(std::filesystem::path("configurables/" + overrideMod + "/province_mappings.txt"));
 	}
 
 	clearRegisteredKeywords();
@@ -111,7 +111,7 @@ std::vector<int> mappers::ProvinceMapper::getEU4ProvinceNumbers(int ck2ProvinceN
 void mappers::ProvinceMapper::determineValidProvinces(const Configuration& theConfiguration)
 {
 	Log(LogLevel::Info) << "-> Loading Valid Provinces";
-	std::ifstream definitionFile(fs::u8path(theConfiguration.getEU4Path() + "/map/definition.csv"));
+	std::ifstream definitionFile(theConfiguration.getEU4Path() / "map/definition.csv");
 	if (!definitionFile.is_open())
 		throw std::runtime_error("Could not open <eu4>/map/definition.csv");
 
@@ -135,7 +135,7 @@ void mappers::ProvinceMapper::loadOffmapChineseProvinces()
 {
 	Log(LogLevel::Info) << "-> Loading Offmap Chinese Provinces";
 	registerOffmapKeys();
-	parseFile("configurables/chinese_offmap_provinces.txt");
+	parseFile(std::filesystem::path("configurables/chinese_offmap_provinces.txt"));
 	clearRegisteredKeywords();
 	Log(LogLevel::Info) << "<> " << offmapChineseProvinces.size() << " chinese provinces loaded.";
 }

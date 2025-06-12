@@ -8,24 +8,24 @@
 void mappers::LocalizationMapper::scrapeLocalizations(const Configuration& theConfiguration, const Mods& mods)
 {
 	Log(LogLevel::Info) << "-> Reading Words";
-	auto filenames = commonItems::GetAllFilesInFolder(theConfiguration.getCK2Path() + "/localisation/");
+	auto filenames = commonItems::GetAllFilesInFolder(theConfiguration.getCK2Path() / "localisation");
 	for (const auto& file: filenames)
 	{
-		std::ifstream theFile(theConfiguration.getCK2Path() + "/localisation/" + file);
+		std::ifstream theFile(theConfiguration.getCK2Path() / "localisation" / file);
 		scrapeStream(theFile);
 		theFile.close();
 	}
 	for (const auto& mod: mods)
 	{
-		if (commonItems::DoesFolderExist(mod.path + "/localisation/"))
+		if (commonItems::DoesFolderExist(mod.path / "localisation"))
 		{
-			Log(LogLevel::Info) << "\t>> Found some words in [" << mod.name << "]: " << mod.path + "/localization/";
-			filenames = commonItems::GetAllFilesInFolder(mod.path + "/localisation/");
+			Log(LogLevel::Info) << "\t>> Found some words in [" << mod.name << "]: " << mod.path.string() + "/localization/";
+			filenames = commonItems::GetAllFilesInFolder(mod.path / "localisation");
 			for (const auto& file: filenames)
 			{
-				if (file.find(".csv") == std::string::npos)
+				if (file.extension() != ".csv")
 					continue;
-				std::ifstream theFile(mod.path + "/localisation/" + file);
+				std::ifstream theFile(mod.path / "localisation" / file);
 				scrapeStream(theFile);
 				theFile.close();
 			}
@@ -33,7 +33,7 @@ void mappers::LocalizationMapper::scrapeLocalizations(const Configuration& theCo
 	}
 
 	// Override with our keys
-	if (commonItems::DoesFileExist("configurables/ck2_localization_override.csv"))
+	if (commonItems::DoesFileExist(std::filesystem::path("configurables/ck2_localization_override.csv")))
 	{
 		std::ifstream theFile("configurables/ck2_localization_override.csv");
 		scrapeStream(theFile);

@@ -13,7 +13,7 @@ class ReligionMapper: commonItems::parser
   public:
 	ReligionMapper() = default;
 	void initReligionMapper(std::istream& theStream);
-	void initReligionMapper(const std::string& path);
+	void initReligionMapper(const std::filesystem::path& path);
 
 	[[nodiscard]] std::optional<std::string> getEu4ReligionForCk2Religion(const std::string& ck2Religion) const;
 

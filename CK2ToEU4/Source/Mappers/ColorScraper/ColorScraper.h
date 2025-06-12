@@ -11,7 +11,7 @@ class ColorScraper: commonItems::parser
   public:
 	ColorScraper() = default;
 	void scrapeColors(std::istream& theStream, std::string theName);
-	void scrapeColors(const std::string& filePath);
+	void scrapeColors(const std::filesystem::path& filePath);
 
 	[[nodiscard]] const auto& getColors() const { return titleColors; }
 	[[nodiscard]] std::optional<commonItems::Color> getColorForTitle(const std::string& titleName) const;

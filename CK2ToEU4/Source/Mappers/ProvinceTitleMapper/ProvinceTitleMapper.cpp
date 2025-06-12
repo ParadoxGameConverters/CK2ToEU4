@@ -1,24 +1,22 @@
 #include "ProvinceTitleMapper.h"
 #include "../../CK2World/Provinces/Provinces.h"
 #include "../../CK2World/Titles/Titles.h"
-#include "CommonFunctions.h"
 #include "OSCompatibilityLayer.h"
-#include "ParserHelpers.h"
 #include "ProvinceTitleGrabber.h"
 #include <set>
 
-void mappers::ProvinceTitleMapper::loadProvinces(const std::string& CK2Path)
+void mappers::ProvinceTitleMapper::loadProvinces(const std::filesystem::path& CK2Path)
 {
 	// Goal of this mapper is to determine what c_title maps to what provinceID. It's not as trivial as it sounds.
 
-	auto provinceFilenames = commonItems::GetAllFilesInFolder(CK2Path + "/history/provinces");
+	auto provinceFilenames = commonItems::GetAllFilesInFolder(CK2Path / "history/provinces");
 	if (provinceFilenames.empty())
-		throw std::runtime_error(CK2Path + "/history/provinces is empty?");
+		throw std::runtime_error(CK2Path.string() + "/history/provinces is empty?");
 	for (const auto& provinceFilename: provinceFilenames)
 	{
-		if (provinceFilename.find(".txt") == std::string::npos)
+		if (provinceFilename.extension() != ".txt")
 			continue;
-		auto newProvince = ProvinceTitleGrabber(CK2Path + "/history/provinces/" + provinceFilename);
+		auto newProvince = ProvinceTitleGrabber(CK2Path / "history/provinces" / provinceFilename);
 		if (!newProvince.getID())
 			continue;
 
@@ -29,13 +27,13 @@ void mappers::ProvinceTitleMapper::loadProvinces(const std::string& CK2Path)
 	Log(LogLevel::Info) << ">> Loaded: " << origProvinceTitles.size() << " provinces from history.";
 }
 
-void mappers::ProvinceTitleMapper::updateProvinces(const std::string& path)
+void mappers::ProvinceTitleMapper::updateProvinces(const std::filesystem::path& path)
 {
-	for (const auto& provinceFilename: commonItems::GetAllFilesInFolder(path + "/history/provinces"))
+	for (const auto& provinceFilename: commonItems::GetAllFilesInFolder(path / "history/provinces"))
 	{
-		if (getExtension(provinceFilename) != "txt")
+		if (provinceFilename.extension() != ".txt")
 			continue;
-		auto newProvince = ProvinceTitleGrabber(path + "/history/provinces/" + provinceFilename);
+		auto newProvince = ProvinceTitleGrabber(path / "history/provinces" / provinceFilename);
 		if (!newProvince.getID() || newProvince.getTitle().empty())
 			continue;
 

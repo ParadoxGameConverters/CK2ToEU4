@@ -3,18 +3,18 @@
 #include "Log.h"
 #include "ParserHelpers.h"
 
-void mappers::GovernmentsMapper::initGovernmentsMapper(const std::string& path)
+void mappers::GovernmentsMapper::initGovernmentsMapper(const std::filesystem::path& path)
 {
 	Log(LogLevel::Info) << "-> Parsing government mappings.";
 	registerKeys();
-	std::string dirPath = "configurables";
+	std::filesystem::path dirPath = "configurables";
 	if (!path.empty())
 	{
-		Log(LogLevel::Info) << "Governments Mapper override: " << path;
-		dirPath += "/" + path;
+		Log(LogLevel::Info) << "Governments Mapper override: " << path.string();
+		dirPath = dirPath / path;
 	}
-	parseFile(dirPath + "/culture_map.txt");
-	parseFile(dirPath + "/government_map.txt");
+	parseFile(dirPath / "culture_map.txt");
+	parseFile(dirPath / "government_map.txt");
 	clearRegisteredKeywords();
 	Log(LogLevel::Info) << "<> Loaded " << govMappings.size() << " governmental links.";
 }

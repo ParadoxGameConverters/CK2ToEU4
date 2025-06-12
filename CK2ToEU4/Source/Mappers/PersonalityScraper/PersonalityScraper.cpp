@@ -8,14 +8,14 @@
 
 void mappers::PersonalityScraper::scrapePersonalities(const Configuration& theConfiguration)
 {
-	Log(LogLevel::Info) << "-> Examiming Personalities";
+	Log(LogLevel::Info) << "-> Examining Personalities";
 	registerKeys();
-	auto fileNames = commonItems::GetAllFilesInFolder(theConfiguration.getCK2Path() + "/common/traits/");
+	auto fileNames = commonItems::GetAllFilesInFolder(theConfiguration.getCK2Path() / "common/traits");
 	for (const auto& fileName: fileNames)
 	{
-		if (fileName.find("txt") == std::string::npos)
+		if (fileName.extension() != ".txt")
 			continue;
-		parseFile(theConfiguration.getCK2Path() + "/common/traits/" + fileName);
+		parseFile(theConfiguration.getCK2Path() / "common/traits" / fileName);
 	}
 	clearRegisteredKeywords();
 	Log(LogLevel::Info) << ">> " << personalities.size() << " personalities scrutinized.";

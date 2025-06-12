@@ -10,7 +10,7 @@ class TitleTagMapper: commonItems::parser
 {
   public:
 	TitleTagMapper() = default;
-	void initTitleTagMapper(const std::string& path);
+	void initTitleTagMapper(const std::filesystem::path& path);
 	void initTitleTagMapper(std::istream& theStream);										 // testing
 	void initTitleTagMapper(std::istream& theStream, std::istream& chineseStream); // testing
 	void registerTitle(const std::string& ck2title, const std::string& eu4tag);

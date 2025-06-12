@@ -4,17 +4,17 @@
 #include "Log.h"
 #include "ParserHelpers.h"
 
-void mappers::RulerPersonalitiesMapper::initRulerPersonalitiesMapper(const std::string& path)
+void mappers::RulerPersonalitiesMapper::initRulerPersonalitiesMapper(const std::filesystem::path& path)
 {
 	Log(LogLevel::Info) << "-> Parsing Ruler Personalities";
 	registerKeys();
-	std::string dirPath = "configurables";
+	std::filesystem::path dirPath = "configurables";
 	if (!path.empty())
 	{
-		Log(LogLevel::Info) << "Ruler Personalities Mapper override: " << path;
-		dirPath += "/" + path;
+		Log(LogLevel::Info) << "Ruler Personalities Mapper override: " << path.string();
+		dirPath = dirPath / path;
 	}
-	parseFile(dirPath + "/ruler_personalities.txt");
+	parseFile(dirPath / "ruler_personalities.txt");
 	clearRegisteredKeywords();
 	Log(LogLevel::Info) << "<> " << theMappings.size() << " personalities loaded.";
 }

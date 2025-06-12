@@ -23,9 +23,9 @@ class Province
   public:
 	Province() = default;
 
-	Province(int id, const std::string& filePath);
+	Province(int id, const std::filesystem::path& filePath);
 
-	void updateWith(const std::string& filePath);
+	void updateWith(const std::filesystem::path& filePath);
 	void initializeFromCK2(std::shared_ptr<CK2::Province> origProvince,
 		 const mappers::CultureMapper& cultureMapper,
 		 const mappers::ReligionMapper& religionMapper);
@@ -65,7 +65,7 @@ class Province
   private:
 	int provID = 0;
 	bool hasMonument = false; // For Leviathan DLC owners only
-	std::string historyProvincesFile;
+	std::filesystem::path historyProvincesFile;
 	std::shared_ptr<CK2::Province> srcProvince;
 	ProvinceDetails details;
 	std::pair<std::string, std::shared_ptr<Country>> tagCountry;
