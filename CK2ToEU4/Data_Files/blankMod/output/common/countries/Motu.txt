@@ -1,19 +1,19 @@
-#Motu, one of the largest Papua New Guinean Tribes
+#Kaimana, historical sultanate in Papua
 
 graphical_culture = africangfx
 
 color = { 0 75 0 }
-revolutionary_colors = { 0 1 0 }
+revolutionary_colors = { 5 0 1 }
 
 historical_idea_groups = {
-	defensive_ideas
-	offensive_ideas
 	trade_ideas
-	diplomatic_ideas
-	religious_ideas
+	maritime_ideas
+	defensive_ideas
 	economic_ideas
 	administrative_ideas
+	religious_ideas
 	spy_ideas
+	offensive_ideas
 }
 
 historical_units = {

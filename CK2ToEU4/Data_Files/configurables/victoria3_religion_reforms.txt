@@ -18,3 +18,23 @@ link = { eu4religion = norse_pagan_reformed traits = trader }
 link = { reform = religion_seafaring reform = religion_feature_norse reform = religion_feature_slavic reform = religion_feature_aztec traits = trader }
 link = { reform = religion_meritocratic reform = religion_adventuring reform = religion_feature_norse  reform = religion_feature_bonreform = religion_feature_hellenic traits = meritocratic }
 link = { reform = religion_ritual_sacrifice reform = religion_feature_aztec traits = sacrificer }
+
+# Tianxia (most of these just turn you eastern)
+link = { reform = religion_feature_andamanese taboos = fruit }
+link = { reform = religion_feature_bai traits = eastern traits = feminist }
+link = { reform = religion_feature_bamar reform = religion_feature_tai traits = eastern taboos = meat }
+link = { reform = religion_feature_chinese reform = religion_feature_korean reform = religion_feature_viet traits = eastern traits = meritocratic }
+link = { reform = religion_feature_dayak reform = religion_feature_jurchen traits = warmonger }
+link = { reform = religion_feature_inca traits = warmonger traits = trader }
+link = { reform = religion_feature_maian reform = religion_feature_melanesian traits = trader }
+link = { reform = religion_feature_miao traits = eastern traits = feminist traits = tolerant traits = meritocratic }
+link = { reform = religion_feature_minahasan reform = religion_feature_minangkabau traits = feminist }
+link = { reform = religion_feature_ryukyuan reform = eastern traits = trader }
+link = { reform = religion_feature_ryukyuan_three_mountains reform = eastern traits = trader traits = warmonger }
+link = { reform = religion_feature_taiwanese traits = pacifist }
+link = { reform = religion_feature_yi reform = religion_feature_zhuang traits = eastern }
+
+
+#Missing: religion_feature_ainu, religion_feature_batak, religion_feature_dusun, religion_feature_nivkh, religion_feature_sanamahi, religion_feature_sundanese
+
+

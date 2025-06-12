@@ -1,18 +1,69 @@
-government = tribal
-add_government_reform = tribal_despotism
+# This is actually Kaimana
+government = monarchy
+add_government_reform = plutocratic_reform
 government_rank = 1
 primary_culture = papuan
-religion = animism
-technology_group = aboriginal_tech
-capital = 1237	#Hanuabada
+religion = sunni
+religious_school = shafii_school
+technology_group = chinese
+capital = 2718	#Fak-Fak
 
+# I literally do not know what to do in terms of names here, regnal names follow the naming convention of (King, as in the title)(Land which he controls)(Current capital)(Number of monarchs starting from the founder)
 
-1444.11.11 = {
+1309.1.1 = {
 	monarch = {
-		name = "Native Council"
+		name = "Imaga"
+		dynasty = "Aituarauw"
+		birth_date = 1290.1.1
+		death_date = 1320.1.1
+		adm = 2
+		dip = 6
+		mil = 1
+	}
+}
+
+1320.1.1 = {
+	monarch = {
+		name = "Basir Onin"
+		dynasty = "Aituarauw"
+		birth_date = 1302.1.1
+		death_date = 1348.1.1
+		adm = 3
+		dip = 5
+		mil = 3
+	}
+}
+
+1348.1.1 = {
+	monarch = {
+		name = "Woran"
+		dynasty = "Aituarauw"
+		birth_date = 1326.1.1
+		death_date = 1440.1.1
+		adm = 2
+		dip = 2
+		mil = 1
+	}
+}
+
+1440.1.1 = {
+	monarch = {
+		name = "Interregnum"
 		adm = 3
 		mil = 3
 		dip = 3
 		regent = yes
+	}
+}
+
+1808.1.1 = {
+	monarch = {
+		name = "Nduvin"
+		dynasty = "Aituarauw"
+		birth_date = 1790.1.1
+		death_date = 1898.1.1
+		adm = 5
+		dip = 5
+		mil = 5
 	}
 }
