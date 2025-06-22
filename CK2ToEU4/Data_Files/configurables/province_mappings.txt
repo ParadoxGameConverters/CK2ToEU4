@@ -24,7 +24,7 @@
 	link = { eu4 = 4155 } # NOTHING -> The Carpathians
 	link = { eu4 = 4146 eu4 = 4153 } # NOTHING -> Langfjella, The Scandes
 	link = { eu4 = 2129 eu4 = 4522 eu4 = 1787 eu4 = 1785 eu4 = 4328 eu4 = 2200 } # NOTHING -> Changtang, Aqenganggyai, Himalaya, Pamir, Chagai, Suleiman Range
-	link = { ck2 = 978 eu4 = 1648 } # Lake Chad -> Lake Tchad
+	link = { ck2 = 978 eu4 = 1648 } # Lake Chad -> Lake Chad
 	link = { ck2 = 1040 ck2 = 1039 } # Loire, Loire -> DROPPED
 	link = { eu4 = 1788 eu4 = 4402 eu4 = 1950 eu4 = 4403 eu4 = 2194 } # NOTHING -> Arunachal, Gaoligong Mountains, Meghalaya, Hengduan Mountains, Qilian
 	link = { ck2 = 1855 eu4 = 4136 } # Lake Zaysan -> Zaysan
@@ -571,7 +571,7 @@
 	link = { ck2 = 362 eu4 = 2968 eu4 = 4725 } # South Bohemia -> Budejovice, Jindrichuv Hradec
 	link = { ck2 = 438 eu4 = 2970 eu4 = 4724 } # Hradec -> Hradecko, Pardubice
 	link = { ck2 = 441 ck2 = 446 eu4 = 265 } # Brno, Znojmo -> Brno
-	link = { ck2 = 440 eu4 = 4237 eu4 = 4726 } # Olomouc -> Olomouc, Ostrava
+	link = { ck2 = 440 eu4 = 4237 eu4 = 4726 } # Olomouc -> Olomouc, Hradiste
 	link = { ck2 = 445 eu4 = 1772 } # Pressburg -> Pozsony
 	link = { ck2 = 442 eu4 = 4236 } # Trencín -> Trencin
 	link = { ck2 = 443 eu4 = 154 } # Nitra -> Hont
@@ -639,6 +639,17 @@
 	link = { ck2 = 1888 ck2 = 1887 eu4 = 3001 } # Astibus, Bitola -> Skopje
 	link = { ck2 = 1886 eu4 = 143 } # Avlonas -> Vlorë
 	link = { comment = "# Greece and Anatolia" }
+	link = { ck2 = 701 eu4 = 418 } # Taron -> Diyarbakir
+	link = { ck2 = 1928 eu4 = 2299 } # Amastris -> Bolu
+	link = { ck2 = 1929 eu4 = 325 } # Kastamon -> Kastamonu
+	link = { ck2 = 739 eu4 = 328 } # Sinope -> Sinop
+	link = { ck2 = 705 ck2 = 738 eu4 = 2304 } # Chaldea, Amisos -> Canik
+	link = { ck2 = 703 ck2 = 702 eu4 = 2305 } # Karin, Khliat -> Erzincan
+	link = { ck2 = 704 eu4 = 331 } # Theodosiopolis -> Erzurum
+	link = { ck2 = 680 eu4 = 4303 } # Tao -> Oltu
+	link = { ck2 = 734 eu4 = 4298 } # Aintab -> Ayntab
+	link = { ck2 = 698 ck2 = 709 ck2 = 708 eu4 = 407 } # Hasakah, Asas, Tell Bashir -> Ar Raqqa
+	link = { ck2 = 699 eu4 = 2308 } # Edessa -> Urfa
 	link = { ck2 = 474 eu4 = 4698 } # Cephalonia -> Cephalonia
 	link = { ck2 = 1890 ck2 = 1889 eu4 = 142 } # Korkyra, Zakynthos -> Corfu
 	link = { ck2 = 473 ck2 = 1881 eu4 = 4699 } # Árta, Naupaktos -> Arta
@@ -660,35 +671,30 @@
 	link = { ck2 = 495 eu4 = 4779 } # Kaliopolis -> Gallipoli
 	link = { ck2 = 498 eu4 = 1764 } # Mesembria -> Burgas
 	link = { ck2 = 496 ck2 = 497 eu4 = 151 } # Constantinople, Thrake -> Constantinople
-	link = { ck2 = 744 ck2 = 743 eu4 = 2296 } # Abydos, Kyzikos -> Karasi
-	link = { ck2 = 745 eu4 = 2297 eu4 = 318 eu4 = 4309 } # Smyrna -> Saruhan, Sugla, Aydin
-	link = { ck2 = 746 eu4 = 319 } # Ephesos -> Mentese
-	link = { ck2 = 747 eu4 = 2298 } # Lykia -> Tekke
-	link = { ck2 = 748 ck2 = 754 eu4 = 1848 } # Laodikeia, Sozopolis -> Hamid
-	link = { ck2 = 1935 eu4 = 4308 eu4 = 4311 } # Sardis -> Denizli, Karahisar
-	link = { ck2 = 742 eu4 = 317 eu4 = 322 } # Prusa -> Hüdavendigar, Kütahya
-	link = { ck2 = 749 eu4 = 4312 } # Dorylaion -> Sultanönü
-	link = { ck2 = 750 ck2 = 741 eu4 = 316 } # Nikaea, Nikomedeia -> Kocaeli
-	link = { ck2 = 740 eu4 = 2299 } # Herakleia -> Bolu
-	link = { ck2 = 1929 ck2 = 1928 eu4 = 325 } # Kastamon, Amastris -> Kastamonu
-	link = { ck2 = 739 eu4 = 328 } # Sinope -> Sinop
-	link = { ck2 = 738 ck2 = 705 eu4 = 2304 } # Amisos, Chaldea -> Canik
-	link = { ck2 = 678 ck2 = 704 eu4 = 330 } # Trapezous, Theodosiopolis -> Trebizond
-	link = { ck2 = 753 ck2 = 1930 eu4 = 326 } # Ancyra, Claudiopolis -> Ankara
 	link = { ck2 = 751 eu4 = 4313 } # Paphlagonia -> Kangiri
-	link = { ck2 = 752 eu4 = 1846 eu4 = 4315 } # Galatia -> Amasya, Tokat
-	link = { ck2 = 1933 eu4 = 2300 eu4 = 4314 } # Nyssa -> Bozok, Kirshehir
-	link = { ck2 = 1931 eu4 = 4307 } # Amorion -> Aksaray
-	link = { ck2 = 759 ck2 = 1932 eu4 = 323 eu4 = 324 } # MANY-TO-MANY: Ikonion, Akroinon -> Konya, Karaman
-	link = { ck2 = 755 ck2 = 758 eu4 = 2302 } # Attaleia, Seleukeia -> Içel
-	link = { ck2 = 762 ck2 = 761 eu4 = 327 eu4 = 332 } # MANY-TO-MANY: Adana, Tarsos -> Adana, Marash
-	link = { ck2 = 737 ck2 = 736 ck2 = 760 eu4 = 2301 } # Kaisereia, Lykandos, Tyana -> Kayseri
-	link = { ck2 = 1934 eu4 = 329 } # Charsianon -> Sivas
-	link = { ck2 = 706 eu4 = 4310 eu4 = 2305 } # Koloneia -> Divrigi, Erzincan
-	link = { ck2 = 703 eu4 = 331 eu4 = 4303 } # Karin -> Erzurum, Oltu
-	link = { ck2 = 702 eu4 = 2306 } # Khliat -> Mush
-	link = { ck2 = 707 eu4 = 418 eu4 = 2303 } # Melitene -> Diyarbakir, Malatya
-	link = { ck2 = 735 eu4 = 4298 } # Teluch -> Ayntab
+	link = { ck2 = 752 eu4 = 4314 } # Galatia -> Kirshehir
+	link = { ck2 = 1934 eu4 = 2300 eu4 = 1846 } # Charsianon -> Bozok, Amasya
+	link = { ck2 = 706 eu4 = 329 eu4 = 4315 } # Koloneia -> Sivas, Tokat
+	link = { ck2 = 707 eu4 = 332 eu4 = 2303 eu4 = 4310 } # Melitene -> Marash, Malatya, Divrigi
+	link = { ck2 = 1930 eu4 = 4312 } # Claudiopolis -> Sultanönü
+	link = { ck2 = 753 eu4 = 326 } # Ancyra -> Ankara
+	link = { ck2 = 1933 eu4 = 4307 } # Nyssa -> Aksaray
+	link = { ck2 = 759 ck2 = 760 eu4 = 324 } # Ikonion, Tyana -> Karaman
+	link = { ck2 = 737 ck2 = 736 eu4 = 2301 } # Kaisereia, Lykandos -> Kayseri
+	link = { ck2 = 761 ck2 = 762 ck2 = 735 eu4 = 327 } # Tarsos, Adana, Teluch -> Adana
+	link = { ck2 = 758 ck2 = 755 eu4 = 2302 } # Seleukeia, Attaleia -> Içel
+	link = { ck2 = 747 eu4 = 319 eu4 = 2298 } # Lykia -> Mentese, Tekke
+	link = { ck2 = 746 eu4 = 318 } # Ephesos -> Sugla
+	link = { ck2 = 745 eu4 = 2297 } # Smyrna -> Saruhan
+	link = { ck2 = 744 ck2 = 743 eu4 = 2296 } # Abydos, Kyzikos -> Karasi
+	link = { ck2 = 1935 eu4 = 4309 eu4 = 4308 } # Sardis -> Aydin, Denizli
+	link = { ck2 = 1932 eu4 = 4311 } # Akroinon -> Karahisar
+	link = { ck2 = 1931 eu4 = 323 } # Amorion -> Konya
+	link = { ck2 = 748 ck2 = 754 eu4 = 1848 } # Laodikeia, Sozopolis -> Hamid
+	link = { ck2 = 742 ck2 = 749 eu4 = 322 } # Prusa, Dorylaion -> Kütahya
+	link = { ck2 = 750 eu4 = 317 } # Nikaea -> Hüdavendigar
+	link = { ck2 = 741 ck2 = 740 eu4 = 316 } # Nikomedeia, Herakleia -> Kocaeli
+	link = { ck2 = 678 eu4 = 330 } # Trapezous -> Trebizond
 	link = { eu4 = 1892 eu4 = 1891 } # NOTHING -> Lake Van, Lake Tuz
 	link = { ck2 = 757 ck2 = 756 eu4 = 321 } # Famagusta, Limisol -> Cyprus
 	link = { comment = "# Near East" }
@@ -705,28 +711,18 @@
 	link = { ck2 = 723 ck2 = 724 ck2 = 725 eu4 = 4270 } # Madaba, Amman, Irbid -> Azraq
 	link = { ck2 = 728 ck2 = 769 eu4 = 382 } # Damascus, Safed -> Damascus
 	link = { ck2 = 714 eu4 = 4271 } # Az Zarqa -> Suwayda
-	link = { ck2 = 726 ck2 = 727 eu4 = 405 } # Al Mafraq, Bostra -> Tadmor
+	link = { ck2 = 726 ck2 = 727 ck2 = 713 ck2 = 729 ck2 = 730 ck2 = 710 eu4 = 405 } # Al Mafraq, Bostra, Druz, Al-Sukhnah, Palmyra, Al Bichri -> Tadmor
 	link = { ck2 = 731 ck2 = 768 eu4 = 4297 } # Homs, Baalbek -> Homs
 	link = { ck2 = 732 ck2 = 765 eu4 = 1849 } # Hama, Archa -> Hama
 	link = { ck2 = 733 eu4 = 377 } # Aleppo -> Aleppo
-	link = { ck2 = 730 ck2 = 709 ck2 = 729 ck2 = 710 ck2 = 698 eu4 = 407 } # Palmyra, Asas, Al-Sukhnah, Al Bichri, Hasakah -> Ar Raqqa
-	link = { ck2 = 734 eu4 = 2308 } # Aintab -> Urfa
-	link = { ck2 = 708 ck2 = 699 eu4 = 4292 } # Tell Bashir, Edessa -> Mardin
 	link = { ck2 = 649 eu4 = 408 } # Basra -> Basra
 	link = { ck2 = 655 ck2 = 654 eu4 = 4288 } # Kufa, Ain Said -> Shatt
 	link = { ck2 = 692 eu4 = 2311 } # Al Nadjaf -> Samawat
 	link = { ck2 = 690 eu4 = 2312 } # Al Amarah -> Wasit
-	link = { ck2 = 693 ck2 = 696 eu4 = 410 eu4 = 4291 } # MANY-TO-MANY: Baghdad, Samarra -> Baghdad, Qazaniya
 	link = { ck2 = 694 eu4 = 409 eu4 = 406 } # Karbala -> Karbala, Haditha
-	link = { ck2 = 711 ck2 = 695 eu4 = 2310 } # Sinjar, Deir -> Tikrit
-	link = { ck2 = 712 ck2 = 713 eu4 = 2314 } # Rahbah, Druz -> Rahba
-	link = { ck2 = 684 eu4 = 2309 } # Nisibin -> Sinjar
-	link = { ck2 = 689 eu4 = 2209 eu4 = 4290 } # Ilam -> Ilam, Hoveyzeh
-	link = { ck2 = 687 eu4 = 415 eu4 = 4294 } # Kirkuk -> Kirkuk, Sulaimaniyah
-	link = { ck2 = 685 eu4 = 4293 } # Irbil -> Arbil
-	link = { ck2 = 697 eu4 = 411 } # Mosul -> Mosul
-	link = { ck2 = 701 ck2 = 683 eu4 = 4295 } # Taron, Amida -> Hisn Kayfa
-	link = { ck2 = 700 eu4 = 4296 } # Bira -> Bitlis
+	link = { ck2 = 697 ck2 = 711 eu4 = 2309 } # Mosul, Sinjar -> Sinjar
+	link = { ck2 = 684 eu4 = 4292 } # Nisibin -> Mardin
+	link = { ck2 = 712 eu4 = 2314 } # Rahbah -> Rahba
 	link = { comment = "# Arabia" }
 	link = { ck2 = 717 eu4 = 4272 } # Al Jawf -> Al Jawf
 	link = { ck2 = 1536 eu4 = 4269 } # Khaybar -> Al Wajh
@@ -1007,27 +1003,32 @@
 	link = { ck2 = 606 eu4 = 2416 } # Yegorlyk -> Majar
 	link = { ck2 = 603 eu4 = 2201 eu4 = 2197 } # Alania -> Alania, Kabardia
 	link = { ck2 = 1809 eu4 = 2198 } # Durdzukia -> Khundzia
-	link = { ck2 = 1805 eu4 = 4306 } # Balanjar -> Lakia
-	link = { ck2 = 674 eu4 = 425 } # Derbent -> Dagestan
 	link = { ck2 = 675 eu4 = 2199 } # Semender -> Tarki
 	link = { ck2 = 600 eu4 = 1856 } # Abkhazia -> Abkhazia
 	link = { ck2 = 1806 eu4 = 462 } # Egrisi -> Odishi
 	link = { ck2 = 601 eu4 = 422 } # Imeretia -> Imereti
-	link = { ck2 = 677 eu4 = 2196 } # Guria -> Guria
-	link = { ck2 = 1807 ck2 = 680 eu4 = 2204 } # Klarjeti, Tao -> Kars
-	link = { ck2 = 679 eu4 = 423 } # Tiflis -> Tbilisi
 	link = { ck2 = 1808 eu4 = 4301 } # Mtshketa -> Kartli
-	link = { ck2 = 676 eu4 = 2203 } # Kakheti -> Kakheti
-	link = { ck2 = 681 eu4 = 4302 } # Ani -> Bayazid
-	link = { ck2 = 1013 eu4 = 419 } # Lori -> Yerevan
 	link = { eu4 = 1894 } # NOTHING -> Sevan Lake
 	link = { ck2 = 672 eu4 = 2205 } # Dwin -> Nakhchivan
-	link = { ck2 = 671 eu4 = 2202 } # Suenik -> Melikates
-	link = { ck2 = 670 eu4 = 420 } # Azerbaijan -> Ganja
+	link = { ck2 = 670 ck2 = 671 eu4 = 2202 } # Azerbaijan, Suenik -> Melikates
+	link = { ck2 = 696 ck2 = 695 eu4 = 2310 eu4 = 415 } # MANY-TO-MANY: Samarra, Deir -> Tikrit, Kirkuk
+	link = { ck2 = 693 eu4 = 4291 eu4 = 410 } # Baghdad -> Qazaniya, Baghdad
+	link = { ck2 = 689 eu4 = 4290 } # Ilam -> Hoveyzeh
+	link = { ck2 = 687 eu4 = 2209 } # Kirkuk -> Ilam
+	link = { ck2 = 685 eu4 = 4294 } # Irbil -> Sulaimaniyah
+	link = { ck2 = 700 eu4 = 411 eu4 = 4293 } # Bira -> Mosul, Arbil
+	link = { ck2 = 683 eu4 = 4295 } # Amida -> Hisn Kayfa
+	link = { ck2 = 682 eu4 = 4296 eu4 = 2307 } # Vaspurakan -> Bitlis, Van
+	link = { ck2 = 681 eu4 = 4302 eu4 = 2306 } # Ani -> Bayazid, Mush
+	link = { ck2 = 1013 eu4 = 420 eu4 = 419 } # Lori -> Ganja, Yerevan
+	link = { ck2 = 679 eu4 = 423 } # Tiflis -> Tbilisi
+	link = { ck2 = 1807 eu4 = 2204 } # Klarjeti -> Kars
+	link = { ck2 = 677 eu4 = 2196 } # Guria -> Guria
 	link = { ck2 = 673 eu4 = 4305 } # Albania -> Shaki
-	link = { ck2 = 669 eu4 = 4299 } # Shemakha -> Shamakhi
-	link = { ck2 = 668 eu4 = 421 } # Shirvan -> Shirvan
-	link = { ck2 = 682 eu4 = 2307 } # Vaspurakan -> Van
+	link = { ck2 = 676 eu4 = 2203 } # Kakheti -> Kakheti
+	link = { ck2 = 1805 eu4 = 4306 } # Balanjar -> Lakia
+	link = { ck2 = 669 ck2 = 674 eu4 = 425 eu4 = 4299 } # MANY-TO-MANY: Shemakha, Derbent -> Dagestan, Shamakhi
+	link = { ck2 = 668 eu4 = 421 eu4 = 4340 } # Shirvan -> Shirvan, Astara
 	link = { comment = "# Duchy of Red Ruthenia" }
 	link = { ck2 = 1635 eu4 = 4538 } # Cherven -> Chelm
 	link = { ck2 = 1632 eu4 = 1940 } # Belz -> Belz
@@ -1045,7 +1046,7 @@
 	link = { ck2 = 1658 ck2 = 1675 eu4 = 4542 } # Hradyzk, Priluk -> Lubnie
 	link = { comment = "# Contested Counties (Between Duchies)" }
 	link = { comment = "# Persia" }
-	link = { ck2 = 666 eu4 = 4339 eu4 = 417 eu4 = 4340 } # Gilan -> Rasht, Lahijan, Astara
+	link = { ck2 = 666 eu4 = 4339 eu4 = 417 } # Gilan -> Rasht, Lahijan
 	link = { ck2 = 662 eu4 = 426 } # Alamut -> Amol
 	link = { ck2 = 661 ck2 = 660 eu4 = 4341 } # Tabaristan, Qwivir -> Sari
 	link = { ck2 = 667 eu4 = 416 eu4 = 4304 eu4 = 424 } # Tabriz -> Tabriz, Khoy, Ardabil
