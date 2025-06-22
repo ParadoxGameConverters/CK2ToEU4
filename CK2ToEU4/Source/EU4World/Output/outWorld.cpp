@@ -189,9 +189,9 @@ void EU4::World::outputFlags(const Configuration& theConfiguration, const CK2::W
 	{
 		// first check is for dynasty and override flags.
 		if (country.second->getHasDynastyName() && country.second->getDynastyID() &&
-			 commonItems::DoesFileExist(std::filesystem::path("configurables/dynastyflags/" + std::to_string(country.second->getDynastyID()) + ".tga")))
+			 commonItems::DoesFileExist("configurables/dynastyflags/" + std::to_string(country.second->getDynastyID()) + ".tga"))
 		{
-			std::filesystem::copy_file(std::filesystem::path("configurables/dynastyflags/" + std::to_string(country.second->getDynastyID()) + ".tga"),
+			std::filesystem::copy_file("configurables/dynastyflags/" + std::to_string(country.second->getDynastyID()) + ".tga",
 				 "output" / theConfiguration.getOutputName() / "gfx/flags" / (country.first + ".tga"),
 				 std::filesystem::copy_options::overwrite_existing);
 			continue;
@@ -236,7 +236,7 @@ void EU4::World::outputFlags(const Configuration& theConfiguration, const CK2::W
 
 void EU4::World::createModFile(const Configuration& theConfiguration) const
 {
-	std::ofstream output("output" / std::filesystem::path(theConfiguration.getOutputName().string() + ".mod"));
+	std::ofstream output("output/" + theConfiguration.getOutputName().string() + ".mod");
 	if (!output.is_open())
 		throw std::runtime_error("Could not create " + theConfiguration.getOutputName().string() + ".mod");
 	Log(LogLevel::Info) << "<< Writing to: "
@@ -290,7 +290,7 @@ void EU4::World::outputLocalization(const Configuration& theConfiguration, bool 
 
 	if (invasion)
 	{
-		auto fileNames = commonItems::GetAllFilesInFolder(std::filesystem::path("configurables/sunset/localisation"));
+		auto fileNames = commonItems::GetAllFilesInFolder("configurables/sunset/localisation");
 		for (const auto& fileName: fileNames)
 			std::filesystem::copy("configurables/sunset/localisation" / fileName,
 				 "output" / theConfiguration.getOutputName() / "localisation" / fileName,
@@ -299,7 +299,7 @@ void EU4::World::outputLocalization(const Configuration& theConfiguration, bool 
 
 	if (greekReformation)
 	{
-		auto fileNames = commonItems::GetAllFilesInFolder(std::filesystem::path("configurables/reformation/greek/"));
+		auto fileNames = commonItems::GetAllFilesInFolder("configurables/reformation/greek/");
 		for (const auto& fileName: fileNames)
 			std::filesystem::copy("configurables/reformation/greek" / fileName,
 				 "output" / theConfiguration.getOutputName() / "localisation" / fileName,
@@ -307,7 +307,7 @@ void EU4::World::outputLocalization(const Configuration& theConfiguration, bool 
 	}
 	else
 	{
-		auto fileNames = commonItems::GetAllFilesInFolder(std::filesystem::path("configurables/reformation/roman/"));
+		auto fileNames = commonItems::GetAllFilesInFolder("configurables/reformation/roman/");
 		for (const auto& fileName: fileNames)
 			std::filesystem::copy("configurables/reformation/roman" / fileName,
 				 "output" / theConfiguration.getOutputName() / "localisation" / fileName,
@@ -350,7 +350,7 @@ void EU4::World::outputHistoryProvinces(const Configuration& theConfiguration, c
 		std::filesystem::copy_file("configurables/monuments/gfx/zzz_converted_monuments.gfx",
 			 "output" / theConfiguration.getOutputName() / "interface/zzz_converted_monuments.gfx",
 			 std::filesystem::copy_options::overwrite_existing);
-		auto fileNames = commonItems::GetAllFilesInFolder(std::filesystem::path("configurables/monuments/localisation"));
+		auto fileNames = commonItems::GetAllFilesInFolder("configurables/monuments/localisation");
 		for (const auto& fileName: fileNames)
 			std::filesystem::copy_file("configurables/monuments/localisation" / fileName,
 				 "output" / theConfiguration.getOutputName() / "localisation" / fileName,
@@ -410,25 +410,25 @@ void EU4::World::outputCommonCountries(const Configuration& theConfiguration) co
 void EU4::World::outputInvasionExtras(const Configuration& theConfiguration) const
 {
 	// Sunset Religions
-	auto files = commonItems::GetAllFilesInFolder(std::filesystem::path("configurables/sunset/common/religions"));
+	auto files = commonItems::GetAllFilesInFolder("configurables/sunset/common/religions");
 	for (const auto& file: files)
 		std::filesystem::copy_file("configurables/sunset/common/religions" / file,
 			 "output" / theConfiguration.getOutputName() / "common/religions" / file,
 			 std::filesystem::copy_options::overwrite_existing);
 	// Sunset Ideas
-	files = commonItems::GetAllFilesInFolder(std::filesystem::path("configurables/sunset/common/ideas/"));
+	files = commonItems::GetAllFilesInFolder("configurables/sunset/common/ideas/");
 	for (const auto& file: files)
 		std::filesystem::copy_file("configurables/sunset/common/ideas" / file,
 			 "output" / theConfiguration.getOutputName() / "common/ideas" / file,
 			 std::filesystem::copy_options::overwrite_existing);
 	// Sunset Cultures
-	files = commonItems::GetAllFilesInFolder(std::filesystem::path("configurables/sunset/common/cultures/"));
+	files = commonItems::GetAllFilesInFolder("configurables/sunset/common/cultures/");
 	for (const auto& file: files)
 		std::filesystem::copy_file("configurables/sunset/common/cultures" / file,
 			 "output" / theConfiguration.getOutputName() / "common/cultures" / file,
 			 std::filesystem::copy_options::overwrite_existing);
 	// Sunset Decisions
-	files = commonItems::GetAllFilesInFolder(std::filesystem::path("configurables/sunset/decisions/"));
+	files = commonItems::GetAllFilesInFolder("configurables/sunset/decisions/");
 	for (const auto& file: files)
 		std::filesystem::copy_file("configurables/sunset/decisions" / file,
 			 "output" / theConfiguration.getOutputName() / "decisions" / file,
@@ -437,14 +437,14 @@ void EU4::World::outputInvasionExtras(const Configuration& theConfiguration) con
 void EU4::World::outputDynamicInstitutions(const Configuration& theConfiguration) const
 {
 	// Dynamic Institions
-	auto files = commonItems::GetAllFilesInFolder(std::filesystem::path("configurables/dynamicInstitutions/institutions"));
+	auto files = commonItems::GetAllFilesInFolder("configurables/dynamicInstitutions/institutions");
 	std::filesystem::create_directory("output" / theConfiguration.getOutputName() / "common/institutions");
 	for (const auto& file: files)
 		std::filesystem::copy_file("configurables/dynamicInstitutions/institutions" / file,
 			 "output" / theConfiguration.getOutputName() / "common/institutions" / file,
 			 std::filesystem::copy_options::overwrite_existing);
 	// Dynamic Ideas
-	files = commonItems::GetAllFilesInFolder(std::filesystem::path("configurables/dynamicInstitutions/ideas"));
+	files = commonItems::GetAllFilesInFolder("configurables/dynamicInstitutions/ideas");
 	for (const auto& file: files)
 		std::filesystem::copy_file("configurables/dynamicInstitutions/ideas" / file,
 			 "output" / theConfiguration.getOutputName() / "common/ideas" / file,
@@ -571,7 +571,7 @@ void EU4::World::outputReformedReligions(const Configuration& theConfiguration,
 {
 	if (noReformation)
 	{
-		auto files = commonItems::GetAllFilesInFolder(std::filesystem::path("configurables/reformation/oldPagans/"));
+		auto files = commonItems::GetAllFilesInFolder("configurables/reformation/oldPagans/");
 		for (const auto& file: files)
 			std::filesystem::copy_file("configurables/reformation/oldPagans" / file,
 				 "output" / theConfiguration.getOutputName() / "common/religions" / file,

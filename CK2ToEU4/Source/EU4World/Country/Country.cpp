@@ -23,7 +23,7 @@ EU4::Country::Country(std::string theTag, const std::filesystem::path& filePath)
 	// We also must set a dummy history filepath for those countries that don't actually have a history file.
 	const auto rawname = filePath.filename();
 
-	historyCountryFile = std::filesystem::path(tag + " - " + rawname.string());
+	historyCountryFile = tag + " - " + rawname.string();
 }
 
 void EU4::Country::loadHistory(const std::filesystem::path& filePath)
@@ -52,9 +52,9 @@ void EU4::Country::initializeFromTitle(std::string theTag,
 	title.first = theTitle->getName();
 	title.second = std::move(theTitle);
 	if (commonCountryFile.empty())
-		commonCountryFile = std::filesystem::path(title.first + ".txt");
+		commonCountryFile = title.first + ".txt";
 	if (historyCountryFile.empty())
-		historyCountryFile = std::filesystem::path(tag + " - " + title.first + ".txt");
+		historyCountryFile = tag + " - " + title.first + ".txt";
 
 	const auto& actualHolder = title.second->getHolder().second;
 	if (actualHolder->getDynasty().first)

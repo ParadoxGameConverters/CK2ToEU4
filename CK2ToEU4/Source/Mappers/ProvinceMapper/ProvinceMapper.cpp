@@ -19,20 +19,20 @@ mappers::ProvinceMapper::ProvinceMapper(const Mods& mods, const std::string& ove
 	{
 		auto loadedProvinces = false;
 		for (const auto& mod: mods)
-			if (commonItems::DoesFileExist(std::filesystem::path("configurables") / (mod.name + "_province_mappings.txt")))
+			if (commonItems::DoesFileExist("configurables/" + mod.name + "_province_mappings.txt"))
 			{
 				Log(LogLevel::Info) << ">> Loading Province Mappings for " << mod.name;
-				parseFile(std::filesystem::path("configurables") / (mod.name + "_province_mappings.txt"));
+				parseFile("configurables/" + mod.name + "_province_mappings.txt");
 				loadedProvinces = true;
 				break;
 			}
 		if (!loadedProvinces)
-			parseFile(std::filesystem::path("configurables/province_mappings.txt"));
+			parseFile("configurables/province_mappings.txt");
 	}
 	else
 	{
 		Log(LogLevel::Info) << ">> Loading Province Mappings for " << overrideMod;
-		parseFile(std::filesystem::path("configurables/" + overrideMod + "/province_mappings.txt"));
+		parseFile("configurables/" + overrideMod + "/province_mappings.txt");
 	}
 
 	clearRegisteredKeywords();
@@ -135,7 +135,7 @@ void mappers::ProvinceMapper::loadOffmapChineseProvinces()
 {
 	Log(LogLevel::Info) << "-> Loading Offmap Chinese Provinces";
 	registerOffmapKeys();
-	parseFile(std::filesystem::path("configurables/chinese_offmap_provinces.txt"));
+	parseFile("configurables/chinese_offmap_provinces.txt");
 	clearRegisteredKeywords();
 	Log(LogLevel::Info) << "<> " << offmapChineseProvinces.size() << " chinese provinces loaded.";
 }

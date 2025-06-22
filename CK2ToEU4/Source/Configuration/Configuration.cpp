@@ -11,7 +11,7 @@ Configuration::Configuration(const commonItems::ConverterVersion& converterVersi
 {
 	Log(LogLevel::Info) << "Reading configuration file";
 	registerKeys();
-	parseFile(std::filesystem::path("configuration.txt"));
+	parseFile("configuration.txt");
 	clearRegisteredKeywords();
 	setOutputName();
 	verifyCK2Path();
@@ -33,27 +33,27 @@ void Configuration::registerKeys()
 {
 	registerKeyword("SaveGame", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleString path(theStream);
-		SaveGamePath = std::filesystem::path(path.getString());
+		SaveGamePath = path.getString();
 		Log(LogLevel::Info) << "Save Game set to: " << SaveGamePath.string();
 	});
 	registerKeyword("CK2directory", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleString path(theStream);
-		CK2Path = std::filesystem::path(path.getString());
+		CK2Path = path.getString();
 		Log(LogLevel::Info) << "CK2directory set to: " << CK2Path.string();
 	});
 	registerKeyword("CK2DocDirectory", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleString path(theStream);
-		CK2DocsPath = std::filesystem::path(path.getString());
+		CK2DocsPath = path.getString();
 		Log(LogLevel::Info) << "CK2DocDirectory set to: " << CK2DocsPath.string();
 	});
 	registerKeyword("EU4directory", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleString path(theStream);
-		EU4Path = std::filesystem::path(path.getString());
+		EU4Path = path.getString();
 		Log(LogLevel::Info) << "EU4directory set to: " << EU4Path.string();
 	});
 	registerKeyword("output_name", [this](const std::string& unused, std::istream& theStream) {
 		const commonItems::singleString nameStr(theStream);
-		outputName = std::filesystem::path(nameStr.getString());
+		outputName = nameStr.getString();
 		Log(LogLevel::Info) << "Output name set to: " << outputName.string();
 	});
 	registerKeyword("start_date", [this](const std::string& unused, std::istream& theStream) {

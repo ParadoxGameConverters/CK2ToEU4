@@ -9,7 +9,7 @@ EU4::Diplomacy::Diplomacy()
 {
 	Log(LogLevel::Info) << "-> Loading Eastern Diplomacy";
 	registerKeys();
-	parseFile(std::filesystem::path("configurables/chinese_tributaries.txt"));
+	parseFile("configurables/chinese_tributaries.txt");
 	clearRegisteredKeywords();
 	Log(LogLevel::Info) << ">> " << agreements.size() << " tributaries loaded.";
 }
