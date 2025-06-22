@@ -8,7 +8,7 @@
 #include "../Country/Country.h"
 
 EU4::Province::Province(int id, const std::filesystem::path& filePath):
-	 provID(id), historyProvincesFile(std::filesystem::path("history/provinces" / filePath.filename()))
+	 provID(id), historyProvincesFile("history/provinces" / filePath.filename())
 {
 	// Load from a country file, if one exists. Otherwise rely on defaults.
 	details = ProvinceDetails(filePath);

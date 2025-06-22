@@ -8,7 +8,7 @@ mappers::MonumentsMapper::MonumentsMapper()
 {
 	Log(LogLevel::Info) << "-> Parsing Monuments mappings";
 	registerKeys();
-	parseFile(std::filesystem::path("configurables/monuments_mappings.txt"));
+	parseFile("configurables/monuments_mappings.txt");
 	clearRegisteredKeywords();
 	Log(LogLevel::Info) << "<> " << wonders.size() << " Monuments mapped.";
 }

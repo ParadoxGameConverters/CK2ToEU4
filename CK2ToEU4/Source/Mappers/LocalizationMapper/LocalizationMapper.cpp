@@ -33,7 +33,7 @@ void mappers::LocalizationMapper::scrapeLocalizations(const Configuration& theCo
 	}
 
 	// Override with our keys
-	if (commonItems::DoesFileExist(std::filesystem::path("configurables/ck2_localization_override.csv")))
+	if (commonItems::DoesFileExist("configurables/ck2_localization_override.csv"))
 	{
 		std::ifstream theFile("configurables/ck2_localization_override.csv");
 		scrapeStream(theFile);

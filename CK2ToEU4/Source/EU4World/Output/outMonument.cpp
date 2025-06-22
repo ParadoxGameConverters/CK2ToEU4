@@ -136,7 +136,7 @@ EU4::outMonument::outMonument(const Configuration& theConfiguration, std::option
 	gfxOutput.close();
 
 	// Finally, let's populate the localisation
-	auto fileNames = commonItems::GetAllFilesInFolder(std::filesystem::path("configurables/monuments/localisation/"));
+	auto fileNames = commonItems::GetAllFilesInFolder("configurables/monuments/localisation/");
 	for (const auto& fileName: fileNames)
 	{
 		std::ofstream locOutput("output" / theConfiguration.getOutputName() / "localisation" / fileName, std::ios::out | std::ios::app);
@@ -148,56 +148,55 @@ EU4::outMonument::outMonument(const Configuration& theConfiguration, std::option
 EU4::outMonument::outMonument(const Configuration& theConfiguration, const std::set<std::string>& premades)
 {
 	if (premades.contains("wonder_pyramid_giza"))
-		std::filesystem::copy_file(std::filesystem::path("configurables/monuments/great_projects/103_pyramids_of_cheops.txt"),
+		std::filesystem::copy_file("configurables/monuments/great_projects/103_pyramids_of_cheops.txt",
 			 "output" / theConfiguration.getOutputName() / "common/great_projects/103_pyramids_of_cheops.txt");
 	if (premades.contains("wonder_pagan_stones_stonehenge"))
-		std::filesystem::copy_file(std::filesystem::path("configurables/monuments/great_projects/104_stonehenge.txt"),
+		std::filesystem::copy_file("configurables/monuments/great_projects/104_stonehenge.txt",
 			 "output" / theConfiguration.getOutputName() / "common/great_projects/104_stonehenge.txt");
 	if (premades.contains("wonder_mausoleum_halicarnassus"))
-		std::filesystem::copy_file(std::filesystem::path("configurables/monuments/great_projects/105_mausoleum_at_helicarnassus.txt"),
+		std::filesystem::copy_file("configurables/monuments/great_projects/105_mausoleum_at_helicarnassus.txt",
 			 "output" / theConfiguration.getOutputName() / "common/great_projects/105_mausoleum_at_helicarnassus.txt");
 	if (premades.contains("wonder_lighthouse_alexandria"))
-		std::filesystem::copy_file(std::filesystem::path("configurables/monuments/great_projects/106_lighthouse_of_alexandria.txt"),
+		std::filesystem::copy_file("configurables/monuments/great_projects/106_lighthouse_of_alexandria.txt",
 			 "output" / theConfiguration.getOutputName() / "common/great_projects/106_lighthouse_of_alexandria.txt");
 	if (premades.contains("wonder_temple_hindu_konark"))
-		std::filesystem::copy_file(std::filesystem::path("configurables/monuments/great_projects/107_hindu_konark.txt"),
+		std::filesystem::copy_file("configurables/monuments/great_projects/107_hindu_konark.txt",
 			 "output" / theConfiguration.getOutputName() / "common/great_projects/107_hindu_konark.txt");
 	if (premades.contains("wonder_apostolic_palace"))
-		std::filesystem::copy_file(std::filesystem::path("configurables/monuments/great_projects/108_apostolic_palace.txt"),
+		std::filesystem::copy_file("configurables/monuments/great_projects/108_apostolic_palace.txt",
 			 "output" / theConfiguration.getOutputName() / "common/great_projects/108_apostolic_palace.txt");
 	if (premades.contains("wonder_house_of_wisdom"))
-		std::filesystem::copy_file(std::filesystem::path("configurables/monuments/great_projects/109_house_of_wisdom.txt"),
+		std::filesystem::copy_file("configurables/monuments/great_projects/109_house_of_wisdom.txt",
 			 "output" / theConfiguration.getOutputName() / "common/great_projects/109_house_of_wisdom.txt");
 	if (premades.contains("wonder_underground_city_petra"))
-		std::filesystem::copy_file(std::filesystem::path("configurables/monuments/great_projects/110_petra.txt"),
+		std::filesystem::copy_file("configurables/monuments/great_projects/110_petra.txt",
 			 "output" / theConfiguration.getOutputName() / "common/great_projects/110_petra.txt");
 	if (premades.contains("wonder_cathedral_hagia_sophia"))
-		std::filesystem::copy_file(std::filesystem::path("configurables/monuments/great_projects/111_hagia_sophia.txt"),
+		std::filesystem::copy_file("configurables/monuments/great_projects/111_hagia_sophia.txt",
 			 "output" / theConfiguration.getOutputName() / "common/great_projects/111_hagia_sophia.txt");
 	if (premades.contains("wonder_cathedral_notre_dame"))
-		std::filesystem::copy_file(std::filesystem::path("configurables/monuments/great_projects/112_notre_dames.txt"),
+		std::filesystem::copy_file("configurables/monuments/great_projects/112_notre_dames.txt",
 			 "output" / theConfiguration.getOutputName() / "common/great_projects/112_notre_dames.txt");
 	// Wonders from Tianxia
 
 	if (premades.contains("wonder_temple_cemetery_confucius"))
-		std::filesystem::copy_file(
-			 std::filesystem::path("configurables/monuments/great_projects/113_temple_of_confucius.txt"), // I know that these two aren't the same monument, but
+		std::filesystem::copy_file("configurables/monuments/great_projects/113_temple_of_confucius.txt", // I know that these two aren't the same monument, but
 																																		 // they are extremely close and related to one another
 			 "output" / theConfiguration.getOutputName() / "common/great_projects/113_temple_of_confucius.txt");
 	if (premades.contains("wonder_shinto_grand_shrine_ise"))
-		std::filesystem::copy_file(std::filesystem::path("configurables/monuments/great_projects/114_jingu.txt"),
+		std::filesystem::copy_file("configurables/monuments/great_projects/114_jingu.txt",
 			 "output" / theConfiguration.getOutputName() / "common/great_projects/114_jingu.txt");
 	if (premades.contains("wonder_temple_buddhist_seokguram_bulguksa"))
-		std::filesystem::copy_file(std::filesystem::path("configurables/monuments/great_projects/115_bulguksa_temple.txt"),
+		std::filesystem::copy_file("configurables/monuments/great_projects/115_bulguksa_temple.txt",
 			 "output" / theConfiguration.getOutputName() / "common/great_projects/115_bulguksa_temple.txt");
 	if (premades.contains("wonder_temple_hindu_angkor_wat"))
-		std::filesystem::copy_file(std::filesystem::path("configurables/monuments/great_projects/116_angkor_wat.txt"),
+		std::filesystem::copy_file("configurables/monuments/great_projects/116_angkor_wat.txt",
 			 "output" / theConfiguration.getOutputName() / "common/great_projects/116_angkor_wat.txt");
 	if (premades.contains("wonder_temple_buddhist_borobudur"))
-		std::filesystem::copy_file(std::filesystem::path("configurables/monuments/great_projects/117_borobudur_temple.txt"),
+		std::filesystem::copy_file("configurables/monuments/great_projects/117_borobudur_temple.txt",
 			 "output" / theConfiguration.getOutputName() / "common/great_projects/117.txt");
 	if (premades.contains("wonder_temple_buddhist_shwedagon"))
-		std::filesystem::copy_file(std::filesystem::path("configurables/monuments/great_projects/118_shwedagon_temple.txt"),
+		std::filesystem::copy_file("configurables/monuments/great_projects/118_shwedagon_temple.txt",
 			 "output" / theConfiguration.getOutputName() / "common/great_projects/118_shwedagon_temple.txt");
 }
 

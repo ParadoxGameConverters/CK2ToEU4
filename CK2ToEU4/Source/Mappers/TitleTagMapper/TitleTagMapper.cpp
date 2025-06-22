@@ -19,7 +19,7 @@ void mappers::TitleTagMapper::initTitleTagMapper(const std::filesystem::path& pa
 
 	// not overriding chinese mappings as those are out of scope.
 	registerChineseKeys();
-	parseFile(std::filesystem::path("configurables/chinese_tag_mappings.txt"));
+	parseFile("configurables/chinese_tag_mappings.txt");
 	clearRegisteredKeywords();
 	Log(LogLevel::Info) << "<> " << theMappings.size() << " mappings and " << chineseMappings.size() << " Chinas loaded.";
 }

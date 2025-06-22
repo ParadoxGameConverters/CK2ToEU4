@@ -1563,7 +1563,7 @@ void EU4::World::importVanillaProvinces(const std::filesystem::path& eu4Path, bo
 	Log(LogLevel::Info) << ">> Loaded " << provinces.size() << " province definitions.";
 	if (invasion)
 	{
-		fileNames = commonItems::GetAllFilesInFolder(std::filesystem::path("configurables/sunset/history/provinces"));
+		fileNames = commonItems::GetAllFilesInFolder("configurables/sunset/history/provinces");
 		for (const auto& fileName: fileNames)
 		{
 			if (fileName.extension() != ".txt")
@@ -1730,9 +1730,9 @@ void EU4::World::importVanillaCountries(const std::filesystem::path& eu4Path, bo
 		throw std::runtime_error("Could not open " + eu4Path.string() + "/common/country_tags/00_countries.txt!");
 	loadCountriesFromSource(eu4CountriesFile, eu4Path, true);
 	eu4CountriesFile.close();
-	if (commonItems::DoesFolderExist(std::filesystem::path("blankMod/output/common/country_tags")))
+	if (commonItems::DoesFolderExist("blankMod/output/common/country_tags"))
 	{
-		auto fileNames = commonItems::GetAllFilesInFolder(std::filesystem::path("blankMod/output/common/country_tags"));
+		auto fileNames = commonItems::GetAllFilesInFolder("blankMod/output/common/country_tags");
 		for (const auto& file: fileNames)
 		{
 			std::ifstream blankCountriesFile("blankMod/output/common/country_tags" / file);
@@ -1745,10 +1745,10 @@ void EU4::World::importVanillaCountries(const std::filesystem::path& eu4Path, bo
 
 	if (invasion)
 	{
-		std::ifstream sunset(std::filesystem::path("configurables/sunset/common/country_tags/zz_countries.txt"));
+		std::ifstream sunset("configurables/sunset/common/country_tags/zz_countries.txt");
 		if (!sunset.is_open())
 			throw std::runtime_error("Could not open configurables/sunset/common/country_tags/zz_countries.txt!");
-		loadCountriesFromSource(sunset, std::filesystem::path("configurables/sunset"), true);
+		loadCountriesFromSource(sunset, "configurables/sunset", true);
 		sunset.close();
 	}
 
@@ -1763,7 +1763,7 @@ void EU4::World::importVanillaCountries(const std::filesystem::path& eu4Path, bo
 		countries[tag]->loadHistory(eu4Path / "history/countries" / fileName);
 	}
 	// Now our special tags.
-	fileNames = commonItems::GetAllFilesInFolder(std::filesystem::path("blankMod/output/history/countries/"));
+	fileNames = commonItems::GetAllFilesInFolder("blankMod/output/history/countries/");
 	for (const auto& fileName: fileNames)
 	{
 		auto tag = fileName.string().substr(0, 3);
@@ -1771,7 +1771,7 @@ void EU4::World::importVanillaCountries(const std::filesystem::path& eu4Path, bo
 	}
 	if (invasion)
 	{
-		fileNames = commonItems::GetAllFilesInFolder(std::filesystem::path("configurables/sunset/history/countries/"));
+		fileNames = commonItems::GetAllFilesInFolder("configurables/sunset/history/countries/");
 		for (const auto& fileName: fileNames)
 		{
 			auto tag = fileName.string().substr(0, 3);
