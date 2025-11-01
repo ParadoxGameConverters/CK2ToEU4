@@ -10,7 +10,7 @@ class Liege: commonItems::parser
   public:
 	Liege() = default;
 	explicit Liege(std::istream& theStream);
-	explicit Liege(const std::string& theTitle): title(std::make_pair(theTitle, nullptr)){};
+	explicit Liege(const std::string& theTitle): title(std::make_pair(theTitle, nullptr)) {};
 
 	void setTitle(std::shared_ptr<Title> theTitle) { title.second = std::move(theTitle); }
 	void setBaseTitle(std::shared_ptr<Title> theBaseTitle) { baseTitle.second = std::move(theBaseTitle); }
