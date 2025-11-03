@@ -50,11 +50,21 @@ CK2::World::World(const Configuration& theConfiguration, const commonItems::Conv
 	// We must load initializers before the savegame.
 	// Do we have an override mod?
 	std::string overrideModPath;
+	bool foundCleanSlate = false;
+	bool foundTianxia = false;
 	for (const auto& mod: mods)
+	{
 		if (mod.name == "CleanSlate")
-			overrideModPath = "CleanSlate";
-		else if (mod.name == "Tianxia: Silk Road Expansion")
-			overrideModPath = "Tianxia";
+			foundCleanSlate = true;
+		if (mod.name == "Tianxia: Silk Road Expansion" || mod.name == "Tianxia")
+			foundTianxia = true;
+	}
+	if (foundCleanSlate && !foundTianxia)
+		overrideModPath = "CleanSlate";
+	else if (foundTianxia)
+		overrideModPath = "Tianxia";
+	if (!overrideModPath.empty())
+		Log(LogLevel::Info) << "Running major mod override: " << overrideModPath;
 	reformedReligionMapper.initReformedReligionMapper(overrideModPath);
 	loadDynasties(theConfiguration);
 	Log(LogLevel::Progress) << "7 %";
