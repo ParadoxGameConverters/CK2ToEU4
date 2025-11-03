@@ -18,17 +18,19 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 	Log(LogLevel::Info) << "*** Hello EU4, let's get painting. ***";
 	// Do we have an override mod?
 	std::string overrideModPath;
+	bool foundCleanSlate = false;
+	bool foundTianxia = false;
 	for (const auto& mod: sourceWorld.getMods())
-		if (mod.name == "Tianxia: Silk Road Expansion")
-		{
-			overrideModPath = "Tianxia";
-			tianxia = true;
-		}
-		else if (mod.name == "CleanSlate")
-		{
-			overrideModPath = "CleanSlate";
-			cleanslate = true;
-		}
+	{
+		if (mod.name == "CleanSlate")
+			foundCleanSlate = true;
+		if (mod.name == "Tianxia: Silk Road Expansion" || mod.name == "Tianxia")
+			foundTianxia = true;
+	}
+	if (foundCleanSlate && !foundTianxia)
+		overrideModPath = "CleanSlate";
+	else if (foundTianxia)
+		overrideModPath = "Tianxia";
 
 	cultureMapper.initCultureMapper(overrideModPath);
 	governmentsMapper.initGovernmentsMapper(overrideModPath);
@@ -152,7 +154,8 @@ EU4::World::World(const CK2::World& sourceWorld, const Configuration& theConfigu
 	Log(LogLevel::Progress) << "71 %";
 
 	// China
-	adjustChina(sourceWorld, theConfiguration.getStartDateOption());
+	if (overrideModPath != "Tianxia")
+		adjustChina(sourceWorld, theConfiguration.getStartDateOption());
 	Log(LogLevel::Progress) << "72 %";
 
 	// Filter dead relationships
