@@ -61,14 +61,14 @@ link = { title = d_dralhas_children gov = theocracy reform = monastic_order_refo
 link = { title = d_myrmidons gov = theocracy reform = monastic_order_reform }
 
 link = { title = e_sunni gov = theocracy reform = leading_clergy_reform } #Obsolete failsafe
-link = { title = d_sunni gov = theocracy reform = leading_clergy_reform }
+link = { title = d_sunni gov = theocracy reform = caliphate_reform  }
 link = { title = e_shiite gov = theocracy reform = leading_clergy_reform } #Obsolete failsafe
-link = { title = d_shiite gov = theocracy reform = leading_clergy_reform }
-link = { title = d_yazidi gov = monarchy reform = feudal_theocracy }
-link = { title = d_ibadi gov = monarchy reform = feudal_theocracy }
-link = { title = d_kharijite gov = monarchy reform = feudal_theocracy }
-link = { title = d_hurufi gov = monarchy reform = feudal_theocracy }
-link = { title = d_qarmatian gov = monarchy reform = feudal_theocracy }
+link = { title = d_shiite gov = theocracy reform = caliphate_reform  }
+link = { title = d_yazidi gov = monarchy reform = caliphate_reform  }
+link = { title = d_ibadi gov = monarchy reform = caliphate_reform  }
+link = { title = d_kharijite gov = monarchy reform = caliphate_reform  }
+link = { title = d_hurufi gov = monarchy reform = caliphate_reform  }
+link = { title = d_qarmatian gov = monarchy reform = caliphate_reform  }
 link = { title = d_mamluks gov = monarchy reform = mamluk_government }
 
 # ---- SUPPORTED MODS ----- Sons of Vinland
