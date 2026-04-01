@@ -1154,7 +1154,8 @@ void EU4::Country::assignReforms(const std::shared_ptr<mappers::RegionMapper>& r
 			details.reforms.clear();
 			details.reforms = {"english_monarchy"};
 		}
-		// Changed to Feudal Theocracy due to beylik being limited to Turkish, and isn't as cool. Ottoman Government (Renamed in converter) is disabled due to decadence being tied to TUR alone.
+		// Changed to Feudal Theocracy due to beylik being limited to Turkish, and isn't as cool. Ottoman Government (Renamed in converter) is disabled due to
+		// decadence being tied to TUR alone.
 		else if (actualHolder->getGovernment() == "muslim_government" && muslimReligions.count(details.religion) && governmentType == "absolute")
 		{
 			details.reforms.clear();
