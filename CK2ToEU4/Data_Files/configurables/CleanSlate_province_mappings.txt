@@ -333,7 +333,7 @@
 	link = { ck2 = 360 eu4 = 102 } # Nice -> Nice
 	link = { comment = "# Switzerland" }
 	link = { ck2 = 346 eu4 = 4721 } # Neuchatel -> Fribourg
-	link = { ck2 = 351 eu4 = 4719 eu4 = 4720 } # Genevois -> Bresse, Geneva
+	link = { ck2 = 351 eu4 = 4720 eu4 = 4719 } # Genevois -> Geneva, Bresse
 	link = { ck2 = 347 eu4 = 1867 } # Vaud -> Vaud
 	link = { ck2 = 349 eu4 = 1871 } # Valais -> Wallis
 	link = { ck2 = 348 ck2 = 345 eu4 = 165 } # Bern, Basel -> Bern
